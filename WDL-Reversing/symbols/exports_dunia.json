@@ -1,0 +1,1782 @@
+[
+ {
+  "ord": 1,
+  "name": "??0ReadBytesMem@AK@@QEAA@PEBXJ@Z",
+  "rva": 159115696
+ },
+ {
+  "ord": 2,
+  "name": "??0ReadBytesMem@AK@@QEAA@XZ",
+  "rva": 159115664
+ },
+ {
+  "ord": 3,
+  "name": "??0ReadBytesSkip@AK@@QEAA@PEBXJ@Z",
+  "rva": 165529008
+ },
+ {
+  "ord": 4,
+  "name": "??0ReadBytesSkip@AK@@QEAA@XZ",
+  "rva": 165528976
+ },
+ {
+  "ord": 5,
+  "name": "??0WriteBytesCount@AK@@QEAA@XZ",
+  "rva": 165529280
+ },
+ {
+  "ord": 6,
+  "name": "??0WriteBytesMem@AK@@QEAA@XZ",
+  "rva": 159116032
+ },
+ {
+  "ord": 7,
+  "name": "??1CAkEmitter@@UEAA@XZ",
+  "rva": 159423328
+ },
+ {
+  "ord": 8,
+  "name": "??1CAkGameObject@@UEAA@XZ",
+  "rva": 163070288
+ },
+ {
+  "ord": 9,
+  "name": "??1CAkRegisteredObj@@UEAA@XZ",
+  "rva": 159421600
+ },
+ {
+  "ord": 10,
+  "name": "??1ReadBytesMem@AK@@UEAA@XZ",
+  "rva": 159115728
+ },
+ {
+  "ord": 11,
+  "name": "??1ReadBytesSkip@AK@@UEAA@XZ",
+  "rva": 165529040
+ },
+ {
+  "ord": 12,
+  "name": "??1WriteBytesCount@AK@@UEAA@XZ",
+  "rva": 165529312
+ },
+ {
+  "ord": 13,
+  "name": "??1WriteBytesMem@AK@@UEAA@XZ",
+  "rva": 159116080
+ },
+ {
+  "ord": 14,
+  "name": "?AddDefaultListener@SoundEngine@AK@@YA?AW4AKRESULT@@_K@Z",
+  "rva": 155075584
+ },
+ {
+  "ord": 15,
+  "name": "?AddLanguageChangeObserver@StreamMgr@AK@@YA?AW4AKRESULT@@P6AXQEB_WPEAX@Z1@Z",
+  "rva": 155117040
+ },
+ {
+  "ord": 16,
+  "name": "?AddListener@SoundEngine@AK@@YA?AW4AKRESULT@@_K0@Z",
+  "rva": 155075312
+ },
+ {
+  "ord": 17,
+  "name": "?AddOutput@SoundEngine@AK@@YA?AW4AKRESULT@@AEBUAkOutputSettings@@PEA_KPEB_KK@Z",
+  "rva": 155082224
+ },
+ {
+  "ord": 18,
+  "name": "?AddOutputCaptureMarker@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD@Z",
+  "rva": 155081984
+ },
+ {
+  "ord": 19,
+  "name": "?ApplyGain@AkMixer@@YAXPEAVAkAudioBuffer@@0UAkRamp@@_N@Z",
+  "rva": 159396416
+ },
+ {
+  "ord": 20,
+  "name": "?ApplyGainAndInterleave@AkMixer@@YAXPEAVAkAudioBuffer@@0UAkRamp@@_N@Z",
+  "rva": 159396256
+ },
+ {
+  "ord": 21,
+  "name": "?Attach@ReadBytesMem@AK@@QEAAXPEBXJ@Z",
+  "rva": 159115872
+ },
+ {
+  "ord": 22,
+  "name": "?Attach@ReadBytesSkip@AK@@QEAAXPEBXJ@Z",
+  "rva": 165529104
+ },
+ {
+  "ord": 23,
+  "name": "?Break@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@K@Z",
+  "rva": 155086608
+ },
+ {
+  "ord": 24,
+  "name": "?Bytes@WriteBytesCount@AK@@UEBAPEAEXZ",
+  "rva": 165529392
+ },
+ {
+  "ord": 25,
+  "name": "?Bytes@WriteBytesMem@AK@@UEBAPEAEXZ",
+  "rva": 159116432
+ },
+ {
+  "ord": 26,
+  "name": "?CancelBankCallbackCookie@SoundEngine@AK@@YAXPEAX@Z",
+  "rva": 155069408
+ },
+ {
+  "ord": 27,
+  "name": "?CancelEventCallback@SoundEngine@AK@@YAXK@Z",
+  "rva": 155062160
+ },
+ {
+  "ord": 28,
+  "name": "?CancelEventCallbackCookie@SoundEngine@AK@@YAXPEAX@Z",
+  "rva": 155062096
+ },
+ {
+  "ord": 29,
+  "name": "?CancelEventCallbackGameObject@SoundEngine@AK@@YAX_K@Z",
+  "rva": 155062128
+ },
+ {
+  "ord": 30,
+  "name": "?Clear@WriteBytesCount@AK@@UEAAXXZ",
+  "rva": 165529424
+ },
+ {
+  "ord": 31,
+  "name": "?Clear@WriteBytesMem@AK@@UEAAXXZ",
+  "rva": 159116480
+ },
+ {
+  "ord": 32,
+  "name": "?ClearBanks@SoundEngine@AK@@YA?AW4AKRESULT@@XZ",
+  "rva": 155064528
+ },
+ {
+  "ord": 33,
+  "name": "?ClearPreparedEvents@SoundEngine@AK@@YA?AW4AKRESULT@@XZ",
+  "rva": 155070912
+ },
+ {
+  "ord": 34,
+  "name": "?Close@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@K@Z",
+  "rva": 155085920
+ },
+ {
+  "ord": 35,
+  "name": "?Count@ReadBytesSkip@AK@@QEAAJXZ",
+  "rva": 165529120
+ },
+ {
+  "ord": 36,
+  "name": "?Count@WriteBytesCount@AK@@UEBAJXZ",
+  "rva": 165529360
+ },
+ {
+  "ord": 37,
+  "name": "?Count@WriteBytesMem@AK@@UEBAJXZ",
+  "rva": 159116384
+ },
+ {
+  "ord": 38,
+  "name": "?Create@StreamMgr@AK@@YAPEAVIAkStreamMgr@2@AEBUAkStreamMgrSettings@@@Z",
+  "rva": 155116384
+ },
+ {
+  "ord": 39,
+  "name": "?CreateDevice@StreamMgr@AK@@YAKAEBUAkDeviceSettings@@PEAVIAkLowLevelIOHook@12@@Z",
+  "rva": 155116560
+ },
+ {
+  "ord": 40,
+  "name": "?DecodeBank@SoundEngine@AK@@YA?AW4AKRESULT@@PEBXKJAEAPEAXAEAK@Z",
+  "rva": 155066064
+ },
+ {
+  "ord": 41,
+  "name": "?DestroyDevice@StreamMgr@AK@@YA?AW4AKRESULT@@K@Z",
+  "rva": 155116592
+ },
+ {
+  "ord": 42,
+  "name": "?Detach@WriteBytesCount@AK@@UEAAPEAEXZ",
+  "rva": 165529408
+ },
+ {
+  "ord": 43,
+  "name": "?Detach@WriteBytesMem@AK@@UEAAPEAEXZ",
+  "rva": 159116448
+ },
+ {
+  "ord": 44,
+  "name": "?EncodeVector@CAkSpeakerPan@@SAXHPEAM0@Z",
+  "rva": 159201696
+ },
+ {
+  "ord": 45,
+  "name": "?ExecuteActionOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@KW4AkActionOnEventType@12@_KJW4AkCurveInterpolation@@K@Z",
+  "rva": 155059456
+ },
+ {
+  "ord": 46,
+  "name": "?ExecuteActionOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDW4AkActionOnEventType@12@_KJW4AkCurveInterpolation@@K@Z",
+  "rva": 155059760
+ },
+ {
+  "ord": 47,
+  "name": "?ExecuteActionOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WW4AkActionOnEventType@12@_KJW4AkCurveInterpolation@@K@Z",
+  "rva": 155059696
+ },
+ {
+  "ord": 48,
+  "name": "?ExecuteActionOnPlayingID@SoundEngine@AK@@YAXW4AkActionOnEventType@12@KJW4AkCurveInterpolation@@@Z",
+  "rva": 155062640
+ },
+ {
+  "ord": 49,
+  "name": "?Falign@MemoryMgr@AK@@YAXJPEAX@Z",
+  "rva": 155111088
+ },
+ {
+  "ord": 50,
+  "name": "?FlushAllCaches@StreamMgr@AK@@YAXXZ",
+  "rva": 155117408
+ },
+ {
+  "ord": 51,
+  "name": "?Free@MemoryMgr@AK@@YAXJPEAX@Z",
+  "rva": 155111056
+ },
+ {
+  "ord": 52,
+  "name": "?GetActiveGameObjects@Query@SoundEngine@AK@@YA?AW4AKRESULT@@AEAV?$AkArray@_K_KU?$AkArrayAllocatorNoAlign@$0A@@@UAkGrowByPolicy_Proportional@@U?$AkAssignmentMovePolicy@_K@@@@@Z",
+  "rva": 155100736
+ },
+ {
+  "ord": 53,
+  "name": "?GetAudioSettings@SoundEngine@AK@@YA?AW4AKRESULT@@AEAUAkAudioSettings@@@Z",
+  "rva": 155056048
+ },
+ {
+  "ord": 54,
+  "name": "?GetBackgroundMusicMute@SoundEngine@AK@@YA_NXZ",
+  "rva": 155062912
+ },
+ {
+  "ord": 55,
+  "name": "?GetBufferStatusForPinnedEvent@SoundEngine@AK@@YA?AW4AKRESULT@@KAEAMAEA_N@Z",
+  "rva": 155061024
+ },
+ {
+  "ord": 56,
+  "name": "?GetBufferStatusForPinnedEvent@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDAEAMAEA_N@Z",
+  "rva": 155061216
+ },
+ {
+  "ord": 57,
+  "name": "?GetBufferStatusForPinnedEvent@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WAEAMAEA_N@Z",
+  "rva": 155061264
+ },
+ {
+  "ord": 58,
+  "name": "?GetBufferTick@SoundEngine@AK@@YAKXZ",
+  "rva": 155085536
+ },
+ {
+  "ord": 59,
+  "name": "?GetCategoryStats@MemoryMgr@AK@@YAXJAEAUCategoryStats@12@@Z",
+  "rva": 155111104
+ },
+ {
+  "ord": 60,
+  "name": "?GetContainerHistory@SoundEngine@AK@@YA?AW4AKRESULT@@PEAVIWriteBytes@2@@Z",
+  "rva": 155080848
+ },
+ {
+  "ord": 61,
+  "name": "?GetCurrentLanguage@StreamMgr@AK@@YAPEB_WXZ",
+  "rva": 155117024
+ },
+ {
+  "ord": 62,
+  "name": "?GetCustomPropertyValue@Query@SoundEngine@AK@@YA?AW4AKRESULT@@KKAEAJ@Z",
+  "rva": 155101120
+ },
+ {
+  "ord": 63,
+  "name": "?GetCustomPropertyValue@Query@SoundEngine@AK@@YA?AW4AKRESULT@@KKAEAM@Z",
+  "rva": 155101280
+ },
+ {
+  "ord": 64,
+  "name": "?GetDecodingMatrixShape@CAkSpeakerPan@@SAXUAkChannelConfig@@AEAKAEAH@Z",
+  "rva": 159201328
+ },
+ {
+  "ord": 65,
+  "name": "?GetDefaultDeviceSettings@StreamMgr@AK@@YAXAEAUAkDeviceSettings@@@Z",
+  "rva": 234005504
+ },
+ {
+  "ord": 66,
+  "name": "?GetDefaultInitSettings@MusicEngine@AK@@YAXAEAUAkMusicSettings@@@Z",
+  "rva": 155105264
+ },
+ {
+  "ord": 67,
+  "name": "?GetDefaultInitSettings@SoundEngine@AK@@YAXAEAUAkInitSettings@@@Z",
+  "rva": 155054880
+ },
+ {
+  "ord": 68,
+  "name": "?GetDefaultPlatformInitSettings@SoundEngine@AK@@YAXAEAUAkPlatformInitSettings@@@Z",
+  "rva": 155054992
+ },
+ {
+  "ord": 69,
+  "name": "?GetDefaultSettings@MemoryMgr@AK@@YAXAEAUAkMemSettings@@@Z",
+  "rva": 155111888
+ },
+ {
+  "ord": 70,
+  "name": "?GetDefaultSettings@StreamMgr@AK@@YAXAEAUAkStreamMgrSettings@@@Z",
+  "rva": 155116512
+ },
+ {
+  "ord": 71,
+  "name": "?GetDeviceID@AK@@YAKPEAUIMMDevice@@@Z",
+  "rva": 159260688
+ },
+ {
+  "ord": 72,
+  "name": "?GetDeviceIDFromName@AK@@YAKPEA_W@Z",
+  "rva": 159260768
+ },
+ {
+  "ord": 73,
+  "name": "?GetDeviceList@SoundEngine@AK@@YA?AW4AKRESULT@@KAEAKPEAUAkDeviceDescription@@@Z",
+  "rva": 155085136
+ },
+ {
+  "ord": 74,
+  "name": "?GetDeviceList@SoundEngine@AK@@YA?AW4AKRESULT@@KKAEAKPEAUAkDeviceDescription@@@Z",
+  "rva": 155084816
+ },
+ {
+  "ord": 75,
+  "name": "?GetDeviceSpatialAudioSupport@SoundEngine@AK@@YA?AW4AKRESULT@@K@Z",
+  "rva": 159262192
+ },
+ {
+  "ord": 76,
+  "name": "?GetDialogueEventCustomPropertyValue@DynamicDialogue@SoundEngine@AK@@YA?AW4AKRESULT@@KKAEAJ@Z",
+  "rva": 155088416
+ },
+ {
+  "ord": 77,
+  "name": "?GetDialogueEventCustomPropertyValue@DynamicDialogue@SoundEngine@AK@@YA?AW4AKRESULT@@KKAEAM@Z",
+  "rva": 155088624
+ },
+ {
+  "ord": 78,
+  "name": "?GetDirectSoundInstance@AK@@YAPEAUIDirectSound8@@XZ",
+  "rva": 164874848
+ },
+ {
+  "ord": 79,
+  "name": "?GetEventIDFromPlayingID@Query@SoundEngine@AK@@YAKK@Z",
+  "rva": 155101008
+ },
+ {
+  "ord": 80,
+  "name": "?GetFileLocationResolver@StreamMgr@AK@@YAPEAVIAkFileLocationResolver@12@XZ",
+  "rva": 155116528
+ },
+ {
+  "ord": 81,
+  "name": "?GetGameObjectAuxSendValues@Query@SoundEngine@AK@@YA?AW4AKRESULT@@_KPEAUAkAuxSendValue@@AEAK@Z",
+  "rva": 155099152
+ },
+ {
+  "ord": 82,
+  "name": "?GetGameObjectDryLevelValue@Query@SoundEngine@AK@@YA?AW4AKRESULT@@_K0AEAM@Z",
+  "rva": 155099552
+ },
+ {
+  "ord": 83,
+  "name": "?GetGameObjectFromPlayingID@Query@SoundEngine@AK@@YA_KK@Z",
+  "rva": 155101040
+ },
+ {
+  "ord": 84,
+  "name": "?GetGlobalPluginContext@SoundEngine@AK@@YAPEAVIAkGlobalPluginContext@2@XZ",
+  "rva": 155057200
+ },
+ {
+  "ord": 85,
+  "name": "?GetGlobalStats@MemoryMgr@AK@@YAXAEAUGlobalStats@12@@Z",
+  "rva": 155111120
+ },
+ {
+  "ord": 86,
+  "name": "?GetIDFromString@SoundEngine@AK@@YAKPEBD@Z",
+  "rva": 155058560
+ },
+ {
+  "ord": 87,
+  "name": "?GetIDFromString@SoundEngine@AK@@YAKPEB_W@Z",
+  "rva": 155058240
+ },
+ {
+  "ord": 88,
+  "name": "?GetIsGameObjectActive@Query@SoundEngine@AK@@YA_N_K@Z",
+  "rva": 155100800
+ },
+ {
+  "ord": 89,
+  "name": "?GetListenerPosition@Query@SoundEngine@AK@@YA?AW4AKRESULT@@_KAEAVAkTransform@@@Z",
+  "rva": 155097680
+ },
+ {
+  "ord": 90,
+  "name": "?GetListenerSpatialization@Query@SoundEngine@AK@@YA?AW4AKRESULT@@KAEA_NAEAPEAMAEAUAkChannelConfig@@@Z",
+  "rva": 155097856
+ },
+ {
+  "ord": 91,
+  "name": "?GetListeners@Query@SoundEngine@AK@@YA?AW4AKRESULT@@_KPEA_KAEAK@Z",
+  "rva": 155097456
+ },
+ {
+  "ord": 92,
+  "name": "?GetMaxRadius@Query@SoundEngine@AK@@YA?AW4AKRESULT@@AEAV?$AkArray@UGameObjDst@Query@SoundEngine@AK@@AEBU1234@U?$AkArrayAllocatorNoAlign@$0A@@@UAkGrowByPolicy_Proportional@@U?$AkAssignmentMovePolicy@UGameObjDst@Query@SoundEngine@AK@@@@@@@Z",
+  "rva": 155100864
+ },
+ {
+  "ord": 93,
+  "name": "?GetMaxRadius@Query@SoundEngine@AK@@YAM_K@Z",
+  "rva": 155100928
+ },
+ {
+  "ord": 94,
+  "name": "?GetObjAndAddref@CAkRegistryMgr@@QEAAPEAVCAkRegisteredObj@@_K@Z",
+  "rva": 159282128
+ },
+ {
+  "ord": 95,
+  "name": "?GetObjectObstructionAndOcclusion@Query@SoundEngine@AK@@YA?AW4AKRESULT@@_K0AEAM1@Z",
+  "rva": 155099792
+ },
+ {
+  "ord": 96,
+  "name": "?GetOutputID@SoundEngine@AK@@YA_KKK@Z",
+  "rva": 155083056
+ },
+ {
+  "ord": 97,
+  "name": "?GetOutputID@SoundEngine@AK@@YA_KPEBDK@Z",
+  "rva": 155083152
+ },
+ {
+  "ord": 98,
+  "name": "?GetOutputID@SoundEngine@AK@@YA_KPEB_WK@Z",
+  "rva": 155083264
+ },
+ {
+  "ord": 99,
+  "name": "?GetPanningRule@SoundEngine@AK@@YA?AW4AKRESULT@@AEAW4AkPanningRule@@_K@Z",
+  "rva": 155056208
+ },
+ {
+  "ord": 100,
+  "name": "?GetPauseTimes@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@KAEAK0@Z",
+  "rva": 155087008
+ },
+ {
+  "ord": 101,
+  "name": "?GetPlayingIDsFromGameObject@Query@SoundEngine@AK@@YA?AW4AKRESULT@@_KAEAKPEAK@Z",
+  "rva": 155101072
+ },
+ {
+  "ord": 102,
+  "name": "?GetPlayingItem@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@KAEAKAEAPEAX@Z",
+  "rva": 155087120
+ },
+ {
+  "ord": 103,
+  "name": "?GetPlayingSegmentInfo@MusicEngine@AK@@YA?AW4AKRESULT@@KAEAUAkSegmentInfo@@_N@Z",
+  "rva": 155105328
+ },
+ {
+  "ord": 104,
+  "name": "?GetPosition@Query@SoundEngine@AK@@YA?AW4AKRESULT@@_KAEAVAkTransform@@@Z",
+  "rva": 155097168
+ },
+ {
+  "ord": 105,
+  "name": "?GetPositioningInfo@Query@SoundEngine@AK@@YA?AW4AKRESULT@@KAEAUAkPositioningInfo@@@Z",
+  "rva": 155100608
+ },
+ {
+  "ord": 106,
+  "name": "?GetRTPCValue@Query@SoundEngine@AK@@YA?AW4AKRESULT@@K_KKAEAMAEAW4RTPCValue_type@123@@Z",
+  "rva": 155097968
+ },
+ {
+  "ord": 107,
+  "name": "?GetRTPCValue@Query@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD_KKAEAMAEAW4RTPCValue_type@123@@Z",
+  "rva": 155098496
+ },
+ {
+  "ord": 108,
+  "name": "?GetRTPCValue@Query@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W_KKAEAMAEAW4RTPCValue_type@123@@Z",
+  "rva": 155098432
+ },
+ {
+  "ord": 109,
+  "name": "?GetSourcePlayPosition@SoundEngine@AK@@YA?AW4AKRESULT@@KPEAJ_N@Z",
+  "rva": 155062192
+ },
+ {
+  "ord": 110,
+  "name": "?GetSourcePlayPositions@SoundEngine@AK@@YA?AW4AKRESULT@@KPEAUAkSourcePosition@@PEAK_N@Z",
+  "rva": 155062288
+ },
+ {
+  "ord": 111,
+  "name": "?GetSourceStreamBuffering@SoundEngine@AK@@YA?AW4AKRESULT@@KAEAJAEA_N@Z",
+  "rva": 155062352
+ },
+ {
+  "ord": 112,
+  "name": "?GetSpeakerAngles@SoundEngine@AK@@YA?AW4AKRESULT@@PEAMAEAKAEAM_K@Z",
+  "rva": 155056432
+ },
+ {
+  "ord": 113,
+  "name": "?GetSpeakerConfiguration@SoundEngine@AK@@YA?AUAkChannelConfig@@_K@Z",
+  "rva": 155056096
+ },
+ {
+  "ord": 114,
+  "name": "?GetState@Query@SoundEngine@AK@@YA?AW4AKRESULT@@KAEAK@Z",
+  "rva": 155098864
+ },
+ {
+  "ord": 115,
+  "name": "?GetState@Query@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDAEAK@Z",
+  "rva": 155099056
+ },
+ {
+  "ord": 116,
+  "name": "?GetState@Query@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WAEAK@Z",
+  "rva": 155098960
+ },
+ {
+  "ord": 117,
+  "name": "?GetSwitch@Query@SoundEngine@AK@@YA?AW4AKRESULT@@K_KAEAK@Z",
+  "rva": 155098560
+ },
+ {
+  "ord": 118,
+  "name": "?GetSwitch@Query@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD_KAEAK@Z",
+  "rva": 155098816
+ },
+ {
+  "ord": 119,
+  "name": "?GetSwitch@Query@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W_KAEAK@Z",
+  "rva": 155098768
+ },
+ {
+  "ord": 120,
+  "name": "?GetTimeStamp@Monitor@AK@@YAJXZ",
+  "rva": 155054064
+ },
+ {
+  "ord": 121,
+  "name": "?GetWindowsDevice@AK@@YA_NJAEAKPEAPEAUIMMDevice@@W4AkAudioDeviceState@@@Z",
+  "rva": 159261696
+ },
+ {
+  "ord": 122,
+  "name": "?GetWindowsDeviceCount@AK@@YAKW4AkAudioDeviceState@@@Z",
+  "rva": 159261600
+ },
+ {
+  "ord": 123,
+  "name": "?GetWindowsDeviceName@AK@@YAPEB_WJAEAKW4AkAudioDeviceState@@@Z",
+  "rva": 159261280
+ },
+ {
+  "ord": 124,
+  "name": "?GetWwiseXAudio2Interface@AK@@YAPEAUIUnknown@@XZ",
+  "rva": 164878768
+ },
+ {
+  "ord": 125,
+  "name": "?Init@MemoryMgr@AK@@YA?AW4AKRESULT@@PEAUAkMemSettings@@@Z",
+  "rva": 155111392
+ },
+ {
+  "ord": 126,
+  "name": "?Init@MusicEngine@AK@@YA?AW4AKRESULT@@PEAUAkMusicSettings@@@Z",
+  "rva": 155104976
+ },
+ {
+  "ord": 127,
+  "name": "?Init@SoundEngine@AK@@YA?AW4AKRESULT@@PEAUAkInitSettings@@PEAUAkPlatformInitSettings@@@Z",
+  "rva": 155054320
+ },
+ {
+  "ord": 128,
+  "name": "?InitForThread@MemoryMgr@AK@@YAXXZ",
+  "rva": 155111360
+ },
+ {
+  "ord": 129,
+  "name": "?Instance@AkRuntimeEnvironmentMgr@AK@@SAPEAV12@XZ",
+  "rva": 163047680
+ },
+ {
+  "ord": 130,
+  "name": "?IsInitialized@MemoryMgr@AK@@YA_NXZ",
+  "rva": 155111008
+ },
+ {
+  "ord": 131,
+  "name": "?IsInitialized@SoundEngine@AK@@YA_NXZ",
+  "rva": 155054304
+ },
+ {
+  "ord": 132,
+  "name": "?LoadBank@SoundEngine@AK@@YA?AW4AKRESULT@@K@Z",
+  "rva": 155065344
+ },
+ {
+  "ord": 133,
+  "name": "?LoadBank@SoundEngine@AK@@YA?AW4AKRESULT@@KP6AXKPEBXW43@PEAX@Z2@Z",
+  "rva": 155067856
+ },
+ {
+  "ord": 134,
+  "name": "?LoadBank@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDAEAK@Z",
+  "rva": 155065072
+ },
+ {
+  "ord": 135,
+  "name": "?LoadBank@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDP6AXKPEBXW43@PEAX@Z3AEAK@Z",
+  "rva": 155067632
+ },
+ {
+  "ord": 136,
+  "name": "?LoadBank@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WAEAK@Z",
+  "rva": 155064816
+ },
+ {
+  "ord": 137,
+  "name": "?LoadBank@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WP6AXKPEBXW43@PEAX@Z3AEAK@Z",
+  "rva": 155067408
+ },
+ {
+  "ord": 138,
+  "name": "?LoadBankMemoryCopy@SoundEngine@AK@@YA?AW4AKRESULT@@PEBXKAEAK@Z",
+  "rva": 155065808
+ },
+ {
+  "ord": 139,
+  "name": "?LoadBankMemoryCopy@SoundEngine@AK@@YA?AW4AKRESULT@@PEBXKP6AXK0W43@PEAX@Z2AEAK@Z",
+  "rva": 155068256
+ },
+ {
+  "ord": 140,
+  "name": "?LoadBankMemoryView@SoundEngine@AK@@YA?AW4AKRESULT@@PEBXKAEAK@Z",
+  "rva": 155065552
+ },
+ {
+  "ord": 141,
+  "name": "?LoadBankMemoryView@SoundEngine@AK@@YA?AW4AKRESULT@@PEBXKP6AXK0W43@PEAX@Z2AEAK@Z",
+  "rva": 155068000
+ },
+ {
+  "ord": 142,
+  "name": "?LockPlaylist@DynamicSequence@SoundEngine@AK@@YAPEAVPlaylist@123@K@Z",
+  "rva": 155087232
+ },
+ {
+  "ord": 143,
+  "name": "?Malign@MemoryMgr@AK@@YAPEAXJ_KK@Z",
+  "rva": 155111072
+ },
+ {
+  "ord": 144,
+  "name": "?Malloc@MemoryMgr@AK@@YAPEAXJ_K@Z",
+  "rva": 155111024
+ },
+ {
+  "ord": 145,
+  "name": "?MixBypassNinNChannels@AkMixer@@YAXPEAVAkAudioBuffer@@0AEAUAkRamp@@PEBM2MGPEAVCAkSrcLpHpFilter@@@Z",
+  "rva": 159396960
+ },
+ {
+  "ord": 146,
+  "name": "?MixChannel@AkMixer@@YAXPEAM0MMK@Z",
+  "rva": 159397120
+ },
+ {
+  "ord": 147,
+  "name": "?MixFilterNinNChannels@AkMixer@@YAXPEAVAkAudioBuffer@@0AEAUAkRamp@@PEBM2MGPEAVCAkSrcLpHpFilter@@@Z",
+  "rva": 159396496
+ },
+ {
+  "ord": 148,
+  "name": "?MixNinNChannels@AkMixer@@YAXPEAVAkAudioBuffer@@0AEAUAkRamp@@PEBM2MG@Z",
+  "rva": 159396432
+ },
+ {
+  "ord": 149,
+  "name": "?MixOneInNChannels@AkMixer@@YAXPEIAMPEAVAkAudioBuffer@@UAkChannelConfig@@AEAUAkRamp@@PEBM4MG@Z",
+  "rva": 159396464
+ },
+ {
+  "ord": 150,
+  "name": "?MuteBackgroundMusic@SoundEngine@AK@@YAX_N@Z",
+  "rva": 155062832
+ },
+ {
+  "ord": 151,
+  "name": "?Open@DynamicSequence@SoundEngine@AK@@YAK_KKP6AXW4AkCallbackType@@PEAUAkCallbackInfo@@@ZPEAXW4DynamicSequenceType@123@@Z",
+  "rva": 155085648
+ },
+ {
+  "ord": 152,
+  "name": "?Pause@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@KJW4AkCurveInterpolation@@@Z",
+  "rva": 155086176
+ },
+ {
+  "ord": 153,
+  "name": "?PinEventInStreamCache@SoundEngine@AK@@YA?AW4AKRESULT@@KDD@Z",
+  "rva": 155060400
+ },
+ {
+  "ord": 154,
+  "name": "?PinEventInStreamCache@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDDD@Z",
+  "rva": 155060688
+ },
+ {
+  "ord": 155,
+  "name": "?PinEventInStreamCache@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WDD@Z",
+  "rva": 155060640
+ },
+ {
+  "ord": 156,
+  "name": "?Play@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@KJW4AkCurveInterpolation@@@Z",
+  "rva": 155086032
+ },
+ {
+  "ord": 157,
+  "name": "?PlaySourcePlugin@SoundEngine@AK@@YAKKK_K@Z",
+  "rva": 155052592
+ },
+ {
+  "ord": 158,
+  "name": "?PostCode@Monitor@AK@@YA?AW4AKRESULT@@W4ErrorCode@12@W4ErrorLevel@12@K_KK_N@Z",
+  "rva": 155054000
+ },
+ {
+  "ord": 159,
+  "name": "?PostEvent@SoundEngine@AK@@YAKK_KKP6AXW4AkCallbackType@@PEAUAkCallbackInfo@@@ZPEAXKPEAUAkExternalSourceInfo@@K@Z",
+  "rva": 155058832
+ },
+ {
+  "ord": 160,
+  "name": "?PostEvent@SoundEngine@AK@@YAKPEBD_KKP6AXW4AkCallbackType@@PEAUAkCallbackInfo@@@ZPEAXKPEAUAkExternalSourceInfo@@K@Z",
+  "rva": 155059248
+ },
+ {
+  "ord": 161,
+  "name": "?PostEvent@SoundEngine@AK@@YAKPEB_W_KKP6AXW4AkCallbackType@@PEAUAkCallbackInfo@@@ZPEAXKPEAUAkExternalSourceInfo@@K@Z",
+  "rva": 155059040
+ },
+ {
+  "ord": 162,
+  "name": "?PostMIDIOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@K_KPEAUAkMIDIPost@@G@Z",
+  "rva": 155059824
+ },
+ {
+  "ord": 163,
+  "name": "?PostString@Monitor@AK@@YA?AW4AKRESULT@@PEBDW4ErrorLevel@12@K_KK_N@Z",
+  "rva": 155054032
+ },
+ {
+  "ord": 164,
+  "name": "?PostString@Monitor@AK@@YA?AW4AKRESULT@@PEB_WW4ErrorLevel@12@K_KK_N@Z",
+  "rva": 155054016
+ },
+ {
+  "ord": 165,
+  "name": "?PostTrigger@SoundEngine@AK@@YA?AW4AKRESULT@@K_K@Z",
+  "rva": 155077392
+ },
+ {
+  "ord": 166,
+  "name": "?PostTrigger@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD_K@Z",
+  "rva": 155077600
+ },
+ {
+  "ord": 167,
+  "name": "?PostTrigger@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W_K@Z",
+  "rva": 155077488
+ },
+ {
+  "ord": 168,
+  "name": "?PrepareBank@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@KP6AXKPEBXW43@PEAX@Z3W4AkBankContent@12@@Z",
+  "rva": 155070736
+ },
+ {
+  "ord": 169,
+  "name": "?PrepareBank@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@KW4AkBankContent@12@@Z",
+  "rva": 155070016
+ },
+ {
+  "ord": 170,
+  "name": "?PrepareBank@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEBDP6AXKPEBXW43@PEAX@Z4W4AkBankContent@12@@Z",
+  "rva": 155070496
+ },
+ {
+  "ord": 171,
+  "name": "?PrepareBank@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEBDW4AkBankContent@12@@Z",
+  "rva": 155069728
+ },
+ {
+  "ord": 172,
+  "name": "?PrepareBank@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEB_WP6AXKPEBXW43@PEAX@Z4W4AkBankContent@12@@Z",
+  "rva": 155070256
+ },
+ {
+  "ord": 173,
+  "name": "?PrepareBank@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEB_WW4AkBankContent@12@@Z",
+  "rva": 155069440
+ },
+ {
+  "ord": 174,
+  "name": "?PrepareEvent@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEAKK@Z",
+  "rva": 155072048
+ },
+ {
+  "ord": 175,
+  "name": "?PrepareEvent@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEAKKP6AXKPEBXW43@PEAX@Z4@Z",
+  "rva": 155072976
+ },
+ {
+  "ord": 176,
+  "name": "?PrepareEvent@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEAPEBDK@Z",
+  "rva": 155071584
+ },
+ {
+  "ord": 177,
+  "name": "?PrepareEvent@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEAPEBDKP6AXKPEBXW43@PEAX@Z4@Z",
+  "rva": 155072576
+ },
+ {
+  "ord": 178,
+  "name": "?PrepareEvent@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEAPEB_WK@Z",
+  "rva": 155071120
+ },
+ {
+  "ord": 179,
+  "name": "?PrepareEvent@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@PEAPEB_WKP6AXKPEBXW43@PEAX@Z4@Z",
+  "rva": 155072176
+ },
+ {
+  "ord": 180,
+  "name": "?PrepareGameSyncs@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@W4AkGroupType@@KPEAKK@Z",
+  "rva": 155074080
+ },
+ {
+  "ord": 181,
+  "name": "?PrepareGameSyncs@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@W4AkGroupType@@KPEAKKP6AXKPEBXW43@PEAX@Z5@Z",
+  "rva": 155075232
+ },
+ {
+  "ord": 182,
+  "name": "?PrepareGameSyncs@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@W4AkGroupType@@PEBDPEAPEBDK@Z",
+  "rva": 155073600
+ },
+ {
+  "ord": 183,
+  "name": "?PrepareGameSyncs@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@W4AkGroupType@@PEBDPEAPEBDKP6AXKPEBXW43@PEAX@Z6@Z",
+  "rva": 155074736
+ },
+ {
+  "ord": 184,
+  "name": "?PrepareGameSyncs@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@W4AkGroupType@@PEB_WPEAPEB_WK@Z",
+  "rva": 155073120
+ },
+ {
+  "ord": 185,
+  "name": "?PrepareGameSyncs@SoundEngine@AK@@YA?AW4AKRESULT@@W4PreparationType@12@W4AkGroupType@@PEB_WPEAPEB_WKP6AXKPEBXW43@PEAX@Z6@Z",
+  "rva": 155074240
+ },
+ {
+  "ord": 186,
+  "name": "?QueryAudioObjectIDs@Query@SoundEngine@AK@@YA?AW4AKRESULT@@KAEAKPEAUAkObjectInfo@@@Z",
+  "rva": 155100224
+ },
+ {
+  "ord": 187,
+  "name": "?QueryAudioObjectIDs@Query@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDAEAKPEAUAkObjectInfo@@@Z",
+  "rva": 155100544
+ },
+ {
+  "ord": 188,
+  "name": "?QueryAudioObjectIDs@Query@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WAEAKPEAUAkObjectInfo@@@Z",
+  "rva": 155100480
+ },
+ {
+  "ord": 189,
+  "name": "?ReadBytes@ReadBytesMem@AK@@UEAA_NPEAXJAEAJ@Z",
+  "rva": 159115744
+ },
+ {
+  "ord": 190,
+  "name": "?ReadBytes@ReadBytesSkip@AK@@UEAA_NPEAXJAEAJ@Z",
+  "rva": 165529056
+ },
+ {
+  "ord": 191,
+  "name": "?Realloc@MemoryMgr@AK@@YAPEAXJPEAX_K@Z",
+  "rva": 155111040
+ },
+ {
+  "ord": 192,
+  "name": "?RegisterAudioDeviceStatusCallback@SoundEngine@AK@@YA?AW4AKRESULT@@P6AXPEAVIAkGlobalPluginContext@2@KKW4AkAudioDeviceEvent@2@W43@@Z@Z",
+  "rva": 155058192
+ },
+ {
+  "ord": 193,
+  "name": "?RegisterBusMeteringCallback@SoundEngine@AK@@YA?AW4AKRESULT@@KP6AXPEAVIAkMetering@2@UAkChannelConfig@@W4AkMeteringFlags@@@Z2@Z",
+  "rva": 155078688
+ },
+ {
+  "ord": 194,
+  "name": "?RegisterBusVolumeCallback@SoundEngine@AK@@YA?AW4AKRESULT@@KP6AXPEAUAkSpeakerVolumeMatrixCallbackInfo@@@Z@Z",
+  "rva": 155078656
+ },
+ {
+  "ord": 195,
+  "name": "?RegisterCodec@SoundEngine@AK@@YA?AW4AKRESULT@@KKP6APEAVIAkSoftwareCodec@@PEAX@Z1@Z",
+  "rva": 155057328
+ },
+ {
+  "ord": 196,
+  "name": "?RegisterGameObj@SoundEngine@AK@@YA?AW4AKRESULT@@_K@Z",
+  "rva": 155063232
+ },
+ {
+  "ord": 197,
+  "name": "?RegisterGameObj@SoundEngine@AK@@YA?AW4AKRESULT@@_KPEBD@Z",
+  "rva": 155063328
+ },
+ {
+  "ord": 198,
+  "name": "?RegisterGlobalCallback@SoundEngine@AK@@YA?AW4AKRESULT@@P6AXPEAVIAkGlobalPluginContext@2@W4AkGlobalCallbackLocation@@PEAX@ZK2W4AkPluginType@@KK@Z",
+  "rva": 155057376
+ },
+ {
+  "ord": 199,
+  "name": "?RegisterPlugin@SoundEngine@AK@@YA?AW4AKRESULT@@W4AkPluginType@@KKP6APEAVIAkPlugin@2@PEAVIAkPluginMemAlloc@2@@ZP6APEAVIAkPluginParam@2@1@ZP6A?AW43@AEAKPEAUAkDeviceDescription@@@Z@Z",
+  "rva": 155057312
+ },
+ {
+  "ord": 200,
+  "name": "?RegisterPluginDLL@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W0@Z",
+  "rva": 159262064
+ },
+ {
+  "ord": 201,
+  "name": "?RegisterResourceMonitorCallback@SoundEngine@AK@@YA?AW4AKRESULT@@P6AXPEBUAkResourceMonitorDataSummary@@@Z@Z",
+  "rva": 155058160
+ },
+ {
+  "ord": 202,
+  "name": "?RemoveDefaultListener@SoundEngine@AK@@YA?AW4AKRESULT@@_K@Z",
+  "rva": 155075696
+ },
+ {
+  "ord": 203,
+  "name": "?RemoveLanguageChangeObserver@StreamMgr@AK@@YAXPEAX@Z",
+  "rva": 155117248
+ },
+ {
+  "ord": 204,
+  "name": "?RemoveListener@SoundEngine@AK@@YA?AW4AKRESULT@@_K0@Z",
+  "rva": 155075440
+ },
+ {
+  "ord": 205,
+  "name": "?RemoveOutput@SoundEngine@AK@@YA?AW4AKRESULT@@_K@Z",
+  "rva": 155082624
+ },
+ {
+  "ord": 206,
+  "name": "?RenderAudio@SoundEngine@AK@@YA?AW4AKRESULT@@_N@Z",
+  "rva": 155057184
+ },
+ {
+  "ord": 207,
+  "name": "?ReplaceOutput@SoundEngine@AK@@YA?AW4AKRESULT@@AEBUAkOutputSettings@@_KPEA_K@Z",
+  "rva": 155082704
+ },
+ {
+  "ord": 208,
+  "name": "?Reserve@WriteBytesCount@AK@@UEAA_NJ@Z",
+  "rva": 165529344
+ },
+ {
+  "ord": 209,
+  "name": "?Reserve@WriteBytesMem@AK@@UEAA_NJ@Z",
+  "rva": 159116288
+ },
+ {
+  "ord": 210,
+  "name": "?ResetListenersToDefault@SoundEngine@AK@@YA?AW4AKRESULT@@_K@Z",
+  "rva": 155075808
+ },
+ {
+  "ord": 211,
+  "name": "?ResetRTPCValue@SoundEngine@AK@@YA?AW4AKRESULT@@K_KJW4AkCurveInterpolation@@_N@Z",
+  "rva": 155076704
+ },
+ {
+  "ord": 212,
+  "name": "?ResetRTPCValue@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD_KJW4AkCurveInterpolation@@_N@Z",
+  "rva": 155076992
+ },
+ {
+  "ord": 213,
+  "name": "?ResetRTPCValue@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W_KJW4AkCurveInterpolation@@_N@Z",
+  "rva": 155076896
+ },
+ {
+  "ord": 214,
+  "name": "?ResolveDialogueEvent@DynamicDialogue@SoundEngine@AK@@YAKKPEAKKKP6A_NKKPEAX@Z1@Z",
+  "rva": 155087584
+ },
+ {
+  "ord": 215,
+  "name": "?ResolveDialogueEvent@DynamicDialogue@SoundEngine@AK@@YAKPEBDPEAPEBDKKP6A_NKKPEAX@Z2@Z",
+  "rva": 155088112
+ },
+ {
+  "ord": 216,
+  "name": "?ResolveDialogueEvent@DynamicDialogue@SoundEngine@AK@@YAKPEB_WPEAPEB_WKKP6A_NKKPEAX@Z2@Z",
+  "rva": 155087808
+ },
+ {
+  "ord": 217,
+  "name": "?Resume@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@KJW4AkCurveInterpolation@@@Z",
+  "rva": 155086320
+ },
+ {
+  "ord": 218,
+  "name": "?RunGame@@YAHPEAUHINSTANCE__@@PEBD_K@Z",
+  "rva": 8960
+ },
+ {
+  "ord": 219,
+  "name": "?Seek@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@KJ_N@Z",
+  "rva": 155086720
+ },
+ {
+  "ord": 220,
+  "name": "?Seek@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@KM_N@Z",
+  "rva": 155086864
+ },
+ {
+  "ord": 221,
+  "name": "?SeekOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@K_KJ_NK@Z",
+  "rva": 155061312
+ },
+ {
+  "ord": 222,
+  "name": "?SeekOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@K_KM_NK@Z",
+  "rva": 155061696
+ },
+ {
+  "ord": 223,
+  "name": "?SeekOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD_KJ_NK@Z",
+  "rva": 155061632
+ },
+ {
+  "ord": 224,
+  "name": "?SeekOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD_KM_NK@Z",
+  "rva": 155062032
+ },
+ {
+  "ord": 225,
+  "name": "?SeekOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W_KJ_NK@Z",
+  "rva": 155061568
+ },
+ {
+  "ord": 226,
+  "name": "?SeekOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W_KM_NK@Z",
+  "rva": 155061968
+ },
+ {
+  "ord": 227,
+  "name": "?SendPluginCustomGameData@SoundEngine@AK@@YA?AW4AKRESULT@@K_KW4AkPluginType@@KKPEBXK@Z",
+  "rva": 155062928
+ },
+ {
+  "ord": 228,
+  "name": "?SetActorMixerEffect@SoundEngine@AK@@YA?AW4AKRESULT@@KKK@Z",
+  "rva": 155078864
+ },
+ {
+  "ord": 229,
+  "name": "?SetBankLoadIOSettings@SoundEngine@AK@@YA?AW4AKRESULT@@MD@Z",
+  "rva": 155064768
+ },
+ {
+  "ord": 230,
+  "name": "?SetBusConfig@SoundEngine@AK@@YA?AW4AKRESULT@@KUAkChannelConfig@@@Z",
+  "rva": 155079568
+ },
+ {
+  "ord": 231,
+  "name": "?SetBusConfig@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDUAkChannelConfig@@@Z",
+  "rva": 155079776
+ },
+ {
+  "ord": 232,
+  "name": "?SetBusConfig@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WUAkChannelConfig@@@Z",
+  "rva": 155079664
+ },
+ {
+  "ord": 233,
+  "name": "?SetBusDevice@SoundEngine@AK@@YA?AW4AKRESULT@@KK@Z",
+  "rva": 155083376
+ },
+ {
+  "ord": 234,
+  "name": "?SetBusDevice@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD0@Z",
+  "rva": 155083760
+ },
+ {
+  "ord": 235,
+  "name": "?SetBusDevice@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W0@Z",
+  "rva": 155084192
+ },
+ {
+  "ord": 236,
+  "name": "?SetBusEffect@SoundEngine@AK@@YA?AW4AKRESULT@@KKK@Z",
+  "rva": 155078976
+ },
+ {
+  "ord": 237,
+  "name": "?SetBusEffect@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDKK@Z",
+  "rva": 155079152
+ },
+ {
+  "ord": 238,
+  "name": "?SetBusEffect@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WKK@Z",
+  "rva": 155079088
+ },
+ {
+  "ord": 239,
+  "name": "?SetContainerHistory@SoundEngine@AK@@YA?AW4AKRESULT@@PEAVIReadBytes@2@@Z",
+  "rva": 155081312
+ },
+ {
+  "ord": 240,
+  "name": "?SetCount@WriteBytesCount@AK@@UEAAXJ@Z",
+  "rva": 165529376
+ },
+ {
+  "ord": 241,
+  "name": "?SetCount@WriteBytesMem@AK@@UEAAXJ@Z",
+  "rva": 159116400
+ },
+ {
+  "ord": 242,
+  "name": "?SetCurrentLanguage@StreamMgr@AK@@YA?AW4AKRESULT@@PEB_W@Z",
+  "rva": 155116768
+ },
+ {
+  "ord": 243,
+  "name": "?SetDefaultListeners@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_KK@Z",
+  "rva": 155075568
+ },
+ {
+  "ord": 244,
+  "name": "?SetFileLocationResolver@StreamMgr@AK@@YAXPEAVIAkFileLocationResolver@12@@Z",
+  "rva": 155116544
+ },
+ {
+  "ord": 245,
+  "name": "?SetGameObjectAuxSendValues@SoundEngine@AK@@YA?AW4AKRESULT@@_KPEAUAkAuxSendValue@@K@Z",
+  "rva": 155077968
+ },
+ {
+  "ord": 246,
+  "name": "?SetGameObjectOutputBusVolume@SoundEngine@AK@@YA?AW4AKRESULT@@_K0M@Z",
+  "rva": 155078736
+ },
+ {
+  "ord": 247,
+  "name": "?SetListenerSpatialization@SoundEngine@AK@@YA?AW4AKRESULT@@_K_NUAkChannelConfig@@PEAM@Z",
+  "rva": 155075888
+ },
+ {
+  "ord": 248,
+  "name": "?SetListeners@SoundEngine@AK@@YA?AW4AKRESULT@@_KPEB_KK@Z",
+  "rva": 155075296
+ },
+ {
+  "ord": 249,
+  "name": "?SetLocalOutput@Monitor@AK@@YA?AW4AKRESULT@@KP6AXW4ErrorCode@12@PEB_WW4ErrorLevel@12@K_K@Z@Z",
+  "rva": 155054048
+ },
+ {
+  "ord": 250,
+  "name": "?SetMaxNumVoicesLimit@SoundEngine@AK@@YA?AW4AKRESULT@@G@Z",
+  "rva": 155057136
+ },
+ {
+  "ord": 251,
+  "name": "?SetMedia@SoundEngine@AK@@YA?AW4AKRESULT@@PEAUAkSourceSettings@@K@Z",
+  "rva": 155073024
+ },
+ {
+  "ord": 252,
+  "name": "?SetMemPool@WriteBytesMem@AK@@QEAAXJ@Z",
+  "rva": 159116496
+ },
+ {
+  "ord": 253,
+  "name": "?SetMixer@SoundEngine@AK@@YA?AW4AKRESULT@@KK@Z",
+  "rva": 155079216
+ },
+ {
+  "ord": 254,
+  "name": "?SetMixer@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDK@Z",
+  "rva": 155079440
+ },
+ {
+  "ord": 255,
+  "name": "?SetMixer@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WK@Z",
+  "rva": 155079312
+ },
+ {
+  "ord": 256,
+  "name": "?SetMultipleObstructionAndOcclusion@SoundEngine@AK@@YA?AW4AKRESULT@@_K0PEAUAkObstructionOcclusionValues@@K@Z",
+  "rva": 155080048
+ },
+ {
+  "ord": 257,
+  "name": "?SetMultiplePositions@SoundEngine@AK@@YA?AW4AKRESULT@@_KPEBUAkChannelEmitter@@GW4MultiPositionType@12@@Z",
+  "rva": 155064384
+ },
+ {
+  "ord": 258,
+  "name": "?SetMultiplePositions@SoundEngine@AK@@YA?AW4AKRESULT@@_KPEBVAkTransform@@GW4MultiPositionType@12@@Z",
+  "rva": 155063632
+ },
+ {
+  "ord": 259,
+  "name": "?SetObjectObstructionAndOcclusion@SoundEngine@AK@@YA?AW4AKRESULT@@_K0MM@Z",
+  "rva": 155079888
+ },
+ {
+  "ord": 260,
+  "name": "?SetOutputVolume@SoundEngine@AK@@YA?AW4AKRESULT@@_KM@Z",
+  "rva": 155085376
+ },
+ {
+  "ord": 261,
+  "name": "?SetPanningRule@SoundEngine@AK@@YA?AW4AKRESULT@@W4AkPanningRule@@_K@Z",
+  "rva": 155056336
+ },
+ {
+  "ord": 262,
+  "name": "?SetPosition@SoundEngine@AK@@YA?AW4AKRESULT@@_KAEBVAkTransform@@@Z",
+  "rva": 155063600
+ },
+ {
+  "ord": 263,
+  "name": "?SetPositionInternal@SoundEngine@AK@@YA?AW4AKRESULT@@_KAEBVAkTransform@@@Z",
+  "rva": 155052208
+ },
+ {
+  "ord": 264,
+  "name": "?SetRTPCInternal@CAkRTPCMgr@@QEAA?AW4AKRESULT@@KMAEBVAkRTPCKey@@AEAUTransParamsBase@@W4AkValueMeaning@@_N@Z",
+  "rva": 159068048
+ },
+ {
+  "ord": 265,
+  "name": "?SetRTPCInternal@CAkRTPCMgr@@QEAA?AW4AKRESULT@@KMPEAVCAkRegisteredObj@@KAEAUTransParamsBase@@W4AkValueMeaning@@@Z",
+  "rva": 159067952
+ },
+ {
+  "ord": 266,
+  "name": "?SetRTPCValue@SoundEngine@AK@@YA?AW4AKRESULT@@KM_KJW4AkCurveInterpolation@@_N@Z",
+  "rva": 155076112
+ },
+ {
+  "ord": 267,
+  "name": "?SetRTPCValue@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDM_KJW4AkCurveInterpolation@@_N@Z",
+  "rva": 155076272
+ },
+ {
+  "ord": 268,
+  "name": "?SetRTPCValue@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WM_KJW4AkCurveInterpolation@@_N@Z",
+  "rva": 155076160
+ },
+ {
+  "ord": 269,
+  "name": "?SetRTPCValueByPlayingID@SoundEngine@AK@@YA?AW4AKRESULT@@KMKJW4AkCurveInterpolation@@_N@Z",
+  "rva": 155076384
+ },
+ {
+  "ord": 270,
+  "name": "?SetRTPCValueByPlayingID@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDMKJW4AkCurveInterpolation@@_N@Z",
+  "rva": 155076608
+ },
+ {
+  "ord": 271,
+  "name": "?SetRTPCValueByPlayingID@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WMKJW4AkCurveInterpolation@@_N@Z",
+  "rva": 155076512
+ },
+ {
+  "ord": 272,
+  "name": "?SetRandomSeed@SoundEngine@AK@@YAXK@Z",
+  "rva": 155062768
+ },
+ {
+  "ord": 273,
+  "name": "?SetScalingFactor@SoundEngine@AK@@YA?AW4AKRESULT@@_KM@Z",
+  "rva": 155064416
+ },
+ {
+  "ord": 274,
+  "name": "?SetSpeakerAngles@SoundEngine@AK@@YA?AW4AKRESULT@@PEBMKM_K@Z",
+  "rva": 155056592
+ },
+ {
+  "ord": 275,
+  "name": "?SetState@SoundEngine@AK@@YA?AW4AKRESULT@@KK@Z",
+  "rva": 155077712
+ },
+ {
+  "ord": 276,
+  "name": "?SetState@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD0@Z",
+  "rva": 155077888
+ },
+ {
+  "ord": 277,
+  "name": "?SetState@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W0@Z",
+  "rva": 155077808
+ },
+ {
+  "ord": 278,
+  "name": "?SetSwitch@SoundEngine@AK@@YA?AW4AKRESULT@@KK_K@Z",
+  "rva": 155077088
+ },
+ {
+  "ord": 279,
+  "name": "?SetSwitch@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD0_K@Z",
+  "rva": 155077296
+ },
+ {
+  "ord": 280,
+  "name": "?SetSwitch@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W0_K@Z",
+  "rva": 155077200
+ },
+ {
+  "ord": 281,
+  "name": "?SetVolumeThreshold@SoundEngine@AK@@YA?AW4AKRESULT@@M@Z",
+  "rva": 155056848
+ },
+ {
+  "ord": 282,
+  "name": "?Size@WriteBytesMem@AK@@QEBAJXZ",
+  "rva": 159116416
+ },
+ {
+  "ord": 283,
+  "name": "?StartOutputCapture@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W@Z",
+  "rva": 155081728
+ },
+ {
+  "ord": 284,
+  "name": "?StartProfileThreadUsage@MemoryMgr@AK@@YAXXZ",
+  "rva": 155111136
+ },
+ {
+  "ord": 285,
+  "name": "?StartProfilerCapture@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W@Z",
+  "rva": 155082192
+ },
+ {
+  "ord": 286,
+  "name": "?Stop@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@KJW4AkCurveInterpolation@@@Z",
+  "rva": 155086464
+ },
+ {
+  "ord": 287,
+  "name": "?StopAll@SoundEngine@AK@@YAX_K@Z",
+  "rva": 155062448
+ },
+ {
+  "ord": 288,
+  "name": "?StopMIDIOnEvent@SoundEngine@AK@@YA?AW4AKRESULT@@K_K@Z",
+  "rva": 155060176
+ },
+ {
+  "ord": 289,
+  "name": "?StopOutputCapture@SoundEngine@AK@@YA?AW4AKRESULT@@XZ",
+  "rva": 155081904
+ },
+ {
+  "ord": 290,
+  "name": "?StopPlayingID@SoundEngine@AK@@YAXKJW4AkCurveInterpolation@@@Z",
+  "rva": 155062528
+ },
+ {
+  "ord": 291,
+  "name": "?StopProfileThreadUsage@MemoryMgr@AK@@YA_KXZ",
+  "rva": 155111152
+ },
+ {
+  "ord": 292,
+  "name": "?StopProfilerCapture@SoundEngine@AK@@YA?AW4AKRESULT@@XZ",
+  "rva": 155082208
+ },
+ {
+  "ord": 293,
+  "name": "?StopSourcePlugin@SoundEngine@AK@@YA?AW4AKRESULT@@KKK@Z",
+  "rva": 155052736
+ },
+ {
+  "ord": 294,
+  "name": "?Suspend@SoundEngine@AK@@YA?AW4AKRESULT@@_N@Z",
+  "rva": 155085472
+ },
+ {
+  "ord": 295,
+  "name": "?Term@MemoryMgr@AK@@YAXXZ",
+  "rva": 155111312
+ },
+ {
+  "ord": 296,
+  "name": "?Term@MusicEngine@AK@@YAXXZ",
+  "rva": 155105280
+ },
+ {
+  "ord": 297,
+  "name": "?Term@SoundEngine@AK@@YAXXZ",
+  "rva": 155055008
+ },
+ {
+  "ord": 298,
+  "name": "?TermForThread@MemoryMgr@AK@@YAXXZ",
+  "rva": 155111376
+ },
+ {
+  "ord": 299,
+  "name": "?UnloadBank@SoundEngine@AK@@YA?AW4AKRESULT@@KPEBX@Z",
+  "rva": 155068576
+ },
+ {
+  "ord": 300,
+  "name": "?UnloadBank@SoundEngine@AK@@YA?AW4AKRESULT@@KPEBXP6AXK0W43@PEAX@Z2@Z",
+  "rva": 155069248
+ },
+ {
+  "ord": 301,
+  "name": "?UnloadBank@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDPEBX@Z",
+  "rva": 155068544
+ },
+ {
+  "ord": 302,
+  "name": "?UnloadBank@SoundEngine@AK@@YA?AW4AKRESULT@@PEBDPEBXP6AXK1W43@PEAX@Z3@Z",
+  "rva": 155069024
+ },
+ {
+  "ord": 303,
+  "name": "?UnloadBank@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WPEBX@Z",
+  "rva": 155068512
+ },
+ {
+  "ord": 304,
+  "name": "?UnloadBank@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_WPEBXP6AXK1W43@PEAX@Z3@Z",
+  "rva": 155068800
+ },
+ {
+  "ord": 305,
+  "name": "?UnlockPlaylist@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@K@Z",
+  "rva": 155087408
+ },
+ {
+  "ord": 306,
+  "name": "?UnpinEventInStreamCache@SoundEngine@AK@@YA?AW4AKRESULT@@K@Z",
+  "rva": 155060736
+ },
+ {
+  "ord": 307,
+  "name": "?UnpinEventInStreamCache@SoundEngine@AK@@YA?AW4AKRESULT@@PEBD@Z",
+  "rva": 155060992
+ },
+ {
+  "ord": 308,
+  "name": "?UnpinEventInStreamCache@SoundEngine@AK@@YA?AW4AKRESULT@@PEB_W@Z",
+  "rva": 155060960
+ },
+ {
+  "ord": 309,
+  "name": "?UnregisterAllGameObj@SoundEngine@AK@@YA?AW4AKRESULT@@XZ",
+  "rva": 155063520
+ },
+ {
+  "ord": 310,
+  "name": "?UnregisterAudioDeviceStatusCallback@SoundEngine@AK@@YA?AW4AKRESULT@@XZ",
+  "rva": 155058208
+ },
+ {
+  "ord": 311,
+  "name": "?UnregisterGameObj@SoundEngine@AK@@YA?AW4AKRESULT@@_K@Z",
+  "rva": 155063424
+ },
+ {
+  "ord": 312,
+  "name": "?UnregisterGlobalCallback@SoundEngine@AK@@YA?AW4AKRESULT@@P6AXPEAVIAkGlobalPluginContext@2@W4AkGlobalCallbackLocation@@PEAX@ZK@Z",
+  "rva": 155057856
+ },
+ {
+  "ord": 313,
+  "name": "?UnregisterResourceMonitorCallback@SoundEngine@AK@@YA?AW4AKRESULT@@P6AXPEBUAkResourceMonitorDataSummary@@@Z@Z",
+  "rva": 155058176
+ },
+ {
+  "ord": 314,
+  "name": "?UnsetMedia@SoundEngine@AK@@YA?AW4AKRESULT@@PEAUAkSourceSettings@@K@Z",
+  "rva": 155073072
+ },
+ {
+  "ord": 315,
+  "name": "?WakeupFromSuspend@SoundEngine@AK@@YA?AW4AKRESULT@@XZ",
+  "rva": 155085504
+ },
+ {
+  "ord": 316,
+  "name": "?WriteBytes@WriteBytesCount@AK@@UEAA_NPEBXJAEAJ@Z",
+  "rva": 165529328
+ },
+ {
+  "ord": 317,
+  "name": "?WriteBytes@WriteBytesMem@AK@@UEAA_NPEBXJAEAJ@Z",
+  "rva": 159116112
+ },
+ {
+  "ord": 318,
+  "name": "?g_PlayingID@SoundEngine@AK@@3JC",
+  "rva": 191755928
+ },
+ {
+  "ord": 319,
+  "name": "?g_pAssertHook@@3P6AXPEBD0H@ZEA",
+  "rva": 187554704
+ },
+ {
+  "ord": 320,
+  "name": "?g_pRTPCMgr@@3PEAVCAkRTPCMgr@@EA",
+  "rva": 191755824
+ },
+ {
+  "ord": 321,
+  "name": "?g_pRegistryMgr@@3PEAVCAkRegistryMgr@@EA",
+  "rva": 191755872
+ },
+ {
+  "ord": 322,
+  "name": "?g_pSwitchMgr@@3PEAVCAkSwitchMgr@@EA",
+  "rva": 191755856
+ },
+ {
+  "ord": 323,
+  "name": "?m_pStreamMgr@IAkStreamMgr@AK@@1PEAV12@EA",
+  "rva": 191756840
+ },
+ {
+  "ord": 324,
+  "name": "AkTlsAllocateSlot",
+  "rva": 163251584
+ },
+ {
+  "ord": 325,
+  "name": "AkTlsFreeSlot",
+  "rva": 163251632
+ },
+ {
+  "ord": 326,
+  "name": "AkTlsGetValue",
+  "rva": 163251648
+ },
+ {
+  "ord": 327,
+  "name": "AkTlsSetValue",
+  "rva": 163251664
+ },
+ {
+  "ord": 328,
+  "name": "AmdPowerXpressRequestHighPerformance",
+  "rva": 187254240
+ },
+ {
+  "ord": 329,
+  "name": "NVSDK_NGX_D3D12_AllocateParameters",
+  "rva": 150010896
+ },
+ {
+  "ord": 330,
+  "name": "NVSDK_NGX_D3D12_CreateFeature",
+  "rva": 150011280
+ },
+ {
+  "ord": 331,
+  "name": "NVSDK_NGX_D3D12_DestroyParameters",
+  "rva": 150011088
+ },
+ {
+  "ord": 332,
+  "name": "NVSDK_NGX_D3D12_EvaluateFeature",
+  "rva": 150011472
+ },
+ {
+  "ord": 333,
+  "name": "NVSDK_NGX_D3D12_EvaluateFeature_C",
+  "rva": 150011584
+ },
+ {
+  "ord": 334,
+  "name": "NVSDK_NGX_D3D12_GetCapabilityParameters",
+  "rva": 150010992
+ },
+ {
+  "ord": 335,
+  "name": "NVSDK_NGX_D3D12_GetParameters",
+  "rva": 150010816
+ },
+ {
+  "ord": 336,
+  "name": "NVSDK_NGX_D3D12_GetScratchBufferSize",
+  "rva": 150011184
+ },
+ {
+  "ord": 337,
+  "name": "NVSDK_NGX_D3D12_ReleaseFeature",
+  "rva": 150011392
+ },
+ {
+  "ord": 338,
+  "name": "NVSDK_NGX_D3D12_Shutdown",
+  "rva": 150010752
+ },
+ {
+  "ord": 339,
+  "name": "NVSDK_NGX_Parameter_GetD",
+  "rva": 150012992
+ },
+ {
+  "ord": 340,
+  "name": "NVSDK_NGX_Parameter_GetD3d11Resource",
+  "rva": 150013280
+ },
+ {
+  "ord": 341,
+  "name": "NVSDK_NGX_Parameter_GetD3d12Resource",
+  "rva": 150013376
+ },
+ {
+  "ord": 342,
+  "name": "NVSDK_NGX_Parameter_GetF",
+  "rva": 150012896
+ },
+ {
+  "ord": 343,
+  "name": "NVSDK_NGX_Parameter_GetI",
+  "rva": 150013184
+ },
+ {
+  "ord": 344,
+  "name": "NVSDK_NGX_Parameter_GetUI",
+  "rva": 150013088
+ },
+ {
+  "ord": 345,
+  "name": "NVSDK_NGX_Parameter_GetULL",
+  "rva": 150012800
+ },
+ {
+  "ord": 346,
+  "name": "NVSDK_NGX_Parameter_GetVoidPointer",
+  "rva": 150013472
+ },
+ {
+  "ord": 347,
+  "name": "NVSDK_NGX_Parameter_SetD",
+  "rva": 150012240
+ },
+ {
+  "ord": 348,
+  "name": "NVSDK_NGX_Parameter_SetD3d11Resource",
+  "rva": 150012512
+ },
+ {
+  "ord": 349,
+  "name": "NVSDK_NGX_Parameter_SetD3d12Resource",
+  "rva": 150012608
+ },
+ {
+  "ord": 350,
+  "name": "NVSDK_NGX_Parameter_SetF",
+  "rva": 150012160
+ },
+ {
+  "ord": 351,
+  "name": "NVSDK_NGX_Parameter_SetI",
+  "rva": 150012416
+ },
+ {
+  "ord": 352,
+  "name": "NVSDK_NGX_Parameter_SetUI",
+  "rva": 150012320
+ },
+ {
+  "ord": 353,
+  "name": "NVSDK_NGX_Parameter_SetULL",
+  "rva": 150012064
+ },
+ {
+  "ord": 354,
+  "name": "NVSDK_NGX_Parameter_SetVoidPointer",
+  "rva": 150012704
+ },
+ {
+  "ord": 355,
+  "name": "g_pAKPluginList",
+  "rva": 191851976
+ },
+ {
+  "ord": 356,
+  "name": "WaitForActivation",
+  "rva": 577256784
+ }
+]

@@ -1,0 +1,7832 @@
+[
+ {
+  "rva": 165568144,
+  "seg": 2,
+  "name": "CHumanMeleeAttackState::OnPrePhysicsUpdate"
+ },
+ {
+  "rva": 165568187,
+  "seg": 2,
+  "name": "CHumanMeleeAttackState::InitializeBreakablesCheck"
+ },
+ {
+  "rva": 165571424,
+  "seg": 2,
+  "name": "CHumanProjectileThrowState::ComputeProjectileDestinationPosition2_Raycast"
+ },
+ {
+  "rva": 165631776,
+  "seg": 2,
+  "name": "CAnimalStandingMotionState::UpdateLocomotionSlope"
+ },
+ {
+  "rva": 165636528,
+  "seg": 2,
+  "name": "CPlayerCoveredMotionState::CastCoverSpaceShape"
+ },
+ {
+  "rva": 165762449,
+  "seg": 2,
+  "name": "ESeekMoveMode::Cur"
+ },
+ {
+  "rva": 165762468,
+  "seg": 2,
+  "name": "ESeekMoveMode::End"
+ },
+ {
+  "rva": 165762487,
+  "seg": 2,
+  "name": "ESeekMoveMode::Begin"
+ },
+ {
+  "rva": 165762508,
+  "seg": 2,
+  "name": "ESeekMoveMode::Set"
+ },
+ {
+  "rva": 165762539,
+  "seg": 2,
+  "name": "EOpenAccess::Read"
+ },
+ {
+  "rva": 165762557,
+  "seg": 2,
+  "name": "EOpenAccess::Write"
+ },
+ {
+  "rva": 165762576,
+  "seg": 2,
+  "name": "EOpenAccess::WriteAppend"
+ },
+ {
+  "rva": 165762601,
+  "seg": 2,
+  "name": "OpenAccess::ReadNoBuffering"
+ },
+ {
+  "rva": 165762629,
+  "seg": 2,
+  "name": "OpenAccess::ReadSequential"
+ },
+ {
+  "rva": 165762656,
+  "seg": 2,
+  "name": "EOpenAccess::Attributes_Read"
+ },
+ {
+  "rva": 165762685,
+  "seg": 2,
+  "name": "EOpenAccess::Attributes_Write"
+ },
+ {
+  "rva": 165762715,
+  "seg": 2,
+  "name": "EOpenAccess::NoBadDisk"
+ },
+ {
+  "rva": 165762738,
+  "seg": 2,
+  "name": "EOpenAccess::DeleteOnClose"
+ },
+ {
+  "rva": 165762765,
+  "seg": 2,
+  "name": "EOpenAccess::Asynchronous"
+ },
+ {
+  "rva": 165762791,
+  "seg": 2,
+  "name": "EOpenAccess::NoSubFS"
+ },
+ {
+  "rva": 165800704,
+  "seg": 2,
+  "name": "CAIAgentStateManagerAnimal::OnInterruptiblePauseAIAgentRequest"
+ },
+ {
+  "rva": 165800767,
+  "seg": 2,
+  "name": "CAIAgentStateManagerAnimal::ApplyAICommandEvent"
+ },
+ {
+  "rva": 165801504,
+  "seg": 2,
+  "name": "CAIAgentStateManagerDrone::OnInterruptiblePauseAIAgentRequest"
+ },
+ {
+  "rva": 165801566,
+  "seg": 2,
+  "name": "CAIAgentStateManagerDrone::ApplyAICommandEvent"
+ },
+ {
+  "rva": 165802304,
+  "seg": 2,
+  "name": "CAIAgentStateManagerHuman::OnResumeAIAgentRequest"
+ },
+ {
+  "rva": 165802354,
+  "seg": 2,
+  "name": "CAIAgentStateManagerHuman::OnInterruptiblePauseAIAgentRequest"
+ },
+ {
+  "rva": 165802416,
+  "seg": 2,
+  "name": "CAIAgentStateManagerHuman::ApplyAICommandEvent"
+ },
+ {
+  "rva": 165803152,
+  "seg": 2,
+  "name": "CAIAgentStateManagerRobot::OnInterruptiblePauseAIAgentRequest"
+ },
+ {
+  "rva": 165803214,
+  "seg": 2,
+  "name": "CAIAgentStateManagerRobot::ApplyAICommandEvent"
+ },
+ {
+  "rva": 165803952,
+  "seg": 2,
+  "name": "CAIAgentStateManagerZombie::ApplyAICommandEvent"
+ },
+ {
+  "rva": 165806808,
+  "seg": 2,
+  "name": "CAIAgentStateAwareHandler::OnUpdateMaster"
+ },
+ {
+  "rva": 165807408,
+  "seg": 2,
+  "name": "CAIAgentStateBase::OnUpdateMaster"
+ },
+ {
+  "rva": 165808624,
+  "seg": 2,
+  "name": "CAIAgentStateBuddyAI::TrySwitchToCombat"
+ },
+ {
+  "rva": 165814469,
+  "seg": 2,
+  "name": "CAIAgentStateCLOManaged::SelectNormalExitState_PlayAnim"
+ },
+ {
+  "rva": 165820128,
+  "seg": 2,
+  "name": "CAIAgentStateDead::TransitionTo"
+ },
+ {
+  "rva": 165820160,
+  "seg": 2,
+  "name": "CAIAgentStateDead::UpdateAction"
+ },
+ {
+  "rva": 165838562,
+  "seg": 2,
+  "name": "CAIAgentStateMeleeCombat::UpdateAgentToTargetRaycast"
+ },
+ {
+  "rva": 165880976,
+  "seg": 2,
+  "name": "CAIAgentStateVehicleEntry::OnAssignSeatCompleted"
+ },
+ {
+  "rva": 165883392,
+  "seg": 2,
+  "name": "CAIAgentStateAnimalArrest::ApplyAICommandEvent"
+ },
+ {
+  "rva": 165890768,
+  "seg": 2,
+  "name": "CAIAgentStateAnimalSmellTracking::OnEntryOBSOLETE"
+ },
+ {
+  "rva": 165890818,
+  "seg": 2,
+  "name": "CAIAgentStateAnimalSmellTracking::OnUpdateMaster"
+ },
+ {
+  "rva": 165894000,
+  "seg": 2,
+  "name": "CAIAgentStateAnimalWarn::OnUpdateMaster"
+ },
+ {
+  "rva": 165894040,
+  "seg": 2,
+  "name": "CAIAgentStateAnimalWarn::UpdateTargetInForbiddenZone"
+ },
+ {
+  "rva": 165894704,
+  "seg": 2,
+  "name": "CAIAgentStateMainAnimal::OnReactionNewTarget"
+ },
+ {
+  "rva": 165894749,
+  "seg": 2,
+  "name": "CAIAgentStateMainAnimal::UpdateUndefinedAIState"
+ },
+ {
+  "rva": 165902528,
+  "seg": 2,
+  "name": "CAIAgentStateDroneArrest::OnTargetHostile"
+ },
+ {
+  "rva": 165907040,
+  "seg": 2,
+  "name": "CAIAgentStateDroneCombat_Ballistic::UpdateMoveIntoLOS"
+ },
+ {
+  "rva": 165907094,
+  "seg": 2,
+  "name": "CAIAgentStateDroneCombat_Ballistic::PerformStrafeCheck"
+ },
+ {
+  "rva": 165907149,
+  "seg": 2,
+  "name": "CTaskCanShoot::Execute"
+ },
+ {
+  "rva": 165908064,
+  "seg": 2,
+  "name": "CAIAgentStateDroneCombat_GrenadeAction::CreateRayCast"
+ },
+ {
+  "rva": 165929584,
+  "seg": 2,
+  "name": "CAIAgentStateDroneLand::UpdateMove"
+ },
+ {
+  "rva": 165938400,
+  "seg": 2,
+  "name": "CAIAgentStateDronePickUpAndDrop::AddDelayedCollisionCheck"
+ },
+ {
+  "rva": 165947744,
+  "seg": 2,
+  "name": "CAIAgentStateDroneWander_OnHighway::SetUpStep"
+ },
+ {
+  "rva": 165947790,
+  "seg": 2,
+  "name": "CAIAgentStateDroneWander_OnHighway::UpdateMoveToHighway"
+ },
+ {
+  "rva": 165950144,
+  "seg": 2,
+  "name": "CAIAgentStateDroneWarn::OnUpdateMaster"
+ },
+ {
+  "rva": 165950183,
+  "seg": 2,
+  "name": "CAIAgentStateDroneWarn::UpdateTargetInForbiddenZone"
+ },
+ {
+  "rva": 165954992,
+  "seg": 2,
+  "name": "CAIAgentActionDrone_Attack::GetWeaponHasLOS"
+ },
+ {
+  "rva": 165957000,
+  "seg": 2,
+  "name": "SQueryUser::SNeighborPoint::PerformRayCast"
+ },
+ {
+  "rva": 165957360,
+  "seg": 2,
+  "name": "CAIAgentActionDrone_RiotGrenade::CreateRayCast"
+ },
+ {
+  "rva": 165967050,
+  "seg": 2,
+  "name": "CAIAgentStateHumanLeashedToZone::OnUpdateMaster"
+ },
+ {
+  "rva": 165974448,
+  "seg": 2,
+  "name": "CAIAgentStateMainRobot::OnPersonAttacked"
+ },
+ {
+  "rva": 165974489,
+  "seg": 2,
+  "name": "CAIAgentStateMainRobot::OnPhysBulletHitStim"
+ },
+ {
+  "rva": 165974533,
+  "seg": 2,
+  "name": "CAIAgentStateMainRobot::OnPhysCollisionStim"
+ },
+ {
+  "rva": 165974577,
+  "seg": 2,
+  "name": "CAIAgentStateMainRobot::OnPhysExplosionStim"
+ },
+ {
+  "rva": 165974621,
+  "seg": 2,
+  "name": "CAIAgentStateMainRobot::OnGunShot"
+ },
+ {
+  "rva": 165975824,
+  "seg": 2,
+  "name": "CAIAgentStateRobotAttractor::DoRecover"
+ },
+ {
+  "rva": 165977024,
+  "seg": 2,
+  "name": "CAIAgentStateRobotFlee::OnUpdateMaster"
+ },
+ {
+  "rva": 165977680,
+  "seg": 2,
+  "name": "CAIAgentStateRobotHijack::DoRecover"
+ },
+ {
+  "rva": 165978336,
+  "seg": 2,
+  "name": "CAIAgentStateRobotIdle::OnUpdateTargetSelection"
+ },
+ {
+  "rva": 165979008,
+  "seg": 2,
+  "name": "CAIAgentStateRobotLoveBull::DoRecover"
+ },
+ {
+  "rva": 165980224,
+  "seg": 2,
+  "name": "CAIAgentStateRobotReboot::DoRecover"
+ },
+ {
+  "rva": 165985584,
+  "seg": 2,
+  "name": "CAIAgentStateTurretIdle::OnUpdateMaster"
+ },
+ {
+  "rva": 166030168,
+  "seg": 2,
+  "name": "CAliveWD2NPC::ProcessDesiredExitState"
+ },
+ {
+  "rva": 166078776,
+  "seg": 2,
+  "name": "CTaskCheckIsExposedInCover::TestVisibility"
+ },
+ {
+  "rva": 166083586,
+  "seg": 2,
+  "name": "CTaskGetPosWithLOS::FindPointWithLOS"
+ },
+ {
+  "rva": 166103944,
+  "seg": 2,
+  "name": "CTaskIsInLOS::IsPosSnappedOnGround"
+ },
+ {
+  "rva": 166107096,
+  "seg": 2,
+  "name": "CTaskRayCheck::PerformRayCheck"
+ },
+ {
+  "rva": 166107230,
+  "seg": 2,
+  "name": "CTaskReleaseAlert::Execute"
+ },
+ {
+  "rva": 166112792,
+  "seg": 2,
+  "name": "CTaskGetApproachPoint::CreateRayCast"
+ },
+ {
+  "rva": 166113080,
+  "seg": 2,
+  "name": "CTaskGetGrenadeRunAwayPos::CreateRayCast"
+ },
+ {
+  "rva": 166130024,
+  "seg": 2,
+  "name": "CTaskGetClosestPlayerRunAwayPos::CreateRayCast"
+ },
+ {
+  "rva": 166130200,
+  "seg": 2,
+  "name": "CTaskGetStrafePos::CreateRayCast"
+ },
+ {
+  "rva": 166130776,
+  "seg": 2,
+  "name": "CTaskTryAdjustLKP::Execute"
+ },
+ {
+  "rva": 166131144,
+  "seg": 2,
+  "name": "CTaskCanThrowProjectile::CreateRayCast"
+ },
+ {
+  "rva": 166154696,
+  "seg": 2,
+  "name": "CTaskSetAimStance::Execute"
+ },
+ {
+  "rva": 166156216,
+  "seg": 2,
+  "name": "CTaskBoatArrest::Execute"
+ },
+ {
+  "rva": 166545692,
+  "seg": 2,
+  "name": "DriverGameHelpers::CreateLinearShapeCast"
+ },
+ {
+  "rva": 166662640,
+  "seg": 2,
+  "name": "CDroneLogicController::OnInitLogicDataModule"
+ },
+ {
+  "rva": 166662685,
+  "seg": 2,
+  "name": "CDroneLogicController::OnAICommandDispersionEvent"
+ },
+ {
+  "rva": 166672464,
+  "seg": 2,
+  "name": "CSwitchedAllegianceThreat::StartCombat"
+ },
+ {
+  "rva": 166686920,
+  "seg": 2,
+  "name": "CHiddenVisionEvaluator::RequestHiddenRayCheck"
+ },
+ {
+  "rva": 166687128,
+  "seg": 2,
+  "name": "CRaycastVisionEvaluator::RequestRayCheck"
+ },
+ {
+  "rva": 166687472,
+  "seg": 2,
+  "name": "CCLOStimManager::Update"
+ },
+ {
+  "rva": 166687496,
+  "seg": 2,
+  "name": "CCLOStimManager::OnReserveCLO"
+ },
+ {
+  "rva": 166687576,
+  "seg": 2,
+  "name": "CDetectionRaycast::GenerateRaycastRequestOnBones"
+ },
+ {
+  "rva": 166687625,
+  "seg": 2,
+  "name": "CDetectionRaycast::GenerateRaycastRequest"
+ },
+ {
+  "rva": 166689952,
+  "seg": 2,
+  "name": "CHumanNavigationController::StuckValidation"
+ },
+ {
+  "rva": 166691495,
+  "seg": 2,
+  "name": "CHumanZoneLeashingManager::DoLeashing"
+ },
+ {
+  "rva": 166695488,
+  "seg": 2,
+  "name": "CNPCLogicController::OnInitLogicDataModule"
+ },
+ {
+  "rva": 166695531,
+  "seg": 2,
+  "name": "CNPCLogicController::OnAICommandPlayAnimEvent"
+ },
+ {
+  "rva": 166697280,
+  "seg": 2,
+  "name": "CIntuitionPerception::RequestRayCheck"
+ },
+ {
+  "rva": 166708864,
+  "seg": 2,
+  "name": "CZombieLogicController::OnInitLogicDataModule"
+ },
+ {
+  "rva": 166722056,
+  "seg": 2,
+  "name": "CNPCLogicDataModule::UpdateAgentState"
+ },
+ {
+  "rva": 166722094,
+  "seg": 2,
+  "name": "CNPCLogicDataModule::SetAIDesiredStatePause"
+ },
+ {
+  "rva": 166728264,
+  "seg": 2,
+  "name": "CNPCAlertManager::Update"
+ },
+ {
+  "rva": 166744568,
+  "seg": 2,
+  "name": "CRobotLogicDataModule::SendBackToWander"
+ },
+ {
+  "rva": 166761132,
+  "seg": 2,
+  "name": "AIAgentStateManagerInternalHelpers::RequestFollowAndPlayAnim"
+ },
+ {
+  "rva": 166761193,
+  "seg": 2,
+  "name": "AIAgentStateManagerInternalHelpers::OnRequestFleeTrigger"
+ },
+ {
+  "rva": 166761250,
+  "seg": 2,
+  "name": "AIAgentStateManagerInternalHelpers::RequestCower"
+ },
+ {
+  "rva": 166761299,
+  "seg": 2,
+  "name": "AIAgentStateManagerInternalHelpers::RequestScriptedMode"
+ },
+ {
+  "rva": 166761385,
+  "seg": 2,
+  "name": "AIHumanCommandHelpers::OnAICommandDispersionEvent"
+ },
+ {
+  "rva": 166764062,
+  "seg": 2,
+  "name": "CMonsterClosetManager::UpdateMonsterCloset"
+ },
+ {
+  "rva": 166782256,
+  "seg": 2,
+  "name": "CDroneDispencerComponent::PerformRayCheck"
+ },
+ {
+  "rva": 166827728,
+  "seg": 2,
+  "name": "CLineOfSightMonitor::ProcessEntity::Raycast"
+ },
+ {
+  "rva": 166830952,
+  "seg": 2,
+  "name": "CStateAndReactionCoordinator::RemoveNearbyGoodSamaritan"
+ },
+ {
+  "rva": 166862347,
+  "seg": 2,
+  "name": "CRaycastManager::GenerateRaycastRequest"
+ },
+ {
+  "rva": 166907624,
+  "seg": 2,
+  "name": "SPatternPositioner::StartSearchLKPAround"
+ },
+ {
+  "rva": 166907711,
+  "seg": 2,
+  "name": "SPatternPositioner::BuildSlots"
+ },
+ {
+  "rva": 166909192,
+  "seg": 2,
+  "name": "SRayCastPoint::PerformRayCast"
+ },
+ {
+  "rva": 166909222,
+  "seg": 2,
+  "name": "SQueryUser::PerformRayCast"
+ },
+ {
+  "rva": 166909249,
+  "seg": 2,
+  "name": "CNavQueryPoint::PerformRayCast"
+ },
+ {
+  "rva": 166971560,
+  "seg": 2,
+  "name": "CSailboatPathfinding::CInternalJob"
+ },
+ {
+  "rva": 167106398,
+  "seg": 2,
+  "name": "CCameraGameProcessingComponent::UpdatePrePhysics"
+ },
+ {
+  "rva": 167106447,
+  "seg": 2,
+  "name": "CCameraGameProcessingComponent::PrepareVisibilityTests"
+ },
+ {
+  "rva": 167106502,
+  "seg": 2,
+  "name": "CCameraGameProcessingComponent::PrepareAimingAssistanceTests"
+ },
+ {
+  "rva": 167106563,
+  "seg": 2,
+  "name": "CCameraGameProcessingComponent::UpdateZLockAssistance"
+ },
+ {
+  "rva": 167106617,
+  "seg": 2,
+  "name": "CCameraGameProcessingComponent::UpdateGazeToObjectMapping_Raycast"
+ },
+ {
+  "rva": 167106683,
+  "seg": 2,
+  "name": "CCameraGameProcessingComponent::UpdateReticleHitRay_Raycast"
+ },
+ {
+  "rva": 167106743,
+  "seg": 2,
+  "name": "CCameraGameProcessingComponent::UpdateLock"
+ },
+ {
+  "rva": 167130264,
+  "seg": 2,
+  "name": "CCharacterAbilityLogicModuleReinforcement::TriggerCombat"
+ },
+ {
+  "rva": 167175984,
+  "seg": 2,
+  "name": "CFlyingDroneComponent::AboveRayCasts"
+ },
+ {
+  "rva": 167176021,
+  "seg": 2,
+  "name": "CFlyingDroneComponent::UpdateRiderRayCasts"
+ },
+ {
+  "rva": 167176064,
+  "seg": 2,
+  "name": "CFlyingDroneComponent::ProbeUnderRayCast"
+ },
+ {
+  "rva": 167212414,
+  "seg": 2,
+  "name": "CGadgetRCComponent::AboveShapeCast"
+ },
+ {
+  "rva": 167212449,
+  "seg": 2,
+  "name": "CGadgetRCComponent::CenterShapeCast"
+ },
+ {
+  "rva": 167212485,
+  "seg": 2,
+  "name": "CGadgetRCComponent::DetectEdgeProximity"
+ },
+ {
+  "rva": 167212525,
+  "seg": 2,
+  "name": "CGadgetRCComponent::WheelRaycast"
+ },
+ {
+  "rva": 167224544,
+  "seg": 2,
+  "name": "CLocomotionObstacleSensor::UpdateSideSensor"
+ },
+ {
+  "rva": 167224588,
+  "seg": 2,
+  "name": "CLocomotionObstacleSensor::UpdateUnder"
+ },
+ {
+  "rva": 167224627,
+  "seg": 2,
+  "name": "CLocomotionObstacleSensor::Update"
+ },
+ {
+  "rva": 167224675,
+  "seg": 2,
+  "name": "CLocomotionObstacleSensor::UpdateStandUpSensorShape"
+ },
+ {
+  "rva": 167225728,
+  "seg": 2,
+  "name": "CMeleeTargetSensor::IsTargetValidForMeleeAction"
+ },
+ {
+  "rva": 167251088,
+  "seg": 2,
+  "name": "CNavCoverSensorReachChecker::RayCastDelayed"
+ },
+ {
+  "rva": 167251132,
+  "seg": 2,
+  "name": "CNavCoverSensorReachChecker::SphereCastDelayed"
+ },
+ {
+  "rva": 167252832,
+  "seg": 2,
+  "name": "CNavInteractionSensor::DetectFreeFallInteraction"
+ },
+ {
+  "rva": 167299744,
+  "seg": 2,
+  "name": "CRobotVFXComponent::UpdateGroundContact"
+ },
+ {
+  "rva": 167312272,
+  "seg": 2,
+  "name": "CTargetSelectionComponent::Update"
+ },
+ {
+  "rva": 167347168,
+  "seg": 2,
+  "name": "CBulletMissCtx::StartLOSTest"
+ },
+ {
+  "rva": 167354832,
+  "seg": 2,
+  "name": "CProfilerTargetEvaluator::UpdateRayCast"
+ },
+ {
+  "rva": 167364878,
+  "seg": 2,
+  "name": "HCCCoverEvaluation::EvaluateRayCastRequests"
+ },
+ {
+  "rva": 167401456,
+  "seg": 2,
+  "name": "CCreatureSoundAndFXComponent::DetectBloodSplattersTargets"
+ },
+ {
+  "rva": 167474216,
+  "seg": 2,
+  "name": "Auth::CEventChannel"
+ },
+ {
+  "rva": 167534676,
+  "seg": 2,
+  "name": "CRingOfSteelManager::RayCastRequestIsLocalPlayerWatching"
+ },
+ {
+  "rva": 167556304,
+  "seg": 2,
+  "name": "CReticuleManager::UpdateShotgunReticuleRays"
+ },
+ {
+  "rva": 167563952,
+  "seg": 2,
+  "name": "CArrestedComponent::RayCheckDelayed"
+ },
+ {
+  "rva": 167602088,
+  "seg": 2,
+  "name": "CDroneSelectorHackingComponent::BeginDroneSwitchAllegiance"
+ },
+ {
+  "rva": 167759544,
+  "seg": 2,
+  "name": "CPosSysDataManager::UpdatePosSysOcclusion"
+ },
+ {
+  "rva": 167806288,
+  "seg": 2,
+  "name": "CConversationInteractionComponent::ForceTalkerAssociatesAiState"
+ },
+ {
+  "rva": 167806352,
+  "seg": 2,
+  "name": "CConversationInteractionComponent::EnsureTalkerIsInScriptedState"
+ },
+ {
+  "rva": 167806417,
+  "seg": 2,
+  "name": "CConversationInteractionComponent::ReleaseTalkerFromConversation"
+ },
+ {
+  "rva": 167871088,
+  "seg": 2,
+  "name": "CWeaponMechanicComponent::RequestLaserSightRaycast"
+ },
+ {
+  "rva": 167871139,
+  "seg": 2,
+  "name": "CWeaponMechanicComponent::RequestBullet"
+ },
+ {
+  "rva": 167871179,
+  "seg": 2,
+  "name": "CWeaponMechanicComponent::SimulateSniperBullet"
+ },
+ {
+  "rva": 167904575,
+  "seg": 2,
+  "name": "ACDecalIEDComponent::UpdateShrapnelData"
+ },
+ {
+  "rva": 167942136,
+  "seg": 2,
+  "name": "CRocketProjectileComponent::SetStateThrown"
+ },
+ {
+  "rva": 167998515,
+  "seg": 2,
+  "name": "CLivingCityManager::ResetNPCSearchOnReset"
+ },
+ {
+  "rva": 168073000,
+  "seg": 2,
+  "name": "CEnticerState_Animal::OnEntitySpawnFinished"
+ },
+ {
+  "rva": 168077192,
+  "seg": 2,
+  "name": "CCityLifeObjectUsage::RequestSlopePMS"
+ },
+ {
+  "rva": 168077230,
+  "seg": 2,
+  "name": "CCityLifeObjectUsage::CheckBhvActivation"
+ },
+ {
+  "rva": 168214512,
+  "seg": 2,
+  "name": "CNetSurfInfraredDetectorObjectComponent::UpdateLaserLength"
+ },
+ {
+  "rva": 168244728,
+  "seg": 2,
+  "name": "CPlayerSoundAndFXComponent::OnFlashBangStim"
+ },
+ {
+  "rva": 168388432,
+  "seg": 2,
+  "name": "CAbilityGunRCModule::UpdateTargeting"
+ },
+ {
+  "rva": 168388469,
+  "seg": 2,
+  "name": "CAbilityBaseGunRCModule::UpdateAimingBeamTargetPos"
+ },
+ {
+  "rva": 168389920,
+  "seg": 2,
+  "name": "CAbilityBeamGunRCModule::UpdateBeamTargetLength"
+ },
+ {
+  "rva": 168395152,
+  "seg": 2,
+  "name": "CAbilityDronePickupRCModule::PerformDelayedCollisionCheck"
+ },
+ {
+  "rva": 168395210,
+  "seg": 2,
+  "name": "CAbilityDronePickupRCModule::StateScanningForTarget_Update_Variation_Main"
+ },
+ {
+  "rva": 168464152,
+  "seg": 2,
+  "name": "CAbilitySpiderWarWeapon::UpdateAimingRay"
+ },
+ {
+  "rva": 168464193,
+  "seg": 2,
+  "name": "CAbilitySpiderWarWeapon::UpdateMuzzlePenetrationRay"
+ },
+ {
+  "rva": 168464245,
+  "seg": 2,
+  "name": "CAbilitySpiderWarWeapon::UpdateAimingTarget"
+ },
+ {
+  "rva": 168465664,
+  "seg": 2,
+  "name": "CAbilityThrowProjectileRCModule::UpdateCannonClearance"
+ },
+ {
+  "rva": 168469512,
+  "seg": 2,
+  "name": "CAbilityVehicleDisablerRCModule::RayCheckDelayed"
+ },
+ {
+  "rva": 168507536,
+  "seg": 2,
+  "name": "CInventoryRCComponent::Update"
+ },
+ {
+  "rva": 168532764,
+  "seg": 2,
+  "name": "CSpiderTurretRCModule::UpdateTargetList"
+ },
+ {
+  "rva": 168534512,
+  "seg": 2,
+  "name": "CTrapperRCModule::CheckForTargets"
+ },
+ {
+  "rva": 168572030,
+  "seg": 2,
+  "name": "CDriverSessionTransferHostOperation::m_operationManager"
+ },
+ {
+  "rva": 168621400,
+  "seg": 2,
+  "name": "CUniqueNPCPreloadUpdater::SortModelsByDistance"
+ },
+ {
+  "rva": 168686240,
+  "seg": 2,
+  "name": "CDriverHelicopterSoundAndFXComponent::Update"
+ },
+ {
+  "rva": 168689152,
+  "seg": 2,
+  "name": "CDriverMotorCycleVehicle::CanMoveToSeat"
+ },
+ {
+  "rva": 168780048,
+  "seg": 2,
+  "name": "engine\\shaders\\DefaultLUT_sRGB.png"
+ },
+ {
+  "rva": 168800831,
+  "seg": 2,
+  "name": "CBirdFSM::RequestSafeFlightDirection"
+ },
+ {
+  "rva": 168916707,
+  "seg": 2,
+  "name": "LocalStorageOperations::CSaveOperation"
+ },
+ {
+  "rva": 168916848,
+  "seg": 2,
+  "name": "LocalStorageOperations::CDeleteOperation"
+ },
+ {
+  "rva": 168917088,
+  "seg": 2,
+  "name": "LocalStorageOperations::CLoadOperation"
+ },
+ {
+  "rva": 168917232,
+  "seg": 2,
+  "name": "LocalStorageOperations::CListFilesOperation"
+ },
+ {
+  "rva": 168917376,
+  "seg": 2,
+  "name": "LocalStorageOperations::CGetAvailableSpaceOperation"
+ },
+ {
+  "rva": 168917536,
+  "seg": 2,
+  "name": "LocalStorageOperations::CCleanOperation"
+ },
+ {
+  "rva": 168917912,
+  "seg": 2,
+  "name": "PhotoCacheOperations::CLoadItemsOperation"
+ },
+ {
+  "rva": 168918080,
+  "seg": 2,
+  "name": "PhotoCacheOperations::CSaveOperation"
+ },
+ {
+  "rva": 168918240,
+  "seg": 2,
+  "name": "PhotoCacheOperations::CDeleteOperation"
+ },
+ {
+  "rva": 168918400,
+  "seg": 2,
+  "name": "PhotoCacheOperations::CLoadOperation"
+ },
+ {
+  "rva": 168918560,
+  "seg": 2,
+  "name": "PhotoOperations::CLoadMyAdditionalSharedPhotosOperation"
+ },
+ {
+  "rva": 168918728,
+  "seg": 2,
+  "name": "PhotoOperations::CLoadMyPhotosOperation"
+ },
+ {
+  "rva": 168918880,
+  "seg": 2,
+  "name": "PhotoOperations::CLoadKeyLocationPhotosOperation"
+ },
+ {
+  "rva": 168919048,
+  "seg": 2,
+  "name": "PhotoOperations::CLoadCommunityPhotosOperation"
+ },
+ {
+  "rva": 168919216,
+  "seg": 2,
+  "name": "PhotoOperations::CLoadPhotoOfTheDayOperation"
+ },
+ {
+  "rva": 168919480,
+  "seg": 2,
+  "name": "PhotoOperations::CLocalSaveOperation"
+ },
+ {
+  "rva": 168919830,
+  "seg": 2,
+  "name": "PhotoOperations::CSaveOperation"
+ },
+ {
+  "rva": 168919984,
+  "seg": 2,
+  "name": "PhotoOperations::CLoadOperation"
+ },
+ {
+  "rva": 168920128,
+  "seg": 2,
+  "name": "PhotoOperations::CDeleteOperation"
+ },
+ {
+  "rva": 168920288,
+  "seg": 2,
+  "name": "PhotoOperations::CDeleteBulkOperation"
+ },
+ {
+  "rva": 168920552,
+  "seg": 2,
+  "name": "PhotoOperations::CReportPhotoOperation"
+ },
+ {
+  "rva": 168920696,
+  "seg": 2,
+  "name": "PhotoOperations::CCleanLocalPhotosOperation"
+ },
+ {
+  "rva": 168920864,
+  "seg": 2,
+  "name": "CCleanOperation::CCleanOperation"
+ },
+ {
+  "rva": 168957768,
+  "seg": 2,
+  "name": "CSpiderTankComponent::RequestVerticalRaycast"
+ },
+ {
+  "rva": 168957813,
+  "seg": 2,
+  "name": "CSpiderTankComponent::ComputeNavigationRaycasts"
+ },
+ {
+  "rva": 168957861,
+  "seg": 2,
+  "name": "CSpiderTankComponent::RequestDirectionRaycasts"
+ },
+ {
+  "rva": 168957908,
+  "seg": 2,
+  "name": "CSpiderTankComponent::RequestJumpGuideRaycasts"
+ },
+ {
+  "rva": 168959959,
+  "seg": 2,
+  "name": "CSpiderTankLeg::ComputeIdealPosition"
+ },
+ {
+  "rva": 169188288,
+  "seg": 2,
+  "name": "CCityLocations::FillFromObjectStaticDataManager"
+ },
+ {
+  "rva": 169188781,
+  "seg": 2,
+  "name": "CCityLocations::Clear"
+ },
+ {
+  "rva": 169230696,
+  "seg": 2,
+  "name": "OperativeSwap::CBaseOverride"
+ },
+ {
+  "rva": 169385264,
+  "seg": 2,
+  "name": "CScriptedHackEffectKillerDrones::UpdateHackEffect"
+ },
+ {
+  "rva": 169431272,
+  "seg": 2,
+  "name": "CFirewallInteractNodeComponent::RequestCandidate"
+ },
+ {
+  "rva": 169484019,
+  "seg": 2,
+  "name": "CPlasmaDialogScene::ResetSpeakers"
+ },
+ {
+  "rva": 169832126,
+  "seg": 2,
+  "name": "CAbilityManualBeamGunRCModule::IsTargetAccessible"
+ },
+ {
+  "rva": 169842752,
+  "seg": 2,
+  "name": "CMountedShieldComponent::CheckIsInTheAir"
+ },
+ {
+  "rva": 169844882,
+  "seg": 2,
+  "name": "CDroneSwarmNavigation::RestartPath"
+ },
+ {
+  "rva": 169890200,
+  "seg": 2,
+  "name": "MindControlHelpers::ClearAggroAndFelony"
+ },
+ {
+  "rva": 169954208,
+  "seg": 2,
+  "name": "CTerminatorUltraSonic::RequestRayCheck"
+ },
+ {
+  "rva": 169959496,
+  "seg": 2,
+  "name": "CSwarm::CSimulationJob"
+ },
+ {
+  "rva": 169959544,
+  "seg": 2,
+  "name": "CStaticSwarm::CSimulationJob"
+ },
+ {
+  "rva": 170340856,
+  "seg": 2,
+  "name": "CDetainedGameplay::RequestPrisonerCombatState"
+ },
+ {
+  "rva": 170563392,
+  "seg": 2,
+  "name": "CDigitalTripPvPSpiderAvatar::LockCameraOnKiller"
+ },
+ {
+  "rva": 170668440,
+  "seg": 2,
+  "name": "GameMode::Invasion"
+ },
+ {
+  "rva": 171374662,
+  "seg": 2,
+  "name": "CPGTAIManager::FollowEntity"
+ },
+ {
+  "rva": 171374736,
+  "seg": 2,
+  "name": "CPGTAIManager::ResetAliveAIToSpawnLocation"
+ },
+ {
+  "rva": 171993404,
+  "seg": 2,
+  "name": "FeetIK::ShapeCast"
+ },
+ {
+  "rva": 171993422,
+  "seg": 2,
+  "name": "FeetIK::ShapeCast::Stairs"
+ },
+ {
+  "rva": 172123224,
+  "seg": 2,
+  "name": "CFireUiPlayer::RenderInternal"
+ },
+ {
+  "rva": 172123254,
+  "seg": 2,
+  "name": "CFireUiPlayer::PostRenderInternal"
+ },
+ {
+  "rva": 172123422,
+  "seg": 2,
+  "name": "FireUi::Overall"
+ },
+ {
+  "rva": 172123438,
+  "seg": 2,
+  "name": "FireUi::ActionScript"
+ },
+ {
+  "rva": 172123459,
+  "seg": 2,
+  "name": "FireUi::GC"
+ },
+ {
+  "rva": 172123470,
+  "seg": 2,
+  "name": "FireUi::Rendering"
+ },
+ {
+  "rva": 172123488,
+  "seg": 2,
+  "name": "FireUi::Tessellation"
+ },
+ {
+  "rva": 172123509,
+  "seg": 2,
+  "name": "FireUi::ActionScriptBridge"
+ },
+ {
+  "rva": 172123536,
+  "seg": 2,
+  "name": "FireUi::RenderingFireText"
+ },
+ {
+  "rva": 172123562,
+  "seg": 2,
+  "name": "FireUi::SetVariable"
+ },
+ {
+  "rva": 172123582,
+  "seg": 2,
+  "name": "FireUi::MaskRendering"
+ },
+ {
+  "rva": 172123604,
+  "seg": 2,
+  "name": "FireUi::SendEvent"
+ },
+ {
+  "rva": 172123622,
+  "seg": 2,
+  "name": "FireUi::Timeline"
+ },
+ {
+  "rva": 172123639,
+  "seg": 2,
+  "name": "FireUi::DrawFrame"
+ },
+ {
+  "rva": 172123657,
+  "seg": 2,
+  "name": "FireUi::FireTween"
+ },
+ {
+  "rva": 172123675,
+  "seg": 2,
+  "name": "FireUi::Locking"
+ },
+ {
+  "rva": 172123691,
+  "seg": 2,
+  "name": "FireUi::MovieClipLoaders"
+ },
+ {
+  "rva": 172168240,
+  "seg": 2,
+  "name": "CInterfaceFireLayerJobbased::RenderInternalFromJob"
+ },
+ {
+  "rva": 172168291,
+  "seg": 2,
+  "name": "CInterfaceFireLayerJobbased::PostRenderInternalFromJob"
+ },
+ {
+  "rva": 172273448,
+  "seg": 2,
+  "name": "Vis::Query::CJob"
+ },
+ {
+  "rva": 172273465,
+  "seg": 2,
+  "name": "Vis::GatherAPsJob"
+ },
+ {
+  "rva": 172273483,
+  "seg": 2,
+  "name": "Vis::ExtrudeAPsJob"
+ },
+ {
+  "rva": 172273502,
+  "seg": 2,
+  "name": "Vis::DistributeNodesJob"
+ },
+ {
+  "rva": 172273526,
+  "seg": 2,
+  "name": "Vis::GetVisibleCellsJob"
+ },
+ {
+  "rva": 172273550,
+  "seg": 2,
+  "name": "Vis::GetVisibleNodesJob"
+ },
+ {
+  "rva": 172273574,
+  "seg": 2,
+  "name": "Vis::MergeVisibleNodesJob"
+ },
+ {
+  "rva": 172273600,
+  "seg": 2,
+  "name": "Vis::CleanupJob"
+ },
+ {
+  "rva": 172332574,
+  "seg": 2,
+  "name": "CEngine::PhysicsUpdate"
+ },
+ {
+  "rva": 172465872,
+  "seg": 2,
+  "name": "CAgentComponentUpdater::UpdateAll"
+ },
+ {
+  "rva": 172472888,
+  "seg": 2,
+  "name": "CLoadingVideoPlayer::CThread"
+ },
+ {
+  "rva": 172557464,
+  "seg": 2,
+  "name": "engine\\shaders\\Textures\\SkyResource.bin"
+ },
+ {
+  "rva": 172557504,
+  "seg": 2,
+  "name": "engine\\shaders\\Textures\\PuddleHeight.bin"
+ },
+ {
+  "rva": 172739320,
+  "seg": 2,
+  "name": "CBulletTracerManager::AddTrace"
+ },
+ {
+  "rva": 172751616,
+  "seg": 2,
+  "name": "CPawnInteractionMonitor::HandleUsableEvent"
+ },
+ {
+  "rva": 172811136,
+  "seg": 2,
+  "name": "CLookAtTriggerComponent::CreateRaycastRequest"
+ },
+ {
+  "rva": 172822112,
+  "seg": 2,
+  "name": "CVehicle::StartDelayedRayCast"
+ },
+ {
+  "rva": 172822142,
+  "seg": 2,
+  "name": "CVehicle::CanMoveToSeat"
+ },
+ {
+  "rva": 172919856,
+  "seg": 2,
+  "name": "CSceneObjectManager::ExecuteCommands"
+ },
+ {
+  "rva": 172919893,
+  "seg": 2,
+  "name": "CSceneObjectManager::FinishPrepareUpdates"
+ },
+ {
+  "rva": 172919935,
+  "seg": 2,
+  "name": "CSceneObjectManager::StartPrepareUpdates"
+ },
+ {
+  "rva": 172975808,
+  "seg": 2,
+  "name": "CFrameJob::KickCommandBuffers"
+ },
+ {
+  "rva": 172975838,
+  "seg": 2,
+  "name": "CFrameJob::ExecuteSynchronous"
+ },
+ {
+  "rva": 172975868,
+  "seg": 2,
+  "name": "CFrameJob::ExecuteRenderListDraw"
+ },
+ {
+  "rva": 172975901,
+  "seg": 2,
+  "name": "Device3D::CBuffer::Copy"
+ },
+ {
+  "rva": 172975925,
+  "seg": 2,
+  "name": "Device3D::CGPUJobChildHandler::AddGPUAsParent"
+ },
+ {
+  "rva": 172975985,
+  "seg": 2,
+  "name": "CGPUQueueSync::Start"
+ },
+ {
+  "rva": 172976006,
+  "seg": 2,
+  "name": "CGPUQueueSync::End"
+ },
+ {
+  "rva": 172976025,
+  "seg": 2,
+  "name": "CJobLineup::Schedule"
+ },
+ {
+  "rva": 172976046,
+  "seg": 2,
+  "name": "CJobLineup::ExecuteOneJob"
+ },
+ {
+  "rva": 172976821,
+  "seg": 2,
+  "name": "CTextureMipsGenerator::ReleaseViews"
+ },
+ {
+  "rva": 172998008,
+  "seg": 2,
+  "name": "CWetnessOccluderRendererHelper::Lock"
+ },
+ {
+  "rva": 172998045,
+  "seg": 2,
+  "name": "CWetnessOccluderRendererHelper::Memcpy"
+ },
+ {
+  "rva": 172998084,
+  "seg": 2,
+  "name": "CWetnessOccluderRendererHelper::Unlock"
+ },
+ {
+  "rva": 173000045,
+  "seg": 2,
+  "name": "decal::ReleaseBuffers"
+ },
+ {
+  "rva": 173000304,
+  "seg": 2,
+  "name": "CDecalModifierProcessor::DebugLockJob"
+ },
+ {
+  "rva": 173003695,
+  "seg": 2,
+  "name": "CAmbientOcclusionVolumeBaker::Execute"
+ },
+ {
+  "rva": 173003733,
+  "seg": 2,
+  "name": "CAmbientOcclusionVolumeBaker::CVolumeData::Lock"
+ },
+ {
+  "rva": 173003781,
+  "seg": 2,
+  "name": "CAmbientOcclusionVolumeBaker::CVolumeData::Memcpy"
+ },
+ {
+  "rva": 173003831,
+  "seg": 2,
+  "name": "CAmbientOcclusionVolumeBaker::CVolumeData::Unlock"
+ },
+ {
+  "rva": 173003881,
+  "seg": 2,
+  "name": "CAmbientOcclusionVolumeBaker::CVolumeData::Execute"
+ },
+ {
+  "rva": 173004640,
+  "seg": 2,
+  "name": "CSyncTexture::Execute"
+ },
+ {
+  "rva": 173004662,
+  "seg": 2,
+  "name": "CWaterHeightMap::Lock"
+ },
+ {
+  "rva": 173004684,
+  "seg": 2,
+  "name": "CWaterHeightMap::Memcpy"
+ },
+ {
+  "rva": 173004708,
+  "seg": 2,
+  "name": "CWaterHeightMap::Unlock"
+ },
+ {
+  "rva": 173005135,
+  "seg": 2,
+  "name": "CBlendShapesRenderer::DebugLock"
+ },
+ {
+  "rva": 173006439,
+  "seg": 2,
+  "name": "CClusterRenderer::ProcessVisibleInstances"
+ },
+ {
+  "rva": 173008693,
+  "seg": 2,
+  "name": "CDeferredLighting::JobSetup"
+ },
+ {
+  "rva": 173009604,
+  "seg": 2,
+  "name": "DynamicBufferLockAndCopy::Details::LockAndCopyBuffers"
+ },
+ {
+  "rva": 173009658,
+  "seg": 2,
+  "name": "DynamicBufferLockAndCopy::Job"
+ },
+ {
+  "rva": 173010127,
+  "seg": 2,
+  "name": "CEnvironmentSampleRenderer::CreateVB"
+ },
+ {
+  "rva": 173010164,
+  "seg": 2,
+  "name": "CEnvironmentSampleRenderer::DoRender"
+ },
+ {
+  "rva": 173010417,
+  "seg": 2,
+  "name": "CFluidSimulationRenderer::Copy"
+ },
+ {
+  "rva": 173011211,
+  "seg": 2,
+  "name": "engine\\shaders\\CustomSemantics.inc.fx"
+ },
+ {
+  "rva": 173013066,
+  "seg": 2,
+  "name": "CFrameRendererBase::ResetJobGroupPoolAndFreeFrameFreeAllAllocator"
+ },
+ {
+  "rva": 173013132,
+  "seg": 2,
+  "name": "CFrameRendererBase::PostRenderViewActiveViewport"
+ },
+ {
+  "rva": 173013181,
+  "seg": 2,
+  "name": "CFrameRendererBase::PostRenderAllActiveViewports_Threaded"
+ },
+ {
+  "rva": 173013239,
+  "seg": 2,
+  "name": "Device3D::CRenderDevice::FrameCleanup_Threaded"
+ },
+ {
+  "rva": 173013311,
+  "seg": 2,
+  "name": "Device3D::CrenderDevice::FramePreparation_Threaded"
+ },
+ {
+  "rva": 173013362,
+  "seg": 2,
+  "name": "CFrameRendererBase::PostRenderAllActiveViewports_FrameCleanUp"
+ },
+ {
+  "rva": 173013543,
+  "seg": 2,
+  "name": "CShadowedConstantBufferPool::BeginFrame"
+ },
+ {
+  "rva": 173013954,
+  "seg": 2,
+  "name": "CFrameRendererBase::ComputeViewportVisibility"
+ },
+ {
+  "rva": 173014000,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareActiveViewport"
+ },
+ {
+  "rva": 173014042,
+  "seg": 2,
+  "name": "CFrameRendererBase::UpdateBinkManager"
+ },
+ {
+  "rva": 173014080,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareEnvironmentLighting"
+ },
+ {
+  "rva": 173014127,
+  "seg": 2,
+  "name": "CFrameRendererBase::ScheduleEnvironmentLighting"
+ },
+ {
+  "rva": 173014175,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareVolumetricCloudsSimulation"
+ },
+ {
+  "rva": 173014229,
+  "seg": 2,
+  "name": "CFrameRendererBase::ScheduleVolumetricCloudsSimulation"
+ },
+ {
+  "rva": 173014284,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareShadowFrameGraph"
+ },
+ {
+  "rva": 173014328,
+  "seg": 2,
+  "name": "CShadowRenderer::RenderShadow"
+ },
+ {
+  "rva": 173014358,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareMainPassSceneRenderContext"
+ },
+ {
+  "rva": 173014412,
+  "seg": 2,
+  "name": "FrameRendererBase::ExecuteClearShadowTextures"
+ },
+ {
+  "rva": 173014458,
+  "seg": 2,
+  "name": "CFrameRendererBase::StartShadowDatabaseQueries"
+ },
+ {
+  "rva": 173014505,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareTreeSimulation"
+ },
+ {
+  "rva": 173014547,
+  "seg": 2,
+  "name": "CFrameRendererBase::RenderMainPassSceneObjects"
+ },
+ {
+  "rva": 173014594,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareFrameGraphPart1"
+ },
+ {
+  "rva": 173014637,
+  "seg": 2,
+  "name": "CFrameRendererBase::ScheduleFluidSimulationExecute"
+ },
+ {
+  "rva": 173014688,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareLongRangeShadowVisibility"
+ },
+ {
+  "rva": 173014741,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareFrameGraphPart2"
+ },
+ {
+  "rva": 173014784,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareReflectionVisibility"
+ },
+ {
+  "rva": 173014832,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareAOVolumeBake"
+ },
+ {
+  "rva": 173014872,
+  "seg": 2,
+  "name": "CFrameRendererBase::ScheduleExecuteAOBake"
+ },
+ {
+  "rva": 173014914,
+  "seg": 2,
+  "name": "CFrameRendererBase::ProcessAllRenderJobs"
+ },
+ {
+  "rva": 173014955,
+  "seg": 2,
+  "name": "CFrameRendererBase::ScheduleExecuteFrameGraphPart1"
+ },
+ {
+  "rva": 173015006,
+  "seg": 2,
+  "name": "CStaticVSMRenderer::RenderStaticVSM"
+ },
+ {
+  "rva": 173015042,
+  "seg": 2,
+  "name": "CFrameRendererBase::ScheduleExecuteFrameGraphPart2"
+ },
+ {
+  "rva": 173015093,
+  "seg": 2,
+  "name": "CFrameRendererBase::RenderLongRangeShadow"
+ },
+ {
+  "rva": 173015135,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareFrameGraphPart3"
+ },
+ {
+  "rva": 173015178,
+  "seg": 2,
+  "name": "CFrameRendererBase::ScheduleEndOfExecuteJobGroupChain"
+ },
+ {
+  "rva": 173015232,
+  "seg": 2,
+  "name": "CFrameRendererBase::EndOfViewportExecuteJobGroupChain"
+ },
+ {
+  "rva": 173015286,
+  "seg": 2,
+  "name": "CFrameRendererBase::SchedulePostRenderViewActiveViewport"
+ },
+ {
+  "rva": 173015343,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareReflectionFrameGraph"
+ },
+ {
+  "rva": 173015391,
+  "seg": 2,
+  "name": "CDynamicCubeMapReflectionRenderer::ScheduleExecuteReflection"
+ },
+ {
+  "rva": 173015452,
+  "seg": 2,
+  "name": "CVegetationDisplacementRenderer::Execute"
+ },
+ {
+  "rva": 173015508,
+  "seg": 2,
+  "name": "CFrameRendererBase::ExecuteFrameGraphPart1"
+ },
+ {
+  "rva": 173015551,
+  "seg": 2,
+  "name": "CFrameRendererBase::ExecuteFrameGraphPart2"
+ },
+ {
+  "rva": 173015594,
+  "seg": 2,
+  "name": "CFrameRendererBase::ExecuteFrameGraphPart3"
+ },
+ {
+  "rva": 173015723,
+  "seg": 2,
+  "name": "CFluidSimulationRenderer::Execute"
+ },
+ {
+  "rva": 173015757,
+  "seg": 2,
+  "name": "CFrameRendererBase::ExecuteBlendShapes"
+ },
+ {
+  "rva": 173015796,
+  "seg": 2,
+  "name": "CFrameRendererBase::ExecuteRenormalization"
+ },
+ {
+  "rva": 173016267,
+  "seg": 2,
+  "name": "CGIQueryRenderer::GatherResultsFromGPUBuffer"
+ },
+ {
+  "rva": 173038387,
+  "seg": 2,
+  "name": "CGPUParticles::RestoreTextures"
+ },
+ {
+  "rva": 173038418,
+  "seg": 2,
+  "name": "CGPUParticles::CopyTextures"
+ },
+ {
+  "rva": 173038812,
+  "seg": 2,
+  "name": "CIngameMapRenderer::ClearFrameJobsAndAllocator"
+ },
+ {
+  "rva": 173039664,
+  "seg": 2,
+  "name": "CLightEffectRenderer::CreateVB"
+ },
+ {
+  "rva": 173041898,
+  "seg": 2,
+  "name": "CMSIAmbientLinkUpdater::GatherResultsFromGPUBuffer"
+ },
+ {
+  "rva": 173042431,
+  "seg": 2,
+  "name": "CProgrammaticLUTGenerator::CreateHBAONoiseTexture"
+ },
+ {
+  "rva": 173042481,
+  "seg": 2,
+  "name": "CProgrammaticLUTGenerator::CreateSSAONoiseTexture"
+ },
+ {
+  "rva": 173042531,
+  "seg": 2,
+  "name": "CProgrammaticLUTGenerator::CreateUnbiasedRotationPatternTexture"
+ },
+ {
+  "rva": 173045688,
+  "seg": 2,
+  "name": "CParaboloidReflectionRenderer::ExecuteReflection"
+ },
+ {
+  "rva": 173045785,
+  "seg": 2,
+  "name": "CParaboloidReflectionRenderer::ClearFrameJobsAndAllocator"
+ },
+ {
+  "rva": 173178319,
+  "seg": 2,
+  "name": "CSceneGraphicObjectInstanceRenderer::Render"
+ },
+ {
+  "rva": 173178363,
+  "seg": 2,
+  "name": "CSceneGraphicObjectInstanceRenderer::RenderInternal"
+ },
+ {
+  "rva": 173178438,
+  "seg": 2,
+  "name": "CSceneGraphicObjectInstanceRenderer::RenderShadowInternal"
+ },
+ {
+  "rva": 173178649,
+  "seg": 2,
+  "name": "CSceneParticleEmitterRenderer::CreateVertexBuffersCallbackJob"
+ },
+ {
+  "rva": 173178933,
+  "seg": 2,
+  "name": "CShaderDebugOutputManager::LockStagingTexture"
+ },
+ {
+  "rva": 173179582,
+  "seg": 2,
+  "name": "CShadowRenderer::ExecuteVolatileShadowAtlas"
+ },
+ {
+  "rva": 173179697,
+  "seg": 2,
+  "name": "CShadowRenderer::BlendShapeExecute"
+ },
+ {
+  "rva": 173179787,
+  "seg": 2,
+  "name": "CShadowRenderer::GetExtentsResults"
+ },
+ {
+  "rva": 173179822,
+  "seg": 2,
+  "name": "CShadowRenderer::PrepareShadowAtlas"
+ },
+ {
+  "rva": 173179858,
+  "seg": 2,
+  "name": "CShadowRenderer::RenderShadowSlice"
+ },
+ {
+  "rva": 173180252,
+  "seg": 2,
+  "name": "CShadowVolumeOcclusionTestRenderer::RefreshOcclusionTestResults"
+ },
+ {
+  "rva": 173180316,
+  "seg": 2,
+  "name": "CShadowVolumeOcclusionTestRenderer::PrepareOcclusionTestRenderJobs"
+ },
+ {
+  "rva": 173181392,
+  "seg": 2,
+  "name": "CSceneSplinePrimitiveRenderer::ProcessBuildRequests"
+ },
+ {
+  "rva": 173181444,
+  "seg": 2,
+  "name": "CSplinePrimitiveRenderer::DeleteUnusedResources"
+ },
+ {
+  "rva": 173181492,
+  "seg": 2,
+  "name": "CSplinePrimitiveRenderer::ProcessPrimitive"
+ },
+ {
+  "rva": 173181535,
+  "seg": 2,
+  "name": "CSplinePrimitiveRenderer::CSplinePrimitiveRenderer"
+ },
+ {
+  "rva": 173182443,
+  "seg": 2,
+  "name": "CStaticVSMRenderer::RenderVSM"
+ },
+ {
+  "rva": 173182579,
+  "seg": 2,
+  "name": "CTerrainRenderer::RenderInternal"
+ },
+ {
+  "rva": 173182633,
+  "seg": 2,
+  "name": "CFrameRendererBase::ExtractIndirectTexture"
+ },
+ {
+  "rva": 173186379,
+  "seg": 2,
+  "name": "CGPGPUVisibilityTestRenderer::CreateVB"
+ },
+ {
+  "rva": 173186418,
+  "seg": 2,
+  "name": "CGPGPUVisibilityTestRenderer::MemCopyVB"
+ },
+ {
+  "rva": 173186458,
+  "seg": 2,
+  "name": "CGPGPUVisibilityTestRenderer::CreateRenderJob"
+ },
+ {
+  "rva": 173227836,
+  "seg": 2,
+  "name": "CHDRSyncExposure::Execute"
+ },
+ {
+  "rva": 173231784,
+  "seg": 2,
+  "name": "CPostFxTemporalAARenderer::AdaptFrameJob"
+ },
+ {
+  "rva": 173232348,
+  "seg": 2,
+  "name": "CFrameRendererBase::PrepareFrameJobTemporalFiltering"
+ },
+ {
+  "rva": 173428056,
+  "seg": 2,
+  "name": "COcclusionQueryPrivateDataCallback::Update"
+ },
+ {
+  "rva": 173433357,
+  "seg": 2,
+  "name": "CSplineLoftRenderer::ComputeDefaultBatchBitmasks"
+ },
+ {
+  "rva": 173433406,
+  "seg": 2,
+  "name": "CSplineLoftRenderer::ProcessBuildRequests"
+ },
+ {
+  "rva": 173433448,
+  "seg": 2,
+  "name": "CSplineLoftRenderer::DeleteUnusedResources"
+ },
+ {
+  "rva": 173433491,
+  "seg": 2,
+  "name": "CSplineLoftRenderer::ProcessPrimitive"
+ },
+ {
+  "rva": 173433529,
+  "seg": 2,
+  "name": "CSplineLoftRenderer::CSplineLoftRenderer"
+ },
+ {
+  "rva": 173434745,
+  "seg": 2,
+  "name": "CGPUVisibilityRenderer::ProcessInstancesResults"
+ },
+ {
+  "rva": 173434793,
+  "seg": 2,
+  "name": "CGPUVisibilityRenderer::ProcessNodesResults"
+ },
+ {
+  "rva": 173434837,
+  "seg": 2,
+  "name": "CGPUVisibilityRenderer::Execute"
+ },
+ {
+  "rva": 173435761,
+  "seg": 2,
+  "name": "SDynGeomProviderPatcher::PatchGeometryProvider"
+ },
+ {
+  "rva": 173435880,
+  "seg": 2,
+  "name": "CWaterSplinesRenderer::CreateVB"
+ },
+ {
+  "rva": 173435912,
+  "seg": 2,
+  "name": "CWaterSplinesRenderer::RenderForWaterGrid"
+ },
+ {
+  "rva": 173435954,
+  "seg": 2,
+  "name": "CWaterSplinesRenderer::DrawSplinesForGlobalHeightField"
+ },
+ {
+  "rva": 173442696,
+  "seg": 2,
+  "name": "CWaterSplinePrivateData::CreateVB"
+ },
+ {
+  "rva": 173460584,
+  "seg": 2,
+  "name": "Tree::UpdateSubResource"
+ },
+ {
+  "rva": 173462556,
+  "seg": 2,
+  "name": "CTreeRendererScheduler::ExecuteSimulateTrees"
+ },
+ {
+  "rva": 173462702,
+  "seg": 2,
+  "name": "ImpostorRenderer::SynchRendering"
+ },
+ {
+  "rva": 173462735,
+  "seg": 2,
+  "name": "CTreeRenderer::LockTreeAttachmentDataSB"
+ },
+ {
+  "rva": 173462796,
+  "seg": 2,
+  "name": "CTreeRenderer::UnlockTreeAttachmentDataSB"
+ },
+ {
+  "rva": 173462838,
+  "seg": 2,
+  "name": "ImpostorRenderer::FlushImpostors"
+ },
+ {
+  "rva": 173486360,
+  "seg": 2,
+  "name": "CSceneRenderer::PreRenderLooped_Threaded"
+ },
+ {
+  "rva": 173486401,
+  "seg": 2,
+  "name": "CSceneRenderer::SceneObjectUpdate_Threaded"
+ },
+ {
+  "rva": 173486444,
+  "seg": 2,
+  "name": "CSceneRenderer::RenderLooped_Threaded"
+ },
+ {
+  "rva": 173486482,
+  "seg": 2,
+  "name": "CSceneRenderer::CallPrivateDataDestructors"
+ },
+ {
+  "rva": 173486525,
+  "seg": 2,
+  "name": "CSceneObjectManager::FreePrivateDataMemory"
+ },
+ {
+  "rva": 173486568,
+  "seg": 2,
+  "name": "CSceneRenderer::Finish_Threaded"
+ },
+ {
+  "rva": 173486600,
+  "seg": 2,
+  "name": "CSceneRenderer::Flip_Threaded"
+ },
+ {
+  "rva": 173486630,
+  "seg": 2,
+  "name": "CSceneRenderer::ReInitializeDevice_Threaded"
+ },
+ {
+  "rva": 173486674,
+  "seg": 2,
+  "name": "CSceneRenderer::LimitDeviceWorkload_Threaded"
+ },
+ {
+  "rva": 173486719,
+  "seg": 2,
+  "name": "CSceneRenderer::PreRender_Threaded"
+ },
+ {
+  "rva": 173486754,
+  "seg": 2,
+  "name": "CSceneRenderer::Render_Threaded"
+ },
+ {
+  "rva": 173524984,
+  "seg": 2,
+  "name": "engine\\shaders\\parameters"
+ },
+ {
+  "rva": 173525824,
+  "seg": 2,
+  "name": "CTextureRenderResourceUpdateFromCommand::Execute"
+ },
+ {
+  "rva": 173528073,
+  "seg": 2,
+  "name": "engine\\shaders\\meta\\CommonOptions.xml"
+ },
+ {
+  "rva": 173528536,
+  "seg": 2,
+  "name": "engine\\shaders\\usage_override.bin"
+ },
+ {
+  "rva": 173528570,
+  "seg": 2,
+  "name": "engine\\shaders\\usage.bin"
+ },
+ {
+  "rva": 173528595,
+  "seg": 2,
+  "name": "CShaderVariationGenerator::GenerateAllVariations"
+ },
+ {
+  "rva": 173528792,
+  "seg": 2,
+  "name": "engine\\shaders\\SamplerStates.xml"
+ },
+ {
+  "rva": 173529120,
+  "seg": 2,
+  "name": "engine\\shaders\\TextureProfiles.xml"
+ },
+ {
+  "rva": 173529291,
+  "seg": 2,
+  "name": "ID3D11CommandList::Release"
+ },
+ {
+  "rva": 173529744,
+  "seg": 2,
+  "name": "CTextureD3D11::Copy"
+ },
+ {
+  "rva": 173535864,
+  "seg": 2,
+  "name": "engine\\shaders\\obj"
+ },
+ {
+  "rva": 173554816,
+  "seg": 2,
+  "name": "CAirPathfindManager::ProcessJobs"
+ },
+ {
+  "rva": 173637800,
+  "seg": 2,
+  "name": "module_smm2_details::CSetPlayerProfile"
+ },
+ {
+  "rva": 173639576,
+  "seg": 2,
+  "name": "Auth::CModuleActivationHook"
+ },
+ {
+  "rva": 173814743,
+  "seg": 2,
+  "name": "CVoiceChatManager::Shutdown"
+ },
+ {
+  "rva": 173849277,
+  "seg": 2,
+  "name": "COnlineFlowManager::GotoSinglePlayer_WaitForTransition"
+ },
+ {
+  "rva": 173849361,
+  "seg": 2,
+  "name": "COnlineFlowManager::WaitUntilInGame"
+ },
+ {
+  "rva": 173851284,
+  "seg": 2,
+  "name": "OnlineFlow::Stages::CRunInParallel"
+ },
+ {
+  "rva": 173855345,
+  "seg": 2,
+  "name": "COnlineMainMenu::GameplayLoop"
+ },
+ {
+  "rva": 173860584,
+  "seg": 2,
+  "name": "OnlineFlow::Stages::RunInParallel"
+ },
+ {
+  "rva": 173869307,
+  "seg": 2,
+  "name": "CSandbox::GameplayLoop"
+ },
+ {
+  "rva": 173869330,
+  "seg": 2,
+  "name": "CSandbox::ReconnectionFlow"
+ },
+ {
+  "rva": 173869357,
+  "seg": 2,
+  "name": "OnlineFlow::Modules::CSandboxModule::SetGameplayOverride"
+ },
+ {
+  "rva": 173869414,
+  "seg": 2,
+  "name": "OnlineFlow::Modules::CSandboxModule::ClearGameplayOverride"
+ },
+ {
+  "rva": 173869832,
+  "seg": 2,
+  "name": "OnlineFlow::Modules::CSinglePlayerModule::GameplayLoop"
+ },
+ {
+  "rva": 173877481,
+  "seg": 2,
+  "name": "CGOBuilderModule::StartOnlineGame"
+ },
+ {
+  "rva": 173877554,
+  "seg": 2,
+  "name": "CGOBuilderModule::UpdateGameModeInMainMenu"
+ },
+ {
+  "rva": 173879739,
+  "seg": 2,
+  "name": "EInviteState::IDLE"
+ },
+ {
+  "rva": 173879758,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_PLATFORM_INFO"
+ },
+ {
+  "rva": 173879798,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_QUIT_TO_START_MENU"
+ },
+ {
+  "rva": 173879843,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_QUIT_TO_MAIN_MENU"
+ },
+ {
+  "rva": 173879887,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_STORM_MODULE"
+ },
+ {
+  "rva": 173879926,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_MAIN_MENU_INIT"
+ },
+ {
+  "rva": 173879967,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_RDV_SIGNIN"
+ },
+ {
+  "rva": 173880004,
+  "seg": 2,
+  "name": "EInviteState::DISPLAY_CONNECTING_MESSAGE"
+ },
+ {
+  "rva": 173880045,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_ONBOARDING_STATE"
+ },
+ {
+  "rva": 173880088,
+  "seg": 2,
+  "name": "EInviteState::DISPLAY_ONBOARDING_CANCEL_MESSAGE"
+ },
+ {
+  "rva": 173880136,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_CRITICAL_SECTION"
+ },
+ {
+  "rva": 173880179,
+  "seg": 2,
+  "name": "EInviteState::VALIDATE_PROGRESSION_REQUIREMENTS"
+ },
+ {
+  "rva": 173880227,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_ACCESS_REQUIREMENTS"
+ },
+ {
+  "rva": 173880273,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_SENDER_PROFILE_ID_RESOLVE"
+ },
+ {
+  "rva": 173880325,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_SESSION_VALIDATION"
+ },
+ {
+  "rva": 173880370,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_SERVER_VALIDATION"
+ },
+ {
+  "rva": 173880414,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_USER_CONFIRMATION"
+ },
+ {
+  "rva": 173880458,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_MISSION_QUIT"
+ },
+ {
+  "rva": 173880497,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_BENCHMARK_QUIT"
+ },
+ {
+  "rva": 173880538,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_TRANSITION"
+ },
+ {
+  "rva": 173880575,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_TRANSITION_TO_COMPLETE"
+ },
+ {
+  "rva": 173880624,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_ACTIVE_ACCOUNT"
+ },
+ {
+  "rva": 173880665,
+  "seg": 2,
+  "name": "EInviteState::HANDLE_ACCOUNT_LINKING"
+ },
+ {
+  "rva": 173880702,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_POST_ACCOUNT_LINK"
+ },
+ {
+  "rva": 173880746,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_PLATFORM_INVITE_VALIDATION"
+ },
+ {
+  "rva": 173880799,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_RESUME"
+ },
+ {
+  "rva": 173880832,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_GAME_INTENT_TO_LOAD"
+ },
+ {
+  "rva": 173880878,
+  "seg": 2,
+  "name": "EInviteState::WAITING_FOR_CANNOTPLAYONLINE_MESSAGE"
+ },
+ {
+  "rva": 173880929,
+  "seg": 2,
+  "name": "EInviteState::DONE"
+ },
+ {
+  "rva": 173880948,
+  "seg": 2,
+  "name": "EInviteState::UNKNOWN"
+ },
+ {
+  "rva": 173898909,
+  "seg": 2,
+  "name": "OnlineFlow::Modules::CReconnectionModule::TryReconnect"
+ },
+ {
+  "rva": 173927705,
+  "seg": 2,
+  "name": "Migration::CLocalStateHelper"
+ },
+ {
+  "rva": 173972184,
+  "seg": 2,
+  "name": "CAutoManagedParticlesManager::AutoManagedParticlesUpdateJob"
+ },
+ {
+  "rva": 174049119,
+  "seg": 2,
+  "name": "CPhysWorld::PreStepStartJob"
+ },
+ {
+  "rva": 174049147,
+  "seg": 2,
+  "name": "CPhysWorld::PreStepFinishJob"
+ },
+ {
+  "rva": 174049176,
+  "seg": 2,
+  "name": "CPhysWorld::PostStepJob"
+ },
+ {
+  "rva": 174115856,
+  "seg": 2,
+  "name": "Scry::Buffer::String"
+ },
+ {
+  "rva": 174252368,
+  "seg": 2,
+  "name": "Scry::Buffer::HTML"
+ },
+ {
+  "rva": 174252720,
+  "seg": 2,
+  "name": "Scry::Buffer::Image::Unpackage"
+ },
+ {
+  "rva": 174252815,
+  "seg": 2,
+  "name": "Scry::Buffer::Snapshot::File"
+ },
+ {
+  "rva": 174252875,
+  "seg": 2,
+  "name": "Scry::Buffer::Script"
+ },
+ {
+  "rva": 174252899,
+  "seg": 2,
+  "name": "Scry::Buffer::List::CircularMessage"
+ },
+ {
+  "rva": 174252935,
+  "seg": 2,
+  "name": "Scry::Buffer::List::DynamicLinear"
+ },
+ {
+  "rva": 174253008,
+  "seg": 2,
+  "name": "Scry::Buffer::List::StaticCircular"
+ },
+ {
+  "rva": 174254950,
+  "seg": 2,
+  "name": "Scry::Buffer::Chart"
+ },
+ {
+  "rva": 174256376,
+  "seg": 2,
+  "name": "Scry::New::String"
+ },
+ {
+  "rva": 174256394,
+  "seg": 2,
+  "name": "Scry::New::Font"
+ },
+ {
+  "rva": 174256410,
+  "seg": 2,
+  "name": "Scry::New::Widget_Root_Window"
+ },
+ {
+  "rva": 174256440,
+  "seg": 2,
+  "name": "Scry::New::Widget_Root_Notifier"
+ },
+ {
+  "rva": 174256472,
+  "seg": 2,
+  "name": "Scry::New::Command_ToggleBookmark"
+ },
+ {
+  "rva": 174256506,
+  "seg": 2,
+  "name": "Scry::New::Command_PreviousBookmark"
+ },
+ {
+  "rva": 174256542,
+  "seg": 2,
+  "name": "Scry::New::Command_NextBookmark"
+ },
+ {
+  "rva": 174256574,
+  "seg": 2,
+  "name": "Scry::New::Command_GenerateDumpAllWindows"
+ },
+ {
+  "rva": 174256616,
+  "seg": 2,
+  "name": "Scry::New::Command_GenerateDumpForCurrentWindow"
+ },
+ {
+  "rva": 174256664,
+  "seg": 2,
+  "name": "Scry::New::Enumeration"
+ },
+ {
+  "rva": 174256704,
+  "seg": 2,
+  "name": "Scry::New::CStringPoolList"
+ },
+ {
+  "rva": 174256731,
+  "seg": 2,
+  "name": "Scry::New::CStringPool"
+ },
+ {
+  "rva": 174256754,
+  "seg": 2,
+  "name": "Scry::New::PackagedImage_1x1"
+ },
+ {
+  "rva": 174256792,
+  "seg": 2,
+  "name": "Scry::New::PackagedImage_Blacksmith2_HID"
+ },
+ {
+  "rva": 174256848,
+  "seg": 2,
+  "name": "Scry::New::PackagedImage_Blacksmith2_Interface"
+ },
+ {
+  "rva": 174256904,
+  "seg": 2,
+  "name": "Scry::New::PackagedImage_Blacksmith2_StatusIcons"
+ },
+ {
+  "rva": 174256968,
+  "seg": 2,
+  "name": "Scry::New::PackagedImage_FontFrame"
+ },
+ {
+  "rva": 174257016,
+  "seg": 2,
+  "name": "Scry::New::PackagedImage_Fox_DX9Graphics"
+ },
+ {
+  "rva": 174257072,
+  "seg": 2,
+  "name": "Scry::New::PackagedImage_Fox_Icons"
+ },
+ {
+  "rva": 174257120,
+  "seg": 2,
+  "name": "Scry::New::PackagedImage_GreyChecker"
+ },
+ {
+  "rva": 174257168,
+  "seg": 2,
+  "name": "Scry::New::PackagedImage_Notifiers"
+ },
+ {
+  "rva": 174257216,
+  "seg": 2,
+  "name": "Scry::New::Glyph"
+ },
+ {
+  "rva": 174257233,
+  "seg": 2,
+  "name": "Scry::New::File"
+ },
+ {
+  "rva": 174257249,
+  "seg": 2,
+  "name": "Scry::New::AutoRepeat"
+ },
+ {
+  "rva": 174257271,
+  "seg": 2,
+  "name": "Scry::New::Token"
+ },
+ {
+  "rva": 174257296,
+  "seg": 2,
+  "name": "Scry::New::SnapshotBinding"
+ },
+ {
+  "rva": 174257323,
+  "seg": 2,
+  "name": "Scry::New::SnapshotWindow"
+ },
+ {
+  "rva": 174257349,
+  "seg": 2,
+  "name": "Scry::New::Symbol"
+ },
+ {
+  "rva": 174257367,
+  "seg": 2,
+  "name": "Scry::New::EnumerationElement"
+ },
+ {
+  "rva": 174257397,
+  "seg": 2,
+  "name": "Scry::New::Widget_FramedText"
+ },
+ {
+  "rva": 174257512,
+  "seg": 2,
+  "name": "Scry::New::WidgetGridRow"
+ },
+ {
+  "rva": 174257624,
+  "seg": 2,
+  "name": "Scry::New::Widget_Frame"
+ },
+ {
+  "rva": 174257720,
+  "seg": 2,
+  "name": "Scry::New::Widget_Glyph"
+ },
+ {
+  "rva": 174257744,
+  "seg": 2,
+  "name": "Scry::New::Widget_Text"
+ },
+ {
+  "rva": 174257848,
+  "seg": 2,
+  "name": "Scry::New::Widget_Integer"
+ },
+ {
+  "rva": 174257960,
+  "seg": 2,
+  "name": "Scry::New::Widget_ValueTracker_AverageInt"
+ },
+ {
+  "rva": 174258160,
+  "seg": 2,
+  "name": "Scry::New::Widget_ProgressBar"
+ },
+ {
+  "rva": 174258190,
+  "seg": 2,
+  "name": "Scry::New::Widget_Float"
+ },
+ {
+  "rva": 174258296,
+  "seg": 2,
+  "name": "Scry::New::Widget_Notifier_StatusIcons"
+ },
+ {
+  "rva": 174258335,
+  "seg": 2,
+  "name": "Scry::New::Widget_Notifier_Version"
+ },
+ {
+  "rva": 174258370,
+  "seg": 2,
+  "name": "Scry::New::Widget_Notifier_Tutorial"
+ },
+ {
+  "rva": 174258406,
+  "seg": 2,
+  "name": "Scry::New::Widget_Notifier_FrameRate"
+ },
+ {
+  "rva": 174258443,
+  "seg": 2,
+  "name": "Scry::New::Widget_Notifier_FrameTimeDelta"
+ },
+ {
+  "rva": 174258485,
+  "seg": 2,
+  "name": "Scry::New::Widget_Notifier_MemoryAvailable"
+ },
+ {
+  "rva": 174258528,
+  "seg": 2,
+  "name": "Scry::New::Widget_Notifier_Loading"
+ },
+ {
+  "rva": 174258563,
+  "seg": 2,
+  "name": "Scry::New::Widget_Notifier_Error"
+ },
+ {
+  "rva": 174258596,
+  "seg": 2,
+  "name": "Scry::New::Widget_CommandWheel"
+ },
+ {
+  "rva": 174258627,
+  "seg": 2,
+  "name": "Scry::New::Widget_Window_Configuration"
+ },
+ {
+  "rva": 174258784,
+  "seg": 2,
+  "name": "Scry::New::Widget_Window_Chart"
+ },
+ {
+  "rva": 174258815,
+  "seg": 2,
+  "name": "Scry::New::Widget_Boolean"
+ },
+ {
+  "rva": 174258920,
+  "seg": 2,
+  "name": "Scry::New::Widget_Enum"
+ },
+ {
+  "rva": 174259016,
+  "seg": 2,
+  "name": "Scry::New::Widget_UInteger"
+ },
+ {
+  "rva": 174259128,
+  "seg": 2,
+  "name": "Scry::New::Widget_ColorQuad"
+ },
+ {
+  "rva": 174259240,
+  "seg": 2,
+  "name": "Scry::New::Widget_ScrollBar"
+ },
+ {
+  "rva": 174259268,
+  "seg": 2,
+  "name": "Scry::New::Widget_Header"
+ },
+ {
+  "rva": 174259368,
+  "seg": 2,
+  "name": "Scry::New::Option_Integer"
+ },
+ {
+  "rva": 174259394,
+  "seg": 2,
+  "name": "Scry::New::Option_UInteger"
+ },
+ {
+  "rva": 174259421,
+  "seg": 2,
+  "name": "Scry::New::Option_Float"
+ },
+ {
+  "rva": 174259445,
+  "seg": 2,
+  "name": "Scry::New::Option_Boolean"
+ },
+ {
+  "rva": 174259471,
+  "seg": 2,
+  "name": "Scry::New::Option_String"
+ },
+ {
+  "rva": 174259496,
+  "seg": 2,
+  "name": "Scry::New::Option_StringReference"
+ },
+ {
+  "rva": 174259530,
+  "seg": 2,
+  "name": "Scry::New::Option_Pointer"
+ },
+ {
+  "rva": 174259556,
+  "seg": 2,
+  "name": "Scry::New::Option_Enumeration"
+ },
+ {
+  "rva": 174259586,
+  "seg": 2,
+  "name": "Scry::New::Widget_OptionGroup"
+ },
+ {
+  "rva": 174259616,
+  "seg": 2,
+  "name": "Scry::New::Widget_Chart"
+ },
+ {
+  "rva": 174259720,
+  "seg": 2,
+  "name": "Scry::New::Widget_MessageList"
+ },
+ {
+  "rva": 174259832,
+  "seg": 2,
+  "name": "Scry::New::Command_Clear"
+ },
+ {
+  "rva": 174259857,
+  "seg": 2,
+  "name": "Scry::New::MessageCategory"
+ },
+ {
+  "rva": 174259896,
+  "seg": 2,
+  "name": "Scry::New::MultiChartItem"
+ },
+ {
+  "rva": 174260192,
+  "seg": 2,
+  "name": "Scry::New::Widget_OptionList"
+ },
+ {
+  "rva": 174260221,
+  "seg": 2,
+  "name": "Scry::New::Widget_PanelList"
+ },
+ {
+  "rva": 174260249,
+  "seg": 2,
+  "name": "Scry::New::MemoryManager"
+ },
+ {
+  "rva": 174260274,
+  "seg": 2,
+  "name": "Scry::New::InputManager"
+ },
+ {
+  "rva": 174260298,
+  "seg": 2,
+  "name": "Scry::New::GraphicsManager"
+ },
+ {
+  "rva": 174260325,
+  "seg": 2,
+  "name": "Scry::New::TimeManager"
+ },
+ {
+  "rva": 174260348,
+  "seg": 2,
+  "name": "Scry::New::FileManager"
+ },
+ {
+  "rva": 174260371,
+  "seg": 2,
+  "name": "Scry::New::SnapshotManager"
+ },
+ {
+  "rva": 174267536,
+  "seg": 2,
+  "name": "Wwise::AudioMgr_Perform"
+ },
+ {
+  "rva": 174600864,
+  "seg": 2,
+  "name": "Bloomberg::FileData_InternalStreamingBuffer"
+ },
+ {
+  "rva": 174602408,
+  "seg": 2,
+  "name": "Bloomberg::FastStringManager_InternalBufferBig"
+ },
+ {
+  "rva": 174602456,
+  "seg": 2,
+  "name": "Bloomberg::FastStringManager_InternalBufferSmall"
+ },
+ {
+  "rva": 174615656,
+  "seg": 2,
+  "name": "ConnectionManager::CONNECTION_REPORTER"
+ },
+ {
+  "rva": 174615696,
+  "seg": 2,
+  "name": "ConnectionManager::CONNECTION_SERVER"
+ },
+ {
+  "rva": 174615736,
+  "seg": 2,
+  "name": "ConnectionManager::CONNECTION_FILE"
+ },
+ {
+  "rva": 174615776,
+  "seg": 2,
+  "name": "ConnectionManager::CONNECTION_PROXY"
+ },
+ {
+  "rva": 174615816,
+  "seg": 2,
+  "name": "ConnectionManager::CONNECTION_POSTLAUNCH"
+ },
+ {
+  "rva": 174851864,
+  "seg": 2,
+  "name": "hkaQuantizedAnimation::TrackCompressionParams"
+ },
+ {
+  "rva": 174852072,
+  "seg": 2,
+  "name": "hkaSkeletonMapperData::MappingType"
+ },
+ {
+  "rva": 174852848,
+  "seg": 2,
+  "name": "hkaSplineCompressedAnimation::AnimationCompressionParams"
+ },
+ {
+  "rva": 174853032,
+  "seg": 2,
+  "name": "hkaPredictiveCompressedAnimation::TrackCompressionParams"
+ },
+ {
+  "rva": 174853320,
+  "seg": 2,
+  "name": "hkaSkeletonMapperData::SimpleMapping"
+ },
+ {
+  "rva": 174854968,
+  "seg": 2,
+  "name": "hkaSkeletonMapperData::ChainMapping"
+ },
+ {
+  "rva": 174856888,
+  "seg": 2,
+  "name": "hkaAnnotationTrack::Annotation"
+ },
+ {
+  "rva": 174857616,
+  "seg": 2,
+  "name": "hkaSkeletonMapperData::PartitionMappingRange"
+ },
+ {
+  "rva": 174858304,
+  "seg": 2,
+  "name": "hkaMeshBinding::Mapping"
+ },
+ {
+  "rva": 174859744,
+  "seg": 2,
+  "name": "hkaSkeletonMapperUtils::ExtractedMotionParams::ExtractedMotionMode"
+ },
+ {
+  "rva": 174859888,
+  "seg": 2,
+  "name": "hkaSplineCompressedAnimation::TrackCompressionParams::RotationQuantization"
+ },
+ {
+  "rva": 174861400,
+  "seg": 2,
+  "name": "hkaSplineCompressedAnimation::TrackCompressionParams"
+ },
+ {
+  "rva": 174861928,
+  "seg": 2,
+  "name": "hkaAnimationBinding::BlendHint"
+ },
+ {
+  "rva": 174862352,
+  "seg": 2,
+  "name": "hkaAnimation::AnimationType"
+ },
+ {
+  "rva": 174864464,
+  "seg": 2,
+  "name": "hkaSplineCompressedAnimation::TrackCompressionParams::ScalarQuantization"
+ },
+ {
+  "rva": 174864544,
+  "seg": 2,
+  "name": "hkaAnimatedReferenceFrame::hkaReferenceFrameTypeEnum"
+ },
+ {
+  "rva": 174868064,
+  "seg": 2,
+  "name": "hkReflect::QualifiedType"
+ },
+ {
+  "rva": 174869384,
+  "seg": 2,
+  "name": "hkSerialize::Load"
+ },
+ {
+  "rva": 174869408,
+  "seg": 2,
+  "name": "TthkSerialize::Load"
+ },
+ {
+  "rva": 174869544,
+  "seg": 2,
+  "name": "hkSerialize::Load::toOwnedResource"
+ },
+ {
+  "rva": 174869584,
+  "seg": 2,
+  "name": "TthkSerialize::Load::toOwnedResource"
+ },
+ {
+  "rva": 174869720,
+  "seg": 2,
+  "name": "hkSerialize::Load::loadCompendium"
+ },
+ {
+  "rva": 174869760,
+  "seg": 2,
+  "name": "TthkSerialize::Load::loadCompendium"
+ },
+ {
+  "rva": 174869864,
+  "seg": 2,
+  "name": "hkSerialize::Load::toVar"
+ },
+ {
+  "rva": 174869896,
+  "seg": 2,
+  "name": "TthkSerialize::Load::toVar"
+ },
+ {
+  "rva": 174870320,
+  "seg": 2,
+  "name": "hkSerialize::Load::toVarInplace"
+ },
+ {
+  "rva": 174870352,
+  "seg": 2,
+  "name": "TthkSerialize::Load::toVarInplace"
+ },
+ {
+  "rva": 174870496,
+  "seg": 2,
+  "name": "hkSerialize::Save"
+ },
+ {
+  "rva": 174870520,
+  "seg": 2,
+  "name": "TthkSerialize::Save"
+ },
+ {
+  "rva": 174876936,
+  "seg": 2,
+  "name": "hkVarArgs::Vector::Vector"
+ },
+ {
+  "rva": 174877112,
+  "seg": 2,
+  "name": "hkVarArgs::Vector::getSize"
+ },
+ {
+  "rva": 174925264,
+  "seg": 2,
+  "name": "hke::IndexedArrayInitializer"
+ },
+ {
+  "rva": 174925664,
+  "seg": 2,
+  "name": "hkReflect::Type::FlagBits"
+ },
+ {
+  "rva": 174925792,
+  "seg": 2,
+  "name": "hke::ReferencedWiredArray"
+ },
+ {
+  "rva": 174926048,
+  "seg": 2,
+  "name": "UnitTest::SetterTest::Foo"
+ },
+ {
+  "rva": 174926448,
+  "seg": 2,
+  "name": "UnitTest::UrlObject::TestGraph"
+ },
+ {
+  "rva": 174926640,
+  "seg": 2,
+  "name": "hkReflect::StringVar"
+ },
+ {
+  "rva": 174927504,
+  "seg": 2,
+  "name": "hkAsyncThreadPool::ThreadPriority"
+ },
+ {
+  "rva": 174927560,
+  "seg": 2,
+  "name": "hkReflect::Var"
+ },
+ {
+  "rva": 174928344,
+  "seg": 2,
+  "name": "hkCommand::PrimaryType"
+ },
+ {
+  "rva": 174928696,
+  "seg": 2,
+  "name": "UnitTest::SetterTest"
+ },
+ {
+  "rva": 174929096,
+  "seg": 2,
+  "name": "hke::TriggerOutputData"
+ },
+ {
+  "rva": 174930456,
+  "seg": 2,
+  "name": "hkReflect::TypeName"
+ },
+ {
+  "rva": 174930480,
+  "seg": 2,
+  "name": "hke::VisualScriptTrigger"
+ },
+ {
+  "rva": 174930560,
+  "seg": 2,
+  "name": "UnitTest::UrlObject::Import"
+ },
+ {
+  "rva": 174930776,
+  "seg": 2,
+  "name": "UnitTest::Reflected"
+ },
+ {
+  "rva": 174931112,
+  "seg": 2,
+  "name": "UnitTest::TypeVm::Bar"
+ },
+ {
+  "rva": 174931272,
+  "seg": 2,
+  "name": "UnitTest::UrlObject::Shape"
+ },
+ {
+  "rva": 174931368,
+  "seg": 2,
+  "name": "hkGeometry::Triangle"
+ },
+ {
+  "rva": 174931432,
+  "seg": 2,
+  "name": "hke::ConstantData"
+ },
+ {
+  "rva": 174931888,
+  "seg": 2,
+  "name": "hkms::AccumulateOp::Enum"
+ },
+ {
+  "rva": 174932000,
+  "seg": 2,
+  "name": "hkReflect::FieldDecl"
+ },
+ {
+  "rva": 174932216,
+  "seg": 2,
+  "name": "hkFileSystem::Watcher::Change::ChangeType"
+ },
+ {
+  "rva": 174932352,
+  "seg": 2,
+  "name": "hctAttributeDescription::Enum::Item"
+ },
+ {
+  "rva": 174932656,
+  "seg": 2,
+  "name": "hke::LocalService"
+ },
+ {
+  "rva": 174932784,
+  "seg": 2,
+  "name": "hkReflect::OpaqueVar"
+ },
+ {
+  "rva": 174932824,
+  "seg": 2,
+  "name": "castTest::NonLeaf"
+ },
+ {
+  "rva": 174932848,
+  "seg": 2,
+  "name": "hkRefCountedProperties::Entry"
+ },
+ {
+  "rva": 174933064,
+  "seg": 2,
+  "name": "hke::WiredNodeInput"
+ },
+ {
+  "rva": 174933192,
+  "seg": 2,
+  "name": "TypeRegistryTest::TypedefTest"
+ },
+ {
+  "rva": 174933400,
+  "seg": 2,
+  "name": "hkWeakPtrTest::Foo"
+ },
+ {
+  "rva": 174933584,
+  "seg": 2,
+  "name": "hkMonitorStreamColorTable::ColorPair"
+ },
+ {
+  "rva": 174934024,
+  "seg": 2,
+  "name": "hkAsyncThreadPool::HardwareThreadBinding"
+ },
+ {
+  "rva": 174934168,
+  "seg": 2,
+  "name": "hkReflect::PointerType"
+ },
+ {
+  "rva": 174934448,
+  "seg": 2,
+  "name": "hkSerialize::Detail::IdFromPointer"
+ },
+ {
+  "rva": 174934664,
+  "seg": 2,
+  "name": "hkReflect::CompoundVar"
+ },
+ {
+  "rva": 174934744,
+  "seg": 2,
+  "name": "UnitTest::SetterTest::TwiceNested"
+ },
+ {
+  "rva": 174935128,
+  "seg": 2,
+  "name": "UnitTest::ClassWithHashMap"
+ },
+ {
+  "rva": 174935256,
+  "seg": 2,
+  "name": "castTest::Interface1"
+ },
+ {
+  "rva": 174935648,
+  "seg": 2,
+  "name": "hke::TempBuffer"
+ },
+ {
+  "rva": 174936328,
+  "seg": 2,
+  "name": "hkReflect::ValueType"
+ },
+ {
+  "rva": 174936736,
+  "seg": 2,
+  "name": "hkMonitorStreamTypeMap::TypeMap"
+ },
+ {
+  "rva": 174937120,
+  "seg": 2,
+  "name": "hke::VisualScriptCategory"
+ },
+ {
+  "rva": 174937808,
+  "seg": 2,
+  "name": "hctAttributeDescription20151::Hint"
+ },
+ {
+  "rva": 174937848,
+  "seg": 2,
+  "name": "hkSerialize::CompatTypeParentInfo"
+ },
+ {
+  "rva": 174938616,
+  "seg": 2,
+  "name": "hke::CachedData"
+ },
+ {
+  "rva": 174938736,
+  "seg": 2,
+  "name": "hkSimpleLocalFrame::ChildPointer"
+ },
+ {
+  "rva": 174938792,
+  "seg": 2,
+  "name": "hke::ComponentWithNativeVisualization"
+ },
+ {
+  "rva": 174938864,
+  "seg": 2,
+  "name": "UnitTest::InterfaceUnregistered1"
+ },
+ {
+  "rva": 174938968,
+  "seg": 2,
+  "name": "hkReflect::ValueVar"
+ },
+ {
+  "rva": 174939040,
+  "seg": 2,
+  "name": "hkReflect::Opt::Values"
+ },
+ {
+  "rva": 174939112,
+  "seg": 2,
+  "name": "hke::RuleInput"
+ },
+ {
+  "rva": 174939496,
+  "seg": 2,
+  "name": "hke::WiredNodeOutput"
+ },
+ {
+  "rva": 174939872,
+  "seg": 2,
+  "name": "hkReflect::VoidVar"
+ },
+ {
+  "rva": 174939912,
+  "seg": 2,
+  "name": "UnitTest::UrlObject::Body"
+ },
+ {
+  "rva": 174939944,
+  "seg": 2,
+  "name": "hkReflect::ContainerType"
+ },
+ {
+  "rva": 174940168,
+  "seg": 2,
+  "name": "hkReflect::Detail::SyntheticUtil"
+ },
+ {
+  "rva": 174940304,
+  "seg": 2,
+  "name": "UnitTest::SetterTest::Nested"
+ },
+ {
+  "rva": 174940336,
+  "seg": 2,
+  "name": "hke::EngineNode"
+ },
+ {
+  "rva": 174940392,
+  "seg": 2,
+  "name": "PropertyBagTest::ComplexProperty"
+ },
+ {
+  "rva": 174940904,
+  "seg": 2,
+  "name": "hkWeakPtrTest::Bar"
+ },
+ {
+  "rva": 174940944,
+  "seg": 2,
+  "name": "hkModelerNodeTypeAttribute::ModelerType"
+ },
+ {
+  "rva": 174942488,
+  "seg": 2,
+  "name": "hkReflect::CompoundType"
+ },
+ {
+  "rva": 174942672,
+  "seg": 2,
+  "name": "hke::RequiredProperty"
+ },
+ {
+  "rva": 174942968,
+  "seg": 2,
+  "name": "hkReflect::DataFieldDecl"
+ },
+ {
+  "rva": 174943376,
+  "seg": 2,
+  "name": "UnitTest::UrlObject::VariantTest"
+ },
+ {
+  "rva": 174943712,
+  "seg": 2,
+  "name": "hke::VisualScriptUiName"
+ },
+ {
+  "rva": 174944048,
+  "seg": 2,
+  "name": "UnitTest::CustomFormatter"
+ },
+ {
+  "rva": 174944328,
+  "seg": 2,
+  "name": "UnitTest::InterfaceImpl0"
+ },
+ {
+  "rva": 174944552,
+  "seg": 2,
+  "name": "hkAsyncThreadPool::Cinfo"
+ },
+ {
+  "rva": 174944616,
+  "seg": 2,
+  "name": "UnitTest::InterfaceSynthetic"
+ },
+ {
+  "rva": 174944728,
+  "seg": 2,
+  "name": "hkReflect::PointerVar"
+ },
+ {
+  "rva": 174944752,
+  "seg": 2,
+  "name": "castTest::InterfaceBase"
+ },
+ {
+  "rva": 174944920,
+  "seg": 2,
+  "name": "UnitTest::TrackerTestA"
+ },
+ {
+  "rva": 174945056,
+  "seg": 2,
+  "name": "hkTypeVm::Program::InstructionType"
+ },
+ {
+  "rva": 174945160,
+  "seg": 2,
+  "name": "hkReflect::Decl"
+ },
+ {
+  "rva": 174945592,
+  "seg": 2,
+  "name": "hke::NoThumbnail"
+ },
+ {
+  "rva": 174945800,
+  "seg": 2,
+  "name": "hke::RuleOutput"
+ },
+ {
+  "rva": 174946232,
+  "seg": 2,
+  "name": "hke::RuleOutputBase"
+ },
+ {
+  "rva": 174946472,
+  "seg": 2,
+  "name": "hctFilterConfigurationSet::FilterStage"
+ },
+ {
+  "rva": 174946888,
+  "seg": 2,
+  "name": "castTest::Root"
+ },
+ {
+  "rva": 174947232,
+  "seg": 2,
+  "name": "castTest::Interface2"
+ },
+ {
+  "rva": 174947288,
+  "seg": 2,
+  "name": "hkColor::Argb"
+ },
+ {
+  "rva": 174947904,
+  "seg": 2,
+  "name": "TypeRegistryTest::TypedefChild"
+ },
+ {
+  "rva": 174948040,
+  "seg": 2,
+  "name": "hkReflect::Kind"
+ },
+ {
+  "rva": 174949032,
+  "seg": 2,
+  "name": "hkAttributeHideCriteria::Types"
+ },
+ {
+  "rva": 174949088,
+  "seg": 2,
+  "name": "hkms::Accumulate"
+ },
+ {
+  "rva": 174949232,
+  "seg": 2,
+  "name": "hkReflect::ArrayType"
+ },
+ {
+  "rva": 174949256,
+  "seg": 2,
+  "name": "hke::AddPropertyIfMissing"
+ },
+ {
+  "rva": 174949512,
+  "seg": 2,
+  "name": "hkReflect::BoolVar"
+ },
+ {
+  "rva": 174949696,
+  "seg": 2,
+  "name": "hke::PublicFieldPin::Enum"
+ },
+ {
+  "rva": 174949784,
+  "seg": 2,
+  "name": "hkMemoryResourceHandle::ExternalLink"
+ },
+ {
+  "rva": 174949904,
+  "seg": 2,
+  "name": "hkSemanticsAttribute::Semantics"
+ },
+ {
+  "rva": 174950032,
+  "seg": 2,
+  "name": "hke::Derived"
+ },
+ {
+  "rva": 174950712,
+  "seg": 2,
+  "name": "hke::VisualScriptOutputName"
+ },
+ {
+  "rva": 174950832,
+  "seg": 2,
+  "name": "hkSerialize::PersistentIdProvider"
+ },
+ {
+  "rva": 174951496,
+  "seg": 2,
+  "name": "hkReflect::PropertyFieldDecl"
+ },
+ {
+  "rva": 174951704,
+  "seg": 2,
+  "name": "hkReflect::BoolType"
+ },
+ {
+  "rva": 174951800,
+  "seg": 2,
+  "name": "hke::RuntimeDataSection"
+ },
+ {
+  "rva": 174952512,
+  "seg": 2,
+  "name": "hkReflect::ContainerVar"
+ },
+ {
+  "rva": 174952536,
+  "seg": 2,
+  "name": "hkReflect::Decl::DeclFlagBits"
+ },
+ {
+  "rva": 174952584,
+  "seg": 2,
+  "name": "UnitTest::TypeVm::Record"
+ },
+ {
+  "rva": 174952656,
+  "seg": 2,
+  "name": "hkHashMapDetail::Index"
+ },
+ {
+  "rva": 174952808,
+  "seg": 2,
+  "name": "hke::CanAddToParent"
+ },
+ {
+  "rva": 174952928,
+  "seg": 2,
+  "name": "hctFilterConfigurationSet::Configuration"
+ },
+ {
+  "rva": 174953048,
+  "seg": 2,
+  "name": "hkReflect::Detail::Opaque"
+ },
+ {
+  "rva": 174953776,
+  "seg": 2,
+  "name": "hke::ExposeReflectedFunctionInVisualScript"
+ },
+ {
+  "rva": 174955008,
+  "seg": 2,
+  "name": "hkMonitorStreamStringMap::StringMap"
+ },
+ {
+  "rva": 174955592,
+  "seg": 2,
+  "name": "hkReflect::RecordType"
+ },
+ {
+  "rva": 174955688,
+  "seg": 2,
+  "name": "hkLog::Level::Enum"
+ },
+ {
+  "rva": 174955888,
+  "seg": 2,
+  "name": "hctAttributeDescription20151::ForcedType"
+ },
+ {
+  "rva": 174956128,
+  "seg": 2,
+  "name": "UnitTest::UrlObject::ObjectWithTypedNull"
+ },
+ {
+  "rva": 174956432,
+  "seg": 2,
+  "name": "hke::Input"
+ },
+ {
+  "rva": 174957248,
+  "seg": 2,
+  "name": "castTest::InterfaceOtherBase"
+ },
+ {
+  "rva": 174957280,
+  "seg": 2,
+  "name": "hkReflect::IntVar"
+ },
+ {
+  "rva": 174957592,
+  "seg": 2,
+  "name": "hkSerialize::Note::Import"
+ },
+ {
+  "rva": 174957960,
+  "seg": 2,
+  "name": "hke::VisualScriptClassPinName"
+ },
+ {
+  "rva": 174958160,
+  "seg": 2,
+  "name": "hkReflect::IntType"
+ },
+ {
+  "rva": 174958296,
+  "seg": 2,
+  "name": "UnitTest::InterfaceImpl1"
+ },
+ {
+  "rva": 174958848,
+  "seg": 2,
+  "name": "castTest::Leaf"
+ },
+ {
+  "rva": 174958888,
+  "seg": 2,
+  "name": "hkSerialize::CompatTypeParentInfo::Parent"
+ },
+ {
+  "rva": 174959000,
+  "seg": 2,
+  "name": "hke::ConstTypes::Enum"
+ },
+ {
+  "rva": 174959336,
+  "seg": 2,
+  "name": "hkGizmoAttribute::GizmoType"
+ },
+ {
+  "rva": 174959832,
+  "seg": 2,
+  "name": "hkPropertyFlags::Enum"
+ },
+ {
+  "rva": 174959952,
+  "seg": 2,
+  "name": "hctAttributeDescription::Enum"
+ },
+ {
+  "rva": 174959984,
+  "seg": 2,
+  "name": "hkReflect::Detail::SizeAlign"
+ },
+ {
+  "rva": 174960088,
+  "seg": 2,
+  "name": "castTest::WithInterfaces"
+ },
+ {
+  "rva": 174960888,
+  "seg": 2,
+  "name": "hke::SerializeCallback"
+ },
+ {
+  "rva": 174961928,
+  "seg": 2,
+  "name": "hkReflect::VoidType"
+ },
+ {
+  "rva": 174962448,
+  "seg": 2,
+  "name": "hkScopedPtrTest::Foo"
+ },
+ {
+  "rva": 174962808,
+  "seg": 2,
+  "name": "hkReflect::ArrayVar"
+ },
+ {
+  "rva": 174962936,
+  "seg": 2,
+  "name": "hkReflect::Any"
+ },
+ {
+  "rva": 174962952,
+  "seg": 2,
+  "name": "hke::CanAddToNode"
+ },
+ {
+  "rva": 174962976,
+  "seg": 2,
+  "name": "hke::Output"
+ },
+ {
+  "rva": 174963952,
+  "seg": 2,
+  "name": "hkReflect::FloatType"
+ },
+ {
+  "rva": 174964720,
+  "seg": 2,
+  "name": "hke::WireableStruct"
+ },
+ {
+  "rva": 174964768,
+  "seg": 2,
+  "name": "hkReflect::FloatVar"
+ },
+ {
+  "rva": 174965072,
+  "seg": 2,
+  "name": "hke::VisualScriptFunction"
+ },
+ {
+  "rva": 174965104,
+  "seg": 2,
+  "name": "TypeRegistryTest::Ref"
+ },
+ {
+  "rva": 174965176,
+  "seg": 2,
+  "name": "UnitTest::Interface"
+ },
+ {
+  "rva": 174965712,
+  "seg": 2,
+  "name": "UnitTest::SimplePtr"
+ },
+ {
+  "rva": 174965736,
+  "seg": 2,
+  "name": "UnitTest::TypeVm::Foo"
+ },
+ {
+  "rva": 174967384,
+  "seg": 2,
+  "name": "hke::PublicFieldPinBehavior"
+ },
+ {
+  "rva": 174967688,
+  "seg": 2,
+  "name": "hkHashMapDetail::MapTuple"
+ },
+ {
+  "rva": 174968104,
+  "seg": 2,
+  "name": "hkLinkAttribute::Link"
+ },
+ {
+  "rva": 174968128,
+  "seg": 2,
+  "name": "hkReflect::OpaqueType"
+ },
+ {
+  "rva": 174968152,
+  "seg": 2,
+  "name": "hkReflect::Type"
+ },
+ {
+  "rva": 174968784,
+  "seg": 2,
+  "name": "hkSerialize::Note::Export"
+ },
+ {
+  "rva": 174968920,
+  "seg": 2,
+  "name": "hkRootLevelContainer::NamedVariant"
+ },
+ {
+  "rva": 174969080,
+  "seg": 2,
+  "name": "castTest::Interface0"
+ },
+ {
+  "rva": 174969144,
+  "seg": 2,
+  "name": "hkReflect::Decl::DeclFlags"
+ },
+ {
+  "rva": 174969216,
+  "seg": 2,
+  "name": "hkTrait::Divides"
+ },
+ {
+  "rva": 174969336,
+  "seg": 2,
+  "name": "hkMonitorStreamFrameInfo::AbsoluteTimeCounter"
+ },
+ {
+  "rva": 174970416,
+  "seg": 2,
+  "name": "PropertyBagTest::GraphObject"
+ },
+ {
+  "rva": 174970448,
+  "seg": 2,
+  "name": "hke::ComponentWithRenderRepresentation"
+ },
+ {
+  "rva": 174970664,
+  "seg": 2,
+  "name": "hkGpuTraceResult::ScopeType"
+ },
+ {
+  "rva": 174970840,
+  "seg": 2,
+  "name": "hkReflect::StringType"
+ },
+ {
+  "rva": 174970880,
+  "seg": 2,
+  "name": "hkReflect::Detail::StringOut"
+ },
+ {
+  "rva": 174970928,
+  "seg": 2,
+  "name": "castTest::OtherLeaf"
+ },
+ {
+  "rva": 174970992,
+  "seg": 2,
+  "name": "hkReflect::RecordVar"
+ },
+ {
+  "rva": 174971648,
+  "seg": 2,
+  "name": "UnitTest::InterfaceUnregistered0"
+ },
+ {
+  "rva": 174992120,
+  "seg": 2,
+  "name": "hkVarArgs::FixedArray<16>::setSize"
+ },
+ {
+  "rva": 174992224,
+  "seg": 2,
+  "name": "hkReflect::Version::PatchRegistry"
+ },
+ {
+  "rva": 174998024,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::Connectivity::SectionHeader"
+ },
+ {
+  "rva": 174998264,
+  "seg": 2,
+  "name": "hkcdStaticTree::DefaultTree6"
+ },
+ {
+  "rva": 174998944,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DefaultTreeInt16"
+ },
+ {
+  "rva": 174999008,
+  "seg": 2,
+  "name": "hkcdPlanarSolid::Node"
+ },
+ {
+  "rva": 174999224,
+  "seg": 2,
+  "name": "hkcdPlanarGeometryPolygonCollection::Material"
+ },
+ {
+  "rva": 174999528,
+  "seg": 2,
+  "name": "hkcdDynamicTree::CodecRaw"
+ },
+ {
+  "rva": 174999664,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DefaultTree48"
+ },
+ {
+  "rva": 174999960,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::Section::SharedVertices"
+ },
+ {
+  "rva": 175000136,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DefaultDynamicStorage"
+ },
+ {
+  "rva": 175000248,
+  "seg": 2,
+  "name": "hkcdStaticTree::Tree"
+ },
+ {
+  "rva": 175000496,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::Section::Primitives"
+ },
+ {
+  "rva": 175000592,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::Connectivity"
+ },
+ {
+  "rva": 175000808,
+  "seg": 2,
+  "name": "hkcdStaticTree::DynamicStorage"
+ },
+ {
+  "rva": 175001032,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::Section::DataRuns"
+ },
+ {
+  "rva": 175001080,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::Section"
+ },
+ {
+  "rva": 175001272,
+  "seg": 2,
+  "name": "hkcdStaticTree::DefaultTree32"
+ },
+ {
+  "rva": 175001464,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::Primitive"
+ },
+ {
+  "rva": 175001504,
+  "seg": 2,
+  "name": "hkcdPlanarSolid::NodeStorage"
+ },
+ {
+  "rva": 175001696,
+  "seg": 2,
+  "name": "hkcdStaticTree::DefaultTree4"
+ },
+ {
+  "rva": 175002536,
+  "seg": 2,
+  "name": "hkcdPlanarGeometryPrimitives::Plane"
+ },
+ {
+  "rva": 175003928,
+  "seg": 2,
+  "name": "hkcdRayCastResult::Enum"
+ },
+ {
+  "rva": 175004176,
+  "seg": 2,
+  "name": "hkcdDynamicTree::Tree"
+ },
+ {
+  "rva": 175004304,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DynamicStorage"
+ },
+ {
+  "rva": 175004632,
+  "seg": 2,
+  "name": "hkcdSimdTree::Node"
+ },
+ {
+  "rva": 175005480,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DefaultTree32"
+ },
+ {
+  "rva": 175005512,
+  "seg": 2,
+  "name": "hkcdPlanarEntity::PlanesCollection"
+ },
+ {
+  "rva": 175006440,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::Edge"
+ },
+ {
+  "rva": 175006592,
+  "seg": 2,
+  "name": "hkcdStaticTree::DefaultTree5"
+ },
+ {
+  "rva": 175007216,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DefaultTreePtr"
+ },
+ {
+  "rva": 175008560,
+  "seg": 2,
+  "name": "hkcdPlanarGeometryPrimitives::Collection"
+ },
+ {
+  "rva": 175009096,
+  "seg": 2,
+  "name": "hkcdPlanarGeometryPrimitives::Plane::Int64Vector4"
+ },
+ {
+  "rva": 175009680,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::Links"
+ },
+ {
+  "rva": 175011320,
+  "seg": 2,
+  "name": "hkcdStaticTree::Codec3Axis6"
+ },
+ {
+  "rva": 175011352,
+  "seg": 2,
+  "name": "hkcdDynamicTree::Codec32"
+ },
+ {
+  "rva": 175011464,
+  "seg": 2,
+  "name": "hkcdDynamicTree::CodecRawUlong"
+ },
+ {
+  "rva": 175011496,
+  "seg": 2,
+  "name": "hkcdStaticTree::DynamicStorage32"
+ },
+ {
+  "rva": 175011704,
+  "seg": 2,
+  "name": "hkcdDynamicAabbTree::Impl"
+ },
+ {
+  "rva": 175011736,
+  "seg": 2,
+  "name": "hkcdDynamicTree::CodecInt16::IntAabb"
+ },
+ {
+  "rva": 175011984,
+  "seg": 2,
+  "name": "hkcdStaticTree::Codec3Axis"
+ },
+ {
+  "rva": 175012304,
+  "seg": 2,
+  "name": "hkcdDynamicTree::CodecRawUint"
+ },
+ {
+  "rva": 175012344,
+  "seg": 2,
+  "name": "hkcdStaticTree::CodecRaw"
+ },
+ {
+  "rva": 175012560,
+  "seg": 2,
+  "name": "hkcdDynamicTree::CentroidMetric"
+ },
+ {
+  "rva": 175012856,
+  "seg": 2,
+  "name": "hkcdDynamicTree::CodecInt16"
+ },
+ {
+  "rva": 175012920,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DynamicStorage32"
+ },
+ {
+  "rva": 175012960,
+  "seg": 2,
+  "name": "hkcdDynamicTree::Codec18"
+ },
+ {
+  "rva": 175013352,
+  "seg": 2,
+  "name": "hkcdStaticTree::DynamicStorage4"
+ },
+ {
+  "rva": 175013384,
+  "seg": 2,
+  "name": "hkcdDynamicTree::BalanceMetric"
+ },
+ {
+  "rva": 175013424,
+  "seg": 2,
+  "name": "hkcdStaticTree::Codec3Axis4"
+ },
+ {
+  "rva": 175013560,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DynamicStoragePtr"
+ },
+ {
+  "rva": 175013696,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DynamicStorage16"
+ },
+ {
+  "rva": 175013856,
+  "seg": 2,
+  "name": "hkcdDynamicTree::AnisotropicMetric"
+ },
+ {
+  "rva": 175013952,
+  "seg": 2,
+  "name": "hkcdStaticTree::DynamicStorage5"
+ },
+ {
+  "rva": 175014016,
+  "seg": 2,
+  "name": "hkcdStaticAabbTree::Impl"
+ },
+ {
+  "rva": 175014376,
+  "seg": 2,
+  "name": "hkcdDynamicTree::DynamicStorageInt16"
+ },
+ {
+  "rva": 175014424,
+  "seg": 2,
+  "name": "hkcdStaticTree::Codec3Axis5"
+ },
+ {
+  "rva": 175014600,
+  "seg": 2,
+  "name": "hkcdStaticTree::DynamicStorage6"
+ },
+ {
+  "rva": 175014688,
+  "seg": 2,
+  "name": "hkcdStaticMeshTreeBase::PrimitiveDataRunBase"
+ },
+ {
+  "rva": 175026216,
+  "seg": 2,
+  "name": "hkMeshTexture::Format"
+ },
+ {
+  "rva": 175026712,
+  "seg": 2,
+  "name": "hkSkinnedMeshShape::BoneSet"
+ },
+ {
+  "rva": 175026960,
+  "seg": 2,
+  "name": "hkaSkeleton::Partition"
+ },
+ {
+  "rva": 175027256,
+  "seg": 2,
+  "name": "hkVertexFormat::ComponentType"
+ },
+ {
+  "rva": 175028304,
+  "seg": 2,
+  "name": "hkMeshTexture::FilterMode"
+ },
+ {
+  "rva": 175029400,
+  "seg": 2,
+  "name": "hkVertexFormat::ComponentUsage"
+ },
+ {
+  "rva": 175029432,
+  "seg": 2,
+  "name": "hkMultipleVertexBuffer::VertexBufferInfo"
+ },
+ {
+  "rva": 175029592,
+  "seg": 2,
+  "name": "hkMeshTexture::TextureUsageType"
+ },
+ {
+  "rva": 175030920,
+  "seg": 2,
+  "name": "hkDefaultCompoundMeshShape::MeshSection"
+ },
+ {
+  "rva": 175031632,
+  "seg": 2,
+  "name": "hkSkinnedMeshShape::BoneSection"
+ },
+ {
+  "rva": 175031736,
+  "seg": 2,
+  "name": "hkVertexFormat::HintFlags"
+ },
+ {
+  "rva": 175032520,
+  "seg": 2,
+  "name": "hkMultipleVertexBuffer::ElementInfo"
+ },
+ {
+  "rva": 175033496,
+  "seg": 2,
+  "name": "hkMeshSection::MeshSectionIndexType"
+ },
+ {
+  "rva": 175033552,
+  "seg": 2,
+  "name": "hkVertexFormat::Element"
+ },
+ {
+  "rva": 175034696,
+  "seg": 2,
+  "name": "hkMultipleVertexBuffer::LockedElement"
+ },
+ {
+  "rva": 175035088,
+  "seg": 2,
+  "name": "hkaSkeleton::LocalFrameOnBone"
+ },
+ {
+  "rva": 175037024,
+  "seg": 2,
+  "name": "hkMeshTexture::RawBufferDescriptor"
+ },
+ {
+  "rva": 175037552,
+  "seg": 2,
+  "name": "hkSkinnedMeshShape::Part"
+ },
+ {
+  "rva": 175037680,
+  "seg": 2,
+  "name": "hkMemoryMeshShape::Section"
+ },
+ {
+  "rva": 175037776,
+  "seg": 2,
+  "name": "hkMeshSection::PrimitiveType"
+ },
+ {
+  "rva": 175044888,
+  "seg": 2,
+  "name": "hkgpCgo::Config::VertexCombinator"
+ },
+ {
+  "rva": 175044952,
+  "seg": 2,
+  "name": "hkgpCgo::Config::SolverAccuracy"
+ },
+ {
+  "rva": 175045272,
+  "seg": 2,
+  "name": "hkgpCgo::Config"
+ },
+ {
+  "rva": 175045344,
+  "seg": 2,
+  "name": "hkgpCgo::Config::VertexSemantic"
+ },
+ {
+  "rva": 175049400,
+  "seg": 2,
+  "name": "hknpHeightFieldShape::updateRegion"
+ },
+ {
+  "rva": 175049440,
+  "seg": 2,
+  "name": "TthknpHeightFieldShape::updateRegion"
+ },
+ {
+  "rva": 175051504,
+  "seg": 2,
+  "name": "hknpCollisionDetector::collide"
+ },
+ {
+  "rva": 175051832,
+  "seg": 2,
+  "name": "hknpDeactivationManager::m_inactiveParentCaches"
+ },
+ {
+  "rva": 175051880,
+  "seg": 2,
+  "name": "hknpDeactivationManager::m_reactivatedCaches"
+ },
+ {
+  "rva": 175051928,
+  "seg": 2,
+  "name": "hknpDeactivationManager::m_narrowphaseOutputCaches"
+ },
+ {
+  "rva": 175053640,
+  "seg": 2,
+  "name": "hknpConvexConvexManifoldGenerator::generateManifold"
+ },
+ {
+  "rva": 175054608,
+  "seg": 2,
+  "name": "hknpWorld::m_lastFrameContactData"
+ },
+ {
+  "rva": 175055352,
+  "seg": 2,
+  "name": "hknpWorld::activatedCaches"
+ },
+ {
+  "rva": 175055384,
+  "seg": 2,
+  "name": "hknpWorld::newPairs"
+ },
+ {
+  "rva": 175057960,
+  "seg": 2,
+  "name": "hknpGroupCollisionFilterTypes::Config"
+ },
+ {
+  "rva": 175130368,
+  "seg": 2,
+  "name": "hknpRagdollKeyFrameHierarchyUtility::ControlData"
+ },
+ {
+  "rva": 175130856,
+  "seg": 2,
+  "name": "hknpVehicleData::WheelComponentParams"
+ },
+ {
+  "rva": 175131928,
+  "seg": 2,
+  "name": "hknpBodyQuality::FlagsEnum"
+ },
+ {
+  "rva": 175135024,
+  "seg": 2,
+  "name": "hknpWorld::AdditionMode"
+ },
+ {
+  "rva": 175135856,
+  "seg": 2,
+  "name": "hknpConvexPolytopeShape::Connectivity::Edge"
+ },
+ {
+  "rva": 175136568,
+  "seg": 2,
+  "name": "hknpManifoldViewerBase::hknpVdbManifold"
+ },
+ {
+  "rva": 175137752,
+  "seg": 2,
+  "name": "hknpContactImpulseEvent::Status"
+ },
+ {
+  "rva": 175140488,
+  "seg": 2,
+  "name": "hknpMotionProperties::FullCastSettings"
+ },
+ {
+  "rva": 175141816,
+  "seg": 2,
+  "name": "hknpFirstPersonCharacter::ControlFlags"
+ },
+ {
+  "rva": 175141960,
+  "seg": 2,
+  "name": "hknpPairCollisionFilter::MapPairFilterKeyOverrideType"
+ },
+ {
+  "rva": 175142304,
+  "seg": 2,
+  "name": "hknpFirstPersonGun::Type"
+ },
+ {
+  "rva": 175142848,
+  "seg": 2,
+  "name": "hknpCompoundShapeBoundingVolumeType::Enum"
+ },
+ {
+  "rva": 175143480,
+  "seg": 2,
+  "name": "hknpConstraintGroup::FlagsEnum"
+ },
+ {
+  "rva": 175144256,
+  "seg": 2,
+  "name": "hknpWorld::ActivationMode"
+ },
+ {
+  "rva": 175145808,
+  "seg": 2,
+  "name": "hknpManifoldType::Enum"
+ },
+ {
+  "rva": 175149240,
+  "seg": 2,
+  "name": "hknpMotionType::Enum"
+ },
+ {
+  "rva": 175150080,
+  "seg": 2,
+  "name": "hknpVehicleSuspension::SuspensionWheelParameters"
+ },
+ {
+  "rva": 175151296,
+  "seg": 2,
+  "name": "hknpLevelOfDetail::Enum"
+ },
+ {
+  "rva": 175151968,
+  "seg": 2,
+  "name": "hknpFirstPersonGun::KeyboardKey"
+ },
+ {
+  "rva": 175152272,
+  "seg": 2,
+  "name": "hknpWorld::UpdateCachesMode"
+ },
+ {
+  "rva": 175152592,
+  "seg": 2,
+  "name": "hknpCompoundShape::VelocityInfo"
+ },
+ {
+  "rva": 175154376,
+  "seg": 2,
+  "name": "hknpVehicleInstance::WheelInfo"
+ },
+ {
+  "rva": 175155192,
+  "seg": 2,
+  "name": "hknpExtendedExternMeshShapeGeometry::Triangle"
+ },
+ {
+  "rva": 175156232,
+  "seg": 2,
+  "name": "hknpShapeType::Enum"
+ },
+ {
+  "rva": 175156312,
+  "seg": 2,
+  "name": "hknpActivationState::Enum"
+ },
+ {
+  "rva": 175156640,
+  "seg": 2,
+  "name": "hknpLodBodyFlags::Enum"
+ },
+ {
+  "rva": 175159248,
+  "seg": 2,
+  "name": "hknpWorld::UpdateMotionMode"
+ },
+ {
+  "rva": 175163456,
+  "seg": 2,
+  "name": "hknpActivationControl::Enum"
+ },
+ {
+  "rva": 175164008,
+  "seg": 2,
+  "name": "hknpRagdollState::StateId"
+ },
+ {
+  "rva": 175164904,
+  "seg": 2,
+  "name": "hknpShape::FlagsEnum"
+ },
+ {
+  "rva": 175165872,
+  "seg": 2,
+  "name": "hknpConvexPolytopeShape::Face"
+ },
+ {
+  "rva": 175166112,
+  "seg": 2,
+  "name": "hknpMotionProperties::SolverStabilizationType"
+ },
+ {
+  "rva": 175166736,
+  "seg": 2,
+  "name": "hknpBroadPhaseConfig::Layer"
+ },
+ {
+  "rva": 175167336,
+  "seg": 2,
+  "name": "hknpWorld::PivotLocation"
+ },
+ {
+  "rva": 175168368,
+  "seg": 2,
+  "name": "hknpExtendedExternMeshShapeGeometry::Quad"
+ },
+ {
+  "rva": 175169024,
+  "seg": 2,
+  "name": "hknpShapeTagCodec::Type"
+ },
+ {
+  "rva": 175170160,
+  "seg": 2,
+  "name": "hknpManifoldViewerBase::hknpVdbManifold::StatusEnum"
+ },
+ {
+  "rva": 175172112,
+  "seg": 2,
+  "name": "hknpMotionRangeBreachPolicy::Enum"
+ },
+ {
+  "rva": 175172456,
+  "seg": 2,
+  "name": "hknpMaterial::TriggerType"
+ },
+ {
+  "rva": 175173944,
+  "seg": 2,
+  "name": "hknpMotionProperties::DeactivationSettings"
+ },
+ {
+  "rva": 175174296,
+  "seg": 2,
+  "name": "hknpLinearSurfaceVelocity::ProjectMethod"
+ },
+ {
+  "rva": 175175536,
+  "seg": 2,
+  "name": "hknpCollisionDispatchType::Enum"
+ },
+ {
+  "rva": 175176160,
+  "seg": 2,
+  "name": "hknpWorldSnapshot::ConstraintGroupInfo"
+ },
+ {
+  "rva": 175176488,
+  "seg": 2,
+  "name": "hknpMaskedShape::MaskWrapper"
+ },
+ {
+  "rva": 175176592,
+  "seg": 2,
+  "name": "hknpRagdollState::ConstraintEasingMode"
+ },
+ {
+  "rva": 175176632,
+  "seg": 2,
+  "name": "hknpCharacterSurfaceInfo::SupportedState"
+ },
+ {
+  "rva": 175177280,
+  "seg": 2,
+  "name": "hknpShapeTagCodec::Hints"
+ },
+ {
+  "rva": 175177496,
+  "seg": 2,
+  "name": "hknpSimulationType::Enum"
+ },
+ {
+  "rva": 175177784,
+  "seg": 2,
+  "name": "hknpMaterial::CombinePolicy"
+ },
+ {
+  "rva": 175178072,
+  "seg": 2,
+  "name": "hknpVehicleDefaultSuspension::WheelSpringSuspensionParameters"
+ },
+ {
+  "rva": 175178984,
+  "seg": 2,
+  "name": "hknpConvexPolytopeShape::Connectivity"
+ },
+ {
+  "rva": 175181240,
+  "seg": 2,
+  "name": "hknpLodMeshShape::LevelOfDetailInfo"
+ },
+ {
+  "rva": 175182696,
+  "seg": 2,
+  "name": "hknpMinMaxQuadTree::MinMaxLevel"
+ },
+ {
+  "rva": 175183544,
+  "seg": 2,
+  "name": "hknpHeightFieldGeometry::Fold"
+ },
+ {
+  "rva": 175184296,
+  "seg": 2,
+  "name": "hknpMaterial::MassChangerCategory"
+ },
+ {
+  "rva": 175184840,
+  "seg": 2,
+  "name": "hknpCharacterState::hknpCharacterStateType"
+ },
+ {
+  "rva": 175184888,
+  "seg": 2,
+  "name": "hknpWorldCinfo::SolverType"
+ },
+ {
+  "rva": 175185152,
+  "seg": 2,
+  "name": "hknp1dAngularFollowCamCinfo::CameraSet"
+ },
+ {
+  "rva": 175185504,
+  "seg": 2,
+  "name": "hknpPhysicsSystemData::bodyCinfoWithAttachment"
+ },
+ {
+  "rva": 175185592,
+  "seg": 2,
+  "name": "hknpVehicleWheelCollide::WheelCollideType"
+ },
+ {
+  "rva": 175185680,
+  "seg": 2,
+  "name": "hknpShape::MassConfig"
+ },
+ {
+  "rva": 175185736,
+  "seg": 2,
+  "name": "hknpVehicleDefaultBrake::WheelBrakingProperties"
+ },
+ {
+  "rva": 175185808,
+  "seg": 2,
+  "name": "hknpTriggerEvent::Status"
+ },
+ {
+  "rva": 175186104,
+  "seg": 2,
+  "name": "hknpBroadPhaseType::Enum"
+ },
+ {
+  "rva": 175186416,
+  "seg": 2,
+  "name": "hknpSurfaceVelocity::Space"
+ },
+ {
+  "rva": 175188432,
+  "seg": 2,
+  "name": "hknpConstraint::FlagsEnum"
+ },
+ {
+  "rva": 175188464,
+  "seg": 2,
+  "name": "hknpCollisionFilter::Type"
+ },
+ {
+  "rva": 175190008,
+  "seg": 2,
+  "name": "hknpRagdollPenetrationUtil::PenetrationStatusFlagsEnum"
+ },
+ {
+  "rva": 175190480,
+  "seg": 2,
+  "name": "hknpVehicleLinearCastWheelCollide::WheelState"
+ },
+ {
+  "rva": 175191024,
+  "seg": 2,
+  "name": "hknpBodyQualityId::Preset"
+ },
+ {
+  "rva": 175191144,
+  "seg": 2,
+  "name": "hknpMotionPropertiesId::Preset"
+ },
+ {
+  "rva": 175192160,
+  "seg": 2,
+  "name": "hknpMotionProperties::DeactivationSettings::Strategy"
+ },
+ {
+  "rva": 175194176,
+  "seg": 2,
+  "name": "hknpManifoldEvent::Status"
+ },
+ {
+  "rva": 175198808,
+  "seg": 2,
+  "name": "hknpShape::MassConfig::Quality"
+ },
+ {
+  "rva": 175199992,
+  "seg": 2,
+  "name": "hknpRagdollPenetrationUtil::ResolveModeFlagsEnum"
+ },
+ {
+  "rva": 175203128,
+  "seg": 2,
+  "name": "hknpHybridBroadPhase::copyFrom"
+ },
+ {
+  "rva": 175227808,
+  "seg": 2,
+  "name": "hkpCallbackConstraintMotor::CallbackType"
+ },
+ {
+  "rva": 175228008,
+  "seg": 2,
+  "name": "hkpPrismaticConstraintData::Atoms"
+ },
+ {
+  "rva": 175228272,
+  "seg": 2,
+  "name": "hkpFixedConstraintData::Atoms"
+ },
+ {
+  "rva": 175228928,
+  "seg": 2,
+  "name": "hkpBallAndSocketConstraintData::Atoms"
+ },
+ {
+  "rva": 175229296,
+  "seg": 2,
+  "name": "hkpRagdollLimitsData::Atoms"
+ },
+ {
+  "rva": 175229656,
+  "seg": 2,
+  "name": "hkpWheelFrictionConstraintData::Runtime"
+ },
+ {
+  "rva": 175230208,
+  "seg": 2,
+  "name": "hkpWheelFrictionConstraintData::Atoms"
+ },
+ {
+  "rva": 175230640,
+  "seg": 2,
+  "name": "hkp6DofConstraintData::AxisMode"
+ },
+ {
+  "rva": 175231240,
+  "seg": 2,
+  "name": "hkpPointToPlaneConstraintData::Atoms"
+ },
+ {
+  "rva": 175231416,
+  "seg": 2,
+  "name": "hkpLimitedHingeConstraintData::Atoms"
+ },
+ {
+  "rva": 175231504,
+  "seg": 2,
+  "name": "hkpConstraintAtom::SolvingMethod"
+ },
+ {
+  "rva": 175231848,
+  "seg": 2,
+  "name": "hkpDeformableFixedConstraintData::Atoms"
+ },
+ {
+  "rva": 175231920,
+  "seg": 2,
+  "name": "hkpStiffSpringConstraintData::Atoms"
+ },
+ {
+  "rva": 175232208,
+  "seg": 2,
+  "name": "hkp6DofConstraintData::Blueprints"
+ },
+ {
+  "rva": 175233192,
+  "seg": 2,
+  "name": "hkpRackAndPinionConstraintData::Atoms"
+ },
+ {
+  "rva": 175234240,
+  "seg": 2,
+  "name": "hkpHingeConstraintData::Atoms"
+ },
+ {
+  "rva": 175234416,
+  "seg": 2,
+  "name": "hkpConeLimitConstraintAtom::MeasurementMode"
+ },
+ {
+  "rva": 175234960,
+  "seg": 2,
+  "name": "hkpPointToPathConstraintData::OrientationConstraintType"
+ },
+ {
+  "rva": 175235856,
+  "seg": 2,
+  "name": "hkpCogWheelConstraintData::Atoms"
+ },
+ {
+  "rva": 175235896,
+  "seg": 2,
+  "name": "hkpRotationalConstraintData::Atoms"
+ },
+ {
+  "rva": 175236584,
+  "seg": 2,
+  "name": "hkpVehicleFrictionStatus::AxisStatus"
+ },
+ {
+  "rva": 175236744,
+  "seg": 2,
+  "name": "hkpWheelFrictionConstraintAtom::Axle"
+ },
+ {
+  "rva": 175236904,
+  "seg": 2,
+  "name": "hkpPulleyConstraintData::Atoms"
+ },
+ {
+  "rva": 175237600,
+  "seg": 2,
+  "name": "hkpHingeLimitsData::Atoms"
+ },
+ {
+  "rva": 175237816,
+  "seg": 2,
+  "name": "hkpConstraintData::ConstraintType"
+ },
+ {
+  "rva": 175237856,
+  "seg": 2,
+  "name": "hkpConstraintMotor::MotorType"
+ },
+ {
+  "rva": 175238576,
+  "seg": 2,
+  "name": "hkpVehicleFrictionDescription::AxisDescription"
+ },
+ {
+  "rva": 175239800,
+  "seg": 2,
+  "name": "hkpLinearClearanceConstraintData::Atoms"
+ },
+ {
+  "rva": 175240056,
+  "seg": 2,
+  "name": "hkpRagdollConstraintData::Atoms"
+ },
+ {
+  "rva": 175240376,
+  "seg": 2,
+  "name": "hkpConstraintAtom::AtomType"
+ },
+ {
+  "rva": 175240912,
+  "seg": 2,
+  "name": "hkpWheelConstraintData::Atoms"
+ },
+ {
+  "rva": 175242912,
+  "seg": 2,
+  "name": "hknpWideBroadPhaseTaks::CollideTrees::m_newPairs"
+ },
+ {
+  "rva": 175245520,
+  "seg": 2,
+  "name": "hknpCompressedMeshShapeInternals::KeyMask"
+ },
+ {
+  "rva": 175262384,
+  "seg": 2,
+  "name": "hkxAttribute::Hint"
+ },
+ {
+  "rva": 175262672,
+  "seg": 2,
+  "name": "hkxMaterial::TextureStage"
+ },
+ {
+  "rva": 175264104,
+  "seg": 2,
+  "name": "hkxVertexBuffer::VertexData"
+ },
+ {
+  "rva": 175264768,
+  "seg": 2,
+  "name": "hkxVertexDescription::DataType"
+ },
+ {
+  "rva": 175265320,
+  "seg": 2,
+  "name": "hkxMesh::UserChannelInfo"
+ },
+ {
+  "rva": 175265936,
+  "seg": 2,
+  "name": "hkxBlendShapeCollectionChannel::KeyFrame"
+ },
+ {
+  "rva": 175265984,
+  "seg": 2,
+  "name": "hkxMaterialShader::ShaderType"
+ },
+ {
+  "rva": 175267808,
+  "seg": 2,
+  "name": "hkxVertexDescription::DataUsage"
+ },
+ {
+  "rva": 175268592,
+  "seg": 2,
+  "name": "hkxSpline::ControlType"
+ },
+ {
+  "rva": 175269288,
+  "seg": 2,
+  "name": "hkxBlendShapeCollectionChannel::Channel"
+ },
+ {
+  "rva": 175269520,
+  "seg": 2,
+  "name": "hkxMaterialEffect::EffectType"
+ },
+ {
+  "rva": 175270648,
+  "seg": 2,
+  "name": "hkxVertexDescription::ElementDecl"
+ },
+ {
+  "rva": 175270744,
+  "seg": 2,
+  "name": "hkxMaterial::Property"
+ },
+ {
+  "rva": 175271120,
+  "seg": 2,
+  "name": "hkxSpline::ControlPoint"
+ },
+ {
+  "rva": 175271688,
+  "seg": 2,
+  "name": "hkxEnvironment::Variable"
+ },
+ {
+  "rva": 175271776,
+  "seg": 2,
+  "name": "hkxVertexFloatDataChannel::VertexFloatDimensions"
+ },
+ {
+  "rva": 175272992,
+  "seg": 2,
+  "name": "hkxIndexBuffer::IndexType"
+ },
+ {
+  "rva": 175273520,
+  "seg": 2,
+  "name": "hkxBlendShapeCollectionChannel::FloatCurveKey"
+ },
+ {
+  "rva": 175274112,
+  "seg": 2,
+  "name": "hkxMaterial::Transparency"
+ },
+ {
+  "rva": 175274384,
+  "seg": 2,
+  "name": "hkxEnum::Item"
+ },
+ {
+  "rva": 175275560,
+  "seg": 2,
+  "name": "hkxNode::AnnotationData"
+ },
+ {
+  "rva": 175277688,
+  "seg": 2,
+  "name": "hkxMaterial::TextureType"
+ },
+ {
+  "rva": 175279328,
+  "seg": 2,
+  "name": "hkxLight::LightType"
+ },
+ {
+  "rva": 175279368,
+  "seg": 2,
+  "name": "hkxBlendShapeCollectionChannel::BlendShape"
+ },
+ {
+  "rva": 175280304,
+  "seg": 2,
+  "name": "hkxVertexAnimation::UsageMap"
+ },
+ {
+  "rva": 175280568,
+  "seg": 2,
+  "name": "hkxBlendShapeCollectionChannel::FloatCurve"
+ },
+ {
+  "rva": 175280832,
+  "seg": 2,
+  "name": "hkxMaterial::UVMappingAlgorithm"
+ },
+ {
+  "rva": 175456797,
+  "seg": 2,
+  "name": "LinkEventType::Up"
+ },
+ {
+  "rva": 175456815,
+  "seg": 2,
+  "name": "LinkEventType::Down"
+ },
+ {
+  "rva": 175456835,
+  "seg": 2,
+  "name": "LinkEventType::Failed"
+ },
+ {
+  "rva": 175456857,
+  "seg": 2,
+  "name": "LinkEventType::Not_Set"
+ },
+ {
+  "rva": 175630691,
+  "seg": 2,
+  "name": "DynamicType::IsAKindOf"
+ },
+ {
+  "rva": 175708552,
+  "seg": 2,
+  "name": "ApplicationStateManager::m_backgroundToForeground"
+ },
+ {
+  "rva": 175708608,
+  "seg": 2,
+  "name": "ApplicationStateManager::m_suspendedToForeground"
+ },
+ {
+  "rva": 175718816,
+  "seg": 2,
+  "name": "JobGetAccessTokenMobileUsersLogin::getAccessTokenData"
+ },
+ {
+  "rva": 175718992,
+  "seg": 2,
+  "name": "JobGetAccessTokenSilentLogin::getAccessToken"
+ },
+ {
+  "rva": 175719152,
+  "seg": 2,
+  "name": "JobMobileInitInstallationId::startRequest"
+ },
+ {
+  "rva": 175719272,
+  "seg": 2,
+  "name": "JobMobileUsersClearRememberMeTicket::startRequest"
+ },
+ {
+  "rva": 175719560,
+  "seg": 2,
+  "name": "JobMobileUsersCreate::startRequest"
+ },
+ {
+  "rva": 175719672,
+  "seg": 2,
+  "name": "JobMobileUsersDelete::startRequest"
+ },
+ {
+  "rva": 175719936,
+  "seg": 2,
+  "name": "JobMobileUsersGetDeviceEmails::startRequest"
+ },
+ {
+  "rva": 175720056,
+  "seg": 2,
+  "name": "JobMobileUsersRename::startRequest"
+ },
+ {
+  "rva": 175720328,
+  "seg": 2,
+  "name": "JobMobileUsersRequest::startRequest"
+ },
+ {
+  "rva": 175720440,
+  "seg": 2,
+  "name": "JobMobileUsersUpdate::updateMobileUser"
+ },
+ {
+  "rva": 175720536,
+  "seg": 2,
+  "name": "MobileUsersStorageHelperImpl::getMobileUsersImpl"
+ },
+ {
+  "rva": 175720592,
+  "seg": 2,
+  "name": "MobileUsersStorageHelperImpl::createUserImpl"
+ },
+ {
+  "rva": 175720776,
+  "seg": 2,
+  "name": "MobileUsersStorageHelperImpl::renameUserImpl"
+ },
+ {
+  "rva": 175720904,
+  "seg": 2,
+  "name": "MobileUsersStorageHelperImpl::deleteUserImpl"
+ },
+ {
+  "rva": 175720952,
+  "seg": 2,
+  "name": "MobileUsersStorageHelperImpl::clearRememberMeTicketImpl"
+ },
+ {
+  "rva": 175721008,
+  "seg": 2,
+  "name": "MobileUsersStorageHelperImpl::getDeviceEmails"
+ },
+ {
+  "rva": 175721392,
+  "seg": 2,
+  "name": "MobileUsersStorageHelperImpl::JobManager"
+ },
+ {
+  "rva": 175723480,
+  "seg": 2,
+  "name": "PlatformHelper::createUser"
+ },
+ {
+  "rva": 175724784,
+  "seg": 2,
+  "name": "HttpStreamingComponent::m_streamDataLock"
+ },
+ {
+  "rva": 175725904,
+  "seg": 2,
+  "name": "HttpRequestCurl::stepWaitForResume"
+ },
+ {
+  "rva": 175725944,
+  "seg": 2,
+  "name": "HttpRequestCurl::stepWaitStatusCode"
+ },
+ {
+  "rva": 175726112,
+  "seg": 2,
+  "name": "HttpRequestCurl::stepWaitForComplete"
+ },
+ {
+  "rva": 175726392,
+  "seg": 2,
+  "name": "HttpClientImplJobManager::m_asyncsMutex"
+ },
+ {
+  "rva": 175726464,
+  "seg": 2,
+  "name": "HttpClientImpl::sendImpl"
+ },
+ {
+  "rva": 175726896,
+  "seg": 2,
+  "name": "HttpEngine::m_requestsLock"
+ },
+ {
+  "rva": 175727888,
+  "seg": 2,
+  "name": "HttpRequestContext::m_lock"
+ },
+ {
+  "rva": 175728640,
+  "seg": 2,
+  "name": "JobHttpRequest::addToRequestQueue"
+ },
+ {
+  "rva": 175728680,
+  "seg": 2,
+  "name": "JobHttpRequest::createRequest"
+ },
+ {
+  "rva": 175728744,
+  "seg": 2,
+  "name": "JobHttpRequest::waitForRequestToken"
+ },
+ {
+  "rva": 175728784,
+  "seg": 2,
+  "name": "JobHttpRequest::waitRequestCompletion"
+ },
+ {
+  "rva": 175728824,
+  "seg": 2,
+  "name": "JobHttpRequest::reportOutcome"
+ },
+ {
+  "rva": 175730624,
+  "seg": 2,
+  "name": "JobSendRemoteLog::sendRequest"
+ },
+ {
+  "rva": 175730824,
+  "seg": 2,
+  "name": "JobSendRemoteLog::reportOutcome"
+ },
+ {
+  "rva": 175732248,
+  "seg": 2,
+  "name": "AsyncResultBase::Internal::m_mutex"
+ },
+ {
+  "rva": 175732328,
+  "seg": 2,
+  "name": "Job::startRequest"
+ },
+ {
+  "rva": 175732880,
+  "seg": 2,
+  "name": "JobUpcUpdatePeriodic::upcUpdate"
+ },
+ {
+  "rva": 175733936,
+  "seg": 2,
+  "name": "WebSocketHelper::closeConnection"
+ },
+ {
+  "rva": 175735736,
+  "seg": 2,
+  "name": "JobWebSocketCloseConnection::closeConnection"
+ },
+ {
+  "rva": 175735784,
+  "seg": 2,
+  "name": "JobWebSocketCloseConnection::startClosingHandshake"
+ },
+ {
+  "rva": 175735840,
+  "seg": 2,
+  "name": "JobWebSocketCloseConnection::reportOutcome"
+ },
+ {
+  "rva": 175736072,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::connect"
+ },
+ {
+  "rva": 175736112,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::performConnect"
+ },
+ {
+  "rva": 175736176,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::reportConnection"
+ },
+ {
+  "rva": 175736224,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::waitConnection"
+ },
+ {
+  "rva": 175736520,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::startProxyRequest"
+ },
+ {
+  "rva": 175736568,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::secureConnect"
+ },
+ {
+  "rva": 175736616,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::startHandshakeRequest"
+ },
+ {
+  "rva": 175736752,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::waitSecureConnection"
+ },
+ {
+  "rva": 175736808,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::writeHandshakeRequest"
+ },
+ {
+  "rva": 175736864,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::receiveHandshakeResponse"
+ },
+ {
+  "rva": 175736984,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::reportOutcome"
+ },
+ {
+  "rva": 175737136,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::writeProxyRequest"
+ },
+ {
+  "rva": 175737184,
+  "seg": 2,
+  "name": "JobWebSocketOpenConnection::waitProxyConnection"
+ },
+ {
+  "rva": 175737384,
+  "seg": 2,
+  "name": "JobWebSocketWriteStream::write"
+ },
+ {
+  "rva": 175737416,
+  "seg": 2,
+  "name": "JobWebSocketWriteStream::yieldWrite"
+ },
+ {
+  "rva": 175737456,
+  "seg": 2,
+  "name": "JobWebSocketWriteStream::reportOutcome"
+ },
+ {
+  "rva": 175738904,
+  "seg": 2,
+  "name": "FacadeInternal::m_criticalSection"
+ },
+ {
+  "rva": 175738944,
+  "seg": 2,
+  "name": "FacadeInternal::createSession"
+ },
+ {
+  "rva": 175738976,
+  "seg": 2,
+  "name": "FacadeInternal::deleteSession"
+ },
+ {
+  "rva": 175739688,
+  "seg": 2,
+  "name": "JobRequestApplicationMetadata::reportOutcome"
+ },
+ {
+  "rva": 175741632,
+  "seg": 2,
+  "name": "AuthenticationClient::createSession"
+ },
+ {
+  "rva": 175742824,
+  "seg": 2,
+  "name": "AuthenticationClient::deleteSession"
+ },
+ {
+  "rva": 175743360,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::requestParametersApplication"
+ },
+ {
+  "rva": 175743576,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::updatePopulation"
+ },
+ {
+  "rva": 175743624,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::processParametersApplication"
+ },
+ {
+  "rva": 175743864,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::requestParametersSpace"
+ },
+ {
+  "rva": 175744008,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::processPopulation"
+ },
+ {
+  "rva": 175744096,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::checkForNewPopulationsAssignment"
+ },
+ {
+  "rva": 175744288,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::checkForSpaceIdMismatch"
+ },
+ {
+  "rva": 175744464,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::requestParametersApplicationAfterNewPopulationAssignment"
+ },
+ {
+  "rva": 175744608,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::processParametersApplicationAfterNewPopulationAssignment"
+ },
+ {
+  "rva": 175744952,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::updatePopulationAfterSpaceIdChanged"
+ },
+ {
+  "rva": 175745016,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::processPopulationAfterSpaceIdChanged"
+ },
+ {
+  "rva": 175745080,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::primaryStoreSyncAndSendEvent"
+ },
+ {
+  "rva": 175745136,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdates::processParametersSpace"
+ },
+ {
+  "rva": 175745416,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::initJob"
+ },
+ {
+  "rva": 175745728,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::updatePopulation"
+ },
+ {
+  "rva": 175745792,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::processPopulation"
+ },
+ {
+  "rva": 175745856,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::requestParametersApplication"
+ },
+ {
+  "rva": 175745936,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::processParametersApplication"
+ },
+ {
+  "rva": 175746016,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::checkForSpaceIdMismatch"
+ },
+ {
+  "rva": 175746096,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::requestParametersSpace"
+ },
+ {
+  "rva": 175746512,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::processParametersSpace"
+ },
+ {
+  "rva": 175746656,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::updateNotificationTypes"
+ },
+ {
+  "rva": 175746864,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::primaryStoreSyncAndSendEvent"
+ },
+ {
+  "rva": 175746936,
+  "seg": 2,
+  "name": "JobApplyDynamicUpdatesBackFromSuspended::waitConnectionUpdate"
+ },
+ {
+  "rva": 175747184,
+  "seg": 2,
+  "name": "JobDeleteSession::deleteSession"
+ },
+ {
+  "rva": 175747240,
+  "seg": 2,
+  "name": "JobDeleteSession::closeConnection"
+ },
+ {
+  "rva": 175747280,
+  "seg": 2,
+  "name": "JobDeleteSession::waitRemoteLogRequestCompletion"
+ },
+ {
+  "rva": 175747336,
+  "seg": 2,
+  "name": "JobDeleteSession::reportOutcome"
+ },
+ {
+  "rva": 175747368,
+  "seg": 2,
+  "name": "JobDetectLink::checkProfileInfo"
+ },
+ {
+  "rva": 175747432,
+  "seg": 2,
+  "name": "JobDetectLink::m_getSessionAsync"
+ },
+ {
+  "rva": 175747520,
+  "seg": 2,
+  "name": "JobDetectLink::requestSessionInfo"
+ },
+ {
+  "rva": 175747560,
+  "seg": 2,
+  "name": "JobDetectLink::reportOutcome"
+ },
+ {
+  "rva": 175747696,
+  "seg": 2,
+  "name": "JobDetectLink::onGetSessionResult"
+ },
+ {
+  "rva": 175747736,
+  "seg": 2,
+  "name": "JobExtendSession::sendRequest"
+ },
+ {
+  "rva": 175748184,
+  "seg": 2,
+  "name": "JobExtendSession::handlePeriodicBehavior"
+ },
+ {
+  "rva": 175748368,
+  "seg": 2,
+  "name": "JobExtendSession::reportOutcome"
+ },
+ {
+  "rva": 175748568,
+  "seg": 2,
+  "name": "JobGetExternalSessionInfo::checkConditions"
+ },
+ {
+  "rva": 175748792,
+  "seg": 2,
+  "name": "JobGetExternalSessionInfo::createExternalSession"
+ },
+ {
+  "rva": 175748848,
+  "seg": 2,
+  "name": "JobGetExternalSessionInfo::getSessionInfoExternal"
+ },
+ {
+  "rva": 175748904,
+  "seg": 2,
+  "name": "JobGetExternalSessionInfo::requestParametersApplication"
+ },
+ {
+  "rva": 175748960,
+  "seg": 2,
+  "name": "JobGetExternalSessionInfo::processParametersApplication"
+ },
+ {
+  "rva": 175749016,
+  "seg": 2,
+  "name": "JobGetExternalSessionInfo::requestParametersSpace"
+ },
+ {
+  "rva": 175749072,
+  "seg": 2,
+  "name": "JobGetExternalSessionInfo::processParametersSpace"
+ },
+ {
+  "rva": 175749128,
+  "seg": 2,
+  "name": "JobGetSessionInfo::createSession"
+ },
+ {
+  "rva": 175749168,
+  "seg": 2,
+  "name": "JobGetSessionInfo::requestAccessToken"
+ },
+ {
+  "rva": 175749208,
+  "seg": 2,
+  "name": "JobGetSessionInfo::reportAccessToken"
+ },
+ {
+  "rva": 175749608,
+  "seg": 2,
+  "name": "JobLogin::performLogin"
+ },
+ {
+  "rva": 175749632,
+  "seg": 2,
+  "name": "JobGetSessionInfo::reportOutcome"
+ },
+ {
+  "rva": 175749824,
+  "seg": 2,
+  "name": "JobInitWebsocket::reportOutcome"
+ },
+ {
+  "rva": 175750104,
+  "seg": 2,
+  "name": "JobLogin::startPreLoginTask"
+ },
+ {
+  "rva": 175750304,
+  "seg": 2,
+  "name": "JobLogin::m_resultGetMobileUsers"
+ },
+ {
+  "rva": 175750616,
+  "seg": 2,
+  "name": "JobLogin::requestSessionInfo"
+ },
+ {
+  "rva": 175750672,
+  "seg": 2,
+  "name": "JobLogin::checkUniqueProfileId"
+ },
+ {
+  "rva": 175750888,
+  "seg": 2,
+  "name": "JobLogin::reportDeleteSession"
+ },
+ {
+  "rva": 175750920,
+  "seg": 2,
+  "name": "JobLogin::waitForGetInventoryRequest"
+ },
+ {
+  "rva": 175750960,
+  "seg": 2,
+  "name": "JobLogin::applyDynamicUpdates"
+ },
+ {
+  "rva": 175751024,
+  "seg": 2,
+  "name": "JobLogin::processPostLogin"
+ },
+ {
+  "rva": 175751152,
+  "seg": 2,
+  "name": "JobLogin::reportOutcome"
+ },
+ {
+  "rva": 175751216,
+  "seg": 2,
+  "name": "JobPostLogin::initiateConnection"
+ },
+ {
+  "rva": 175751256,
+  "seg": 2,
+  "name": "JobPostLogin::startEventsSession"
+ },
+ {
+  "rva": 175751344,
+  "seg": 2,
+  "name": "JobPostLogin::requestSecondaryStoreInventoryRulesExecution"
+ },
+ {
+  "rva": 175751560,
+  "seg": 2,
+  "name": "JobResumeFocusMaster::createAsyncs"
+ },
+ {
+  "rva": 175751680,
+  "seg": 2,
+  "name": "JobResumeFocusMaster::waitSingleFacade"
+ },
+ {
+  "rva": 175751720,
+  "seg": 2,
+  "name": "JobResumeFocusMaster::waitPrimaryStoreInventory"
+ },
+ {
+  "rva": 175751768,
+  "seg": 2,
+  "name": "JobResumeFocusMaster::applyDynamicUpdates"
+ },
+ {
+  "rva": 175751888,
+  "seg": 2,
+  "name": "JobResumeFromSuspended::createAsyncs"
+ },
+ {
+  "rva": 175751992,
+  "seg": 2,
+  "name": "JobResumeFromSuspended::waitSingleFacades"
+ },
+ {
+  "rva": 175752256,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::checkSessionCreated"
+ },
+ {
+  "rva": 175752304,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::createSession"
+ },
+ {
+  "rva": 175752512,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::terminateConnection"
+ },
+ {
+  "rva": 175752608,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::createUpdateSession"
+ },
+ {
+  "rva": 175752656,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::createUpdateSessionResult"
+ },
+ {
+  "rva": 175752776,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::applyDynamicUpdates"
+ },
+ {
+  "rva": 175752824,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::reportApplyDynamicUpdates"
+ },
+ {
+  "rva": 175752880,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::deleteActiveSession"
+ },
+ {
+  "rva": 175753008,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::requestSecondaryStoreInventoryRulesExecution"
+ },
+ {
+  "rva": 175753184,
+  "seg": 2,
+  "name": "JobResumeSingleFacade::reportDeleteSession"
+ },
+ {
+  "rva": 175753744,
+  "seg": 2,
+  "name": "UbiMobileCloud::getData"
+ },
+ {
+  "rva": 175753768,
+  "seg": 2,
+  "name": "UbiMobileCloud::setData"
+ },
+ {
+  "rva": 175758704,
+  "seg": 2,
+  "name": "ClubClient::requestChallengePoolsBundled"
+ },
+ {
+  "rva": 175758784,
+  "seg": 2,
+  "name": "ClubClient::requestChallengePoolsProfile"
+ },
+ {
+  "rva": 175758832,
+  "seg": 2,
+  "name": "ClubClient::requestChallengeDefinitionProfile"
+ },
+ {
+  "rva": 175758880,
+  "seg": 2,
+  "name": "ClubClient::requestChallengeStatusProfile"
+ },
+ {
+  "rva": 175758960,
+  "seg": 2,
+  "name": "ClubClient::requestChallengePoolsCommunity"
+ },
+ {
+  "rva": 175759008,
+  "seg": 2,
+  "name": "ClubClient::requestChallengeDefinitionCommunity"
+ },
+ {
+  "rva": 175759056,
+  "seg": 2,
+  "name": "ClubClient::requestChallengeStatusCommunity"
+ },
+ {
+  "rva": 175759136,
+  "seg": 2,
+  "name": "ClubClient::activateChallengeProfile"
+ },
+ {
+  "rva": 175759208,
+  "seg": 2,
+  "name": "ClubClient::bankChallengeProfile"
+ },
+ {
+  "rva": 175759248,
+  "seg": 2,
+  "name": "ClubClient::requestRewards"
+ },
+ {
+  "rva": 175759296,
+  "seg": 2,
+  "name": "clubClient::purchaseReward"
+ },
+ {
+  "rva": 175759360,
+  "seg": 2,
+  "name": "ClubClient::requestBadges"
+ },
+ {
+  "rva": 175759440,
+  "seg": 2,
+  "name": "ClubClient::RequestActions"
+ },
+ {
+  "rva": 175759520,
+  "seg": 2,
+  "name": "JobCompleteActions::reportOutcome"
+ },
+ {
+  "rva": 175759824,
+  "seg": 2,
+  "name": "JobCompleteActions::modifyCacheResult"
+ },
+ {
+  "rva": 175760032,
+  "seg": 2,
+  "name": "JobFilterActions::waitForActionsList"
+ },
+ {
+  "rva": 175760072,
+  "seg": 2,
+  "name": "JobFilterActions::filterActions"
+ },
+ {
+  "rva": 175760104,
+  "seg": 2,
+  "name": "JobFilterBadges::waitForBadgesList"
+ },
+ {
+  "rva": 175760144,
+  "seg": 2,
+  "name": "JobFilterBadges::filterBadges"
+ },
+ {
+  "rva": 175760280,
+  "seg": 2,
+  "name": "JobPurchaseReward::reportOutcome"
+ },
+ {
+  "rva": 175760672,
+  "seg": 2,
+  "name": "JobRequestActions::getItemsJson"
+ },
+ {
+  "rva": 175760704,
+  "seg": 2,
+  "name": "JobRequestActions::parseActions"
+ },
+ {
+  "rva": 175761016,
+  "seg": 2,
+  "name": "JobRequestChallengesDefinitionCommunity::reportOutcome"
+ },
+ {
+  "rva": 175761200,
+  "seg": 2,
+  "name": "JobRequestChallengesDefinitionProfile::reportOutcome"
+ },
+ {
+  "rva": 175761640,
+  "seg": 2,
+  "name": "JobRequestPoolsBundled::reportOutcome"
+ },
+ {
+  "rva": 175761752,
+  "seg": 2,
+  "name": "JobRequestPoolsCommunity::waitForPoolsBundled"
+ },
+ {
+  "rva": 175761800,
+  "seg": 2,
+  "name": "JobRequestPoolsCommunity::reportOutcome"
+ },
+ {
+  "rva": 175761840,
+  "seg": 2,
+  "name": "JobRequestPoolsProfile::waitForPoolsBundled"
+ },
+ {
+  "rva": 175761888,
+  "seg": 2,
+  "name": "JobRequestPoolsProfile::reportOutcome"
+ },
+ {
+  "rva": 175762064,
+  "seg": 2,
+  "name": "JobRequestRewards::reportOutcome"
+ },
+ {
+  "rva": 175762360,
+  "seg": 2,
+  "name": "JobUpdateChallengeStatus::reportOutcome"
+ },
+ {
+  "rva": 175762400,
+  "seg": 2,
+  "name": "JobUpdateChallengeStatus::invalidateCaches"
+ },
+ {
+  "rva": 175766136,
+  "seg": 2,
+  "name": "JobCreateProfileEntity::createProfile"
+ },
+ {
+  "rva": 175766416,
+  "seg": 2,
+  "name": "JobCreateProfileEntity::reportCreateProfileOutcome"
+ },
+ {
+  "rva": 175766472,
+  "seg": 2,
+  "name": "JobCreateProfileEntity::createExtendedStorage"
+ },
+ {
+  "rva": 175766680,
+  "seg": 2,
+  "name": "JobCreateProfileEntity::reportCreateExtendedStorageOutcome"
+ },
+ {
+  "rva": 175766768,
+  "seg": 2,
+  "name": "JobDeleteProfileEntity::reportOutcome"
+ },
+ {
+  "rva": 175766808,
+  "seg": 2,
+  "name": "JobExtendedStorageCreate::updateEntity"
+ },
+ {
+  "rva": 175766880,
+  "seg": 2,
+  "name": "JobExtendedStorageCreate::reportUpdateEntityOutcome"
+ },
+ {
+  "rva": 175766936,
+  "seg": 2,
+  "name": "JobExtendedStorageCreate::uploadExtendedStorage"
+ },
+ {
+  "rva": 175766984,
+  "seg": 2,
+  "name": "JobExtendedStorageCreate::reportUploadExtendedStorageOutcome"
+ },
+ {
+  "rva": 175767208,
+  "seg": 2,
+  "name": "JobExtendedStorageDelete::reportOutcome"
+ },
+ {
+  "rva": 175767400,
+  "seg": 2,
+  "name": "JobExtendedStorageDownload::manageStream"
+ },
+ {
+  "rva": 175767448,
+  "seg": 2,
+  "name": "JobExtendedStorageDownload::reportOutcome"
+ },
+ {
+  "rva": 175767720,
+  "seg": 2,
+  "name": "JobExtendedStorageDownloadStream::reportOutcome"
+ },
+ {
+  "rva": 175767832,
+  "seg": 2,
+  "name": "JobExtendedStorageUpload::reportOutcome"
+ },
+ {
+  "rva": 175767872,
+  "seg": 2,
+  "name": "JobExtendedStorageUpload::manageStream"
+ },
+ {
+  "rva": 175767952,
+  "seg": 2,
+  "name": "JobRequestEntitiesProfile::reportOutcome"
+ },
+ {
+  "rva": 175768080,
+  "seg": 2,
+  "name": "JobRequestEntitiesProfile::startRequest"
+ },
+ {
+  "rva": 175768120,
+  "seg": 2,
+  "name": "JobRequestEntityProfile::reportOutcome"
+ },
+ {
+  "rva": 175768224,
+  "seg": 2,
+  "name": "JobRequestEntitySpace::reportOutcome"
+ },
+ {
+  "rva": 175768440,
+  "seg": 2,
+  "name": "JobSearchEntitiesProfile::reportOutcome"
+ },
+ {
+  "rva": 175768624,
+  "seg": 2,
+  "name": "JobSearchEntitiesSpace::reportOutcome"
+ },
+ {
+  "rva": 175768744,
+  "seg": 2,
+  "name": "JobUpdateProfileEntityWithFeedback::reportOutcome"
+ },
+ {
+  "rva": 175773360,
+  "seg": 2,
+  "name": "JobPeriodicPushPlayTime::pushPlayTime"
+ },
+ {
+  "rva": 175773400,
+  "seg": 2,
+  "name": "JobProcessDynamicEvents::processDynamicEvents"
+ },
+ {
+  "rva": 175773488,
+  "seg": 2,
+  "name": "JobQueueAndSendEvents::WaitOnStartEventSession"
+ },
+ {
+  "rva": 175773536,
+  "seg": 2,
+  "name": "JobQueueAndSendEvents::yieldQueueInProgress"
+ },
+ {
+  "rva": 175773656,
+  "seg": 2,
+  "name": "JobQueueAndSendEvents::prepareRequests"
+ },
+ {
+  "rva": 175773824,
+  "seg": 2,
+  "name": "JobQueueAndSendEvents::sendRequest"
+ },
+ {
+  "rva": 175773904,
+  "seg": 2,
+  "name": "JobQueueAndSendEvents::reportOutcome"
+ },
+ {
+  "rva": 175773944,
+  "seg": 2,
+  "name": "JobQueueUnsentEvents::pushUnsentEvents"
+ },
+ {
+  "rva": 175774000,
+  "seg": 2,
+  "name": "JobRequestEventsConfig::reportOutcome"
+ },
+ {
+  "rva": 175774160,
+  "seg": 2,
+  "name": "JobRequestEventsDefinitions::startRetrieval"
+ },
+ {
+  "rva": 175774256,
+  "seg": 2,
+  "name": "JobRequestEventsDefinitions::reportOutcome"
+ },
+ {
+  "rva": 175774504,
+  "seg": 2,
+  "name": "JobRequestUnsentEvents::sendEvents"
+ },
+ {
+  "rva": 175774544,
+  "seg": 2,
+  "name": "JobRequestUnsentEvents::queuePreviousSessions"
+ },
+ {
+  "rva": 175774712,
+  "seg": 2,
+  "name": "JobRequestUnsentEvents::getRequests"
+ },
+ {
+  "rva": 175775008,
+  "seg": 2,
+  "name": "JobSendEventsPeriodic::setNextPeriod"
+ },
+ {
+  "rva": 175775096,
+  "seg": 2,
+  "name": "JobSendEventsPeriodic::startRequest"
+ },
+ {
+  "rva": 175775136,
+  "seg": 2,
+  "name": "JobStartEventSession::startAllFetching"
+ },
+ {
+  "rva": 175775288,
+  "seg": 2,
+  "name": "JobStartEventSession::reportRequestEventConfiguration"
+ },
+ {
+  "rva": 175775400,
+  "seg": 2,
+  "name": "JobStartEventSession::reportRequestEventsDefinitions"
+ },
+ {
+  "rva": 175779528,
+  "seg": 2,
+  "name": "FriendClient::requestFriendsImpl"
+ },
+ {
+  "rva": 175779584,
+  "seg": 2,
+  "name": "FriendClient::sendFriendsInviteImpl"
+ },
+ {
+  "rva": 175779624,
+  "seg": 2,
+  "name": "FriendClient::requestFriendsPendingImpl"
+ },
+ {
+  "rva": 175779664,
+  "seg": 2,
+  "name": "FriendClient::requestFriendsInvitesImpl"
+ },
+ {
+  "rva": 175779704,
+  "seg": 2,
+  "name": "FriendClient::updateFriendRelationshipImpl"
+ },
+ {
+  "rva": 175779752,
+  "seg": 2,
+  "name": "FriendClient::removeFriendImpl"
+ },
+ {
+  "rva": 175780168,
+  "seg": 2,
+  "name": "JobInviteFriendClub::reportOutcome"
+ },
+ {
+  "rva": 175780376,
+  "seg": 2,
+  "name": "JobRemoveFriendClub::reportOutcome"
+ },
+ {
+  "rva": 175780528,
+  "seg": 2,
+  "name": "JobRequestFriends::fetchFriendsClub"
+ },
+ {
+  "rva": 175780728,
+  "seg": 2,
+  "name": "JobRequestFriends::fetchFriendsConsole"
+ },
+ {
+  "rva": 175780824,
+  "seg": 2,
+  "name": "JobRequestFriends::setResult"
+ },
+ {
+  "rva": 175781616,
+  "seg": 2,
+  "name": "JobRequestFriendsClub::requestFriends"
+ },
+ {
+  "rva": 175781736,
+  "seg": 2,
+  "name": "JobRequestFriendsClub::processFriends"
+ },
+ {
+  "rva": 175781840,
+  "seg": 2,
+  "name": "JobRequestFriendsClub::requestFriendsProfileInfo"
+ },
+ {
+  "rva": 175781896,
+  "seg": 2,
+  "name": "JobRequestFriendsClub::reportOutcome"
+ },
+ {
+  "rva": 175781936,
+  "seg": 2,
+  "name": "JobRequestFriendsClub::processFriendsProfileInfo"
+ },
+ {
+  "rva": 175781992,
+  "seg": 2,
+  "name": "JobRequestFriendsClub::processFriendsLinkedProfilesInfo"
+ },
+ {
+  "rva": 175782048,
+  "seg": 2,
+  "name": "JobRequestFriendsClub::reportOutcomeWithLinkedProfiles"
+ },
+ {
+  "rva": 175782104,
+  "seg": 2,
+  "name": "JobRequestFriendsClub::requestFriendsLinkedProfilesInfo"
+ },
+ {
+  "rva": 175782720,
+  "seg": 2,
+  "name": "JobRequestFriendsConsole::requestFirstPartyFriends"
+ },
+ {
+  "rva": 175782816,
+  "seg": 2,
+  "name": "JobRequestFriendsConsole::onRequestFirstPartyFriends"
+ },
+ {
+  "rva": 175782912,
+  "seg": 2,
+  "name": "JobRequestFriendsConsole::onLookupProfileId"
+ },
+ {
+  "rva": 175782960,
+  "seg": 2,
+  "name": "JobRequestFriendsConsole::onLookupInfoClubFriends"
+ },
+ {
+  "rva": 175783016,
+  "seg": 2,
+  "name": "JobRequestFriendsFirstParty::setResult"
+ },
+ {
+  "rva": 175783128,
+  "seg": 2,
+  "name": "JobUpdateFriends::reportOutcome"
+ },
+ {
+  "rva": 175784232,
+  "seg": 2,
+  "name": "JobGetModerationInfo::parseResponse"
+ },
+ {
+  "rva": 175784552,
+  "seg": 2,
+  "name": "JobRequestModerationInfo::parseResponse"
+ },
+ {
+  "rva": 175785728,
+  "seg": 2,
+  "name": "JobRequestNews::dectectMarket"
+ },
+ {
+  "rva": 175785760,
+  "seg": 2,
+  "name": "JobRequestNews::sendRequest"
+ },
+ {
+  "rva": 175785912,
+  "seg": 2,
+  "name": "JobRequestNews::reportOutcome"
+ },
+ {
+  "rva": 175786584,
+  "seg": 2,
+  "name": "ConnectionClient::m_connectionCS"
+ },
+ {
+  "rva": 175787096,
+  "seg": 2,
+  "name": "JobInitiateConnection::initiateConnection"
+ },
+ {
+  "rva": 175787224,
+  "seg": 2,
+  "name": "JobInitiateConnection::checkConnection"
+ },
+ {
+  "rva": 175787264,
+  "seg": 2,
+  "name": "JobInitiateConnection::waitForConnectionId"
+ },
+ {
+  "rva": 175787536,
+  "seg": 2,
+  "name": "JobManageConnection::checkMessageAvailability"
+ },
+ {
+  "rva": 175787584,
+  "seg": 2,
+  "name": "JobManageConnection::updateNotificationTypes"
+ },
+ {
+  "rva": 175787680,
+  "seg": 2,
+  "name": "JobManageConnection::pushNotification"
+ },
+ {
+  "rva": 175789696,
+  "seg": 2,
+  "name": "JobRequestConnections::reportOutcome"
+ },
+ {
+  "rva": 175789800,
+  "seg": 2,
+  "name": "JobRequestConnections::startRequest"
+ },
+ {
+  "rva": 175789840,
+  "seg": 2,
+  "name": "JobRetryWebSocketInit::initiateConnection"
+ },
+ {
+  "rva": 175789944,
+  "seg": 2,
+  "name": "JobRetryWebSocketInit::reportOutcome"
+ },
+ {
+  "rva": 175790648,
+  "seg": 2,
+  "name": "JobSendNotification::reportResult"
+ },
+ {
+  "rva": 175790752,
+  "seg": 2,
+  "name": "JobSendNotification::startRequest"
+ },
+ {
+  "rva": 175790912,
+  "seg": 2,
+  "name": "JobSendNotificationBatch::reportOutcome"
+ },
+ {
+  "rva": 175790952,
+  "seg": 2,
+  "name": "JobSendNotificationBatch::startRequest"
+ },
+ {
+  "rva": 175791504,
+  "seg": 2,
+  "name": "JobSendNotificationNoBroker::onSendResponse"
+ },
+ {
+  "rva": 175791600,
+  "seg": 2,
+  "name": "JobSendNotificationNoBroker::startRequest"
+ },
+ {
+  "rva": 175791704,
+  "seg": 2,
+  "name": "JobSendSingleNotification::reportOutcome"
+ },
+ {
+  "rva": 175791840,
+  "seg": 2,
+  "name": "JobSendSingleNotificationNoBroker::reportOutcome"
+ },
+ {
+  "rva": 175791896,
+  "seg": 2,
+  "name": "JobTerminateConnection::reportOutcome"
+ },
+ {
+  "rva": 175792144,
+  "seg": 2,
+  "name": "JobUpdateConnection::startRequest"
+ },
+ {
+  "rva": 175792208,
+  "seg": 2,
+  "name": "JobUpdateConnection::reportOutcome"
+ },
+ {
+  "rva": 175792536,
+  "seg": 2,
+  "name": "ConnectionClient::requestConnections"
+ },
+ {
+  "rva": 175793776,
+  "seg": 2,
+  "name": "JobRequestParameters::reportOutcome"
+ },
+ {
+  "rva": 175793944,
+  "seg": 2,
+  "name": "ParametersClient::ParametersClient"
+ },
+ {
+  "rva": 175794864,
+  "seg": 2,
+  "name": "JobRequestPopulation::checkSpaceIds"
+ },
+ {
+  "rva": 175794952,
+  "seg": 2,
+  "name": "JobRequestPopulation::requestPopulations"
+ },
+ {
+  "rva": 175795000,
+  "seg": 2,
+  "name": "JobRequestPopulation::reportOutcome"
+ },
+ {
+  "rva": 175795240,
+  "seg": 2,
+  "name": "JobUpdatePopulation::requestPopulations"
+ },
+ {
+  "rva": 175795352,
+  "seg": 2,
+  "name": "JobUpdatePopulation::reportOutcome"
+ },
+ {
+  "rva": 175795416,
+  "seg": 2,
+  "name": "PopulationClient::requestPopulations"
+ },
+ {
+  "rva": 175795456,
+  "seg": 2,
+  "name": "PopulationClient::updatePopulationData"
+ },
+ {
+  "rva": 175795536,
+  "seg": 2,
+  "name": "SessionManagerPopulations::applyDynamicUpdates"
+ },
+ {
+  "rva": 175795672,
+  "seg": 2,
+  "name": "JobPrimaryStoreSyncAndSendEvent::getPrimaryStoreInventory"
+ },
+ {
+  "rva": 175795736,
+  "seg": 2,
+  "name": "JobPrimaryStoreSyncAndSendEvent::sendEventPrimaryStore"
+ },
+ {
+  "rva": 175795792,
+  "seg": 2,
+  "name": "JobPrimaryStoreSyncAndSendEvent::waitForPrimaryStoreResults"
+ },
+ {
+  "rva": 175795856,
+  "seg": 2,
+  "name": "JobPrimaryStoreSyncAndSendEvent::reportPrimaryStoreError"
+ },
+ {
+  "rva": 175795920,
+  "seg": 2,
+  "name": "JobPrimaryStoreSyncAndSendEvent::updatePrimaryStore"
+ },
+ {
+  "rva": 175796024,
+  "seg": 2,
+  "name": "JobPrimaryStoreSyncAndSendEvent::syncPrimaryStoreInventory"
+ },
+ {
+  "rva": 175796728,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreInventory::getUserInventoryProduct"
+ },
+ {
+  "rva": 175796800,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreInventory::waitForRequestPrimaryStoreInventory"
+ },
+ {
+  "rva": 175796872,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreInventory::reportItemsInventory"
+ },
+ {
+  "rva": 175797072,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreInventoryWrapper::m_requestPrimaryStoreInventoryResult"
+ },
+ {
+  "rva": 175797152,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreInventoryWrapper::startRequest"
+ },
+ {
+  "rva": 175797208,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreInventoryWrapper::reportResult"
+ },
+ {
+  "rva": 175797704,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreItemsCatalog::getStoreCommerceProduct"
+ },
+ {
+  "rva": 175797776,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreItemsCatalog::waitForRequestPrimaryStoreItemsCatalog"
+ },
+ {
+  "rva": 175797856,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreItemsCatalog::getStoreCommerceProductResult"
+ },
+ {
+  "rva": 175798048,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreItemsCatalogPage::processResponse"
+ },
+ {
+  "rva": 175798192,
+  "seg": 2,
+  "name": "JobRequestPrimaryStoreItemsInventory::processResponse"
+ },
+ {
+  "rva": 175798952,
+  "seg": 2,
+  "name": "JobCreateRoamingProfile::sendRequest"
+ },
+ {
+  "rva": 175799656,
+  "seg": 2,
+  "name": "JobRequestApplicationsUsed::reportOutcome"
+ },
+ {
+  "rva": 175800120,
+  "seg": 2,
+  "name": "JobRequestProfileInfoExternal::checkConditions"
+ },
+ {
+  "rva": 175800336,
+  "seg": 2,
+  "name": "JobRequestProfileInfoExternal::getExternalSessionInfo"
+ },
+ {
+  "rva": 175800392,
+  "seg": 2,
+  "name": "JobRequestProfileInfoExternal::getExternalSessionResult"
+ },
+ {
+  "rva": 175800448,
+  "seg": 2,
+  "name": "JobRequestProfileInfoExternal::sendRequest"
+ },
+ {
+  "rva": 175800568,
+  "seg": 2,
+  "name": "JobRequestProfileInfoExternal::createSession"
+ },
+ {
+  "rva": 175800616,
+  "seg": 2,
+  "name": "JobRequestProfileInfoExternal::reportOutcome"
+ },
+ {
+  "rva": 175801216,
+  "seg": 2,
+  "name": "JobRequestProfilesBatch::requestId"
+ },
+ {
+  "rva": 175801368,
+  "seg": 2,
+  "name": "JobRequestProfilesBatch::reportOutcome"
+ },
+ {
+  "rva": 175801424,
+  "seg": 2,
+  "name": "JobRequestProfiles::requestId"
+ },
+ {
+  "rva": 175801480,
+  "seg": 2,
+  "name": "JobRequestProfiles::m_batchResult"
+ },
+ {
+  "rva": 175801656,
+  "seg": 2,
+  "name": "ConsoleClient::requestProfileId"
+ },
+ {
+  "rva": 175801776,
+  "seg": 2,
+  "name": "JobRequestProfilesFromNamesOnPlatform::requestProfiles"
+ },
+ {
+  "rva": 175801872,
+  "seg": 2,
+  "name": "JobRequestProfilesFromNamesOnPlatform::reportOutcome"
+ },
+ {
+  "rva": 175802040,
+  "seg": 2,
+  "name": "JobRequestProfilesFromPlatformIds::reportOutcome"
+ },
+ {
+  "rva": 175802128,
+  "seg": 2,
+  "name": "JobRequestProfileFromProfileIds::reportOutcome"
+ },
+ {
+  "rva": 175802544,
+  "seg": 2,
+  "name": "JobRequestProfilesFromUserIds::reportOutcome"
+ },
+ {
+  "rva": 175802776,
+  "seg": 2,
+  "name": "JobRequestProfilesFromUserNames::reportOutcome"
+ },
+ {
+  "rva": 175802992,
+  "seg": 2,
+  "name": "JobRequestRoamingProfiles::sendRequest"
+ },
+ {
+  "rva": 175803320,
+  "seg": 2,
+  "name": "ProfileClient::requestRoamingProfiles"
+ },
+ {
+  "rva": 175803768,
+  "seg": 2,
+  "name": "ProfileClient::requestUplayProfiles"
+ },
+ {
+  "rva": 175803808,
+  "seg": 2,
+  "name": "ProfileClient::requestProfileInfoExternal"
+ },
+ {
+  "rva": 175803856,
+  "seg": 2,
+  "name": "ProfileClient::requestProfileInfoExternalFromToken"
+ },
+ {
+  "rva": 175803912,
+  "seg": 2,
+  "name": "ApplicationUsedClient::requestApplicationsUsed"
+ },
+ {
+  "rva": 175804960,
+  "seg": 2,
+  "name": "JobApplyOffer::reportOutcome"
+ },
+ {
+  "rva": 175805256,
+  "seg": 2,
+  "name": "JobDeleteExpiredDetails::reportOutcome"
+ },
+ {
+  "rva": 175805520,
+  "seg": 2,
+  "name": "JobDeleteInventory::reportOutcome"
+ },
+ {
+  "rva": 175806176,
+  "seg": 2,
+  "name": "JobGetDataAll::parseResponse"
+ },
+ {
+  "rva": 175806264,
+  "seg": 2,
+  "name": "JobGetDataAll::parseField"
+ },
+ {
+  "rva": 175806296,
+  "seg": 2,
+  "name": "JobGetDataAll::parseFieldMetadata"
+ },
+ {
+  "rva": 175808488,
+  "seg": 2,
+  "name": "JobNotifyPrimaryStoreUpdate::startRequest"
+ },
+ {
+  "rva": 175808584,
+  "seg": 2,
+  "name": "JobNotifyPrimaryStoreUpdate::getMappingForced"
+ },
+ {
+  "rva": 175808632,
+  "seg": 2,
+  "name": "JobNotifyPrimaryStoreUpdate::getMapping"
+ },
+ {
+  "rva": 175808672,
+  "seg": 2,
+  "name": "JobNotifyPrimaryStoreUpdate::processMapping"
+ },
+ {
+  "rva": 175808792,
+  "seg": 2,
+  "name": "JobNotifyPrimaryStoreUpdate::sendRequest"
+ },
+ {
+  "rva": 175808840,
+  "seg": 2,
+  "name": "JobNotifyPrimaryStoreUpdate::processMappingForced"
+ },
+ {
+  "rva": 175809136,
+  "seg": 2,
+  "name": "JobNotifyPrimaryStoreUpdate::parseResponse"
+ },
+ {
+  "rva": 175809664,
+  "seg": 2,
+  "name": "JobRegisterToUpcEventsStore::registerToUpcEvents"
+ },
+ {
+  "rva": 175810048,
+  "seg": 2,
+  "name": "JobRequestInventory::waitForPrimaryStoreUpdates"
+ },
+ {
+  "rva": 175810304,
+  "seg": 2,
+  "name": "JobRequestInventory::sendRequest"
+ },
+ {
+  "rva": 175810432,
+  "seg": 2,
+  "name": "JobRequestInventory::parseResponse"
+ },
+ {
+  "rva": 175810472,
+  "seg": 2,
+  "name": "JobRequestInventory::parseField"
+ },
+ {
+  "rva": 175810504,
+  "seg": 2,
+  "name": "JobRequestInventory::parseItemsOnField"
+ },
+ {
+  "rva": 175811096,
+  "seg": 2,
+  "name": "JobRequestMapping::reportOutcome"
+ },
+ {
+  "rva": 175811656,
+  "seg": 2,
+  "name": "JobRetryFailedPrimaryStoreSync::calculateNextRetry"
+ },
+ {
+  "rva": 175811776,
+  "seg": 2,
+  "name": "JobRetryFailedPrimaryStoreSync::startJob"
+ },
+ {
+  "rva": 175811904,
+  "seg": 2,
+  "name": "JobRetryFailedPrimaryStoreUpdateNotification::startJob"
+ },
+ {
+  "rva": 175811960,
+  "seg": 2,
+  "name": "JobRetryFailedPrimaryStoreSync::reportOutcome"
+ },
+ {
+  "rva": 175812504,
+  "seg": 2,
+  "name": "JobSearchInventoryTransactions::parseResponse"
+ },
+ {
+  "rva": 175814176,
+  "seg": 2,
+  "name": "SessionManagerStore::m_processPrimaryStoreInventoryResult"
+ },
+ {
+  "rva": 175814336,
+  "seg": 2,
+  "name": "SessionManagerStore::RequestPrimaryStoreItemsInventory::m_primaryStoreInventoryCache"
+ },
+ {
+  "rva": 175814480,
+  "seg": 2,
+  "name": "SessionManagerStore::RequestPrimaryStoreItemsCatalog::m_primaryStoreCatalogCache"
+ },
+ {
+  "rva": 175815480,
+  "seg": 2,
+  "name": "SessionManagerStore::m_notifyPrimaryStoreUpdatePeriodicResult"
+ },
+ {
+  "rva": 175816264,
+  "seg": 2,
+  "name": "JobCallingInventoryRulesService::reportOutcome"
+ },
+ {
+  "rva": 175816320,
+  "seg": 2,
+  "name": "JobExecuteSecondaryStoreInventoryRules::waitForPrimarySecondaryStoreSync"
+ },
+ {
+  "rva": 175816456,
+  "seg": 2,
+  "name": "JobExecuteSecondaryStoreInventoryRules::prepareRequest"
+ },
+ {
+  "rva": 175816640,
+  "seg": 2,
+  "name": "JobExecuteSecondaryStoreInventoryRules::startRequest"
+ },
+ {
+  "rva": 175816704,
+  "seg": 2,
+  "name": "JobExecuteSecondaryStoreInventoryRules::processOutcomeOfCallingJob"
+ },
+ {
+  "rva": 175817704,
+  "seg": 2,
+  "name": "JobRequestStatCardsCommunity::parseResponse"
+ },
+ {
+  "rva": 175818352,
+  "seg": 2,
+  "name": "JobRequestStatCardsProfilesBatch::requestStats"
+ },
+ {
+  "rva": 175818496,
+  "seg": 2,
+  "name": "JobRequestStatCardsProfilesBatch::parseResponse"
+ },
+ {
+  "rva": 175818720,
+  "seg": 2,
+  "name": "JobRequestStatCardsProfiles::sendRequestBatch"
+ },
+ {
+  "rva": 175818800,
+  "seg": 2,
+  "name": "JobRequestStatCardsProfiles::m_batchResult"
+ },
+ {
+  "rva": 175818848,
+  "seg": 2,
+  "name": "JobRequestStatCardssProfiles::m_statCardsProfilesResult"
+ },
+ {
+  "rva": 175819000,
+  "seg": 2,
+  "name": "ConsoleClient::requestStatCardsProfiles"
+ },
+ {
+  "rva": 175819464,
+  "seg": 2,
+  "name": "JobRequestStatCommunity::parseResponse"
+ },
+ {
+  "rva": 175820096,
+  "seg": 2,
+  "name": "JobRequestStatProfile::parseResponse"
+ },
+ {
+  "rva": 175820800,
+  "seg": 2,
+  "name": "JobRequestStatsProfilesBatch::parseResponse"
+ },
+ {
+  "rva": 175821032,
+  "seg": 2,
+  "name": "JobRequestStatsProfiles::m_batchResult"
+ },
+ {
+  "rva": 175821072,
+  "seg": 2,
+  "name": "JobRequestStatsProfiles::setupFilterType"
+ },
+ {
+  "rva": 175821152,
+  "seg": 2,
+  "name": "JobRequestStatsProfiles::sendNextBatch"
+ },
+ {
+  "rva": 175821192,
+  "seg": 2,
+  "name": "ConsoleClient::requestStatsProfiles"
+ },
+ {
+  "rva": 175821232,
+  "seg": 2,
+  "name": "JobRequestStatsProfiles::verifyBatch"
+ },
+ {
+  "rva": 175821272,
+  "seg": 2,
+  "name": "JobRequestStatsProfiles::filterStats"
+ },
+ {
+  "rva": 175821968,
+  "seg": 2,
+  "name": "JobSendTLog::sendRequest"
+ },
+ {
+  "rva": 175822336,
+  "seg": 2,
+  "name": "JobSendTLog::reportOutcome"
+ },
+ {
+  "rva": 175823544,
+  "seg": 2,
+  "name": "UserClient::validateUserCreationData"
+ },
+ {
+  "rva": 175823584,
+  "seg": 2,
+  "name": "UserClient::createUserWithExternalToken"
+ },
+ {
+  "rva": 175823624,
+  "seg": 2,
+  "name": "UserClient::createUser"
+ },
+ {
+  "rva": 175823648,
+  "seg": 2,
+  "name": "UserClient::linkCurrentProfile"
+ },
+ {
+  "rva": 175823680,
+  "seg": 2,
+  "name": "UserClient::linkExternalProfile"
+ },
+ {
+  "rva": 175823712,
+  "seg": 2,
+  "name": "UserClient::linkCurrentProfileToExternalLinkedProfileUser"
+ },
+ {
+  "rva": 175823776,
+  "seg": 2,
+  "name": "UserClient::linkExternalProfileToCurrentLinkedProfileUser"
+ },
+ {
+  "rva": 175823840,
+  "seg": 2,
+  "name": "UserClient::requestUserLegalOptIns"
+ },
+ {
+  "rva": 175823880,
+  "seg": 2,
+  "name": "UserClient::acceptUserLegalOptIns"
+ },
+ {
+  "rva": 175823920,
+  "seg": 2,
+  "name": "UserClient::createUplayAccountForDevelopment"
+ },
+ {
+  "rva": 175824064,
+  "seg": 2,
+  "name": "JobAcceptUserLegalOptins::reportOutcome"
+ },
+ {
+  "rva": 175824136,
+  "seg": 2,
+  "name": "JobCreateUser::checkConditions"
+ },
+ {
+  "rva": 175824168,
+  "seg": 2,
+  "name": "JobCreateUser::m_postLoginResult"
+ },
+ {
+  "rva": 175824496,
+  "seg": 2,
+  "name": "JobCreateUser::sendRequest"
+ },
+ {
+  "rva": 175824544,
+  "seg": 2,
+  "name": "JobCreateUser::reportOutcome"
+ },
+ {
+  "rva": 175824608,
+  "seg": 2,
+  "name": "JobCreateUser::processPostLogin"
+ },
+ {
+  "rva": 175824640,
+  "seg": 2,
+  "name": "JobCreateUser::onPostLoginResponse"
+ },
+ {
+  "rva": 175824800,
+  "seg": 2,
+  "name": "JobCreateUserWithExternalToken::checkConditions"
+ },
+ {
+  "rva": 175825232,
+  "seg": 2,
+  "name": "JobCreateUserWithExternalToken::sendRequest"
+ },
+ {
+  "rva": 175825312,
+  "seg": 2,
+  "name": "JobCreateUserWithExternalToken::reportOutcome"
+ },
+ {
+  "rva": 175825360,
+  "seg": 2,
+  "name": "JobCreateUserWithExternalToken::processPostLogin"
+ },
+ {
+  "rva": 175825416,
+  "seg": 2,
+  "name": "JobCreateUserWithExternalToken::onPostLoginResponse"
+ },
+ {
+  "rva": 175825536,
+  "seg": 2,
+  "name": "JobLinkCurrentProfile::requestConsoleTicket"
+ },
+ {
+  "rva": 175825680,
+  "seg": 2,
+  "name": "JobLinkCurrentProfileToExternalLinkedProfileUser::checkConditions"
+ },
+ {
+  "rva": 175825840,
+  "seg": 2,
+  "name": "JobLinkCurrentProfileToExternalLinkedProfileUser::getExternalSessionInfo"
+ },
+ {
+  "rva": 175825920,
+  "seg": 2,
+  "name": "JobLinkCurrentProfileToExternalLinkedProfileUser::getExternalSessionInfoResult"
+ },
+ {
+  "rva": 175826048,
+  "seg": 2,
+  "name": "JobLinkCurrentProfileToExternalLinkedProfileUser::linkProfile"
+ },
+ {
+  "rva": 175826208,
+  "seg": 2,
+  "name": "JobLinkCurrentProfileToExternalLinkedProfileUser::onProfileLinked"
+ },
+ {
+  "rva": 175826280,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::createUplayAccountSession"
+ },
+ {
+  "rva": 175826696,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::getUplaySessionInfo"
+ },
+ {
+  "rva": 175826744,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::requestParametersApplication"
+ },
+ {
+  "rva": 175826800,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::processParametersApplication"
+ },
+ {
+  "rva": 175826856,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::requestParametersSpace"
+ },
+ {
+  "rva": 175826904,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::processParametersSpace"
+ },
+ {
+  "rva": 175826952,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::linkProfile"
+ },
+ {
+  "rva": 175827080,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::onProfileLinked"
+ },
+ {
+  "rva": 175827120,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::processPostLogin"
+ },
+ {
+  "rva": 175827168,
+  "seg": 2,
+  "name": "JobLinkExternalProfile::onPostLoginResponse"
+ },
+ {
+  "rva": 175827344,
+  "seg": 2,
+  "name": "JobLinkExternalProfileToCurrentLinkedProfileUser::checkConditions"
+ },
+ {
+  "rva": 175827504,
+  "seg": 2,
+  "name": "JobLinkExternalProfileToCurrentLinkedProfileUser::createUplaySession"
+ },
+ {
+  "rva": 175827576,
+  "seg": 2,
+  "name": "JobLinkExternalProfileToCurrentLinkedProfileUser::linkProfile"
+ },
+ {
+  "rva": 175827648,
+  "seg": 2,
+  "name": "JobLinkExternalProfileToCurrentLinkedProfileUser::getUplaySessionInfo"
+ },
+ {
+  "rva": 175827728,
+  "seg": 2,
+  "name": "JobLinkExternalProfileToCurrentLinkedProfileUser::reportOutcome"
+ },
+ {
+  "rva": 175827904,
+  "seg": 2,
+  "name": "JobRequestUserLegalOptins::reportOutcome"
+ },
+ {
+  "rva": 175828016,
+  "seg": 2,
+  "name": "JobValidateUserCreationData::sendRequest"
+ },
+ {
+  "rva": 175828120,
+  "seg": 2,
+  "name": "JobValidateUserCreationData::reportOutcome"
+ },
+ {
+  "rva": 175828328,
+  "seg": 2,
+  "name": "JobCreateUplayAccountForDevelopment::checkConditions"
+ },
+ {
+  "rva": 175828384,
+  "seg": 2,
+  "name": "JobCreateUplayAccountForDevelopment::m_legalOptinsResult"
+ },
+ {
+  "rva": 175828448,
+  "seg": 2,
+  "name": "JobCreateUplayAccountForDevelopment::m_createUserResult"
+ },
+ {
+  "rva": 175828504,
+  "seg": 2,
+  "name": "JobCreateUplayAccountForDevelopment::m_validateUserInfo"
+ },
+ {
+  "rva": 175828560,
+  "seg": 2,
+  "name": "JobCreateUplayAccountForDevelopment::requestUserLegaLOptins"
+ },
+ {
+  "rva": 175828624,
+  "seg": 2,
+  "name": "JobCreateUplayAccountForDevelopment::validateUserCreation"
+ },
+ {
+  "rva": 175828688,
+  "seg": 2,
+  "name": "JobCreateUplayAccountForDevelopment::createUser"
+ },
+ {
+  "rva": 175828784,
+  "seg": 2,
+  "name": "JobCreateUplayAccountForDevelopment::reportOutcome"
+ },
+ {
+  "rva": 175828904,
+  "seg": 2,
+  "name": "JobLinkUserBase::checkConditions"
+ },
+ {
+  "rva": 175829024,
+  "seg": 2,
+  "name": "JobLinkUserBase::createUbisoftAccountSession"
+ },
+ {
+  "rva": 175829072,
+  "seg": 2,
+  "name": "JobLinkUserBase::getUplaySessionInfo"
+ },
+ {
+  "rva": 175829112,
+  "seg": 2,
+  "name": "JobLinkUserBase::linkProfile"
+ },
+ {
+  "rva": 175829216,
+  "seg": 2,
+  "name": "JobLinkUserBase::onProfileLinked"
+ },
+ {
+  "rva": 175829440,
+  "seg": 2,
+  "name": "JobRequestOwnUserLocalization::reportOutcome"
+ },
+ {
+  "rva": 175829992,
+  "seg": 2,
+  "name": "JobRequestOwnUserMinorStatus::reportOutcome"
+ },
+ {
+  "rva": 175830328,
+  "seg": 2,
+  "name": "JobRequestUsersBatch::reportOutcome"
+ },
+ {
+  "rva": 175830472,
+  "seg": 2,
+  "name": "ConsoleClient::requestUserInfo"
+ },
+ {
+  "rva": 175830504,
+  "seg": 2,
+  "name": "JobRequestUserInfo::startRequest"
+ },
+ {
+  "rva": 175830632,
+  "seg": 2,
+  "name": "jobRequestUserLegalOptinsStatus::startRequest"
+ },
+ {
+  "rva": 175830808,
+  "seg": 2,
+  "name": "jobRequestUserLegalOptinsStatus::reportOutcome"
+ },
+ {
+  "rva": 175831256,
+  "seg": 2,
+  "name": "UserClient::requestUserInfo"
+ },
+ {
+  "rva": 175831288,
+  "seg": 2,
+  "name": "UserClient::requestUserLocalization"
+ },
+ {
+  "rva": 175831352,
+  "seg": 2,
+  "name": "UserClient::requestUserLegalOptinsStatus"
+ },
+ {
+  "rva": 175831424,
+  "seg": 2,
+  "name": "UserClient::requestUserMinorStatus"
+ },
+ {
+  "rva": 175832224,
+  "seg": 2,
+  "name": "JobRequestUgcConfigs::parseResponse"
+ },
+ {
+  "rva": 175832592,
+  "seg": 2,
+  "name": "JobUgcIncrementViews::reportOutcome"
+ },
+ {
+  "rva": 175833080,
+  "seg": 2,
+  "name": "JobUgcPhotoCreate::startRequest"
+ },
+ {
+  "rva": 175833176,
+  "seg": 2,
+  "name": "JobUgcPhotoCreate::parseResponse"
+ },
+ {
+  "rva": 175833304,
+  "seg": 2,
+  "name": "JobUgcPhotoDelete::startRequest"
+ },
+ {
+  "rva": 175833400,
+  "seg": 2,
+  "name": "JobUgcPhotoDelete::reportOutcome"
+ },
+ {
+  "rva": 175833776,
+  "seg": 2,
+  "name": "JobUgcPhotoUpdate::startRequest"
+ },
+ {
+  "rva": 175833872,
+  "seg": 2,
+  "name": "JobUgcPhotoUpdate::parseResponse"
+ },
+ {
+  "rva": 175834240,
+  "seg": 2,
+  "name": "JobUgcPhotosSearch::startRequest"
+ },
+ {
+  "rva": 175834504,
+  "seg": 2,
+  "name": "JobUgcPhotosSearch::parseResponse"
+ },
+ {
+  "rva": 175834888,
+  "seg": 2,
+  "name": "JobUgcPhotosSearchOwn::startRequest"
+ },
+ {
+  "rva": 175834952,
+  "seg": 2,
+  "name": "JobUgcPhotosSearchOwn::parseResponse"
+ },
+ {
+  "rva": 175835456,
+  "seg": 2,
+  "name": "JobUgcRequestFavorites::parseResponse"
+ },
+ {
+  "rva": 175835952,
+  "seg": 2,
+  "name": "JobUgcRequestRatings::parseResponse"
+ },
+ {
+  "rva": 175836480,
+  "seg": 2,
+  "name": "JobUgcSearchExternalVideos::validateRequirements"
+ },
+ {
+  "rva": 175836600,
+  "seg": 2,
+  "name": "JobUgcSearchExternalVideos::startRequest"
+ },
+ {
+  "rva": 175836784,
+  "seg": 2,
+  "name": "JobUgcSearchExternalVideos::parseResponse"
+ },
+ {
+  "rva": 175837200,
+  "seg": 2,
+  "name": "JobUgcUpdateFavoriteStatus::reportOutcome"
+ },
+ {
+  "rva": 175837512,
+  "seg": 2,
+  "name": "JobUgcUpdateRating::reportOutcome"
+ },
+ {
+  "rva": 175838456,
+  "seg": 2,
+  "name": "WebSocketClient::openConnection"
+ },
+ {
+  "rva": 175838488,
+  "seg": 2,
+  "name": "WebSocketClient::closeConnection"
+ },
+ {
+  "rva": 175838528,
+  "seg": 2,
+  "name": "WebSocketClient::writeStream"
+ },
+ {
+  "rva": 175839520,
+  "seg": 2,
+  "name": "JobUbiservicesCall::waitAsyncRest"
+ },
+ {
+  "rva": 175840480,
+  "seg": 2,
+  "name": "JobGetDataDecompressed::base64Decode"
+ },
+ {
+  "rva": 175842056,
+  "seg": 2,
+  "name": "JobGetDataDecompressed::zlibInit"
+ },
+ {
+  "rva": 175842680,
+  "seg": 2,
+  "name": "JobGetDataDecompressed::decompressData"
+ },
+ {
+  "rva": 175842784,
+  "seg": 2,
+  "name": "JobGetDataDecompressed::launchJsonCreateThread"
+ },
+ {
+  "rva": 175842880,
+  "seg": 2,
+  "name": "JobGetDataDecompressed::waitJsonCreation"
+ },
+ {
+  "rva": 175843008,
+  "seg": 2,
+  "name": "JobParseMultipleArraysWithTimeout::extractData"
+ },
+ {
+  "rva": 175843384,
+  "seg": 2,
+  "name": "JobParseMultipleArraysWithTimeout::setupExtraction"
+ },
+ {
+  "rva": 175883704,
+  "seg": 2,
+  "name": "ReportManager::PopulateConfiguration"
+ },
+ {
+  "rva": 175890320,
+  "seg": 2,
+  "name": "Bloomberg::CrashData::Modules"
+ },
+ {
+  "rva": 176040792,
+  "seg": 2,
+  "name": "hkaPredictiveCompressedAnimation::sampleIndividualFloatTracks"
+ },
+ {
+  "rva": 176040944,
+  "seg": 2,
+  "name": "hkaPredictiveCompressedAnimation::sampleIndividualTransformTracks"
+ },
+ {
+  "rva": 176041592,
+  "seg": 2,
+  "name": "hkaQuantizedAnimation::sampleIndividualTransformTracks"
+ },
+ {
+  "rva": 176041696,
+  "seg": 2,
+  "name": "hkaQuantizedAnimation::sampleIndividualFloatTracks"
+ },
+ {
+  "rva": 176042128,
+  "seg": 2,
+  "name": "hkaAnimation::getDataChunks"
+ },
+ {
+  "rva": 176049176,
+  "seg": 2,
+  "name": "buffer_hkHashMapDetail::Index"
+ },
+ {
+  "rva": 176050520,
+  "seg": 2,
+  "name": "hkVarArgs::FixedArray<10>::setSize"
+ },
+ {
+  "rva": 176053776,
+  "seg": 2,
+  "name": "hkReflect::Detail::ForeignUtil"
+ },
+ {
+  "rva": 176056160,
+  "seg": 2,
+  "name": "hkSerialize::ForwardingPointerImpl::setValue"
+ },
+ {
+  "rva": 176058968,
+  "seg": 2,
+  "name": "hkMemoryTrackStreamReader::skip"
+ },
+ {
+  "rva": 176059376,
+  "seg": 2,
+  "name": "hkDefaultPropertyBag::addChecked"
+ },
+ {
+  "rva": 176059464,
+  "seg": 2,
+  "name": "hkDefaultPropertyBag::removeChecked"
+ },
+ {
+  "rva": 176070440,
+  "seg": 2,
+  "name": "hkMonitorStream::MemoryCommand::read"
+ },
+ {
+  "rva": 176111512,
+  "seg": 2,
+  "name": "hkcdSimdTree::Task"
+ },
+ {
+  "rva": 176111536,
+  "seg": 2,
+  "name": "TthkcdSimdTree::Task"
+ },
+ {
+  "rva": 176111976,
+  "seg": 2,
+  "name": "hkcdSimdTree::BuildFirstNLevels"
+ },
+ {
+  "rva": 176112008,
+  "seg": 2,
+  "name": "TthkcdSimdTree::BuildFirstNLevels"
+ },
+ {
+  "rva": 176112080,
+  "seg": 2,
+  "name": "hkcdSimdTree::BuildRanges"
+ },
+ {
+  "rva": 176112112,
+  "seg": 2,
+  "name": "TthkcdSimdTree::BuildRanges"
+ },
+ {
+  "rva": 176112176,
+  "seg": 2,
+  "name": "hkcdSimdTree::FinalizeTree"
+ },
+ {
+  "rva": 176112208,
+  "seg": 2,
+  "name": "TthkcdSimdTree::FinalizeTree"
+ },
+ {
+  "rva": 176119008,
+  "seg": 2,
+  "name": "hknpHeightFieldShape::castShapeImpl"
+ },
+ {
+  "rva": 176119096,
+  "seg": 2,
+  "name": "hknpCompressedMeshShape::castShapeImpl"
+ },
+ {
+  "rva": 176119184,
+  "seg": 2,
+  "name": "hknpExternMeshShape::castShapeImpl"
+ },
+ {
+  "rva": 176119352,
+  "seg": 2,
+  "name": "hknpParticlesColliderShape::castShapeImpl"
+ },
+ {
+  "rva": 176125056,
+  "seg": 2,
+  "name": "hknpCollisionCacheManager::m_existingCacheStream"
+ },
+ {
+  "rva": 176125112,
+  "seg": 2,
+  "name": "hknpCollisionCacheManager::m_thisFrameOutput"
+ },
+ {
+  "rva": 176125160,
+  "seg": 2,
+  "name": "hknpCollisionCacheManager::m_randomAccessCacheStream"
+ },
+ {
+  "rva": 176125216,
+  "seg": 2,
+  "name": "hknpCollisionCacheManager::m_newCacheStream"
+ },
+ {
+  "rva": 176125264,
+  "seg": 2,
+  "name": "hknpCollisionCacheManager::m_inactiveCacheStream"
+ },
+ {
+  "rva": 176125320,
+  "seg": 2,
+  "name": "hknpCollisionCacheManager::m_deferedManifolds"
+ },
+ {
+  "rva": 176128063,
+  "seg": 2,
+  "name": "ChknpSimulationThreadContext::m_commandBlockStream"
+ },
+ {
+  "rva": 176128120,
+  "seg": 2,
+  "name": "hknpSimulationThreadContext::m_highPriorityCommandBlockStream"
+ },
+ {
+  "rva": 176128320,
+  "seg": 2,
+  "name": "hknpSolverData::ThreadData::m_jacMovingStream"
+ },
+ {
+  "rva": 176128368,
+  "seg": 2,
+  "name": "hknpSolverData::ThreadData::m_jacFixedStream"
+ },
+ {
+  "rva": 176128416,
+  "seg": 2,
+  "name": "hknpSolverData::ThreadData::m_activePairStream"
+ },
+ {
+  "rva": 176128464,
+  "seg": 2,
+  "name": "hknpSolverData::ThreadData::m_jacConstraintsStream"
+ },
+ {
+  "rva": 176128520,
+  "seg": 2,
+  "name": "hknpSolverData::ThreadData::m_solverTempsStream"
+ },
+ {
+  "rva": 176128568,
+  "seg": 2,
+  "name": "hknpSolverData::m_contactSolverTempsStream"
+ },
+ {
+  "rva": 176129672,
+  "seg": 2,
+  "name": "hknpSimulationContext::m_deferredCommandStream"
+ },
+ {
+  "rva": 176129896,
+  "seg": 2,
+  "name": "hknpSingleThreadedSimulation::inactiveCacheStream"
+ },
+ {
+  "rva": 176129952,
+  "seg": 2,
+  "name": "hknpSingleThreadedSimulation::rebuildCacheStream"
+ },
+ {
+  "rva": 176130008,
+  "seg": 2,
+  "name": "hknpSingleThreadedSimulation::newPairsStream"
+ },
+ {
+  "rva": 176132952,
+  "seg": 2,
+  "name": "hknpMultithreadedSimulation::m_newBroadPhasePairs"
+ },
+ {
+  "rva": 176136904,
+  "seg": 2,
+  "name": "hknpVehicleLinearCastWheelCollide::setCollisionFilterInfo"
+ },
+ {
+  "rva": 176139024,
+  "seg": 2,
+  "name": "hkVdbAttr::FieldOffsetIndex"
+ },
+ {
+  "rva": 176139688,
+  "seg": 2,
+  "name": "hkDebugDisplayMarker::Type"
+ },
+ {
+  "rva": 176140968,
+  "seg": 2,
+  "name": "hknpExternMeshShape::rebuild"
+ },
+ {
+  "rva": 176141000,
+  "seg": 2,
+  "name": "TthknpExternMeshShape::rebuild"
+ },
+ {
+  "rva": 176142584,
+  "seg": 2,
+  "name": "hknpHybridPBTreeVsTreeTask::m_bodyPairsStream"
+ },
+ {
+  "rva": 176142984,
+  "seg": 2,
+  "name": "hkp6DofConstraintData::setBreachImpulse"
+ },
+ {
+  "rva": 176143064,
+  "seg": 2,
+  "name": "hkp6DofConstraintData::setBodyToNotify"
+ },
+ {
+  "rva": 176162288,
+  "seg": 2,
+  "name": "ngx::nvLoadSignedLibraryExW"
+ },
+ {
+  "rva": 176163856,
+  "seg": 2,
+  "name": "ngx::util::setLogFilename"
+ },
+ {
+  "rva": 176164496,
+  "seg": 2,
+  "name": "ngx::util::logva"
+ },
+ {
+  "rva": 176352880,
+  "seg": 2,
+  "name": "Gear::BaseSacVectorItem"
+ },
+ {
+  "rva": 176499336,
+  "seg": 2,
+  "name": "hkVersionBundleUtil::Field::createFromStaticType"
+ },
+ {
+  "rva": 176503176,
+  "seg": 2,
+  "name": "hkgpMesh::IConvexOverlap::IConvexShape::getMaxIndex"
+ },
+ {
+  "rva": 176507464,
+  "seg": 2,
+  "name": "hknpParticleSimulationThreadContext::m_commandBlockStream"
+ },
+ {
+  "rva": 176508592,
+  "seg": 2,
+  "name": "hknpProcessNarrowPhasePairsTask::ThreadOutput::m_activeCacheStreams"
+ },
+ {
+  "rva": 176508672,
+  "seg": 2,
+  "name": "hknpProcessNarrowPhasePairsTask::ThreadOutput::m_inactiveCacheStreams"
+ },
+ {
+  "rva": 176508752,
+  "seg": 2,
+  "name": "hknpProcessNarrowPhasePairsTask::ThreadOutput::m_deferedManifoldsOut"
+ },
+ {
+  "rva": 176508824,
+  "seg": 2,
+  "name": "hknpProcessNarrowPhasePairsTask::ThreadOutput::m_perPairOutput"
+ },
+ {
+  "rva": 176510496,
+  "seg": 2,
+  "name": "hknpFullCast::cacheStream"
+ },
+ {
+  "rva": 176510528,
+  "seg": 2,
+  "name": "hknpFullCast::existingCacheStream"
+ },
+ {
+  "rva": 176510568,
+  "seg": 2,
+  "name": "hknpFullCast::childCacheStream"
+ },
+ {
+  "rva": 176510600,
+  "seg": 2,
+  "name": "hknpFullCast::existingChildCacheStream"
+ },
+ {
+  "rva": 176510640,
+  "seg": 2,
+  "name": "hknpFullCast::tempChildCacheStream"
+ },
+ {
+  "rva": 176510680,
+  "seg": 2,
+  "name": "hknpFullCast::manifoldStream"
+ },
+ {
+  "rva": 176510712,
+  "seg": 2,
+  "name": "hknpFullCast::tempsStream"
+ },
+ {
+  "rva": 176510744,
+  "seg": 2,
+  "name": "hknpCollisionCacheSorter::cacheStreamOut"
+ },
+ {
+  "rva": 176511264,
+  "seg": 2,
+  "name": "hknpPrepareNarrowPhasePairsTask::m_workItemStream"
+ },
+ {
+  "rva": 176512608,
+  "seg": 2,
+  "name": "hknpProcessNarrowPhaseGridTask::ThreadOutput::m_activeCacheStream"
+ },
+ {
+  "rva": 176512688,
+  "seg": 2,
+  "name": "hknpProcessNarrowPhaseGridTask::ThreadOutput::m_inactiveCacheStream"
+ },
+ {
+  "rva": 176512760,
+  "seg": 2,
+  "name": "hknpProcessNarrowPhaseGridTask::ThreadOutput::m_deferredWork"
+ },
+ {
+  "rva": 176512832,
+  "seg": 2,
+  "name": "hknpProcessNarrowPhaseGridTask::ThreadOutput::m_deferedManifoldsOut"
+ },
+ {
+  "rva": 176513104,
+  "seg": 2,
+  "name": "hknpSortFinalizeNarrowPhasePairsTask::ThreadOutput::m_cacheStream"
+ },
+ {
+  "rva": 176513184,
+  "seg": 2,
+  "name": "hknpSortFinalizeNarrowPhasePairsTask::ThreadOutput::m_tempManifoldStream"
+ },
+ {
+  "rva": 176821112,
+  "seg": 2,
+  "name": "hkBmpFileFormat::writeImage"
+ },
+ {
+  "rva": 176825536,
+  "seg": 2,
+  "name": "hknpParticleParticleCollider::m_particleBranchPairsBuffers"
+ },
+ {
+  "rva": 176825600,
+  "seg": 2,
+  "name": "hknpParticleParticleCollider::m_particlePairsBuffers"
+ },
+ {
+  "rva": 177094752,
+  "seg": 2,
+  "name": "hkImageAddressMode::Enum"
+ },
+ {
+  "rva": 177094840,
+  "seg": 2,
+  "name": "hkImageFormat::Enum"
+ }
+]

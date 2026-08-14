@@ -1,0 +1,26 @@
+# Binaries (use extract_dll_symbols.py on local DLL copies)
+*.dll
+*.exe
+*.zip
+*.7z
+
+# Compiled PDBs (rebuilt via scripts; no compiled material committed)
+*.pdb
+pdb/
+
+# Large regenerable dev-PDB dumps (rebuild with extract_dev_pdb_types.py)
+symbols/dev_types_*.json
+symbols/dev_publics_*.json
+symbols/dev_globals_*.json
+
+# Ghidra project (local reference only)
+WDL.gpr
+WDL.rep/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

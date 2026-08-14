@@ -1,0 +1,3066 @@
+[
+ {
+  "rva": 166911005,
+  "name": "SetItem"
+ },
+ {
+  "rva": 169534735,
+  "name": "SetHackableOverrideHackingText"
+ },
+ {
+  "rva": 172040885,
+  "name": "RemoveRecruitNPCListener"
+ },
+ {
+  "rva": 169531641,
+  "name": "SetCanHideInVehicle"
+ },
+ {
+  "rva": 169529683,
+  "name": "AgentDrawWeapon"
+ },
+ {
+  "rva": 169532839,
+  "name": "ArePlayersInSameTeam"
+ },
+ {
+  "rva": 169528324,
+  "name": "SetNoInteractionTextForProximityTriggerId"
+ },
+ {
+  "rva": 169535033,
+  "name": "CameraHideDisconnectedAnimation"
+ },
+ {
+  "rva": 169533344,
+  "name": "SetCrouchAllowedOverride"
+ },
+ {
+  "rva": 169534896,
+  "name": "SetProfilerInfoFilter"
+ },
+ {
+  "rva": 169528692,
+  "name": "SendAICommand_Goto"
+ },
+ {
+  "rva": 166752410,
+  "name": "GoToPosUnspawn"
+ },
+ {
+  "rva": 170385800,
+  "name": "RegisterPlayableOperativesCountRequest"
+ },
+ {
+  "rva": 170386192,
+  "name": "ActivateRobotSpawner"
+ },
+ {
+  "rva": 169537900,
+  "name": "RemoveAllStanceControlHelper"
+ },
+ {
+  "rva": 169539561,
+  "name": "ReinforcementStopReinforcing_v4"
+ },
+ {
+  "rva": 173008881,
+  "name": "collectgarbage"
+ },
+ {
+  "rva": 169535097,
+  "name": "SetSecurityCamFriendly"
+ },
+ {
+  "rva": 169536365,
+  "name": "FelonyClearSWATParams"
+ },
+ {
+  "rva": 169534643,
+  "name": "SetGateBlocked"
+ },
+ {
+  "rva": 169533396,
+  "name": "ForceEnterCover"
+ },
+ {
+  "rva": 169529063,
+  "name": "StopVehicleBhv"
+ },
+ {
+  "rva": 172044074,
+  "name": "SetARReconstructionOpacity"
+ },
+ {
+  "rva": 169534766,
+  "name": "SetHackOccludable"
+ },
+ {
+  "rva": 169529456,
+  "name": "SpawnFieldAI"
+ },
+ {
+  "rva": 172043878,
+  "name": "DisplayPointOfNoReturnMessage"
+ },
+ {
+  "rva": 170386080,
+  "name": "StartBareKnuckleArena"
+ },
+ {
+  "rva": 169535391,
+  "name": "SetSecurityCamInitialTarget"
+ },
+ {
+  "rva": 169538489,
+  "name": "RegisterOnHideObjectiveCompletedScriptCallback_v2"
+ },
+ {
+  "rva": 169539949,
+  "name": "EnableReinforcementCalls"
+ },
+ {
+  "rva": 169531021,
+  "name": "GetVehicleReliabilityFactor"
+ },
+ {
+  "rva": 169533858,
+  "name": "PlayerRespawnBehaviorController_v2"
+ },
+ {
+  "rva": 169528844,
+  "name": "SendAICommand_PickAndShootNPC"
+ },
+ {
+  "rva": 169534039,
+  "name": "IsWorldSpawningEnabled"
+ },
+ {
+  "rva": 173008909,
+  "name": "gcinfo"
+ },
+ {
+  "rva": 169530856,
+  "name": "DoCarCrash"
+ },
+ {
+  "rva": 172830792,
+  "name": "GetDBVariableFloat"
+ },
+ {
+  "rva": 172042917,
+  "name": "HasPersistentInt_OpScope"
+ },
+ {
+  "rva": 172043453,
+  "name": "GetRuleSmithFloat"
+ },
+ {
+  "rva": 169534978,
+  "name": "ResetKeyIntel"
+ },
+ {
+  "rva": 169531929,
+  "name": "MK2BossSetCallReinforcementsRequested"
+ },
+ {
+  "rva": 169538167,
+  "name": "ScriptUIIncrementCompletion"
+ },
+ {
+  "rva": 172041023,
+  "name": "RemoveLocationListener"
+ },
+ {
+  "rva": 169537248,
+  "name": "SetMissionAreaRadius"
+ },
+ {
+  "rva": 169535223,
+  "name": "ShowProfilingPath"
+ },
+ {
+  "rva": 169539647,
+  "name": "ReinforcementAddScriptedAgent"
+ },
+ {
+  "rva": 172041630,
+  "name": "SetDownloadGameplayPaused"
+ },
+ {
+  "rva": 169533622,
+  "name": "SetClimbInteractionAllowedOverride"
+ },
+ {
+  "rva": 170385486,
+  "name": "AddPhotoDetectionTargetEntity"
+ },
+ {
+  "rva": 169530195,
+  "name": "SetSquadSupportWanderState"
+ },
+ {
+  "rva": 169531804,
+  "name": "WakeUpDroneCLO"
+ },
+ {
+  "rva": 169539069,
+  "name": "ShowGameClock"
+ },
+ {
+  "rva": 169155720,
+  "name": "GetLocalPlayerId"
+ },
+ {
+  "rva": 169537593,
+  "name": "IndicatorSetColor"
+ },
+ {
+  "rva": 172040824,
+  "name": "HasCensusTag"
+ },
+ {
+  "rva": 169530696,
+  "name": "StartHMAFleeOnAIAgent"
+ },
+ {
+  "rva": 173008962,
+  "name": "next"
+ },
+ {
+  "rva": 169536015,
+  "name": "FelonyForceSearchStart"
+ },
+ {
+  "rva": 172042417,
+  "name": "CreateSearchAreaController"
+ },
+ {
+  "rva": 169539083,
+  "name": "SetMinimapContextOverride"
+ },
+ {
+  "rva": 169539175,
+  "name": "ShowEquippedItemUIElement"
+ },
+ {
+  "rva": 169528874,
+  "name": "FieldAICmdGoTo"
+ },
+ {
+  "rva": 172041136,
+  "name": "DisposeInitialPredefinedActors"
+ },
+ {
+  "rva": 169538663,
+  "name": "ShowHealthBar"
+ },
+ {
+  "rva": 169529292,
+  "name": "AbortSetCoverFunction"
+ },
+ {
+  "rva": 169532309,
+  "name": "GetPlayerIdFromPlayerIndex"
+ },
+ {
+  "rva": 169532984,
+  "name": "TeleportToSpawnPoint"
+ },
+ {
+  "rva": 169531288,
+  "name": "UnregisterVehicleForDamageBarUpdate"
+ },
+ {
+  "rva": 172975576,
+  "name": "select"
+ },
+ {
+  "rva": 169528969,
+  "name": "AssignPatrolToAgent_v3"
+ },
+ {
+  "rva": 169533694,
+  "name": "AllowWeaponPickup"
+ },
+ {
+  "rva": 169532593,
+  "name": "RemovePlayerTag"
+ },
+ {
+  "rva": 169539306,
+  "name": "ReinforcementStartReinforcing"
+ },
+ {
+  "rva": 172043799,
+  "name": "EnableScriptedHackHandler"
+ },
+ {
+  "rva": 173009026,
+  "name": "tostring"
+ },
+ {
+  "rva": 169534804,
+  "name": "SetProfilerDisabled"
+ },
+ {
+  "rva": 169537074,
+  "name": "StopProgressBar"
+ },
+ {
+  "rva": 169530243,
+  "name": "SquadTryToCreateCombat"
+ },
+ {
+  "rva": 169531377,
+  "name": "GetVehicleValue"
+ },
+ {
+  "rva": 170386037,
+  "name": "SelectAbility"
+ },
+ {
+  "rva": 169537090,
+  "name": "StartProximityMeter_v1"
+ },
+ {
+  "rva": 169538871,
+  "name": "SmartphoneAppSetInstalled"
+ },
+ {
+  "rva": 169529554,
+  "name": "IsDetectionAlertStarted"
+ },
+ {
+  "rva": 169531882,
+  "name": "DeactivateDroneCLO"
+ },
+ {
+  "rva": 173008951,
+  "name": "loadstring"
+ },
+ {
+  "rva": 169537856,
+  "name": "HideTutorialMenuHint"
+ },
+ {
+  "rva": 169538297,
+  "name": "RegisterObjectiveCompletedScriptCallback_v2"
+ },
+ {
+  "rva": 169530598,
+  "name": "SetAIAgentState_v2"
+ },
+ {
+  "rva": 168070736,
+  "name": "RemoveLoadingScreen"
+ },
+ {
+  "rva": 169528733,
+  "name": "SendAICommand_FollowTarget"
+ },
+ {
+  "rva": 169533826,
+  "name": "PlayerRespawnBehaviorController"
+ },
+ {
+  "rva": 172044169,
+  "name": "EnablePlayerBarks"
+ },
+ {
+  "rva": 169532609,
+  "name": "HasPlayerTag"
+ },
+ {
+  "rva": 169539050,
+  "name": "ShowRaidLogMessage"
+ },
+ {
+  "rva": 169533005,
+  "name": "TeleportToSpawnPoint_v2"
+ },
+ {
+  "rva": 169537554,
+  "name": "IndicatorSetName"
+ },
+ {
+  "rva": 169530365,
+  "name": "SquadTryToCreateUntargetedSearch"
+ },
+ {
+  "rva": 169532282,
+  "name": "GetEntityIdFromPlayerIndex"
+ },
+ {
+  "rva": 173298265,
+  "name": "PathID"
+ },
+ {
+  "rva": 169528550,
+  "name": "SendAICommand_SetLKP"
+ },
+ {
+  "rva": 172040837,
+  "name": "AddRecruitNPCListener_v3"
+ },
+ {
+  "rva": 169531189,
+  "name": "UnspawnRestricted"
+ },
+ {
+  "rva": 169535354,
+  "name": "SetIsSecurityCamExitBlockedForPlayer"
+ },
+ {
+  "rva": 173008937,
+  "name": "loadfile"
+ },
+ {
+  "rva": 172140895,
+  "name": "SetBlockAllShortcuts"
+ },
+ {
+  "rva": 169538897,
+  "name": "SmartphoneIsAppInstalled"
+ },
+ {
+  "rva": 169538217,
+  "name": "RegisterObjectiveUpdatedScriptCallback"
+ },
+ {
+  "rva": 169538387,
+  "name": "RegisterOnShowObjectiveCompletedScriptCallback_v2"
+ },
+ {
+  "rva": 169539129,
+  "name": "ShowGadgetUIElement"
+ },
+ {
+  "rva": 169534178,
+  "name": "UnlinkEntities"
+ },
+ {
+  "rva": 169530655,
+  "name": "SetAIAgentInfiniteHunt"
+ },
+ {
+  "rva": 169531841,
+  "name": "PutToSleepDroneCLO"
+ },
+ {
+  "rva": 169536944,
+  "name": "PlayBinkVideoFileWithSubtitleV5"
+ },
+ {
+  "rva": 169532729,
+  "name": "CheckIsPlayerInTeam"
+ },
+ {
+  "rva": 169531751,
+  "name": "SetVehicleLockState"
+ },
+ {
+  "rva": 170385577,
+  "name": "RequestClosePhotoCamera"
+ },
+ {
+  "rva": 169538751,
+  "name": "SmartphoneActivateOverride"
+ },
+ {
+  "rva": 169529856,
+  "name": "RemoveSquad"
+ },
+ {
+  "rva": 169538601,
+  "name": "StopBink"
+ },
+ {
+  "rva": 169530756,
+  "name": "RetrieveHackableCiviliansAround"
+ },
+ {
+  "rva": 169532885,
+  "name": "ExecuteConsoleCommand"
+ },
+ {
+  "rva": 169538341,
+  "name": "UnregisterObjectiveCompletedScriptCallback_v2"
+ },
+ {
+  "rva": 169534514,
+  "name": "HasMediaSystemChannelLoopedOnce"
+ },
+ {
+  "rva": 169537490,
+  "name": "AddOrRemoveRacePath"
+ },
+ {
+  "rva": 169534139,
+  "name": "GetDirectlyLinkedEntities"
+ },
+ {
+  "rva": 169531207,
+  "name": "VehicleRestrictedZone"
+ },
+ {
+  "rva": 169530928,
+  "name": "ForceVehicleStop"
+ },
+ {
+  "rva": 169529578,
+  "name": "IsDetectionAlertStopped"
+ },
+ {
+  "rva": 173009035,
+  "name": "unpack"
+ },
+ {
+  "rva": 169537812,
+  "name": "ShowFullscreenTutorial"
+ },
+ {
+  "rva": 169529990,
+  "name": "AssignMainSquadLKPGroupName"
+ },
+ {
+  "rva": 169537338,
+  "name": "SetMissionAreaObjectiveEnteringArea"
+ },
+ {
+  "rva": 169528398,
+  "name": "StopFollow"
+ },
+ {
+  "rva": 169529314,
+  "name": "AbortAICmdStandAndShoot"
+ },
+ {
+  "rva": 169531967,
+  "name": "AISystemsController"
+ },
+ {
+  "rva": 169531732,
+  "name": "ForceVehicleAlaram"
+ },
+ {
+  "rva": 169529356,
+  "name": "UnassignVehicleSeat"
+ },
+ {
+  "rva": 169530898,
+  "name": "ForcePawnsVehicleStopFunction"
+ },
+ {
+  "rva": 174372561,
+  "name": "EquipItem"
+ },
+ {
+  "rva": 173008982,
+  "name": "rawget"
+ },
+ {
+  "rva": 172830891,
+  "name": "GetDBVariableLocalizationID"
+ },
+ {
+  "rva": 169531708,
+  "name": "StartVehicleMovingTimer"
+ },
+ {
+  "rva": 169535190,
+  "name": "SetSecurityCamForceDisableFelony"
+ },
+ {
+  "rva": 169536653,
+  "name": "FelonyMuteAllSounds"
+ },
+ {
+  "rva": 169535487,
+  "name": "SetCameraMonitorPlayerBlurIntensity"
+ },
+ {
+  "rva": 172140824,
+  "name": "RequestFreeFormText"
+ },
+ {
+  "rva": 169533893,
+  "name": "TriggerRespawnLocalPlayer"
+ },
+ {
+  "rva": 169536638,
+  "name": "FelonyEndChase"
+ },
+ {
+  "rva": 169531572,
+  "name": "IsEntityInVehicle"
+ },
+ {
+  "rva": 169540002,
+  "name": "UnregisterReinforcementCaller"
+ },
+ {
+  "rva": 169537611,
+  "name": "RegisterPersonOfInterest"
+ },
+ {
+  "rva": 169534193,
+  "name": "MediaSystemStartBroadcast"
+ },
+ {
+  "rva": 169539020,
+  "name": "HideChat"
+ },
+ {
+  "rva": 169537464,
+  "name": "AddOrRemoveAdditionalPath"
+ },
+ {
+  "rva": 169530110,
+  "name": "AssignZoneToAgent"
+ },
+ {
+  "rva": 169534838,
+  "name": "Profiler_SendStatus"
+ },
+ {
+  "rva": 169538744,
+  "name": "UnBind"
+ },
+ {
+  "rva": 170385462,
+  "name": "AddPhotoDetectionTarget"
+ },
+ {
+  "rva": 172140877,
+  "name": "SetBlockShortcuts"
+ },
+ {
+  "rva": 169532095,
+  "name": "SetConversationInteractionAllowed"
+ },
+ {
+  "rva": 170385415,
+  "name": "AddToNormalDrunkEffect"
+ },
+ {
+  "rva": 169530297,
+  "name": "SquadTryToCreateTargetedSearch_v2"
+ },
+ {
+  "rva": 169528648,
+  "name": "SendAICmdSetCombatTarget"
+ },
+ {
+  "rva": 169539529,
+  "name": "ReinforcementStopReinforcing_v3"
+ },
+ {
+  "rva": 169539878,
+  "name": "ReinforcementStopAllReinforcements"
+ },
+ {
+  "rva": 172043738,
+  "name": "ShowFakeContactCard"
+ },
+ {
+  "rva": 169528946,
+  "name": "AssignPatrolToAgent_v2"
+ },
+ {
+  "rva": 170385516,
+  "name": "AddPhotoDetectionTargetEntityList"
+ },
+ {
+  "rva": 169539268,
+  "name": "PGTGetSpawnedAiEntities"
+ },
+ {
+  "rva": 169538539,
+  "name": "UnregisterOnHideObjectiveCompletedScriptCallback_v2"
+ },
+ {
+  "rva": 169536038,
+  "name": "ForceArrest"
+ },
+ {
+  "rva": 172041597,
+  "name": "GetDownloadGameplayRemainingTime"
+ },
+ {
+  "rva": 169532763,
+  "name": "GetNumberOfTeams"
+ },
+ {
+  "rva": 169531229,
+  "name": "StartSpeedCheckChallenge"
+ },
+ {
+  "rva": 169538620,
+  "name": "ResumeBink"
+ },
+ {
+  "rva": 169535632,
+  "name": "UseSelectedIngredient"
+ },
+ {
+  "rva": 172041066,
+  "name": "GetLocationState_v2"
+ },
+ {
+  "rva": 169533296,
+  "name": "SetForceAiming"
+ },
+ {
+  "rva": 169536076,
+  "name": "FelonyOverrideBehaviourParams"
+ },
+ {
+  "rva": 169539974,
+  "name": "RegisterReinforcementCaller"
+ },
+ {
+  "rva": 169535923,
+  "name": "FelonySystemEnable"
+ },
+ {
+  "rva": 169528594,
+  "name": "CancelAICommand"
+ },
+ {
+  "rva": 169534377,
+  "name": "EndAllCustomMediaBroadcasts"
+ },
+ {
+  "rva": 169538778,
+  "name": "SmartphoneClearOverride"
+ },
+ {
+  "rva": 169536241,
+  "name": "FelonyClearBasicParams"
+ },
+ {
+  "rva": 169535762,
+  "name": "AddHackCategoryAvailabilityOverride"
+ },
+ {
+  "rva": 169535120,
+  "name": "SetSecurityCamHostile"
+ },
+ {
+  "rva": 166250232,
+  "name": "Bind"
+ },
+ {
+  "rva": 169536615,
+  "name": "FelonyEndChaseOrSearch"
+ },
+ {
+  "rva": 173008916,
+  "name": "getfenv"
+ },
+ {
+  "rva": 169537008,
+  "name": "SynchSoundAndBinkV2"
+ },
+ {
+  "rva": 169536216,
+  "name": "FelonyOverrideSWATParams"
+ },
+ {
+  "rva": 169529791,
+  "name": "GetDistance2D"
+ },
+ {
+  "rva": 169529047,
+  "name": "StartVehicleBhv"
+ },
+ {
+  "rva": 169536434,
+  "name": "FelonyTakeOverScriptedAgentControl"
+ },
+ {
+  "rva": 169529478,
+  "name": "GetAIState"
+ },
+ {
+  "rva": 169534992,
+  "name": "ResetCameraPosition"
+ },
+ {
+  "rva": 166752149,
+  "name": "StartIOP"
+ },
+ {
+  "rva": 169537028,
+  "name": "StartProgressBar"
+ },
+ {
+  "rva": 169537929,
+  "name": "CreateHUDDominoDelay"
+ },
+ {
+  "rva": 169537950,
+  "name": "CreateHUDDominoDelay_v2"
+ },
+ {
+  "rva": 172041685,
+  "name": "CreateDeliveryGameplay_v8"
+ },
+ {
+  "rva": 169536159,
+  "name": "FelonyOverrideRoadBlockParams"
+ },
+ {
+  "rva": 169538120,
+  "name": "ScriptUIMissionFail_v2"
+ },
+ {
+  "rva": 172140938,
+  "name": "SetBlockShortcutsUntilTeamAppOpened"
+ },
+ {
+  "rva": 169539913,
+  "name": "ReinforcementSetReinforcementTarget"
+ },
+ {
+  "rva": 172042684,
+  "name": "SetRecruitmentTalkersInhibition"
+ },
+ {
+  "rva": 166752437,
+  "name": "EnableWeaponDrop"
+ },
+ {
+  "rva": 173016327,
+  "name": "require"
+ },
+ {
+  "rva": 169537132,
+  "name": "ShowWarningMessage"
+ },
+ {
+  "rva": 169537151,
+  "name": "ShowWarningMessageV2"
+ },
+ {
+  "rva": 172043344,
+  "name": "SetCurrentUIMissionsAppVillainViewData"
+ },
+ {
+  "rva": 173008973,
+  "name": "rawequal"
+ },
+ {
+  "rva": 169534075,
+  "name": "GetNetworkSurfingState"
+ },
+ {
+  "rva": 173008865,
+  "name": "newproxy"
+ },
+ {
+  "rva": 169529667,
+  "name": "IsDrawingWeapon"
+ },
+ {
+  "rva": 169537451,
+  "name": "RemoveTarget"
+ },
+ {
+  "rva": 172042266,
+  "name": "GetDiamondPackageTargetId"
+ },
+ {
+  "rva": 169530161,
+  "name": "DisableAIlogicUseHackableGameplay"
+ },
+ {
+  "rva": 169534876,
+  "name": "ResetProfilerInfoId"
+ },
+ {
+  "rva": 169529270,
+  "name": "ForceSetCoverFunction"
+ },
+ {
+  "rva": 169529868,
+  "name": "StartSquad"
+ },
+ {
+  "rva": 170385880,
+  "name": "GetMostPlayedOperative"
+ },
+ {
+  "rva": 173008996,
+  "name": "setfenv"
+ },
+ {
+  "rva": 169532692,
+  "name": "AddPlayerToTeam"
+ },
+ {
+  "rva": 169538802,
+  "name": "SmartphoneAppSetHidden"
+ },
+ {
+  "rva": 169528286,
+  "name": "SetCustomOasisIdForProximityTriggerId"
+ },
+ {
+  "rva": 169538727,
+  "name": "BindIconEntities"
+ },
+ {
+  "rva": 172043138,
+  "name": "SetInvincibility"
+ },
+ {
+  "rva": 173008856,
+  "name": "pairs"
+ },
+ {
+  "rva": 169529699,
+  "name": "AgentDrawWeaponType"
+ },
+ {
+  "rva": 169531440,
+  "name": "VehicleLightAndSiren"
+ },
+ {
+  "rva": 169537974,
+  "name": "CreateDominoDelay"
+ },
+ {
+  "rva": 169531140,
+  "name": "GetVehicleSpeedStatTime"
+ },
+ {
+  "rva": 169533456,
+  "name": "SetCombatAllowedOverride"
+ },
+ {
+  "rva": 169534717,
+  "name": "SetHackableNoText"
+ },
+ {
+  "rva": 172042867,
+  "name": "SetPersistentInt_OpScope"
+ },
+ {
+  "rva": 169530434,
+  "name": "SquadForceVanish"
+ },
+ {
+  "rva": 169534486,
+  "name": "ApplyLoadedBufferOnChannels"
+ },
+ {
+  "rva": 169529844,
+  "name": "CreateSquad"
+ },
+ {
+  "rva": 169536469,
+  "name": "FelonyAddVehicleExclusionZone"
+ },
+ {
+  "rva": 169535012,
+  "name": "ForceUserOutOfCamera"
+ },
+ {
+  "rva": 172042195,
+  "name": "CreateDroneBankServerPackageController_v1"
+ },
+ {
+  "rva": 172042469,
+  "name": "BindGameplayBeatWithEntity"
+ },
+ {
+  "rva": 172040779,
+  "name": "EnableMissionSoftQuit"
+ },
+ {
+  "rva": 169533558,
+  "name": "SetCoverToCoverAllowedOverride"
+ },
+ {
+  "rva": 169530096,
+  "name": "RemoveNPCZone"
+ },
+ {
+  "rva": 169538708,
+  "name": "UnBindIconEntities"
+ },
+ {
+  "rva": 172830811,
+  "name": "GetDBVariableBool"
+ },
+ {
+  "rva": 169536291,
+  "name": "FelonyClearChopperParams"
+ },
+ {
+  "rva": 169536532,
+  "name": "FelonyCheckFelonyState"
+ },
+ {
+  "rva": 166752272,
+  "name": "StartOnFootFleeBehavior"
+ },
+ {
+  "rva": 169531324,
+  "name": "GetVehicleHealthPercentage"
+ },
+ {
+  "rva": 172042006,
+  "name": "CreateDroneSpawnContinuouslyGameplay_v1"
+ },
+ {
+  "rva": 169534858,
+  "name": "SetProfilerInfoId"
+ },
+ {
+  "rva": 172043034,
+  "name": "StartPlasmaPhoneCommunication_EvenInBareknuckle"
+ },
+ {
+  "rva": 169529602,
+  "name": "IsDetectionAlertFull"
+ },
+ {
+  "rva": 172040943,
+  "name": "ForceLeverageOnNextActorWithTag"
+ },
+ {
+  "rva": 169535241,
+  "name": "HideProfilingPath"
+ },
+ {
+  "rva": 172043758,
+  "name": "HideFakeContactCard"
+ },
+ {
+  "rva": 172041737,
+  "name": "CreateInteractGameplay_v4"
+ },
+ {
+  "rva": 166752203,
+  "name": "UnregisterIOPnpc"
+ },
+ {
+  "rva": 169531531,
+  "name": "GetCurrentSeat"
+ },
+ {
+  "rva": 169539029,
+  "name": "StartARLoadingScreen"
+ },
+ {
+  "rva": 169533169,
+  "name": "PlayerIsDoingAction"
+ },
+ {
+  "rva": 172043111,
+  "name": "IsPlasmaPhoneCommunication"
+ },
+ {
+  "rva": 172041358,
+  "name": "StartAutonomousVehicleFleeBehavior"
+ },
+ {
+  "rva": 169538982,
+  "name": "IsEntityBeingProfiled"
+ },
+ {
+  "rva": 169537374,
+  "name": "SetMissionAreaObjectiveExitingArea"
+ },
+ {
+  "rva": 172044052,
+  "name": "RemoveMissionWaypoint"
+ },
+ {
+  "rva": 172043002,
+  "name": "StartPlasmaPhoneCommunicationV2"
+ },
+ {
+  "rva": 169532035,
+  "name": "UpdateConvoy"
+ },
+ {
+  "rva": 169533807,
+  "name": "EquipAccessUniform"
+ },
+ {
+  "rva": 169529935,
+  "name": "AddSquadAgent"
+ },
+ {
+  "rva": 169538646,
+  "name": "SetIconClampMode"
+ },
+ {
+  "rva": 169532395,
+  "name": "RefreshWorld"
+ },
+ {
+  "rva": 172043574,
+  "name": "ReinforcementStopReinforcing_v5"
+ },
+ {
+  "rva": 172041565,
+  "name": "CreateDownloadGameplayWithDB_v1"
+ },
+ {
+  "rva": 169529879,
+  "name": "StopSquad"
+ },
+ {
+  "rva": 169534546,
+  "name": "DisableSpecialBroadcastSubtitles"
+ },
+ {
+  "rva": 172141000,
+  "name": "RequestBoroughUprisingMapSequenceV3"
+ },
+ {
+  "rva": 172041986,
+  "name": "StopOutlineGameplay"
+ },
+ {
+  "rva": 169529747,
+  "name": "RegisterMobTarget"
+ },
+ {
+  "rva": 166752750,
+  "name": "SetRestrained"
+ },
+ {
+  "rva": 169529644,
+  "name": "AgentHasItemInMainHand"
+ },
+ {
+  "rva": 169534824,
+  "name": "SetProfilerOn"
+ },
+ {
+  "rva": 169539794,
+  "name": "ReinforcementRepeatWave"
+ },
+ {
+  "rva": 169533412,
+  "name": "SetHandsInPocketsAllowed"
+ },
+ {
+  "rva": 173008903,
+  "name": "error"
+ },
+ {
+  "rva": 169536976,
+  "name": "StopBinkVideo"
+ },
+ {
+  "rva": 166752188,
+  "name": "RegisterIOPnpc"
+ },
+ {
+  "rva": 169528424,
+  "name": "SetFollowMarkerText"
+ },
+ {
+  "rva": 169530636,
+  "name": "SetAIAgentState_v4"
+ },
+ {
+  "rva": 169531254,
+  "name": "RegisterVehicleForDamageBarUpdate"
+ },
+ {
+  "rva": 173009017,
+  "name": "tonumber"
+ },
+ {
+  "rva": 169530718,
+  "name": "StartHMAFleeOnSquad"
+ },
+ {
+  "rva": 169534098,
+  "name": "IsEntityLinked"
+ },
+ {
+  "rva": 172040862,
+  "name": "AddPredefinedOperative"
+ },
+ {
+  "rva": 169538922,
+  "name": "SmartphoneIsOpened"
+ },
+ {
+  "rva": 172042989,
+  "name": "StopMADScene"
+ },
+ {
+  "rva": 169536673,
+  "name": "FelonyMuteEntities"
+ },
+ {
+  "rva": 169533053,
+  "name": "TeleportPlayerOutsideHMA"
+ },
+ {
+  "rva": 169536189,
+  "name": "FelonyOverrideSearchParams"
+ },
+ {
+  "rva": 166752319,
+  "name": "StartFleeBehavior"
+ },
+ {
+  "rva": 169529338,
+  "name": "ReserveAndUseSeat"
+ },
+ {
+  "rva": 172043280,
+  "name": "SetHacksPermissions"
+ },
+ {
+  "rva": 169529765,
+  "name": "DisableHackableIncredient"
+ },
+ {
+  "rva": 170385765,
+  "name": "SwitchToOperativeInPlaceFromDomino"
+ },
+ {
+  "rva": 169539845,
+  "name": "ReinforcementTriggerScriptedFlee"
+ },
+ {
+  "rva": 169532749,
+  "name": "GetPlayerTeam"
+ },
+ {
+  "rva": 169533532,
+  "name": "ResetCoverAllowedOverride"
+ },
+ {
+  "rva": 166752638,
+  "name": "ForceLKPOnAIEntity"
+ },
+ {
+  "rva": 169537780,
+  "name": "ShowHUDTutorial"
+ },
+ {
+  "rva": 169530085,
+  "name": "AddNPCZone"
+ },
+ {
+  "rva": 169532358,
+  "name": "GetPlayerIdFromPawnId"
+ },
+ {
+  "rva": 169532380,
+  "name": "TeleportEntity"
+ },
+ {
+  "rva": 172042959,
+  "name": "GetCurrentPlasmaSceneDuration"
+ },
+ {
+  "rva": 169533657,
+  "name": "ResetClimbInteractionAllowedOverride"
+ },
+ {
+  "rva": 169530398,
+  "name": "SquadTryToCreateUntargetedSearch_v2"
+ },
+ {
+  "rva": 169532926,
+  "name": "PutPlayerInVehicle"
+ },
+ {
+  "rva": 169539710,
+  "name": "ReinforcementAdoptScriptedAgents"
+ },
+ {
+  "rva": 169528673,
+  "name": "SendAICmdSetCombat"
+ },
+ {
+  "rva": 169533146,
+  "name": "WaitForQualitiesLoaded"
+ },
+ {
+  "rva": 169531088,
+  "name": "VerifyVehicleSlowEnoughToExit"
+ },
+ {
+  "rva": 172041112,
+  "name": "InterpolateLookAtEntity"
+ },
+ {
+  "rva": 169539221,
+  "name": "AbortPGTMissionArea"
+ },
+ {
+  "rva": 171161311,
+  "name": "Pickup"
+ },
+ {
+  "rva": 169530788,
+  "name": "EnableTakedownOnCivilian"
+ },
+ {
+  "rva": 169528926,
+  "name": "AssignPatrolToAgent"
+ },
+ {
+  "rva": 169531786,
+  "name": "WakeUpDroneEntity"
+ },
+ {
+  "rva": 169528192,
+  "name": "GetTriggerComponentContacts"
+ },
+ {
+  "rva": 169535654,
+  "name": "SetDoorLockState"
+ },
+ {
+  "rva": 169534346,
+  "name": "LoadCustomMediaBroadcastConfig"
+ },
+ {
+  "rva": 172044101,
+  "name": "AutoTrackLeverageOp"
+ },
+ {
+  "rva": 173016320,
+  "name": "module"
+ },
+ {
+  "rva": 169535167,
+  "name": "SetSecurityCamCanEnter"
+ },
+ {
+  "rva": 170385550,
+  "name": "RemovePhotoDetectionTarget"
+ },
+ {
+  "rva": 169537191,
+  "name": "SetMapMarkerPopUpDataWithMissionId"
+ },
+ {
+  "rva": 166752683,
+  "name": "StunAIEntity"
+ },
+ {
+  "rva": 169529078,
+  "name": "StartHelicopterBhv"
+ },
+ {
+  "rva": 172043982,
+  "name": "RecruitmentIntelActivate"
+ },
+ {
+  "rva": 169529966,
+  "name": "AssignMainSquadStrategy"
+ },
+ {
+  "rva": 169531461,
+  "name": "TurnAllVehicleLightAndSirenOff"
+ },
+ {
+  "rva": 169529029,
+  "name": "SetPatrolSpeed_v2"
+ },
+ {
+  "rva": 169528571,
+  "name": "GetAICommand_InvalidID"
+ },
+ {
+  "rva": 169532408,
+  "name": "ChangePlayerGkModelFromHumanConfigAndVoiceActor"
+ },
+ {
+  "rva": 169533949,
+  "name": "TriggerInitialSpawn"
+ },
+ {
+  "rva": 172140916,
+  "name": "IgnoreShortcutBlocked"
+ },
+ {
+  "rva": 169537769,
+  "name": "HideHUDTip"
+ },
+ {
+  "rva": 169530266,
+  "name": "SquadTryToCreateTargetedSearch"
+ },
+ {
+  "rva": 169534683,
+  "name": "HackingRequestSendIsHackableEvent"
+ },
+ {
+  "rva": 172043778,
+  "name": "CreateConnectionLine"
+ },
+ {
+  "rva": 169532797,
+  "name": "GetTeamPlayerCount"
+ },
+ {
+  "rva": 169534658,
+  "name": "SetHubLocked"
+ },
+ {
+  "rva": 169537441,
+  "name": "AddTarget"
+ },
+ {
+  "rva": 169530738,
+  "name": "EnableAIAgentZone"
+ },
+ {
+  "rva": 169537532,
+  "name": "IndicatorSetIsVisible"
+ },
+ {
+  "rva": 169529115,
+  "name": "SetSpotlightBehavior"
+ },
+ {
+  "rva": 169528455,
+  "name": "ShowMarker"
+ },
+ {
+  "rva": 169539201,
+  "name": "StartPGTMissionArea"
+ },
+ {
+  "rva": 169533732,
+  "name": "SetEmoteWheelEnabled"
+ },
+ {
+  "rva": 169538195,
+  "name": "GetObjectiveIncrement"
+ },
+ {
+  "rva": 173008874,
+  "name": "assert"
+ },
+ {
+  "rva": 169533214,
+  "name": "SetPlayerMaxLocomotionSpeedTypeOverride"
+ },
+ {
+  "rva": 172041326,
+  "name": "TriggerInitialCtosDatabaseSpawn"
+ },
+ {
+  "rva": 169530678,
+  "name": "SetPriorityTarget"
+ },
+ {
+  "rva": 169538677,
+  "name": "SetBloodSplatterOverlayEnabled"
+ },
+ {
+  "rva": 169535798,
+  "name": "RemoveHackCategoryAvailabilityOverride"
+ },
+ {
+  "rva": 169531118,
+  "name": "StopVehicleSpeedStats"
+ },
+ {
+  "rva": 172041255,
+  "name": "GetOperativeIDList_v2"
+ },
+ {
+  "rva": 169534276,
+  "name": "MediaSystemSetPaused"
+ },
+ {
+  "rva": 169531771,
+  "name": "ExplodeVehicle"
+ },
+ {
+  "rva": 169529920,
+  "name": "IsSquadStopped"
+ },
+ {
+  "rva": 169535697,
+  "name": "AddHackingAvailabilityOverride"
+ },
+ {
+  "rva": 169539468,
+  "name": "ReinforcementStopReinforcing"
+ },
+ {
+  "rva": 172043082,
+  "name": "StopPlasmaPhoneCommunication"
+ },
+ {
+  "rva": 169534671,
+  "name": "SetHackable"
+ },
+ {
+  "rva": 169529505,
+  "name": "IsDetectionUnawareStarted"
+ },
+ {
+  "rva": 172043214,
+  "name": "GetCurrentOperative"
+ },
+ {
+  "rva": 169534942,
+  "name": "SetKeyIntelId"
+ },
+ {
+  "rva": 169539743,
+  "name": "ReinforcementCheckState"
+ },
+ {
+  "rva": 172042557,
+  "name": "UnregisterCLOEntityToGameplayBeat"
+ },
+ {
+  "rva": 172041964,
+  "name": "CreateOutlineGameplay"
+ },
+ {
+  "rva": 169530511,
+  "name": "SquadSetBhvParams"
+ },
+ {
+  "rva": 169529244,
+  "name": "UnAssignNPCOverrideConfig"
+ },
+ {
+  "rva": 172040801,
+  "name": "DisableMissionSoftQuit"
+ },
+ {
+  "rva": 169537663,
+  "name": "ShowCredits"
+ },
+ {
+  "rva": 169530064,
+  "name": "RemoveRestrictedZone"
+ },
+ {
+  "rva": 169532965,
+  "name": "StopPostFxOnPlayer"
+ },
+ {
+  "rva": 172041167,
+  "name": "GetMissionEntityName"
+ },
+ {
+  "rva": 169528628,
+  "name": "SendAICmdBHVstateV2"
+ },
+ {
+  "rva": 169534321,
+  "name": "StopScriptNarrativeDelay"
+ },
+ {
+  "rva": 169528610,
+  "name": "SendAICmdBHVstate"
+ },
+ {
+  "rva": 169531049,
+  "name": "GetVehicleSpeed"
+ },
+ {
+  "rva": 169534429,
+  "name": "ActivatePlayOnBinkChannel"
+ },
+ {
+  "rva": 169539402,
+  "name": "ReinforcementStartReinforcing_v4"
+ },
+ {
+  "rva": 170385680,
+  "name": "UnregisterPlayerAttention"
+ },
+ {
+  "rva": 169536880,
+  "name": "PlayBinkVideoFileWithSubtitleV3"
+ },
+ {
+  "rva": 169537835,
+  "name": "ShowTutorialMenuHint"
+ },
+ {
+  "rva": 169532860,
+  "name": "ArePlayersInOpponentTeam"
+ },
+ {
+  "rva": 169530833,
+  "name": "GetCivilianThreatState"
+ },
+ {
+  "rva": 169538020,
+  "name": "ScriptUISubObjectiveUpdate"
+ },
+ {
+  "rva": 169530582,
+  "name": "SetAIAgentState"
+ },
+ {
+  "rva": 169537690,
+  "name": "ShowMissionModuleIdLocalPlayer_v3"
+ },
+ {
+  "rva": 169537796,
+  "name": "HideHUDTutorial"
+ },
+ {
+  "rva": 174862148,
+  "name": "StartSoundMixingFromLua"
+ },
+ {
+  "rva": 169528889,
+  "name": "SendAICmdStandAndShoot"
+ },
+ {
+  "rva": 169539497,
+  "name": "ReinforcementStopReinforcing_v2"
+ },
+ {
+  "rva": 169532129,
+  "name": "SetConversationInteractionSettings"
+ },
+ {
+  "rva": 169536499,
+  "name": "FelonyRemoveVehicleExclusionZone"
+ },
+ {
+  "rva": 172044121,
+  "name": "IsNarrativePlayingInTheQueue"
+ },
+ {
+  "rva": 169535142,
+  "name": "SecurityCameraForceEnter"
+ },
+ {
+  "rva": 170385615,
+  "name": "AddOpPersonToCLO"
+ },
+ {
+  "rva": 169539241,
+  "name": "ForceUnspawnPGTMissionArea"
+ },
+ {
+  "rva": 169531002,
+  "name": "GetIsVehicleParked"
+ },
+ {
+  "rva": 173009004,
+  "name": "setmetatable"
+ },
+ {
+  "rva": 169539149,
+  "name": "HideEquippedItemUIElement"
+ },
+ {
+  "rva": 172043406,
+  "name": "AssignGlobalDynamicActor"
+ },
+ {
+  "rva": 166752696,
+  "name": "SetWolfskinMaterialColorParameter"
+ },
+ {
+  "rva": 172830870,
+  "name": "GetDBVariableSoundID"
+ },
+ {
+  "rva": 169534579,
+  "name": "UnloadMediaSystemService"
+ },
+ {
+  "rva": 173008924,
+  "name": "getmetatable"
+ },
+ {
+  "rva": 169537877,
+  "name": "AddStanceControlHelper"
+ },
+ {
+  "rva": 172042892,
+  "name": "GetPersistentInt_OpScope"
+ },
+ {
+  "rva": 169531605,
+  "name": "ShutdownVehicleEngine"
+ },
+ {
+  "rva": 173008989,
+  "name": "rawset"
+ },
+ {
+  "rva": 169535871,
+  "name": "FelonySetHeat"
+ },
+ {
+  "rva": 169539004,
+  "name": "TriggerChatLine"
+ },
+ {
+  "rva": 170385632,
+  "name": "UnRegisterOpPersonToCLO"
+ },
+ {
+  "rva": 169536106,
+  "name": "FelonyOverrideChopperParams"
+ },
+ {
+  "rva": 169529198,
+  "name": "SetVehicleChaseCheats"
+ },
+ {
+  "rva": 166752730,
+  "name": "OverrideMeleeConfig"
+ },
+ {
+  "rva": 166752657,
+  "name": "ForceLKPForScriptedFelony"
+ },
+ {
+  "rva": 169535605,
+  "name": "CloseDoor"
+ },
+ {
+  "rva": 169531987,
+  "name": "LineOfSightMonitorEnable"
+ },
+ {
+  "rva": 166752609,
+  "name": "ModifyDamageReceivedByEntity"
+ },
+ {
+  "rva": 172041485,
+  "name": "DeactivateNetworkSurfing"
+ },
+ {
+  "rva": 169532263,
+  "name": "GetNumberOfPlayers"
+ },
+ {
+  "rva": 166752585,
+  "name": "GetGroupBehaviorGroupId"
+ },
+ {
+  "rva": 166752555,
+  "name": "SendGenericGroupBehaviorEvent"
+ },
+ {
+  "rva": 169539435,
+  "name": "ReinforcementStartReinforcing_v5"
+ },
+ {
+  "rva": 166752508,
+  "name": "StartGroupBehavior"
+ },
+ {
+  "rva": 172043825,
+  "name": "ResetScriptedHackHandler"
+ },
+ {
+  "rva": 166752472,
+  "name": "SendGenericGroupBehaviorEventLegacy"
+ },
+ {
+  "rva": 169534629,
+  "name": "IsGateBlocked"
+ },
+ {
+  "rva": 166752454,
+  "name": "DisableWeaponDrop"
+ },
+ {
+  "rva": 166752425,
+  "name": "GoToUnspawn"
+ },
+ {
+  "rva": 169535885,
+  "name": "FelonyStartScan"
+ },
+ {
+  "rva": 169532641,
+  "name": "IsTargetEntityTagged"
+ },
+ {
+  "rva": 172042338,
+  "name": "GetObjectiveId"
+ },
+ {
+  "rva": 166752375,
+  "name": "StartFleeShooting"
+ },
+ {
+  "rva": 166752358,
+  "name": "StopFleeBehavior"
+ },
+ {
+  "rva": 166752337,
+  "name": "StartFleeBehavior_v1"
+ },
+ {
+  "rva": 166752296,
+  "name": "StopOnFootFleeBehavior"
+ },
+ {
+  "rva": 166752251,
+  "name": "SetIOPPropStateIndex"
+ },
+ {
+  "rva": 166752233,
+  "name": "TriggerIOPKickOut"
+ },
+ {
+  "rva": 166752220,
+  "name": "SendIOPEvent"
+ },
+ {
+  "rva": 166752176,
+  "name": "ForceEndIOP"
+ },
+ {
+  "rva": 13886375,
+  "name": "StopIOP"
+ },
+ {
+  "rva": 173009042,
+  "name": "xpcall"
+ },
+ {
+  "rva": 169529397,
+  "name": "AIGetSpawnedVehiclesTotal"
+ },
+ {
+  "rva": 169534918,
+  "name": "ResetProfilerInfoFilter"
+ },
+ {
+  "rva": 172141036,
+  "name": "RequestBoroughUprisingMapSequenceV4"
+ },
+ {
+  "rva": 172140974,
+  "name": "SetBlockLinksToInGameMenu"
+ },
+ {
+  "rva": 172140861,
+  "name": "VideoPlayerStop"
+ },
+ {
+  "rva": 172140844,
+  "name": "VideoPlayerStart"
+ },
+ {
+  "rva": 172043525,
+  "name": "SetTraitTracked"
+ },
+ {
+  "rva": 172044240,
+  "name": "SetCanDroneBeShutdown"
+ },
+ {
+  "rva": 169528466,
+  "name": "ToggleRangeCheck"
+ },
+ {
+  "rva": 169534297,
+  "name": "AddScriptNarrativeDelay"
+ },
+ {
+  "rva": 172044217,
+  "name": "SetIsPickableByRCDrone"
+ },
+ {
+  "rva": 172044201,
+  "name": "DetachFromDrone"
+ },
+ {
+  "rva": 172044187,
+  "name": "AttachToDrone"
+ },
+ {
+  "rva": 169535901,
+  "name": "FelonyStartCustomScan"
+ },
+ {
+  "rva": 169538610,
+  "name": "PauseBink"
+ },
+ {
+  "rva": 172043431,
+  "name": "GetGlobalDynamicActor"
+ },
+ {
+  "rva": 169531546,
+  "name": "IsCloseFromSeatEntryPoint"
+ },
+ {
+  "rva": 169531860,
+  "name": "DeactivateDroneEntity"
+ },
+ {
+  "rva": 172043956,
+  "name": "RemoveCensusActorListener"
+ },
+ {
+  "rva": 172043933,
+  "name": "AddCensusActorListener"
+ },
+ {
+  "rva": 172043706,
+  "name": "RemoveGameplayBeatLoadingScreen"
+ },
+ {
+  "rva": 172042076,
+  "name": "GetDroneRegressSpeed"
+ },
+ {
+  "rva": 172043471,
+  "name": "GetRuleSmithBool"
+ },
+ {
+  "rva": 172043606,
+  "name": "OverrideOperativeScheduleToCityLocation"
+ },
+ {
+  "rva": 172043300,
+  "name": "ActivateGameplayContext"
+ },
+ {
+  "rva": 172043504,
+  "name": "TriggerRuleSmithRule"
+ },
+ {
+  "rva": 169536582,
+  "name": "FelonyGetSquadName"
+ },
+ {
+  "rva": 172043488,
+  "name": "GetRuleSmithInt"
+ },
+ {
+  "rva": 172043646,
+  "name": "CancelOperativeScheduleOverride"
+ },
+ {
+  "rva": 172044033,
+  "name": "AddMissionWaypoint"
+ },
+ {
+  "rva": 169536692,
+  "name": "LocalPlayerConflictRequest"
+ },
+ {
+  "rva": 172043541,
+  "name": "ReinforcementStartReinforcing_v6"
+ },
+ {
+  "rva": 169539369,
+  "name": "ReinforcementStartReinforcing_v3"
+ },
+ {
+  "rva": 169537992,
+  "name": "ScriptUIMainObjectiveUpdate"
+ },
+ {
+  "rva": 172043234,
+  "name": "SetOperativeAvailable"
+ },
+ {
+  "rva": 172043189,
+  "name": "GetOperativeBySlotNumber"
+ },
+ {
+  "rva": 169538094,
+  "name": "ScriptUIMissionSuccess_v2"
+ },
+ {
+  "rva": 169531515,
+  "name": "GetSeatEntryPos"
+ },
+ {
+  "rva": 169530529,
+  "name": "SquadClearBhvParams"
+ },
+ {
+  "rva": 172923746,
+  "name": "print"
+ },
+ {
+  "rva": 169535276,
+  "name": "IsSecurityCameraHostile"
+ },
+ {
+  "rva": 172043169,
+  "name": "RemoveDataDriveItem"
+ },
+ {
+  "rva": 169535429,
+  "name": "ForceUserOutOfRC"
+ },
+ {
+  "rva": 169534113,
+  "name": "AreEntitiesLinkedTogether"
+ },
+ {
+  "rva": 172042850,
+  "name": "HasPersistentInt"
+ },
+ {
+  "rva": 172042444,
+  "name": "StopSearchAreaController"
+ },
+ {
+  "rva": 172043155,
+  "name": "SetVisibility"
+ },
+ {
+  "rva": 172041188,
+  "name": "LaunchOpSwapMenu"
+ },
+ {
+  "rva": 172042816,
+  "name": "SetPersistentInt"
+ },
+ {
+  "rva": 172042793,
+  "name": "GetNPCByOpResourceName"
+ },
+ {
+  "rva": 172042774,
+  "name": "LoadLastCheckpoint"
+ },
+ {
+  "rva": 169532580,
+  "name": "AddPlayerTag"
+ },
+ {
+  "rva": 169532164,
+  "name": "SetCanBeDetected"
+ },
+ {
+  "rva": 169536338,
+  "name": "FelonyClearRoadBlockParams"
+ },
+ {
+  "rva": 169537424,
+  "name": "ClearGPS3DTarget"
+ },
+ {
+  "rva": 172042730,
+  "name": "GetCheckpoint"
+ },
+ {
+  "rva": 169535259,
+  "name": "SteamPipeExplode"
+ },
+ {
+  "rva": 172042716,
+  "name": "SetCheckpoint"
+ },
+ {
+  "rva": 172041236,
+  "name": "GetOperativeIDList"
+ },
+ {
+  "rva": 172042662,
+  "name": "ForceTrackingOnThisOp"
+ },
+ {
+  "rva": 172042650,
+  "name": "IsOpTracked"
+ },
+ {
+  "rva": 169535300,
+  "name": "GetSecurityCameraUser"
+ },
+ {
+  "rva": 169529136,
+  "name": "StartFloatingVehicleBhv"
+ },
+ {
+  "rva": 169529719,
+  "name": "AgentDrawWeaponShootingType"
+ },
+ {
+  "rva": 172041428,
+  "name": "StopAutonomousVehicleFleeBehavior"
+ },
+ {
+  "rva": 169530549,
+  "name": "SquadGetState"
+ },
+ {
+  "rva": 172042591,
+  "name": "Op_GetDGSceneEntities"
+ },
+ {
+  "rva": 169537269,
+  "name": "SetMissionAreaDrawType"
+ },
+ {
+  "rva": 172042496,
+  "name": "UnbindGameplayBeatWithEntity"
+ },
+ {
+  "rva": 172042942,
+  "name": "StartPlasmaScene"
+ },
+ {
+  "rva": 172830829,
+  "name": "GetDBVariableInteger"
+ },
+ {
+  "rva": 172040975,
+  "name": "RemoveEntityFromContactList"
+ },
+ {
+  "rva": 169538069,
+  "name": "ScriptUIObjectiveSuccess"
+ },
+ {
+  "rva": 169533254,
+  "name": "ResetPlayerMaxLocomotionSpeedTypeOverride"
+ },
+ {
+  "rva": 172042379,
+  "name": "ValidateOneObjective"
+ },
+ {
+  "rva": 169539767,
+  "name": "ReinforcementIncrementWave"
+ },
+ {
+  "rva": 169535570,
+  "name": "SendIsAlarmActivatedEvent"
+ },
+ {
+  "rva": 169537510,
+  "name": "AddOrRemoveCustomPath"
+ },
+ {
+  "rva": 166752393,
+  "name": "GoToMonitoredCLO"
+ },
+ {
+  "rva": 169535065,
+  "name": "CameraPlayDisconnectedAnimation"
+ },
+ {
+  "rva": 172042315,
+  "name": "CreateObjectiveCreator"
+ },
+ {
+  "rva": 172042292,
+  "name": "DestroyWrappedGameplay"
+ },
+ {
+  "rva": 172042237,
+  "name": "CreateDronePackageController"
+ },
+ {
+  "rva": 172042156,
+  "name": "CreateDroneBankServerPackageController"
+ },
+ {
+  "rva": 169538256,
+  "name": "UnregisterObjectiveUpdatedScriptCallback"
+ },
+ {
+  "rva": 172043678,
+  "name": "PlayerFailForwardController"
+ },
+ {
+  "rva": 172042046,
+  "name": "CreateDroneRegressGameplay_v1"
+ },
+ {
+  "rva": 172041086,
+  "name": "InterpolateEntityPosition"
+ },
+ {
+  "rva": 172041904,
+  "name": "CreateLocateGameplayController"
+ },
+ {
+  "rva": 172041885,
+  "name": "CreateTimeGameplay"
+ },
+ {
+  "rva": 169529160,
+  "name": "StopFloatingVehicleBhv"
+ },
+ {
+  "rva": 169533328,
+  "name": "ForceStopCrouch"
+ },
+ {
+  "rva": 169529220,
+  "name": "AssignNPCOverrideConfig"
+ },
+ {
+  "rva": 172041832,
+  "name": "CreateNeutralizeGameplay_v2"
+ },
+ {
+  "rva": 172041808,
+  "name": "CreateEscapeGameplay_v2"
+ },
+ {
+  "rva": 172041785,
+  "name": "CreateReachGameplay_v6"
+ },
+ {
+  "rva": 172041763,
+  "name": "CreateHackGameplay_v5"
+ },
+ {
+  "rva": 169536050,
+  "name": "FelonyOverrideBasicParams"
+ },
+ {
+  "rva": 172041711,
+  "name": "CreateDeliveryGameplay_v9"
+ },
+ {
+  "rva": 172041656,
+  "name": "SetDownloadGameplaySpeedCoef"
+ },
+ {
+  "rva": 169535615,
+  "name": "SetEntityIsIntel"
+ },
+ {
+  "rva": 166752158,
+  "name": "StartEmptyRoomIOP"
+ },
+ {
+  "rva": 172041510,
+  "name": "CreateDownloadGameplay_v7"
+ },
+ {
+  "rva": 169536134,
+  "name": "FelonyOverrideHeatParams"
+ },
+ {
+  "rva": 172041462,
+  "name": "ActivateNetworkSurfing"
+ },
+ {
+  "rva": 172041393,
+  "name": "StartAutonomousVehicleGotoBehavior"
+ },
+ {
+  "rva": 169529183,
+  "name": "SetSafeDriving"
+ },
+ {
+  "rva": 172041299,
+  "name": "GetGameStartOperativesList"
+ },
+ {
+  "rva": 172041277,
+  "name": "GetOperativeIDList_v3"
+ },
+ {
+  "rva": 172041219,
+  "name": "EnableFastTravel"
+ },
+ {
+  "rva": 172041205,
+  "name": "EnableOpSwaps"
+ },
+ {
+  "rva": 172042833,
+  "name": "GetPersistentInt"
+ },
+ {
+  "rva": 169538825,
+  "name": "SmartphoneAppSetNew"
+ },
+ {
+  "rva": 172041046,
+  "name": "SetLocationState_V1"
+ },
+ {
+  "rva": 172042097,
+  "name": "FindDroneEntityFromCLO"
+ },
+ {
+  "rva": 170385392,
+  "name": "AddToCustomDrunkEffect"
+ },
+ {
+  "rva": 172040910,
+  "name": "IsFullyProfiled"
+ },
+ {
+  "rva": 166752527,
+  "name": "StartGroupBehaviorWithRoles"
+ },
+ {
+  "rva": 170386213,
+  "name": "GetRobotEntityFromRobotBox"
+ },
+ {
+  "rva": 169537571,
+  "name": "IndicatorSetLocNameId"
+ },
+ {
+  "rva": 170385839,
+  "name": "UnregisterPlayableOperativesCountRequest"
+ },
+ {
+  "rva": 170386160,
+  "name": "StartInitialOperativeSwapScreen"
+ },
+ {
+  "rva": 169539618,
+  "name": "ReinforcementReleaseLocation"
+ },
+ {
+  "rva": 170386132,
+  "name": "GetRCEntityFromRCJumperDock"
+ },
+ {
+  "rva": 170386102,
+  "name": "ForceCompleteBareknuckleFight"
+ },
+ {
+  "rva": 169531492,
+  "name": "GetNbrWheelWithContact"
+ },
+ {
+  "rva": 169537226,
+  "name": "MissionAreaActivation"
+ },
+ {
+  "rva": 169528409,
+  "name": "SetFollowSpeed"
+ },
+ {
+  "rva": 170386051,
+  "name": "SetCanCallDroneInHMAOverride"
+ },
+ {
+  "rva": 170386010,
+  "name": "GetProgressionUpgradeLevel"
+ },
+ {
+  "rva": 170385983,
+  "name": "IsInventoryWeaponInLoadout"
+ },
+ {
+  "rva": 170385903,
+  "name": "IsPredefinedPremiumOperative"
+ },
+ {
+  "rva": 170385731,
+  "name": "GameStartSwitchToOperativeInPlace"
+ },
+ {
+  "rva": 170385706,
+  "name": "GameStartRemoveOperative"
+ },
+ {
+  "rva": 170385656,
+  "name": "RegisterPlayerAttention"
+ },
+ {
+  "rva": 169535728,
+  "name": "RemoveHackingAvailabilityOverride"
+ },
+ {
+  "rva": 169532622,
+  "name": "SetTargetTagEntity"
+ },
+ {
+  "rva": 169537292,
+  "name": "SetMissionAreaShapeType"
+ },
+ {
+  "rva": 169535978,
+  "name": "FelonyStartChase"
+ },
+ {
+  "rva": 172043256,
+  "name": "SetOperativeUnavailable"
+ },
+ {
+  "rva": 169535596,
+  "name": "OpenDoor"
+ },
+ {
+  "rva": 169538631,
+  "name": "SetIconVisible"
+ },
+ {
+  "rva": 169534165,
+  "name": "LinkEntities"
+ },
+ {
+  "rva": 170385449,
+  "name": "IsRelicFound"
+ },
+ {
+  "rva": 169536387,
+  "name": "FelonyClearSearchParams"
+ },
+ {
+  "rva": 170385438,
+  "name": "ResetDrunk"
+ },
+ {
+  "rva": 172040926,
+  "name": "ForceLeverageNPC"
+ },
+ {
+  "rva": 169535523,
+  "name": "SendActivateAlarmEvent"
+ },
+ {
+  "rva": 169529805,
+  "name": "GetDistance3D"
+ },
+ {
+  "rva": 169529376,
+  "name": "ReserveAndMoveToSeat"
+ },
+ {
+  "rva": 169539677,
+  "name": "ReinforcementAddScriptedAgent_v2"
+ },
+ {
+  "rva": 169534019,
+  "name": "EnableWorldSpawning"
+ },
+ {
+  "rva": 169528366,
+  "name": "IsCLOValidForDomino"
+ },
+ {
+  "rva": 169529423,
+  "name": "SpawnAIVehicleAndPassengerOnRoad"
+ },
+ {
+  "rva": 169528253,
+  "name": "SetIconOffsetForProximityTrigger"
+ },
+ {
+  "rva": 173008849,
+  "name": "ipairs"
+ },
+ {
+  "rva": 169535446,
+  "name": "SetCameraMonitorPlayerBlurLockedByScript"
+ },
+ {
+  "rva": 169528992,
+  "name": "UnAssignPatrolToAgent"
+ },
+ {
+  "rva": 169537758,
+  "name": "ShowHUDTip"
+ },
+ {
+  "rva": 172043908,
+  "name": "DisplayConfirmationPopup"
+ },
+ {
+  "rva": 169533311,
+  "name": "ForceStartCrouch"
+ },
+ {
+  "rva": 169534244,
+  "name": "MediaSystemStopCurrentBroadcast"
+ },
+ {
+  "rva": 169534002,
+  "name": "IsSpawnerEnabled"
+ },
+ {
+  "rva": 169530451,
+  "name": "SquadSetSearchOverrideParams"
+ },
+ {
+  "rva": 169533189,
+  "name": "HasAccessUniformEquipped"
+ },
+ {
+  "rva": 169539292,
+  "name": "SetPGTEnabled"
+ },
+ {
+  "rva": 169536912,
+  "name": "PlayBinkVideoFileWithSubtitleV4"
+ },
+ {
+  "rva": 169532662,
+  "name": "SetProfilerlessTaggingEnabled"
+ },
+ {
+  "rva": 172041536,
+  "name": "CreateDownloadGameplayWithDB"
+ },
+ {
+  "rva": 169536601,
+  "name": "FelonyEndScan"
+ },
+ {
+  "rva": 169533712,
+  "name": "PreventWeaponPickup"
+ },
+ {
+  "rva": 169529819,
+  "name": "CalculateDistanceViaRoad"
+ },
+ {
+  "rva": 174918236,
+  "name": "GameOver"
+ },
+ {
+  "rva": 169534604,
+  "name": "ReloadMediaSystemService"
+ },
+ {
+  "rva": 172043850,
+  "name": "HackerspaceAssignOperatives"
+ },
+ {
+  "rva": 169536798,
+  "name": "SetMapMarkerPopUpData"
+ },
+ {
+  "rva": 169539336,
+  "name": "ReinforcementStartReinforcing_v2"
+ },
+ {
+  "rva": 169530480,
+  "name": "SquadResetSearchOverrideParams"
+ },
+ {
+  "rva": 169533078,
+  "name": "TeleportPlayerInsideHMA"
+ },
+ {
+  "rva": 169536316,
+  "name": "FelonyClearHeatParams"
+ },
+ {
+  "rva": 172044007,
+  "name": "RecruitmentIntelGetEntity"
+ },
+ {
+  "rva": 169537636,
+  "name": "UnregisterPersonOfInterest"
+ },
+ {
+  "rva": 169533437,
+  "name": "SetFaceMaskAllowed"
+ },
+ {
+  "rva": 169529489,
+  "name": "IsAISubcategory"
+ },
+ {
+  "rva": 169536264,
+  "name": "FelonyClearBehaviourParams"
+ },
+ {
+  "rva": 169528826,
+  "name": "SendAICommand_Aim"
+ },
+ {
+  "rva": 169530128,
+  "name": "EnableAIlogicUseHackableGameplay"
+ },
+ {
+  "rva": 169532012,
+  "name": "StartConvoy"
+ },
+ {
+  "rva": 169538437,
+  "name": "UnregisterOnShowObjectiveCompletedScriptCallback_v2"
+ },
+ {
+  "rva": 169537172,
+  "name": "HideWarningMessage"
+ },
+ {
+  "rva": 169533919,
+  "name": "UnspawnAllPedestriansInRadius"
+ },
+ {
+  "rva": 169530945,
+  "name": "GetDriverID"
+ },
+ {
+  "rva": 169535419,
+  "name": "GetRCUser"
+ },
+ {
+  "rva": 169535322,
+  "name": "HasSecurityCameraDetectedPlayer"
+ },
+ {
+  "rva": 169529469,
+  "name": "SpawnNPC"
+ },
+ {
+  "rva": 172044150,
+  "name": "DisablePlayerBarks"
+ },
+ {
+  "rva": 170385601,
+  "name": "StopBenchmark"
+ },
+ {
+  "rva": 173008946,
+  "name": "load"
+ },
+ {
+  "rva": 169530867,
+  "name": "EnableVehicleRadioSystemDomino"
+ },
+ {
+  "rva": 169532456,
+  "name": "ChangePlayerGkModelFromHumanConfigAndVoiceActor_v1"
+ },
+ {
+  "rva": 169530222,
+  "name": "SetSquadRelationship"
+ },
+ {
+  "rva": 169533778,
+  "name": "SetCharacterAbilitiesEnabled"
+ },
+ {
+  "rva": 169533589,
+  "name": "ResetCoverToCoverAllowedOverride"
+ },
+ {
+  "rva": 169533508,
+  "name": "SetCoverAllowedOverride"
+ },
+ {
+  "rva": 169533481,
+  "name": "ResetCombatAllowedOverride"
+ },
+ {
+  "rva": 169532231,
+  "name": "ForceExitCover"
+ },
+ {
+  "rva": 169533369,
+  "name": "ResetCrouchAllowedOverride"
+ },
+ {
+  "rva": 169537045,
+  "name": "UpdateProgressBarPausedState"
+ },
+ {
+  "rva": 172042525,
+  "name": "RegisterCLOEntityToGameplayBeat"
+ },
+ {
+  "rva": 169531351,
+  "name": "GetVehicleValuePercentage"
+ },
+ {
+  "rva": 172041935,
+  "name": "StopLocateGameplayController"
+ },
+ {
+  "rva": 169529531,
+  "name": "IsDetectionUnawareFull"
+ },
+ {
+  "rva": 169528220,
+  "name": "TriggerComponentContactsCheckNow"
+ },
+ {
+  "rva": 169538047,
+  "name": "ScriptUIObjectiveHide"
+ },
+ {
+  "rva": 169536555,
+  "name": "FelonyGetSquadNameFromType"
+ },
+ {
+  "rva": 169536411,
+  "name": "FelonyAddScriptedAgent"
+ },
+ {
+  "rva": 169531901,
+  "name": "MK2BossSetDownloadCompleted"
+ },
+ {
+  "rva": 169537409,
+  "name": "SetGPS3DTarget"
+ },
+ {
+  "rva": 172042400,
+  "name": "FailOneObjective"
+ },
+ {
+  "rva": 169533102,
+  "name": "TeleportPlayerInsideHMA_v2"
+ },
+ {
+  "rva": 174862172,
+  "name": "StopSoundMixingFromLua"
+ },
+ {
+  "rva": 169533029,
+  "name": "TeleportToSpawnPoint_v3"
+ },
+ {
+  "rva": 169532945,
+  "name": "StartPostFxOnPlayer"
+ },
+ {
+  "rva": 169532907,
+  "name": "GetPlayerNameDebug"
+ },
+ {
+  "rva": 169538941,
+  "name": "SmartphoneIsAppOpened"
+ },
+ {
+  "rva": 169532816,
+  "name": "GetTeamPlayerFromIndex"
+ },
+ {
+  "rva": 169533129,
+  "name": "WaitForQualities"
+ },
+ {
+  "rva": 169538591,
+  "name": "StartBink"
+ },
+ {
+  "rva": 169532780,
+  "name": "GetTeamFromIndex"
+ },
+ {
+  "rva": 172830850,
+  "name": "GetDBVariableString"
+ },
+ {
+  "rva": 169532708,
+  "name": "RemovePlayerFromTeam"
+ },
+ {
+  "rva": 169537113,
+  "name": "StopProximityMeter"
+ },
+ {
+  "rva": 169531393,
+  "name": "DisableVehicleForPlayers"
+ },
+ {
+  "rva": 172042744,
+  "name": "RemoveCheckpointLoadingScreen"
+ },
+ {
+  "rva": 169532542,
+  "name": "ChangePlayerGkModelFromHumanConfig_v1"
+ },
+ {
+  "rva": 169532507,
+  "name": "ChangePlayerGkModelFromHumanConfig"
+ },
+ {
+  "rva": 169528444,
+  "name": "HideMarker"
+ },
+ {
+  "rva": 169532024,
+  "name": "StopConvoy"
+ },
+ {
+  "rva": 169533753,
+  "name": "SetCharacterWheelEnabled"
+ },
+ {
+  "rva": 169532336,
+  "name": "GetPawnIdFromPlayerId"
+ },
+ {
+  "rva": 169532246,
+  "name": "GetLocalCameraId"
+ },
+ {
+  "rva": 169528783,
+  "name": "SendAICommand_ShootAt"
+ },
+ {
+  "rva": 169529904,
+  "name": "IsSquadStopping"
+ },
+ {
+  "rva": 169530617,
+  "name": "SetAIAgentState_v3"
+ },
+ {
+  "rva": 169533988,
+  "name": "EnableSpawner"
+ },
+ {
+  "rva": 169535837,
+  "name": "TryTriggerHack"
+ },
+ {
+  "rva": 169531418,
+  "name": "GetVehicleIsDriveable"
+ },
+ {
+  "rva": 169537724,
+  "name": "HideMissionModuleIdLocalPlayer_v3"
+ },
+ {
+  "rva": 169530018,
+  "name": "SetSquadAgentOverrideConfig"
+ },
+ {
+  "rva": 169535546,
+  "name": "SendDectivateAlarmEvent"
+ },
+ {
+  "rva": 169539593,
+  "name": "ReinforcementFixLocation"
+ },
+ {
+  "rva": 172042613,
+  "name": "Op_GetDGSceneEntity"
+ },
+ {
+  "rva": 172042353,
+  "name": "CreateObjectiveController"
+ },
+ {
+  "rva": 173008896,
+  "name": "dofile"
+ },
+ {
+  "rva": 172043383,
+  "name": "CreateReachGameplay_v5"
+ },
+ {
+  "rva": 169528912,
+  "name": "GetAllEnemies"
+ },
+ {
+  "rva": 170385932,
+  "name": "GetMaximumNumPremiumOperativesAllowedInHackerspace"
+ },
+ {
+  "rva": 169534956,
+  "name": "SetKeyIntelIdInvasion"
+ },
+ {
+  "rva": 169532048,
+  "name": "GetTalkerType"
+ },
+ {
+  "rva": 169534784,
+  "name": "SetProfilingEnabled"
+ },
+ {
+  "rva": 169534455,
+  "name": "ChangeBroadcastChannelOnEntity"
+ },
+ {
+  "rva": 172042633,
+  "name": "Op_GetDGSceneCLO"
+ },
+ {
+  "rva": 169534405,
+  "name": "IsBroadcastBufferLoaded"
+ },
+ {
+  "rva": 169530046,
+  "name": "AddRestrictedZone"
+ },
+ {
+  "rva": 169531819,
+  "name": "PutToSleepDroneEntity"
+ },
+ {
+  "rva": 169539109,
+  "name": "HideGadgetUIElement"
+ },
+ {
+  "rva": 169538143,
+  "name": "ScriptUIMissionAbort_v2"
+ },
+ {
+  "rva": 169537316,
+  "name": "SetMissionAreaMission"
+ },
+ {
+  "rva": 169534219,
+  "name": "MediaSystemStopBroadcast"
+ },
+ {
+  "rva": 169537675,
+  "name": "ShowCredits_v1"
+ },
+ {
+  "rva": 169532181,
+  "name": "ToggleFeaturesForNarrative"
+ },
+ {
+  "rva": 169528711,
+  "name": "SendAICommand_GotoPos"
+ },
+ {
+  "rva": 169532062,
+  "name": "IsConversationInteractionAllowed"
+ },
+ {
+  "rva": 169536990,
+  "name": "SynchSoundAndBink"
+ },
+ {
+  "rva": 173008967,
+  "name": "pcall"
+ },
+ {
+  "rva": 169535671,
+  "name": "SetInteractionScriptState"
+ },
+ {
+  "rva": 169533969,
+  "name": "IsInitialSpawnDone"
+ },
+ {
+  "rva": 169531684,
+  "name": "SetVehicleAlarmHackable"
+ },
+ {
+  "rva": 169531661,
+  "name": "VehicleForceFakeFollow"
+ },
+ {
+  "rva": 169531627,
+  "name": "HideUserInCar"
+ },
+ {
+  "rva": 169529097,
+  "name": "StopHelicopterBhv"
+ },
+ {
+  "rva": 169530331,
+  "name": "SquadTryToCreateTargetedSearch_v3"
+ },
+ {
+  "rva": 169531164,
+  "name": "LanesRestrictionsControl"
+ },
+ {
+  "rva": 169531065,
+  "name": "StartVehicleSpeedStats"
+ },
+ {
+  "rva": 169530957,
+  "name": "GetCurrentVehicleEntityId"
+ },
+ {
+  "rva": 169528386,
+  "name": "StartFollow"
+ },
+ {
+  "rva": 169531590,
+  "name": "IsVehicleEmpty"
+ },
+ {
+  "rva": 169530563,
+  "name": "SetEngagementState"
+ },
+ {
+  "rva": 172042120,
+  "name": "CreateDroneDiamondPackageController"
+ },
+ {
+  "rva": 169535942,
+  "name": "FelonySystemSetLocalUIOnlyHeatLevel"
+ },
+ {
+  "rva": 169538963,
+  "name": "SmartphoneGetAppId"
+ },
+ {
+  "rva": 169529623,
+  "name": "SetPlayerInCinematic"
+ },
+ {
+  "rva": 169529949,
+  "name": "RemoveSquadAgent"
+ },
+ {
+  "rva": 169529889,
+  "name": "IsSquadStarted"
+ },
+ {
+  "rva": 169528805,
+  "name": "SendAICommand_LookAt"
+ },
+ {
+  "rva": 169528760,
+  "name": "SendAICommand_PlayAnim"
+ },
+ {
+  "rva": 169535995,
+  "name": "FelonyStartChaseObj"
+ },
+ {
+  "rva": 169539818,
+  "name": "ReinforcementCheckState_v2"
+ },
+ {
+  "rva": 169538845,
+  "name": "SmartphoneAppSetAvailable"
+ },
+ {
+  "rva": 166342299,
+  "name": "type"
+ },
+ {
+  "rva": 172041860,
+  "name": "CreateProtectGameplay_v3"
+ },
+ {
+  "rva": 172041003,
+  "name": "AddLocationListener"
+ },
+ {
+  "rva": 172043324,
+  "name": "SetBagleyHackActive"
+ },
+ {
+  "rva": 169530813,
+  "name": "StartCivilianLookAt"
+ },
+ {
+  "rva": 169530983,
+  "name": "GetPawnIsPassenger"
+ },
+ {
+  "rva": 169529014,
+  "name": "SetPatrolSpeed"
+ }
+]

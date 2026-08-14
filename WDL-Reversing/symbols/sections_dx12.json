@@ -1,0 +1,227 @@
+[
+ {
+  "Number": 1,
+  "Name": ".idata",
+  "VirtualSize": 165986304,
+  "VirtualAddress": 4096,
+  "RawDataSize": 165986304,
+  "PointerToRawData": 1536,
+  "Characteristics": 1610612768
+ },
+ {
+  "Number": 2,
+  "Name": ".ecode",
+  "VirtualSize": 21225472,
+  "VirtualAddress": 165990400,
+  "RawDataSize": 21225472,
+  "PointerToRawData": 165987840,
+  "Characteristics": 1073741888
+ },
+ {
+  "Number": 3,
+  "Name": ".impdata",
+  "VirtualSize": 4792320,
+  "VirtualAddress": 187215872,
+  "RawDataSize": 593408,
+  "PointerToRawData": 187213312,
+  "Characteristics": 3221225504
+ },
+ {
+  "Number": 4,
+  "Name": ".sbss",
+  "VirtualSize": 6877184,
+  "VirtualAddress": 192008192,
+  "RawDataSize": 512,
+  "PointerToRawData": 187806720,
+  "Characteristics": 1073741856
+ },
+ {
+  "Number": 5,
+  "Name": ".arch",
+  "VirtualSize": 4096,
+  "VirtualAddress": 198885376,
+  "RawDataSize": 512,
+  "PointerToRawData": 187807232,
+  "Characteristics": 1073741856
+ },
+ {
+  "Number": 6,
+  "Name": ".data1",
+  "VirtualSize": 4096,
+  "VirtualAddress": 198889472,
+  "RawDataSize": 512,
+  "PointerToRawData": 187807744,
+  "Characteristics": 1073741856
+ },
+ {
+  "Number": 7,
+  "Name": ".rsrc",
+  "VirtualSize": 4096,
+  "VirtualAddress": 198893568,
+  "RawDataSize": 512,
+  "PointerToRawData": 187808256,
+  "Characteristics": 1073741856
+ },
+ {
+  "Number": 8,
+  "Name": ".rdata",
+  "VirtualSize": 4096,
+  "VirtualAddress": 198897664,
+  "RawDataSize": 512,
+  "PointerToRawData": 187808768,
+  "Characteristics": 1610612768
+ },
+ {
+  "Number": 9,
+  "Name": ".bss",
+  "VirtualSize": 8192,
+  "VirtualAddress": 198901760,
+  "RawDataSize": 6656,
+  "PointerToRawData": 187809280,
+  "Characteristics": 3221225504
+ },
+ {
+  "Number": 10,
+  "Name": ".xdata",
+  "VirtualSize": 8192,
+  "VirtualAddress": 198909952,
+  "RawDataSize": 5120,
+  "PointerToRawData": 187815936,
+  "Characteristics": 1073741856
+ },
+ {
+  "Number": 11,
+  "Name": ".debug$P",
+  "VirtualSize": 379966514,
+  "VirtualAddress": 198918144,
+  "RawDataSize": 379966976,
+  "PointerToRawData": 187821056,
+  "Characteristics": 3758096416
+ },
+ {
+  "Number": 12,
+  "Name": ".text",
+  "VirtualSize": 501,
+  "VirtualAddress": 578887680,
+  "RawDataSize": 512,
+  "PointerToRawData": 567788032,
+  "Characteristics": 1610612768
+ },
+ {
+  "Number": 13,
+  "Name": ".code",
+  "VirtualSize": 20,
+  "VirtualAddress": 578891776,
+  "RawDataSize": 512,
+  "PointerToRawData": 567788544,
+  "Characteristics": 3221225504
+ },
+ {
+  "Number": 14,
+  "Name": ".shared",
+  "VirtualSize": 14040,
+  "VirtualAddress": 578895872,
+  "RawDataSize": 14336,
+  "PointerToRawData": 567789056,
+  "Characteristics": 1610612768
+ },
+ {
+  "Number": 15,
+  "Name": ".udata",
+  "VirtualSize": 634,
+  "VirtualAddress": 578912256,
+  "RawDataSize": 1024,
+  "PointerToRawData": 567803392,
+  "Characteristics": 1610612768
+ },
+ {
+  "Number": 16,
+  "Name": ".xtext",
+  "VirtualSize": 5,
+  "VirtualAddress": 578916352,
+  "RawDataSize": 512,
+  "PointerToRawData": 567804416,
+  "Characteristics": 1610612768
+ },
+ {
+  "Number": 17,
+  "Name": ".debug",
+  "VirtualSize": 97,
+  "VirtualAddress": 578920448,
+  "RawDataSize": 512,
+  "PointerToRawData": 567804928,
+  "Characteristics": 3758096416
+ },
+ {
+  "Number": 18,
+  "Name": ".text1",
+  "VirtualSize": 7696,
+  "VirtualAddress": 578924544,
+  "RawDataSize": 8192,
+  "PointerToRawData": 567805440,
+  "Characteristics": 3221225504
+ },
+ {
+  "Number": 19,
+  "Name": ".edata",
+  "VirtualSize": 67556,
+  "VirtualAddress": 578932736,
+  "RawDataSize": 67584,
+  "PointerToRawData": 567813632,
+  "Characteristics": 1073741888
+ },
+ {
+  "Number": 20,
+  "Name": ".link",
+  "VirtualSize": 6873312,
+  "VirtualAddress": 579002368,
+  "RawDataSize": 6873600,
+  "PointerToRawData": 567881216,
+  "Characteristics": 1073741888
+ },
+ {
+  "Number": 21,
+  "Name": ".MHC",
+  "VirtualSize": 3216931,
+  "VirtualAddress": 585879552,
+  "RawDataSize": 3217408,
+  "PointerToRawData": 574754816,
+  "Characteristics": 1610612768
+ },
+ {
+  "Number": 22,
+  "Name": ".p(.",
+  "VirtualSize": 10288,
+  "VirtualAddress": 589099008,
+  "RawDataSize": 10752,
+  "PointerToRawData": 577972224,
+  "Characteristics": 3221225536
+ },
+ {
+  "Number": 23,
+  "Name": ".}NV",
+  "VirtualSize": 11805348,
+  "VirtualAddress": 589111296,
+  "RawDataSize": 11805696,
+  "PointerToRawData": 577982976,
+  "Characteristics": 1744830560
+ },
+ {
+  "Number": 24,
+  "Name": ".sdata",
+  "VirtualSize": 4326252,
+  "VirtualAddress": 600920064,
+  "RawDataSize": 4326400,
+  "PointerToRawData": 589788672,
+  "Characteristics": 1073741888
+ },
+ {
+  "Number": 25,
+  "Name": ".reloc",
+  "VirtualSize": 787396,
+  "VirtualAddress": 605249536,
+  "RawDataSize": 787456,
+  "PointerToRawData": 594115072,
+  "Characteristics": 1073741888
+ }
+]

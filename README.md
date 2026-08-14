@@ -22,3 +22,8 @@ extracted symbols for Watch Dogs: Legion v1.6.3.
 
 85 XML material descriptor files covering material formats across
 Watch Dogs 1, 2, and Legion.
+
+## [Hashing](reference/hashing.md)
+
+CRC32 / FNV32 / FNV64 — little- and big-endian variants used by the
+Disrupt engine for file/object naming.

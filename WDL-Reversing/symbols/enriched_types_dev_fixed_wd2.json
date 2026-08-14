@@ -1,0 +1,844 @@
+{
+ "Bloomberg::SimpleWriter": {
+  "methods": [
+   "~SimpleWriter",
+   "Start",
+   "End",
+   "SetDataSender",
+   "GetDataSender",
+   "StartMarker",
+   "EndMarker",
+   "SimpleWriter",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_dataSender": 8
+  }
+ },
+ "Bloomberg::AttributeWriter": {
+  "methods": [
+   "AttributeWriter",
+   "~AttributeWriter",
+   "WriteValue",
+   "WriteKeyValue",
+   "StartMarker",
+   "EndMarker",
+   "ValidateKey",
+   "EnableValidation",
+   "DisableValidation",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_validationEnabled": 16
+  }
+ },
+ "Bloomberg::VariableLengthWriter": {
+  "methods": [
+   "~VariableLengthWriter",
+   "End",
+   "Write",
+   "StartMarker",
+   "EndMarker",
+   "VariableLengthWriter",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::Data": {
+  "methods": [
+   "Data",
+   "~Data",
+   "GetName",
+   "GetType",
+   "GetFilename",
+   "GetError",
+   "GetSupportedTypes",
+   "SetName",
+   "SetType",
+   "SetFilename",
+   "SetError",
+   "SetSupportedTypes",
+   "IncludeOnlyForSubtype",
+   "ExcludeForSubtype",
+   "IsEnabled",
+   "SetEnable",
+   "IsIncluded",
+   "SetInclude",
+   "IsSupported",
+   "IsShared",
+   "IsAsync",
+   "IsIncludedForSubType",
+   "PrepareForWrite",
+   "GetTextAndBinaryData",
+   "GetTextData",
+   "GetBinaryData",
+   "ClearDataList",
+   "LockDataList",
+   "TryLockDataList",
+   "UnlockDataList",
+   "GetDataList",
+   "LockAsyncDataList",
+   "TryLockAsyncDataList",
+   "UnlockAsyncDataList",
+   "GetAsyncDataList",
+   "LockSharedDataList",
+   "TryLockSharedDataList",
+   "UnlockSharedDataList",
+   "GetSharedDataList",
+   "GetSharedPrefix",
+   "SetForPostLaunch",
+   "IncrementSequenceCounter",
+   "DecrementSequenceCounter",
+   "AddDataToList",
+   "AddDataToAsyncList",
+   "AddDataToSharedList",
+   "IncludeOrExcludeForSubType",
+   "WriteBuiltInTextData",
+   "WriteTextData",
+   "WriteBinaryData",
+   "operator=",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_ListNodes": 8,
+   "m_name": 56,
+   "m_type": 88,
+   "m_filename": 120,
+   "m_error": 376,
+   "m_supportedTypes": 632,
+   "m_subTypesInfos": 636,
+   "m_subTypeInfoCount": 764,
+   "m_subTypeInfoEnd": 768,
+   "m_isEnabled": 776,
+   "m_isIncluded": 777,
+   "m_priority": 780,
+   "m_attributeWriter": 784,
+   "m_variableLengthWriter": 808,
+   "m_isShared": 824,
+   "m_isAsync": 825,
+   "m_sequence": 828,
+   "m_threadId": 832,
+   "m_forPostLaunch": 836
+  }
+ },
+ "Bloomberg::ReportInterface": {
+  "methods": [
+   "ReportInterface",
+   "~ReportInterface",
+   "GetReportBuilderBase",
+   "GetDialogButton",
+   "GetPlatform",
+   "GetShowDialogFlag",
+   "GetShowDialogMask",
+   "GetMessageVersion",
+   "GetBloombergVersion",
+   "GetReportGuid",
+   "GetReportTypeStr",
+   "GetReportType",
+   "GetReportSubType",
+   "GetReportSubTypeId",
+   "GetReportTimeStr",
+   "GetReportTime",
+   "GetReportReason",
+   "GetAutomatedKillFlag",
+   "GetAutomatedKillMask",
+   "GetRetroActionFlag",
+   "GetRetroActionMask",
+   "GetCurrentCrashedThreadId",
+   "GetCrashHandlerThreadId",
+   "GetRemoteDataFlag",
+   "GetDisableAllDatas",
+   "GetQuietFlag",
+   "GetPreDataCollectCallback",
+   "GetPostDataCollectCallback",
+   "CalculateHash",
+   "GetHash",
+   "SetPlatform",
+   "ShowDialogFor",
+   "SetMessageVersion",
+   "SetBloombergVersion",
+   "SetReportGuid",
+   "SetReportTime",
+   "SetReportType",
+   "SetReportSubType",
+   "SetReportReason",
+   "AutomatedKillFor",
+   "EnableRetroActionFor",
+   "SetCurrentCrashedThreadId",
+   "SetCrashHandlerThreadId",
+   "EnableRemoteDataFor",
+   "SetPreDataCollectCallback",
+   "SetPostDataCollectCallback",
+   "IsAsync",
+   "IsRemote",
+   "SetRemote",
+   "GetTakeMinidumpFlag",
+   "SetAsync",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_platform": 8,
+   "m_messageVersion": 24,
+   "m_bloombergVersion": 40,
+   "m_reportGuid": 56,
+   "m_reportTypeStr": 72,
+   "m_reportSubTypeStr": 88,
+   "m_reportTimeStr": 104,
+   "m_reportReason": 120,
+   "m_reportTime": 136,
+   "m_reportType": 144,
+   "m_reportSubTypeName": 152,
+   "m_currentCrashedThreadId": 168,
+   "m_crashHandlerThreadId": 172,
+   "m_automatedKillMask": 176,
+   "m_showDialogMask": 180,
+   "m_retroActionMask": 184,
+   "m_remoteDataMask": 188,
+   "m_async": 192,
+   "m_remote": 193,
+   "m_preDataCollectCallback": 200,
+   "m_postDataCollectCallback": 208
+  }
+ },
+ "Bloomberg::TcpSocket": {
+  "methods": [
+   "Init",
+   "UnInit",
+   "TcpSocket",
+   "~TcpSocket",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::GenericReport": {
+  "methods": [
+   "GetReportBuilderBase",
+   "GenericReport",
+   "~GenericReport",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::RemoteDataWriter": {
+  "methods": [
+   "RemoteDataWriter",
+   "~RemoteDataWriter",
+   "GetPort",
+   "StartListening",
+   "StopListening",
+   "WaitForConnections",
+   "ChoosePort",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_port": 1168,
+   "m_socket": 1176,
+   "m_clientSocket": 1184,
+   "m_dataSender": 1248,
+   "m_report": 1256
+  }
+ },
+ "Bloomberg::ConnectionManager::Connection": {
+  "methods": [
+   "Connection",
+   "~Connection",
+   "Equals",
+   "OpenConnection",
+   "CloseConnection",
+   "VerifyConnection",
+   "IsSupported",
+   "IsLocalConnection",
+   "ToString",
+   "operator=",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_connectionType": 8,
+   "m_supportedReportMask": 12
+  }
+ },
+ "Bloomberg::ConnectionManager::SocketConnection": {
+  "methods": [
+   "SocketConnection",
+   "~SocketConnection",
+   "Equals",
+   "OpenConnection",
+   "CloseConnection",
+   "VerifyConnection",
+   "IsLocalConnection",
+   "VerifyIpInRanges",
+   "IsSupported",
+   "ToString",
+   "operator=",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_ipRanges": 16,
+   "m_ipRangesSize": 656,
+   "m_ip": 657,
+   "m_port": 722,
+   "m_dataSender": 728
+  }
+ },
+ "Bloomberg::ConnectionManager::FileConnection": {
+  "methods": [
+   "FileConnection",
+   "~FileConnection",
+   "Equals",
+   "OpenConnection",
+   "CloseConnection",
+   "VerifyConnection",
+   "IsLocalConnection",
+   "IsSupported",
+   "ToString",
+   "operator=",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_filePath": 16,
+   "m_fileName": 272,
+   "m_dataSender": 528
+  }
+ },
+ "Bloomberg::CrashHandler": {
+  "methods": [
+   "CrashHandler",
+   "~CrashHandler",
+   "RegisterCrashHandler",
+   "TriggerCrash",
+   "LockWorkStation",
+   "RegisterDLL",
+   "UnregisterDLL",
+   "ProcessPendingCrash",
+   "ProcessPendingAsyncCrash",
+   "TriggerAnalysisWithSEHException",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_crashAnalyser": 8
+  }
+ },
+ "Bloomberg::FileData": {
+  "methods": [
+   "FileData",
+   "~FileData",
+   "IsEnabled",
+   "GetBinaryData",
+   "SetupFilenameAndType",
+   "SetDeleteOnExit",
+   "GetBaseFilename",
+   "GetFilename",
+   "Uninit",
+   "Init",
+   "operator=",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_file": 840,
+   "m_mutex": 848,
+   "m_filePath": 856,
+   "m_deleteOnExit": 1112,
+   "m_sharedAccess": 1113
+  }
+ },
+ "Bloomberg::Minidump": {
+  "methods": [
+   "Minidump",
+   "ShouldSend",
+   "~Minidump",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::RemoteMinidump": {
+  "methods": [
+   "RemoteMinidump",
+   "ShouldSend",
+   "~RemoteMinidump",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::ReportCrash": {
+  "methods": [
+   "ReportCrash",
+   "~ReportCrash",
+   "Initialize",
+   "UnInit",
+   "GetReportBuilderBase",
+   "GetReportCrash",
+   "GetEnableDebuggerDetectionFlag",
+   "GetEnableDebuggerDetectionMask",
+   "EnableDebuggerDetectionFor",
+   "GetTakeMinidumpMask",
+   "TakeMinidumpFor",
+   "GetDisableCrashReportingFlag",
+   "GetDisableCrashReportingMask",
+   "DisableCrashReportingAfter",
+   "GetCallstackFlag",
+   "EnableCallstackFor",
+   "GetMinidump",
+   "GetRemoteMinidump",
+   "GetDialogButton",
+   "GetCrashData",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_minidumpData": 216,
+   "m_remoteMinidumpData": 1376,
+   "m_CrashData": 2536,
+   "m_takeMinidumpMask": 3488,
+   "m_disableCrashReportingMask": 3492,
+   "m_enableDebuggerDetectionMask": 3496,
+   "m_enableCallstackMask": 3500,
+   "m_reportCrashBuilder": 3504
+  }
+ },
+ "std::error_category": {
+  "methods": [
+   "error_category",
+   "~error_category",
+   "name",
+   "message",
+   "default_error_condition",
+   "equivalent",
+   "operator==",
+   "operator!=",
+   "operator<",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "_Addr": 8
+  }
+ },
+ "std::_Generic_error_category": {
+  "methods": [
+   "_Generic_error_category",
+   "name",
+   "message",
+   "~_Generic_error_category",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "std::_Iostream_error_category": {
+  "methods": [
+   "_Iostream_error_category",
+   "name",
+   "message",
+   "~_Iostream_error_category",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "std::_System_error_category": {
+  "methods": [
+   "_System_error_category",
+   "name",
+   "message",
+   "default_error_condition",
+   "~_System_error_category",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::ReportFlag": {
+  "methods": [
+   "ReportFlag",
+   "~ReportFlag",
+   "GetReportBuilderBase",
+   "GetReportFlag",
+   "Initialize",
+   "UnInit",
+   "operator=",
+   "__dflt_ctor_closure",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_reportFlagBuilder": 216
+  }
+ },
+ "Bloomberg::DataSender": {
+  "methods": [
+   "DataSender",
+   "~DataSender",
+   "Create",
+   "OpenStream",
+   "SendOnStream",
+   "SendString",
+   "CloseStream",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::SocketDataSender": {
+  "methods": [
+   "SocketDataSender",
+   "~SocketDataSender",
+   "SetSocket",
+   "GetSocket",
+   "OpenStream",
+   "VerifyConnection",
+   "SendOnStream",
+   "CloseStream",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_xmlSocket": 8
+  }
+ },
+ "Bloomberg::DataWriter": {
+  "methods": [
+   "DataWriter",
+   "~DataWriter",
+   "Write",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_errorData": 8,
+   "m_buffer": 848,
+   "m_prefix": 1104
+  }
+ },
+ "Bloomberg::MinidumpBase": {
+  "methods": [
+   "MinidumpBase",
+   "IsSupported",
+   "PrepareForWrite",
+   "TriggerDump",
+   "SetMinidumpRoot",
+   "GetMinidumpRoot",
+   "GetMinidumpPath",
+   "ShouldSend",
+   "WriteMinidump",
+   "~MinidumpBase",
+   "operator=",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_minidumpExtension": 1120,
+   "m_minidumpRoot": 1136,
+   "m_alreadyWritten": 1152
+  }
+ },
+ "Bloomberg::BloombergThread": {
+  "methods": [
+   "BloombergThread",
+   "~BloombergThread",
+   "Run",
+   "Kill",
+   "HandleCrash",
+   "HandleReport",
+   "HandleAsyncCrash",
+   "HasPendingAsyncCrash",
+   "GetThreadManager",
+   "IsLiving",
+   "GetEnable",
+   "SetEnable",
+   "HasPendingException",
+   "SetFrameId",
+   "HandleWakeUp",
+   "DeadLock",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_threadManager": 192,
+   "m_reportSubType": 200,
+   "m_errorMessage": 208,
+   "m_event": 464,
+   "m_mutex": 472,
+   "m_exceptionInfo": 520,
+   "m_wakeUpType": 528,
+   "m_livingThread": 532,
+   "m_enable": 533,
+   "m_pendingAsyncCrash": 534
+  }
+ },
+ "Bloomberg::BloombergThreadInterface": {
+  "methods": [
+   "BloombergThreadInterface",
+   "~BloombergThreadInterface",
+   "StartThread",
+   "Kill",
+   "HandleCrash",
+   "HandleReport",
+   "HandleAsyncCrash",
+   "HasPendingAsyncCrash",
+   "GetThreadManager",
+   "GetTid",
+   "IsLiving",
+   "GetEnable",
+   "IsStopped",
+   "SetEnable",
+   "HasPendingException",
+   "SetFrameId",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_thread": 8
+  }
+ },
+ "Bloomberg::XmlWriter": {
+  "methods": [
+   "XmlWriter",
+   "~XmlWriter",
+   "WriteXmlHeader",
+   "WriteElement",
+   "WriteStartElement",
+   "WriteCloseElement",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_tempStr": 16
+  }
+ },
+ "Bloomberg::ReportHeaderBuilder": {
+  "methods": [
+   "~ReportHeaderBuilder",
+   "WriteCustomInformation",
+   "WriteExecutableInfoXML",
+   "WriteChangelistInfoXML",
+   "ReportHeaderBuilder",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::FileDataSender": {
+  "methods": [
+   "FileDataSender",
+   "~FileDataSender",
+   "OpenStream",
+   "VerifyConnection",
+   "SendOnStream",
+   "CloseStream",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_file": 8
+  }
+ },
+ "Bloomberg::CrashAnalyzerInterface": {
+  "methods": [
+   "CrashAnalyzerInterface",
+   "~CrashAnalyzerInterface",
+   "Initialize",
+   "Uninitialize",
+   "GetAnalyzing",
+   "GetEnable",
+   "SkipIfDebuggerPresent",
+   "TriggerAnalysis",
+   "FinishAnalysis",
+   "GetData",
+   "GetExceptionMessage",
+   "Kill",
+   "AnalyzePrologue",
+   "AnalyzeEpilogue",
+   "SetEnable",
+   "ToggleAnalyzing",
+   "AcquireCrashMutex",
+   "ReleaseCrashMutex",
+   "PlatformInitialize",
+   "PlatformUninitialize",
+   "GetDialogResultAfterAnalysis",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_crashMutex": 8,
+   "m_analyzing": 56,
+   "m_enable": 57,
+   "m_initialized": 58,
+   "m_dialogResultAfterAnalysis": 60
+  }
+ },
+ "Bloomberg::CrashData": {
+  "methods": [
+   "CrashData",
+   "~CrashData",
+   "Clear",
+   "GetTextData",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_Callstack": 840,
+   "m_Registers": 848,
+   "m_isManagedClientEnabled": 856,
+   "m_isMixedCallstack": 857,
+   "m_Modules": 864,
+   "m_modulesMutex": 904
+  }
+ },
+ "Bloomberg::ReportBuilderBase": {
+  "methods": [
+   "~ReportBuilderBase",
+   "WriteCustomInformation",
+   "ReportBuilderBase",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::ReportCrashBuilder": {
+  "methods": [
+   "ReportCrashBuilder",
+   "~ReportCrashBuilder",
+   "WriteCustomInformation",
+   "operator=",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_minidumpFlags": 8,
+   "m_report": 24
+  }
+ },
+ "Bloomberg::HashFilter": {
+  "methods": [
+   "HashFilter",
+   "~HashFilter",
+   "GetDigestSize",
+   "Restart",
+   "Update",
+   "GetTruncatedFinal",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::CompressFilter": {
+  "methods": [
+   "CompressFilter",
+   "~CompressFilter",
+   "GetCompressedSize",
+   "Restart",
+   "Put",
+   "Finish",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::EncryptFilter": {
+  "methods": [
+   "EncryptFilter",
+   "~EncryptFilter",
+   "Initialize",
+   "Put",
+   "Finish",
+   "GenerateRandomIV",
+   "SetKey",
+   "SetIV",
+   "GetIV",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "Bloomberg::ReportFlagBuilder": {
+  "methods": [
+   "ReportFlagBuilder",
+   "~ReportFlagBuilder",
+   "WriteCustomInformation",
+   "operator=",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_report": 8
+  }
+ },
+ "Bloomberg::Registers": {
+  "methods": [
+   "Registers",
+   "~Registers",
+   "GetTextData",
+   "SetRegisters",
+   "Clear",
+   "GetIP",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "m_sp": 840,
+   "m_bp": 848,
+   "m_ip": 856,
+   "m_si": 864,
+   "m_di": 872
+  }
+ },
+ "std::bad_alloc": {
+  "methods": [
+   "bad_alloc",
+   "~bad_alloc",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ]
+ },
+ "G4::RefCountedBase": {
+  "methods": [
+   "~RefCountedBase",
+   "DeleteRefCounted",
+   "IncRefCount",
+   "DecRefCount",
+   "IsShared",
+   "GetRefCount",
+   "RefCountedBase",
+   "operator=",
+   "__local_vftable_ctor_closure",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "_refCount": 8
+  }
+ },
+ "type_info": {
+  "methods": [
+   "type_info",
+   "operator=",
+   "hash_code",
+   "operator==",
+   "operator!=",
+   "before",
+   "name",
+   "raw_name",
+   "~type_info",
+   "__vecDelDtor"
+  ],
+  "fields": {
+   "_Data": 8
+  }
+ }
+}

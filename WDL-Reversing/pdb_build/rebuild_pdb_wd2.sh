@@ -3,9 +3,10 @@
 #
 # WD2 keeps the same intact RTTI as later Dunia builds (the orwell-editor-dev
 # generation), letting us recover vftables + methods. The dev PDB
-# (DuniaDemo_r64_dx12.pdb, also orwell-editor-dev) provides real method names
+# (DuniaDemo_rt64.pdb, also orwell-editor-dev) provides real method names
 # for the shared SDK/engine classes (Bloomberg, storm, G4, hk*, etc.), which we
-# use to rename the recovered vf<slot> placeholders.
+# use to rename the recovered vf<slot> placeholders. DEV_TAG=rt64 is the full
+# non-stripped editor PDB (5.5k+ renames); dev_fixed = stripped 22MB r64_dx12.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -28,10 +29,11 @@ python3 merge_dev_types.py "$DEV_TAG" "$GAME_TAG"
 VFTABLE="../symbols/enriched_vftable_${DEV_TAG}_${GAME_TAG}.json"
 
 # 4. Build YAML with the enriched vftable symbols
+#    GUID matches the DLL's RSDS (K:\bin\Disrupt_64.pdb, age 1) so the PDB links up.
 python3 build_pdb_yaml.py \
   --tag "$GAME_TAG" \
   --dll "$WD2_DLL" \
-  --guid '{00000000-0000-0000-0000-000000000000}' \
+  --guid '{54015C37-3C0F-4A67-B31D-6C51D2CE0F0A}' \
   --age 1 \
   --vftable "$VFTABLE" \
   --pdb "$PDB_DIR/Disrupt_64_${GAME_TAG}_synthetic.pdb" \

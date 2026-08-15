@@ -303,19 +303,58 @@ def extract_globals(pdb):
     return globals_list
 
 
+CLASS_KINDS = ("LF_CLASS", "LF_STRUCTURE", "LF_INTERFACE", "LF_UNION")
+
+
+def filter_compact(types):
+    """Keep only class-like records and the LF_FIELDLIST records they reference.
+
+    The full editor PDB (DuniaDemo_rt64.pdb) has 8.5M type records; the merge
+    step only needs LF_CLASS/STRUCTURE/INTERFACE/UNION plus their field lists,
+    so this drops enum/pointer/arglist noise and the massive standalone
+    LF_FIELDLIST blocks (e.g. the 20KB D3D11_MESSAGE_ID enums).
+    """
+    by_id = {t["type_id"]: t for t in types}
+    out = []
+    keep_fids = set()
+    for t in types:
+        if t["kind"] not in CLASS_KINDS:
+            continue
+        out.append(t)
+        fl = t.get("field_list")
+        if isinstance(fl, int) and fl in by_id:
+            keep_fids.add(fl)
+    for tid in keep_fids:
+        out.append(by_id[tid])
+    return out
+
+
 def main():
+    usage = "Usage: python3 extract_dev_pdb_types.py <path-to-pdb> [tag] [--compact]"
     if len(sys.argv) < 2:
-        print("Usage: python3 extract_dev_pdb_types.py <path-to-pdb> [tag]")
+        print(usage)
         sys.exit(1)
 
     pdb = sys.argv[1]
-    tag = sys.argv[2] if len(sys.argv) > 2 else "dev"
+    tag = sys.argv[2] if len(sys.argv) > 2 and not sys.argv[2].startswith("--") else "dev"
+    compact = "--compact" in sys.argv
 
     t0 = time.time()
 
     print("Extracting types...", file=sys.stderr)
     types = extract_types(pdb)
+    if compact:
+        before = len(types)
+        types = filter_compact(types)
+        print(f"  compact: {before} -> {len(types)} records", file=sys.stderr)
     print(f"  {len(types)} type records in {time.time() - t0:.1f}s", file=sys.stderr)
+
+    if compact:
+        os.makedirs(SYMBOLS_DIR, exist_ok=True)
+        json.dump(types, open(os.path.join(SYMBOLS_DIR, f"dev_types_{tag}.json"), "w"), indent=1)
+        print(f"\nTotal: {time.time() - t0:.1f}s", file=sys.stderr)
+        print(f"Wrote symbols/dev_types_{tag}.json (compact)", file=sys.stderr)
+        return
 
     t1 = time.time()
     print("Extracting publics...", file=sys.stderr)

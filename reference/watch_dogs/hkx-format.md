@@ -1,104 +1,104 @@
 # Watch Dogs HKX Collision Format
 
-The `.hkx` files alongside `.xbg` models contain Havok physics collision data. Ubisoft modified the Havok SDK (2015.1) to generate its own collision meshes, which is why standard Havok tools couldn't parse them.
+The `.hkx` files alongside `.xbg` models contain Havok physics collision data. Ubisoft modified the Havok SDK (2015.1) to generate custom collision meshes, which is why standard Havok tools couldn't parse them.
 
-## File Structure
+## File Counts
 
-An HKX file contains:
-- Header (size, CRC, SDK version)
-- Data section (raw Havok serialized data)
-- TCRF section (type information)
-- Item table (objects with type IDs, offsets, flags)
-- Fixup table (pointer references between items)
+| Game | .hkx Files | Notes |
+|------|-----------|-------|
+| WD1 | 23,278 | Buildings, vehicles, characters |
+| WD2 | 8,195 | Locations, vehicles, characters |
+| WDL | 11,043 | World geometry, batched meshes |
 
-## Key Types
+## Binary Structure
 
-### HkxFile (container)
+### Header (16 bytes)
+
 ```
-HeaderField0   uint32
-HeaderCrc      uint32
-TagfileTotalSize uint32
-SdkVersion     string
-DataSection    byte[]
-TcrfSection    byte[]
-Items          List<HkxItem>
-Fixups         List<HkxFixup>
-RootItemIndex  int32
-ConvexShapes   List<HkxConvexShape>
-ChildTransforms Dictionary<int, HkxChildTransform>
++0x00  u32     HeaderField0 (typically 0x89)
++0x04  u32     HeaderCrc
++0x08  u32     TagfileTotalSize (entire file size)
++0x0C  u32     Reserved/unknown
 ```
 
-### HkxItem (each object in the file)
+### Section Loop (starts at offset 0x10)
+
+Each section is an `hkChunk` (8 bytes header + payload):
 ```
-Index      int32      item index
-TypeId     uint32     Havok type identifier
-Flags      byte       item flags
-DataOffset uint32     offset to item data in DataSection
-Count      uint32     element count
-Bytes      byte[]     raw item bytes
++0x00  u32     sizeAndFlags (24-bit size + flags, little-endian)
++0x04  u32     tag (FourCC, little-endian)
++0x08  byte[]  payload (size bytes)
 ```
 
-### HkxFixup (pointer references)
-```
-PointerType     uint32   type of pointer
-PointerLocation uint32   location in data where pointer is stored
-TargetItemIndex int32    index of target item
-```
+The `sizeAndFlags` field: `size = value & 0xffffff`, `isSubChunk = (value & 0x40000000) != 0`.
 
-### HkxConvexShape (collision shape)
+### Section Tags (FourCC)
+
+| Tag | Constant | Description |
+|-----|----------|-------------|
+| TAG0 | `CompileFourCC("TAG0")` | Header marker (809976148) |
+| SDKV | `CompileFourCC("SDKV")` | Havok SDK version string |
+| DATA | `CompileFourCC("DATA")` | Serialized object data |
+| INDX | `CompileFourCC("INDX")` | Index data |
+| TYPE | `CompileFourCC("TYPE")` | Type definitions |
+| TSTR/TST1 | `CompileFourCC("TSTR")` | Type name strings |
+| FSTR/FST1 | `CompileFourCC("FSTR")` | Field name strings |
+| SCFG | — | Ubisoft-specific section |
+
+### DATA Section
+
+Contains serialized Havok objects:
+- Type count (u32) + type entries (class_id + byte_count + data)
+- Item count (u32) + item entries (type_idx + flags + offset + count)
+
+## HavokLib vs HavokDisrupt
+
+### HavokLib (PredatorCZ)
+- C++ library, GPL-3.0
+- Supports Havok 5.0.0 - 2017
+- Handles hkaSkeleton, hkaAnimation, hkxEnvironment
+- Python wrapper available
+- Standard packfile format
+
+### HavokDisrupt (FrankMK04)
+- C#/.NET tool (WPF)
+- Watch Dogs 2 specific
+- Handles HkxConvexShape (quantized/full-precision)
+- Supports OBJ injection (HKX ↔ OBJ)
+- Custom collision mesh format
+
+## Key Types (from HavokDisrupt)
+
+### HkxConvexShape
 ```
-Variant           HkxShapeVariant   Quantized or FullPrecision
-ShapeItemIndex    int32
+Variant         HkxShapeVariant   Quantized or FullPrecision
+ShapeItemIndex  int32
 VertexHeaderItemIndex int32
-AabbMin           Vector3           bounding box min
-AabbMax           Vector3           bounding box max
-ConvexRadius      float32
-QuantScale        Vector3
-Vertices          List<Vector3>     vertex positions
-QuadIndices       List<int32>       quad indices
+AabbMin         Vector3
+AabbMax         Vector3
+ConvexRadius    float32
+QuantScale      Vector3
+Vertices        List<Vector3>
+QuadIndices     List<int32>
 ```
 
-### HkxChildTransform (bone/node transform)
+### HkxChildTransform
 ```
-ChildItemIndex int32       index of child bone
-Transform      Matrix4x4   4x4 transformation matrix
-Scale          Vector3     scale vector
+ChildItemIndex  int32
+Transform       Matrix4x4
+Scale           Vector3
 ```
 
-## Parsing Pipeline
+## Ubisoft Modifications
 
-1. `Parse(path)` / `ParseBytes(buf)` — read file, parse header
-2. `ReadItems(buf, off, len, file)` — read item table
-3. `ReadPatches(buf, off, len, file)` — read fixup/patch table
-4. `SliceItemBytes(file)` — slice item data from data section
-5. `ResolveFixups(file)` — resolve pointer references
-6. `FindRoot(file)` — find root object
-7. `ExtractAllConvexShapes(file)` — extract collision shapes
-8. `TryDecodeQuantized(shape, byIdx, fixupsByOwner)` — decode quantized shapes
-9. `DecodeQuantized(shape, shapeData, hdr, verts, idx)` — decode quantized data
-10. `TryDecodeFullPrecisionShape(shape, byIdx, fixupsByOwner)` — decode full precision
-11. `GetShapeTransform(file, shape)` — get transform matrix
-12. `ToTransformedTriangleMesh(file, shape, positions, indices)` — convert to triangles
-13. `ExportObj(file, outPath, applyTransforms, reverseWinding)` — export to OBJ
-
-## Injection (Reverse Direction)
-
-The tool supports injecting OBJ meshes back into HKX files:
-- `LoadObj(path)` — load OBJ file
-- `InjectObjIntoShape(file, shapeIndex, obj, originalBytes)` — inject into shape
-- `InjectFullPrecisionShape(file, shapeIndex, obj, originalBytes)` — inject full precision
-- `AutoFitAndInject(file, shapeIndex, obj, originalBytes)` — auto-fit and inject
-- `AutoFitAllShapes(file, obj, originalBytes)` — auto-fit all shapes
-- `ComputeConvexHull(points, hullVertices, hullTriangles)` — compute convex hull
-
-## Notes
-
-- Ubisoft modified Havok SDK 2015.1, removing several classes for their collision mesh generation
-- Complex models (vehicles) and non-convex meshes have known bugs in the viewer
-- The tool is WPF-based (Windows only), but the parser logic is pure C#/.NET
-- PDB file available for source-level debugging
+1. Removed several Havok classes for custom collision mesh generation
+2. Added `HkxConvexShape` with Quantized/FullPrecision variants
+3. Used `QuantScale` + `AabbMin/AabbMax` for quantized vertex compression
+4. The `TypeId` field maps to modified Havok class IDs
 
 ## References
 
-- [FrankMK04's HKX Format Viewer](https://reshax.com/topic/1265-watch-dogs-1-pc/) — original tool and format analysis
-- [HavokDisrupt source](https://github.com/Open-Source-Modding/blender-io-xbg/blob/main/AGENTS.md) — format notes in AGENTS.md
+- [HavokLib](https://github.com/PredatorCZ/HavokLib) — C++ packfile library
+- [HavokDisrupt](https://reshax.com/topic/1265-watch-dogs-1-pc/) — FrankMK04's tool
+- [Havok 2013 SDK](https://github.com/sigmaco/havok-2013-v1.0r1) — original headers
+- `format_new.cpp` in HavokLib — packfile parsing reference

@@ -1,0 +1,35 @@
+# Plain Text
+
+> Source: https://raw.githubusercontent.com/KelpyCode/oblivion-remastered-modding-wiki/main/home.html
+> Cached: 2026-08-18T19:27:56.130Z
+
+---
+
+<!--
+title: Home
+description: Discover tools, tutorials, and guides for modding The Elder Scrolls IV: Oblivion Remastered. The Unofficial Oblivion Remastered Modding Wiki at oblivion.wiki is your complete community resource for creating, enhancing, and mastering Oblivion mods.
+published: true
+date: 2025-08-14T12:24:07.963Z
+tags: meta
+editor: ckeditor
+dateCreated: 2025-04-27T18:53:29.179Z
+-->
+
+<p>&nbsp;</p>
+<h1>Welcome to the <strong>Oblivion Remastered Modding Wiki</strong></h1>
+<p>Welcome, adventurer!</p>
+<p>This wiki is dedicated to everything about <strong>modding </strong><i><strong>Oblivion Remastered</strong></i> — from beginner-friendly guides to deep technical research. Whether you're looking to tweak your game, create entirely new content, or dive into the inner workings of the engine, you're in the right place.</p>
+<p><a href="https://store.steampowered.com/app/2623190/The_Elder_Scrolls_IV_Oblivion_Remastered/"><strong>Oblivion Remastered</strong></a> uses a hybrid of the <a href="https://en.wikipedia.org/wiki/Gamebryo"><strong>Gamebryo</strong></a> engine and <a href="https://www.unrealengine.com"><strong>Unreal Engine 5.3</strong></a>, making it more complex to mod than previous titles. Modding this version requires new tools, deeper technical knowledge, and a willingness to experiment. We're here to help make that journey easier.</p>
+<h3>What you'll find here:</h3>
+<p>📚 <strong>Modding Guides:</strong> Step-by-step tutorials for installing and creating mods</p>
+<p>🔧 <strong>Tools and Resources:</strong> Information on essential utilities and modding software</p>
+<p>🧠 <strong>Technical Research:</strong> In-depth articles exploring how the game's systems work</p>
+<p>💬 <strong>Community Collaboration:</strong> Opportunities to share findings and help each other grow</p>
+<hr>
+<h2>Need Help or Want to Chat?</h2>
+<p>Join our community on <strong>Discord</strong> to get live technical support, discuss modding techniques, and collaborate with other researchers:</p>
+<p>👉 <a href="https://oblivion.wiki/discord">https://oblivion.wiki/discord</a></p>
+<p>We encourage everyone to share their discoveries and help expand the knowledge base!</p>
+<hr>
+<h2>Let's bring Tamriel to life — together.</h2>
+<p>Feel like contributing? Join the Discord Server above and log in via Discord, you will automatically get privileges to add and edit pages.</p>

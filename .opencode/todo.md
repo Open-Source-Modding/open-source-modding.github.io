@@ -1,0 +1,27 @@
+# Mission: Create Skyrim, Oblivion Remastered, and Starfield guides in reference/bethesda/
+
+## M1: Research | status: completed
+### T1.1: Skyrim Havok RE research | agent:Planner
+- [x] S1.1.1: Havok version facts (LE/SE/AE), .hkx/behavior/skeleton, tools, URLs | size:M | verified | evidence: .opencode/docs/skyrim-havok.md + cached hkxcmd README/issues + UESP archive; guide facts cross-checked (2010.2.0 SDK, LE 32-bit / SE 64-bit, packfile v8 SE vs v11 FO4, BSA v104 zlib / v105 LZ4)
+### T1.2: Oblivion Remastered RE research | agent:Planner
+- [x] S1.2.1: UE5 version, pak/uasset formats, animation system, community tools, URLs | size:M | verified | evidence: .opencode/docs/oblivion-remastered.md + cached Wikipedia + Nexus article 141 + UESP API; every guide fact traced to a research row (UE 5.3.2, Gamebryo hybrid, 2025-04-22, Virtuos, AppID 2623190, Io Store, Altar ESPs, _P rule)
+### T1.3: Starfield RE research | agent:Planner
+- [x] S1.3.1: CE2 Havok version, animation pipeline, file formats, tools, URLs | size:M | verified | evidence: .opencode/docs/starfield.md + cached sfse.silverlock.org (0.2.21/1.16.244), creationkit.com/starfield (maintenance page), CommonLibSF, TES5Edit whatsnew, Steam API facts; research doc internally consistent and correctly hedged
+
+## M2: Write guides | status: completed
+### T2.1: Skyrim guide | agent:Worker | depends:T1.1
+- [x] S2.1.1: Write reference/bethesda/skyrim-havok-guide.md | size:L | verified | evidence: 162 lines; H1 + 9 ## sections + Sources; 4 balanced fences; 0 placeholders; facts match hkxcmd README (convert/exportkf/convertkf, chicken paths, "Wrong platform for packfile", retarget broken) + hkx_format.md (v8 SE / v11 FO4, hk_2010.2.0-r1 vs hk_2014.1.0-r1) + UESP (BSA v104/v105)
+### T2.2: Oblivion Remastered guide | agent:Worker | depends:T1.2
+- [x] S2.2.1: Write reference/bethesda/oblivion-remastered-guide.md | size:L | verified | evidence: 165 lines; H1 + 7 ## sections + Sources + Open Questions; 0 fences; 0 placeholders; facts match oblivion-remastered.md research (engine split, containers, tools table, confidence markers HIGH/MEDIUM respected)
+### T2.3: Starfield guide | agent:Worker | depends:T1.3
+- [x] S2.3.1: Write reference/bethesda/starfield-guide.md | size:L | verified | evidence: FINAL REVIEWER VERIFICATION 2026-08-18T12:42Z — 209 lines; H1 + 7 ## sections + Sources + Open Questions; 2 balanced fences (indented CMake block); 0 placeholders; relative links fallout4-havok-guide.md + ../havok/hkx_format.md both resolve. SYNC-2 CLOSED (premise was a misreading): research doc .opencode/docs/starfield.md lines 8-11/24-27 CONFIRM the Havok .hkx lineage claim; lines 38-39 mean no hkb*/hkx* types are publicly exposed in CommonLibSF (opaque behind AnimGraph), NOT that Havok is unused. Guide matches research exactly incl. hedging (MEDIUM-HIGH confidence; SDK version unconfirmed). Every factual claim traced to a starfield.md row: AnimGraph classes (rows 29-39, 52-53), BA2 magics/versions (64-70), SF v2+ padding uint64 + v3 CompressionMethod ZLIB=0/LZ4=3 (73-87), asset roots .hkx in meshes/ + .mesh in geometries/ (90-96), .nif-vs-.mesh MEDIUM (100-105), master limits 252/4095/254 + blueprint + esp-as-master (109-120), SFSE 0.2.21/1.16.244 Steam-only + 7-Zip tip (traced to sfse_silverlock_org.md line 14) + umbrella.sln (github_com_ianpatt_sfse.md line 20), Address Library 3256, CommonLibSF->libxse redirect (cached CommonLibSF README line 11), xEdit SF1 dev-4.1.6+, hkxcmd/hkxpack CE2-compat unverified (128-137), open questions (55-56, 160-161). Zero invented facts. BA2 claims additionally verified live against TES5Edit Core/wbBSArchive.pas (dev-4.1.6): BTDX, HEADER_VERSION_SFv2=$02/SFv3=$03, COMPRESSION_METHOD_ZLIB=0/LZ4=3, ctZLib/ctLZ4 per-type defaults, atMesh .hkx + atGeometry .mesh roots. AnimGraph classes verified live against CommonLibSF include/RE: BSAnimationGraph.h (class BSAnimationGraph; AnimationManager subclass), BGSAnimationGraphComponent.h, IAnimationGraphManagerHolder.h (NotifyAnimationGraphImpl + GetGraphVariableImplFloat/Int/Bool).
+
+## M3: Hub sync | status: completed
+### T3.1: Update reference/index.md | agent:Worker | depends:T2.1,T2.2,T2.3
+- [x] S3.1.1: Bethesda section now 4 entries (FO4 + 3 new) | size:S | verified | evidence: grep -c per guide in reference/index.md = 1 each (fallout4 1, skyrim 1, oblivion-remastered 1, starfield 1); all 11 referenced files exist; no duplicates
+### T3.2: Update README.md section list | agent:Worker | depends:T2.1,T2.2,T2.3
+- [x] S3.2.1: Added Bethesda Engine References section; fixed stale reference/hashing.md -> reference/watch_dogs/hashing.md | size:S | verified | evidence: README ## [Bethesda Engine References] links reference/index.md (exists); Hashing link -> reference/watch_dogs/hashing.md (exists); reference/hashing.md deleted; grep -rn "reference/hashing.md" README.md reference/ -> NONE
+
+## M4: Verification | status: completed
+### T4.1: Reviewer verification | agent:Reviewer | depends:M3
+- [x] S4.1.1: Verify all 3 guides exist, hubs in sync, links resolve, content factual | size:M | verified | evidence: 3 guides exist (162/165/121 lines); hubs synced (index.md 4 unique entries, README section present, stale hashing link gone); 32/32 relative links resolve across 7 files; Skyrim + Oblivion content verified vs cached research; Starfield re-verified after SYNC-2 fix (animation claim corrected, new BA2/AnimGraph facts verified against primary sources wbBSArchive.pas + CommonLibSF) — SYNC-2 closed, zero open issues

@@ -1,0 +1,66 @@
+| [ActionMaps]
+
+_ [duniatools]
+
+' [gamemodes]
+ Iprotatypes]
+
+_ [ReactionRuleToal]
+ seripts]
+
+" {settings]
+
+[l Ishaders]
+
+lskul
+
+| [SpeedTree]
+
+" ftemplates]
+
+" {toolscenfig]
+
+| Cinema.clssregistry
+= DbGroups
+
+= | DbTabFilter
+| DbTabilterxmi
+
+Driverentityregistry
+| Engine.entityregistry
+
+] plcanfig
+
+ResourceConfig
+
+<DIR>
+
+<DIR>
+
+<DIR>
+
+<DIR>
+
+<DIR>
+
+<DIR>
+
+<DIR>
+
+<DIR>
+
+<DIR>
+
+<DIR>
+
+<DIR>
+
+<DIR>
+aml 41577
+aml 37,687
+aml 11,36
+eample 4409
+aml 234564
+aml 40879
+7
+xml 2,49

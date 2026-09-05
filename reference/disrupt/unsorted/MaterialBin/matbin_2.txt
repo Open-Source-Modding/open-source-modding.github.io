@@ -1,0 +1,51 @@
+| character.xml - Notepad
+File Edit Format View Help
+
+<parameterprovider parametersfilename="Mesh_Character.fx">
+
+<parameter name=
+<alias name="DiffuseTexturelPoint” />
+
+</parameter>
+<parameter name="DiffuseTexturelState" />
+<parameter name="DiffuseUVTilingl" />
+<parameter name="DiffuseUVTiling2" />
+<parameter name="DiffuseColorl" />
+<parameter name="DiffuseColor2" />
+<parameter DiffuseTexture2" />
+<parameter DiffuseTexture2State" />
+<parameter DiffuseTexture2BlendingType" />
+<parameter NormalTexturel" />
+<parameter NormalTexture2" />
+<parameter DynamicWrinkles" />
+<parameter NormalDynamicWrinklesTexturel" />
+<parameter NormalDynamicWrinklesTexture2" />
+<parameter NormalUVTilingl" />
+<parameter NormalUVTiling2" />
+<parameter NormalTexturelState" />
+<parameter NormalTexture2State" />
+<parameter NormalDynamicWrinklesTexturelState" />
+<parameter NormalDynamicWrinklesTexture2State" />
+<parameter SpecularTexturel"” />
+<parameter SpecularUvTilingl" />
+<parameter SpecularTexturelState" />
+<parameter SpecularPower” />
+<parameter Reflectance"” />
+<parameter NormalIntensity" />
+<parameter NormalIntensity2" />
+<parameter NormalDynamicWrinklesIntensity" />
+<parameter ReflectionIntensity" />
+<parameter ReflectionType" />
+<parameter RimlightColor™ />
+<parameter RimlightPower" />
+<parameter SssColor™ />
+<parameter UseSkinsss" />
+<parameter SkinsssStrength" />
+<parameter MaskGreenChannelMode" />
+<parameter WetSpecularPower" />
+<parameter WetReflectance" />
+<parameter WetDiffuseMultiplier"” />
+<parameter Locallletness” />
+
+</parameterprovider>
+

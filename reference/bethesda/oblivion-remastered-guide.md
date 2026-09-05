@@ -1,8 +1,10 @@
 # Oblivion Remastered (2025) — Engine, Containers & Animation Reference
 
+> **Cross-reference**: Legacy Gamebryo formats (BSA v104/v105, NIF, IMG/COL/CFA/DFA, EGM morphs, cell data, save files) → [XeNTaX Bethesda knowledge §1,3,6–8,10–11](../unsorted/xentax-bethesda-knowledge.md)
+
 Oblivion Remastered (released 2025-04-22) is **not** a Havok title: it is a
 dual-engine hybrid. **Unreal Engine 5.3** renders the game (models, textures,
-UI, audio presentation, animation), while the **original Gamebryo engine**
+UI, audio, animation), while the **original Gamebryo engine**
 still runs core game logic (quests, AI, scripting, physics, combat). The
 Fallout 4/Skyrim `.hkx` behavior-animation ecosystem documented elsewhere in
 this hub does **not** apply here — this page collects verified facts about the

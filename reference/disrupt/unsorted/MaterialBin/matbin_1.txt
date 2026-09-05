@@ -1,0 +1,32 @@
+```
+tesseract matbin_1.png matbin_1
+Estimating resolution as 196
+Error in boxClipToRectangle: box outside rectangle
+Error in pixScanForForeground: invalid box
+Detected 64 diacritics
+```
+
+
+File Magic 8 92BCDEF0123456789ABCD
+J4.z...u
+
+........... .X.]5...graphics\c
+haracters\char\charol\charolih
+ead v2 d2.xbt.....Q'[5...graphi
+cs\characters\detall maps\deti
+fab noise0l d.xbt. .)X.4...9r
+aphlcs\characters\char\charol\
+kharol head v2 n.xbt. xQ.]5.
+
+graphlcS\characterS\detall m
+aps\detiskliporesolin.th...
+{[9...graphics\characters\char
+YEharOl\charOl head v2 n_comp.
+xbt...[.Tr. .graphics\charact
+ers\char\charol\charol head_v2
+_n_ext.xbt. (-g. graphlcs
+\characters\char\charOl\charOl
+_head v2 s2.xb >?
+1{3? q -
+2.
+

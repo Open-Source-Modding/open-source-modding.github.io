@@ -1,0 +1,43 @@
+[
+
+EpicStreamMan Today at 5:51PM
+Here is some info | gathered with researching
+how Clothing Mods work
+
+itemcategory.lib file defines all
+potential [tem Categories, their basic
+properties and description (using a
+Localization ID)
+
+Example:
+
+Clothing.SP_MOD.xml
+<?xml version="1.0" encoding="utf-8"?>
+<object name="libobj">
+
+<field name="hidSingleObject"
+type="Boolean">False</field>
+
+<field name="text_hidName"
+type="String">Clothing.SP_MOD</field>
+
+<field name="hidName"
+type="BinHex">80C15CE9</field>
+
+<field name="hidKey"
+type="BinHex">80C15CE9</field>
+
+<field name="bEnable"
+type="Boolean">True</field>
+
+<field name="blgnoreCurrentGen"
+type="Boolean">False</field>
+
+<object
+name="locstridltemCategoryNameld">
+
+<field name="Localizationld"
+
+type="Int64">190602</field>
+
+</object>

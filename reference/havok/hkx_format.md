@@ -1,6 +1,10 @@
 HKX (Havok Packfile) format — reference for FO4
 ================================================
 
+> **Cross-reference**: HKX version compatibility table, tools (hkxcmd, havok2fbx, AssetCc, HavokLib), practical techniques, animation swap tricks → [XeNTaX Havok knowledge](xentax-havok-knowledge.md)
+>
+> **Cross-reference**: HKX 2012 in Sonic Lost World Wii U (Zelda Zone DLC) → [XeNTaX Zelda knowledge §7](../zelda/xentax-zelda-knowledge.md)
+
 Status: research notes distilled from the Havok 2014 SDK (`hk_2014.1.0-r1`),
 Lukas Cone's Havok format library (used only as a factual reference, GPL code
 is NOT incorporated), and the FO4 Havok animation guide. Goal: a clean-room
@@ -24,6 +28,50 @@ packfile version 11, 64-bit pointers, little-endian. This is the "old" (pre
 > documented separately (TODO: chunk table, PTCH semantics, indexed-block
 > addressing); see ``reference/bethesda/starfield-guide.md`` for the finding and
 > implications for FO4-era tooling (hkxcmd/hkxpack cannot read it as-is).
+
+## Havok Version Compatibility (XeNTaX Community)
+
+| Havok Version | Packfile Version | Games | Tool Compatibility |
+|---|---|---|---|
+| 4.1.0-r1 | — | BioShock 1/2 | Too old for most tools |
+| 4.6.0-r1 | — | Tenchu (Wii) | Havok SDK required |
+| 6.5 | — | Sleeping Dogs | Very old packfiles |
+| 2010.2.0-r1 | 8–9 | Skyrim, Dark Souls 1 | hkxcmd (open source) |
+| 2011.2.0-r1 | 9 | Sleeping Dogs, Witcher 2 | hkxcmd (with version change) |
+| 2012.2.0-r1 | 9 | Alien: Isolation | hkxcmd, SSFADF, havok2fbx |
+| 2013.1.0-r1 | 9 | Sleeping Dogs DE | AssetCc (SDK tool) |
+| 2013.2.0-r1 | 11 | Various (Alien Isolation DE) | Limited tool support |
+| 2014.1.0-r1 | 11 | Dark Souls 2/3, FO4 | havok2fbx, volfin's hkx2smd |
+
+*(SergeantJoe, 2014–2016; JohnHudeski, 2018)*
+
+### Version 9 vs 11 Header Difference
+Version 9 (2010–2013): simpler header padding.
+Version 11 (2013.2+ / 2014+): adds `int16 max_predicates` + `int16 unknown` replacing `int32 misc + pad[1]`, plus 16 bytes padding after section table entries.
+
+*(JohnHudeski, 2018-06-05)*
+
+### Platform Flags
+```c
+enum hkPlatform {
+    HCL_PLATFORM_WIN32   = 0x0,
+    HCL_PLATFORM_X64     = 0x1,
+    HCL_PLATFORM_MACPPC  = 0x2,
+    HCL_PLATFORM_IOS     = 0x4,
+    HCL_PLATFORM_MAC386  = 0x8,
+    HCL_PLATFORM_PS3     = 0x10,
+    HCL_PLATFORM_XBOX360 = 0x20,
+    HCL_PLATFORM_WII     = 0x40,
+    HCL_PLATFORM_LRB     = 0x80,
+    HCL_PLATFORM_LINUX   = 0x100,
+    HCL_PLATFORM_NGP     = 0x400,
+    HCL_PLATFORM_ANDROID = 0x800,
+    HCL_PLATFORM_CTR     = 0x1000,
+};
+```
+*(Loomy, 2017-12-09)*
+
+PS3 files are big-endian; changing the endianness flag alone is insufficient — byte-swapping of all multi-byte values is required.
 
 Container layout
 ----------------
@@ -289,6 +337,78 @@ Animation type enum (2011+, applies to FO4)::
     int32   endian                        offset: 168
     uint32  (padding)                     offset: 172
 
+### Spline Compression Parameters (from Havok SDK)
+
+The SDK exposes `hkaSplineCompressedAnimationTrackCompressionParams` (signature `0x42e878d3`, 28 bytes):
+
+```c
+struct TrackCompressionParams {
+    float  rotationTolerance;       // +0
+    float  translationTolerance;    // +4
+    float  scaleTolerance;          // +8
+    float  floatingTolerance;       // +12
+    uint16 rotationDegree;          // +16
+    uint16 translationDegree;       // +18
+    uint16 scaleDegree;             // +20
+    uint16 floatingDegree;          // +22
+    RotationQuantization rotationQuantizationType; // +24
+    ScalarQuantization   translationQuantizationType; // +25
+    ScalarQuantization   scaleQuantizationType;       // +26
+    ScalarQuantization   floatQuantizationType;       // +27
+};
+```
+
+### Quantization Enums
+
+```c
+enum RotationQuantization {
+    POLAR32     = 0,
+    THREECOMP40 = 1,
+    THREECOMP48 = 2,
+    THREECOMP24 = 3,
+    STRAIGHT16  = 4,
+    UNCOMPRESSED= 5,
+};
+
+enum ScalarQuantization {
+    BITS8  = 0,
+    BITS16 = 1,
+};
+```
+
+*(SergeantJoe, 2015-05-20 — from hkxcmd report output and Havok 2013 PBD)*
+
+### Default Compression Settings (Havok 2013 SDK)
+- Position: 16 bits
+- Rotation: 40 bits
+- Scale: 16 bits
+- Float: 16 bits
+- Frames per block: 256
+
+Per-bone customization is possible. Tighter tolerances for "major bones" (spine, arms) and relaxed for "minor bones" (fingers) reduces data size.
+
+*(philgrf, 2017-03-12)*
+
+### Spline Compression Theory
+The rotation encoding likely works as:
+1. Quaternion `(x,y,z,w)` where `x²+y²+z²+w²=1`
+2. Discard the highest-magnitude component (reconstructable from the other three)
+3. Remaining components stored with `m` bits for the discarded value index, `n` bits for each remaining component
+4. Bytes read according to a per-bone quantization key
+
+References:
+- Riot Games engineering blog on animation compression
+- Bitsquid blog on quantized compression
+
+*(philgrf, 2017-03-06)*
+
+### BIN Animation Containers
+Animation `.bin` files are concatenated compressed HKX files. Each individual `.hkx` starts with hex value `6499` and can be split by scanning for this marker.
+
+To process: split into individual HKX files, change the version tag from 2011→2010 or 2014→2010, then feed to hkxcmd.
+
+*(SergeantJoe, 2014-11-10, 2016-03-06)*
+
 ``hkaAnimationBinding``::
 
     hkReferenceObject    inherited    (HK700+)
@@ -425,3 +545,129 @@ This spec is derived from public file-format facts (field names, sizes,
 algorithms) cross-checked against the Havok 2014 SDK and the FO4 modding
 community documentation. It does not copy GPL implementation code. Any Python
 written against this spec is original work.
+
+## Tools Reference (XeNTaX Community)
+
+### hkxcmd (figment)
+Open-source HKX↔XML converter. Only supports up to Havok 2010.2.0.
+Silently fails on newer versions (accepts file but produces no output).
+**Workaround for 2011 files**: Cut data before `WààW` header, change version string from `hk_2011.2.0-r1` to `hk_2010.2.0-r1`.
+https://github.com/figment/hkxcmd
+
+### SSFADF / dark_souls_hkx (Snaz / Danilodum)
+HKX to XML converter (`.damnhavok` format). Reads up to 2012.2.0. Works with Dark Souls 1 files.
+Usage: Place `SSFADF.exe` in root of hkx animation directory; recursively converts all `.hkx` except `Skeleton.hkx` and `Skeleton-out.hkx`. Open `.damnhavok` in Noesis with converted skeleton in same folder.
+https://github.com/Danilodum/dark_souls_hkx/releases
+
+### havok2fbx (Highflex)
+Reads up to Havok 2014.1.0. Converts HKX to FBX.
+**Workaround**: Rename version string from `2010` to `2014` to make 2010/2011/2012 files loadable.
+Limitation: Only works with 32-bit files; 64-bit Dark Souls III files fail.
+https://github.com/Highflex/havok2fbx/releases
+
+### volfin's hkx2smd (volfin)
+C# converter HKX to SMD (Source engine format). Works with 2012.2.0 and 2010.2.0.
+Supports skeleton extraction; animation output planned but not completed.
+Written in C# — class definitions at top of `Program.cs`. Needs per-game tweaking.
+https://bitbucket.org/Volfin/hkx2smd/overview
+
+### AssetCc (Havok SDK tool)
+Batch converter between binary HKX and XML HKX.
+```
+AssetCc1.exe --strip bin.hkx xml.hkx      # Binary → XML (keeps version)
+AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx  # XML → Binary
+```
+- `--strip` removes extra junk at file start
+- `--rules4101` vs `--rules8011`: different platform rule sets (4101 = Win32, preferred)
+- Cc1 keeps original version; Cc2 converts to SDK version it was built with
+- AssetCc2 from hk2013 SDK: works with `hk_2013.2.0-r1` but NOT `hk_2013.1.0-r1`
+
+### Havok Content Tools for 3ds Max
+Plugin for 3ds Max that can export HKX files (spline compressed and uncompressed).
+The `Prune` modifier removes extra junk, producing files nearly identical to originals.
+Export requires selecting "Packfile" in "Write to Platform" option.
+
+### HavokLib (Lukas Cone / PredatorCZ)
+Contains Havok spline compressor/decompressor implementation in C++.
+Source publicly available, useful for understanding decompression algorithm.
+https://github.com/PredatorCZ/HavokLib/blob/master/source/phys/Havok/Compressor.hpp
+
+### hkxpack (Dexesttp)
+Java-based HKX to XML converter. Converts to Tag-XML format (not regular XML).
+Tools like hkxcmd and Noesis damnhavok plugin expect regular XML, not tag-XML.
+https://github.com/Dexesttp/hkxpack
+
+### Havok SDK (Intel / Microsoft)
+Freely available from Intel until Microsoft acquired Havok. Contains:
+- AssetCc batch converter
+- Havok Standalone Tool (visualization)
+- Havok Content Tools (3ds Max plugin)
+- Full documentation including compression algorithm details
+- Demo projects (AnimatedSkeletonDemo for animation extraction)
+
+SDK demo approach: load skeleton + animation files, read data programmatically via `AnimatedSkeletonDemo.cpp` class.
+
+## Practical Techniques
+
+### Extracting Skeletons to SMD (shakotay2)
+1. Find bone names in HKX binary (look for name strings after `hkClass`)
+2. Map parent indices from `parentIndices` array
+3. Extract reference pose transforms (quaternion + translation + scale per bone)
+4. Write as SMD format
+Process semi-automated: three offsets need manual searching, rest scripted.
+
+### Animation Swap Technique (SergeantJoe)
+To replace animations in-game:
+1. Swap data starting with `"WààW"` (magic header) and ending with `"+    yyyyyy"`
+2. Two header size values control memory allocation — set both to minimum if swapping with same-sized animation
+3. Works for swapping existing in-game animations
+
+Creating fully custom animations requires converting XML→binary via AssetCc and injecting via the same swap method.
+
+### Version Renaming Trick
+Many HKX tools are version-gated but internal format is nearly identical:
+- 2011 → 2010: `hkxcmd` works (with data before magic stripped)
+- 2012 → 2010: `hkxcmd` works
+- 2010 → 2014: `havok2fbx` works
+Always strip any data before the `WààW` magic first.
+
+### Converting HKX to SMD via Havok SDK Demo (JohnHudeski)
+Using the AnimatedSkeletonDemo:
+1. Place skeleton `.hkx` in demo's resource path
+2. Modify `AnimatedSkeletonDemo.cpp` to export to SMD instead of rendering
+3. Compile with VS2012+ and matching Havok SDK
+4. Demo loads skeleton and animation, reads bone data, can be modified to write to file
+
+Key modification points:
+- Line ~1260: Set asset filename
+- Line ~1276: Set output file and format
+- Lines ~1313-1316: Animation input/output folder paths
+
+### Dark Souls III (64-bit HKX)
+DS3 uses Havok 2014.1.0-r1 64-bit. hkx2smd crashes with `OutOfMemoryException` because newer formats report 1.5 billion elements in arrays. The `PointerSize` flag (value 8 for 64-bit, 4 for 32-bit) affects section size calculations.
+
+Skeleton extraction possible manually by reading bone names and parent indices directly from binary.
+
+## Common Issues and Solutions
+
+### "Wrong platform for packfile"
+Caused by endianness or architecture mismatch. Solutions:
+- Check endian flag at offset 0x11
+- For PS3 (big-endian) files: byte-swap all multi-byte values
+- For 64-bit files: tools must support 64-bit pointers (many only handle 32-bit)
+
+### hkxcmd Silently Fails
+hkxcmd only properly supports Havok 2010. It will accept 2011+ files without error but produce no output. Always verify the `-out.hkx` file exists and has non-zero size.
+
+### Animation Bones Not Moving
+When converting via hkxcmd+havok2fbx, skeletons transfer correctly but animations may show only root motion with all other bones frozen. Possible causes:
+- Version mismatch in the conversion chain
+- `blendHint` in `hkaAnimationBinding` — try changing from NORMAL to ADDITIVE
+- Binary→XML conversion may lose quantization data
+
+### Havok Standalone Tool Issues
+The Standalone Tool (ToolStandAlone.exe) can visualize HKX files and export to XML, but:
+- Requires matching SDK version for the file
+- Some HKX files from games cannot be loaded even with correct version
+- Skeleton may not render if bones are connected to root in unusual ways
+- The Filter Manager rarely works on extracted files

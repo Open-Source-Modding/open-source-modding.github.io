@@ -117,3 +117,14 @@ Key detail: Ubisoft blocks default user agents. Must include project name + cont
 - [Full auth guide (source)](https://gist.github.com/codecat/4dfd3719e1f8d9e5ef439d639abe0de4)
 - Community docs: https://webservices.openplanet.dev/
 
+
+---
+
+## ctOS — Blume Corporation Marketing Site (Watch Dogs 1)
+
+Ubisoft's in-universe ctOS promotional website, still live at [ctos-blume.com](https://ctos-blume.com/). A fully functional marketing site for Watch Dogs 1 presenting Blume's "Building Smart Cities" vision.
+
+Sections: Believe, Discover, Imagine, Connect. Features city video, network graph canvas, audio controls. Built with jQuery 1.10.2, SoundManager2, MediaElement player. Contains commented-out Ubisoft CDN image links (`static9.cdn.ubi.com/resource/en-US/game/watchdogs/...`).
+
+- [ctOS website](https://ctos-blume.com/)
+

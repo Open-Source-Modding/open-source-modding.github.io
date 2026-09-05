@@ -1,0 +1,10 @@
+EpicStreamMan Today at 6:37PM
+
+if you search BinHex value (e.g. BB9F21CF) of
+the Graphic Kit Part from the
+graphickit_parts.lib then you should
+find a Part File with a hidKey of the same
+Value that is the File that defines all the
+properties of that Part of the [tem/Clothing
+Example: (edited)
+

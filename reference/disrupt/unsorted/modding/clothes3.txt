@@ -1,0 +1,12 @@
+EpicStreamMan Today at 6:28 PM
+
+if you search for the BinHex value (e.g.
+4816479C) of the Graphic Kit Model from
+the Item in the graphickit_models.lib
+then you should find a Model File with a
+hidKey of the same Value that is the File that
+defines all the properties of what Parts to use
+for that Item/Clothing
+
+Examples: (edited)
+

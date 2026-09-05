@@ -1,5 +1,7 @@
 # Skyrim Havok Animation Reference
 
+> **Cross-reference**: BSA v104/v105, NIF format, BSA tools → [XeNTaX Bethesda knowledge §1–3](../unsorted/xentax-bethesda-knowledge.md)
+
 Skyrim (LE/SE/AE) drives its animation system with Havok packfile (`.hkx`)
 files built against the **Havok 2010.2.0 SDK**, the same generation of the
 engine used by Fallout 3/New Vegas. This document distills the animation

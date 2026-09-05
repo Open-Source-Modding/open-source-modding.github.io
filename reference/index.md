@@ -11,19 +11,45 @@
 - [Starfield modding & RE reference](bethesda/starfield-guide.md) — CE2, SFSE, Creation Kit status, open questions
 
 ## Watch Dogs (Disrupt engine)
-- [HKX collision format (WD1/WD2)](disrupt/watch_dogs/hkx-format.md) — Disrupt's modified Havok collision
-- [WD2 TAG0 collision format](disrupt/watch_dogs_2/wd2-tag0-collision-format.md) — Havok 2015.1 compendium: item/fixup tables, shape graph, 11:11:10 quant decode, hkx vs .phys type tables
-- [WD2 model descriptor format](disrupt/watch_dogs_2/model-format.md) — `.model` XBG+material binding (tags 0x430A34BB/0x83475FEE, crc64_wd2 path hashes), custom accessory dupe recipe, Gibbed.WatchDogs2 LZ4LW rebuild
-- [HKX Dunia wrapper format (WDL 2017.2)](disrupt/watch_dogs_legion/HKX_FORMAT_REVERSE.md) — chunked TAG0/TCM0, TCRF/TCID compendium, PTCH/ITEM
-- [Packfile format](disrupt/watch_dogs/packfile-format.md) — Disrupt packfile structure
-- [Compressed mesh format](disrupt/watch_dogs/compressed-mesh-format.md)
-- [XBGMIP format (streamed LOD)](disrupt/xbgmip-format.md) — high-detail LOD0 companion for WD1 vehicles, PIMG header + packed vertex/index blocks
-- [Hashing](disrupt/watch_dogs/hashing.md) — FNV/CRC32 used by Disrupt
-- [Injection internals](disrupt/watch_dogs/injection-internals.md)
-- [Depload format](disrupt/depload-format.md) — resource dependency/preload tables per game variant (WD1 32-bit → WD2/WDL 64-bit records), masked CRC64_WD2 path hashes
-- [Community tools & references](disrupt/watch_dogs/community-resources.md)
-- [blender-io-disrupt addon](disrupt/blender-addon.md) — Blender 5.0 add-on: import/export/inject XBG/GLM models, HKX collision, MAB animation, .material.bin
-- [Material descriptors](disrupt/watch_dogs/materialdescriptors/)
+### Cross-Game
+- [Engine Lineage](disrupt/engine-lineage.md) — Dunia 2 fork, why Far Cry tools work on Disrupt
+- [Tool Gotchas](disrupt/tool-gotchas.md) — Gibbed >4GB, UnpackWD2 wrong for WDL, FCBastard WD1-only
+- [Blender Addon](disrupt/blender-addon.md) — import/export/inject XBG/GLM, HKX, MAB, .material.bin
+- [GLM Format](disrupt/glm-format.md) — Havok skeletal mesh text format
+- [XBGMIP Format](disrupt/xbgmip-format.md) — streamed LOD0 companion (PIMG header + vertex/index blocks)
+- [Depload Format](disrupt/depload-format.md) — resource dependency/preload tables
+- [Compressed Mesh](disrupt/compressed-mesh-format.md)
+- [Hashing](disrupt/watch_dogs/hashing.md) — CRC32, FNV32, FNV64, CRC64_WD2
+- [Material Descriptors](disrupt/watch_dogs/materialdescriptors/) — 44 shader types
+
+### Watch Dogs 1
+- [FAT/DAT Archive Format](disrupt/watch_dogs/fat-archive-format.md)
+- [XBG Format (GeomParser)](disrupt/watch_dogs/xbg-format-geparser.md) — compiler decompile
+- [MAB Animation](disrupt/watch_dogs/mab-format.md) — custom Disrupt animation
+- [HKX Collision](disrupt/watch_dogs/hkx-format.md)
+- [BFD Sprite Format](disrupt/watch_dogs/bfd-format.md)
+- [SPK Sound Format](disrupt/watch_dogs/spk-format.md)
+- [Material Bin Format](disrupt/watch_dogs/material-bin-format.md)
+- [Injection Internals](disrupt/watch_dogs/injection-internals.md)
+- [Archive Priorities](disrupt/watch_dogs/archive-priorities.md)
+- [Lighting Parameters](disrupt/watch_dogs/lighting-parameters.md)
+- [Shader Editing](disrupt/watch_dogs/shader-editing-workflow.md)
+- [Wii U Debug Symbols](disrupt/watch_dogs/wii-u-debug-symbols.md)
+
+### Watch Dogs 2
+- [Community Resources](disrupt/watch_dogs_2/community-resources.md) — OpenDogs, Volfin importer
+- [Model Format](disrupt/watch_dogs_2/model-format.md) — `.model` XBG+material binding
+- [Model Hash Mappings](disrupt/watch_dogs_2/model-hash-mappings.md)
+- [RebuildFileLists Schema](disrupt/watch_dogs_2/rebuildfilelists-schema.md)
+- [Vehicle Handling](disrupt/watch_dogs_2/vehicle-handling-modding.md)
+- [TAG0 Collision](disrupt/watch_dogs_2/wd2-tag0-collision-format.md)
+
+### Watch Dogs: Legion
+- [Engine Reference](disrupt/watch_dogs_legion/wdl_engine_reference.md)
+- [Modding Workflow](disrupt/watch_dogs_legion/modding-workflow.md)
+- [HKX Format (2017.2)](disrupt/watch_dogs_legion/HKX_FORMAT_REVERSE.md)
+- [Vehicle Adding Process](disrupt/watch_dogs_legion/vehicle-add-process.md)
+- [PreparePlatformData](disrupt/watch_dogs_legion/prepareplatformdata-pipeline.md)
 
 ## XeNTaX Forum Knowledge (all games)
 Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc lives alongside its formats reference:

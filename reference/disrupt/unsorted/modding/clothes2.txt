@@ -1,0 +1,25 @@
+e ]
+
+B
+
+items.lib file defines all potential Items,
+their basic properties and descriptions such
+as...
+
+e which Graphic Kit Model to use
+
+what Item gives access to this item
+Localization ID of short/long descriptions
+for the item
+
+Reward Properties such as Looting
+Feedback Type and Reward message if any
+Shop Properties like Price and Item
+Category (see itemcategory.lib)
+
+Asset Properties like Item Icon Texture
+Name
+
+and more
+Example:
+

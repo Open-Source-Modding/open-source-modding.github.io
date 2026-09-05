@@ -267,19 +267,12 @@ wine ConvertMaterials.exe work.material.bin      # → work.material.bin.xml
 wine ConvertMaterials.exe work.material.bin.xml  # → work.material.bin
 ```
 
-> ⚠️ **Why not hand-rolled writers?** Our own Python writer
-> (`material_bin.py` `to_bytes()`) produced files the engine **froze on**
-> whenever a length-changing edit was involved (adding a parameter/string) —
-> subtle padding/serialization divergence that round-trips on unmodified data
-> but breaks on edits. Keep Python parsers for reading/inspection only;
-> route every production edit through the official converter.
-
 See [Mirror Cubemap Mod](mirror-cubemap-mod.md) for a complete worked example
 using this workflow.
 
 ## Material Hash Resolver (resolve_materials.exe)
 
-The WDL RE team built `resolve_materials.exe` to brute-force resolve unknown material CRC32 hashes by sweeping artist-named paths:
+`resolve_materials.exe` brute-forces to brute-force resolve unknown material CRC32 hashes by sweeping artist-named paths:
 
 **Input**: 975 unknown material hashes from WDL unpacked data
 **Method**: CRC32 prefix sweep across known artist path templates (`graphics\_materials\<artist>-m-<id>.material.bin`)

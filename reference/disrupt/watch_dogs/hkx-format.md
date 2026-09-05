@@ -4,7 +4,7 @@
 > TAG0/TCM0 chunking, TCRF/TCID compendium, PTCH/ITEM, type catalog →
 > [`../watch_dogs_legion/HKX_FORMAT_REVERSE.md`](../watch_dogs_legion/HKX_FORMAT_REVERSE.md)
 > **Cross-reference**: Standard Havok packfile format (FO4 uses regular Havok SDK) →
-> [`reference/havok/hkx_format.md`](../../../havok/hkx_format.md)
+> [`reference/havok/hkx_format.md`](../../havok/hkx_format.md)
 
 The `.hkx` files alongside `.xbg` models contain Havok physics collision data for
 **Watch Dogs 1 and Watch Dogs 2**. Ubisoft used a **custom fork** of Havok to

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Open Source Modding
+permalink: /
 ---
 
 # Open Source Modding

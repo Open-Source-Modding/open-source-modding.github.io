@@ -107,3 +107,22 @@ The engine's FNV is the **FNV-1a** variant:
   Rulesmith hash tables all key off these functions.
 - The 7z archive's CRC / pack-stream integrity uses the standard zlib
   CRC32 (little-endian), unrelated to the in-game hashing above.
+
+## ⚠ CBR.Disrupt.dll Gotcha
+
+`CBR.Disrupt.dll` (Ubisoft's community DLL) contains hash implementations that
+are **WRONG for game use**:
+
+- **`FNV1a64` in CBR** is raw FNV-1 — no path normalization (`/`→`\`), no
+  `.ToLower()`, no 57-bit mask, no `0xA000000000000000` type tag. The real
+  algorithm (documented in [§CRC64 (WD2)](#crc64-wd2) above) normalizes,
+  masks, and tags the hash.
+- **`CRC64` in CBR** is a polynomial CRC64 — not used by the game at all. The
+  real "CRC64_WD2" is FNV-1 64-bit with the modifications described above.
+- **`FNV32` in CBR** may produce different results than the engine's WD1 hash.
+  WD1 FNV32 is the low 32 bits of the 64-bit computation, not an independent
+  FNV-1a 32.
+
+**Use `hash_tool.py` for correct implementations** — it reproduces the exact
+values the game engine produces. Do not rely on CBR.Disrupt.dll for hash
+calculations.

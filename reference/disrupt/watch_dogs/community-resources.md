@@ -59,7 +59,7 @@ tools, but useful as *implementation cross-references* for format details:
 
 ## XeNTaX Forum Knowledge (community — **format confirmations**)
 
-**Full knowledge base**: [XeNTaX Watch Dogs knowledge](../../unsorted/xentax-watchdogs-knowledge.md) — extracted from the [XeNTaX forum dump](https://forum.xentax.com) (2014–2023), 14 threads.
+**Full knowledge base**: [XeNTaX Watch Dogs knowledge](xentax-watchdogs-knowledge.md) — extracted from the [XeNTaX forum dump](https://forum.xentax.com) (2014–2023), 14 threads.
 
 The XeNTaX doc contains detailed C structs, compression variants, and tool references not repeated here. Key confirmations cross-referenced below:
 
@@ -127,6 +127,32 @@ but document **gameplay/modding semantics** that still hold:
   consistent sample: TBX magic, version byte 0x7B/0x8F family, 0x2C header
   size for DXT5).
 
+## hV_WD_ModdingKit_PLUS (hardVatsuki, v2.1)
+
+Watch Dogs 1 modding toolkit — collection of 22 community tools. Source: `~/Documents/Code/game-tools/Ubisoft/Disrupt/hV_WD_ModdingKit_PLUS/`.
+
+| Tool | Purpose | Notes |
+|------|---------|-------|
+| **BConv64.exe** | Hex converter (Hex Workshop) | Added v2.0 |
+| **CONVERT2SPK/** | Audio → SPK converter | By The_Silver v0.6. Only tool for creating .spk files (radio music mods). |
+| **DecUbiSndGui/** | GUI decoder for Ubisoft audio streams | By Zench (XeNTaX). OGG Vorbis. |
+| **Depload/** | depload.dat compiler | By ArmanIII. Compiles depload XML → DAT. |
+| **Deploadify/** | Auto-generates depload.dat | By The Silver. Drag mod folder onto BAT. Prevents crashes from missing deps. |
+| **DisruptEditor/** | Model/asset editor (C++) | Older pre-open-source version. Do NOT replace with community DisruptEditor. |
+| **FCBastard/** | FCB unpacker/packer | WD1 version. Crashes on WLU FCB repack (road data loss). |
+| **Gibbed Tools/** | Archive unpacker/packer | 2013-era fork. Older than community Gibbed.Disrupt. |
+| **LocTool/** | Localization (.loc ↔ .xml) | By The_Silver. Updated v2.0. |
+| **Xbox 360/** | X360 audio converters | Uses XCompression.dll. |
+| **ZModeler 3.1.5** | 3D model editor | Has WD1 material configs. |
+
+**hardVatsuki sub-tools:** hasher (CRC32/FNV64/CRC64 — superset of `hash_tool.py`), swapper (quick hash swap), filelist creator, float32→hex converter, gamma converter, sequence converter, SaveConverter (v2.1).
+
+**Key findings:**
+1. **hasher is a superset** of `hash_tool.py` — includes FNV64 and CRC64
+2. **CONVERT2SPK** is the only tool for creating .spk files — critical for radio music mods
+3. **Deploadify** automates depload.dat generation (prevents random crashes)
+4. **DisruptEditor** in this kit is older than the community open-source version — don't replace
+
 ## Colorgrading Quirk (Parallellines)
 
 WD1 colorgrading is controlled via `windy_city.game.xml` — each weather state references a `.colorgrading` file. **If any value in `colorgrading.lib` is at default (Red=0, Green=0, Blue=0, Saturation=1, Contrast=0), the entire colorgrading is ignored.** Must set dummy values (`±0.001`) for unused channels. Don't make dummy values too small or weather transitions freak out. HDR LUTs are baked into the tone mapping — can't just edit screenshots in Photoshop.
@@ -143,6 +169,37 @@ Same 9 artist materials in each (`lsauvage`, `mkamelaquino`, `slacoste`, `yclout
 Cross-build param diffs (July28 → Sept13): coat/mask/sweatshirt +1 param, eye_V2 −3, arm_cau −2, lashes renamed `char01_lashes` → `char01_eyelashes`, head/cornea/teeth unchanged. GUID header word[2-4] also differs per build.
 
 `ConvertMaterials.exe` **fails on v5** — asserts `magic==5062996 && version==7` (`materialFile.cpp:21-22`). Use `material_bin.py` for v5 files.
+
+## FusionTools 2.0.1 — Wwise Audio Editor
+
+.NET 10.0 NativeAOT compiled tool (4.4MB single-file). Primary Wwise audio editor for Disrupt games. Ghidra decomp analysis (469 functions, 529 strings).
+
+**Supported formats:**
+- **BNK** (bank files): parser/editor with HIRC hierarchy section. Versions: v34, v44, v48, v53, v62, v65, v88, v113, v120, v125, v128, v132, v135, v140, v145, v150
+- **PCK** (package files): parser/editor with comment/identification packets
+- **AESP** (encrypted packages): parser
+- **WEM** (Wwise encoded media): encode/decode via embedded Vorbis codec (`WwiseVorbis.dll` + `vorbis_native.dll`)
+
+**HIRC object types** (Wwise sound bank hierarchy):
+- Music: MusicNodeBase, MusicSegment, MusicSequence, MusicSwitchContainer, MusicTrack, MusicMarker
+- Audio: Attenuation, DialogueEvent, Effect, Feedback, FeedbackBus/Node/Source
+- FX: FXBankDataItem, FXChunk, FXCustom, FXParameterBlock, FXShareSet, FxSlot
+- Bus: AuxiliaryBus, BusState, BusVolume
+- RTPC: RTPC, RTPCID, RTPCInit
+- Action: ActionCommand, ActionType
+- Bank: BankData, BankEntry, BankHash, BankHeader
+
+**Hash algorithms:** CRC32, CRC64 (Wwise variant), FNV-1 32-bit, FNV32/FNV64, OGG CRC32. Embedded hash lookup table (`FusionTools.Resources.hashes.hl`).
+
+**Audio codecs:** Vorbis, PCM, PCMA, PTADPCM, OPUS, OPUSWW, IMA (decode); Vorbis, PCM (encode).
+
+**Compression:** GZip, LZMA, ZLib, Brotli, Deflate (via EasyCompressor).
+
+**Key methods:** `BuildBankTree`, `CreateEventToWemMap`, `ConvertToOgg`, `ConvertToWav`, `CreateBNKBackups`, `CreatePCKBackups`.
+
+**Dependencies:** EasyCompressor.dll, SevenZip.dll, vorbis_native.dll, WwiseVorbis.dll, discord-rpc.dll.
+
+**Key insight:** The embedded hash table contains string→hash mappings for all Wwise identifiers in Disrupt games. The Vorbis codec handles WEM audio without external tools like VGMStream.
 
 ## Sound Filelist (wasd, Discord 2018)
 

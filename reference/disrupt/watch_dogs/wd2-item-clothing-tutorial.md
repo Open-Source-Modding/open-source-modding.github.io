@@ -1,7 +1,7 @@
 # WD2 Custom Item/Clothing Creation Tutorial
 
 > **Source**: Discord community tutorials (the task of the Pesky Fly, disastorm, redcomet, CobraGamer, 2016-2023) + XeNTaX forum knowledge.
-> **Cross-reference**: XeNTaX WD2 clothing hashes & categories → [XeNTaX Watch Dogs knowledge §8–9, §11](../../unsorted/xentax-watchdogs-knowledge.md); Entity XML structure → [`entity-xml-structure.md`](entity-xml-structure.md)
+> **Cross-reference**: XeNTaX WD2 clothing hashes & categories → [XeNTaX Watch Dogs knowledge §8–9, §11](xentax-watchdogs-knowledge.md); Entity XML structure → [`entity-xml-structure.md`](entity-xml-structure.md)
 
 ---
 

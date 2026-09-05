@@ -128,4 +128,3 @@ Additively blends the indirect-light SRV into the HDR **scene-color buffer**
 - Screen-gather SSRTGI **works**. Light capture broken (job-callback ABI → pivot
   to `FUN_181306e60`). Camera hook installed but didn't fire (verify in gameplay,
   correct rotation convention). Feature A composite runtime unconfirmed.
-- See `.opencode/context.md` in the `ssrtgi/` project dir for full session state.

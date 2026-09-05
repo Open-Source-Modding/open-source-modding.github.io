@@ -45,6 +45,37 @@ packfile version 11, 64-bit pointers, little-endian. This is the "old" (pre
 
 *(SergeantJoe, 2014–2016; JohnHudeski, 2018)*
 
+### WDL Havok Versions
+
+Watch Dogs: Legion uses **two different Havok versions** depending on the build:
+
+| Build | Havok Version | SDKV | Format |
+|-------|--------------|------|--------|
+| Retail WDL | **2017.2.0** | `20170200` | Chunked (same family as 2019.02) |
+| Leak WDL | **2015.1.0** | `20150100` | Different chunked variant |
+
+**CORRECTION (2026-09-04)**: Leak WDL HKX shows `SDKV="20150100"` (2015.1), retail WDL shows `SDKV="20170200"` (2017.2). These are different Havok SDK versions, not just a wrapper difference. The retail build was updated to a newer SDK between the leak and release.
+
+54k WDL samples available in `~/Documents/Code/re/ubisoft/extracted/data_win64/`. The retail 2017.2 chunked format is in the same family as Starfield's 2019.02 and is parseable by `parsers/StarfieldMeshConverter/`.
+
+### Havok License Keys
+
+The retail WDL build contains Havok **license/authorization keys** (NOT encryption keys). Three key groups found (by □ΞnCrypTΞD□, 2026-09-04):
+
+| Key Group | Keys | Modules | Expiry |
+|-----------|------|---------|--------|
+| **HAVOK_CORP** | 6 | Physics, Destruction, Ai, Cloth + `_2012` backward-compat | **2036-09-05** |
+| **InternalHavok** | 7 | Physics, Destruction, Ai, Cloth, Animation | **2020-08-20** |
+| **UbisoftToronto_WatchDogs3** | 3 | Physics only | **2019-06-20**, **2020-03-20** |
+
+Key format: `0xGUID1-GUID2:YYYY-MM-DD.Product.Client`
+- Date = **license expiry**, not build date
+- `"WatchDogs3"` = internal codename for WDL
+- GUID2 (`0xGUID2`) = project/client identifier
+- `_2012` suffix variants are backward compatibility modules, NOT indicators of using Havok 2012 SDK
+
+Example: `0xGUID1-0xGUID2:2020-03-20.Physics.UbisoftToronto_WatchDogs3_PS4-Windows-XboxOne` — expired 2020-03-20.
+
 ### Version 9 vs 11 Header Difference
 Version 9 (2010–2013): simpler header padding.
 Version 11 (2013.2+ / 2014+): adds `int16 max_predicates` + `int16 unknown` replacing `int32 misc + pad[1]`, plus 16 bytes padding after section table entries.
@@ -671,3 +702,25 @@ The Standalone Tool (ToolStandAlone.exe) can visualize HKX files and export to X
 - Some HKX files from games cannot be loaded even with correct version
 - Skeleton may not render if bones are connected to root in unusual ways
 - The Filter Manager rarely works on extracted files
+
+## HKX Parsers & Tools
+
+| Tool | Language | License | Notes |
+|------|----------|---------|-------|
+| hkxpack | Java | MIT | Original pack/unpack tool |
+| hkxpack-plus | Java | MIT | 910 bundled class defs — best validation tool |
+| HKX2-Enhanced-Library | C# | MIT | 589 autogen classes, most complete parser (.sln) |
+| havoklib | C++ | GPL | Format library (CMake) |
+| blender-hkx | Python | MIT | Blender addon reference implementation |
+| hkdump | C++ | MIT | Dumper (makefile) |
+| hkxcmd 1.4 | C++ | — | Skyrim HKX ↔ XML/KF converter (VS2008) |
+| StarfieldMeshConverter | C# | — | Full chunked-format parser (2019.02: TAG0/SDKV/TYPE/INDX/PTCH) |
+| tagtools | Python | — | TagTools.py + TypeDatabase.xml |
+| BehaviourGraphStudio | ELF | — | Linux binary, reads/writes FO4 HKX directly |
+| HavokMax | C++ | — | 3ds Max Havok plugin (CMake) |
+| hkx_reverse | .NET | — | HavokDisrupt RE toolkit |
+| Key tooling | — | — | Not published; no public source |
+| havok-vdb-2022.2.0 | .NET | — | Visual Debugger (x64) |
+
+All parsers and tools are in the `re/havok/` workspace. The `parsers/` directory has per-tool subdirectories with READMEs and licenses.
+

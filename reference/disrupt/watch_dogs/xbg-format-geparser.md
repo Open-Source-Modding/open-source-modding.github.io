@@ -2,7 +2,7 @@
 
 > **Source**: Hex-Rays decompile of `GeomParser_r64.dll` (Ubisoft leak) — the actual XBG compiler ("DuniaGeometryDeserializer" = XBG WRITER).
 > **Reference Importer**: `import_wdl_xbg.py` (READ ONLY, works on real files).
-> **Cross-reference**: XeNTaX forum knowledge (WD1 vertex strides, UV scaling, WD2 version bump) → [XeNTaX Watch Dogs knowledge §3](../../unsorted/xentax-watchdogs-knowledge.md)
+> **Cross-reference**: XeNTaX forum knowledge (WD1 vertex strides, UV scaling, WD2 version bump) → [XeNTaX Watch Dogs knowledge §3](xentax-watchdogs-knowledge.md)
 
 ---
 

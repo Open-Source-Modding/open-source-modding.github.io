@@ -8,9 +8,9 @@ functions to name files, objects, and resources. Two families:
 
 Both are computed over the same byte string, in either endianness.
 
-> **Cross-reference**: Full WD2 FNV1a x64 algorithm with C code from XeNTaX forum (Ekey, 2016) → [XeNTaX Watch Dogs knowledge §1.3](../../unsorted/xentax-watchdogs-knowledge.md)
+> **Cross-reference**: Full WD2 FNV1a x64 algorithm with C code from XeNTaX forum (Ekey, 2016) → [XeNTaX Watch Dogs knowledge §1.3](xentax-watchdogs-knowledge.md)
 
-> **Cross-reference**: WD2 FAT entry bitfield structure (Hash/CompressedSize/Offset/CompressionMethod/UncompressedSize), WD2 FAT first-8-bytes signature analysis, LZ4 dec32_table modification, LZMA constant 0xE6C → [XeNTaX Watch Dogs knowledge §1.3–1.4, §5–7](../../unsorted/xentax-watchdogs-knowledge.md)
+> **Cross-reference**: WD2 FAT entry bitfield structure (Hash/CompressedSize/Offset/CompressionMethod/UncompressedSize), WD2 FAT first-8-bytes signature analysis, LZ4 dec32_table modification, LZMA constant 0xE6C → [XeNTaX Watch Dogs knowledge §1.3–1.4, §5–7](xentax-watchdogs-knowledge.md)
 
 ## Supported functions
 

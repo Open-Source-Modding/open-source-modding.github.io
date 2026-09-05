@@ -5,7 +5,7 @@ Reversed from Watch Dogs: Legion retail/cooked/portable corpus (2026-08-19).
 > **Cross-reference**: Standard Havok packfile format (FO4 uses regular Havok SDK) →
 > [`reference/havok/hkx_format.md`](../../havok/hkx_format.md)
 > **Cross-reference**: WD1/WD2 (Havok 2012/2015.1 SDKs, Ubisoft-modified) practical collision + tooling →
-> [`hkx-format.md`](hkx-format.md)
+> [`hkx-format.md`](../watch_dogs/hkx-format.md)
 
 ## Dunia Wrapper Header (16 bytes)
 
@@ -87,7 +87,7 @@ Class `0x9B` resources fail the `!= 156` check and are rejected via
 
 **UPDATE (2026-08-19 session 5):** The header IS validated: `sub_187EA1140` checks `*(_DWORD*)a1 == 156` (class `0x9C` + zero padding as LE DWORD). Non-`0x9C` files and files with non-zero bytes 1-3 are rejected. The word at offset +12 selects a format handler (cases 0–8), and offset +14 `== 0xFFFF` triggers a special compendium path. The data at `a1 + 16` (i.e. after the 20-byte header, starting at offset 20 where TAG0 begins) is passed to Havok's `hkSerialize_Load_toVarInplace`.
 
-**Root cause reassessment:** The crash at `Entity_GetComponentByTypeId` (null entity deref) is more likely caused by **incompatible Havok DATA content** in cooked files (3,616 fewer bytes, 16,221 byte-diff ranges, different pointer fixups) rather than the zero checksum. The cooked pipeline may produce subtly malformed shape data that fails during Havok deserialization, leaving the physics component in a null/uninitialized state.
+**Root cause reassessment:** The crash at `Entity_GetComponentByTypeId` (null entity deref) is caused by **incompatible Havok DATA content** in cooked files (3,616 fewer bytes, 16,221 byte-diff ranges, different pointer fixups), not the zero checksum. The cooked pipeline produces malformed shape data that fails during Havok deserialization, leaving the physics component null.
 
 ### IDA RE Progress (2026-08-19)
 
@@ -162,7 +162,7 @@ Entry 2 = TCRF handler (`0x188DDCE40` → `hkTagfileReadFormat_ReadTCRF`).
 ```
 
 **Dunia Header Parsing:**
-The 16-byte Dunia header is NOT parsed by the `CPhysResource_Compile`/`Bind` functions — they operate on already-unwrapped Havok data. The header stripping happens in the BigFile/archive extraction layer. No CMP instructions exist for the header's class byte (0x9B/0x9C), build tag (0xDE83), or checksum. The header is likely stripped with a simple `ptr += 16; size -= 16`.
+The 16-byte Dunia header is NOT parsed by the `CPhysResource_Compile`/`Bind` functions — they operate on already-unwrapped Havok data. The header stripping happens in the BigFile/archive extraction layer. No CMP instructions exist for the header's class byte (0x9B/0x9C), build tag (0xDE83), or checksum. The engine strips the header by advancing the pointer 16 bytes: `ptr += 16; size -= 16`.
 
 **CPhysResource_Compile Flow (session 2):**
 ```

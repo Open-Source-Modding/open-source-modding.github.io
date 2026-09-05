@@ -1,6 +1,7 @@
-# Watch Dogs Material Hex Editing
+# Watch Dogs Material Hex Editing — Community Tips
 
 > **Source**: guru3D Forums thread "Watch_Dogs Material Hex Editing" (mlleemiles, 2017-10-23) + Discord logs from WD1 modding community (2020-2026).
+> **For the authoritative binary layout, type codes, and editing workflow**, see [`material-bin-format.md`](material-bin-format.md).
 > **Cross-reference**: Material descriptors (85 XML files) → [`materialdescriptors/`](materialdescriptors/); XeNTaX material section → [XeNTaX Watch Dogs knowledge §8–9](xentax-watchdogs-knowledge.md)
 
 ---
@@ -12,89 +13,17 @@
 - **Disrupt Editor Material Tool** (fan-made, WD1 origin) — XML ↔ .material.bin converter (works for WD1/WD2/WDL)
 - **ZModeler3** — import/export with material support (Oleg's plugin)
 
----
-
-## Material.bin Structure
-
-Opening a `.material.bin` in a hex editor shows:
-
-1. **Header strings** — shader name, parameter names (at start of file, text view)
-2. **Parameter blocks** — each parameter has:
-   - 4-byte type
-   - 4-byte parameter hash (CRC32 of parameter name)
-   - Value (size depends on type)
-
-### Parameter Value Types
-
-| Type Byte | Meaning | Size |
-|-----------|---------|------|
-| `01` | Float | 4 bytes |
-| `03` | Integer | 4 bytes |
-| `04` | Boolean | 1 byte |
-| `06` | Vector2 | 8 bytes |
-| `07` | Vector3 | 12 bytes |
-| `08` | Vector4 | 16 bytes |
-
----
-
-## Hex Editing Workflow
-
-### 1. Identify Shader & Parameters
-
-```text
-1. Open .material.bin in hex editor
-2. Read shader name at file start (e.g., "Character")
-3. Go to common_unpack\engine\shader\materialdescriptors
-4. Find corresponding XML (e.g., Character.xml)
-5. Search for "parameterprovider" section
-```
-
-### 2. Find Parameter Hash
-
-```text
-1. Copy parameter name from XML (e.g., "RimLightPower")
-2. Paste into Razor tool input
-3. Convert String → CRC32
-4. Copy output, paste back to input
-5. Convert BinHex → CRC32 → final hash
-```
-
-**Note**: Some materials reference `Generic.xml` as well.
-
-### 3. Locate & Edit Value in Hex
-
-```text
-1. Search for the CRC32 hash in hex editor
-2. The value follows the hash
-3. Example structure:
-   01000000  51A7AF2D  00000041
-   ^type    ^paramHash ^value
-4. Type 01 = Float
-5. Use Hex Workshop base converter to convert float ↔ hex
-```
-
-### 4. Common Parameters to Edit
-
-| Parameter | Effect |
-|-----------|--------|
-| `RimLightPower` | Rim lighting intensity |
-| `DiffuseColor1` / `DiffuseColor2` | Base color (Vector4) |
-| `SpecularPower` | Glossiness/shininess |
-| `Reflectance` | Reflection intensity |
-| `NormalIntensity` | Normal map strength |
-| `DiffuseTexture1` / `DiffuseTexture2` | Texture path hashes |
+For the full editing workflow using `ConvertMaterials.exe`, see [material-bin-format.md § Authoritative Editing Workflow](material-bin-format.md#authoritative-editing-workflow).
 
 ---
 
 ## Known Issues & Workarounds
 
-### Disrupt Editor Material Converter Bug
+### Disrupt Editor Material Converter Bug (fixed in later builds)
 
-**Problem**: Converting `.material.bin` → XML → `.material.bin` produces wrong file length (last bytes differ). Causes random crashes on load/reload.
+**Problem**: Older `ConvertMaterials.exe` writes wrong header offset values on XML→BIN round-trip, causing random in-game crashes. Discovered by みる97 (2020-05-31); fixed by qstlijku in later converter builds. See [material-bin-format.md § Crash Bug](material-bin-format.md#crash-bug) for the technical details.
 
-**Root cause**: Float → binhex conversion precision loss (discovered by みる97, 2020-05-31).
-
-**Workarounds**:
+**Workarounds** (if stuck on an old converter build):
 1. **Hex edit directly** — keep original, export edited, diff bytes, port only changed values back
 2. **Manual process** (Crank Beige, 2020-05-31):
    - Get original material
@@ -102,12 +31,7 @@ Opening a `.material.bin` in a hex editor shows:
    - Assign new diffuse textures in XML
    - Compare edited XML→bin vs original
    - Port only diffuse changes to original binary
-
-### Material Converter Crashes (2020-05-31)
-
-- Round-trip conversion (bin→xml→bin) changes trailing bytes
-- Second xml conversion throws error
-- Not consistent — some materials work, others crash
+3. **Run `res/material_sizefixer.1sc`** from the converter's own directory to fix the header values after the fact
 
 ### ZModeler3 Material Issues
 

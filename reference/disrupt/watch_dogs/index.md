@@ -14,6 +14,8 @@
 - [Material Hex Editing](material-hex-editing.md) — Razor tool, CRC32 lookup, hex workflow, converter bugs
 - [Material Binary Format](material-bin-format.md) — TAM\0 v7/v15 structure, param command types, ConvertMaterials.exe XML editing workflow
 - [XBT Texture Format](xbt-texture-format.md) — TBX header structure, _high texture system, hex analysis, hV_WD1ModdingKit workflow
+- [BFD Sprite Atlas Format](bfd-format.md) — UI icon mappings, paired with XBT textures, percentage-based coordinates
+- [SPK Sound Package Format](spk-format.md) — Wwise audio wrapper, header fields, bus IDs, music library integration
 - [Hashing (CRC32 / CRC64_WD2)](hashing.md)
 - [FEU Format (Flash UI)](feu-format.md) — SWF with UEF header, JPEXS editing, AS2 UI class hierarchy, Linux conversion
 - [Entity XML Structure](entity-xml-structure.md) — prototype format, hash field conventions, components

@@ -1,8 +1,8 @@
 # Havok Packfile Format — WD1/WD2 (64-bit, Havok 2012)
 
-> **Cross-reference**: WD1/WD2 FAT/DAT archive format, XCompress headers, XBG/XBT formats, WD2 hash algorithm → [XeNTaX Watch Dogs knowledge](../../unsorted/xentax-watchdogs-knowledge.md)
+> **Cross-reference**: WD1/WD2 FAT/DAT archive format, XCompress headers, XBG/XBT formats, WD2 hash algorithm → [XeNTaX Watch Dogs knowledge](xentax-watchdogs-knowledge.md)
 
-> **Cross-reference**: Full FAT/DAT specs (WD1: magic `3TAF`/version 8, WD2: magic `5TAF`/version 11), PS3 Deflate header, XCompress variants, WD2 LZ4 dec32_table mod, LZMA constant 0xE6C, WD2 FAT first-8-bytes analysis → [XeNTaX Watch Dogs knowledge §1–2, §5–7](../../unsorted/xentax-watchdogs-knowledge.md)
+> **Cross-reference**: Full FAT/DAT specs (WD1: magic `3TAF`/version 8, WD2: magic `5TAF`/version 11), PS3 Deflate header, XCompress variants, WD2 LZ4 dec32_table mod, LZMA constant 0xE6C, WD2 FAT first-8-bytes analysis → [XeNTaX Watch Dogs knowledge §1–2, §5–7](xentax-watchdogs-knowledge.md)
 
 > **Cross-reference**: HKX version compatibility, tool workarounds, compression params, practical techniques → [`reference/havok/hkx_format.md`](../../havok/hkx_format.md)
 

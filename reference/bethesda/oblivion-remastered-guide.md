@@ -1,6 +1,6 @@
 # Oblivion Remastered (2025) — Engine, Containers & Animation Reference
 
-> **Cross-reference**: Legacy Gamebryo formats (BSA v104/v105, NIF, IMG/COL/CFA/DFA, EGM morphs, cell data, save files) → [XeNTaX Bethesda knowledge §1,3,6–8,10–11](../unsorted/xentax-bethesda-knowledge.md)
+> **Cross-reference**: Legacy Gamebryo formats (BSA v104/v105, NIF, IMG/COL/CFA/DFA, EGM morphs, cell data, save files) → [XeNTaX Bethesda knowledge §1,3,6–8,10–11](xentax-bethesda-knowledge.md)
 
 Oblivion Remastered (released 2025-04-22) is **not** a Havok title: it is a
 dual-engine hybrid. **Unreal Engine 5.3** renders the game (models, textures,

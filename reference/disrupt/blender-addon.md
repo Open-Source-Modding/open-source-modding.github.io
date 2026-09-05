@@ -73,6 +73,7 @@ Game-specific import/export stays in each game's directory.
 
 ## Known issues (under investigation)
 
+- **WD2 binary XBG import crashes on character models**: The addon has a complete WD2 MOEG parser (`import_wd2_xbg.py`, 789 lines, ported from Volfin's io_scene_WD2) handling versions 0x89/0x46 (WD2) and 0x95/0x46 (WDL). However, character models like `pers09.xbg` (519KB) crash with `"unpack requires a buffer of 4 bytes"`. Root cause: the `_read_skip_mess()` function (ReflexSystem blob) has undocumented `entry_type` variants for character models with procedural animation nodes. The sentinel scan for geometry region offset may also fail on character files. **Fix needed**: add entry_type logging, debug the ReflexSystem blob structure for character models, and/or add fallback parsing paths. Spec: `reference/disrupt/wd2-moeg-xbg-format.md`.
 - **WD1 `.xbgm` (XBGMIP)**: high-detail streamed LOD for vehicles. Parser exists but has no Blender export integration — parsed data is discarded. Format: 512-byte header + 2× packed vertex blocks + optional normals block. Doc: `reference/disrupt/xbgmip-format.md`.
 - **GLM skeleton parsing**: see above — depth tracking in `_skip_children()` needs fixing.
 

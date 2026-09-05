@@ -1,6 +1,6 @@
 # Starfield Modding & Reverse Engineering Reference
 
-> **Cross-reference**: BA2 archives (BTDX/GNRL/DX10), NIF changes (BSTriShape, FP16), texture formats (BC5 for roughness/metalness), tools (BAE, F4 Tools, Noesis) → [XeNTaX Bethesda knowledge §2–4](../unsorted/xentax-bethesda-knowledge.md)
+> **Cross-reference**: BA2 archives (BTDX/GNRL/DX10), NIF changes (BSTriShape, FP16), texture formats (BC5 for roughness/metalness), tools (BAE, F4 Tools, Noesis) → [XeNTaX Bethesda knowledge §2–4](xentax-bethesda-knowledge.md)
 
 Starfield (Creation Engine 2, 2023) continues Bethesda's long-running Havok-based
 animation lineage — the `.hkx` behavior/animation ecosystem documented for Fallout 4 in

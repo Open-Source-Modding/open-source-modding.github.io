@@ -1,6 +1,6 @@
 Over the last couple of months, I've explored a lot of the functionality of HKX or Havok files. As a result of reflecting on what is known and what information is out there, I feel as though I'm obligated to TRY to share what I've learned. My hope is that this guide will inspire new ideas and generally help out the Fallout 4 modding community.
 
-> **Cross-reference**: BSA/BA2 archives, NIF format, textures, audio, save formats → [XeNTaX Bethesda knowledge](../unsorted/xentax-bethesda-knowledge.md)
+> **Cross-reference**: BSA/BA2 archives, NIF format, textures, audio, save formats → [XeNTaX Bethesda knowledge](xentax-bethesda-knowledge.md)
 Please leave a comment if : you find something confusing, are curious about something or don't understand something etc, if you have information and would like to add to this guide, If you find something that you know is wrong, if you found the guide useful.
 Feel free to also leave any suggestions or criticism. I don't usually try to write guides, so anything will be helpful, but please be constructive.
 

@@ -400,6 +400,6 @@ FSB → fsbext → XMA streams → xmaencode.exe / towav → WAV
 ---
 
 ## Cross-References
-- **SimCity audio** (RIFF Vorbis, `ww2ogg`/`revorb`) → [`reference/unsorted/xentax-simcity-knowledge.md`](../unsorted/xentax-simcity-knowledge.md)
+- **SimCity audio** (RIFF Vorbis, `ww2ogg`/`revorb`) → [`xentax-simcity-knowledge.md`](../simcity/xentax-simcity-knowledge.md)
 - **Generic EA formats** (FIFA, C&C share VIV/BIG) — see EA modding communities
 - **XPR2 / XDS** (Xbox 360 textures) — Forza 3 uses same XTX_TO_TGA tool

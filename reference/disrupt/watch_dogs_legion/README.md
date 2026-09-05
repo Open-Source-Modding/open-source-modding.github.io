@@ -1,6 +1,6 @@
 # WDL-Reversing
 
-> **Cross-reference**: Disrupt engine shared formats (FAT/DAT, XCompress, XBG, XBT, hashing, material system) → [XeNTaX Watch Dogs knowledge](../../unsorted/xentax-watchdogs-knowledge.md)
+> **Cross-reference**: Disrupt engine shared formats (FAT/DAT, XCompress, XBG, XBT, hashing, material system) → [XeNTaX Watch Dogs knowledge](../watch_dogs/xentax-watchdogs-knowledge.md)
 
 Reverse engineering work for **Watch Dogs: Legion** (v1.6.3, Denuvo-packed).
 

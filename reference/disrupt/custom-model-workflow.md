@@ -90,7 +90,7 @@ GLM files from the leak:
 - `avat_ma_tor_bombersweater01.glm` (4.94 MB)
 - `avatar01_tor_bombercoat01.glm` (5.13 MB)
 
-GLM can potentially be converted to XBG for importing beta models into the retail game. The format is distinct from XBG and requires separate parsing (see GLM format investigation in `.opencode/todo.md` M15).
+GLM can potentially be converted to XBG for importing beta models into the retail game. The format is distinct from XBG and requires separate parsing.
 
 ---
 

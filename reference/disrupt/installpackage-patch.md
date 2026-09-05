@@ -1,6 +1,6 @@
 # installpackage-over-patch DLL Hex Edit
 
-> **Cross-reference**: Patch archive behavior (patch.fat/dat overrides content) → [XeNTaX Watch Dogs knowledge §1.1](../../unsorted/xentax-watchdogs-knowledge.md)
+> **Cross-reference**: Patch archive behavior (patch.fat/dat overrides content) → [XeNTaX Watch Dogs knowledge §1.1](watch_dogs/xentax-watchdogs-knowledge.md)
 
 The Disrupt engine loads archives in priority order. By default, `patch` has
 highest priority and `installpackage` is unused. A hex edit to the game DLL

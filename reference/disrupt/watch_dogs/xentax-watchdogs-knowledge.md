@@ -3,13 +3,13 @@
 Extracted and organized from XeNTaX forum discussions (2014–2023). Technical knowledge only; trivial posts filtered out.
 
 **Cross-references to site reference docs:**
-- Havok packfile format (WD1/WD2, 64-bit) → [`reference/disrupt/watch_dogs/packfile-format.md`](../reference/disrupt/watch_dogs/packfile-format.md)
-- Watch Dogs hashing (FNV/CRC32, WD2 CRC64/FNV64) → [`reference/disrupt/watch_dogs/hashing.md`](../reference/disrupt/watch_dogs/hashing.md)
-- Community tools & references (Volfin, FranciscoManzanilla, ZModeler) → [`reference/disrupt/watch_dogs/community-resources.md`](../reference/disrupt/watch_dogs/community-resources.md)
-- HKX collision format (Disrupt's modified Havok) → [`reference/disrupt/watch_dogs/hkx-format.md`](../reference/disrupt/watch_dogs/hkx-format.md)
-- Compressed mesh format → [`reference/disrupt/watch_dogs/compressed-mesh-format.md`](../reference/disrupt/watch_dogs/compressed-mesh-format.md)
-- Injection internals → [`reference/disrupt/watch_dogs/injection-internals.md`](../reference/disrupt/watch_dogs/injection-internals.md)
-- Material descriptors (85 XML files) → [`reference/disrupt/watch_dogs/materialdescriptors/`](../reference/disrupt/watch_dogs/materialdescriptors/)
+- [Havok packfile format (WD1/WD2, 64-bit)](packfile-format.md)
+- [Watch Dogs hashing (FNV/CRC32, WD2 CRC64/FNV64)](hashing.md)
+- [Community tools & references (Volfin, FranciscoManzanilla, ZModeler)](community-resources.md)
+- [HKX collision format (Disrupt's modified Havok)](hkx-format.md)
+- [Compressed mesh format](compressed-mesh-format.md)
+- [Injection internals](injection-internals.md)
+- [Material descriptors (85 XML files)](materialdescriptors/)
 
 ---
 

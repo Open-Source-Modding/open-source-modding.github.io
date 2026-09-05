@@ -4,12 +4,12 @@ Extracted from xentax forum dump (22 threads, 2010–2020). Organized by topic.
 Source threads cover TES3–5, FO3/NV/4/76, Oblivion, and Switch ports.
 
 **Cross-references to site reference docs:**
-- Fallout 4 Havok animation/behavior workflow → [`fallout4-havok-guide.md`](fallout4-havok-guide.md)
-- Skyrim Havok animation reference → [`skyrim-havok-guide.md`](skyrim-havok-guide.md)
-- Starfield modding & RE reference (CE2, SFSE, CK) → [`starfield-guide.md`](starfield-guide.md)
-- Oblivion Remastered (UE5 + Gamebryo hybrid) → [`oblivion-remastered-guide.md`](oblivion-remastered-guide.md)
-- Generic HKX packfile format (FO4, Havok 2014.1.0) → [`../havok/hkx_format.md`](../havok/hkx_format.md)
-- Watch Dogs Legion Denuvo analysis (also Havok) → [`../disrupt/watch_dogs_legion/denuvo_analysis.md`](../disrupt/watch_dogs_legion/denuvo_analysis.md)
+- Fallout 4 Havok animation/behavior workflow → [Fallout 4 Havok guide](fallout4-havok-guide.md)
+- Skyrim Havok animation reference → [Skyrim Havok guide](skyrim-havok-guide.md)
+- Starfield modding & RE reference (CE2, SFSE, CK) → [Starfield guide](starfield-guide.md)
+- Oblivion Remastered (UE5 + Gamebryo hybrid) → [Oblivion Remastered guide](oblivion-remastered-guide.md)
+- Generic HKX packfile format (FO4, Havok 2014.1.0) → [HKX format](../havok/hkx_format.md)
+- Watch Dogs Legion Denuvo analysis (also Havok) → [WDL Denuvo analysis](../disrupt/watch_dogs_legion/denuvo_analysis.md)
 
 ---
 

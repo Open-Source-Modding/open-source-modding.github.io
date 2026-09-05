@@ -105,3 +105,81 @@ No native texture container RE documented in XeNTaX dump.
 - **EBX `numDict`** field types: 11 known codes (uint64/uint8/uint32/double/bool/int32/int8/int16/uint16/float)
 - New patches may add unknown field types → delete non-audio EBX folders to bypass
 - **Original ME (UE3)**: textures via Ninja Ripper / Texmod only
+---
+
+## 4. Frostbite Engine (Cross-Game Reference)
+
+> **Reserved section** — Frostbite asset pipeline applies to Catalyst, NFS 2016+, and other EA titles using Frostbite 3/4.
+
+### Games Using Frostbite
+
+| Title | Year | Engine | Status |
+|-------|------|--------|--------|
+| Mirror's Edge: Catalyst | 2016 | Frostbite 3 | [See §1](#1-mirrors-edge-catalyst--frostbite-asset--audio-pipeline) |
+| Need for Speed (2016) | 2016 | Frostbite 3 | XeNTaX extraction confirmed |
+| Need for Speed Payback | 2017 | Frostbite 3 | Bundle/chunk model |
+| Need for Speed Heat | 2019 | Frostbite 4 | Same pipeline |
+| Need for Speed Unbound | 2022 | Frostbite 4 | Same pipeline |
+| Battlefield 4 | 2013 | Frostbite 3 | Original dumper source |
+| Star Wars Battlefront | 2015 | Frostbite 3 | `sw_dumper.py` source |
+
+### Tool Embeds
+
+<details>
+<summary><b>bf4dumper.py / sw_dumper.py</b> — Frostbite bundle→chunk dumpers</summary>
+
+```python
+# Frostbite bundle→chunk dumper
+# Usage: Edit targetDirectory below, then run
+# Works with BF4, SWBF, ME Catalyst, NFS 2016+
+
+targetDirectory = r"<EXTRACT TO HERE>"
+```
+
+Source: [XeNTaX forums](https://zenhax.com/threads/frostbite-file-system-browser-bf4-hardline-swbf-mirrors-edge-catalyst.4563/)
+</details>
+
+<details>
+<summary><b>fb3decoder.py</b> — Frostbite 3 audio decoder (EBX → .wav)</summary>
+
+```python
+# Frostbite 3 audio decoder
+# Walks .ebx files, finds audio chunks, writes decoded .wav
+
+dumpDirectory   = r"<EXTRACTED FILES DIR>"
+targetDirectory = r"<OUTPUT .WAV DIR>"
+ealayer3Path    = r"<EALAYER3 TOOL DIR>\ealayer3.exe"
+```
+
+Source: [XeNTaX forums](https://zenhax.com/threads/frostbite-audio-tools-and-info.4618/)
+</details>
+
+<details>
+<summary><b>ealayer3</b> — EALayer3 codec decoder (EA-proprietary MPEG layer-3)</summary>
+
+EALayer3 is EA's proprietary MPEG layer-3 variant used in Frostbite games.
+
+- **Zench's version**: Original decoder. Extracts multi-file chunks incorrectly (5 sounds → 15 files, 10 duplicates).
+- **daemon1's version**: Fixes multi-file chunk extraction. Use this one.
+
+Source: [XeNTaX forums](https://zenhax.com/threads/frostbite-audio-tools-and-info.4618/)
+</details>
+
+<details>
+<summary><b>swbf_me-c_edit</b> — Community-edited SWBF dumper for ME Catalyst</summary>
+
+Modified version of `sw_dumper.py` adapted specifically for Mirror's Edge Catalyst's bundle structure.
+
+```python
+# swbf_me-c_edit — ME Catalyst specific dumper
+# Same usage as sw_dumper.py but handles Catalyst's bundle layout
+```
+
+Source: [XeNTaX forums](https://zenhax.com/threads/frostbite-file-system-browser-bf4-hardline-swbf-mirrors-edge-catalyst.4563/)
+</details>
+
+### Related XeNTaX Sections
+
+- [Need for Speed formats](../nfs/nfs-formats.md) — VIV/BIG, BIN/BUN, TPK, BFF (Shift), BML/BMT, SGB tracks, audio, XTX textures
+- [Need for Speed XeNTaX knowledge](../nfs/xentax-nfs-knowledge.md) — Raw forum threads (2005–2010, pre-Frostbite)
+- [Mirror's Edge original (UE3)](#2-mirrors-edge-original-2008--textures) — Ninja Ripper / Texmod only

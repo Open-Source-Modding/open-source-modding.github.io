@@ -31,11 +31,11 @@ Cross-game tool compatibility issues and known problems.
 
 ## WD2 XBG Binary Import
 
-- The Blender addon's XBG binary import (`import_wd2_xbg.py`) works for
-  **static props only** (buildings, vehicles, props).
-- **Character models** (pers09, wrench, etc.) have a different binary format
-  that needs further reverse-engineering. Use `.glm` text import for character
-  models.
+- The Blender addon's XBG binary import (`import_wd2_xbg.py`) supports
+  **static props and character models** (pers09, wrench, etc.).
+- Character model support added 2026-09-05 — handles the different binary
+  layout (skipMess blobs, secondary motion, mesh list variants).
+- `.glm` text import remains available as a fallback.
 
 ## Cross-References
 

@@ -47,7 +47,7 @@
 ### Watch Dogs: Legion
 - [Engine Reference](disrupt/watch_dogs_legion/wdl_engine_reference.md)
 - [Modding Workflow](disrupt/watch_dogs_legion/modding-workflow.md)
-- [HKX Format (2017.2)](disrupt/watch_dogs_legion/HKX_FORMAT_REVERSE.md)
+- [HKX (Havok Physics) Dunia Wrapper Format](disrupt/watch_dogs_legion/HKX_FORMAT_REVERSE.md)
 - [Vehicle Adding Process](disrupt/watch_dogs_legion/vehicle-add-process.md)
 - [PreparePlatformData](disrupt/watch_dogs_legion/prepareplatformdata-pipeline.md)
 

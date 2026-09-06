@@ -11,7 +11,7 @@ WDL wraps every Havok tagfile in a 16-byte Dunia-specific header that controls f
 dispatch, content validation, and build-tag routing. The engine validates this header
 before stripping it and passing the remaining payload to Havok's `hkSerialize_Load_toVarInplace`.
 
-> **Source:** Watch Dogs: Legion retail files (EncryptedStudios RE).
+> **Source:** Watch Dogs: Legion retail files (EncryptedStudios RE). Cross-referenced with Havok 2015.1 class definitions (235 classes) extracted from WD2's Disrupt_64.dll.
 > Local tool references: [HKX2-Enhanced-Library](https://github.com/Monitor221hz/HKX2-Enhanced-Library) (Skyrim SE packfile parser), [HavokDisruptWD2](https://github.com/FranciscoManzanilla/HavokDisruptWD2) (HKX resolver for WD2), [StarfieldMeshConverter](https://github.com/SesamePaste233/StarfieldMeshConverter) (HKX mesh converter)
 > (HKX/OBJ/XML converter)
 

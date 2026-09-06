@@ -12,7 +12,7 @@ dispatch, content validation, and build-tag routing. The engine validates this h
 before stripping it and passing the remaining payload to Havok's `hkSerialize_Load_toVarInplace`.
 
 > **Source:** Watch Dogs: Legion retail files (EncryptedStudios RE).
-> Local tool references: `HKX2-Enhanced-Library` (Skyrim SE packfile parser), `HKX_OBJ_XML-Reverse`
+> Local tool references: [HKX2-Enhanced-Library](https://github.com/Monitor221hz/HKX2-Enhanced-Library) (Skyrim SE packfile parser), [HavokDisruptWD2](https://github.com/FranciscoManzanilla/HavokDisruptWD2) (HKX resolver for WD2), [StarfieldMeshConverter](https://github.com/SesamePaste233/StarfieldMeshConverter) (HKX mesh converter)
 > (HKX/OBJ/XML converter) in `/home/selene/Documents/Code/re/havok/parsers/` — not public tools.
 
 ## Dunia Wrapper Header (16 bytes)

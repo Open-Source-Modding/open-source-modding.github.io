@@ -131,6 +131,44 @@ The build tag selects which `.hkc` compendium file to load. The engine resolves
 - [`legion-primitive-files.md`](legion-primitive-files.md) — Havok 2017.2 primitive files and class definitions
 - [`../disrupt/havok-repos.md`](../disrupt/havok-repos.md) — GitHub repos for HKX parsing
 
+
+### Havok 2015.1 Class Definitions (WD2)
+
+Extracted from `Disrupt_64.dll` — 235 classes with sizes, versions, and parent chains.
+Member arrays are in the encrypted `.link` section (VMProtect); full layouts require
+a runtime dump.
+
+Sample structs (from `Havok2015_WD2.h`):
+
+```c
+struct hkAlignSceneToNodeOptions : public hkReferencedObject {
+    // size: 40 bytes, version: 7
+};
+
+struct hkGeometry : public hkReferencedObject {
+    // size: 48 bytes, version: 7
+    // 6 members (encrypted .link)
+};
+
+struct hkMeshBody : public hkReferencedObject {
+    // size: 440 bytes, version: 7
+    // 3 members (encrypted .link)
+};
+
+struct hkMeshSystem : public hkReferencedObject {
+    // size: 240 bytes, version: 7
+    // 1138 members (encrypted .link)
+};
+
+struct hknpBodyCinfo {
+    // size: 256 bytes, version: 7
+    // 22 members (encrypted .link)
+};
+```
+
+> **Source:** Havok 2015.1 class definitions (235 classes) extracted from WD2's Disrupt_64.dll.
+> Full header: `WD2/Havok2015_WD2.h`
+
 ---
 
 ## Credits

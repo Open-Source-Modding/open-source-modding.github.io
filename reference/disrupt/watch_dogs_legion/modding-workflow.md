@@ -18,22 +18,22 @@ UnpackLegion.exe patch.dat
 ```
 
 > **⚠ Do NOT use** Gibbed's Unpack tool or PackLegion — they are outdated and
-> produce incorrect results for WDL archives.
+> break on WDL archives.
 
 ### 2. Edit files
 
 Modify extracted files as needed — binary objects, textures, materials, etc.
 
 For binary object editing, `Gibbed.Disrupt.ConvertBinaryObject.exe` (the WD2
-version) works for WDL binary objects.
+version) handles WDL binary objects.
 
 ### 3. Pack and install mods
 
 Use **DisruptManager** (rootCBR) to pack modified files into `patch*` archives
 and install them.
 
-> **⚠ DisruptManager does NOT implement the installpackage trick.** It only
-> packs into `patch*` archives. See below for the installpackage workaround.
+> **⚠ DisruptManager skips the installpackage trick.** It only packs into
+> `patch*` archives. See below for the installpackage workaround.
 
 ## Archive Priority
 

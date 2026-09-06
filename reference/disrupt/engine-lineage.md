@@ -4,9 +4,9 @@ The **Disrupt engine** is a fork of **Dunia 2** (Far Cry 3), sharing the same
 folder tree, binary object format (`.dat`/`.fat`), and XML conventions. Open
 world city management comes from **AnvilNext** (Assassin's Creed).
 
-This lineage is why Far Cry modding tools (Gibbed.Disrupt, FCBastard) work
-across Disrupt games — the archive format, binary object structure, and file
-naming conventions are inherited from Dunia 2.
+Far Cry modding tools (Gibbed.Disrupt, FCBastard) work across Disrupt games
+because the archive format, binary object structure, and file naming
+conventions all come from Dunia 2.
 
 ## Games
 
@@ -17,8 +17,6 @@ naming conventions are inherited from Dunia 2.
 | **Watch Dogs: Legion** | 2020 | PC, consoles | MOEG binary format for compiled geometry. Havok 2017.2.0 chunked format. |
 
 ## Format Inheritance
-
-Because Disrupt descends from Dunia 2:
 
 - **Archive format** (`.dat`/`.fat`) is identical across Far Cry 3–6 and all
   Disrupt titles. Tools like Gibbed.Disrupt handle both.

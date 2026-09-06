@@ -1,12 +1,12 @@
 # Why Not? — Miscellaneous Ubisoft References
 
-A collection of interesting finds that don't fit neatly into format documentation but provide useful context about Ubisoft's infrastructure, games, and ecosystem.
+Miscellaneous Ubisoft infrastructure, game, and ecosystem references.
 
 ---
 
 ## Ubisoft Game Service (GS) — Complete Game List
 
-Ubisoft used their own Game Service from 2001–2007 for multiplayer/account management. Two implementation methods:
+Ubisoft operated Game Service from 2001–2007 for multiplayer and account management. Two implementation methods:
 
 **In-game integration** (`gsconnect.ubisoft.com`): Used from 2002–2007. Games include Far Cry, Splinter Cell: Chaos Theory, Ghost Recon: Jungle Storm, Rainbow Six 3, Brothers in Arms, Silent Hunter III, Heroes of Might and Magic V.
 
@@ -18,7 +18,7 @@ Ubisoft used their own Game Service from 2001–2007 for multiplayer/account man
 
 ## E3 2017 — Press/Streaming Archive Links
 
-Comprehensive index of E3 2017 press portals, Twitch streams, and YouTube archives for all major publishers.
+E3 2017 press portals, Twitch streams, and YouTube archives for all major publishers.
 
 - Ubisoft press: `https://www.ubisoft-press.com/`
 - Ubisoft Twitch: `https://www.twitch.tv/ubisoft`
@@ -35,7 +35,7 @@ Trackmania runs on Linux via Proton with no performance overhead. Two installati
 - **Steam**: Install via Steam client, enable Steam Play for all titles if needed
 - **Lutris**: Use Ubisoft Connect installer, run Openplanet via Wine prefix
 
-Openplanet (extension platform) also works on Linux via Protontricks.
+Openplanet (the extension platform) also works on Linux via Protontricks.
 
 - [Full guide (source)](https://gist.github.com/Geekid812/2f63e6efb4d0dc725487bb0951d09eee)
 
@@ -93,7 +93,7 @@ Complete collection of Watch Dogs: Legion store outfit appearance codes with hex
 
 ## Just Dance 2017 on macOS (Whisky)
 
-Running Ubisoft games on Apple Silicon Mac via Whisky (Wine wrapper):
+Running Ubisoft games on Apple Silicon Mac via Whisky (a Wine wrapper):
 
 1. Create bottle with Enhanced Sync (ESync) + DXVK enabled
 2. Install Steam in the bottle
@@ -107,12 +107,12 @@ Running Ubisoft games on Apple Silicon Mac via Whisky (Wine wrapper):
 
 ## Trackmania Webservices — Nadeo API Auth
 
-Nadeo's Trackmania API uses Ubisoft's public auth endpoint. Two auth methods:
+Nadeo's Trackmania API authenticates through Ubisoft's public endpoint. Two auth methods:
 
 1. **Ubisoft account**: POST `public-ubiservices.ubi.com/v3/profiles/sessions` with Basic auth (email:password), Ubi-AppId header → get ubi token → POST `prod.trackmania.core.nadeo.online/v2/authentication/token/ubiservices` with `ubi_v1 t=<token>`
 2. **Dedicated server account**: POST `prod.trackmania.core.nadeo.online/v2/authentication/token/basic` with Basic auth
 
-Key detail: Ubisoft blocks default user agents. Must include project name + contact in User-Agent header.
+Key detail: Ubisoft blocks default User-Agent strings. Include project name and contact in the header.
 
 - [Full auth guide (source)](https://gist.github.com/codecat/4dfd3719e1f8d9e5ef439d639abe0de4)
 - Community docs: https://webservices.openplanet.dev/

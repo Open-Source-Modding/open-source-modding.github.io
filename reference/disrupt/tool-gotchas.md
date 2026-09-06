@@ -14,14 +14,13 @@ Cross-game tool compatibility issues and known problems.
 | Tool | Works For | Notes |
 |------|-----------|-------|
 | **UnpackLegion** | WDL | Correct tool for Watch Dogs: Legion archives |
-| **UnpackWD2.exe** | WD2 only | **Wrong for WDL** (qstlijku confirmed) — produces corrupt output |
-| **PackLegion** | — | **Outdated** — do not use |
-| **ManageLegion** | — | **Outdated** — do not use |
+| **UnpackWD2.exe** | WD2 only | **Breaks on WDL** (qstlijku confirmed) — corrupt output |
+| **PackLegion** | — | **Do not use** — outdated, wrong format |
+| **ManageLegion** | — | **Do not use** — outdated, wrong format |
 
 ## DisruptManager (rootCBR)
 
-- Does **NOT** implement the installpackage trick — only packs into `patch*`
-  archives.
+- **Skips** the installpackage trick — only packs into `patch*` archives.
 - Archive priorities for WDL: `patch` > `common` > `worlds\london\london`.
 
 ## FCBastard

@@ -73,7 +73,7 @@ Reverse engineering and modding research for game engines, primarily the **Disru
 - [Engine Reference](reference/disrupt/watch_dogs_legion/wdl_engine_reference.md) — Denuvo RE, synthetic PDB, RTTI extraction
 - [Modding Workflow](reference/disrupt/watch_dogs_legion/modding-workflow.md) — UnpackLegion → edit → DisruptManager
 - [Denuvo Analysis](reference/disrupt/watch_dogs_legion/denuvo_analysis.md)
-- [HKX Format Reverse](reference/disrupt/watch_dogs_legion/HKX_FORMAT_REVERSE.md) — Havok 2017.2 chunked format
+- [HKX (Havok Physics) Dunia Wrapper Format](reference/disrupt/watch_dogs_legion/HKX_FORMAT_REVERSE.md) — Havok 2017.2 chunked format
 - [Vehicle Adding Process](reference/disrupt/watch_dogs_legion/vehicle-add-process.md)
 - [Material Bin Format (WDL)](reference/disrupt/watch_dogs_legion/material-bin-format.md)
 - [Primitive Files](reference/disrupt/watch_dogs_legion/legion-primitive-files.md)

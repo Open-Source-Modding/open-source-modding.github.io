@@ -4,7 +4,7 @@ Reversed from Watch Dogs: Legion retail/cooked/portable corpus (2026-08-19).
 
 > **Cross-reference**: Standard Havok packfile format (FO4 uses regular Havok SDK) →
 > [`reference/havok/hkx_format.md`](../../havok/hkx_format.md)
-> **Cross-reference**: WD1/WD2 (Havok 2012/2015.1 SDKs, Ubisoft-modified) practical collision + tooling →
+> **Cross-reference**: WD1/WD2 (Havok 2012/2015.1 SDKs, Ubisoft-modified) collision + tooling →
 > [`hkx-format.md`](../watch_dogs/hkx-format.md)
 
 ## Dunia Wrapper Header (16 bytes)
@@ -655,3 +655,11 @@ compatible type layouts.
 - If TCRF compendiums differ, verify type indices match (they usually do)
 - Only the root nomadStaticPhysResourceData index may need adjustment (206 vs 333)
 - The content hash at header +4 can be zeroed (engine doesn't validate it at runtime)
+
+---
+
+## Credits
+
+- **EncryptedStudios** (`□ΞnCrypTΞD□`) — primary author of this page. Reverse-engineered the Dunia wrapper header, TAG0 chunk structure, content hash algorithm, TCRF compendium format, and cross-class swapping rules from the Watch Dogs: Legion retail corpus.
+- **Havok SDK documentation** — type layouts and class definitions from the Havok 2017.2 Compendium (referenced via `hkx_format.md`).
+- **Watch Dogs Modding Discord** — community research on collision shapes, HKX editing workflows, and vehicle physics injection.

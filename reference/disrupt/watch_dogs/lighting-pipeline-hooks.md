@@ -268,6 +268,4 @@ PDB = function names/RVAs, header = GPU struct layouts.
 
 ## Community context
 
-black^0 (Discord 2026-08-28) hooked headlight fog via an `enableraincone` flag
-— crude engine-flag toggle, looked bad, disabled. Nobody has done a real
-lighting-pass hook for SSRTGI on WD1; our LightData/queue hook is novel.
+black^0's [ShadowEnginePatch](https://github.com/black^0/ShadowEnginePatch) is the primary WD1 renderer mod — shadow pipeline overrides, vehicle headlight improvements, diagnostic tools, and on-the-fly limiter adjustment. The LightData/queue hook above targets SSRTGI capture specifically, which is a different use case from ShadowEngine's shadow-pass work.

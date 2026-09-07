@@ -65,3 +65,13 @@ reference/
 
 - Organize `reference/unsorted/`: distribute `xentax-*-knowledge.md` and game drafts into proper section folders; fix broken `reference/index.md` links. ✅ DONE: `reference/unsorted/` is now empty. Knowledge files live alongside their game sections. All index links resolve.
 - GitHub Pages deploys (#7, #8, Aug 2026) failed on GitHub-side errors — environmental, not a repo problem.
+
+## Sensitive research
+
+`.confidential/` dirs in **other** Disrupt RE workspaces (not this repo, but the
+workspace root e.g. `~/Documents/Code/re/Ubisoft/Disrupt/.confidential/`) hold
+sensitive findings (author names, methodology, bytecode paths) that must NOT
+be published. When sanitizing docs for this site, the public version goes
+into `reference/disrupt/<game>/` and the full original stays in `.confidential/`.
+Never commit local file paths (`/home/...`) to the public site — they leak
+the user's filesystem.

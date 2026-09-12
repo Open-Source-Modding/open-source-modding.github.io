@@ -7,7 +7,7 @@
 
 WD1 ships compiled DX11 shaders in `shadersobj.dat` (thousands of `.pso`/`.vso` files). Each shader is a compiled DXBC bytecode blob named by a 32-bit CRC hash (e.g., `pixel_add5cf1b.pso`). You cannot add new shader resources — only modify existing ones.
 
-**Key constraint**: Ubisoft shaders have an extra header before the DXBC magic. CRC verification in the compiled bytecode means hex-editing DXBC directly invalidates the shader.
+**Key constraint**: compiled shaders are plain DXBC (`DXBC` magic at offset 0 — verified 2026-09-12; earlier claim of an extra header was wrong, see [Shader Compiler Pipeline](shader-compiler-pipeline.md)). CRC verification (`shaders.crc` / `.crc` files) means hex-editing DXBC directly can invalidate the shader.
 
 ## Approach A — Direct shadersobj Replacement (みる97)
 

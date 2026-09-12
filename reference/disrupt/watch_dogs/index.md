@@ -30,6 +30,7 @@
 - [Mirror Cubemap Mod](mirror-cubemap-mod.md) — make mirrors reflective: ReflectionType=2 + ReflectionTexture via official converter
 - [Shader Addons](shader-addons.md) — Parallellines' addonconfig.h, PBR extension, lighting fixes, community context
 - [Shader Editing Workflow](shader-editing-workflow.md) — direct shadersobj replacement vs 3Dmigoto injection, Legion leak compiler, gridshading
+- [Shader Compiler Pipeline](shader-compiler-pipeline.md) — ShaderCompiler2 (ComputeShaderID/TShaderID), FastInitData registry, .dep FNV-1 64 checksum, semantic system, WDL vs WD1 (2026-09-12)
 - [Asset Pipeline Formats](asset-pipeline-formats.md) — dev pipeline format mapping (authoring → runtime conversions)
 - [Community tools & references](community-resources.md)
 - [SMAA Notes](smaa-notes.md) — edge detection settings, community research
@@ -43,6 +44,7 @@
 - [SLID Format](slid-format.md) — sound event → .spk bank lookup table (13,581 entries, no magic)
 - [Player Watch Component](player-watch-component.md) — cut early-alpha wristwatch component (Feb 2012), fixed-speed seconds hand
 - [Depload Format](../depload-format.md) — cross-game dependency preload tables (WD1 32-bit / WD2+WDL 64-bit masked CRC64)
+- [Engine Modules](engine-modules.md) — internal library codenames (Pilot pathfinding, Storm networking, Gears serializer, DARE audio), APS progression/cut-content prefix, CDebugRecorder
 - [Havok Repos](../havok-repos.md) — GitHub/GitLab repos with HKX parsing (hkparse, HKX2, BlenderAddon, etc.)
 - [Legion Primitive Files](../watch_dogs_legion/legion-primitive-files.md) — Havok 2017.2 class definitions from WDL leak
 - [Decompiled DLLs](decompiled-dlls.md) — IDA Hex-Rays output from Ubisoft leak (GeomParser, DuniaDemo, gxasset, etc.)

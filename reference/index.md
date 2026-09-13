@@ -59,6 +59,9 @@
 - [Raw XeNTaX extraction](farcry/xentax-farcry-knowledge.md) — source threads (2018–2023): FAT v10→v11 change, hook/filelist filename recovery, FC6 XBG short-signed XZY verts per-LOD, SDOL chunk struct, FC6Model.exe + .bwsk/.dpdx facial-bone workflow
 - [File lists (hash → name)](farcry/filelists.md) — concatenated/ raw accumulation → OSM FarCry*-File-Lists submodules via RebuildFileLists; CRC64 path hashing, FAT v11 decode, positional install-path usage
 
+- [MAB animation format (FC3, buu342 RE)](farcry/mab-animation-format.md) — MAB version bytes per game (0x4C FC2 … 0xB0 FC5+ND), 9-section offset table at +200, 48-bit compressed quaternions (sqrt-W reconstruction), mystery-byte = quaternion-count bitmask, frame-array interpolation (FC4+); source knockout.chat/thread/55079 + github.com/buu342/PY-DuniaAnimationExtractor
+- [Far Cry modding (community docs)](farcry/modding/index.md) — FCModInstaller workflows (package/replace/option/template from the .docx) + community guides (FC4 materials/suppressors, FC5 outfit BWSK, FC6 Wwise music, FOV hex editing, StimTypes)
+
 ## XeNTaX Forum Knowledge (all games)
 Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc lives alongside its formats reference:
 

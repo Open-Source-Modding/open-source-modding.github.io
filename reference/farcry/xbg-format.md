@@ -139,3 +139,25 @@ state alongside each DXIL blob.
   → spirv-cross) — the container is now confirmed LZ4+DXBC-variant, so this
   should work; FC6 shader input layout (ISGN/ISG1) for true vertex-format
   confirmation (SDOL descriptor now resolved — see above).
+## Havok version (FC6) — RESOLVED Sep 2026
+
+FC6 uses **Havok 2017.2.0** (same as Watch Dogs Legion). Verified against the
+real FC6 install:
+
+- Havok is statically linked into `FC_m64d3d12.dll` (no standalone Havok DLLs
+  in `bin/`). Source paths embedded in the binary: `t:\tetra\main\external\havok\source\...`
+  (tetra = FC6 codename) with `Physics2012` module dir + `tagfile2014`
+  serializer (`hktagfilereadformat2014.cpp`), plus `hknp` (Havok New Physics,
+  2017+) symbols. The `Havok libs built with version [          ]` string is
+  blank — version stripped in Ubisoft's custom fork.
+- Extracted Havok objects (LZ4-decompressed entries of `worlds/fctworlds.dat`,
+  e.g. `hkpWorld` / `hkRootLevelContainer`, 14-16KB) start with the binary
+  **`TAG0`** tagfile magic followed by the SDK version string
+  **`SDKV20170200`** = SDK V2017.02.00.
+- Series evolution: FC5/New Dawn = `hk_2014.1.0-r1` (community-verified, EVE
+  11/2021); **FC6 = 2017.2.0**. FC3 = Havok 2010, FC4 = Havok 2012 (timsan99,
+  XeNTaX-era threads).
+- Note: FC6 Havok objects do NOT start with the XML `<hk` magic — they are the
+  binary `TAG0` tagfile format (the XML form only appears in hkxpack-style
+  exports). Signature for future extraction: `TAG0` + `SDKV20170200` near
+  offset 8.

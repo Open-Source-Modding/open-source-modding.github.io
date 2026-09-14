@@ -80,6 +80,41 @@ at runtime.
 The FC6 `<technique>` render-state XML is the **compiled form** of the exact
 state keywords FC1's `mfCompileRendState`/`mfCompileStencil` parse.
 
+## FC6 FastInitData (`d3d12/fastinitdata.bin`)
+
+The engine's shader registry — what `shadersobj.dat` must contain (family +
+define-variation IDs), decoded 2026-09-14. **Big-endian, string-keyed**
+(unlike WDL's FastInitData which is little-endian + u64 base-IDs).
+
+```
+[header]       u32BE @0 = 12 (version/type)    u32BE @4 = 119329 (count)
+[ID block]     119,329 × u64BE shader IDs  @0x08 .. 0xe9108  (sorted ascending)
+[string block] per-entry @0xe9110..end:  1-byte length + name
+```
+
+- **ID block**: sparse (not dense): `1,2,3,6,7,11,12,13,14,15,16,17,25,27,31,32,33,35,40,48...`
+  then large hash-like values. These are the actual shader IDs, sorted.
+- **String block**: 1-byte length prefix (verified: `0x0c`→`aaedgedetect`,
+  `0x0b`→`blendshapes`, `0x18`→`UPDATE_PREVIOUS_POSITION`, `0x09`→`USE_BAKED`,
+  `0x0c`→`HAS_BINORMAL`, `0x13`→`IGNORE_BLEND_SHAPES`, `0x0f`→`SKINNING_8BONES`,
+  `0x0b`→`BAKING_MODE`). ~4939 ASCII runs; ends with `AllOk`.
+- **Name types**: shader/param names (`aaedgedetect`, `blendshapes`,
+  `renormalization`, `boxparticle`) + shader compile defines
+  (`UPDATE_PREVIOUS_POSITION`, `USE_BAKED`, `SKINNING_8BONES`, `BAKING_MODE`,
+  `LIGHT_TYPE_DIRECTIONAL/OMNI/SPOT`, `DEBUG_SKIP_DENOISING`, ...).
+- **Role**: family + define registry. To mod FC6 shaders, a shader's ID must be
+  registered here or the engine won't enumerate/load it (same as WDL).
+
+**WDL vs FC6 FastInitData:**
+
+| Aspect | WDL | FC6 (d3d12) |
+|--------|-----|-------------|
+| Endianness | little | **big** |
+| Header | `nbCF` magic v3 | u32BE=12 + u32BE=count |
+| Family keying | `0xNN_00000000000000` base IDs | sparse u64 IDs + name strings |
+| Names | none in file | 1-byte-len-prefixed strings |
+| Entry count | ~444k members | 119,329 |
+
 ## Open (FC6-specific, not in FC1)
 
 - FC6 `sarb` wrapper around `DXBC` in `shadersobj.dat` — the blob does not

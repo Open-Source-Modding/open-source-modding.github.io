@@ -52,3 +52,56 @@ dotnet run --project Gibbed.FarCry6.RebuildFileLists -- <data_final/>
 - `failure.txt` receives genuine hash collisions (filtered from output) —
   case variants are deduped via `HashList.Add()` + lowercase modifier.
 - Merge rule: unions with existing lists, never overwrites/removes names.
+
+## CRC64 algorithm (the table gotcha)
+
+The FAT path hash is **CRC-64/XZ (ECMA-182)**, reflected, with Gibbed's exact
+table (`Gibbed.Dunia.FileFormats/Hashing/CRC64.cs`, first entries
+`0x0000000000000000, 0x01B0000000000000, 0x0360000000000000, 0x02D0000000000000`):
+
+```
+hash = 0
+for each byte b (lowercased path):
+    hash = Table[(hash & 0xFF) ^ b] ^ (hash >> 8)
+```
+
+- Lowercase the path first (`ToLowerInvariant`); separators are backslashes.
+- A non-reflected table (e.g. poly 0x42F0E1EBA9EA3693 fed into a shifted
+  generator) produces **wrong hashes** — use the table verbatim from CRC64.cs.
+- On-disk FAT entries store the hash **halves-swapped** (low 32 bits first), so
+  the filename `AA32FC2B699F7B7F` = stored form of CRC64 `699F7B7FAA32FC2B`.
+
+## Recovering unresolved (`__UNKNOWN`) entries
+
+Unpack puts unknown-hash entries under `__UNKNOWN/<type>/<HASH>.<ext>` where
+`<type>` is a content-magic guess (e.g. `fonts` for OTF), not the real path.
+To recover the real path:
+
+1. Look for the name inside **binary objects** that reference the asset —
+   compiled `.fcb` files contain plaintext paths (e.g. `PHXFT` font objects
+   embed `UI\Common\fonts\src\BenguiatProITC-BoldCond.otf`).
+2. Verify by hashing candidate paths with the correct table + lowercase +
+   swap; the result must equal the stored hash.
+3. Add the recovered path to the game's `.filelist` and re-run RebuildFileLists
+   so future unpacks resolve it natively.
+
+### Case study: FC6 Benguiat font (Sep 2026)
+
+`__UNKNOWN/fonts/AA32FC2B699F7B7F.otf` was the FC6 HUD/logo font. Its `.fcb`
+(Phoenix `PHXFT` font object, `__UNKNOWN/game/DA5801FB83FCC967.fcb`) referenced
+`UI\Common\fonts\src\BenguiatProITC-BoldCond.otf`. CRC64 (lowercase)
+of `ui\common\fonts\src\benguiatproitc-boldcond.otf` =
+`0x699F7B7FAA32FC2B` = stored `AA32FC2B699F7B7F` — exact match (independently
+confirmed by the Joseph-Seed bot's `!crc 64`). The path was absent from all
+recovered FC6 filelists (only `.ttf` fonts were listed), which is why it landed
+in `__UNKNOWN`. Added to `common.filelist` + `worlds/installpkg.filelist`
+(entry exists in both `common.fat` and `installpkg.fat`); FC6 RFL status went
+956125 → 956126/1502018 (63%).
+
+### Gotcha: RFL "unsupported compression scheme" (LZ4)
+
+The BigFileV2 layout split exposed a latent bug: `SanityCheckEntry` threw
+`FormatException("unsupported compression scheme")` on every v11 entry because
+the switch handled `None/LZO1x/Zlib/XMemCompress` but **not `LZ4`** — and v11
+(FC6) archives are majority-LZ4. Fix: add `LZ4`/`LZ4LW`/`Oodle` cases to the
+same zero-size guard as LZO1x/Zlib (BigFileV2.cs `SanityCheckEntry`).

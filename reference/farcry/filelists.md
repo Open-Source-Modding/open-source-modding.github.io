@@ -151,5 +151,21 @@ soundbinary/, animations/, move/, domino/) recovered **6,079 more paths**
 
 FC6 RFL status: 961645 -> **967724/1502018 (64%)**. Commits:
 FarCry6-File-Lists 913bfc1, Gibbed.Dunia 9297da8.
-Sample: movelendtrees\playerrdperson\weaponseload\gunsiflegripfnfalt_player_3rd_reload_begin_fnfal.move.bin.
+Sample: movelendtrees\playerrdperson\weapons
+eload\guns
+iflegripfnfalt_player_3rd_reload_begin_fnfal.move.bin.
+### Gotcha: FCBs embed runtime-relative paths, not archive paths
 
+String-crawling __UNKNOWN/game/*.fcb files recovers thousands of path-like
+strings that are RUNTIME-RELATIVE, not archive paths. Example: an FCB whose
+filename hash is 3C918827271D53CD embeds the null-terminated string
+"mainroot\blendtrees\bt_player_1st_reload_begin_mgl6" (lowercase, no
+extension), but its archive key is the FULL path
+move\blendtrees\player\1stperson\weapons\reload\guns\riflegrip\mgl6\bt_player_1st_reload_begin_mgl6.move.bin
+(raw crc64 0x3C918827271D53CD - confirmed present in the fat).
+
+Architectural rule: __UNKNOWN/game/<HASH>.fcb FILENAME hash equals the FULL
+archive-path hash of the asset it references. The internal strings use the
+"mainroot\..." runtime namespace and must NOT be treated as archive paths
+(wrong prefix/extension reconstruction -> hash never matches the fat). Verified
+against the community Joseph Seed CRC64 bot (matches the Gibbed table exactly).

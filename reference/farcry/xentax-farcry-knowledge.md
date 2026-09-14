@@ -159,6 +159,7 @@ game to log which files it opens:
 | Task | Tool | Source |
 |------|------|--------|
 | Unpack/pack FC3 (Dunia2) | Gibbed.Dunia2 (`svn.gib.me/builds/dunia2/`) | t=9927 |
+| Unpack/pack FC2-FC6 + ND + Primal | **Gibbed.Dunia (net8.0 x64, merged Sep 2026)** — Dunia2 merged in; Unpack `-j/--jobs` multithreaded | OSM |
 | Unpack FC5/FC6 archives | FCBConverter + file list | t=21425/t=24572 |
 | Filename logging (FC5) | FC5Hook_0.01_r1.rar (Ekey) | t=17888 |
 | Filename logging (FC6) | FC6.Hook_0.01_r2.zip (Ekey) | t=24572 |

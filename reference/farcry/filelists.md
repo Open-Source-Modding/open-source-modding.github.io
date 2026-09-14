@@ -151,9 +151,7 @@ soundbinary/, animations/, move/, domino/) recovered **6,079 more paths**
 
 FC6 RFL status: 961645 -> **967724/1502018 (64%)**. Commits:
 FarCry6-File-Lists 913bfc1, Gibbed.Dunia 9297da8.
-Sample: movelendtrees\playerrdperson\weapons
-eload\guns
-iflegripfnfalt_player_3rd_reload_begin_fnfal.move.bin.
+Sample: move\blendtrees\player\3rdperson\weapons\reload\guns\riflegrip\fnfal\bt_player_3rd_reload_begin_fnfal.move.bin.
 ### Gotcha: FCBs embed runtime-relative paths, not archive paths
 
 String-crawling __UNKNOWN/game/*.fcb files recovers thousands of path-like

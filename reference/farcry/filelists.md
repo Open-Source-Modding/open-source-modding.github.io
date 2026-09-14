@@ -135,3 +135,21 @@ Breakdown: 3,465 `.material.bin` (`graphics\_materials\<dev>-m-*.material.bin`),
 1,411 `.xbg` (world vista_locations, animals, extended content), 577 `.xbt`
 (ui\tetra\textures, common\textures\optionpreview), 31 `.spx`, 15 `.bik`.
 FC6 RFL status: 956146 → **961645/1502018 (64%)**.
+### Case study: 6,079 paths recovered from the installpkg tree (Sep 2026)
+
+A second pass over the **29 GB installpkg_unpack** tree (the full install adds
+soundbinary/, animations/, move/, domino/) recovered **6,079 more paths**
+(binary_recovered.filelist, now 11,579 lines):
+
+- **5,511 .move.bin** animation state machines: movelendtrees\... and
+  move\decisiontrees\... (player 1st/3rd-person weapon reload/shoot trees,
+  animal locomotion/action trees, AI stp trees). installpkg.fat holds the whole
+  movelendtrees asset class - previously unnamed.
+- **328 .xbt** DLC4 animal textures (_textures\<variant>\*_mips.xbt:
+  mongoose, jaguar, croc, jellyfish, crow, coyote flayed...).
+- **173 .fcb**, **13 .xbg** (world vista_locations), **54 .material.bin**.
+
+FC6 RFL status: 961645 -> **967724/1502018 (64%)**. Commits:
+FarCry6-File-Lists 913bfc1, Gibbed.Dunia 9297da8.
+Sample: movelendtrees\playerrdperson\weaponseload\gunsiflegripfnfalt_player_3rd_reload_begin_fnfal.move.bin.
+

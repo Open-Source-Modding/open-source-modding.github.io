@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-bethesda/oblivion-remastered" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Research: Oblivion Remastered (2025) — engine, containers, animation, modding | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/bethesda/oblivion-remastered"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Research: Oblivion Remastered (2025) — engine, containers, animation, modding | Open Source Modding"><meta data-rh="true" name="description" content="Date: 2026-08-18"><meta data-rh="true" property="og:description" content="Date: 2026-08-18"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/bethesda/oblivion-remastered"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/oblivion-remastered" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/oblivion-remastered" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research: Oblivion Remastered (2025) — engine, containers, animation, modding","item":"https://open-source-modding.github.io/docs/bethesda/oblivion-remastered"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/bethesda-formats"><span class="linkLabel_WmDU">Bethesda Archive, Model &amp; Texture Formats</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/fallout4-havok-guide"><span class="linkLabel_WmDU">fallout4-havok-guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/oblivion-remastered-guide"><span class="linkLabel_WmDU">Oblivion Remastered (2025) — Engine, Containers &amp; Animation Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/bethesda/oblivion-remastered"><span class="linkLabel_WmDU">Research: Oblivion Remastered (2025) — engine, containers, animation, modding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/skyrim-havok-guide"><span class="linkLabel_WmDU">Skyrim Havok Animation Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/skyrim-havok"><span class="linkLabel_WmDU">Research: Skyrim Havok / Animation Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/starfield-guide"><span class="linkLabel_WmDU">Starfield Modding &amp; Reverse Engineering Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/starfield"><span class="linkLabel_WmDU">Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/xentax-bethesda-knowledge"><span class="linkLabel_WmDU">Bethesda Games — XeNTaX Forum Knowledge</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">bethesda</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Research: Oblivion Remastered (2025) — engine, containers, animation, modding</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Research: Oblivion Remastered (2025) — engine, containers, animation, modding</h1></header>
+<p>Date: 2026-08-18
+Status: research notes for a future reference guide at <code>reference/bethesda/</code>
+Confidence: HIGH for engine version / container facts; MEDIUM where flagged.</p>
+<blockquote>
+<p>Scope note: Oblivion Remastered (Apr 22, 2025) is NOT a Havok/hkx title like FO4.
+It is a <strong>hybrid</strong>: Unreal Engine 5.3 renders the game; the original <strong>Gamebryo</strong>
+engine still runs core game logic (quests, AI, scripting, physics, combat).
+The site&#x27;s FO4 guide (Havok 2014 hkx) does NOT apply to animation here.</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-engine--dual-engine-hybrid">1. Engine — dual-engine hybrid<a href="#1-engine--dual-engine-hybrid" class="hash-link" aria-label="Direct link to 1. Engine — dual-engine hybrid" title="Direct link to 1. Engine — dual-engine hybrid" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Fact</th><th>Detail</th><th>Source (URL)</th><th>Confidence</th></tr></thead><tbody><tr><td>Renderer</td><td>Unreal Engine 5.3 (5.3.2 per community)</td><td>Wikipedia: <a href="https://en.wikipedia.org/wiki/The_Elder_Scrolls_IV:_Oblivion_Remastered" target="_blank" rel="noopener noreferrer" class="">https://en.wikipedia.org/wiki/The_Elder_Scrolls_IV:_Oblivion_Remastered</a> ; KelpyCode wiki: <a href="https://github.com/KelpyCode/oblivion-remastered-modding-wiki" target="_blank" rel="noopener noreferrer" class="">https://github.com/KelpyCode/oblivion-remastered-modding-wiki</a> ; nathtest/UProjOblivionRemastered: <a href="https://github.com/nathtest/UProjOblivionRemastered" target="_blank" rel="noopener noreferrer" class="">https://github.com/nathtest/UProjOblivionRemastered</a></td><td>HIGH (5 independent sources)</td></tr><tr><td>Game logic</td><td>Original Gamebryo engine (&quot;original engine is still used to handle core game logic&quot;)</td><td>UESP Remastered Changes: <a href="https://en.uesp.net/wiki/Oblivion:Remastered_Changes" target="_blank" rel="noopener noreferrer" class="">https://en.uesp.net/wiki/Oblivion:Remastered_Changes</a></td><td>HIGH</td></tr><tr><td>UE version evidence #2</td><td>FModel preset must be &quot;GAME_UE5_3&quot;</td><td>Nexus forums pak guide: <a href="https://forums.nexusmods.com/topic/13514000-unpacking-packing-pak-files-and-sound-replacement-guide-for-oblivion-remastered/" target="_blank" rel="noopener noreferrer" class="">https://forums.nexusmods.com/topic/13514000-unpacking-packing-pak-files-and-sound-replacement-guide-for-oblivion-remastered/</a></td><td>HIGH</td></tr><tr><td>UE version evidence #3</td><td>Animation modding requires compiling UE <strong>5.3.2</strong> source</td><td>Nexus article 141: <a href="https://www.nexusmods.com/oblivionremastered/articles/141" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/articles/141</a></td><td>HIGH</td></tr><tr><td>Rendering tech</td><td>UE5 Lumen dynamic lighting; ray tracing</td><td>UESP (Graphics section); Wikipedia</td><td>HIGH</td></tr><tr><td>Gamebryo core</td><td>Reported as updated to 64-bit stable</td><td><a href="https://md-eksperiment.org/en/post/20251211-oblivion-remastered-in-2025-10-key-upgrades-patch-history-and-smart-buyers-checklist" target="_blank" rel="noopener noreferrer" class="">https://md-eksperiment.org/en/post/20251211-oblivion-remastered-in-2025-10-key-upgrades-patch-history-and-smart-buyers-checklist</a></td><td>MEDIUM (secondary source)</td></tr><tr><td>Developers</td><td>Virtuos (Paris) + Bethesda Game Studios; dev began 2021; released 2025-04-22 (PS5/Win/XSX), Switch 2 2026-08-11</td><td>Wikipedia</td><td>HIGH</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-content-containers--file-structure">2. Content containers / file structure<a href="#2-content-containers--file-structure" class="hash-link" aria-label="Direct link to 2. Content containers / file structure" title="Direct link to 2. Content containers / file structure" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Fact</th><th>Detail</th><th>Source</th><th>Confidence</th></tr></thead><tbody><tr><td>Install layout</td><td><code>\Steam\steamapps\common\Oblivion Remastered\OblivionRemastered\Content\Paks</code> holds all .pak (+ .utoc/.ucas) files</td><td>Nexus forums pak guide</td><td>HIGH</td></tr><tr><td>Main pak</td><td><code>OblivionRemastered-Windows.pak</code> — all new sounds, code, most content</td><td>Nexus forums pak guide</td><td>HIGH</td></tr><tr><td>Container format</td><td>UE5 Io Store: .pak + .utoc + .ucas (mod managers list/delete all three; retoc repacks utoc; UESP mentions NPC asset folders &quot;in the utoc file&quot;)</td><td>Nexus mods 446 &quot;Plugins and Paks Manager&quot;; Nexus mods 3918 &quot;retoc and uAssetGUI&quot;; UESP</td><td>HIGH</td></tr><tr><td>NIF/BSA</td><td>Model+texture files loose or in BSAs are <strong>ignored</strong>; NIF format not compatible</td><td>UESP Remastered Changes (Technical)</td><td>HIGH</td></tr><tr><td>Gamebryo Data folder</td><td>Legacy Data lives at <code>Content\OblivionRemastered\Content\Dev\ObvData\Data</code> (contains ESMs/ESPs + Plugins.txt; script gens Plugins.txt there)</td><td>gist jonathanrbowman: <a href="https://gist.github.com/jonathanrbowman/28c53c0c17cf86e95bccccc3f089671e" target="_blank" rel="noopener noreferrer" class="">https://gist.github.com/jonathanrbowman/28c53c0c17cf86e95bccccc3f089671e</a></td><td>MEDIUM (single gist, corroborated by forum post: &quot;Plugins.txt in steamapps/common/Oblivion Remastered/...&quot;)</td></tr><tr><td>Plugins</td><td>Original ESM/ESP bytecode-identical to 2006 release; only <code>DLCHorseArmor.esp</code> differs (1 dirty message); remaster changes via 3 new ESPs: <code>AltarESPMain.esp</code>, <code>AltarDeluxe.esp</code>, <code>AltarESPLocal.esp</code></td><td>UESP Remastered Changes (Technical)</td><td>HIGH</td></tr><tr><td>Localization</td><td>UE5 string tables; every ESM/ESP record&#x27;s Full Name replaced by a unique string key; unkeyed mod records show <code>[NL]</code> prefix; unresolved keys show <code>&lt;MISSING STRING TABLE ENTRY&gt;</code></td><td>UESP Remastered Changes (Technical)</td><td>HIGH</td></tr><tr><td>Console</td><td>UE5 console replaces classic console; legacy commands need <code>obvConsole</code> prefix (e.g. <code>obvConsole tgm</code>); some Gamebryo commands (tcl) inert</td><td>UESP Remastered Changes (Technical)</td><td>HIGH</td></tr><tr><td>Audio</td><td>Wwise; sounds as <code>.wem</code> under <code>Content\WwiseAudio\Media</code> referenced via <code>MediaPathName</code> (e.g. <code>Media/94211525.wem</code>); new sounds under <code>OblivionRemastered/Content/WwiseAudio/Interface/...</code></td><td>Nexus forums pak guide</td><td>HIGH</td></tr><tr><td>Compression</td><td>Not explicitly confirmed as Oodle; UE 5.3 Io Store defaults to Oodle — VERIFY from .pak/.utoc header or FModel</td><td>(FModel uses game&#x27;s oodle dll)</td><td>MEDIUM</td></tr><tr><td>usmap</td><td>No entry in TheNaeem/Unreal-Mappings-Archive (checked tree 2026-08-18); community uses huwiee&#x27;s usmap at Nexus mods/47</td><td><a href="https://github.com/TheNaeem/Unreal-Mappings-Archive" target="_blank" rel="noopener noreferrer" class="">https://github.com/TheNaeem/Unreal-Mappings-Archive</a> ; <a href="https://www.nexusmods.com/oblivionremastered/mods/47" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/47</a></td><td>HIGH</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-animation--physics">3. Animation &amp; physics<a href="#3-animation--physics" class="hash-link" aria-label="Direct link to 3. Animation &amp; physics" title="Direct link to 3. Animation &amp; physics" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Fact</th><th>Detail</th><th>Source</th><th>Confidence</th></tr></thead><tbody><tr><td>Animation system</td><td><strong>UE5 native animation</strong> (Animation Sequences / Skeletal Meshes). Replaced by importing FBX into a UE 5.3.2 project; no hkx anywhere</td><td>Nexus article 141 (Animating for Oblivion Remastered)</td><td>HIGH</td></tr><tr><td>Animation naming/paths</td><td>e.g. <code>A_Humanoid_OneHand_Sprint.fbx</code> in <code>Content/Art/Animation/Humanoid/ThirdPerson/OneHanded/Locomotion/Normal</code>; skeleton <code>SKEL_HumanoidSkeleton</code> (virtual bones = IK leg targets); humanoid rig FBX <code>SK_HumanoidFull.fbx</code></td><td>Nexus article 141; Nexus mods 3989 (Humanoid Rig)</td><td>HIGH</td></tr><tr><td>Legacy note</td><td>2006 Oblivion used Gamebryo <strong>.kf/.nif</strong> animation (NOT hkx — hkx came with Skyrim/FO4). Remaster ignores NIF; original animation files not loadable</td><td>UESP Technical (NIF not compatible); site context</td><td>HIGH</td></tr><tr><td>Lip-sync</td><td>&quot;entirely new system&quot;</td><td>UESP (Animations)</td><td>HIGH</td></tr><tr><td>Physics</td><td>Still original Gamebryo-era physics (&quot;Physics are the exact same as OG oblivion&quot;); UESP: gravity slightly heavier, less ragdolling; physics-enabled objects settle immediately on cell load</td><td>Steam discussion: <a href="https://steamcommunity.com/app/2623190/discussions/0/604154245960183490/" target="_blank" rel="noopener noreferrer" class="">https://steamcommunity.com/app/2623190/discussions/0/604154245960183490/</a> ; UESP</td><td>HIGH</td></tr><tr><td>Havok?</td><td>No Havok on the UE5 side. Gamebryo side retains the legacy (Havok-era) physics stack. Oblivion physics were never the hkx behavior system anyway</td><td>inference from above</td><td>MEDIUM</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-modding-tools">4. Modding tools<a href="#4-modding-tools" class="hash-link" aria-label="Direct link to 4. Modding tools" title="Direct link to 4. Modding tools" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Role</th><th>Source URL</th></tr></thead><tbody><tr><td>FModel</td><td>browse/extract UE assets from paks; needs huwiee usmap + GAME_UE5_3 setting</td><td><a href="https://fmodel.app/" target="_blank" rel="noopener noreferrer" class="">https://fmodel.app/</a> ; <a href="https://www.nexusmods.com/oblivionremastered/mods/47" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/47</a></td></tr><tr><td>UnrealPak (FluffyQuak)</td><td>pack/unpack .pak (drag folder onto UnrealPak-With-Compression.bat / UnrealUnpak.bat)</td><td><a href="https://github.com/Dmgvol/UE_Modding/blob/main/BasicModding/UnrealPak.md" target="_blank" rel="noopener noreferrer" class="">https://github.com/Dmgvol/UE_Modding/blob/main/BasicModding/UnrealPak.md</a></td></tr><tr><td>UE4SS for OblivionRemastered</td><td>Lua scripting loader/injector for UE side</td><td><a href="https://www.nexusmods.com/oblivionremastered/mods/32" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/32</a></td></tr><tr><td>UE4SS TesSyncMapInjector</td><td>syncs .esp form IDs with UE runtime (no pak needed); Smart Mapper variant</td><td><a href="https://www.nexusmods.com/oblivionremastered/mods/1272" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/1272</a> ; /2784</td></tr><tr><td>OBSE64</td><td>Oblivion Remastered Script Extender (engine-level)</td><td>KelpyCode wiki create.md: <a href="https://raw.githubusercontent.com/KelpyCode/oblivion-remastered-modding-wiki/main/create.md" target="_blank" rel="noopener noreferrer" class="">https://raw.githubusercontent.com/KelpyCode/oblivion-remastered-modding-wiki/main/create.md</a></td></tr><tr><td>xEdit → TES4REdit.exe</td><td>plugin editor; rename xEdit exe to load remaster plugins</td><td>Nexus forums topic 13515989</td></tr><tr><td>Construction Set v1.2</td><td>legacy plugin editing still works for data layer</td><td><a href="https://cs.uesp.net/wiki/The_Elder_Scrolls_Construction_Set" target="_blank" rel="noopener noreferrer" class="">https://cs.uesp.net/wiki/The_Elder_Scrolls_Construction_Set</a></td></tr><tr><td>MagicLoader + MagicPatcher</td><td>new interior cells; generates .json config</td><td><a href="https://www.nexusmods.com/oblivionremastered/mods/1966" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/1966</a> ; /2906</td></tr><tr><td>nathtest/UProjOblivionRemastered</td><td>UE 5.3.2 project from UE4SS dump; blueprint modding base (needs ENGINE_API fix in InputDeviceProperties.h)</td><td><a href="https://github.com/nathtest/UProjOblivionRemastered" target="_blank" rel="noopener noreferrer" class="">https://github.com/nathtest/UProjOblivionRemastered</a></td></tr><tr><td>Blueprint Mod Loader / Simple Mod Loader</td><td>load blueprint .pak mods</td><td><a href="https://www.nexusmods.com/oblivionremastered/mods/2610" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/2610</a></td></tr><tr><td>retoc + uAssetGUI</td><td>repack utoc; edit uassets; mods load if named alphabetically before Oblivion paks (e.g. 000_Mod.pak)</td><td><a href="https://www.nexusmods.com/oblivionremastered/mods/3918" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/3918</a></td></tr><tr><td>Plugins and Paks Manager</td><td>plugin + pak management GUI</td><td><a href="https://www.nexusmods.com/oblivionremastered/mods/446" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/446</a></td></tr><tr><td>Generate Plugins.txt Loader</td><td>PowerShell Plugins.txt generator</td><td><a href="https://www.nexusmods.com/oblivionremastered/mods/283" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/283</a></td></tr><tr><td>Wwise</td><td>convert .wav → .wem for sound mods</td><td><a href="https://www.audiokinetic.com/en/" target="_blank" rel="noopener noreferrer" class="">https://www.audiokinetic.com/en/</a></td></tr><tr><td>MO2 dev build</td><td>supports remaster (Discord)</td><td><a href="https://discord.gg/ewUVAqyrQX" target="_blank" rel="noopener noreferrer" class="">https://discord.gg/ewUVAqyrQX</a></td></tr><tr><td>NIF→FBX converter</td><td>DaggerfallTeam (Patreon, not free)</td><td><a href="https://www.patreon.com/DaggerfallTeam/posts/nif-to-fbx-for-128457165" target="_blank" rel="noopener noreferrer" class="">https://www.patreon.com/DaggerfallTeam/posts/nif-to-fbx-for-128457165</a></td></tr><tr><td>Mod naming rule</td><td>folder <code>OblivionRemastered-Windows_&lt;mod&gt;_P</code>; .pak must end <code>_P</code> for MO2/Vortex</td><td>Nexus forums pak guide</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-community-resources">5. Community resources<a href="#5-community-resources" class="hash-link" aria-label="Direct link to 5. Community resources" title="Direct link to 5. Community resources" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Resource</th><th>URL</th><th>Notes</th></tr></thead><tbody><tr><td>Nexus Mods game page</td><td><a href="https://www.nexusmods.com/oblivionremastered" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered</a></td><td>official mod hosting</td></tr><tr><td>Oblivion Remastered Modding Wiki</td><td><a href="https://github.com/KelpyCode/oblivion-remastered-modding-wiki" target="_blank" rel="noopener noreferrer" class="">https://github.com/KelpyCode/oblivion-remastered-modding-wiki</a> (site: oblivion.kelp.li / oblivion.wiki)</td><td>tools (create.md), faq (empty)</td></tr><tr><td>Oblivion Remastered Modding Discord</td><td><a href="https://discord.gg/4FJEEsmDSy" target="_blank" rel="noopener noreferrer" class="">https://discord.gg/4FJEEsmDSy</a> ; <a href="https://oblivion.wiki/discord" target="_blank" rel="noopener noreferrer" class="">https://oblivion.wiki/discord</a></td><td>guides, tech support</td></tr><tr><td>UESP</td><td><a href="https://en.uesp.net/wiki/Oblivion:Oblivion_Remastered" target="_blank" rel="noopener noreferrer" class="">https://en.uesp.net/wiki/Oblivion:Oblivion_Remastered</a> ; Remastered Changes ; Remastered Combat</td><td>canonical gameplay/tech change list</td></tr><tr><td>Steam</td><td>App ID 2623190 — <a href="https://store.steampowered.com/app/2623190/" target="_blank" rel="noopener noreferrer" class="">https://store.steampowered.com/app/2623190/</a></td><td>discussions active</td></tr><tr><td>Nexus forums tools/tutorials list</td><td><a href="https://forums.nexusmods.com/topic/13515989-list-of-tools-and-tutorials-for-making-oblivion-remastered-mods/" target="_blank" rel="noopener noreferrer" class="">https://forums.nexusmods.com/topic/13515989-list-of-tools-and-tutorials-for-making-oblivion-remastered-mods/</a></td><td>curated tool+tutorial index</td></tr><tr><td>Full modding guide (video)</td><td><a href="https://www.youtube.com/watch?v=Kv-iOPHuOiE" target="_blank" rel="noopener noreferrer" class="">https://www.youtube.com/watch?v=Kv-iOPHuOiE</a></td><td>Blender+UE5 mesh/texture pipeline</td></tr><tr><td>Wakui tecblog animation guide</td><td><a href="https://wakui-tecblog.chimpoy.click/modding-oblivion-remastered-in-ue-5-3-2-a-guide-to-replacing-animations/" target="_blank" rel="noopener noreferrer" class="">https://wakui-tecblog.chimpoy.click/modding-oblivion-remastered-in-ue-5-3-2-a-guide-to-replacing-animations/</a></td><td>UE 5.3.2 animation replacement (could NOT fetch — connection error)</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-urls-that-could-not-be-accessed-user-may-want-to-paste-content">6. URLs that could NOT be accessed (user may want to paste content)<a href="#6-urls-that-could-not-be-accessed-user-may-want-to-paste-content" class="hash-link" aria-label="Direct link to 6. URLs that could NOT be accessed (user may want to paste content)" title="Direct link to 6. URLs that could NOT be accessed (user may want to paste content)" translate="no">​</a></h2>
+<ol>
+<li class=""><a href="https://wakui-tecblog.chimpoy.click/modding-oblivion-remastered-in-ue-5-3-2-a-guide-to-replacing-animations/" target="_blank" rel="noopener noreferrer" class="">https://wakui-tecblog.chimpoy.click/modding-oblivion-remastered-in-ue-5-3-2-a-guide-to-replacing-animations/</a> — connection error (animation replacement guide; title confirms UE 5.3.2)</li>
+<li class=""><a href="https://www.nexusmods.com/oblivionremastered/mods/47" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/oblivionremastered/mods/47</a> — page shell fetched but description/screenshots (FModel settings) not rendered</li>
+<li class=""><a href="https://modding-on-the-spectrum.com/viewtopic.php?t=282" target="_blank" rel="noopener noreferrer" class="">https://modding-on-the-spectrum.com/viewtopic.php?t=282</a> — content not rendered (JS-driven)</li>
+<li class=""><a href="https://en.uesp.net/wiki/Oblivion:Remastered_Changes" target="_blank" rel="noopener noreferrer" class="">https://en.uesp.net/wiki/Oblivion:Remastered_Changes</a> — HTML shell empty; wikitext retrieved via API <code>https://en.uesp.net/w/api.php?action=parse&amp;page=Oblivion:Remastered_Changes&amp;prop=wikitext&amp;format=json</code></li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-guide-writing-pointers-for-later">7. Guide-writing pointers (for later)<a href="#7-guide-writing-pointers-for-later" class="hash-link" aria-label="Direct link to 7. Guide-writing pointers (for later)" title="Direct link to 7. Guide-writing pointers (for later)" translate="no">​</a></h2>
+<ul>
+<li class="">Emphasize the hybrid architecture FIRST — it changes every expectation (two asset pipelines: UE5 paks + legacy Gamebryo Data/plugins).</li>
+<li class="">&quot;Data conversion&quot;: original game data (esm/bsa/meshes/nif) was re-authored as UE5 assets for rendering; the legacy Data folder survives for logic; BSA/NIF ignored at runtime.</li>
+<li class="">Animation section: UE5 skeletal animation pipeline (FBX → uasset → pak with Io Store), NOT Havok behavior graphs. Contrast with FO4 guide.</li>
+<li class="">Physics section: legacy Gamebryo/Havok-era physics untouched; ragdoll unchanged in character.</li>
+<li class="">File formats to document: .pak/.utoc/.ucas (Io Store), .usmap, .uasset/.uexp, .wem (Wwise), .esp/.esm (legacy, byte-identical), Plugins.txt.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/bethesda/oblivion-remastered-guide"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Oblivion Remastered (2025) — Engine, Containers &amp; Animation Reference</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/bethesda/skyrim-havok-guide"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Skyrim Havok Animation Reference</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-engine--dual-engine-hybrid" class="table-of-contents__link toc-highlight">1. Engine — dual-engine hybrid</a></li><li><a href="#2-content-containers--file-structure" class="table-of-contents__link toc-highlight">2. Content containers / file structure</a></li><li><a href="#3-animation--physics" class="table-of-contents__link toc-highlight">3. Animation &amp; physics</a></li><li><a href="#4-modding-tools" class="table-of-contents__link toc-highlight">4. Modding tools</a></li><li><a href="#5-community-resources" class="table-of-contents__link toc-highlight">5. Community resources</a></li><li><a href="#6-urls-that-could-not-be-accessed-user-may-want-to-paste-content" class="table-of-contents__link toc-highlight">6. URLs that could NOT be accessed (user may want to paste content)</a></li><li><a href="#7-guide-writing-pointers-for-later" class="table-of-contents__link toc-highlight">7. Guide-writing pointers (for later)</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

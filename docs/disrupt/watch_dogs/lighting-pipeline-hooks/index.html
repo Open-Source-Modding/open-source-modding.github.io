@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-disrupt/watch_dogs/lighting-pipeline-hooks" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Disrupt WD1 Lighting Pipeline — Renderer Internals &amp; Hook Points | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/disrupt/watch_dogs/lighting-pipeline-hooks"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Disrupt WD1 Lighting Pipeline — Renderer Internals &amp; Hook Points | Open Source Modding"><meta data-rh="true" name="description" content="Source: Shadow Engine source (Open-Source-Modding/Shadow-Engine, cloned"><meta data-rh="true" property="og:description" content="Source: Shadow Engine source (Open-Source-Modding/Shadow-Engine, cloned"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/lighting-pipeline-hooks"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/lighting-pipeline-hooks" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/lighting-pipeline-hooks" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Watch Dogs Reference","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/"},{"@type":"ListItem","position":2,"name":"Disrupt WD1 Lighting Pipeline — Renderer Internals & Hook Points","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/lighting-pipeline-hooks"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/blender-addon"><span class="linkLabel_WmDU">blender-io-disrupt — Blender Addon</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/compressed_mesh_format"><span class="linkLabel_WmDU">WD1/WD2/WDL Compressed Mesh Format (Havok 2017.2)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/custom-model-workflow"><span class="linkLabel_WmDU">Custom Model Workflow (Watch Dogs 1/2)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/depload-format"><span class="linkLabel_WmDU">Depload Format (Dependency Preload Manifest)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/disrupt-editor"><span class="linkLabel_WmDU">Ubisoft&#x27;s Internal Disrupt Editor (WDL)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/engine-lineage"><span class="linkLabel_WmDU">Disrupt Engine Lineage</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/glm-format"><span class="linkLabel_WmDU">GLM Format (Watch Dogs / Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/havok-repos"><span class="linkLabel_WmDU">GitHub Repos for HKX/Havok Format Research</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/installpackage-patch"><span class="linkLabel_WmDU">installpackage-over-patch DLL Hex Edit</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/tool-gotchas"><span class="linkLabel_WmDU">Disrupt Engine — Tool Gotchas</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/disrupt/unsorted/MaterialBin/matbin"><span class="categoryLinkLabel_W154">unsorted</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/disrupt/watch_dogs/"><span class="categoryLinkLabel_W154">Watch Dogs Reference</span></a><button aria-label="Collapse sidebar category &#x27;Watch Dogs Reference&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/archive-priorities"><span class="linkLabel_WmDU">Archive Load Priority (Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/asset-pipeline-formats"><span class="linkLabel_WmDU">Disrupt Engine — Asset Pipeline Format Mapping</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/bfd-format"><span class="linkLabel_WmDU">BFD (Binary Font Data) Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/community-resources"><span class="linkLabel_WmDU">Watch Dogs — Community Tools &amp; References</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/compressed-mesh-format"><span class="linkLabel_WmDU">compressed-mesh-format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/decompiled-dlls"><span class="linkLabel_WmDU">Decompiled DLLs (Ubisoft Leak)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/engine-modules"><span class="linkLabel_WmDU">Engine Modules &amp; Library Names</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/entity-xml-structure"><span class="linkLabel_WmDU">Entity XML Structure (Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/fat-archive-format"><span class="linkLabel_WmDU">FAT/DAT Archive Format (Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/feu-format"><span class="linkLabel_WmDU">FEU Format (Flash UI)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/hashing"><span class="linkLabel_WmDU">Watch Dogs Hashing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/hkx-format"><span class="linkLabel_WmDU">Watch Dogs HKX Collision Format (WD1/WD2 — Ubisoft&#x27;s Havok fork)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/injection-internals"><span class="linkLabel_WmDU">WD1/WD2 HKX Injection Internals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/lighting-parameters"><span class="linkLabel_WmDU">Watch Dogs 1 — Environment Lighting Parameters</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/disrupt/watch_dogs/lighting-pipeline-hooks"><span class="linkLabel_WmDU">Disrupt WD1 Lighting Pipeline — Renderer Internals &amp; Hook Points</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/mab-format"><span class="linkLabel_WmDU">Watch Dogs .mab Animation Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/mac-format"><span class="linkLabel_WmDU">Watch Dogs MAC (Mesh Animation Clip) Binary Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/markup-format"><span class="linkLabel_WmDU">Watch Dogs Animation Markup XML Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/material-bin-format"><span class="linkLabel_WmDU">Watch Dogs .material.bin Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/material-descriptors"><span class="linkLabel_WmDU">Watch Dogs Material Descriptors</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/material-hex-editing"><span class="linkLabel_WmDU">Watch Dogs Material Hex Editing — Community Tips</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/materialdescriptors/"><span class="linkLabel_WmDU">Material Descriptors</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/mirror-cubemap-mod"><span class="linkLabel_WmDU">Mirror Cubemap Mod (Watch_Dogs 1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/packfile-format"><span class="linkLabel_WmDU">Havok Packfile Format — WD1/WD2 (64-bit, Havok 2012)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/player-watch-component"><span class="linkLabel_WmDU">Player Watch Component (cut alpha content)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/shader-addons"><span class="linkLabel_WmDU">Watch Dogs 1 Shader System — Parallellines&#x27; Addon Configuration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/shader-compiler-pipeline"><span class="linkLabel_WmDU">Watch Dogs 1 / Legion — Shader Compiler Pipeline &amp; Shader Registry</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/shader-editing-workflow"><span class="linkLabel_WmDU">Watch Dogs 1 — Shader Editing Workflow</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/slid-format"><span class="linkLabel_WmDU">Watch Dogs — SLID (Sound ID Link) Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/smaa-notes"><span class="linkLabel_WmDU">Watch Dogs — SMAA Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/spk-format"><span class="linkLabel_WmDU">WD1 SPK Sound Package Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/spk-sound-structure"><span class="linkLabel_WmDU">Watch Dogs — SPK Sound Pack Structure &amp; Switch Events</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/ssrtgi-project"><span class="linkLabel_WmDU">Watch Dogs 1 — SSRTGI ASI (screen-space ray-traced GI) project notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/swf-file-format-spec"><span class="linkLabel_WmDU">SWF File Format Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/wii-u-debug-symbols"><span class="linkLabel_WmDU">Watch Dogs Wii U — RPX Binary &amp; Symbol Table</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/wii-u-rpx-symbols"><span class="linkLabel_WmDU">Watch Dogs Wii U — RPX Binary &amp; Symbol Table</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/wii-u-rpx-to-elf"><span class="linkLabel_WmDU">Watch Dogs Wii U — RPX → ELF Conversion &amp; IDA Loading</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/xbg-format-geparser"><span class="linkLabel_WmDU">XBG Format — GeomParser Decompile Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/xbt-texture-format"><span class="linkLabel_WmDU">XBT Texture Format — Watch Dogs 1 (Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/xentax-watchdogs-knowledge"><span class="linkLabel_WmDU">Watch Dogs / Disrupt Engine — XeNTaX Knowledge Extraction</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/disrupt/watch_dogs_2/community-resources"><span class="categoryLinkLabel_W154">watch_dogs_2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/disrupt/watch_dogs_legion/"><span class="categoryLinkLabel_W154">WDL-Reversing</span></a><button aria-label="Expand sidebar category &#x27;WDL-Reversing&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/weapon-adding-guide"><span class="linkLabel_WmDU">Adding a New Weapon to Disrupt (WD1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/wlu-format"><span class="linkLabel_WmDU">WLU Format (World Location Unit)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/xbgmip-format"><span class="linkLabel_WmDU">XBGMIP Format — High-Detail Streamed LOD (WD1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/xbt-format"><span class="linkLabel_WmDU">XBT Texture Format — Disrupt Engine (shared)</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">disrupt</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/disrupt/watch_dogs/"><span>Watch Dogs Reference</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Disrupt WD1 Lighting Pipeline — Renderer Internals &amp; Hook Points</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Disrupt WD1 Lighting Pipeline — Renderer Internals &amp; Hook Points</h1></header>
+<blockquote>
+<p><strong>Source</strong>: Shadow Engine source (<code>Open-Source-Modding/Shadow-Engine</code>, cloned
+<code>/tmp/shadow_engine_src/</code>), shipped WD1 shader source (<code>shaders_unpack/</code>),
+<code>Disrupt_b64.c</code> Hex-Rays decompile, Wii U debug symbols. Assimilated
+2026-08-28 for the SSRTGI-on-real-lights project.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-goal">The goal<a href="#the-goal" class="hash-link" aria-label="Direct link to The goal" title="Direct link to The goal" translate="no">​</a></h2>
+<p>SSRTGI (screen-space ray-traced GI) currently gathers flat screen color from
+the pre-UI scene color buffer. It looks flat because it has no knowledge of
+actual light sources. This doc maps the engine&#x27;s <strong>real illumination data
+path</strong> so we can hook it and feed actual lights (position/color/attenuation)
+into the SSRTGI pass.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="engine-light-data-flow-verified">Engine light data flow (verified)<a href="#engine-light-data-flow-verified" class="hash-link" aria-label="Direct link to Engine light data flow (verified)" title="Direct link to Engine light data flow (verified)" translate="no">​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">world + vehicle lights</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  → CSceneLightInstance / CSceneLightInstancePrivateData (CRendererLighting)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  → light candidate records in the renderer queue (0x24C0 bytes each)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  → CMultiPassDeferredLighting::JobSetup (deferred lighting pass)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  → per-light LightData constant buffer (LightPosition/LightFrontColor/...)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  → GPU shaders (lighting.inc.fx SSunLight/SOmniLight/SSpotLight)</span><br></div></code></pre></div></div>
+<p>The renderer queue record stride is <code>0x24C0</code> bytes; face/light-object slots at
+<code>entry + 0x7D8</code>, stride <code>0x820</code> (each slot holds a light object pointer; the
+object has a cost/type u32 at <code>object + 0x20</code>). <code>RENDER_QUEUE_COUNT_OFFSET</code>
+holds the queue entry count.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="shadow-engine-rvas-vanilla-wd1-retail--️-0x1000000-offset-correction">Shadow Engine RVAs (vanilla WD1 retail) — ⚠️ +0x1000000 offset correction<a href="#shadow-engine-rvas-vanilla-wd1-retail--️-0x1000000-offset-correction" class="hash-link" aria-label="Direct link to Shadow Engine RVAs (vanilla WD1 retail) — ⚠️ +0x1000000 offset correction" title="Direct link to Shadow Engine RVAs (vanilla WD1 retail) — ⚠️ +0x1000000 offset correction" translate="no">​</a></h2>
+<p>These are the <em>supported</em> (base/vanilla) RVAs from Shadow Engine&#x27;s
+<code>src/modules/00_shared_config_state.inc</code>. <code>resolve_engine_rva()</code> returns them
+verbatim when no protected profile is selected.</p>
+<p><strong>⚠️ CORRECTION (verified 2026-08-28 against retail bytes + Ghidra decomp):</strong>
+Shadow Engine&#x27;s published values are <strong>+0x1000000 (16MB) below the true file
+RVA / Ghidra absolute address</strong>. The retail DLL image base is <code>0x180000000</code>
+(PE header, confirmed). Ground truth: at file RVA <code>0x306E60</code> the bytes are
+mid-instruction (<code>48 8b d0 e8...</code>, no prologue); the real function prologue
+(<code>48 89 5c 24 08 48 89 6c 24 10...</code>) is at RVA <code>0x1306E60</code>, which Ghidra names
+<code>FUN_181306e60</code>. So: <strong>ShadowEngine value + 0x1000000 = true RVA =
+Ghidra/IDA absolute address <code>0x180000000 + that</code>.</strong> Always add the offset.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Purpose</th><th>ShadowEngine value</th><th>True RVA</th><th>Ghidra symbol</th></tr></thead><tbody><tr><td>Renderer queue processor (shadow/light dispatch)</td><td><code>0x00306E60</code></td><td><code>0x1306E60</code></td><td><code>FUN_181306e60</code></td></tr><tr><td>Frame builder</td><td><code>0x003DC780</code></td><td><code>0x13DC780</code></td><td><code>FUN_1813dc780</code></td></tr><tr><td>Frame builder end</td><td><code>0x003DF833</code></td><td><code>0x13DF833</code></td><td>—</td></tr><tr><td>Execute frame graph dispatch</td><td><code>0x003BA460</code></td><td><code>0x13BA460</code></td><td>—</td></tr><tr><td>Render record acquire/release/ctor</td><td><code>0x003E0F80</code>/<code>0x003C1350</code>/<code>0x003E4420</code></td><td><code>0x13E0F80</code>/...</td><td>—</td></tr><tr><td>Post-call task ctor/execute</td><td><code>0x003E69D0</code>/<code>0x003E4DF0</code></td><td><code>0x13E69D0</code>/...</td><td>—</td></tr><tr><td>Post-call object renderers</td><td><code>0x003CA980</code></td><td><code>0x13CA980</code></td><td><code>LAB_1813ca980</code></td></tr><tr><td>Shadow manager</td><td><code>0x002E9B60</code></td><td><code>0x12E9B60</code></td><td>—</td></tr><tr><td>Scheduler init/floor/upper</td><td><code>0x002E8E89</code>/<code>0x002E9C21</code>/<code>0x002E9C3B</code></td><td>+0x1000000</td><td>—</td></tr><tr><td>Face cost reader</td><td><code>0x002C0490</code></td><td><code>0x12C0490</code></td><td>—</td></tr><tr><td>Resource submit/wrapper</td><td><code>0x00427710</code>/<code>0x00427860</code></td><td>+0x1000000</td><td>—</td></tr><tr><td>Shared texture lookup</td><td><code>0x00430A80</code></td><td><code>0x1430A80</code></td><td>—</td></tr><tr><td>Pass index lookup/store</td><td><code>0x003073E2</code>/<code>0x00308441</code></td><td>+0x1000000</td><td>—</td></tr><tr><td>Queue count init</td><td><code>0x002E2236</code></td><td><code>0x12E2236</code></td><td>—</td></tr></tbody></table>
+<p>In the Ghidra decomp (<code>Disrupt_b64.c</code>), <code>FUN_181306e60</code> is the renderer queue
+processor. It calls <code>FUN_1813057b0</code> (the per-record dispatcher / light-member→
+shader-param setter).</p>
+<p>Queue/record offsets (native 16-map layout; Shadow Engine expands to 30 maps
+for its own patch — <strong>the vanilla game uses 16</strong>):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Offset</th></tr></thead><tbody><tr><td>First mapping array</td><td><code>0x270D0</code></td></tr><tr><td>Second mapping array</td><td><code>0x27114</code></td></tr><tr><td>Queue count</td><td><code>0x27158</code></td></tr><tr><td>Queue tail</td><td><code>0x27160</code></td></tr><tr><td>Queue result</td><td><code>0x27170</code></td></tr><tr><td>Record entry stride</td><td><code>0x24C0</code></td></tr><tr><td>Face slot base in record</td><td><code>+0x7D8</code>, stride <code>0x820</code></td></tr></tbody></table>
+<p><code>SHADOW_PASS_CATEGORY = 0x0C</code>, pass 16 = <code>LongRangeShadow</code>, native 16 local maps,
+17 physical queue entries (extra entry = long-range job).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gpu-light-structures-from-shipped-shaders">GPU light structures (from shipped shaders)<a href="#gpu-light-structures-from-shipped-shaders" class="hash-link" aria-label="Direct link to GPU light structures (from shipped shaders)" title="Direct link to GPU light structures (from shipped shaders)" translate="no">​</a></h2>
+<p><code>shaders_unpack/engine/shaders/lighting.inc.fx</code>:</p>
+<ul>
+<li class=""><code>SOmniLight</code> (132 B): <code>position float3, attenuation float3, rcpRadius, rcpShadowFadeRange, backColor float3, frontColor float3, capsuleDivLength float4, capsuleMulLength float3, shadowMapSizes float4, shadowFactor float2, halfLambert bool, receiveShadow bool, hiResShadowFilter bool, specularIntensity float, depthTransform float2</code></li>
+<li class=""><code>SSpotLight</code> (180 B): position, direction, attenuation, backColor, frontColor,
+coneFactors float2, specularIntensity, shadowProjections float4x4, ...</li>
+<li class=""><code>SSunLight</code> (160 B): direction, shadowProjection float4x4, backColor,
+frontColor, halfLambert, receiveShadow, shadowFactor float2, ...</li>
+</ul>
+<p><code>parameters/lightdata.fx</code> (per-light CB): <code>LightPosition</code>, <code>LightFrontColor</code>,
+<code>LightDirection</code>, <code>LightAttenuation</code>, <code>LightSpecularIntensity</code>,
+<code>LightSpotConeFactors</code>, <code>LightSpotNearClipFactor</code>, <code>LightShadowMapSize</code>,
+<code>LightVolumeTransform</code>, cascaded shadow params.</p>
+<p>Ambient / GI systems:</p>
+<ul>
+<li class=""><code>parameters/ambientdata.fx</code>: <code>AmbientLightDirectionWS</code>, <code>SkyColor</code>,
+<code>GroundColor</code> (sky/ground ambient)</li>
+<li class=""><code>ambient.inc.fx</code>: <code>WorldAmbientColorTexture</code> viewport-sized world ambient</li>
+<li class=""><code>meta/lightmap/lightprobesupdate.fx</code>: <code>SRadianceTransferProbeCompute</code> (32 B)
+— SH radiance transfer + static irradiance + sky visibility, relit by a
+compute shader. The engine&#x27;s native GI probe volume.</li>
+<li class=""><code>meta/lightmap/lightprobes.fx</code>: <code>CLightProbeRenderer</code> generates a
+viewport-sized GI image.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="verified-cpu-side-lightdata-cb-layout-from-ghidra-decomp">Verified CPU-side LightData CB layout (from Ghidra decomp)<a href="#verified-cpu-side-lightdata-cb-layout-from-ghidra-decomp" class="hash-link" aria-label="Direct link to Verified CPU-side LightData CB layout (from Ghidra decomp)" title="Direct link to Verified CPU-side LightData CB layout (from Ghidra decomp)" translate="no">​</a></h2>
+<p>The engine builds one <strong>unified &quot;LightData&quot; CB</strong> per light. Its parameter
+registration is <code>FUN_181e08ba0</code> (Disrupt_b64.c ~5330698), which registers every
+member with its CB offset via <code>FUN_181ef81e0(&amp;DAT_183be29d0, idx, name, &amp;off, ...)</code>.
+Offsets (<code>local_18</code>) are literal CB byte offsets (corrected for the running
+<code>_DAT_183be29f8</code> base). Decompiled offsets match the shipped <code>lighting.inc.fx</code>
+GPU structs and <code>lightdata.fx</code> CB. Full member map:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Offset</th><th>Member</th><th>Shader type</th></tr></thead><tbody><tr><td><code>0x20</code></td><td>LightVolumeTransform</td><td>matrix (0x110)</td></tr><tr><td><code>0x70</code></td><td>LightCapsuleMulLength</td><td>float3 (0x103)</td></tr><tr><td><code>0x90</code></td><td>LightCapsuleDivLength</td><td>float4 (0x104)</td></tr><tr><td><code>0x90</code></td><td>RainLightViewpointLPS_DistVPToEdgesLPS</td><td>float4 (0x104)</td></tr><tr><td><code>0xb0</code></td><td>LightCapsuleParams</td><td>float2 (0x102)</td></tr><tr><td><strong><code>0xd0</code></strong></td><td><strong>LightPosition</strong></td><td>float3 (0x103)</td></tr><tr><td><code>0xf0</code></td><td>LightDirection</td><td>float3 (0x103)</td></tr><tr><td><strong><code>0x110</code></strong></td><td><strong>LightFrontColor</strong></td><td>float3 (0x103)</td></tr><tr><td><code>0x130</code></td><td>LightAttenuation</td><td>float3 (0x103)</td></tr><tr><td><code>0x150</code></td><td>LightShadowFactor</td><td>float4 (0x104)</td></tr><tr><td><code>0x170</code></td><td>LightShadowMapSize</td><td>float4 (0x104)</td></tr><tr><td><code>0x190</code></td><td>LightShadowTexture</td><td>tex (0x40001)</td></tr><tr><td><code>0x1a0</code></td><td>LightShadowDepthTransform</td><td>float2 (0x102)</td></tr><tr><td><code>0x1c0</code></td><td>LightSpotConeFactors</td><td>float2 (0x102)</td></tr><tr><td><code>0x1e0</code></td><td>LightSpotNearClipFactor</td><td>float1 (0x101)</td></tr><tr><td><code>0x200</code></td><td>LightSpotShadowProjections</td><td>matrix (0x110)</td></tr><tr><td><code>0x370</code></td><td>LightSpecularIntensity</td><td>float1 (0x101)</td></tr><tr><td><code>0x390</code></td><td>LightProjectedTexture</td><td>tex (0x30001)</td></tr><tr><td><code>0x3a0</code></td><td>LightProjectedTextureState</td><td>tex (0x70001)</td></tr><tr><td><code>0x3b0</code></td><td>LightProjectedVideo</td><td>tex (0x30001)</td></tr><tr><td><code>0x3c0</code></td><td>LightProjectedVideoUnpack</td><td>(0x804)</td></tr><tr><td><code>0x450</code></td><td>LightFadingClipPlanes</td><td>(0x804)</td></tr><tr><td><code>0x4e0</code></td><td>FacettedShadowReceiveParams</td><td>float4 (0x104)</td></tr><tr><td><code>0x500</code></td><td>FacettedShadowNoiseTexture</td><td>tex (0x60001)</td></tr><tr><td><code>0x250</code></td><td>CascadedShadowRanges</td><td>float4 (0x104)</td></tr><tr><td><code>0x270</code></td><td>CascadedShadowScale</td><td>float4 (0x104)</td></tr><tr><td><code>0x290</code></td><td>CascadedShadowSliceScaleOffsets</td><td>float3x4 (0x304)</td></tr><tr><td><code>0x2d0</code></td><td>CascadedShadowSliceScaleOffsetsBiased</td><td>float3x4 (0x304)</td></tr><tr><td><code>0x310</code></td><td>CascadedShadowSliceDepthScales</td><td>float4 (0x104)</td></tr><tr><td><code>0x330</code></td><td>CascadedShadowSliceDepthOffsets</td><td>float4 (0x104)</td></tr><tr><td><code>0x350</code></td><td>CascadedShadowDepthRanges</td><td>float4 (0x104)</td></tr><tr><td><code>0x510</code></td><td>LongRangeShadowVolumePosScaleBias</td><td>float4 (0x104)</td></tr><tr><td><code>0x530</code></td><td>LongRangeShadowVolumeUvScaleBias</td><td>float4 (0x104)</td></tr><tr><td><code>0x550</code></td><td>LongRangeShadowVolumeTexture</td><td>tex (0x60001)</td></tr></tbody></table>
+<p><strong>For SSRTGI the SSRTGI-relevant fields are <code>LightPosition</code> (0xd0), <code>LightFrontColor</code>
+(0x110), <code>LightAttenuation</code> (0x130), <code>LightDirection</code> (0xf0)</strong> — read these from
+the CB (or the light record) to feed real-light tracing.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="verified-light-record-layout-from-ghidra-decomp">Verified light-record layout (from Ghidra decomp)<a href="#verified-light-record-layout-from-ghidra-decomp" class="hash-link" aria-label="Direct link to Verified light-record layout (from Ghidra decomp)" title="Direct link to Verified light-record layout (from Ghidra decomp)" translate="no">​</a></h2>
+<p>The renderer queue processor <code>FUN_181306e60</code> → <code>FUN_1813057b0</code> (Disrupt_b64.c
+~3416281) is a <strong>light-member → shader-param setter</strong>: <code>switch(member_idx)</code>
+maps each index to an offset in the light record <code>param_4</code>, then calls
+<code>FUN_180d08ad0(cb, cb_member_idx, &amp;value, 1)</code>.</p>
+<p>Light object member indexing (case 2 in <code>FUN_1813057b0</code>):
+<code>addr = light_obj + face_idx*0x218 + 0x448 + slot_idx*0xb0</code> — i.e. a per-face
+record stride of <strong><code>0x218</code></strong>, with a per-face slot sub-array at <strong><code>+0x448</code></strong>
+stride <strong><code>0xb0</code></strong>. (0x448 &gt; 0x218, so the slot sub-array is a separate region
+within the light object, not inside each face record.)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Record offset</th><th>Meaning</th></tr></thead><tbody><tr><td><code>0xd0</code>/<code>0xd4</code>/<code>0xdc</code>/<code>0xe0</code>/<code>0xe4</code>/<code>0xe8</code></td><td>position / extent components</td></tr><tr><td><code>0x44</code>/<code>0x48</code>/<code>0x4c</code></td><td>color-ish (front color group)</td></tr><tr><td><code>0x54</code>–<code>0x88</code></td><td>per-member params (0x54,0x58,0x5c,0x60,0x64,0x68,0x6c,0x70,0x74,0x78,0x7c,0x80,0x84,0x88)</td></tr><tr><td><code>0x8c</code>–<code>0xb8</code></td><td>params (0x8c,0x90,0x94,0x98,0x9c,0xa0,0xa4,0xa8,0xac,0xb0,0xb4,0xb8,0xbc,0xc0)</td></tr><tr><td><code>0x180</code>/<code>0x184</code>/<code>0x188</code></td><td>params</td></tr><tr><td><code>0x364</code>/<code>0x368</code>/<code>0x3ac</code></td><td>params (near end of record)</td></tr><tr><td><code>+0x448</code> sub-array</td><td>stride <code>0xb0</code> (repeated light data, e.g. per-face)</td></tr></tbody></table>
+<p><code>FUN_1813057b0</code> case 0/1 route through <code>FUN_18116b340</code>/<code>FUN_18116b3c0</code>; case 2
+reads <code>record[face*0x218 + 0x448 + slot*0xb0]</code>. Cases 7/8/9 read
+<code>0xe0/0xe4/0xe8</code> with a ×2/×3 multiplier applied when <code>FUN_18128b660</code> /
+<code>FUN_1812ff270</code> fire (feature toggles).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cmultipassdeferredlightingjobsetup">CMultiPassDeferredLighting::JobSetup<a href="#cmultipassdeferredlightingjobsetup" class="hash-link" aria-label="Direct link to CMultiPassDeferredLighting::JobSetup" title="Direct link to CMultiPassDeferredLighting::JobSetup" translate="no">​</a></h2>
+<p><code>FUN_181e61610</code> (Disrupt_b64.c ~5378687) creates the deferred lighting job; the
+job callback is <code>FUN_181e5ad30</code> (passed as the job fn). The name string
+<code>&quot;CMultiPassDeferredLighting::JobSetup&quot;</code> is emitted at 5378721 via
+<code>FUN_181e4cc60</code> (job debug naming). Related CBs registered in the same region:
+<code>DeferredLightingCommon</code> (<code>DAT_183be20c0</code>, ~5368895), <code>DeferredLightingBase</code>
+(<code>DAT_183be2070</code>, ~5369015); <code>DeferredLighting</code> shader passes 1/2 registered at
+~5365973.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="per-light-job-fun_181e5ad30-the-real-light-enumeration--prime-hook">Per-light job <code>FUN_181e5ad30</code> (the real light enumeration — prime hook)<a href="#per-light-job-fun_181e5ad30-the-real-light-enumeration--prime-hook" class="hash-link" aria-label="Direct link to per-light-job-fun_181e5ad30-the-real-light-enumeration--prime-hook" title="Direct link to per-light-job-fun_181e5ad30-the-real-light-enumeration--prime-hook" translate="no">​</a></h2>
+<p>A ~1470-line function (Disrupt_b64.c 5374699–5376172) that iterates <strong>every
+active light candidate</strong> and builds the CPU-side <code>LightData</code> struct (<code>uVar27</code>,
+allocated 0x560 via <code>FUN_181e08960</code> constructor) per light, then enqueues it
+for GPU upload.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="light-candidate-linked-list-the-enumeration-source">Light candidate linked list (THE enumeration source)<a href="#light-candidate-linked-list-the-enumeration-source" class="hash-link" aria-label="Direct link to Light candidate linked list (THE enumeration source)" title="Direct link to Light candidate linked list (THE enumeration source)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">head = **(param_7 + 0x10)        // 5375511 — list head</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">puVar33 = *puVar33               // 5375516/5376158 — next pointer</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">loop: param_12 .. param_13       // 5375519,5376160 — [start, count) window</span><br></div></code></pre></div></div>
+<p>Each <code>puVar33</code> node (light candidate):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Offset</th><th>Meaning</th></tr></thead><tbody><tr><td><code>[0]</code></td><td>next pointer</td></tr><tr><td><code>[1]</code></td><td>light config/type struct</td></tr><tr><td><code>[1]+8</code></td><td><strong>type</strong>: 1, 2, 3, 4 (spot/omni/etc)</td></tr><tr><td><code>[1]+0x40</code></td><td>flags (bit0x84000000 = disabled)</td></tr><tr><td><code>[1]+0x3c</code></td><td>range/radius (0 = use default)</td></tr><tr><td><code>[1]+0x60</code></td><td>specular intensity</td></tr><tr><td><code>[2]</code></td><td>position/transform struct — <strong>position at +8/+0xc/+0x10</strong></td></tr><tr><td><code>+0x1c</code></td><td>range (world units)</td></tr><tr><td><code>[4]</code></td><td>cone half-angle</td></tr><tr><td><code>+0x24</code></td><td>inner cone angle</td></tr><tr><td><code>+0x44</code>, <code>[9]</code>, <code>+0x4c</code></td><td>shadow params</td></tr><tr><td><code>[0xa]</code></td><td>spot data (cone factors at +0x28/+0x2c)</td></tr><tr><td><code>[0xb]</code></td><td>shadow map data</td></tr><tr><td><code>[0xe]</code></td><td>misc</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cpu-side-lightdata-struct-uvar27--mirrors-the-cb-layout">CPU-side LightData struct (<code>uVar27</code>) — mirrors the CB layout<a href="#cpu-side-lightdata-struct-uvar27--mirrors-the-cb-layout" class="hash-link" aria-label="Direct link to cpu-side-lightdata-struct-uvar27--mirrors-the-cb-layout" title="Direct link to cpu-side-lightdata-struct-uvar27--mirrors-the-cb-layout" translate="no">​</a></h3>
+<p>Constructed by <code>FUN_181e08960</code> (0x560 bytes). Written per type, then enqueued
+(<code>puVar29[count+5] = uVar27</code>). Mirrors the LightData CB offsets exactly:
+position <code>0xd0</code> (filled from node <code>[2]+8/0xc/0x10</code> at <code>0xe0/0xe4/0xe8</code>),
+direction <code>0xf0</code>, front color <code>0x110</code>, attenuation <code>0x130</code>, shadow <code>0x150</code>,
+spot cone <code>0x1c0</code>, specular <code>0x370</code>.</p>
+<p>Type handling:</p>
+<ul>
+<li class=""><strong>type 3</strong> (spot/capsule): position from <code>[2]+8/0xc/0x10</code> (5375878-5882);
+direction normalized from <code>[2]+0x14/0x18/0x1c</code> (5375880-5892); cone factors
+from <code>[0xa]+0x28/0x2c</code> (5375897-98); front/back color from <code>[1]+0xa8/0xac</code>.</li>
+<li class=""><strong>type 4</strong>: <code>FUN_181c67cd0(node[2], node[1], &amp;param_14, &amp;pos, &amp;range, &amp;shadow, &amp;out)</code>
+extracts color+position+range (5376002); position written 5376008-10;
+range <code>0xc0</code> from <code>[1]</code>+0x1c; capsule params from <code>+0x44/0x4c</code>.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-ssrtgi-capture-recommended">For SSRTGI capture (recommended)<a href="#for-ssrtgi-capture-recommended" class="hash-link" aria-label="Direct link to For SSRTGI capture (recommended)" title="Direct link to For SSRTGI capture (recommended)" translate="no">​</a></h3>
+<p>Hook the candidate-list walk in <code>FUN_181e5ad30</code>: iterate
+<code>head=**(param_7+0x10)</code> from <code>param_12</code>→<code>param_13</code>, and for each node read:
+<code>type=[1]+8</code>, <code>pos=[2]+8/0xc/0x10</code>, <code>range=+0x1c</code>, <code>color=[1]+0xa8/0xac</code> (spot)
+or via <code>FUN_181c67cd0</code> (omni, type 4). Build a light structured buffer
+{pos, color, range, type} and feed the SSRTGI shader. Because the job runs on
+a job-queue thread, capture into a lock-free ring / atomic-swap buffer and read
+it in the Present-hook composite pass.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="generated-header-for-ghidraida">Generated header for Ghidra/IDA<a href="#generated-header-for-ghidraida" class="hash-link" aria-label="Direct link to Generated header for Ghidra/IDA" title="Direct link to Generated header for Ghidra/IDA" translate="no">​</a></h2>
+<p><code>Watch_Dogs/disrupt_shaders_gpu.h</code> — 203 constant-buffer structs + light/probe/
+GBuffer structs extracted from the shaders by <code>Watch_Dogs/shaders_to_header.py</code>.
+Parse in Ghidra via File → Parse C Source (self-contained, no SDK includes).
+Pairs with the 291K-symbol synthetic PDB (<code>WDL/pdb/Disrupt_b64_wd1.pdb</code>):
+PDB = function names/RVAs, header = GPU struct layouts.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-context">Community context<a href="#community-context" class="hash-link" aria-label="Direct link to Community context" title="Direct link to Community context" translate="no">​</a></h2>
+<p>black^0&#x27;s <a href="https://github.com/black%5E0/ShadowEnginePatch" target="_blank" rel="noopener noreferrer" class="">ShadowEnginePatch</a> is the primary WD1 renderer mod — shadow pipeline overrides, vehicle headlight improvements, diagnostic tools, and on-the-fly limiter adjustment. The LightData/queue hook above targets SSRTGI capture specifically, which is a different use case from ShadowEngine&#x27;s shadow-pass work.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/disrupt/watch_dogs/lighting-parameters"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Watch Dogs 1 — Environment Lighting Parameters</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/disrupt/watch_dogs/mab-format"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Watch Dogs .mab Animation Format</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#the-goal" class="table-of-contents__link toc-highlight">The goal</a></li><li><a href="#engine-light-data-flow-verified" class="table-of-contents__link toc-highlight">Engine light data flow (verified)</a></li><li><a href="#shadow-engine-rvas-vanilla-wd1-retail--️-0x1000000-offset-correction" class="table-of-contents__link toc-highlight">Shadow Engine RVAs (vanilla WD1 retail) — ⚠️ +0x1000000 offset correction</a></li><li><a href="#gpu-light-structures-from-shipped-shaders" class="table-of-contents__link toc-highlight">GPU light structures (from shipped shaders)</a></li><li><a href="#verified-cpu-side-lightdata-cb-layout-from-ghidra-decomp" class="table-of-contents__link toc-highlight">Verified CPU-side LightData CB layout (from Ghidra decomp)</a></li><li><a href="#verified-light-record-layout-from-ghidra-decomp" class="table-of-contents__link toc-highlight">Verified light-record layout (from Ghidra decomp)</a></li><li><a href="#cmultipassdeferredlightingjobsetup" class="table-of-contents__link toc-highlight">CMultiPassDeferredLighting::JobSetup</a></li><li><a href="#per-light-job-fun_181e5ad30-the-real-light-enumeration--prime-hook" class="table-of-contents__link toc-highlight">Per-light job <code>FUN_181e5ad30</code> (the real light enumeration — prime hook)</a><ul><li><a href="#light-candidate-linked-list-the-enumeration-source" class="table-of-contents__link toc-highlight">Light candidate linked list (THE enumeration source)</a></li><li><a href="#cpu-side-lightdata-struct-uvar27--mirrors-the-cb-layout" class="table-of-contents__link toc-highlight">CPU-side LightData struct (<code>uVar27</code>) — mirrors the CB layout</a></li><li><a href="#for-ssrtgi-capture-recommended" class="table-of-contents__link toc-highlight">For SSRTGI capture (recommended)</a></li></ul></li><li><a href="#generated-header-for-ghidraida" class="table-of-contents__link toc-highlight">Generated header for Ghidra/IDA</a></li><li><a href="#community-context" class="table-of-contents__link toc-highlight">Community context</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

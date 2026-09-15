@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-havok/hkx_format" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">HKX (Havok Packfile) format — reference for FO4 | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/havok/hkx_format"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="HKX (Havok Packfile) format — reference for FO4 | Open Source Modding"><meta data-rh="true" name="description" content="Cross-reference: HKX version compatibility table, tools (hkxcmd, havok2fbx, AssetCc, HavokLib), practical techniques, animation swap tricks → XeNTaX Havok knowledge"><meta data-rh="true" property="og:description" content="Cross-reference: HKX version compatibility table, tools (hkxcmd, havok2fbx, AssetCc, HavokLib), practical techniques, animation swap tricks → XeNTaX Havok knowledge"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/havok/hkx_format"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/havok/hkx_format" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/havok/hkx_format" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"HKX (Havok Packfile) format — reference for FO4","item":"https://open-source-modding.github.io/docs/havok/hkx_format"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/havok/hkx_format"><span class="linkLabel_WmDU">HKX (Havok Packfile) format — reference for FO4</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/havok/xentax-havok-knowledge"><span class="linkLabel_WmDU">Havok - XeNTaX Community Knowledge</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/havok/xentax-havok"><span class="linkLabel_WmDU">XeNTaX Forum — Havok Knowledge Extract</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">havok</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">HKX (Havok Packfile) format — reference for FO4</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>HKX (Havok Packfile) format — reference for FO4</h1></header>
+<blockquote>
+<p><strong>Cross-reference</strong>: HKX version compatibility table, tools (hkxcmd, havok2fbx, AssetCc, HavokLib), practical techniques, animation swap tricks → <a class="" href="/docs/havok/xentax-havok-knowledge">XeNTaX Havok knowledge</a></p>
+<p><strong>Cross-reference</strong>: HKX 2012 in Sonic Lost World Wii U (Zelda Zone DLC) → <a class="" href="/docs/zelda/xentax-zelda-knowledge">XeNTaX Zelda knowledge §7</a></p>
+</blockquote>
+<p>Status: research notes distilled from the Havok 2014 SDK (<code>hk_2014.1.0-r1</code>),
+Lukas Cone&#x27;s Havok format library (used only as a factual reference, GPL code
+is NOT incorporated), and the FO4 Havok animation guide. Goal: a clean-room
+Python reader/writer for Fallout 4 animation <code>.hkx</code> files.</p>
+<p>This document records format FACTS: field names, sizes, order, and algorithms.
+It is written from the formats themselves, not from any single implementation.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scope">Scope<a href="#scope" class="hash-link" aria-label="Direct link to Scope" title="Direct link to Scope" translate="no">​</a></h2>
+<p>Fallout 4 uses Havok 2014.1.0, contents version string <code>hk_2014.1.0-r1</code>,
+packfile version 11, 64-bit pointers, little-endian. This is the &quot;old&quot; (pre
+2015) packfile layout. Newer games (2015+) use a different container layout
+(&quot;new&quot; format, FourCC chunked: DATA/SDKV/TYPE/INDX) which is out of scope here.</p>
+<blockquote>
+<p><strong>Confirmed users of the chunked format (2026-08-18):</strong> <strong>Starfield</strong> (Creation
+Engine 2) ships Havok <strong>2019.02</strong> — <code>sdk_version</code> = <code>&quot;20190200&quot;</code> — and uses
+the new chunked packfile container (<code>ChunkType</code> records, <code>PTCH</code> patch
+sections, indexed blocks), <strong>not</strong> the classic FO4-style packfile documented in
+this file. This confirms the &quot;newer games&quot; note above. The chunked layout is
+documented separately (TODO: chunk table, PTCH semantics, indexed-block
+addressing); see <code>reference/bethesda/starfield-guide.md</code> for the finding and
+implications for FO4-era tooling (hkxcmd/hkxpack cannot read it as-is).</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="havok-version-compatibility-xentax-community">Havok Version Compatibility (XeNTaX Community)<a href="#havok-version-compatibility-xentax-community" class="hash-link" aria-label="Direct link to Havok Version Compatibility (XeNTaX Community)" title="Direct link to Havok Version Compatibility (XeNTaX Community)" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Havok Version</th><th>Packfile Version</th><th>Games</th><th>Tool Compatibility</th></tr></thead><tbody><tr><td>4.1.0-r1</td><td>—</td><td>BioShock 1/2</td><td>Too old for most tools</td></tr><tr><td>4.6.0-r1</td><td>—</td><td>Tenchu (Wii)</td><td>Havok SDK required</td></tr><tr><td>6.5</td><td>—</td><td>Sleeping Dogs</td><td>Very old packfiles</td></tr><tr><td>2010.2.0-r1</td><td>8–9</td><td>Skyrim, Dark Souls 1</td><td>hkxcmd (open source)</td></tr><tr><td>2011.2.0-r1</td><td>9</td><td>Sleeping Dogs, Witcher 2</td><td>hkxcmd (with version change)</td></tr><tr><td>2012.2.0-r1</td><td>9</td><td>Alien: Isolation</td><td>hkxcmd, SSFADF, havok2fbx</td></tr><tr><td>2013.1.0-r1</td><td>9</td><td>Sleeping Dogs DE</td><td>AssetCc (SDK tool)</td></tr><tr><td>2013.2.0-r1</td><td>11</td><td>Various (Alien Isolation DE)</td><td>Limited tool support</td></tr><tr><td>2014.1.0-r1</td><td>11</td><td>Dark Souls 2/3, FO4</td><td>havok2fbx, volfin&#x27;s hkx2smd</td></tr></tbody></table>
+<p><em>(SergeantJoe, 2014–2016; JohnHudeski, 2018)</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="wdl-havok-versions">WDL Havok Versions<a href="#wdl-havok-versions" class="hash-link" aria-label="Direct link to WDL Havok Versions" title="Direct link to WDL Havok Versions" translate="no">​</a></h3>
+<p>Watch Dogs: Legion uses <strong>two different Havok versions</strong> depending on the build:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Build</th><th>Havok Version</th><th>SDKV</th><th>Format</th></tr></thead><tbody><tr><td>Retail WDL</td><td><strong>2017.2.0</strong></td><td><code>20170200</code></td><td>Chunked (same family as 2019.02)</td></tr><tr><td>Leak WDL</td><td><strong>2015.1.0</strong></td><td><code>20150100</code></td><td>Different chunked variant</td></tr></tbody></table>
+<p><strong>CORRECTION (2026-09-04)</strong>: Leak WDL HKX shows <code>SDKV=&quot;20150100&quot;</code> (2015.1), retail WDL shows <code>SDKV=&quot;20170200&quot;</code> (2017.2). These are different Havok SDK versions, not just a wrapper difference. The retail build was updated to a newer SDK between the leak and release.</p>
+<p>54k WDL samples available in <code>~/Documents/Code/re/ubisoft/extracted/data_win64/</code>. The retail 2017.2 chunked format is in the same family as Starfield&#x27;s 2019.02 and is parseable by <code>parsers/StarfieldMeshConverter/</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="havok-license-keys">Havok License Keys<a href="#havok-license-keys" class="hash-link" aria-label="Direct link to Havok License Keys" title="Direct link to Havok License Keys" translate="no">​</a></h3>
+<p>The retail WDL build contains Havok <strong>license/authorization keys</strong> (NOT encryption keys). Three key groups found (by □ΞnCrypTΞD□, 2026-09-04):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Key Group</th><th>Keys</th><th>Modules</th><th>Expiry</th></tr></thead><tbody><tr><td><strong>HAVOK_CORP</strong></td><td>6</td><td>Physics, Destruction, Ai, Cloth + <code>_2012</code> backward-compat</td><td><strong>2036-09-05</strong></td></tr><tr><td><strong>InternalHavok</strong></td><td>7</td><td>Physics, Destruction, Ai, Cloth, Animation</td><td><strong>2020-08-20</strong></td></tr><tr><td><strong>UbisoftToronto_WatchDogs3</strong></td><td>3</td><td>Physics only</td><td><strong>2019-06-20</strong>, <strong>2020-03-20</strong></td></tr></tbody></table>
+<p>Key format: <code>0xGUID1-GUID2:YYYY-MM-DD.Product.Client</code></p>
+<ul>
+<li class="">Date = <strong>license expiry</strong>, not build date</li>
+<li class=""><code>&quot;WatchDogs3&quot;</code> = internal codename for WDL</li>
+<li class="">GUID2 (<code>0x4e8a80d2</code>) = project/client identifier</li>
+<li class=""><code>_2012</code> suffix variants are backward compatibility modules, NOT indicators of using Havok 2012 SDK</li>
+</ul>
+<p>Example: <code>0x612f4894-0x4e8a80d2:2020-03-20.Physics.UbisoftToronto_WatchDogs3_PS4-Windows-XboxOne</code> — expired 2020-03-20.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-9-vs-11-header-difference">Version 9 vs 11 Header Difference<a href="#version-9-vs-11-header-difference" class="hash-link" aria-label="Direct link to Version 9 vs 11 Header Difference" title="Direct link to Version 9 vs 11 Header Difference" translate="no">​</a></h3>
+<p>Version 9 (2010–2013): simpler header padding.
+Version 11 (2013.2+ / 2014+): adds <code>int16 max_predicates</code> + <code>int16 unknown</code> replacing <code>int32 misc + pad[1]</code>, plus 16 bytes padding after section table entries.</p>
+<p><em>(JohnHudeski, 2018-06-05)</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="platform-flags">Platform Flags<a href="#platform-flags" class="hash-link" aria-label="Direct link to Platform Flags" title="Direct link to Platform Flags" translate="no">​</a></h3>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">enum</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">hkPlatform</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_WIN32   </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_X64     </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x1</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_MACPPC  </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x2</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_IOS     </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x4</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_MAC386  </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x8</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_PS3     </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x10</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_XBOX360 </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x20</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_WII     </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x40</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_LRB     </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x80</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_LINUX   </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x100</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_NGP     </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x400</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_ANDROID </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x800</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    HCL_PLATFORM_CTR     </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0x1000</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></div></code></pre></div></div>
+<p><em>(Loomy, 2017-12-09)</em></p>
+<p>PS3 files are big-endian; changing the endianness flag alone is insufficient — byte-swapping of all multi-byte values is required.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="container-layout">Container layout<a href="#container-layout" class="hash-link" aria-label="Direct link to Container layout" title="Direct link to Container layout" translate="no">​</a></h2>
+<p>A packfile is a header followed by one or more sections. FO4 files typically
+have three: <code>__classnames__</code>, <code>__types__</code> and <code>__data__</code>. Older files may
+carry extra sections (<code>__classindex__</code>, <code>__dataindex__</code>) and a version-2
+header; the class descriptor index is given by
+<code>contents_classname_section_index</code> and the object data section by
+<code>contents_section_index</code>, so parse by index, not by tag.</p>
+<p>Header (the field order is fixed)::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  magic1              = 0x57e0e057</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  magic2              = 0x10c0c010</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  user_tag</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  version             = 11 for FO4, 8 for Skyrim SE</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint8   bytes_in_pointer    = 8 (4 for x86 packfiles)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint8   little_endian       = 1</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint8   reuse_padding_optimization</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint8   base_class          = 1 (always)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int32   num_sections        = 3</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int32   contents_section_index          = 2      (__data__)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int32   contents_section_offset         = 0</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int32   contents_classname_section_index = 0    (__classnames__)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int32   contents_classname_section_offset = 75</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">char[16] contents_version   = &quot;hk_2014.1.0-r1\0&quot; for FO4</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  flags</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int16   max_predicate       = -1 (no predicates in FO4)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int16   section_offset      = -1 (no extra header bytes in FO4)</span><br></div></code></pre></div></div>
+<p>If <code>section_offset == 16</code>, additional fields follow before the section table:
+<code>int16 unk_40, int16 unk_42, uint32 unk_44, uint32 unk_48, uint32 unk_4c</code>.
+These are game-specific (e.g. BotW WiiU uses them).</p>
+<p>If <code>little_endian</code> is 0 all multi-byte values are byte-swapped.</p>
+<p>Section table (one entry per section, 3 sections total in FO4)::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">char[16] section_tag        e.g. &quot;__classnames__&quot;, &quot;__types__&quot;, &quot;__data__&quot;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32   constant           = 0xFF000000  (00 00 00 FF little-endian)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32   absolute_data_start</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32   local_fixups_offset</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32   global_fixups_offset</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32   virtual_fixups_offset</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32   exports_offset</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32   imports_offset</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32   end_offset</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">... if version &gt;= 11: 16 bytes 0xFF padding AFTER the fields ...</span><br></div></code></pre></div></div>
+<p>The 16-byte <code>0xFF</code> padding is present only for packfile version &gt;= 11
+(verified against hkxpack <code>SectionInterface</code> and the FO4 <strong>data</strong> section:
+8 x uint32 fields = 32 bytes + 16 pad = 64 bytes per section entry). Skyrim SE
+(version 8) has no padding.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="section-contents">Section contents<a href="#section-contents" class="hash-link" aria-label="Direct link to Section contents" title="Direct link to Section contents" translate="no">​</a></h2>
+<p>ALL offsets in the section header (<code>local_fixups_offset</code>,
+<code>global_fixups_offset</code>, <code>virtual_fixups_offset</code>, <code>exports_offset</code>,
+<code>imports_offset</code>, <code>end_offset</code>) are RELATIVE to <code>absolute_data_start</code>
+(verified in the Havok 2014 SDK, <code>hkPackfileSectionHeader.h</code>). File offsets
+are computed as <code>absolute_data_start + relative_offset</code>.</p>
+<p>Section buffer: <code>end_offset</code> bytes, file range
+<code>[absolute_data_start, absolute_data_start + end_offset)</code>. The data region
+ends where the local fixups begin: data bytes =
+<code>[absolute_data_start, absolute_data_start + local_fixups_offset)</code>.</p>
+<p>Fixup arrays are laid out after the data region, still relative to
+<code>absolute_data_start</code>. Element counts are derived from the offsets:</p>
+<ul>
+<li class="">local fixups:   between <code>local_fixups_offset</code> and <code>global_fixups_offset</code>,
+each <code>{ int32 pointer; int32 destination }</code> (8 bytes).</li>
+<li class="">global fixups:  between <code>global_fixups_offset</code> and <code>virtual_fixups_offset</code>,
+each <code>{ int32 pointer; int32 section_id; int32 destination }</code> (12 bytes).</li>
+<li class="">virtual fixups: between <code>virtual_fixups_offset</code> and the section&#x27;s &quot;virtual
+EOF&quot;, where virtual EOF is <code>exports_offset</code> if it is not -1 else
+<code>imports_offset</code>, each <code>{ int32 data_offset; int32 section_id; int32 classname_offset }</code> (12 bytes).</li>
+</ul>
+<p>Fixup semantics (all pointer/destination fields are 32-bit offsets relative
+to the owning section&#x27;s <code>absolute_data_start</code>, even for 64-bit builds):</p>
+<ul>
+<li class="">local fixup: write the address of (section buffer + destination) at
+(section buffer + pointer). Used for pointers into the same section.</li>
+<li class="">global fixup: write the address of
+(sections[section_id] buffer + destination) at (section buffer + pointer).
+Used for pointers into other sections (e.g. class data -&gt; classnames).</li>
+<li class="">virtual fixup: creates a virtual class object. Read the class name from
+<code>sections[section_id]</code> buffer at <code>classname_offset</code>, compute its Jenkins
+one-at-a-time hash, look up the class descriptor, then parse the class data
+starting at <code>data_offset</code>.</li>
+</ul>
+<p>Entries whose first field (<code>pointer</code>/<code>data_offset</code>) is <code>-1</code>
+(<code>0xFFFFFFFF</code>) are padding and MUST be skipped (verified in the SDK reader,
+<code>hkBinaryPackfileReader.cpp</code>). A virtual fixup <code>classname_offset</code> points at
+the class name string; in the <code>__classnames__</code> section each name is preceded
+by a 4-byte UUID and a <code>0x09</code> breaker byte, so
+<code>classname = sections[sec].data[classname_offset:]</code> reads the name directly
+(no need to skip the UUID — the fixup already points past it).</p>
+<p>Verified example (FO4 <code>Block.hkx</code>, <code>__data__</code> section, abs start = 496,
+version 11): local fixups at file 10096 (110 x 8-byte pairs), global fixups at
+file 10976 (5 x 12-byte entries + 4 bytes 0xFFFFFFFF padding), virtual fixups
+at file 11040 (5 x 12-byte entries + 4 bytes 0xFFFFFFFF padding),
+<code>end_offset</code> lands exactly at EOF (496 + 10608 = 11104).</p>
+<p>Virtual fixups found: <code>(0,0,75) (96,0,101) (224,0,128) (9360,0,162) (9488,0,200)</code> — all in section 0 (<code>__classnames__</code>); offset 101 yields
+&quot;hkaAnimationContainer&quot;, 128 &quot;hkaSplineCompressedAnimation&quot;, 162
+&quot;hkaDefaultAnimatedReferenceFrame&quot;, 200 &quot;hkaAnimationBinding&quot;, 75
+&quot;hkRootLevelContainer&quot;.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="object-model--pointers">Object model / pointers<a href="#object-model--pointers" class="hash-link" aria-label="Direct link to Object model / pointers" title="Direct link to Object model / pointers" translate="no">​</a></h2>
+<p>A virtual class has this layout in memory (what fixups point at)::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr      vtable</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int16    mem_size_and_flags</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int16    reference_count</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">... member data ...</span><br></div></code></pre></div></div>
+<p>Not every object is a virtual class. Plain structs are stored inline. Pointers
+between objects are stored as fixups, so reading an object requires following
+the pointer slot to the fixup that targets it.</p>
+<p>Data alignment: 8 bytes for pointer-sized members on 64-bit, 4 otherwise.
+Havok&#x27;s &quot;reuse padding optimization&quot; lets derived classes reuse the padding of
+non-POD bases (this is why struct sizes are not obvious from C++ alone).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="class-descriptors">Class descriptors<a href="#class-descriptors" class="hash-link" aria-label="Direct link to Class descriptors" title="Direct link to Class descriptors" translate="no">​</a></h2>
+<p>Class names map to a hash (Jenkins one-at-a-time, see below) that indexes a
+registry. The concrete class data for the common FO4 animation objects:</p>
+<p>String pointer
+A pointer to a NUL-terminated ASCII string (fixup target). Every object
+that references strings does so through pointer fixups.</p>
+<p><code>hkArray&lt;T&gt;</code> (HK700+, i.e. everything relevant to FO4)::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr       data              (fixup target)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32    count</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32    capacity_and_flags</span><br></div></code></pre></div></div>
+<p>Pre-700 files use <code>LegacyArray</code>: a pointer plus a <code>uint32</code> count with NO
+capacity field, and a different member order (pointer before count). FO4
+animations/skeletons are HK700+, use the 3-field form.</p>
+<p><code>hkReferenceObject</code> (base class of most runtime objects)::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr      vtable</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int16    mem_size_and_flags</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int16    reference_count</span><br></div></code></pre></div></div>
+<p><code>hkQTransform</code> — 48 bytes, 16-byte aligned::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkQuaternion rotation   (4x float32, 16 bytes)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkVector4   translation (4x float32)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkVector4   scale       (4x float32)</span><br></div></code></pre></div></div>
+<p><code>hkVariant</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr   object</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr   class_description</span><br></div></code></pre></div></div>
+<p><code>hkNamedVariant</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr   name         (string)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr   class_name   (string)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr   variant      (-&gt; hkVariant object)   [HK700+]</span><br></div></code></pre></div></div>
+<p><code>hkRootLevelContainer</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;hkNamedVariant&gt; variants</span><br></div></code></pre></div></div>
+<p><code>hkaBone</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr    name            (string)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int32  lock_translation</span><br></div></code></pre></div></div>
+<p><code>hkaSkeleton</code> (HK700+ form, what FO4 uses)::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkReferenceObject  inherited</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr                name          (string)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;int16&gt;     parent_indices</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;hkaBone&gt;   bones          (struct array, no fixups between)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;hkQTransform&gt; transforms</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;float&gt;     reference_floats          (HK2010+)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;ptr&gt;       float_slots               (HK550+)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;hkLocalFrameOnBone&gt; local_frames     (HK600+)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;hkaPartition&gt; partitions             (HK2012+)</span><br></div></code></pre></div></div>
+<p>Order of base-&gt;derived members: base class data first, then this list.
+<code>parent_indices</code> are int16; -1 means root.</p>
+<p><code>hkaPartition</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr     name            (string)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int16   start_bone_index</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint16  num_bones</span><br></div></code></pre></div></div>
+<p><code>hkLocalFrameOnBone</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr     local_frame     (-&gt; hkLocalFrame)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int32   bone_index      (int16 in HK2011_1 and older)</span><br></div></code></pre></div></div>
+<p><code>hkaAnimationContainer</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkReferenceObject      inherited   (HK700+)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;ptr&gt;  skeletons</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;ptr&gt;  animations</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;ptr&gt;  bindings</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;ptr&gt;  attachments</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;ptr&gt;  skins</span><br></div></code></pre></div></div>
+<p><code>hkaAnnotationTrack</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr                    name        (string)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;hkaAnnotation&gt; annotations</span><br></div></code></pre></div></div>
+<p><code>hkaAnnotation</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">float  time</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr    text           (string)</span><br></div></code></pre></div></div>
+<p><code>hkaAnimation</code> (base)::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkReferenceObject  inherited</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  animation_type</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">float   duration</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  num_of_transform_tracks</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  num_of_float_tracks        (HK550+)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr     extracted_motion           (-&gt; hkaAnimatedReferenceFrame)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;hkaAnnotationTrack&gt; annotations   (HK700+; NOTE: member array,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                                          each element carries its own name ptr)</span><br></div></code></pre></div></div>
+<p>Animation type enum (2011+, applies to FO4)::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">0 = HK_UNKNOWN_ANIMATION</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">1 = HK_INTERLEAVED_ANIMATION</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">2 = HK_MIRRORED_ANIMATION</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">3 = HK_SPLINE_COMPRESSED_ANIMATION</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4 = HK_QUANTIZED_COMPRESSED_ANIMATION</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">5 = HK_PREDICTIVE_COMPRESSED_ANIMATION</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">6 = HK_REFERENCE_POSE_ANIMATION</span><br></div></code></pre></div></div>
+<p><code>hkaSplineCompressedAnimation</code> (size: 176 bytes, signature: 0x792ee0bb)::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkaAnimation   inherited</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  num_frames                    offset: 56</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  num_blocks                    offset: 60</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  max_frames_per_block          offset: 64</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  mask_and_quantization_size    offset: 68</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">float   block_duration                offset: 72</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">float   block_inverse_duration        offset: 76</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">float   frame_duration                offset: 80</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  (padding)                     offset: 84</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;uint32&gt; block_offsets         offset: 88</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;uint32&gt; float_block_offsets   offset: 104</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;uint32&gt; transform_offsets     offset: 120</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;uint32&gt; float_offsets         offset: 136</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;uint8&gt;  data                  offset: 152</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">int32   endian                        offset: 168</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32  (padding)                     offset: 172</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="spline-compression-parameters-from-havok-sdk">Spline Compression Parameters (from Havok SDK)<a href="#spline-compression-parameters-from-havok-sdk" class="hash-link" aria-label="Direct link to Spline Compression Parameters (from Havok SDK)" title="Direct link to Spline Compression Parameters (from Havok SDK)" translate="no">​</a></h3>
+<p>The SDK exposes <code>hkaSplineCompressedAnimationTrackCompressionParams</code> (signature <code>0x42e878d3</code>, 28 bytes):</p>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">struct</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">TrackCompressionParams</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token keyword" style="font-style:italic">float</span><span class="token plain">  rotationTolerance</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">       </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +0</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token keyword" style="font-style:italic">float</span><span class="token plain">  translationTolerance</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +4</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token keyword" style="font-style:italic">float</span><span class="token plain">  scaleTolerance</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">          </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +8</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token keyword" style="font-style:italic">float</span><span class="token plain">  floatingTolerance</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">       </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +12</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint16 rotationDegree</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">          </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +16</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint16 translationDegree</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">       </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +18</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint16 scaleDegree</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">             </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +20</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint16 floatingDegree</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">          </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +22</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    RotationQuantization rotationQuantizationType</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +24</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ScalarQuantization   translationQuantizationType</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +25</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ScalarQuantization   scaleQuantizationType</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">       </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +26</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ScalarQuantization   floatQuantizationType</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">       </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// +27</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="quantization-enums">Quantization Enums<a href="#quantization-enums" class="hash-link" aria-label="Direct link to Quantization Enums" title="Direct link to Quantization Enums" translate="no">​</a></h3>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">enum</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">RotationQuantization</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    POLAR32     </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    THREECOMP40 </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    THREECOMP48 </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">2</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    THREECOMP24 </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">3</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    STRAIGHT16  </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">4</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    UNCOMPRESSED</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">5</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">enum</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">ScalarQuantization</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    BITS8  </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    BITS16 </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></div></code></pre></div></div>
+<p><em>(SergeantJoe, 2015-05-20 — from hkxcmd report output and Havok 2013 PBD)</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="default-compression-settings-havok-2013-sdk">Default Compression Settings (Havok 2013 SDK)<a href="#default-compression-settings-havok-2013-sdk" class="hash-link" aria-label="Direct link to Default Compression Settings (Havok 2013 SDK)" title="Direct link to Default Compression Settings (Havok 2013 SDK)" translate="no">​</a></h3>
+<ul>
+<li class="">Position: 16 bits</li>
+<li class="">Rotation: 40 bits</li>
+<li class="">Scale: 16 bits</li>
+<li class="">Float: 16 bits</li>
+<li class="">Frames per block: 256</li>
+</ul>
+<p>Per-bone customization is possible. Tighter tolerances for &quot;major bones&quot; (spine, arms) and relaxed for &quot;minor bones&quot; (fingers) reduces data size.</p>
+<p><em>(philgrf, 2017-03-12)</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="spline-compression-theory">Spline Compression Theory<a href="#spline-compression-theory" class="hash-link" aria-label="Direct link to Spline Compression Theory" title="Direct link to Spline Compression Theory" translate="no">​</a></h3>
+<p>The rotation encoding likely works as:</p>
+<ol>
+<li class="">Quaternion <code>(x,y,z,w)</code> where <code>x²+y²+z²+w²=1</code></li>
+<li class="">Discard the highest-magnitude component (reconstructable from the other three)</li>
+<li class="">Remaining components stored with <code>m</code> bits for the discarded value index, <code>n</code> bits for each remaining component</li>
+<li class="">Bytes read according to a per-bone quantization key</li>
+</ol>
+<p>References:</p>
+<ul>
+<li class="">Riot Games engineering blog on animation compression</li>
+<li class="">Bitsquid blog on quantized compression</li>
+</ul>
+<p><em>(philgrf, 2017-03-06)</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bin-animation-containers">BIN Animation Containers<a href="#bin-animation-containers" class="hash-link" aria-label="Direct link to BIN Animation Containers" title="Direct link to BIN Animation Containers" translate="no">​</a></h3>
+<p>Animation <code>.bin</code> files are concatenated compressed HKX files. Each individual <code>.hkx</code> starts with hex value <code>6499</code> and can be split by scanning for this marker.</p>
+<p>To process: split into individual HKX files, change the version tag from 2011→2010 or 2014→2010, then feed to hkxcmd.</p>
+<p><em>(SergeantJoe, 2014-11-10, 2016-03-06)</em></p>
+<p><code>hkaAnimationBinding</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkReferenceObject    inherited    (HK700+)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr                  original_skeleton_name (string)  (HK600+)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ptr                  animation    (-&gt; hkaAnimation)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;int16&gt;       transform_track_to_bone_indices</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;int16&gt;       float_track_to_float_slot_indices  (HK550+)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hkArray&lt;int16&gt;       partition_indices                  (HK2012+)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint8                blend_hint</span><br></div></code></pre></div></div>
+<p>The XML/reflection name for the skeleton string is <code>originalSkeletonName</code>
+(not &quot;skeletonName&quot;). The blend hint enum (Havok <code>BlendHint</code>): 0 = normal,
+1 = additive, 2 = from previous, 3 = combine. A track index of 0xFFFF (65535)
+means the track maps to nothing.</p>
+<p><code>hkaAnimatedReferenceFrame</code> variants exist (default / delta) but FO4 anims
+usually reference extracted motion through this pointer type.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="jenkins-one-at-a-time-hash">Jenkins one-at-a-time hash<a href="#jenkins-one-at-a-time-hash" class="hash-link" aria-label="Direct link to Jenkins one-at-a-time hash" title="Direct link to Jenkins one-at-a-time hash" translate="no">​</a></h2>
+<p>Used to map class names to descriptors::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">hash = 0</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">for c in name_bytes:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    hash += c</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    hash += hash &lt;&lt; 10</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    hash ^= hash &gt;&gt; 6</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hash += hash &lt;&lt; 3</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hash ^= hash &gt;&gt; 11</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">hash += hash &lt;&lt; 15</span><br></div></code></pre></div></div>
+<p>Returned as an unsigned 32-bit value.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="spline-compressed-animation-data">Spline-compressed animation data<a href="#spline-compressed-animation-data" class="hash-link" aria-label="Direct link to Spline-compressed animation data" title="Direct link to Spline-compressed animation data" translate="no">​</a></h2>
+<p>The animation&#x27;s <code>data_buffer</code> holds concatenated blocks. Each block covers up
+to <code>max_frames_per_block</code> frames across all transform tracks. <code>block_offsets</code>
+give byte offsets into <code>data_buffer</code> for each block.</p>
+<p>Per-block layout::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">TransformMask masks[num_tracks]        (see below)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">... float track data (num_float_tracks bytes) ...</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">padding to 4</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">per track, in order:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    position track, rotation track, scale track</span><br></div></code></pre></div></div>
+<p><code>TransformMask</code> (4 bytes) packs quantization + track-type bits::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint8 quantization_types</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint8 position_types      (bit flags, see below)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint8 rotation_types      (low nibble static flag, high nibble spline flag)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint8 scale_types</span><br></div></code></pre></div></div>
+<p>Quantization bits in <code>quantization_types</code>::</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">bits 0-1   position quantization:  0=8bit, 1=16bit</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">bits 2-5   rotation quantization:  value+2 -&gt; 2=32bit, 3=40bit, 4=48bit,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                                  5=24bit, 6=16bit-quat, 7=uncompressed</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">bits 6-7   scale quantization:     0=8bit, 1=16bit</span><br></div></code></pre></div></div>
+<p>Position/scale type flags (bit 0 = X static, bit 1 = Y static, bit 2 = Z
+static, bit 4 = X spline, bit 5 = Y spline, bit 6 = Z spline). A channel is:</p>
+<ul>
+<li class="">identity if no static/spline bit set,</li>
+<li class="">static if the static bit is set (one stored value, no spline),</li>
+<li class="">dynamic (spline) if the spline bit is set.</li>
+</ul>
+<p>Rotation: low nibble of <code>rotation_types</code> set = static; high nibble set =
+spline (dynamic). Otherwise identity.</p>
+<p>Track encodings (dynamic):
+Write order: a <code>uint16</code> item count, one skip byte, then a <code>uint8</code>
+spline degree, then <code>num_items + degree + 2</code> knot bytes, then padding.
+Then per channel that is dynamic: a <code>{float min, float max}</code> bounding
+box (8 bytes), then <code>num_items + 1</code> samples. Samples are stored as
+normalized bytes (position/scale: 8-bit or 16-bit) mapped into the
+channel&#x27;s bounding box: <code>value = min + (max - min) * (sample / 255)</code>
+(or / 65535 for 16-bit).</p>
+<p>Static channels store a single float directly (4 bytes). Identity channels
+store nothing.</p>
+<p>Rotation track (dynamic): item count + degree + knots as above (knot padding
+aligns to 2 for 48-bit / 16-bit-quat, to 4 for 32-bit / uncompressed), then
+<code>num_items + 1</code> quantized quaternions.</p>
+<p>Quaternion quantization (all store the rotation directly, normalized via
+sign/magnitude encoding):</p>
+<ul>
+<li class="">32-bit: 10-bit magnitude <code>R</code> in the top bits, 18-bit <code>phi/theta</code> split
+in the low bits; sign bits select which of x/y/z/w is negative.</li>
+<li class="">40-bit: three 11-bit components + sign/w bits; component order permuted by
+a 2-bit <code>result_shift</code>.</li>
+<li class="">48-bit: three 15-bit components (signed) + sign/w bits; same permutation.</li>
+<li class="">16-bit quat: 8-bit components.</li>
+<li class="">uncompressed: 4 float32 (16 bytes).</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="spline-evaluation-nurbs">Spline evaluation (NURBS)<a href="#spline-evaluation-nurbs" class="hash-link" aria-label="Direct link to Spline evaluation (NURBS)" title="Direct link to Spline evaluation (NURBS)" translate="no">​</a></h2>
+<p>Standard NURBS basis (this is the classic &quot;NURBS Book&quot; De Boor formulation):</p>
+<ul>
+<li class="">control points: <code>num_items + 1</code> points, degree <code>d</code>, knot vector of size
+<code>num_items + d + 2</code>.</li>
+<li class="">knot span lookup + De Boor (or Cox-de Boor) evaluation produce the value at
+time <code>t</code> normalized to the local block frame.</li>
+<li class=""><code>block_duration</code> / <code>block_inverse_duration</code> / <code>frame_duration</code> convert
+global animation time into a local block frame (``local = (t - block_start)
+<ul>
+<li class="">block_inverse_duration * max_frames_per_block``).</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="decoding-a-frame-of-a-spline-animation">Decoding a frame of a spline animation<a href="#decoding-a-frame-of-a-spline-animation" class="hash-link" aria-label="Direct link to Decoding a frame of a spline animation" title="Direct link to Decoding a frame of a spline animation" translate="no">​</a></h2>
+<ol>
+<li class="">Determine the block index from the frame number (frame / max_frames_per_block).</li>
+<li class="">Locate the block via <code>block_offsets[block]</code>.</li>
+<li class="">Parse the block&#x27;s masks, tracks, and control points (above).</li>
+<li class="">For each transform track, evaluate position, rotation, scale at the local
+frame and combine into an <code>hkQTransform</code>.</li>
+<li class="">Map transform tracks to bones via <code>hkaAnimationBinding.transform_track_to_bone_indices</code>.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="delta--interleaved-animations">Delta / interleaved animations<a href="#delta--interleaved-animations" class="hash-link" aria-label="Direct link to Delta / interleaved animations" title="Direct link to Delta / interleaved animations" translate="no">​</a></h2>
+<p>Interleaved and delta-compressed animations are out of scope for a first
+implementation (FO4 uses spline compression for the vast majority of
+animations). The interleaved format stores per-track data uncompressed; delta
+stores per-block delta frames. The SDK&#x27;s <code>hka_interleaved*</code> and delta
+headers are the reference for a later pass.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="validation-strategy">Validation strategy<a href="#validation-strategy" class="hash-link" aria-label="Direct link to Validation strategy" title="Direct link to Validation strategy" translate="no">​</a></h2>
+<p>Ground truth for testing: unpack real FO4 .hkx with hkxpack (MIT-licensed,
+external tool) to XML, compare against our parser&#x27;s output for the same file.
+The XML uses class names, not hashes, which makes diffing straightforward.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="licensing-note">Licensing note<a href="#licensing-note" class="hash-link" aria-label="Direct link to Licensing note" title="Direct link to Licensing note" translate="no">​</a></h2>
+<p>This spec is derived from public file-format facts (field names, sizes,
+algorithms) cross-checked against the Havok 2014 SDK and the FO4 modding
+community documentation. It does not copy GPL implementation code. Any Python
+written against this spec is original work.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tools-reference-xentax-community">Tools Reference (XeNTaX Community)<a href="#tools-reference-xentax-community" class="hash-link" aria-label="Direct link to Tools Reference (XeNTaX Community)" title="Direct link to Tools Reference (XeNTaX Community)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hkxcmd-figment">hkxcmd (figment)<a href="#hkxcmd-figment" class="hash-link" aria-label="Direct link to hkxcmd (figment)" title="Direct link to hkxcmd (figment)" translate="no">​</a></h3>
+<p>Open-source HKX↔XML converter. Only supports up to Havok 2010.2.0.
+Silently fails on newer versions (accepts file but produces no output).
+<strong>Workaround for 2011 files</strong>: Cut data before <code>WààW</code> header, change version string from <code>hk_2011.2.0-r1</code> to <code>hk_2010.2.0-r1</code>.
+<a href="https://github.com/figment/hkxcmd" target="_blank" rel="noopener noreferrer" class="">https://github.com/figment/hkxcmd</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ssfadf--dark_souls_hkx-snaz--danilodum">SSFADF / dark_souls_hkx (Snaz / Danilodum)<a href="#ssfadf--dark_souls_hkx-snaz--danilodum" class="hash-link" aria-label="Direct link to SSFADF / dark_souls_hkx (Snaz / Danilodum)" title="Direct link to SSFADF / dark_souls_hkx (Snaz / Danilodum)" translate="no">​</a></h3>
+<p>HKX to XML converter (<code>.damnhavok</code> format). Reads up to 2012.2.0. Works with Dark Souls 1 files.
+Usage: Place <code>SSFADF.exe</code> in root of hkx animation directory; recursively converts all <code>.hkx</code> except <code>Skeleton.hkx</code> and <code>Skeleton-out.hkx</code>. Open <code>.damnhavok</code> in Noesis with converted skeleton in same folder.
+<a href="https://github.com/Danilodum/dark_souls_hkx/releases" target="_blank" rel="noopener noreferrer" class="">https://github.com/Danilodum/dark_souls_hkx/releases</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="havok2fbx-highflex">havok2fbx (Highflex)<a href="#havok2fbx-highflex" class="hash-link" aria-label="Direct link to havok2fbx (Highflex)" title="Direct link to havok2fbx (Highflex)" translate="no">​</a></h3>
+<p>Reads up to Havok 2014.1.0. Converts HKX to FBX.
+<strong>Workaround</strong>: Rename version string from <code>2010</code> to <code>2014</code> to make 2010/2011/2012 files loadable.
+Limitation: Only works with 32-bit files; 64-bit Dark Souls III files fail.
+<a href="https://github.com/Highflex/havok2fbx/releases" target="_blank" rel="noopener noreferrer" class="">https://github.com/Highflex/havok2fbx/releases</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="volfins-hkx2smd-volfin">volfin&#x27;s hkx2smd (volfin)<a href="#volfins-hkx2smd-volfin" class="hash-link" aria-label="Direct link to volfin&#x27;s hkx2smd (volfin)" title="Direct link to volfin&#x27;s hkx2smd (volfin)" translate="no">​</a></h3>
+<p>C# converter HKX to SMD (Source engine format). Works with 2012.2.0 and 2010.2.0.
+Supports skeleton extraction; animation output planned but not completed.
+Written in C# — class definitions at top of <code>Program.cs</code>. Needs per-game tweaking.
+<a href="https://bitbucket.org/Volfin/hkx2smd/overview" target="_blank" rel="noopener noreferrer" class="">https://bitbucket.org/Volfin/hkx2smd/overview</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="assetcc-havok-sdk-tool">AssetCc (Havok SDK tool)<a href="#assetcc-havok-sdk-tool" class="hash-link" aria-label="Direct link to AssetCc (Havok SDK tool)" title="Direct link to AssetCc (Havok SDK tool)" translate="no">​</a></h3>
+<p>Batch converter between binary HKX and XML HKX.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">AssetCc1.exe --strip bin.hkx xml.hkx      # Binary → XML (keeps version)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx  # XML → Binary</span><br></div></code></pre></div></div>
+<ul>
+<li class=""><code>--strip</code> removes extra junk at file start</li>
+<li class=""><code>--rules4101</code> vs <code>--rules8011</code>: different platform rule sets (4101 = Win32, preferred)</li>
+<li class="">Cc1 keeps original version; Cc2 converts to SDK version it was built with</li>
+<li class="">AssetCc2 from hk2013 SDK: works with <code>hk_2013.2.0-r1</code> but NOT <code>hk_2013.1.0-r1</code></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="havok-content-tools-for-3ds-max">Havok Content Tools for 3ds Max<a href="#havok-content-tools-for-3ds-max" class="hash-link" aria-label="Direct link to Havok Content Tools for 3ds Max" title="Direct link to Havok Content Tools for 3ds Max" translate="no">​</a></h3>
+<p>Plugin for 3ds Max that can export HKX files (spline compressed and uncompressed).
+The <code>Prune</code> modifier removes extra junk, producing files nearly identical to originals.
+Export requires selecting &quot;Packfile&quot; in &quot;Write to Platform&quot; option.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="havoklib-lukas-cone--predatorcz">HavokLib (Lukas Cone / PredatorCZ)<a href="#havoklib-lukas-cone--predatorcz" class="hash-link" aria-label="Direct link to HavokLib (Lukas Cone / PredatorCZ)" title="Direct link to HavokLib (Lukas Cone / PredatorCZ)" translate="no">​</a></h3>
+<p>Contains Havok spline compressor/decompressor implementation in C++.
+Source publicly available, useful for understanding decompression algorithm.
+<a href="https://github.com/PredatorCZ/HavokLib/blob/master/source/phys/Havok/Compressor.hpp" target="_blank" rel="noopener noreferrer" class="">https://github.com/PredatorCZ/HavokLib/blob/master/source/phys/Havok/Compressor.hpp</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hkxpack-dexesttp">hkxpack (Dexesttp)<a href="#hkxpack-dexesttp" class="hash-link" aria-label="Direct link to hkxpack (Dexesttp)" title="Direct link to hkxpack (Dexesttp)" translate="no">​</a></h3>
+<p>Java-based HKX to XML converter. Converts to Tag-XML format (not regular XML).
+Tools like hkxcmd and Noesis damnhavok plugin expect regular XML, not tag-XML.
+<a href="https://github.com/Dexesttp/hkxpack" target="_blank" rel="noopener noreferrer" class="">https://github.com/Dexesttp/hkxpack</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="havok-sdk-intel--microsoft">Havok SDK (Intel / Microsoft)<a href="#havok-sdk-intel--microsoft" class="hash-link" aria-label="Direct link to Havok SDK (Intel / Microsoft)" title="Direct link to Havok SDK (Intel / Microsoft)" translate="no">​</a></h3>
+<p>Freely available from Intel until Microsoft acquired Havok. Contains:</p>
+<ul>
+<li class="">AssetCc batch converter</li>
+<li class="">Havok Standalone Tool (visualization)</li>
+<li class="">Havok Content Tools (3ds Max plugin)</li>
+<li class="">Full documentation including compression algorithm details</li>
+<li class="">Demo projects (AnimatedSkeletonDemo for animation extraction)</li>
+</ul>
+<p>SDK demo approach: load skeleton + animation files, read data programmatically via <code>AnimatedSkeletonDemo.cpp</code> class.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="practical-techniques">Practical Techniques<a href="#practical-techniques" class="hash-link" aria-label="Direct link to Practical Techniques" title="Direct link to Practical Techniques" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="extracting-skeletons-to-smd-shakotay2">Extracting Skeletons to SMD (shakotay2)<a href="#extracting-skeletons-to-smd-shakotay2" class="hash-link" aria-label="Direct link to Extracting Skeletons to SMD (shakotay2)" title="Direct link to Extracting Skeletons to SMD (shakotay2)" translate="no">​</a></h3>
+<ol>
+<li class="">Find bone names in HKX binary (look for name strings after <code>hkClass</code>)</li>
+<li class="">Map parent indices from <code>parentIndices</code> array</li>
+<li class="">Extract reference pose transforms (quaternion + translation + scale per bone)</li>
+<li class="">Write as SMD format
+Process semi-automated: three offsets need manual searching, rest scripted.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="animation-swap-technique-sergeantjoe">Animation Swap Technique (SergeantJoe)<a href="#animation-swap-technique-sergeantjoe" class="hash-link" aria-label="Direct link to Animation Swap Technique (SergeantJoe)" title="Direct link to Animation Swap Technique (SergeantJoe)" translate="no">​</a></h3>
+<p>To replace animations in-game:</p>
+<ol>
+<li class="">Swap data starting with <code>&quot;WààW&quot;</code> (magic header) and ending with <code>&quot;+    yyyyyy&quot;</code></li>
+<li class="">Two header size values control memory allocation — set both to minimum if swapping with same-sized animation</li>
+<li class="">Works for swapping existing in-game animations</li>
+</ol>
+<p>Creating fully custom animations requires converting XML→binary via AssetCc and injecting via the same swap method.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-renaming-trick">Version Renaming Trick<a href="#version-renaming-trick" class="hash-link" aria-label="Direct link to Version Renaming Trick" title="Direct link to Version Renaming Trick" translate="no">​</a></h3>
+<p>Many HKX tools are version-gated but internal format is nearly identical:</p>
+<ul>
+<li class="">2011 → 2010: <code>hkxcmd</code> works (with data before magic stripped)</li>
+<li class="">2012 → 2010: <code>hkxcmd</code> works</li>
+<li class="">2010 → 2014: <code>havok2fbx</code> works
+Always strip any data before the <code>WààW</code> magic first.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="converting-hkx-to-smd-via-havok-sdk-demo-johnhudeski">Converting HKX to SMD via Havok SDK Demo (JohnHudeski)<a href="#converting-hkx-to-smd-via-havok-sdk-demo-johnhudeski" class="hash-link" aria-label="Direct link to Converting HKX to SMD via Havok SDK Demo (JohnHudeski)" title="Direct link to Converting HKX to SMD via Havok SDK Demo (JohnHudeski)" translate="no">​</a></h3>
+<p>Using the AnimatedSkeletonDemo:</p>
+<ol>
+<li class="">Place skeleton <code>.hkx</code> in demo&#x27;s resource path</li>
+<li class="">Modify <code>AnimatedSkeletonDemo.cpp</code> to export to SMD instead of rendering</li>
+<li class="">Compile with VS2012+ and matching Havok SDK</li>
+<li class="">Demo loads skeleton and animation, reads bone data, can be modified to write to file</li>
+</ol>
+<p>Key modification points:</p>
+<ul>
+<li class="">Line ~1260: Set asset filename</li>
+<li class="">Line ~1276: Set output file and format</li>
+<li class="">Lines ~1313-1316: Animation input/output folder paths</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dark-souls-iii-64-bit-hkx">Dark Souls III (64-bit HKX)<a href="#dark-souls-iii-64-bit-hkx" class="hash-link" aria-label="Direct link to Dark Souls III (64-bit HKX)" title="Direct link to Dark Souls III (64-bit HKX)" translate="no">​</a></h3>
+<p>DS3 uses Havok 2014.1.0-r1 64-bit. hkx2smd crashes with <code>OutOfMemoryException</code> because newer formats report 1.5 billion elements in arrays. The <code>PointerSize</code> flag (value 8 for 64-bit, 4 for 32-bit) affects section size calculations.</p>
+<p>Skeleton extraction possible manually by reading bone names and parent indices directly from binary.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="common-issues-and-solutions">Common Issues and Solutions<a href="#common-issues-and-solutions" class="hash-link" aria-label="Direct link to Common Issues and Solutions" title="Direct link to Common Issues and Solutions" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="wrong-platform-for-packfile">&quot;Wrong platform for packfile&quot;<a href="#wrong-platform-for-packfile" class="hash-link" aria-label="Direct link to &quot;Wrong platform for packfile&quot;" title="Direct link to &quot;Wrong platform for packfile&quot;" translate="no">​</a></h3>
+<p>Caused by endianness or architecture mismatch. Solutions:</p>
+<ul>
+<li class="">Check endian flag at offset 0x11</li>
+<li class="">For PS3 (big-endian) files: byte-swap all multi-byte values</li>
+<li class="">For 64-bit files: tools must support 64-bit pointers (many only handle 32-bit)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hkxcmd-silently-fails">hkxcmd Silently Fails<a href="#hkxcmd-silently-fails" class="hash-link" aria-label="Direct link to hkxcmd Silently Fails" title="Direct link to hkxcmd Silently Fails" translate="no">​</a></h3>
+<p>hkxcmd only properly supports Havok 2010. It will accept 2011+ files without error but produce no output. Always verify the <code>-out.hkx</code> file exists and has non-zero size.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="animation-bones-not-moving">Animation Bones Not Moving<a href="#animation-bones-not-moving" class="hash-link" aria-label="Direct link to Animation Bones Not Moving" title="Direct link to Animation Bones Not Moving" translate="no">​</a></h3>
+<p>When converting via hkxcmd+havok2fbx, skeletons transfer correctly but animations may show only root motion with all other bones frozen. Possible causes:</p>
+<ul>
+<li class="">Version mismatch in the conversion chain</li>
+<li class=""><code>blendHint</code> in <code>hkaAnimationBinding</code> — try changing from NORMAL to ADDITIVE</li>
+<li class="">Binary→XML conversion may lose quantization data</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="havok-standalone-tool-issues">Havok Standalone Tool Issues<a href="#havok-standalone-tool-issues" class="hash-link" aria-label="Direct link to Havok Standalone Tool Issues" title="Direct link to Havok Standalone Tool Issues" translate="no">​</a></h3>
+<p>The Standalone Tool (ToolStandAlone.exe) can visualize HKX files and export to XML, but:</p>
+<ul>
+<li class="">Requires matching SDK version for the file</li>
+<li class="">Some HKX files from games cannot be loaded even with correct version</li>
+<li class="">Skeleton may not render if bones are connected to root in unusual ways</li>
+<li class="">The Filter Manager rarely works on extracted files</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hkx-parsers--tools">HKX Parsers &amp; Tools<a href="#hkx-parsers--tools" class="hash-link" aria-label="Direct link to HKX Parsers &amp; Tools" title="Direct link to HKX Parsers &amp; Tools" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Language</th><th>License</th><th>Notes</th></tr></thead><tbody><tr><td>hkxpack</td><td>Java</td><td>MIT</td><td>Original pack/unpack tool</td></tr><tr><td>hkxpack-plus</td><td>Java</td><td>MIT</td><td>910 bundled class defs — best validation tool</td></tr><tr><td>HKX2-Enhanced-Library</td><td>C#</td><td>MIT</td><td>589 autogen classes, most complete parser (.sln)</td></tr><tr><td>havoklib</td><td>C++</td><td>GPL</td><td>Format library (CMake)</td></tr><tr><td>blender-hkx</td><td>Python</td><td>MIT</td><td>Blender addon reference implementation</td></tr><tr><td>hkdump</td><td>C++</td><td>MIT</td><td>Dumper (makefile)</td></tr><tr><td>hkxcmd 1.4</td><td>C++</td><td>—</td><td>Skyrim HKX ↔ XML/KF converter (VS2008)</td></tr><tr><td>StarfieldMeshConverter</td><td>C#</td><td>—</td><td>Full chunked-format parser (2019.02: TAG0/SDKV/TYPE/INDX/PTCH)</td></tr><tr><td>tagtools</td><td>Python</td><td>—</td><td>TagTools.py + TypeDatabase.xml</td></tr><tr><td>BehaviourGraphStudio</td><td>ELF</td><td>—</td><td>Linux binary, reads/writes FO4 HKX directly</td></tr><tr><td>HavokMax</td><td>C++</td><td>—</td><td>3ds Max Havok plugin (CMake)</td></tr><tr><td>hkx_reverse</td><td>.NET</td><td>—</td><td>HavokDisrupt RE toolkit</td></tr><tr><td>havok-keygen</td><td>C++</td><td>—</td><td>2021/2022 license keygens (Physics/Destruction/AI/Cloth)</td></tr><tr><td>havok-vdb-2022.2.0</td><td>.NET</td><td>—</td><td>Visual Debugger (x64)</td></tr></tbody></table>
+<p>All parsers and tools are in the <code>re/havok/</code> workspace. The <code>parsers/</code> directory has per-tool subdirectories with READMEs and licenses.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sdk-availability">SDK Availability<a href="#sdk-availability" class="hash-link" aria-label="Direct link to SDK Availability" title="Direct link to SDK Availability" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>SDK Version</th><th>Status</th><th>Notes</th></tr></thead><tbody><tr><td>Havok 5–7</td><td>Available</td><td>Legacy Content Tools installers</td></tr><tr><td>2010.2.0</td><td>Available</td><td>Bethesda-era, VS2005/VS2008</td></tr><tr><td>2011.x</td><td>Available</td><td>VS2008/VS2010</td></tr><tr><td>2012.2.0</td><td>Available</td><td>VS2010</td></tr><tr><td>2013.x</td><td>Available</td><td>Content Tools</td></tr><tr><td>2014.1.0</td><td>Available</td><td>FO4-era, 64-bit LE</td></tr><tr><td>2014.2.5</td><td><strong>Missing</strong></td><td>Needed for WDL Ubi leak</td></tr><tr><td>2015–2017</td><td><strong>Missing</strong></td><td>Proprietary licensed builds</td></tr><tr><td>2018.1.0</td><td>Available</td><td>14k files extracted</td></tr><tr><td>2019.02</td><td>Partial</td><td>Starfield chunked format (parseable, no full SDK)</td></tr><tr><td>2021/2022</td><td>Keygens only</td><td>License keygens + VDB available</td></tr></tbody></table>
+<p><strong>HUNT EXHAUSTED (2026-08-18)</strong>: 2015–2017 SDKs and 2014.2.5 are not in any reachable public collection (Drive originals, mirror, archive.org, GitHub all top out at 2014.1.x). Newer SDKs are proprietary licensed builds. Acquisition leads: <code>files.dartpower.xyz</code> has 2021/2022 keygens + VDB; <code>downloads.havok.com</code> is login-gated.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/ghostrecon/xentax-ghostrecon-knowledge"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Tom Clancy&#x27;s Ghost Recon — XeNTaX Forum Knowledge</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/havok/xentax-havok-knowledge"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Havok - XeNTaX Community Knowledge</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#scope" class="table-of-contents__link toc-highlight">Scope</a></li><li><a href="#havok-version-compatibility-xentax-community" class="table-of-contents__link toc-highlight">Havok Version Compatibility (XeNTaX Community)</a><ul><li><a href="#wdl-havok-versions" class="table-of-contents__link toc-highlight">WDL Havok Versions</a></li><li><a href="#havok-license-keys" class="table-of-contents__link toc-highlight">Havok License Keys</a></li><li><a href="#version-9-vs-11-header-difference" class="table-of-contents__link toc-highlight">Version 9 vs 11 Header Difference</a></li><li><a href="#platform-flags" class="table-of-contents__link toc-highlight">Platform Flags</a></li></ul></li><li><a href="#container-layout" class="table-of-contents__link toc-highlight">Container layout</a></li><li><a href="#section-contents" class="table-of-contents__link toc-highlight">Section contents</a></li><li><a href="#object-model--pointers" class="table-of-contents__link toc-highlight">Object model / pointers</a></li><li><a href="#class-descriptors" class="table-of-contents__link toc-highlight">Class descriptors</a><ul><li><a href="#spline-compression-parameters-from-havok-sdk" class="table-of-contents__link toc-highlight">Spline Compression Parameters (from Havok SDK)</a></li><li><a href="#quantization-enums" class="table-of-contents__link toc-highlight">Quantization Enums</a></li><li><a href="#default-compression-settings-havok-2013-sdk" class="table-of-contents__link toc-highlight">Default Compression Settings (Havok 2013 SDK)</a></li><li><a href="#spline-compression-theory" class="table-of-contents__link toc-highlight">Spline Compression Theory</a></li><li><a href="#bin-animation-containers" class="table-of-contents__link toc-highlight">BIN Animation Containers</a></li></ul></li><li><a href="#jenkins-one-at-a-time-hash" class="table-of-contents__link toc-highlight">Jenkins one-at-a-time hash</a></li><li><a href="#spline-compressed-animation-data" class="table-of-contents__link toc-highlight">Spline-compressed animation data</a></li><li><a href="#spline-evaluation-nurbs" class="table-of-contents__link toc-highlight">Spline evaluation (NURBS)</a></li><li><a href="#decoding-a-frame-of-a-spline-animation" class="table-of-contents__link toc-highlight">Decoding a frame of a spline animation</a></li><li><a href="#delta--interleaved-animations" class="table-of-contents__link toc-highlight">Delta / interleaved animations</a></li><li><a href="#validation-strategy" class="table-of-contents__link toc-highlight">Validation strategy</a></li><li><a href="#licensing-note" class="table-of-contents__link toc-highlight">Licensing note</a></li><li><a href="#tools-reference-xentax-community" class="table-of-contents__link toc-highlight">Tools Reference (XeNTaX Community)</a><ul><li><a href="#hkxcmd-figment" class="table-of-contents__link toc-highlight">hkxcmd (figment)</a></li><li><a href="#ssfadf--dark_souls_hkx-snaz--danilodum" class="table-of-contents__link toc-highlight">SSFADF / dark_souls_hkx (Snaz / Danilodum)</a></li><li><a href="#havok2fbx-highflex" class="table-of-contents__link toc-highlight">havok2fbx (Highflex)</a></li><li><a href="#volfins-hkx2smd-volfin" class="table-of-contents__link toc-highlight">volfin&#39;s hkx2smd (volfin)</a></li><li><a href="#assetcc-havok-sdk-tool" class="table-of-contents__link toc-highlight">AssetCc (Havok SDK tool)</a></li><li><a href="#havok-content-tools-for-3ds-max" class="table-of-contents__link toc-highlight">Havok Content Tools for 3ds Max</a></li><li><a href="#havoklib-lukas-cone--predatorcz" class="table-of-contents__link toc-highlight">HavokLib (Lukas Cone / PredatorCZ)</a></li><li><a href="#hkxpack-dexesttp" class="table-of-contents__link toc-highlight">hkxpack (Dexesttp)</a></li><li><a href="#havok-sdk-intel--microsoft" class="table-of-contents__link toc-highlight">Havok SDK (Intel / Microsoft)</a></li></ul></li><li><a href="#practical-techniques" class="table-of-contents__link toc-highlight">Practical Techniques</a><ul><li><a href="#extracting-skeletons-to-smd-shakotay2" class="table-of-contents__link toc-highlight">Extracting Skeletons to SMD (shakotay2)</a></li><li><a href="#animation-swap-technique-sergeantjoe" class="table-of-contents__link toc-highlight">Animation Swap Technique (SergeantJoe)</a></li><li><a href="#version-renaming-trick" class="table-of-contents__link toc-highlight">Version Renaming Trick</a></li><li><a href="#converting-hkx-to-smd-via-havok-sdk-demo-johnhudeski" class="table-of-contents__link toc-highlight">Converting HKX to SMD via Havok SDK Demo (JohnHudeski)</a></li><li><a href="#dark-souls-iii-64-bit-hkx" class="table-of-contents__link toc-highlight">Dark Souls III (64-bit HKX)</a></li></ul></li><li><a href="#common-issues-and-solutions" class="table-of-contents__link toc-highlight">Common Issues and Solutions</a><ul><li><a href="#wrong-platform-for-packfile" class="table-of-contents__link toc-highlight">&quot;Wrong platform for packfile&quot;</a></li><li><a href="#hkxcmd-silently-fails" class="table-of-contents__link toc-highlight">hkxcmd Silently Fails</a></li><li><a href="#animation-bones-not-moving" class="table-of-contents__link toc-highlight">Animation Bones Not Moving</a></li><li><a href="#havok-standalone-tool-issues" class="table-of-contents__link toc-highlight">Havok Standalone Tool Issues</a></li></ul></li><li><a href="#hkx-parsers--tools" class="table-of-contents__link toc-highlight">HKX Parsers &amp; Tools</a></li><li><a href="#sdk-availability" class="table-of-contents__link toc-highlight">SDK Availability</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

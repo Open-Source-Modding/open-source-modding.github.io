@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-bethesda/starfield" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/bethesda/starfield"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding | Open Source Modding"><meta data-rh="true" name="description" content="Date: 2026-08-18"><meta data-rh="true" property="og:description" content="Date: 2026-08-18"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/bethesda/starfield"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/starfield" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/starfield" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding","item":"https://open-source-modding.github.io/docs/bethesda/starfield"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/bethesda-formats"><span class="linkLabel_WmDU">Bethesda Archive, Model &amp; Texture Formats</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/fallout4-havok-guide"><span class="linkLabel_WmDU">fallout4-havok-guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/oblivion-remastered-guide"><span class="linkLabel_WmDU">Oblivion Remastered (2025) — Engine, Containers &amp; Animation Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/oblivion-remastered"><span class="linkLabel_WmDU">Research: Oblivion Remastered (2025) — engine, containers, animation, modding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/skyrim-havok-guide"><span class="linkLabel_WmDU">Skyrim Havok Animation Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/skyrim-havok"><span class="linkLabel_WmDU">Research: Skyrim Havok / Animation Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/starfield-guide"><span class="linkLabel_WmDU">Starfield Modding &amp; Reverse Engineering Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/bethesda/starfield"><span class="linkLabel_WmDU">Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/xentax-bethesda-knowledge"><span class="linkLabel_WmDU">Bethesda Games — XeNTaX Forum Knowledge</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">bethesda</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding</h1></header>
+<p>Date: 2026-08-18
+Status: research notes for a reference guide at <code>reference/bethesda/</code>
+Confidence: HIGH for facts sourced from primary code (CommonLibSF, xEdit/BSArch) and
+official sites (SFSE, Steam); MEDIUM where flagged.</p>
+<blockquote>
+<p>Scope: Starfield (2023) keeps the Bethesda <strong>Havok-based <code>.hkx</code> animation lineage</strong> from
+Fallout 4 (unlike Oblivion Remastered, which is a UE5 hybrid). CE2 drives animation
+through the <strong>Animation Graph (AnimGraph)</strong> framework — the same wrapper around Havok
+behavior that Skyrim SE / FO4 use. It is <strong>64-bit</strong> throughout.</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-engine--creation-engine-2">1. Engine — Creation Engine 2<a href="#1-engine--creation-engine-2" class="hash-link" aria-label="Direct link to 1. Engine — Creation Engine 2" title="Direct link to 1. Engine — Creation Engine 2" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Fact</th><th>Detail</th><th>Source (URL)</th><th>Confidence</th></tr></thead><tbody><tr><td>Game</td><td>Starfield, released 2023-09-05 (Steam AppID 1716740); expansion <em>Shattered Space</em> 2024-09-30 (AppID 2721670)</td><td>Steam Store AppDetails API</td><td>HIGH</td></tr><tr><td>Engine</td><td>Creation Engine 2 (CE2), successor to the Creation Engine (FO4/Skyrim). 64-bit (x64).</td><td>CommonLibSF (x64, <code>SF_RTTI_VTABLE</code> etc.)</td><td>HIGH</td></tr><tr><td>Official CK</td><td>Starfield Creation Kit released 2024-06-09 (Steam AppID 2722710, free)</td><td>Steam Store AppDetails</td><td>HIGH</td></tr><tr><td>Script extender</td><td>SFSE (Starfield Script Extender) by ianpatt/behippo; Steam only (Game Pass NOT supported); build 0.2.21 / game 1.16.244</td><td>sfse.silverlock.org; github.com/ianpatt/sfse; nexusmods.com/starfield/mods/106</td><td>HIGH</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-animation--havok-hkx--animgraph-confirmed-lineage">2. Animation — Havok <code>.hkx</code> + AnimGraph (CONFIRMED lineage)<a href="#2-animation--havok-hkx--animgraph-confirmed-lineage" class="hash-link" aria-label="Direct link to 2-animation--havok-hkx--animgraph-confirmed-lineage" title="Direct link to 2-animation--havok-hkx--animgraph-confirmed-lineage" translate="no">​</a></h2>
+<p>The single most important finding: <strong>Starfield retains the Havok behavior/animation <code>.hkx</code>
+lineage</strong>, exposed through the <strong>Animation Graph (AnimGraph)</strong> framework.</p>
+<p>Primary-source evidence from CommonLibSF (<code>include/RE/</code>):</p>
+<ul>
+<li class=""><code>BSAnimationGraph</code> — base class (derives <code>BSIntrusiveRefCounted</code> + several <code>BSTEventSource</code>s). Subclass <code>AnimationManager : public BSAnimationGraph</code>.</li>
+<li class=""><code>BSAnimationGraphManager</code> (<code>sizeof == 0x80</code>) — the graph manager object.</li>
+<li class=""><code>BGSAnimationGraphComponent</code> (<code>sizeof == 0x40</code>) — Form component carrying the graph
+project/behavior names as <code>BSFixedString</code> members (<code>unk10..unk28</code>) + a smart-ptr.</li>
+<li class=""><code>IAnimationGraphManagerHolder</code> — interface with <code>NotifyAnimationGraphImpl</code>,
+<code>GetAnimationGraphManagerImpl</code>, <code>GetGraphVariableImpl{Float,Int,Bool}</code>, and
+<code>Pre/PostUpdateAnimationGraphManager</code>. This is <strong>identical in role</strong> to the Skyrim SE
+<code>BGSAnimationGraphManager</code> / <code>IAnimationGraphManagerHolder</code> AnimGraph system.</li>
+<li class=""><strong>No <code>hkb*</code> or <code>hkx*</code> Havok types are exposed</strong> in CommonLibSF — Havok behavior is
+handled opaquely behind the AnimGraph interface (same as Skyrim SE).</li>
+</ul>
+<p>Implication (MEDIUM-HIGH confidence, inference from architecture):</p>
+<ul>
+<li class="">Starfield <code>.hkx</code> files (Havok packfile, same magic <code>0x57e0e057 0x10c0c010</code>) still carry
+behavior graphs (<code>hkbBehaviorGraph</code>), skeletons (<code>hkaSkeleton</code>), and animation bindings
+(<code>hkaAnimationBinding</code>), organized into <strong>project / character / behavior file sets</strong>.</li>
+<li class="">The AnimGraph framework (graph variables, <code>NotifyAnimationGraph</code> events) is the
+high-level API over those <code>.hkx</code> files — the same design Bethesda used since Skyrim SE.</li>
+<li class="">Behavior project authoring tooling for CE2 (official Havok Behavior Tool or a community
+equivalent) is <strong>not confirmed</strong> — see Open Questions.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Fact</th><th>Detail</th><th>Source</th><th>Confidence</th></tr></thead><tbody><tr><td>Animation API</td><td>CE2 exposes <code>BSAnimationGraph</code>/<code>BSAnimationGraphManager</code>/<code>BGSAnimationGraphComponent</code>/<code>IAnimationGraphManagerHolder</code></td><td>CommonLibSF include/RE (fetched 2026-08-18)</td><td>HIGH (primary code)</td></tr><tr><td>Behavior events</td><td><code>NotifyAnimationGraph(const BSFixedString&amp;)</code>, graph variables (float/int/bool) via <code>GetGraphVariable*</code></td><td>CommonLibSF IAnimationGraphManagerHolder.h</td><td>HIGH</td></tr><tr><td><code>.hkx</code> files</td><td><code>.hkx</code> is a first-class <strong><code>meshes</code> asset-folder</strong> extension in BSArch (see §3)</td><td>xEdit wbBSArchive.pas (<code>atMesh</code> ext list)</td><td>HIGH</td></tr><tr><td>Havok version string</td><td><strong>NOT confirmed</strong> (e.g. does CE2 use <code>hk_2019.2</code>/<code>hk_2023.x</code>? no public contents-version fact found)</td><td>—</td><td>LOW / gap</td></tr><tr><td><code>.hkx</code> class layout vs FO4</td><td>Whether <code>hkb*</code>/<code>hka*</code> class layouts changed vs FO4&#x27;s 2014 SDK — <strong>unverified</strong>; FO4-era tools (hkxcmd/hkxpack) may not round-trip</td><td>—</td><td>gap</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-file-formats--ba2-archives--assets-confirmed-from-xeditbsarch-source">3. File formats — BA2 archives &amp; assets (CONFIRMED from xEdit/BSArch source)<a href="#3-file-formats--ba2-archives--assets-confirmed-from-xeditbsarch-source" class="hash-link" aria-label="Direct link to 3. File formats — BA2 archives &amp; assets (CONFIRMED from xEdit/BSArch source)" title="Direct link to 3. File formats — BA2 archives &amp; assets (CONFIRMED from xEdit/BSArch source)" translate="no">​</a></h2>
+<p>Authoritative from <code>TES5Edit/TES5Edit</code> <code>Core/wbBSArchive.pas</code> (dev-4.1.6), fetched 2026-08-18.
+This is the same BSArch engine that packs/unpacks the game archives.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ba2--bsa-header-versions-magic-4-bytes">BA2 / BSA header versions (magic 4 bytes)<a href="#ba2--bsa-header-versions-magic-4-bytes" class="hash-link" aria-label="Direct link to BA2 / BSA header versions (magic 4 bytes)" title="Direct link to BA2 / BSA header versions (magic 4 bytes)" translate="no">​</a></h3>
+<ul>
+<li class=""><code>MAGIC_BSA = &#x27;BSA\0&#x27;</code> (classic TES4/FO3/SSE .bsa)</li>
+<li class=""><code>MAGIC_BTDX = &#x27;BTDX&#x27;</code> (FO4 / Starfield .ba2)</li>
+<li class=""><code>MAGIC_GNRL = &#x27;GNRL&#x27;</code>, <code>MAGIC_DX10</code> (BA2 subtype: general vs texture/DDS)</li>
+<li class="">Version values:
+<ul>
+<li class=""><code>0x67</code> TES4 (Oblivion), <code>0x68</code> FO3/FNV/TES5, <code>0x69</code> SSE</li>
+<li class=""><code>0x01</code> FO4, <code>0x07</code>/<code>0x08</code> FO4 NG/AE</li>
+<li class=""><strong><code>0x02</code> Starfield v2, <code>0x03</code> Starfield v3</strong> (SF)</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="starfield-ba2-header-layout-after-btdx-magic">Starfield BA2 header layout (after <code>BTDX</code> magic)<a href="#starfield-ba2-header-layout-after-btdx-magic" class="hash-link" aria-label="Direct link to starfield-ba2-header-layout-after-btdx-magic" title="Direct link to starfield-ba2-header-layout-after-btdx-magic" translate="no">​</a></h3>
+<ol>
+<li class=""><code>Version</code> — <code>0x02</code> (SFv2) or <code>0x03</code> (SFv3)</li>
+<li class=""><code>Magic2</code> — <code>GNRL</code> (general) or <code>DX10</code> (textures/DDS); DX10 → the archive is a DDS archive</li>
+<li class=""><code>FileCount</code> (uint32)</li>
+<li class=""><code>FileTableOffset</code> (int64)</li>
+<li class=""><strong>SF v2+</strong>: <code>ReadUInt64</code> — &quot;always set to 1, immediately discarded on load&quot; (padding/hash placeholder)</li>
+<li class=""><strong>SF v3+</strong>: <code>CompressionMethod</code> (uint32):
+<ul>
+<li class=""><code>COMPRESSION_METHOD_ZLIB = 0</code> (default)</li>
+<li class=""><code>COMPRESSION_METHOD_LZ4 = 3</code></li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="compression-support-per-archive-type-first--default">Compression support (per archive type; first = default)<a href="#compression-support-per-archive-type-first--default" class="hash-link" aria-label="Direct link to Compression support (per archive type; first = default)" title="Direct link to Compression support (per archive type; first = default)" translate="no">​</a></h3>
+<ul>
+<li class=""><code>baSF</code> (Starfield general): <code>[ctZLib, ctLZ4]</code> → default <strong>ZLib</strong></li>
+<li class=""><code>baSFdds</code> (Starfield DDS/texture): <code>[ctLZ4, ctZLib]</code> → default <strong>LZ4</strong></li>
+<li class="">(FO4 general <code>baFO4</code>: <code>[ctZLib]</code>; SSE <code>baSSE</code>: <code>[ctLZ4F]</code>)</li>
+<li class="">Note (line 1608): &quot;official Archive2 tool creates v3 archives for lz4 compression only&quot;
+→ Starfield <strong>v3 (0x03)</strong> header + CompressionMethod is used specifically when LZ4 is chosen.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="asset-folders-root--extensions--from-cbsassets-table">Asset folders (root + extensions) — from <code>cBSAssets</code> table<a href="#asset-folders-root--extensions--from-cbsassets-table" class="hash-link" aria-label="Direct link to asset-folders-root--extensions--from-cbsassets-table" title="Direct link to asset-folders-root--extensions--from-cbsassets-table" translate="no">​</a></h3>
+<ul>
+<li class=""><code>meshes</code> (atMesh): <code>.nif .kf .kfm .egm .egt .tri .psa .hkt .hkx .ssf .btr .bto .btt .dtl</code>
+→ <strong><code>.hkx</code> animation files live in <code>meshes/</code></strong>; NIF <code>.nif</code> is still a mesh extension (FO4-era).</li>
+<li class=""><code>geometries</code> (atGeometry): <strong><code>.mesh</code></strong> → Starfield&#x27;s new geometry format, root <code>geometries/</code></li>
+<li class=""><code>textures</code> (atTexture): <code>.dds .tga .png</code></li>
+<li class=""><code>materials</code> (atMaterial): <code>.bgsm .bgem</code></li>
+<li class=""><code>scripts</code> (atScript): <code>.pex .psc</code>; <code>source\scripts</code> (atSourceSSE): <code>.psc</code></li>
+<li class=""><code>strings</code> (atStrings): <code>.strings .ilstrings .dlstrings</code></li>
+<li class=""><code>sound\voice</code>, <code>sound</code>, <code>music</code>, <code>menus</code>, <code>interface</code>, <code>seq</code>, <code>vis</code>, <code>grass</code>, <code>trees</code>, <code>video</code> etc.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="important-distinction-nif-vs-mesh">Important distinction: <code>.nif</code> vs <code>.mesh</code><a href="#important-distinction-nif-vs-mesh" class="hash-link" aria-label="Direct link to important-distinction-nif-vs-mesh" title="Direct link to important-distinction-nif-vs-mesh" translate="no">​</a></h3>
+<ul>
+<li class="">xEdit whatsnew (dev-4.1.6): &quot;Add a <strong>Geometries</strong> root asset folder for Starfield <strong>.mesh</strong> files.&quot;</li>
+<li class="">Confirmed in <code>cBSAssets</code>: geometry uses <code>.mesh</code> under <code>geometries/</code>, while the <code>meshes/</code> root
+still lists <code>.nif</code> (legacy/FO4-era). So <strong>Starfield ships geometry as <code>.mesh</code></strong> but the
+archive system still understands NIF <code>.nif</code> + <code>.hkx</code> in <code>meshes/</code>.</li>
+<li class="">Whether CE2 <em>runtime</em> reads <code>.nif</code> directly is not fully confirmed; the xEdit model treats
+<code>.mesh</code> as the current geometry and <code>.nif</code> as legacy. MEDIUM confidence.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-plugin-esmesp-format--confirmed-from-xedit-whatsnew-dev-416">4. Plugin (.esm/.esp) format — CONFIRMED from xEdit whatsnew (dev-4.1.6)<a href="#4-plugin-esmesp-format--confirmed-from-xedit-whatsnew-dev-416" class="hash-link" aria-label="Direct link to 4. Plugin (.esm/.esp) format — CONFIRMED from xEdit whatsnew (dev-4.1.6)" title="Direct link to 4. Plugin (.esm/.esp) format — CONFIRMED from xEdit whatsnew (dev-4.1.6)" translate="no">​</a></h2>
+<ul>
+<li class="">Starfield <code>.esp</code> editing enabled with <strong>small/medium master</strong> support.</li>
+<li class=""><strong>Master limits</strong>: up to <strong>252 full</strong>, <strong>4095 light</strong>, <strong>254 medium</strong> masters in one file
+(vs FO4&#x27;s 254 full / 4095 light).</li>
+<li class="">&quot;small or medium masters&quot; + <strong>blueprint master</strong> concept: modules with a blueprint master
+can&#x27;t be saved; blueprints can&#x27;t be masters.</li>
+<li class="">An <code>.esp</code> may be loaded as a master for editing but cannot be saved as a master; small/medium
+flags cannot be set on <code>.esps</code>.</li>
+<li class="">Adding a master also adds its required up-chain masters (engine requires the full master chain).</li>
+<li class="">Starfield record updates: <code>SCEN</code> changes (v1.8.83.0), Freelanes, Reflection organization,
+new DLC records; navmesh cover flag addition; wbDOBJ etc. moved to Common.</li>
+<li class="">xEdit ships <code>Core/Hardcoded/Starfield.esm</code> + <code>Core/wbDefinitionsSF1.pas</code> (Starfield record
+definitions, ~19k lines).</li>
+<li class=""><code>.mesh</code> geometry handled in xEdit&#x27;s SNIFF via <code>Sniff/Proc/ProcAnalyzeMesh.pas</code> (uses
+zeux/meshoptimizer for vertex-cache/fetch efficiency metrics; also checks NIF <code>NifVersion &gt;= nfFO4</code>).</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-modding-tools-starfield">5. Modding tools (Starfield)<a href="#5-modding-tools-starfield" class="hash-link" aria-label="Direct link to 5. Modding tools (Starfield)" title="Direct link to 5. Modding tools (Starfield)" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Role</th><th>URL</th><th>Status</th></tr></thead><tbody><tr><td>SFSE</td><td>Starfield Script Extender (ianpatt/behippo)</td><td><a href="https://sfse.silverlock.org/" target="_blank" rel="noopener noreferrer" class="">https://sfse.silverlock.org/</a> ; <a href="https://github.com/ianpatt/sfse" target="_blank" rel="noopener noreferrer" class="">https://github.com/ianpatt/sfse</a> ; <a href="https://www.nexusmods.com/starfield/mods/106" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/starfield/mods/106</a></td><td>Active; Steam-only</td></tr><tr><td>Address Library for SFSE Plugins</td><td>SFSE plugin address database</td><td><a href="https://www.nexusmods.com/starfield/mods/3256" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/starfield/mods/3256</a></td><td>Required by many plugins</td></tr><tr><td>CommonLibSF</td><td>Collaborative RE C++ library</td><td><a href="https://github.com/Starfield-Reverse-Engineering/CommonLibSF" target="_blank" rel="noopener noreferrer" class="">https://github.com/Starfield-Reverse-Engineering/CommonLibSF</a> → <strong>moved to <a href="https://github.com/libxse/commonlibsf" target="_blank" rel="noopener noreferrer" class="">https://github.com/libxse/commonlibsf</a></strong></td><td>Unmaintained repo redirects to libxse fork</td></tr><tr><td>CLibSFPluginTemplate / commonlibsf-template-xmake</td><td>Plugin templates (CMake / XMake)</td><td><a href="https://github.com/Starfield-Reverse-Engineering/CLibSFPluginTemplate" target="_blank" rel="noopener noreferrer" class="">https://github.com/Starfield-Reverse-Engineering/CLibSFPluginTemplate</a></td><td>—</td></tr><tr><td>Creation Kit (Starfield)</td><td>Official CK, AppID 2722710</td><td><a href="https://www.creationkit.com/starfield/" target="_blank" rel="noopener noreferrer" class="">https://www.creationkit.com/starfield/</a> (wiki <strong>down for maintenance</strong>)</td><td>Wiki down</td></tr><tr><td>xEdit (TES5Edit)</td><td>Plugin editor w/ Starfield mode (&quot;SF1&quot;)</td><td><a href="https://github.com/TES5Edit/TES5Edit" target="_blank" rel="noopener noreferrer" class="">https://github.com/TES5Edit/TES5Edit</a> (dev-4.1.6+)</td><td>Active; <code>.esp</code> editing + small/medium master support</td></tr><tr><td>BSArch / Archive2</td><td>BA2/BSA packer/unpacker (source of format facts above)</td><td>bundled in TES5Edit repo (<code>BSArch/</code>, <code>Core/wbBSArchive.pas</code>)</td><td>Active</td></tr><tr><td>NifSkope</td><td>NIF editor</td><td><a href="https://github.com/niftools/nifskope" target="_blank" rel="noopener noreferrer" class="">https://github.com/niftools/nifskope</a></td><td>NIF still relevant for meshes; <code>.mesh</code> (SF) not a NifSkope format</td></tr><tr><td>hkxcmd</td><td>Havok cmd tools (Skyrim/FO4 era)</td><td><a href="https://github.com/figment/hkxcmd" target="_blank" rel="noopener noreferrer" class="">https://github.com/figment/hkxcmd</a></td><td>CE2 <code>.hkx</code> compat <strong>unverified</strong></td></tr><tr><td>hkxpack</td><td>HKX ↔ XML (hk_2014.1.0-r1 target)</td><td><a href="https://github.com/Dexesttp/hkxpack" target="_blank" rel="noopener noreferrer" class="">https://github.com/Dexesttp/hkxpack</a></td><td>CE2 class changes <strong>unverified</strong></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-community-resources">6. Community resources<a href="#6-community-resources" class="hash-link" aria-label="Direct link to 6. Community resources" title="Direct link to 6. Community resources" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Resource</th><th>URL</th><th>Notes</th></tr></thead><tbody><tr><td>SFSE official</td><td><a href="https://sfse.silverlock.org/" target="_blank" rel="noopener noreferrer" class="">https://sfse.silverlock.org/</a></td><td>build 0.2.21 / game 1.16.244</td></tr><tr><td>SFSE Nexus</td><td><a href="https://www.nexusmods.com/starfield/mods/106" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/starfield/mods/106</a></td><td>download page</td></tr><tr><td>CommonLibSF (new home)</td><td><a href="https://github.com/libxse/commonlibsf" target="_blank" rel="noopener noreferrer" class="">https://github.com/libxse/commonlibsf</a></td><td>unmaintained repo redirects here</td></tr><tr><td>Starfield Wiki</td><td><a href="https://starfieldwiki.net/" target="_blank" rel="noopener noreferrer" class="">https://starfieldwiki.net/</a></td><td><strong>HTTP 403 / Cloudflare</strong> — not scrapable</td></tr><tr><td>UESP Starfield</td><td><a href="https://en.uesp.net/wiki/Starfield:Starfield" target="_blank" rel="noopener noreferrer" class="">https://en.uesp.net/wiki/Starfield:Starfield</a> (via MediaWiki API)</td><td>UESP hosts Starfield namespace; use API form</td></tr><tr><td>Creation Kit wiki</td><td><a href="https://www.creationkit.com/starfield/" target="_blank" rel="noopener noreferrer" class="">https://www.creationkit.com/starfield/</a></td><td><strong>down for backend maintenance</strong></td></tr><tr><td>Bethesda Game Studios Discord</td><td><a href="https://discord.com/invite/BethesdaStudios" target="_blank" rel="noopener noreferrer" class="">https://discord.com/invite/BethesdaStudios</a></td><td>official; <code>#modding-news</code> channel posts CK status</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-urls-that-could-not-be-accessed-user-may-paste-content">7. URLs that could NOT be accessed (user may paste content)<a href="#7-urls-that-could-not-be-accessed-user-may-paste-content" class="hash-link" aria-label="Direct link to 7. URLs that could NOT be accessed (user may paste content)" title="Direct link to 7. URLs that could NOT be accessed (user may paste content)" translate="no">​</a></h2>
+<ol>
+<li class=""><code>https://www.creationkit.com/starfield/</code> and <code>.../starfield/index.php?title=Main_Page</code> — XWiki
+returns &quot;This wiki is currently down for backend maintenance&quot; (as of 2026-08-18).</li>
+<li class=""><code>https://starfieldwiki.net/wiki/...</code> and its <code>api.php</code> — Cloudflare &quot;Just a moment...&quot;
+challenge (HTTP 403).</li>
+<li class=""><code>https://www.nexusmods.com/starfield/mods/106</code> — page shell fetched (7 lines) but description
+not rendered.</li>
+<li class="">DuckDuckGo / Bing HTML search — served anomaly/captcha pages; no organic results usable.</li>
+<li class="">No public source found stating the exact <strong>Havok contents-version string</strong> for Starfield
+<code>.hkx</code> files (e.g. <code>hk_2014.1.0-r1</code> vs a newer SDK). This is the biggest remaining gap.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-guide-writing-pointers-for-later">8. Guide-writing pointers (for later)<a href="#8-guide-writing-pointers-for-later" class="hash-link" aria-label="Direct link to 8. Guide-writing pointers (for later)" title="Direct link to 8. Guide-writing pointers (for later)" translate="no">​</a></h2>
+<ul>
+<li class="">Emphasize the <strong>Animation Graph (AnimGraph)</strong> framework as the bridge: CE2 keeps Havok <code>.hkx</code>
+behavior/animation but exposes it via <code>BSAnimationGraph</code>/<code>BSAnimationGraphManager</code>
+(graph variables + <code>NotifyAnimationGraph</code> events) — same architecture as Skyrim SE.</li>
+<li class=""><code>.hkx</code> files remain in the <code>meshes/</code> asset folder inside <code>.ba2</code> archives.</li>
+<li class="">BA2 format: <code>BTDX</code> magic, version <code>0x02</code>/<code>0x03</code>, <code>GNRL</code>/<code>DX10</code> subtype, ZLib default
+(LZ4 for DDS, or for v3 archives packed by Archive2). This is a concrete, verifiable spec.</li>
+<li class=""><code>.esm/.esp</code>: 252 full / 4095 light / 254 medium masters; small/medium/blueprint master concepts.</li>
+<li class="">Geometry moved to <strong><code>.mesh</code></strong> under <code>geometries/</code>; NIF <code>.nif</code> retained as legacy mesh.</li>
+<li class="">Honest gaps: exact Havok SDK version, <code>.hkx</code> class layout vs FO4, behavior-authoring tooling.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/bethesda/starfield-guide"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Starfield Modding &amp; Reverse Engineering Reference</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/bethesda/xentax-bethesda-knowledge"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Bethesda Games — XeNTaX Forum Knowledge</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-engine--creation-engine-2" class="table-of-contents__link toc-highlight">1. Engine — Creation Engine 2</a></li><li><a href="#2-animation--havok-hkx--animgraph-confirmed-lineage" class="table-of-contents__link toc-highlight">2. Animation — Havok <code>.hkx</code> + AnimGraph (CONFIRMED lineage)</a></li><li><a href="#3-file-formats--ba2-archives--assets-confirmed-from-xeditbsarch-source" class="table-of-contents__link toc-highlight">3. File formats — BA2 archives &amp; assets (CONFIRMED from xEdit/BSArch source)</a><ul><li><a href="#ba2--bsa-header-versions-magic-4-bytes" class="table-of-contents__link toc-highlight">BA2 / BSA header versions (magic 4 bytes)</a></li><li><a href="#starfield-ba2-header-layout-after-btdx-magic" class="table-of-contents__link toc-highlight">Starfield BA2 header layout (after <code>BTDX</code> magic)</a></li><li><a href="#compression-support-per-archive-type-first--default" class="table-of-contents__link toc-highlight">Compression support (per archive type; first = default)</a></li><li><a href="#asset-folders-root--extensions--from-cbsassets-table" class="table-of-contents__link toc-highlight">Asset folders (root + extensions) — from <code>cBSAssets</code> table</a></li><li><a href="#important-distinction-nif-vs-mesh" class="table-of-contents__link toc-highlight">Important distinction: <code>.nif</code> vs <code>.mesh</code></a></li></ul></li><li><a href="#4-plugin-esmesp-format--confirmed-from-xedit-whatsnew-dev-416" class="table-of-contents__link toc-highlight">4. Plugin (.esm/.esp) format — CONFIRMED from xEdit whatsnew (dev-4.1.6)</a></li><li><a href="#5-modding-tools-starfield" class="table-of-contents__link toc-highlight">5. Modding tools (Starfield)</a></li><li><a href="#6-community-resources" class="table-of-contents__link toc-highlight">6. Community resources</a></li><li><a href="#7-urls-that-could-not-be-accessed-user-may-paste-content" class="table-of-contents__link toc-highlight">7. URLs that could NOT be accessed (user may paste content)</a></li><li><a href="#8-guide-writing-pointers-for-later" class="table-of-contents__link toc-highlight">8. Guide-writing pointers (for later)</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

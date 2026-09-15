@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-disrupt/watch_dogs_2/wd2-tag0-collision-format" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Watch Dogs 2 TAG0 Collision Format (Havok 2015.1 — Ubisoft-modified / Disrupt) | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/disrupt/watch_dogs_2/wd2-tag0-collision-format"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Watch Dogs 2 TAG0 Collision Format (Havok 2015.1 — Ubisoft-modified / Disrupt) | Open Source Modding"><meta data-rh="true" name="description" content="Reverse-engineered from WD2 binaries + FrankMK04&#x27;s HavokDisruptWD2 parser"><meta data-rh="true" property="og:description" content="Reverse-engineered from WD2 binaries + FrankMK04&#x27;s HavokDisruptWD2 parser"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs_2/wd2-tag0-collision-format"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs_2/wd2-tag0-collision-format" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs_2/wd2-tag0-collision-format" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Watch Dogs 2 TAG0 Collision Format (Havok 2015.1 — Ubisoft-modified / Disrupt)","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs_2/wd2-tag0-collision-format"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/blender-addon"><span class="linkLabel_WmDU">blender-io-disrupt — Blender Addon</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/compressed_mesh_format"><span class="linkLabel_WmDU">WD1/WD2/WDL Compressed Mesh Format (Havok 2017.2)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/custom-model-workflow"><span class="linkLabel_WmDU">Custom Model Workflow (Watch Dogs 1/2)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/depload-format"><span class="linkLabel_WmDU">Depload Format (Dependency Preload Manifest)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/disrupt-editor"><span class="linkLabel_WmDU">Ubisoft&#x27;s Internal Disrupt Editor (WDL)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/engine-lineage"><span class="linkLabel_WmDU">Disrupt Engine Lineage</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/glm-format"><span class="linkLabel_WmDU">GLM Format (Watch Dogs / Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/havok-repos"><span class="linkLabel_WmDU">GitHub Repos for HKX/Havok Format Research</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/installpackage-patch"><span class="linkLabel_WmDU">installpackage-over-patch DLL Hex Edit</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/tool-gotchas"><span class="linkLabel_WmDU">Disrupt Engine — Tool Gotchas</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/disrupt/unsorted/MaterialBin/matbin"><span class="categoryLinkLabel_W154">unsorted</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/disrupt/watch_dogs/"><span class="categoryLinkLabel_W154">Watch Dogs Reference</span></a><button aria-label="Expand sidebar category &#x27;Watch Dogs Reference&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/disrupt/watch_dogs_2/community-resources"><span class="categoryLinkLabel_W154">watch_dogs_2</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs_2/community-resources"><span class="linkLabel_WmDU">Watch Dogs 2 — Community Tools &amp; References</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs_2/model-format"><span class="linkLabel_WmDU">WD2 Model Descriptor Format (.model)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs_2/model-hash-mappings"><span class="linkLabel_WmDU">WD2 Model Hash Mappings</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs_2/rebuildfilelists-schema"><span class="linkLabel_WmDU">RebuildFileLists Schema (ToIndex Types)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs_2/vehicle-handling-modding"><span class="linkLabel_WmDU">Watch Dogs 2 — Vehicle Handling Modding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs_2/wd2-item-clothing-tutorial"><span class="linkLabel_WmDU">WD2 Custom Item/Clothing Creation Tutorial</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/disrupt/watch_dogs_2/wd2-tag0-collision-format"><span class="linkLabel_WmDU">Watch Dogs 2 TAG0 Collision Format (Havok 2015.1 — Ubisoft-modified / Disrupt)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs_2/xbt-texture-format"><span class="linkLabel_WmDU">XBT Texture Format — Watch Dogs 2 (Disrupt Engine)</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/disrupt/watch_dogs_legion/"><span class="categoryLinkLabel_W154">WDL-Reversing</span></a><button aria-label="Expand sidebar category &#x27;WDL-Reversing&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/weapon-adding-guide"><span class="linkLabel_WmDU">Adding a New Weapon to Disrupt (WD1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/wlu-format"><span class="linkLabel_WmDU">WLU Format (World Location Unit)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/xbgmip-format"><span class="linkLabel_WmDU">XBGMIP Format — High-Detail Streamed LOD (WD1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/xbt-format"><span class="linkLabel_WmDU">XBT Texture Format — Disrupt Engine (shared)</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">disrupt</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">watch_dogs_2</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Watch Dogs 2 TAG0 Collision Format (Havok 2015.1 — Ubisoft-modified / Disrupt)</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Watch Dogs 2 TAG0 Collision Format (Havok 2015.1 — Ubisoft-modified / Disrupt)</h1></header>
+<blockquote>
+<p>Reverse-engineered from WD2 binaries + FrankMK04&#x27;s <code>HavokDisruptWD2</code> parser
+(verified against <code>galilei_glass_breakable02.hkx</code> and <code>roadres_*.phys</code>).
+<strong>Cross-reference</strong>: generic TAG0/TCM0 chunk format, TCRF compendium system, WDL
+(Havok 2017.2) type catalog → <a class="" href="/docs/disrupt/watch_dogs_legion/HKX_FORMAT_REVERSE"><code>../watch_dogs_legion/HKX_FORMAT_REVERSE.md</code></a>;
+wrapper/header overview → <a class="" href="/docs/disrupt/watch_dogs/hkx-format"><code>../watch_dogs/hkx-format.md</code></a>;
+old WD1 packfile (Havok 2012) → <a class="" href="/docs/disrupt/watch_dogs/packfile-format"><code>../watch_dogs/packfile-format.md</code></a>.
+WD2 collision lives in two container kinds, both carrying the same <strong>TAG0</strong>
+compendium-style body but with <strong>different type compendiums</strong> (see below):</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>File</th><th>Magic</th><th>Notes</th></tr></thead><tbody><tr><td><code>.hkx</code></td><td>16-byte wrapper, TAG0 at +0x10</td><td>Convex polytope shapes (33/147 roots)</td></tr><tr><td><code>.phys</code></td><td><code>SYHP</code> magic, TAG0 at +0x40</td><td><code>hknpCompoundShape</code> (type 35 root)</td></tr></tbody></table>
+<p><code>.phys</code> parse recipe: <code>b&#x27;\x00&#x27;*0x10 + buf[0x40:]</code> (the 16 zero bytes are
+required — feeding <code>buf[0x40:]</code> alone yields 0 items).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="chunk-walk-tag0-body">Chunk walk (TAG0 body)<a href="#chunk-walk-tag0-body" class="hash-link" aria-label="Direct link to Chunk walk (TAG0 body)" title="Direct link to Chunk walk (TAG0 body)" translate="no">​</a></h2>
+<p>Chunks start at offset 0x10 (after the wrapper). Each chunk:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x00  u32  sizeAndFlags   (size = value &amp; 0x3FFFFFFF, big-endian word)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x04  u32  fourcc         (little-endian)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x08  byte[size] payload</span><br></div></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>FourCC</th><th>Constant (LE)</th><th>Meaning</th></tr></thead><tbody><tr><td>TAG0</td><td>0x30474154</td><td>Header marker (empty payload, skip)</td></tr><tr><td>SDKV</td><td>0x564B4453</td><td>ASCII version string, e.g. <code>20150100</code></td></tr><tr><td>DATA</td><td>0x41544144</td><td>Serialized object data (items live here)</td></tr><tr><td>TCRF</td><td>0x46524354</td><td>Reference chunk</td></tr><tr><td>INDX</td><td>0x58444E49</td><td>Index data</td></tr><tr><td>ITEM</td><td>0x4D455449</td><td>Item table (see below)</td></tr><tr><td>PTCH</td><td>0x48435450</td><td>Patch/fixup table (see below)</td></tr><tr><td>TYPE</td><td>—</td><td>Type compendium (see below)</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="item-table">ITEM table<a href="#item-table" class="hash-link" aria-label="Direct link to ITEM table" title="Direct link to ITEM table" translate="no">​</a></h2>
+<p><code>numItems = (chunkSize - 8) / 12</code>. Each entry is 12 bytes:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x00  u32  raw     (type = raw &amp; 0xFFFFFF, flags = raw &gt;&gt; 28)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x04  u32  offset  (dataOffset into DATA)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x08  u32  count</span><br></div></code></pre></div></div>
+<p>Item payload = <code>DATA[offset : next_item_offset]</code> (items are contiguous;
+type-0 items are empty placeholders with count 0).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ptch-fixup-table">PTCH (fixup) table<a href="#ptch-fixup-table" class="hash-link" aria-label="Direct link to PTCH (fixup) table" title="Direct link to PTCH (fixup) table" translate="no">​</a></h2>
+<p>Sequence of fixup groups:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x00  u32  ptrType</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x04  u32  count</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">then count × { u32 location }</span><br></div></code></pre></div></div>
+<p>Each <code>location</code> is an offset into DATA. <strong>The fixup target is the u32 read at
+that location, and that value is an ITEM INDEX (not a byte offset).</strong>
+Resolve: <code>target = u32le(DATA, location)</code> → item <code>items[target]</code>.</p>
+<p>Verified on <code>roadres_aac25fa5ac1b95dd.phys</code>: 1770 fixups, all resolve —
+every item is reachable, no dangling targets.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="shape-graph-fixup-walk">Shape graph (fixup walk)<a href="#shape-graph-fixup-walk" class="hash-link" aria-label="Direct link to Shape graph (fixup walk)" title="Direct link to Shape graph (fixup walk)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="quantized-variant-hkx-type-33-root">Quantized variant (hkx type 33 root)<a href="#quantized-variant-hkx-type-33-root" class="hash-link" aria-label="Direct link to Quantized variant (hkx type 33 root)" title="Direct link to Quantized variant (hkx type 33 root)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">type 33  hknpConvexPolytopeShape (root)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">   └─fixup→ type 45 shapeData        AABB min @ +0x20, max @ +0x30  ← GLOBAL bbox</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">             ├─fixup→ type 73 vertexHeader   (96 B, per-region sub-bboxes)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">             ├─fixup→ type 75 indexArray     (quad indices, count = idx_len/4)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">             └─fixup→ type 37 vertexArray    (u32 4B quantized, biggest = vert array)</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="full-precision-variant-hkx-type-147-root">Full-precision variant (hkx type 147 root)<a href="#full-precision-variant-hkx-type-147-root" class="hash-link" aria-label="Direct link to Full-precision variant (hkx type 147 root)" title="Direct link to Full-precision variant (hkx type 147 root)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">type 147 root</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">   └─fixup→ type 45 shapeData</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">             ├─fixup→ type 78 planes     (16 B each)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">             ├─fixup→ type 87 vertices   (16 B each, hkVector4)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">             ├─fixup→ type 13 indices    (1 B each, count = total indices)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">             └─fixup→ type 130/131       (aux / connectivity)</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quantized-vertex-decode-111110">Quantized vertex decode (11:11:10)<a href="#quantized-vertex-decode-111110" class="hash-link" aria-label="Direct link to Quantized vertex decode (11:11:10)" title="Direct link to Quantized vertex decode (11:11:10)" translate="no">​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32 q:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  xq =  q        &amp; 0x7FF      (11 bits)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  yq = (q &gt;&gt; 11) &amp; 0x7FF      (11 bits)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  zq = (q &gt;&gt; 22) &amp; 0x3FF      (10 bits)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">scale = (aabbMax - aabbMin) / (2047, 2047, 1023)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">vert  = aabbMin + (xq, yq, zq) * scale</span><br></div></code></pre></div></div>
+<p>Global AABB comes from type-45 shapeData <code>+0x20</code> (min) / <code>+0x30</code> (max) —
+<strong>not</strong> from the type-73 header (that holds per-region sub-bboxes).</p>
+<p>Faces: quad indices (type 75), <code>faceCount = idx_len / 4</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="type-compendiums--hkx-vs-phys-critical">Type compendiums — hkx vs .phys (CRITICAL)<a href="#type-compendiums--hkx-vs-phys-critical" class="hash-link" aria-label="Direct link to Type compendiums — hkx vs .phys (CRITICAL)" title="Direct link to Type compendiums — hkx vs .phys (CRITICAL)" translate="no">​</a></h2>
+<p>The two container kinds use <strong>different class compendiums</strong>. FrankMK04&#x27;s type
+IDs are for hkx only.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hkx-compendium-verified-matches-frankmk04">hkx compendium (verified matches FrankMK04)<a href="#hkx-compendium-verified-matches-frankmk04" class="hash-link" aria-label="Direct link to hkx compendium (verified matches FrankMK04)" title="Direct link to hkx compendium (verified matches FrankMK04)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type</th><th>Class</th></tr></thead><tbody><tr><td>33</td><td>hknpConvexPolytopeShape (quantized root)</td></tr><tr><td>147</td><td>full-precision root</td></tr><tr><td>45</td><td>shapeData (AABB)</td></tr><tr><td>73</td><td>vertex header</td></tr><tr><td>37</td><td>quantized vertices</td></tr><tr><td>75</td><td>quad indices</td></tr><tr><td>87</td><td>full-precision vertices</td></tr><tr><td>78</td><td>full-precision planes</td></tr><tr><td>13</td><td>full-precision indices</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="phys-compendium-verified-on-roadres">.phys compendium (verified on roadres)<a href="#phys-compendium-verified-on-roadres" class="hash-link" aria-label="Direct link to .phys compendium (verified on roadres)" title="Direct link to .phys compendium (verified on roadres)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type</th><th>Count</th><th>Notes</th></tr></thead><tbody><tr><td>35</td><td>1</td><td><strong>hknpCompoundShape root</strong> (count 174 children)</td></tr><tr><td>66</td><td>174</td><td>hknpShapeInstance (child instances)</td></tr><tr><td>72</td><td>174</td><td>child shape objects (256 B each; AABB@+0x20/+0x30, 6 slots)</td></tr><tr><td>62</td><td>1</td><td>32 B × 349</td></tr><tr><td>13</td><td>348</td><td><strong>vertices</strong> (2 per child: u32 11:11:10 quant, count×4B)</td></tr><tr><td>22, 28</td><td>9</td><td>per-region data</td></tr><tr><td>57</td><td>1</td><td>64 B</td></tr><tr><td>82, 99, 101, 104, 116</td><td>174</td><td>per-child arrays (101 = u8 face indices ALL bytes; 85 = 224 B count 2; 116 = secondary verts)</td></tr></tbody></table>
+<p><code>.phys</code> = <code>hknpCompoundShape</code> of 174 child instances; the child shapes are
+<strong>compressed mesh</strong> variants (not convex polytopes). Type IDs do NOT map
+1:1 to the hkx table above — resolve via the file&#x27;s own TYPE compendium.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="type-compendium-chunk">TYPE compendium chunk<a href="#type-compendium-chunk" class="hash-link" aria-label="Direct link to TYPE compendium chunk" title="Direct link to TYPE compendium chunk" translate="no">​</a></h2>
+<p>The TYPE chunk contains nested sub-chunks (same 8-byte header format).
+<strong>Sub-chunk names differ from WDL</strong>: WD2 uses TNAM/TBOD where the WDL (Havok
+2017.2) self-contained files use TNA1/TBDY — same roles, renamed.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Sub-chunk</th><th>Payload</th><th>Contents</th></tr></thead><tbody><tr><td>TPTR</td><td>952 B</td><td>119 × u64 pointers</td></tr><tr><td>TSTR</td><td>1812 B</td><td>Null-terminated class name strings</td></tr><tr><td>TNAM</td><td>416 B</td><td>Type→name index (encoding TBD)</td></tr><tr><td>FSTR</td><td>1020 B</td><td>Field name strings</td></tr><tr><td>TBOD</td><td>1464 B</td><td>Varint-encoded type bodies</td></tr><tr><td>THSH</td><td>148 B</td><td>37 × u32 hashes</td></tr><tr><td>TPAD</td><td>0 B</td><td>Padding</td></tr></tbody></table>
+<p>Verified class names in TSTR: <code>hknpCompoundShape</code>, <code>hknpCompoundShapeBase</code>,
+<code>hknpCompositeShape</code>, <code>hkFreeListArray</code>, <code>hkAabb</code>, <code>hknpShapeSignals</code>,
+<code>hknpShape</code>, <code>hknpSparseCompactMap</code>, <code>hknpShapeInstance</code>, <code>hkArray</code>,
+<code>hkVector4</code>, <code>hkTransform</code>, <code>hkFlags</code>, <code>hkEnum</code>, ...</p>
+<p>TNAM first byte 0x77 = 119 (TPTR entry count); encoding of the index not yet
+solved — values look like interleaved (offset, typeIndex) pairs or varint
+deltas. <strong>TBD.</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="phys-child-shape-layout-shape72-256-b--verified">.phys child shape layout (shape72, 256 B) — VERIFIED<a href="#phys-child-shape-layout-shape72-256-b--verified" class="hash-link" aria-label="Direct link to .phys child shape layout (shape72, 256 B) — VERIFIED" title="Direct link to .phys child shape layout (shape72, 256 B) — VERIFIED" translate="no">​</a></h2>
+<p>Child shape object layout (from <code>roadres_aac25fa5ac1b95dd.phys</code>, item 179):</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x00  16 B  zeros</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x10  u32   fixup slot → item type 104 (16 B, zeros)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x20  f32×3 AABB min</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x30  f32×3 AABB max          (same offset convention as hkx type-45!)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x40  u32×4 counts            (50, 6, 51, 255)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x50  fixup slot → item type 99  (96 B: AABB + u32 ref to item 533)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x60  fixup slot → item type 101 (112 B, count 26)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0x80  fixup slot → item type 13  (16 B, count 2, zeros)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0xa0  fixup slot → item type 82  (16 B)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">+0xb8  fixup slot → item type 85  (224 B, count 2)</span><br></div></code></pre></div></div>
+<p>Fixup graph: compound35 → 174× instance66 → each → 1× shape72 + 1× type13.
+Type 99 (shape data) contains an indirect ref (u32 → item 533, type 116,
+count 51, 208 B).</p>
+<p><strong>Array contents observed:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type</th><th>Size/count</th><th>Contents</th></tr></thead><tbody><tr><td>101</td><td>112 B, count 26</td><td><strong>8-bit face indices</strong> (verified: <code>23 24 21 22...</code>, all &lt; 32)</td></tr><tr><td>85</td><td>224 B, count 2</td><td><code>ee ff 7f 7f</code> repeating = 0x7F7FFFEE — NOT plain u32 quant (would be floats 3.4e38 = NaN-ish); likely hkPackedVector3 / half16 / 7-bit-packed</td></tr><tr><td>99</td><td>96 B, count 1</td><td>AABB + item ref (indirect)</td></tr><tr><td>104</td><td>16 B, count 1</td><td>zeros</td></tr><tr><td>82</td><td>16 B, count 1</td><td>sparse (<code>2a 80 00 1a...</code>)</td></tr><tr><td>13</td><td>16 B, count 2</td><td>zeros (per-instance)</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="next-steps-open">NEXT STEPS (open)<a href="#next-steps-open" class="hash-link" aria-label="Direct link to NEXT STEPS (open)" title="Direct link to NEXT STEPS (open)" translate="no">​</a></h2>
+<ul>
+<li class="">Reviewer verification of the .phys decode (face index bounds, vertex sanity)</li>
+<li class="">TNAM varint encoding (for authoritative class names) — not needed for decode</li>
+<li class="">Cross-check decoded verts against WDL <code>decompress_compressed_mesh</code> output</li>
+<li class="">Batch-decode more .phys files (roadres_*, building cols) to confirm generality</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="implementation-notes">Implementation notes<a href="#implementation-notes" class="hash-link" aria-label="Direct link to Implementation notes" title="Direct link to Implementation notes" translate="no">​</a></h2>
+<ul>
+<li class="">Script: <code>/tmp/opencode/wd2_decode.py</code> — end-to-end decoder (parse → fixup
+walk → AABB → 11:11:10 quant → faces; type-ID overrides for .phys).</li>
+<li class="">Fixup target resolution must use <strong>item index</strong> semantics — offset-based
+lookup only ever matched type 35 by accident.</li>
+<li class="">SDKV in WD2 retail = <code>20150100</code> (Havok 2015.1.0 as source — Ubisoft modified the SDK, removed several classes, and added custom collision mesh generation). The leaked Havok 2015 SDK can be used as a baseline to diff against Ubisoft&#x27;s changes. The 2013 SDK binary
+tagfile format (magic 0xCAB00D1E) is a DIFFERENT, older format — not a
+reference for TCM0/TAG0.</li>
+<li class="">ES (EncryptedStudios) confirmed this compendium/TYPE-section approach is
+what he used to crack WDL collision; he has not written his logic down.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="status-2026-08-19">Status (2026-08-19)<a href="#status-2026-08-19" class="hash-link" aria-label="Direct link to Status (2026-08-19)" title="Direct link to Status (2026-08-19)" translate="no">​</a></h2>
+<ul>
+<li class="">✅ <strong>WD2 hkx decode VERIFIED end-to-end</strong> — <code>/tmp/opencode/wd2_decode.py</code> on
+<code>galilei_glass_breakable02.hkx</code> → 2 quantized shapes (8 verts/6 quads each,
+closed boxes, valid indices 0-7, plausible window-pane AABBs). FrankMK04
+algorithm confirmed working.</li>
+<li class="">✅ <strong>WD2 .phys decode COMPLETE (ground truth)</strong> — <code>/tmp/opencode/wd2_phys_decode.py</code>
+on <code>roadres_aac25fa5ac1b95dd.phys</code> → <strong>all 174 child shapes decoded to OBJ
+(4247 verts, 3050 quads, 0 out-of-range refs, 0 degenerate quads)</strong>. Road
+surface flat at Z≈2.704, spanning a real road patch. Shape 179: 52 verts.</li>
+<li class="">✅ <strong>.phys vertex encoding SOLVED (correct mapping, all combos tested)</strong>:
+<ul>
+<li class=""><strong>type 13</strong> = 11:11:10 quantized vertices (u32 4 B each; count = vert
+count, EXACT size match: shape179 count 52 × 4 = 208 B ✓; 8×4=32 ✓)</li>
+<li class=""><strong>type 101</strong> = u8 face indices — <strong>count = QUAD count, indices = count×4
+bytes</strong> (item payload padded to 16 B: 26 quads = 104 B stored as 112 B)</li>
+<li class=""><strong>shape72</strong> = per-child wrapper (AABB @+0x20 min / +0x30 max, 6 fixup
+slots: +0x10→104, +0x50→99, +0x60→101, +0x80→13, +0xa0→82, +0xb8→85)</li>
+<li class="">type 116 = secondary vertex array (count field unreliable — 51 vs 52
+words; not used by the index array; role open)</li>
+<li class="">Small shapes (1 vert, 0 quads) are legitimate markers/degenerate children</li>
+</ul>
+</li>
+<li class="">⏳ Remaining: Reviewer verification (S2.4.2/S2.4.3), TNAM varint encoding
+still unsolved (not needed for decode).</li>
+<li class="">ℹ️ File organization within this repo: initial attempt made; further
+organization/linking deferred (noted in repo AGENTS.md).</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/disrupt/watch_dogs_2/wd2-item-clothing-tutorial"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">WD2 Custom Item/Clothing Creation Tutorial</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/disrupt/watch_dogs_2/xbt-texture-format"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">XBT Texture Format — Watch Dogs 2 (Disrupt Engine)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#chunk-walk-tag0-body" class="table-of-contents__link toc-highlight">Chunk walk (TAG0 body)</a></li><li><a href="#item-table" class="table-of-contents__link toc-highlight">ITEM table</a></li><li><a href="#ptch-fixup-table" class="table-of-contents__link toc-highlight">PTCH (fixup) table</a></li><li><a href="#shape-graph-fixup-walk" class="table-of-contents__link toc-highlight">Shape graph (fixup walk)</a><ul><li><a href="#quantized-variant-hkx-type-33-root" class="table-of-contents__link toc-highlight">Quantized variant (hkx type 33 root)</a></li><li><a href="#full-precision-variant-hkx-type-147-root" class="table-of-contents__link toc-highlight">Full-precision variant (hkx type 147 root)</a></li></ul></li><li><a href="#quantized-vertex-decode-111110" class="table-of-contents__link toc-highlight">Quantized vertex decode (11:11:10)</a></li><li><a href="#type-compendiums--hkx-vs-phys-critical" class="table-of-contents__link toc-highlight">Type compendiums — hkx vs .phys (CRITICAL)</a><ul><li><a href="#hkx-compendium-verified-matches-frankmk04" class="table-of-contents__link toc-highlight">hkx compendium (verified matches FrankMK04)</a></li><li><a href="#phys-compendium-verified-on-roadres" class="table-of-contents__link toc-highlight">.phys compendium (verified on roadres)</a></li></ul></li><li><a href="#type-compendium-chunk" class="table-of-contents__link toc-highlight">TYPE compendium chunk</a></li><li><a href="#phys-child-shape-layout-shape72-256-b--verified" class="table-of-contents__link toc-highlight">.phys child shape layout (shape72, 256 B) — VERIFIED</a></li><li><a href="#next-steps-open" class="table-of-contents__link toc-highlight">NEXT STEPS (open)</a></li><li><a href="#implementation-notes" class="table-of-contents__link toc-highlight">Implementation notes</a></li><li><a href="#status-2026-08-19" class="table-of-contents__link toc-highlight">Status (2026-08-19)</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-nfs/nfs-formats" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Need for Speed — Archive, Model &amp; Texture Formats | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/nfs/nfs-formats"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Need for Speed — Archive, Model &amp; Texture Formats | Open Source Modding"><meta data-rh="true" name="description" content="Source: XeNTaX forum knowledge extraction (2005–2010), 20 threads."><meta data-rh="true" property="og:description" content="Source: XeNTaX forum knowledge extraction (2005–2010), 20 threads."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/nfs/nfs-formats"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/nfs/nfs-formats" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/nfs/nfs-formats" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Need for Speed — Archive, Model & Texture Formats","item":"https://open-source-modding.github.io/docs/nfs/nfs-formats"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/nfs/nfs-formats"><span class="linkLabel_WmDU">Need for Speed — Archive, Model &amp; Texture Formats</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/nfs/xentax-nfs-knowledge"><span class="linkLabel_WmDU">Need for Speed — XeNTaX Forum Knowledge</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">nfs</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Need for Speed — Archive, Model &amp; Texture Formats</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Need for Speed — Archive, Model &amp; Texture Formats</h1></header>
+<blockquote>
+<p><strong>Source</strong>: XeNTaX forum knowledge extraction (2005–2010), 20 threads.
+Covers Black Box era NFS (Underground → Shift) plus Hot Pursuit 2010.
+Formats largely shared across the series with per-game variations.</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-viv--big-archives-underground-hot-pursuit-2">1. VIV / BIG Archives (Underground, Hot Pursuit 2)<a href="#1-viv--big-archives-underground-hot-pursuit-2" class="hash-link" aria-label="Direct link to 1. VIV / BIG Archives (Underground, Hot Pursuit 2)" title="Direct link to 1. VIV / BIG Archives (Underground, Hot Pursuit 2)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="structure">Structure<a href="#structure" class="hash-link" aria-label="Direct link to Structure" title="Direct link to Structure" translate="no">​</a></h3>
+<p>Same container format as FIFA and Command &amp; Conquer.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>sdata.viv</code></td><td>Main archive in Underground 2 (music, sounds). Contains nested <code>.big</code> and <code>.mus</code> files</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tools">Tools<a href="#tools" class="hash-link" aria-label="Direct link to Tools" title="Direct link to Tools" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>MultiEx Commander (MexCom)</strong> — opens BIG and VIV (Mr.Mouse, 2005)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-bin--bun-archives-underground-most-wanted-undercover">2. BIN / BUN Archives (Underground, Most Wanted, Undercover)<a href="#2-bin--bun-archives-underground-most-wanted-undercover" class="hash-link" aria-label="Direct link to 2. BIN / BUN Archives (Underground, Most Wanted, Undercover)" title="Direct link to 2. BIN / BUN Archives (Underground, Most Wanted, Undercover)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-distinction">Key Distinction<a href="#key-distinction" class="hash-link" aria-label="Direct link to Key Distinction" title="Direct link to Key Distinction" translate="no">​</a></h3>
+<p><strong>BIN</strong> and <strong>BUN</strong> are <strong>two distinct formats</strong>, not the same (wiki/thread analysis, 2006).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bin-format-most-wanted">.BIN Format (Most Wanted)<a href="#bin-format-most-wanted" class="hash-link" aria-label="Direct link to .BIN Format (Most Wanted)" title="Direct link to .BIN Format (Most Wanted)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">Archive Header:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - null</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - Unknown</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - Archive Length [+8]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - null</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - Number Of Nulls (48)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  48 - null</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - null</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - Unknown</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - Directory Length?</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - Number Of Directories (1)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - Unknown</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Per Directory:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - Directory Offset [+80]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - Directory Name Length (excl. nulls)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  28 - Directory Name (null-terminated)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  64 - Filename</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - Unknown</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  24 - null</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Directory Entries (per file):</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - Unknown (2)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - Unknown</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - Length of Next FOR Loop (numFiles * 8)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  // for each file:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    4  - Hash?</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    4  - null</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - Unknown (2)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  2  - Unknown</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - Length of Next FOR Loop (numFiles * 24)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  // for each file:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    4  - Hash?</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    4  - File Offset</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    4  - File Length</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    4  - Unknown (263324)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    4  - Padding Multiple? (256)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    4  - null</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">File Data:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  X  - File Data (per file)</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bun-format-most-wanted">.BUN Format (Most Wanted)<a href="#bun-format-most-wanted" class="hash-link" aria-label="Direct link to .BUN Format (Most Wanted)" title="Direct link to .BUN Format (Most Wanted)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">Per file:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - File Type ID?</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  4  - File Length</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  X  - File Data</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">// Padding entries exist with varying sizes including length=0</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">// Continue reading until end of archive reached.</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bun-contents-undercover">BUN Contents (Undercover)<a href="#bun-contents-undercover" class="hash-link" aria-label="Direct link to BUN Contents (Undercover)" title="Direct link to BUN Contents (Undercover)" translate="no">​</a></h3>
+<p>Opening <code>.bun</code> (e.g., <code>Scene_PIPAngie_BundleB.bun</code>) with Total Commander <strong>gaup</strong> plugin reveals inner <code>.bin</code> files:</p>
+<ul>
+<li class=""><code>xx.tpk.bin</code> — texture packs</li>
+<li class=""><code>xx.geo.bin</code> — geometry</li>
+<li class=""><code>xx.unk.bin</code> — position info, interface buttons, other data (guki, 2010)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bin-contents-underground-2">BIN Contents (Underground 2)<a href="#bin-contents-underground-2" class="hash-link" aria-label="Direct link to BIN Contents (Underground 2)" title="Direct link to BIN Contents (Underground 2)" translate="no">​</a></h3>
+<ul>
+<li class="">Track <code>.bin</code> files (343-byte) = <strong>standard DDS with mips</strong></li>
+<li class=""><code>STREAML4RA.BUN</code> = mixed DDS + other files</li>
+<li class="">Car <code>.bin</code> files = <strong>TPK-compressed archives</strong> (e.g., <code>350Z_vinyls.tpk</code>)</li>
+<li class="">Textures = <strong>DDS</strong> (DXT1/2/3/5 headers found)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tools-1">Tools<a href="#tools-1" class="hash-link" aria-label="Direct link to Tools" title="Direct link to Tools" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Purpose</th><th>Notes</th></tr></thead><tbody><tr><td>MWTex</td><td>Open NFS BIN textures (UG–Undercover)</td><td></td></tr><tr><td>BinTex v0.4</td><td>NFSU1 BIN texture extraction to DDS</td><td>KorNet, 2005</td></tr><tr><td>NFS TexEd</td><td>Texture editing (Undercover / Pro Street)</td><td></td></tr><tr><td>Total Commander + gaup plugin</td><td>Open NFS .bin/.bun archives</td><td></td></tr><tr><td>bin2ase</td><td>Convert UG1/2 geometry</td><td>Buggy</td></tr><tr><td>ZModeler 2.0.7</td><td>Open Most Wanted geometry</td><td>Buggy</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-tpk-archives">3. TPK Archives<a href="#3-tpk-archives" class="hash-link" aria-label="Direct link to 3. TPK Archives" title="Direct link to 3. TPK Archives" translate="no">​</a></h2>
+<p><code>.tpk</code> files = compressed texture-pack archives <strong>inside</strong> NFS BIN files.</p>
+<ul>
+<li class="">As of 2006: <strong>could not be opened</strong> — nearly all files inside <code>.bins</code> are <code>.tpk</code></li>
+<li class="">No tool could decompress them at the time (thread, 2006)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-bff-archive-format-need-for-speed-shift">4. BFF Archive Format (Need for Speed: Shift)<a href="#4-bff-archive-format-need-for-speed-shift" class="hash-link" aria-label="Direct link to 4. BFF Archive Format (Need for Speed: Shift)" title="Direct link to 4. BFF Archive Format (Need for Speed: Shift)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h3>
+<p>NFS Shift packs data in <code>.bff</code> files (in <code>Pakfiles</code>).</p>
+<ul>
+<li class=""><strong>Not zlib</strong> — probable scheme: <strong>0x800-byte chunks compressed with LZX-like algorithm</strong></li>
+<li class="">Identified as <strong>XMemDecompress</strong> (cross-platform Xbox LZX function) (aluigi, 2009)</li>
+<li class="">Some BFFs also use <strong>RC4 encryption</strong></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rc4-key-pc">RC4 Key (PC)<a href="#rc4-key-pc" class="hash-link" aria-label="Direct link to RC4 Key (PC)" title="Direct link to RC4 Key (PC)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">@lLy0urRaC3ar3bE  →  &quot;All Your Race Are Belong to us&quot;</span><br></div></code></pre></div></div>
+<p>Applied when <code>X12d</code> flag = 2 (<code>encryption rc4 &quot;@lLy0urRaC3ar3bE&quot;</code>) in QuickBMS script.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-tool">Key Tool<a href="#key-tool" class="hash-link" aria-label="Direct link to Key Tool" title="Direct link to Key Tool" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>QuickBMS + <code>nfsshift.bms</code></strong> — extracts BFF files (aluigi, 2009)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bff-header">BFF Header<a href="#bff-header" class="hash-link" aria-label="Direct link to BFF Header" title="Direct link to BFF Header" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">Offset  Size  Description</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x00    4     &quot; KAP&quot;  (&quot;PAK &quot; in big endian)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x04    4     0x03004010</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x08    4     file count</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x0C    4     alignment</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x10    4     zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x14    4     0x800 (chunk size)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x18    0x100 name of archive</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x118   4     X118 - size of information table</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x11C   4     zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x120   4     X120 - size of name table + 0x308</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x124   4     DHSA field offset</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x128   4     DHSA field size</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x12C   1     zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x12D   1     X12d - 0 = no encryption, 2 = RC4</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x12E   1     zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x12F   1     zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">0x130   X118  information table</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">...           &quot;TXEP&quot; magic</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">...           not verified</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">...           0x100  Gecko.xml or GeckoDemo.xml</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">...           0x100  C:\DEV\Gecko\ or C:\DEV\GeckoDemo\</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">...           0x100  PC</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">...           X120  name table</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="information-table-entry-48-bytes-per-file">Information Table Entry (48 bytes per file)<a href="#information-table-entry-48-bytes-per-file" class="hash-link" aria-label="Direct link to Information Table Entry (48 bytes per file)" title="Direct link to Information Table Entry (48 bytes per file)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - unused (any value, game works)  [64-bit timestamp-ish]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - unused (any value, game works)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - absolute offset of file</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - ever zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - compressed size (size in archive)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - extracted size (uncompressed size)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - type: 0 = uncompressed, 2 = compressed</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - CRC of file **as stored in archive** (decrypted but still compressed)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - extension (e.g., &quot;fxo&quot;)</span><br></div></code></pre></div></div>
+<blockquote>
+<p><strong>Correction</strong> (aluigi, 2009): First two fields are NOT CRC — they are likely 64-bit timestamp. Real CRC is field immediately before extension.</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="name-table-entry-16-bytes">Name Table Entry (16 bytes)<a href="#name-table-entry-16-bytes" class="hash-link" aria-label="Direct link to Name Table Entry (16 bytes)" title="Direct link to Name Table Entry (16 bytes)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - absolute offset where name string is located</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - zero</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - not verified</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4  - not verified (seems a date timestamp)</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="crc-semantics">CRC Semantics<a href="#crc-semantics" class="hash-link" aria-label="Direct link to CRC Semantics" title="Direct link to CRC Semantics" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>CRC1</strong> — calculated on file <strong>as stored</strong> in archive (decrypted-but-still-compressed data)</li>
+<li class=""><strong>CRC2</strong> — should be calculated on <strong>final uncompressed</strong> file (not verified)</li>
+<li class="">Polynomial: standard zlib <code>0x77073096</code> table-based CRC32</li>
+</ul>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">unsigned</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">int</span><span class="token plain"> crc </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0xffffffff</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">for</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">i </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> i </span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token plain"> len</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> i</span><span class="token operator" style="color:rgb(137, 221, 255)">++</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    crc </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> crctable</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">data</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">i</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">^</span><span class="token plain"> crc</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">&amp;</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0xff</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">^</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">crc </span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;&gt;</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">8</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">return</span><span class="token plain"> crc</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="repacking-japamd-2009">Repacking (japamd, 2009)<a href="#repacking-japamd-2009" class="hash-link" aria-label="Direct link to Repacking (japamd, 2009)" title="Direct link to Repacking (japamd, 2009)" translate="no">​</a></h3>
+<ol>
+<li class="">Insert <strong>uncompressed</strong> file from QuickBMS extraction</li>
+<li class="">Change <code>type</code> field to <code>0</code>, recalculate CRC, <code>zsize</code>/<code>size</code>, and offsets</li>
+<li class="">Set <code>X12d = 0</code> (no encryption), <code>type = 0</code> (no compression) to avoid compression</li>
+<li class="">First two info-table fields don&#x27;t need recalculation if contents change — <strong>but must be preserved</strong> (game crashes if they differ for certain files)</li>
+<li class=""><strong>Cannot add new files</strong> — executable won&#x27;t understand them. Extracted files can be modified freely.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-loose-command-line-mode-test-mods-without-repacking"><code>-loose</code> Command-Line Mode (test mods without repacking)<a href="#-loose-command-line-mode-test-mods-without-repacking" class="hash-link" aria-label="Direct link to -loose-command-line-mode-test-mods-without-repacking" title="Direct link to -loose-command-line-mode-test-mods-without-repacking" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">shift.exe -loose</span><br></div></code></pre></div></div>
+<ul>
+<li class="">Game reads <strong>unpacked</strong> files from disk instead of archives (redilS, 2009)</li>
+<li class=""><strong>Caveat</strong>: Crashes if loose files aren&#x27;t in exact expected location — extract to correct paths, remove <code>Pakfiles</code> folder</li>
+<li class=""><strong><code>partpak</code></strong> — combined with <code>-loose</code>, allows both packed + unpacked; alone makes Shift behave &quot;awkward&quot;</li>
+<li class="">For shipping mods: <strong>BFF Compiler</strong> path preferred — compiled BFFs install on original/compressed game (no <code>-loose</code> needed), keep loading times reasonable. <code>-loose</code> slows race loading badly.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bff-tools">BFF Tools<a href="#bff-tools" class="hash-link" aria-label="Direct link to BFF Tools" title="Direct link to BFF Tools" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Purpose</th><th>Notes</th></tr></thead><tbody><tr><td>QuickBMS + <code>nfsshift.bms</code></td><td>Extraction</td><td>aluigi</td></tr><tr><td>BFF Repacker / Injector / Compiler</td><td>Repack extracted folders to <code>.bff</code></td><td>japamd, requires .NET 2.0; physics files work; vehicle BFFs needed original name table copied in v0.4</td></tr><tr><td>Jaeder Naub</td><td>Scan/rip files inside BFF</td><td>Crude</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="localization-caveat">Localization Caveat<a href="#localization-caveat" class="hash-link" aria-label="Direct link to Localization Caveat" title="Direct link to Localization Caveat" translate="no">​</a></h3>
+<p><code>language_English.bff</code> (in <code>/UI/Languages</code>) contains <code>english.bin</code> (game strings at offset <code>0x010164</code>) and <code>english_histogram.bin</code>. String indexing not fully RE&#x27;d — changing string length breaks menus.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pc-vs-xbox-360-endianness">PC vs Xbox 360 (Endianness)<a href="#pc-vs-xbox-360-endianness" class="hash-link" aria-label="Direct link to PC vs Xbox 360 (Endianness)" title="Direct link to PC vs Xbox 360 (Endianness)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Platform</th><th>BFF Magic</th><th>Endianness</th></tr></thead><tbody><tr><td>PC</td><td><code>&quot; KAP&quot;</code></td><td><strong>little-endian</strong></td></tr><tr><td>Xbox 360</td><td><code>&quot;PAK &quot;</code></td><td><strong>big-endian</strong></td></tr></tbody></table>
+<ul>
+<li class="">QuickBMS script originally failed on X360 due to endianness; aluigi adapted <code>nfsshift.bms</code></li>
+<li class="">BFF Repacker/Injector work <strong>only for PC</strong> — no X360 repack tool existed</li>
+<li class="">X360 content is <strong>360-optimised</strong>: swizzled textures, probably big-endian model coordinates, different <code>.fsb</code> format (PC FSB extractor chokes). ZModeler declined 360 model support.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-bml--bmt--bmx--binary-materialsetup-files-shift">5. BML / BMT / BMx — Binary Material/Setup Files (Shift)<a href="#5-bml--bmt--bmx--binary-materialsetup-files-shift" class="hash-link" aria-label="Direct link to 5. BML / BMT / BMx — Binary Material/Setup Files (Shift)" title="Direct link to 5. BML / BMT / BMx — Binary Material/Setup Files (Shift)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview-1">Overview<a href="#overview-1" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h3>
+<p>NFS Shift has many <code>.BML</code> and <code>.BMx</code> files = <strong>compiled (binary) versions of plain XML files</strong>.</p>
+<ul>
+<li class="">Editing XML doesn&#x27;t change game — must edit compiled <code>.bml</code>/<code>.bmt</code></li>
+<li class=""><code>.bml</code> files = <strong>same format as <code>.bmt</code></strong> files</li>
+<li class=""><code>.bml</code>/<code>.bmt</code> = different format from <code>.sgb</code> track files</li>
+<li class=""><strong>3D SimEd</strong> can open/read <code>.bml</code> to display whole track</li>
+<li class="">BML files convert to human-readable XML which Shift also reads (used for modding)</li>
+<li class="">Binary Material Files can be converted to XML manually</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mtx-files">MTX Files<a href="#mtx-files" class="hash-link" aria-label="Direct link to MTX Files" title="Direct link to MTX Files" translate="no">​</a></h3>
+<p>Also <strong>BMT files</strong> and <strong>decrypted MTX files</strong> (material XML).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bmt2xml-tool">bmt2xml Tool<a href="#bmt2xml-tool" class="hash-link" aria-label="Direct link to bmt2xml Tool" title="Direct link to bmt2xml Tool" translate="no">​</a></h3>
+<ul>
+<li class=""><strong><code>bmt2xml</code></strong> (peppe, 2010, <a href="http://projects.pappkartong.se/bmt2xml/" target="_blank" rel="noopener noreferrer" class="">http://projects.pappkartong.se/bmt2xml/</a>)</li>
+<li class="">Generates XML from BMT/binary material files</li>
+<li class="">As of mid-2010: could generate XML but <code>COLL</code> block still unknown</li>
+<li class="">Requires tag/attribute names known — unknown tags may go unhandled</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="endianness-note">Endianness Note<a href="#endianness-note" class="hash-link" aria-label="Direct link to Endianness Note" title="Direct link to Endianness Note" translate="no">​</a></h3>
+<ul>
+<li class="">Binary material/BML files may exist as <strong>big-endian X360 materials</strong></li>
+<li class="">Converter requested but <code>bmt2xml</code> author noted no big-endian samples seen — doesn&#x27;t handle them</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-sgb--trackscene-files-shift">6. SGB — Track/Scene Files (Shift)<a href="#6-sgb--trackscene-files-shift" class="hash-link" aria-label="Direct link to 6. SGB — Track/Scene Files (Shift)" title="Direct link to 6. SGB — Track/Scene Files (Shift)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview-2">Overview<a href="#overview-2" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h3>
+<p><code>.sgb</code> files define <strong>tracks/scenes</strong> (binary equivalent of XML <code>.sgx</code> scene format).</p>
+<ul>
+<li class=""><strong>3D SimEd</strong> can read/display them</li>
+<li class="">Goal: create new tracks by authoring <code>.sgb</code></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="structure-peppe-2010">Structure (peppe, 2010)<a href="#structure-peppe-2010" class="hash-link" aria-label="Direct link to Structure (peppe, 2010)" title="Direct link to Structure (peppe, 2010)" translate="no">​</a></h3>
+<p>Six sections: <strong>SGB, OCCL, NODE, FLAT, SUMM, END</strong></p>
+<p>Each section starts with:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">32bit int  section name</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">32bit int  section length</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">32bit int  number of blocks in section</span><br></div></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Section</th><th>Description</th></tr></thead><tbody><tr><td><strong>SGB</strong></td><td>Header + 1 all-zero byte</td></tr><tr><td><strong>OCCL</strong></td><td>56-byte blocks: two 32-bit ints with string positions (name + file path, e.g., <code>OCCLUDER02</code>, <code>Tracks\Alpental\OCCLUDER02.meb</code>), then four 3D points (4×3 floats) per block</td></tr><tr><td><strong>NODE / SUMM</strong></td><td>Blocks start with 32-bit block-size int. Contain repeated references (file-position ints) pointing to 40-byte blocks: three ints with string positions (type, name, resource path + <code>.vhf</code>/<code>.meb</code>/<code>.imb</code>) + repeated values</td></tr><tr><td><strong>FLAT</strong></td><td>One block: 32-byte header (min point=3 floats, max point=3 floats, count, unknown length) + N × 64-byte blocks (16 zero bytes, sphere center/radius, etc.)</td></tr><tr><td><strong>END</strong></td><td>Section header only</td></tr></tbody></table>
+<p><strong>Endianness quirk</strong>: SGB section <strong>length</strong> is in same endianness as section names; <strong>all other lengths and data are in opposite endianness</strong>. Section names may be big- or little-endian depending on file.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nodesumm-block-semantics-maps-to-xml-sgx">NODE/SUMM Block Semantics (maps to XML <code>sgx</code>)<a href="#nodesumm-block-semantics-maps-to-xml-sgx" class="hash-link" aria-label="Direct link to nodesumm-block-semantics-maps-to-xml-sgx" title="Direct link to nodesumm-block-semantics-maps-to-xml-sgx" translate="no">​</a></h3>
+<div class="language-xml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-xml codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag" style="color:rgb(255, 85, 114)">OBJ_ID</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">no</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">1930</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag" style="color:rgb(255, 85, 114)">NODE</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">type</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">LOD</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Name</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">GEN_TREE10_LOD0</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">MatrixNumber</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">-1</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag" style="color:rgb(255, 85, 114)">SPHERE</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Centre</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">-0.960997 10.404318 -0.533839 1.0</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Radius</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">13.516625</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">/&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag" style="color:rgb(255, 85, 114)">MATRIX</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Offset</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">-449.536987 -4.304690 -196.947006</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token tag" style="color:rgb(255, 85, 114)">            </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Orientation</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">0.0 0.0 -0.114994 1.0</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">/&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag" style="color:rgb(255, 85, 114)">CONTROL</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Distances</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">0.000000 </span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">/&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag" style="color:rgb(255, 85, 114)">NODE</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">type</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">OBJECT</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Name</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">Gen_Tree10_LODA</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">MatrixNumber</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">0</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag" style="color:rgb(255, 85, 114)">RESOURCE</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Filename</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">Tracks\_Data\Instances\Gen_Tree10_LODA.imb</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">/&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag" style="color:rgb(255, 85, 114)">SPHERE</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Centre</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">-0.960997 10.404318 -0.533839 1.0</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">Radius</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">13.516625</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">/&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;/</span><span class="token tag" style="color:rgb(255, 85, 114)">NODE</span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;/</span><span class="token tag" style="color:rgb(255, 85, 114)">NODE</span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;/</span><span class="token tag" style="color:rgb(255, 85, 114)">OBJ_ID</span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&gt;</span><br></div></code></pre></div></div>
+<p>Fields: ID (unique object number), three string references (type, name, resource path + <code>.vhf</code>/<code>.meb</code>/<code>.imb</code>), count of elements with that name, unknown flag, SPHERE (center x,y,z + radius), MATRIX (3 position floats + parent index, then orientation), <code>userflags</code> bitfield.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="conversion-tool">Conversion Tool<a href="#conversion-tool" class="hash-link" aria-label="Direct link to Conversion Tool" title="Direct link to Conversion Tool" translate="no">​</a></h3>
+<p><strong><code>sgbconverter</code></strong> (peppe, 2010, <a href="http://projects.pappkartong.se/sgbconverter/" target="_blank" rel="noopener noreferrer" class="">http://projects.pappkartong.se/sgbconverter/</a>):</p>
+<ul>
+<li class=""><code>sgb → sgb</code> round-trip = <strong>binary-equal</strong> files</li>
+<li class=""><code>sgb → xml → sgb</code> = <strong>non-binary-equal</strong> (float precision loss via text round-trip) — for editing, not exact reproduction</li>
+<li class=""><strong>Fails on Shift 2 Unleashed</strong> <code>.sgb</code> files (format changed)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-audio-formats">7. Audio Formats<a href="#7-audio-formats" class="hash-link" aria-label="Direct link to 7. Audio Formats" title="Direct link to 7. Audio Formats" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mus-undercover">MUS (Undercover)<a href="#mus-undercover" class="hash-link" aria-label="Direct link to MUS (Undercover)" title="Direct link to MUS (Undercover)" translate="no">​</a></h3>
+<ul>
+<li class="">No MUS segment headers = <strong>headerless EA/XA streams</strong> with new stream system</li>
+<li class="">Without headers: no way to know where one sound ends and next begins</li>
+<li class="">Still <strong>EA/XA codec</strong> (same as other MUS), different stream system, no <code>SCHI</code>/<code>SCCI</code> headers</li>
+<li class="">Codec determined by header (EA SCxl family)</li>
+<li class=""><strong>FFmpeg</strong> supports several EA custom ADPCM variants (LGPL)</li>
+<li class="">Simple <code>SCHII</code> header insufficient — crucial <code>SCHI</code> header supplies number of samples in stream; <code>.mpf</code> sidecar files don&#x27;t contain MUS headers</li>
+<li class=""><strong>CTPAX-X Team&#x27;s</strong> NFS tool updated for Undercover, but <strong>does not support interactive (adaptive) music</strong> — only licensed tracks</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="audio--sps-hot-pursuit-2010-xbox-360">Audio / SPS (Hot Pursuit 2010, Xbox 360)<a href="#audio--sps-hot-pursuit-2010-xbox-360" class="hash-link" aria-label="Direct link to Audio / SPS (Hot Pursuit 2010, Xbox 360)" title="Direct link to Audio / SPS (Hot Pursuit 2010, Xbox 360)" translate="no">​</a></h3>
+<ul>
+<li class=""><code>.sps</code> = <strong>packed XMA</strong> (multichannel)</li>
+<li class="">Tools: <code>ea_multi_xma</code> (EA Multi XMA), <code>xma_test</code></li>
+<li class="">Correct offset for <code>ea_multi_xma</code> = <code>0x0</code> — error &quot;doesn&#x27;t look like EA multi XMA stream&quot; comes from wrong offset</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gstr-audio-streams-most-wanted">GSTR Audio Streams (Most Wanted)<a href="#gstr-audio-streams-most-wanted" class="hash-link" aria-label="Direct link to GSTR Audio Streams (Most Wanted)" title="Direct link to GSTR Audio Streams (Most Wanted)" translate="no">​</a></h3>
+<ul>
+<li class="">Uses <strong>GSTR audio streams</strong>; extracting/uncompressing and reimporting edited audio was a stated goal</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cop-speech--asf-audio-most-wanted">Cop Speech / ASF Audio (Most Wanted)<a href="#cop-speech--asf-audio-most-wanted" class="hash-link" aria-label="Direct link to Cop Speech / ASF Audio (Most Wanted)" title="Direct link to Cop Speech / ASF Audio (Most Wanted)" translate="no">​</a></h3>
+<ul>
+<li class="">Cop speech in <code>SOUND\SPEECH\copspeech.big</code></li>
+<li class="">Extracted with Dandapani&#x27;s <strong><code>schl</code></strong> extractor (<code>schl.cpp</code>)</li>
+<li class="">Converted from <strong>ASF</strong> to WAV using <strong>SX (Sound eXchange)</strong> tool</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fsb-audio-shift">FSB Audio (Shift)<a href="#fsb-audio-shift" class="hash-link" aria-label="Direct link to FSB Audio (Shift)" title="Direct link to FSB Audio (Shift)" translate="no">​</a></h3>
+<ul>
+<li class="">Music/sound packed in <strong>FSB</strong> archives (e.g., <code>nfs_racemusic.fsb</code>)</li>
+<li class=""><strong>Demo password</strong>: <code>kua0@z^y0$Wsh9HkhG6%Ih*gICV$Do8</code> (retail FSBs not encrypted)</li>
+<li class=""><strong>MusicPlayerEx</strong> extracts FSB without password</li>
+<li class=""><strong><code>fsbext -a</code></strong> (aluigi) dumps files and builds headers; <code>xmaencode.exe</code> sometimes too rigid and fails — <strong><code>towav</code></strong> (hcs) handles result fine</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="shift-pc-sound-decoding-pipeline">Shift (PC) Sound Decoding Pipeline<a href="#shift-pc-sound-decoding-pipeline" class="hash-link" aria-label="Direct link to Shift (PC) Sound Decoding Pipeline" title="Direct link to Shift (PC) Sound Decoding Pipeline" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">FSB → fsbext → XMA streams → xmaencode.exe / towav → WAV</span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-xtx-textures-shift-xbox-360">8. XTX Textures (Shift, Xbox 360)<a href="#8-xtx-textures-shift-xbox-360" class="hash-link" aria-label="Direct link to 8. XTX Textures (Shift, Xbox 360)" title="Direct link to 8. XTX Textures (Shift, Xbox 360)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview-3">Overview<a href="#overview-3" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h3>
+<p><code>.xtx</code> files in NFS Shift (Xbox 360) = <strong>partial XPR2</strong> (Xbox 360 texture container) files.</p>
+<ul>
+<li class="">Convertible to <strong>TGA</strong></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tools-2">Tools<a href="#tools-2" class="hash-link" aria-label="Direct link to Tools" title="Direct link to Tools" translate="no">​</a></h3>
+<ul>
+<li class=""><strong><code>XTX_TO_TGA.exe</code></strong> (shadowmoy, 2010) — drop <code>.xtx</code> to get <code>.tga</code></li>
+<li class="">Also converts <strong>Forza 3 <code>.xds</code></strong> textures</li>
+<li class="">Known issues: filenames cut off, no batch mode, normal-map blue channel sometimes inverted</li>
+<li class="">Works on Shift X360 and Forza 3 textures</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-materials--shaders--misc">9. Materials / Shaders / Misc<a href="#9-materials--shaders--misc" class="hash-link" aria-label="Direct link to 9. Materials / Shaders / Misc" title="Direct link to 9. Materials / Shaders / Misc" translate="no">​</a></h2>
+<ul>
+<li class="">Shift files mostly <strong>XML-styled or binary XML</strong> except shaders, textures, models, sounds, MoTeC/HUD files</li>
+<li class=""><strong>Vinyls</strong> (Pro Street): ~40 MB file with ~150 vinyls; likely <strong>vector</strong> data (always high quality). NFS TexEd did not handle them</li>
+<li class="">Most Wanted <strong>PS2</strong>: textures/geometry/vinyls <code>.bin</code> names also appear in PS2 ELF</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="10-tools-reference-summary">10. Tools Reference Summary<a href="#10-tools-reference-summary" class="hash-link" aria-label="Direct link to 10. Tools Reference Summary" title="Direct link to 10. Tools Reference Summary" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Purpose</th><th>Author</th></tr></thead><tbody><tr><td>MultiEx Commander</td><td>VIV/BIG archives</td><td>WATTO</td></tr><tr><td>QuickBMS + <code>nfsshift.bms</code></td><td>BFF extraction</td><td>aluigi</td></tr><tr><td>BFF Repacker/Injector/Compiler</td><td>BFF repack</td><td>japamd</td></tr><tr><td>Jaeder Naub</td><td>Scan/rip inside BFF</td><td>—</td></tr><tr><td>MWTex / BinTex / TexEd</td><td>BIN texture editing</td><td>community</td></tr><tr><td>Total Commander + gaup</td><td>Open .bin/.bun</td><td>ghisler / totalcmd.net</td></tr><tr><td>bin2ase</td><td>UG1/2 geometry convert</td><td>— (buggy)</td></tr><tr><td>ZModeler 2.0.7</td><td>Most Wanted geometry</td><td>— (buggy)</td></tr><tr><td><code>XTX_TO_TGA.exe</code></td><td>XTX/XDS → TGA</td><td>shadowmoy</td></tr><tr><td><code>ea_multi_xma</code> / <code>xma_test</code></td><td>XMA audio decode</td><td>EA / community</td></tr><tr><td><code>sgbconverter</code></td><td>SGB ↔ XML scene conversion</td><td>peppe</td></tr><tr><td>3D SimEd</td><td>View/read SGB tracks</td><td>sim-garage.co.uk</td></tr><tr><td><code>fsbext</code> (<code>-a</code>)</td><td>FSB archive extraction</td><td>aluigi</td></tr><tr><td><code>towav</code> / <code>xmaencode.exe</code></td><td>XMA stream decode</td><td>hcs / EA</td></tr><tr><td><code>bmt2xml</code></td><td>BMT binary material → XML</td><td>peppe</td></tr><tr><td>CTPAX (CTPAX-X Team)</td><td>NFS audio tool (no interactive music)</td><td>CTPAX-X</td></tr><tr><td><code>schl</code> (schl.cpp)</td><td>Most Wanted cop-speech extraction</td><td>Dandapani</td></tr><tr><td>SX (Sound eXchange)</td><td>ASF → WAV conversion</td><td>—</td></tr><tr><td>MusicPlayerEx</td><td>FSB sound extraction (no password)</td><td>—</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cross-references">Cross-References<a href="#cross-references" class="hash-link" aria-label="Direct link to Cross-References" title="Direct link to Cross-References" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>SimCity audio</strong> (RIFF Vorbis, <code>ww2ogg</code>/<code>revorb</code>) → <a class="" href="/docs/simcity/xentax-simcity-knowledge"><code>xentax-simcity-knowledge.md</code></a></li>
+<li class=""><strong>Generic EA formats</strong> (FIFA, C&amp;C share VIV/BIG) — see EA modding communities</li>
+<li class=""><strong>XPR2 / XDS</strong> (Xbox 360 textures) — Forza 3 uses same XTX_TO_TGA tool</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/mtg/xentax-mtg-knowledge"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Magic: The Gathering (Duels of the Planeswalkers / MTG Arena) — XeNTaX Forum Knowledge Extraction</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/nfs/xentax-nfs-knowledge"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Need for Speed — XeNTaX Forum Knowledge</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-viv--big-archives-underground-hot-pursuit-2" class="table-of-contents__link toc-highlight">1. VIV / BIG Archives (Underground, Hot Pursuit 2)</a><ul><li><a href="#structure" class="table-of-contents__link toc-highlight">Structure</a></li><li><a href="#tools" class="table-of-contents__link toc-highlight">Tools</a></li></ul></li><li><a href="#2-bin--bun-archives-underground-most-wanted-undercover" class="table-of-contents__link toc-highlight">2. BIN / BUN Archives (Underground, Most Wanted, Undercover)</a><ul><li><a href="#key-distinction" class="table-of-contents__link toc-highlight">Key Distinction</a></li><li><a href="#bin-format-most-wanted" class="table-of-contents__link toc-highlight">.BIN Format (Most Wanted)</a></li><li><a href="#bun-format-most-wanted" class="table-of-contents__link toc-highlight">.BUN Format (Most Wanted)</a></li><li><a href="#bun-contents-undercover" class="table-of-contents__link toc-highlight">BUN Contents (Undercover)</a></li><li><a href="#bin-contents-underground-2" class="table-of-contents__link toc-highlight">BIN Contents (Underground 2)</a></li><li><a href="#tools-1" class="table-of-contents__link toc-highlight">Tools</a></li></ul></li><li><a href="#3-tpk-archives" class="table-of-contents__link toc-highlight">3. TPK Archives</a></li><li><a href="#4-bff-archive-format-need-for-speed-shift" class="table-of-contents__link toc-highlight">4. BFF Archive Format (Need for Speed: Shift)</a><ul><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#rc4-key-pc" class="table-of-contents__link toc-highlight">RC4 Key (PC)</a></li><li><a href="#key-tool" class="table-of-contents__link toc-highlight">Key Tool</a></li><li><a href="#bff-header" class="table-of-contents__link toc-highlight">BFF Header</a></li><li><a href="#information-table-entry-48-bytes-per-file" class="table-of-contents__link toc-highlight">Information Table Entry (48 bytes per file)</a></li><li><a href="#name-table-entry-16-bytes" class="table-of-contents__link toc-highlight">Name Table Entry (16 bytes)</a></li><li><a href="#crc-semantics" class="table-of-contents__link toc-highlight">CRC Semantics</a></li><li><a href="#repacking-japamd-2009" class="table-of-contents__link toc-highlight">Repacking (japamd, 2009)</a></li><li><a href="#-loose-command-line-mode-test-mods-without-repacking" class="table-of-contents__link toc-highlight"><code>-loose</code> Command-Line Mode (test mods without repacking)</a></li><li><a href="#bff-tools" class="table-of-contents__link toc-highlight">BFF Tools</a></li><li><a href="#localization-caveat" class="table-of-contents__link toc-highlight">Localization Caveat</a></li><li><a href="#pc-vs-xbox-360-endianness" class="table-of-contents__link toc-highlight">PC vs Xbox 360 (Endianness)</a></li></ul></li><li><a href="#5-bml--bmt--bmx--binary-materialsetup-files-shift" class="table-of-contents__link toc-highlight">5. BML / BMT / BMx — Binary Material/Setup Files (Shift)</a><ul><li><a href="#overview-1" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#mtx-files" class="table-of-contents__link toc-highlight">MTX Files</a></li><li><a href="#bmt2xml-tool" class="table-of-contents__link toc-highlight">bmt2xml Tool</a></li><li><a href="#endianness-note" class="table-of-contents__link toc-highlight">Endianness Note</a></li></ul></li><li><a href="#6-sgb--trackscene-files-shift" class="table-of-contents__link toc-highlight">6. SGB — Track/Scene Files (Shift)</a><ul><li><a href="#overview-2" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#structure-peppe-2010" class="table-of-contents__link toc-highlight">Structure (peppe, 2010)</a></li><li><a href="#nodesumm-block-semantics-maps-to-xml-sgx" class="table-of-contents__link toc-highlight">NODE/SUMM Block Semantics (maps to XML <code>sgx</code>)</a></li><li><a href="#conversion-tool" class="table-of-contents__link toc-highlight">Conversion Tool</a></li></ul></li><li><a href="#7-audio-formats" class="table-of-contents__link toc-highlight">7. Audio Formats</a><ul><li><a href="#mus-undercover" class="table-of-contents__link toc-highlight">MUS (Undercover)</a></li><li><a href="#audio--sps-hot-pursuit-2010-xbox-360" class="table-of-contents__link toc-highlight">Audio / SPS (Hot Pursuit 2010, Xbox 360)</a></li><li><a href="#gstr-audio-streams-most-wanted" class="table-of-contents__link toc-highlight">GSTR Audio Streams (Most Wanted)</a></li><li><a href="#cop-speech--asf-audio-most-wanted" class="table-of-contents__link toc-highlight">Cop Speech / ASF Audio (Most Wanted)</a></li><li><a href="#fsb-audio-shift" class="table-of-contents__link toc-highlight">FSB Audio (Shift)</a></li><li><a href="#shift-pc-sound-decoding-pipeline" class="table-of-contents__link toc-highlight">Shift (PC) Sound Decoding Pipeline</a></li></ul></li><li><a href="#8-xtx-textures-shift-xbox-360" class="table-of-contents__link toc-highlight">8. XTX Textures (Shift, Xbox 360)</a><ul><li><a href="#overview-3" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#tools-2" class="table-of-contents__link toc-highlight">Tools</a></li></ul></li><li><a href="#9-materials--shaders--misc" class="table-of-contents__link toc-highlight">9. Materials / Shaders / Misc</a></li><li><a href="#10-tools-reference-summary" class="table-of-contents__link toc-highlight">10. Tools Reference Summary</a></li><li><a href="#cross-references" class="table-of-contents__link toc-highlight">Cross-References</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

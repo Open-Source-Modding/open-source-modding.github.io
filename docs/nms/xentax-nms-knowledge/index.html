@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-nms/xentax-nms-knowledge" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">No Man&#x27;s Sky (Hello Games Engine) — XeNTaX Forum Knowledge Extraction | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/nms/xentax-nms-knowledge"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="No Man&#x27;s Sky (Hello Games Engine) — XeNTaX Forum Knowledge Extraction | Open Source Modding"><meta data-rh="true" name="description" content="1. Engine &amp; Archive Overview"><meta data-rh="true" property="og:description" content="1. Engine &amp; Archive Overview"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/nms/xentax-nms-knowledge"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/nms/xentax-nms-knowledge" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/nms/xentax-nms-knowledge" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"No Man's Sky (Hello Games Engine) — XeNTaX Forum Knowledge Extraction","item":"https://open-source-modding.github.io/docs/nms/xentax-nms-knowledge"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/nms/nms-formats"><span class="linkLabel_WmDU">No Man&#x27;s Sky (Hello Games Engine) — Archives, MBIN, Models &amp; Shaders</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/nms/xentax-nms-knowledge"><span class="linkLabel_WmDU">No Man&#x27;s Sky (Hello Games Engine) — XeNTaX Forum Knowledge Extraction</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">nms</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">No Man&#x27;s Sky (Hello Games Engine) — XeNTaX Forum Knowledge Extraction</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>No Man&#x27;s Sky (Hello Games Engine) — XeNTaX Forum Knowledge Extraction</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-engine--archive-overview">1. Engine &amp; Archive Overview<a href="#1-engine--archive-overview" class="hash-link" aria-label="Direct link to 1. Engine &amp; Archive Overview" title="Direct link to 1. Engine &amp; Archive Overview" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-engine">1.1 Engine<a href="#11-engine" class="hash-link" aria-label="Direct link to 1.1 Engine" title="Direct link to 1.1 Engine" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Engine</strong>: Hello Games custom engine (not Unity/Unreal)</li>
+<li class=""><strong>Archive format</strong>: <code>.pak</code> files — variant of <strong>PSAR</strong> (PlayStation Archive) / <strong>HGPAK</strong></li>
+<li class=""><strong>Platform differences</strong>: PC uses standard PSAR; PS4/Switch use <strong>HGPAK</strong> (different header, compression)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-archive-pipeline">1.2 Archive Pipeline<a href="#12-archive-pipeline" class="hash-link" aria-label="Direct link to 1.2 Archive Pipeline" title="Direct link to 1.2 Archive Pipeline" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">Game data → *.pak (PSAR/HGPAK) → extract → *.mbin / *.exml / *.dds / shaders</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Key PAK: NMSARC.553AF401.pak (engine settings), NMSARC.EEAC04FA.pak (shaders)</span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-pak-format-pc--psar-variant">2. PAK Format (PC — PSAR variant)<a href="#2-pak-format-pc--psar-variant" class="hash-link" aria-label="Direct link to 2. PAK Format (PC — PSAR variant)" title="Direct link to 2. PAK Format (PC — PSAR variant)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-extraction">2.1 Extraction<a href="#21-extraction" class="hash-link" aria-label="Direct link to 2.1 Extraction" title="Direct link to 2.1 Extraction" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool/Script</th><th>Notes</th></tr></thead><tbody><tr><td><strong>aluigi&#x27;s brink.bms</strong></td><td><a href="http://aluigi.org/bms/brink.bms" target="_blank" rel="noopener noreferrer" class="">http://aluigi.org/bms/brink.bms</a> — works for NMS PAK</td></tr><tr><td><strong>QuickBMS batch</strong></td><td><code>quickbms -d -F &quot;*.pak&quot; &quot;brink.bms&quot; &quot;PCBANKS&quot; &quot;OUTPUT&quot;</code></td></tr><tr><td><strong>PSARC-Decompile-Tool</strong></td><td><a href="http://nomansskymods.com/mods/psarc-decompile-tool/" target="_blank" rel="noopener noreferrer" class="">http://nomansskymods.com/mods/psarc-decompile-tool/</a></td></tr><tr><td><strong>NMS-Extract (HugoPeters)</strong></td><td><a href="https://github.com/HugoPeters/NMS-Tools" target="_blank" rel="noopener noreferrer" class="">https://github.com/HugoPeters/NMS-Tools</a> — CLI extractor</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-structure-from-brinkbms--community-analysis">2.2 Structure (from brink.bms / community analysis)<a href="#22-structure-from-brinkbms--community-analysis" class="hash-link" aria-label="Direct link to 2.2 Structure (from brink.bms / community analysis)" title="Direct link to 2.2 Structure (from brink.bms / community analysis)" translate="no">​</a></h3>
+<ul>
+<li class="">Magic: PSAR variant</li>
+<li class="">Files zlib compressed in <strong>64 KiB chunks</strong></li>
+<li class="">brink.bms fix: change <code>log NAME OFFSET SIZE</code> → <code>clog NAME OFFSET SIZE SIZE</code></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-loose-file-loading-no-repack-needed">2.3 Loose File Loading (No Repack Needed)<a href="#23-loose-file-loading-no-repack-needed" class="hash-link" aria-label="Direct link to 2.3 Loose File Loading (No Repack Needed)" title="Direct link to 2.3 Loose File Loading (No Repack Needed)" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Method</strong>: Game loads loose files from <code>GAMEDATA/PCBANKS/</code> if present</li>
+<li class=""><strong>Source</strong>: Reddit guide by emoose (2016) — enables shader/texture mods without repacking</li>
+<li class=""><strong>Use case</strong>: Chromatic aberration disable, vignette removal, shader edits</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-ps4switch--hgpak-format">2.4 PS4/Switch — HGPAK Format<a href="#24-ps4switch--hgpak-format" class="hash-link" aria-label="Direct link to 2.4 PS4/Switch — HGPAK Format" title="Direct link to 2.4 PS4/Switch — HGPAK Format" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Magic</strong>: <code>HGPAK</code> (different from PC PSAR)</li>
+<li class=""><strong>Compression</strong>: zstd (possibly Oodle)</li>
+<li class=""><strong>Tool</strong>: <strong>HGPAKtool</strong> by monkeyman192 — <a href="https://github.com/monkeyman192/HGPAKtool" target="_blank" rel="noopener noreferrer" class="">https://github.com/monkeyman192/HGPAKtool</a></li>
+<li class=""><strong>BMS script</strong>: Partial (uncompressed only); zstd/Oodle support needed</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-mbin-format-core-data-format">3. MBIN Format (Core Data Format)<a href="#3-mbin-format-core-data-format" class="hash-link" aria-label="Direct link to 3. MBIN Format (Core Data Format)" title="Direct link to 3. MBIN Format (Core Data Format)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-structure">3.1 Structure<a href="#31-structure" class="hash-link" aria-label="Direct link to 3.1 Structure" title="Direct link to 3.1 Structure" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">Header:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  int32  cc / magic</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  int32  version</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  int32  padding[2]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  int64  hash</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  char   type[64]       # e.g., &quot;cTkLocalisationTable&quot;, &quot;GcWidgetData&quot;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  int64  padding</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Type-dependent data follows...</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-known-types">3.2 Known Types<a href="#32-known-types" class="hash-link" aria-label="Direct link to 3.2 Known Types" title="Direct link to 3.2 Known Types" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>cTkLocalisationTable</code></td><td>Language/localization data</td></tr><tr><td><code>GcWidgetData</code></td><td>UI widgets</td></tr><tr><td><code>GcSceneData</code> / <code>GcModelData</code></td><td>Scene/model descriptors</td></tr><tr><td><code>GcSkeletonData</code></td><td>Skeleton/bone hierarchy</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-tools">3.3 Tools<a href="#33-tools" class="hash-link" aria-label="Direct link to 3.3 Tools" title="Direct link to 3.3 Tools" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Purpose</th></tr></thead><tbody><tr><td><strong>MBINCompiler</strong> (Atvaark / swuforce)</td><td>010 Editor template + compiler/decompiler</td></tr><tr><td><strong>NMS-View</strong> (HugoPeters)</td><td>Model viewer — <a href="https://github.com/HugoPeters/NMS-Tools" target="_blank" rel="noopener noreferrer" class="">https://github.com/HugoPeters/NMS-Tools</a></td></tr><tr><td><strong>MBIN to EXML</strong></td><td>Community tools (swuforce texttool, MBINCompiler)</td></tr><tr><td><strong>NMS-Modding-Tools</strong></td><td>Various community forks</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="34-localization-mbin--exml">3.4 Localization (.mbin → .exml)<a href="#34-localization-mbin--exml" class="hash-link" aria-label="Direct link to 3.4 Localization (.mbin → .exml)" title="Direct link to 3.4 Localization (.mbin → .exml)" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>010 Editor Template</strong> by Atvaark: parses <code>cTkLocalisationTable</code></li>
+<li class="">Structure: <code>Header → LocalisationTableHeader → LocalisationTableEntry[key[32], lines[]]</code></li>
+<li class=""><strong>Workflow</strong>: <code>.mbin</code> → extract → <code>.exml</code> (XML) → edit → compile → <code>.mbin</code></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="35-repacking-issues">3.5 Repacking Issues<a href="#35-repacking-issues" class="hash-link" aria-label="Direct link to 3.5 Repacking Issues" title="Direct link to 3.5 Repacking Issues" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>PC</strong>: PSARC-Decompile-Tool requires manual file listing for repack</li>
+<li class=""><strong>PS4/Switch</strong>: HGPAKtool supports extraction; repacking WIP</li>
+<li class=""><strong>Loose files preferred</strong>: Avoid repack entirely when possible</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-model--skeleton-format">4. Model / Skeleton Format<a href="#4-model--skeleton-format" class="hash-link" aria-label="Direct link to 4. Model / Skeleton Format" title="Direct link to 4. Model / Skeleton Format" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-model-files">4.1 Model Files<a href="#41-model-files" class="hash-link" aria-label="Direct link to 4.1 Model Files" title="Direct link to 4.1 Model Files" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Format</strong>: Embedded in <code>.mbin</code> (type <code>GcModelData</code> / <code>GcSceneData</code>)</li>
+<li class=""><strong>Geometry</strong>: Standard vertex buffers (positions, normals, UVs)</li>
+<li class=""><strong>Textures</strong>: <code>.dds</code> (DXT/BC compressed) — directly editable</li>
+<li class=""><strong>Shaders</strong>: Uncompiled GLSL in <code>NMSARC.EEAC04FA.pak</code></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="42-skeleton--bone-hierarchy">4.2 Skeleton / Bone Hierarchy<a href="#42-skeleton--bone-hierarchy" class="hash-link" aria-label="Direct link to 4.2 Skeleton / Bone Hierarchy" title="Direct link to 4.2 Skeleton / Bone Hierarchy" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Descriptor</strong>: Separate <code>.mbin</code> with bone hierarchy + transforms</li>
+<li class=""><strong>Fields</strong>: <code>transmat</code> = 9 values (3x3 rotation + translation? or TRS)</li>
+<li class=""><strong>Coordinate system</strong>: OpenGL (right-handed, Y-up)</li>
+<li class=""><strong>Rotation order issue</strong>: <strong>XZY</strong> works for some models, <strong>XYZ</strong> for others</li>
+<li class=""><strong>Progress</strong>: gregkwaste (2016) — partial success, some models still misaligned</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="43-tools-for-models">4.3 Tools for Models<a href="#43-tools-for-models" class="hash-link" aria-label="Direct link to 4.3 Tools for Models" title="Direct link to 4.3 Tools for Models" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Notes</th></tr></thead><tbody><tr><td><strong>NMS-View</strong></td><td>HugoPeters&#x27; viewer (models + skeletons)</td></tr><tr><td><strong>Noesis</strong></td><td>Community scripts WIP</td></tr><tr><td><strong>Blender</strong></td><td>Via export → OBJ/FBX → import</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-shaders">5. Shaders<a href="#5-shaders" class="hash-link" aria-label="Direct link to 5. Shaders" title="Direct link to 5. Shaders" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="51-format">5.1 Format<a href="#51-format" class="hash-link" aria-label="Direct link to 5.1 Format" title="Direct link to 5.1 Format" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Location</strong>: <code>NMSARC.EEAC04FA.pak</code></li>
+<li class=""><strong>Type</strong>: Uncompiled GLSL (OpenGL)</li>
+<li class=""><strong>Editable</strong>: Yes — direct text edit after extraction</li>
+<li class=""><strong>Examples</strong>: Chromatic aberration, vignette, post-process</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="52-community-mods">5.2 Community Mods<a href="#52-community-mods" class="hash-link" aria-label="Direct link to 5.2 Community Mods" title="Direct link to 5.2 Community Mods" translate="no">​</a></h3>
+<ul>
+<li class="">Chromatic aberration disable (Reddit 2016)</li>
+<li class="">Vignette removal</li>
+<li class="">Shader injection via loose files</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-audio">6. Audio<a href="#6-audio" class="hash-link" aria-label="Direct link to 6. Audio" title="Direct link to 6. Audio" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="61-format">6.1 Format<a href="#61-format" class="hash-link" aria-label="Direct link to 6.1 Format" title="Direct link to 6.1 Format" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Container</strong>: Wwise <code>.bnk</code> / <code>.pck</code> (standard)</li>
+<li class=""><strong>Tools</strong>: Wwise Authoring, bnkextr, vgmstream</li>
+<li class=""><strong>Note</strong>: Standard Wwise pipeline — not extensively discussed in XeNTaX threads</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-key-repositories--tools-summary">7. Key Repositories &amp; Tools Summary<a href="#7-key-repositories--tools-summary" class="hash-link" aria-label="Direct link to 7. Key Repositories &amp; Tools Summary" title="Direct link to 7. Key Repositories &amp; Tools Summary" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Repo / Tool</th><th>Author</th><th>Purpose</th></tr></thead><tbody><tr><td><strong>NMS-Tools</strong></td><td>HugoPeters</td><td>NMS-Extract, NMS-View (model viewer)</td></tr><tr><td><strong>MBINCompiler</strong></td><td>Atvaark / swuforce</td><td>MBIN ↔ EXML (010 Editor templates)</td></tr><tr><td><strong>HGPAKtool</strong></td><td>monkeyman192</td><td>PS4/Switch HGPAK extraction</td></tr><tr><td><strong>brink.bms</strong></td><td>aluigi</td><td>QuickBMS script for PC PAK</td></tr><tr><td><strong>PSARC-Decompile-Tool</strong></td><td>NoMansSkyMods</td><td>PAK extract/repack</td></tr><tr><td><strong>SCSSIITool</strong></td><td>Ekey</td><td>SCS decryption (mentioned in NMS context?)</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-gaps--unresolved-from-threads">8. Gaps / Unresolved (from threads)<a href="#8-gaps--unresolved-from-threads" class="hash-link" aria-label="Direct link to 8. Gaps / Unresolved (from threads)" title="Direct link to 8. Gaps / Unresolved (from threads)" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Skeleton alignment</strong>: Rotation order (XZY vs XYZ) inconsistent per model</li>
+<li class=""><strong>MBIN full spec</strong>: Only localization table documented; other types unknown</li>
+<li class=""><strong>HGPAK repacking</strong>: PS4/Switch modding blocked</li>
+<li class=""><strong>Oodle compression</strong>: PS4/Switch PAK may use Oodle, not zstd</li>
+<li class=""><strong>Procedural generation data</strong>: Planet/ship assembly logic in MBIN — not reverse engineered</li>
+<li class=""><strong>Animation format</strong>: Not documented in threads</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-cross-references">9. Cross-References<a href="#9-cross-references" class="hash-link" aria-label="Direct link to 9. Cross-References" title="Direct link to 9. Cross-References" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>PSAR format</strong>: Used by Brink, other PS3/PS4 games — see aluigi&#x27;s scripts</li>
+<li class=""><strong>Wwise audio</strong>: Standard middleware — see generic audio docs</li>
+<li class=""><strong>010 Editor templates</strong>: Reusable pattern for binary formats</li>
+<li class=""><strong>QuickBMS</strong>: Universal extractor — scripts portable across games</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/nms/nms-formats"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">No Man&#x27;s Sky (Hello Games Engine) — Archives, MBIN, Models &amp; Shaders</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/simcity/simcity-formats"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">SimCity (2013) — Audio Format</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-engine--archive-overview" class="table-of-contents__link toc-highlight">1. Engine &amp; Archive Overview</a><ul><li><a href="#11-engine" class="table-of-contents__link toc-highlight">1.1 Engine</a></li><li><a href="#12-archive-pipeline" class="table-of-contents__link toc-highlight">1.2 Archive Pipeline</a></li></ul></li><li><a href="#2-pak-format-pc--psar-variant" class="table-of-contents__link toc-highlight">2. PAK Format (PC — PSAR variant)</a><ul><li><a href="#21-extraction" class="table-of-contents__link toc-highlight">2.1 Extraction</a></li><li><a href="#22-structure-from-brinkbms--community-analysis" class="table-of-contents__link toc-highlight">2.2 Structure (from brink.bms / community analysis)</a></li><li><a href="#23-loose-file-loading-no-repack-needed" class="table-of-contents__link toc-highlight">2.3 Loose File Loading (No Repack Needed)</a></li><li><a href="#24-ps4switch--hgpak-format" class="table-of-contents__link toc-highlight">2.4 PS4/Switch — HGPAK Format</a></li></ul></li><li><a href="#3-mbin-format-core-data-format" class="table-of-contents__link toc-highlight">3. MBIN Format (Core Data Format)</a><ul><li><a href="#31-structure" class="table-of-contents__link toc-highlight">3.1 Structure</a></li><li><a href="#32-known-types" class="table-of-contents__link toc-highlight">3.2 Known Types</a></li><li><a href="#33-tools" class="table-of-contents__link toc-highlight">3.3 Tools</a></li><li><a href="#34-localization-mbin--exml" class="table-of-contents__link toc-highlight">3.4 Localization (.mbin → .exml)</a></li><li><a href="#35-repacking-issues" class="table-of-contents__link toc-highlight">3.5 Repacking Issues</a></li></ul></li><li><a href="#4-model--skeleton-format" class="table-of-contents__link toc-highlight">4. Model / Skeleton Format</a><ul><li><a href="#41-model-files" class="table-of-contents__link toc-highlight">4.1 Model Files</a></li><li><a href="#42-skeleton--bone-hierarchy" class="table-of-contents__link toc-highlight">4.2 Skeleton / Bone Hierarchy</a></li><li><a href="#43-tools-for-models" class="table-of-contents__link toc-highlight">4.3 Tools for Models</a></li></ul></li><li><a href="#5-shaders" class="table-of-contents__link toc-highlight">5. Shaders</a><ul><li><a href="#51-format" class="table-of-contents__link toc-highlight">5.1 Format</a></li><li><a href="#52-community-mods" class="table-of-contents__link toc-highlight">5.2 Community Mods</a></li></ul></li><li><a href="#6-audio" class="table-of-contents__link toc-highlight">6. Audio</a><ul><li><a href="#61-format" class="table-of-contents__link toc-highlight">6.1 Format</a></li></ul></li><li><a href="#7-key-repositories--tools-summary" class="table-of-contents__link toc-highlight">7. Key Repositories &amp; Tools Summary</a></li><li><a href="#8-gaps--unresolved-from-threads" class="table-of-contents__link toc-highlight">8. Gaps / Unresolved (from threads)</a></li><li><a href="#9-cross-references" class="table-of-contents__link toc-highlight">9. Cross-References</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

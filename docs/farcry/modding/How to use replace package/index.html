@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-farcry/modding/How to use replace package" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">How to use replace package | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/farcry/modding/How to use replace package"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="How to use replace package | Open Source Modding"><meta data-rh="true" name="description" content="How to use replace package"><meta data-rh="true" property="og:description" content="How to use replace package"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/farcry/modding/How to use replace package"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/farcry/modding/How to use replace package" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/farcry/modding/How to use replace package" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Far Cry modding (community docs)","item":"https://open-source-modding.github.io/docs/farcry/modding/"},{"@type":"ListItem","position":2,"name":"How to use replace package","item":"https://open-source-modding.github.io/docs/farcry/modding/How to use replace package"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/cgf-chunk-lineage"><span class="linkLabel_WmDU">Far Cry geometry format lineage — FC1 .cgf chunked file → FC6 .xbg</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/filelists"><span class="linkLabel_WmDU">Far Cry file lists (hash → name recovery)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/mab-animation-format"><span class="linkLabel_WmDU">Far Cry MAB animation format (buu342&#x27;s RE thread, knockout.chat/thread/55079)</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/farcry/modding/"><span class="categoryLinkLabel_W154">Far Cry modding (community docs)</span></a><button aria-label="Collapse sidebar category &#x27;Far Cry modding (community docs)&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Adding_custom_music_and_playing_it_in_Far_Cry_6"><span class="linkLabel_WmDU">**Adding custom music and playing it in Far Cry 6**</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Editing_FC4_textures_and_materials"><span class="linkLabel_WmDU">**Prerequisites:**</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/FC5_StimTypes"><span class="linkLabel_WmDU">Far Cry 5 — EStimType / EStimFilterSubType (from the FC5 DLL)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Finding_FOV_bytes_via_HEX_editing"><span class="linkLabel_WmDU">Finding_FOV_bytes_via_HEX_editing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to create own modpack"><span class="linkLabel_WmDU">How to create own modpack</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to create own package"><span class="linkLabel_WmDU">How to create own package</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to edit a package from modpacks (Libertad, Resistance)"><span class="linkLabel_WmDU">How to edit a package from modpacks (Libertad, Resistance)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use binary replace"><span class="linkLabel_WmDU">How to use binary replace</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use dice"><span class="linkLabel_WmDU">How to use dice</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use external files"><span class="linkLabel_WmDU">How to use external files</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use option in info"><span class="linkLabel_WmDU">How to use option in info</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use prepacked files"><span class="linkLabel_WmDU">How to use prepacked files</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use replace in RML"><span class="linkLabel_WmDU">How to use replace in RML</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use replace in combined"><span class="linkLabel_WmDU">How to use replace in combined</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use replace in depload"><span class="linkLabel_WmDU">How to use replace in depload</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use replace in oasis"><span class="linkLabel_WmDU">How to use replace in oasis</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/farcry/modding/How to use replace package"><span class="linkLabel_WmDU">How to use replace package</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use templates in info"><span class="linkLabel_WmDU">How to use templates in info</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How_to_add_suppressors_to_weapons_(FC4)"><span class="linkLabel_WmDU">How_to_add_suppressors_to_weapons_(FC4)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Tutorial_mod_outfit_FC5"><span class="linkLabel_WmDU">Tutorial_mod_outfit_FC5</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Types of package archive"><span class="linkLabel_WmDU">Types of package archive</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/shader-system-lineage"><span class="linkLabel_WmDU">Far Cry shader system — lineage (FC1 CryENGINE1 → FC6)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/xbg-format"><span class="linkLabel_WmDU">Far Cry XBG Format Notes (FC5 vs FC6)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/xentax-farcry-knowledge"><span class="linkLabel_WmDU">Far Cry (Dunia engine) — XeNTaX Forum Knowledge</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">farcry</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/farcry/modding/"><span>Far Cry modding (community docs)</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">How to use replace package</span></li></ul></nav><div class="theme-doc-markdown markdown"><p><strong>How to use replace package</strong></p>
+<header><h1>Structure of info_replace.xml</h1></header>
+<p>This is simple replace in itemdescriptor.ndb file. This example adds
+support for A-99 weapon for NPC.</p>
+<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;</p>
+<p>&lt;PackageInfoReplace&gt;</p>
+<p>  &lt;Games&gt;</p>
+<p>&lt;Game&gt;FC5&lt;/Game&gt;</p>
+<p>&lt;/Games&gt;</p>
+<p>  &lt;DefaultInclude&gt;true&lt;/DefaultInclude&gt;</p>
+<p>  &lt;Name&gt;NPC Weapons Support&lt;/Name&gt;</p>
+<p>  &lt;Description&gt;Adds NPC support for weapons. NPC now can use some weapons that weren&#x27;t created for using by NPC.&lt;/Description&gt;</p>
+<p>  &lt;Category&gt;7&lt;/Category&gt;</p>
+<p>  </p>
+<p>  &lt;Replaces&gt;</p>
+<p>    &lt;Replace RequiredFile=&quot;databases/generic/itemdescriptor.ndb&quot;&gt;</p>
+<p>      &lt;object hash=&quot;59F2984F&quot;&gt;</p>
+<p>        &lt;primaryKey hash=&quot;8EDB0295&quot;&gt;7366C26342072000&lt;/primaryKey&gt; &lt;!-- Weapons/Handguns/A-99 --&gt;</p>
+<p>        &lt;object hash=&quot;452629B8&quot;&gt;</p>
+<p>          &lt;field hash=&quot;CBF95ACC&quot; addNode=&quot;1&quot; type=&quot;String&quot;&gt;weaponproperties:fcx.autopistols.a-99&lt;/field&gt;</p>
+<p>          &lt;field hash=&quot;6993CC7C&quot;&gt;2B568CE1&lt;/field&gt;</p>
+<p>        &lt;/object&gt;</p>
+<p>      &lt;/object&gt;</p>
+<p>    &lt;/Replace&gt;</p>
+<p>  &lt;/Replaces&gt;</p>
+<p>&lt;/PackageInfoReplace&gt;</p>
+<p>There are some standard tags as <strong>DefaultInclude</strong>, <strong>Description</strong>,
+etc...</p>
+<p>Now the new tags:</p>
+<ul>
+<li class="">
+<p><strong>Replaces</strong> -- there are defined replace actions, you can add as many
+as you want, see more below</p>
+</li>
+<li class="">
+<p><strong>Replace</strong> -- this is replace for one or only in one file. It needs
+attribute <strong>RequiredFile</strong> which is complete file name of file in
+which will be the replace created.</p>
+</li>
+</ul>
+<p>Also, take care of new root tag name -- <strong>PackageInfoReplace</strong></p>
+<p>Now inside Replace tag there are all fields which will be changed. So,
+now how to make them?</p>
+<h1>Replacing a value in FCB</h1>
+<p>As an example I took adding NPC support to A-99 weapon. We need to
+change:</p>
+<ul>
+<li class="">
+<p>text_ tmplWeaponNpcPropertiesName -- hash CBF95ACC</p>
+</li>
+<li class="">
+<p>tmplWeaponNpcPropertiesName -- hash 6993CC7C</p>
+</li>
+</ul>
+<p>So, now open converted FCB file. Use FCBConverter for converting files
+from fcb to xml.</p>
+<p>Converted item descriptor for A-99 looks like this:</p>
+<p>&lt;object hash=&quot;59F2984F&quot; name=&quot;Generic&quot;&gt;</p>
+<p>  &lt;field hash=&quot;CF68E402&quot; name=&quot;text_hid_DTCTH_ClassName&quot; type=&quot;String&quot;&gt;CItemDescriptor&lt;/field&gt;</p>
+<p>  &lt;field hash=&quot;25368426&quot; name=&quot;hid_DTCTH_ClassName&quot; type=&quot;ComputeHash32&quot;&gt;CItemDescriptor&lt;/field&gt;</p>
+<p>  &lt;field hash=&quot;8EDB0295&quot; name=&quot;disLibItemId&quot; type=&quot;BinHex&quot;&gt;7366C26342072000&lt;/field&gt;</p>
+<p>  &lt;field hash=&quot;D91FFFD3&quot; name=&quot;disDbObjectName&quot; type=&quot;String&quot;&gt;Weapons/Handguns/A-99&lt;/field&gt;</p>
+<p>  &lt;field hash=&quot;61FC6B02&quot; name=&quot;hidSingleObject&quot; type=&quot;BinHex&quot;&gt;00&lt;/field&gt;</p>
+<p>  &lt;field hash=&quot;1BC69C64&quot; name=&quot;selCategory&quot; type=&quot;BinHex&quot;&gt;01000000&lt;/field&gt;</p>
+<p>  &lt;object hash=&quot;452629B8&quot; name=&quot;InventoryItemData&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CF68E402&quot; name=&quot;text_hid_DTCTH_ClassName&quot; type=&quot;BinHex&quot;&gt;CWeaponDescriptorData&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;25368426&quot; name=&quot;hid_DTCTH_ClassName&quot; type=&quot;BinHex&quot;&gt;CWeaponDescriptorData&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;AB0AAEB9&quot; name=&quot;selItemAddedStatisticEnum&quot; type=&quot;BinHex&quot;&gt;FFFFFFFF&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;1BF7FB9D&quot; name=&quot;bSharedItem&quot; type=&quot;BinHex&quot;&gt;00&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;A788401A&quot; name=&quot;bCanEquipOnReload&quot; type=&quot;BinHex&quot;&gt;01&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;298E6C00&quot; name=&quot;text_tmplWeaponPropertiesName&quot; type=&quot;String&quot;&gt;weaponproperties:fcx.autopistols.a-99&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;E45A0A1B&quot; name=&quot;tmplWeaponPropertiesName&quot; type=&quot;ComputeHash32&quot;&gt;weaponproperties:fcx.autopistols.a-99&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;6993CC7C&quot; name=&quot;tmplWeaponNpcPropertiesName&quot; type=&quot;BinHex&quot;&gt;FFFFFFFF&lt;/field&gt;</p>
+<p>    &lt;object hash=&quot;F9A7F4CA&quot; name=&quot;itemdescriptorUpgradedItem&quot;&gt;</p>
+<p>      &lt;field hash=&quot;BD865AD7&quot; name=&quot;hid_DbRefId&quot; type=&quot;BinHex&quot;&gt;0000000000000000&lt;/field&gt;</p>
+<p>      &lt;field hash=&quot;CB3EDEF1&quot; name=&quot;text_hid_DbRefT&quot; type=&quot;String&quot;&gt;IItemDescriptor&lt;/field&gt;</p>
+<p>      &lt;field hash=&quot;57C4D76B&quot; name=&quot;hid_DbRefT&quot; type=&quot;ComputeHash32&quot;&gt;IItemDescriptor&lt;/field&gt;</p>
+<p>    &lt;/object&gt;</p>
+<p>    &lt;object hash=&quot;94E7819E&quot; name=&quot;UIData&quot;&gt;</p>
+<p>      &lt;field hash=&quot;E95B2A50&quot; name=&quot;IconName&quot; type=&quot;String&quot;&gt;A99&lt;/field&gt;</p>
+<p>      &lt;field hash=&quot;BCD4E3F4&quot; name=&quot;locidDisplayName&quot; type=&quot;Int32&quot;&gt;195230&lt;/field&gt;</p>
+<p>      &lt;field hash=&quot;C10B3D5B&quot; name=&quot;selLootFeedbackType&quot; type=&quot;BinHex&quot;&gt;00000000&lt;/field&gt;</p>
+<p>    &lt;/object&gt;</p>
+<p>    &lt;object hash=&quot;43AB715D&quot; name=&quot;itembagBagItem&quot;&gt;</p>
+<p>      &lt;field hash=&quot;BD865AD7&quot; name=&quot;hid_DbRefId&quot; type=&quot;BinHex&quot;&gt;0000000000000000&lt;/field&gt;</p>
+<p>      &lt;field hash=&quot;CB3EDEF1&quot; name=&quot;text_hid_DbRefT&quot; type=&quot;String&quot;&gt;IItemDescriptor&lt;/field&gt;</p>
+<p>      &lt;field hash=&quot;57C4D76B&quot; name=&quot;hid_DbRefT&quot; type=&quot;ComputeHash32&quot;&gt;IItemDescriptor&lt;/field&gt;</p>
+<p>    &lt;/object&gt;</p>
+<p>    &lt;object hash=&quot;3EFA8AE3&quot; name=&quot;arkEquipmentArchetype&quot;&gt;</p>
+<p>      &lt;field hash=&quot;561D06B4&quot; name=&quot;hid_ArchRefId&quot; type=&quot;BinHex&quot;&gt;11BB78EC53072000&lt;/field&gt;</p>
+<p>    &lt;/object&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>  &lt;object hash=&quot;AC5D9819&quot; name=&quot;LootProperties&quot;&gt;</p>
+<p>    &lt;object hash=&quot;D7C11237&quot; name=&quot;ltdrpcontainerLootDropContainer&quot;&gt;</p>
+<p>      &lt;field hash=&quot;BD865AD7&quot; name=&quot;hid_DbRefId&quot; type=&quot;BinHex&quot;&gt;0000000000000000&lt;/field&gt;</p>
+<p>      &lt;field hash=&quot;CB3EDEF1&quot; name=&quot;text_hid_DbRefT&quot; type=&quot;String&quot;&gt;CFCXLootDroppedContainer&lt;/field&gt;</p>
+<p>      &lt;field hash=&quot;57C4D76B&quot; name=&quot;hid_DbRefT&quot; type=&quot;ComputeHash32&quot;&gt;CFCXLootDroppedContainer&lt;/field&gt;</p>
+<p>    &lt;/object&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>The program needs to know which field with hash <strong>6993CC7C</strong> you want to
+replace, because if you search the hash, you will see there are many
+fields with this hash, so you must define it&#x27;s parent. In this case the
+best is to select whole weapon descriptor entry, so you do this:</p>
+<p>&lt;object hash=&quot;59F2984F&quot; name=&quot;Generic&quot;&gt;</p>
+<p>  &lt;primaryKey hash=&quot;8EDB0295&quot;&gt;7366C26342072000&lt;/primaryKey&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>Tag <strong>primaryKey</strong> means that the program will search only objects with
+hash <strong>59F2984F</strong> which has in child fields field with hash <strong>8EDB0295</strong>
+and its value is <strong>7366C26342072000</strong></p>
+<p>You can also add more <strong>primaryKey</strong> tags if you want to replace more
+config entries with same values.</p>
+<p>Now the other, you define full path to a field which you want to
+replace, so like this:</p>
+<p>&lt;object hash=&quot;59F2984F&quot; name=&quot;Generic&quot;&gt;</p>
+<p>  &lt;primaryKey hash=&quot;8EDB0295&quot;&gt;7366C26342072000&lt;/primaryKey&gt;</p>
+<p>  &lt;object hash=&quot;452629B8&quot; name=&quot;InventoryItemData&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CBF95ACC&quot; addNode=&quot;1&quot; type=&quot;String&quot;&gt;weaponproperties:fcx.autopistols.a-99&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;6993CC7C&quot;&gt;2B568CE1&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>Attribute <strong>addNode</strong> with value 1 means that the program add new field
+with defined hash, type and value.</p>
+<p>Field with hash <strong>6993CC7C</strong> doesn&#x27;t have defined type. Why? Because the
+field exists in config entry, so you don&#x27;t have to add it to replace.
+Only if you add new fields, you must define it.</p>
+<p>In <strong>primaryKey</strong> you can use <strong>hash</strong> or <strong>name</strong>. The value of
+<strong>primaryKey</strong> can be any type, simply add attribute <strong>type</strong> and set
+type.</p>
+<p>Also, you can use only <strong>name</strong> attribute, whole replace can be
+<strong>hash</strong>-less.</p>
+<p>&lt;object name=&quot;Generic&quot;&gt;</p>
+<p>  &lt;primaryKey name=&quot;disLibItemId&quot; type=&quot;Id64&quot;&gt;9015180977661555&lt;/primaryKey&gt;</p>
+<p>  &lt;object name=&quot;InventoryItemData&quot;&gt;</p>
+<p>    &lt;field name=&quot;text_tmplWeaponNpcPropertiesName&quot; addNode=&quot;1&quot; type=&quot;String&quot;&gt;weaponproperties:fcx.autopistols.a-99&lt;/field&gt;</p>
+<p>    &lt;field name=&quot;tmplWeaponNpcPropertiesName&quot; type=&quot;ComputeHash32&quot;&gt;weaponproperties:fcx.autopistols.a-99&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<h1>Removing whole config entry</h1>
+<p>Sometimes you want to remove a config entry. You can do it like this:</p>
+<p>&lt;object name=&quot;GenericParent&quot;&gt;</p>
+<p>&lt;object hash=&quot;59F2984F&quot; name=&quot;Generic&quot;&gt;</p>
+<p>   &lt;primaryKey hash=&quot;8EDB0295&quot;
+removeParent=&quot;1&quot;&gt;7366C26342072000&lt;/primaryKey&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>Result:</p>
+<p>&lt;object name=&quot;GenericParent&quot;&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>This will delete whole object with hash <strong>59F2984F</strong> which has child
+field with hash <strong>8EDB0295</strong> and value <strong>7366C26342072000</strong></p>
+<p>You define <strong>primaryKey</strong> and add attribute <strong>removeParent=&quot;1&quot;</strong>. If
+you add <strong>removeParent=&quot;2&quot;</strong> then two upper parents (objects) will be
+deleted.</p>
+<h1>Cleaning whole object</h1>
+<p>To clean the whole <em>object</em>, for example for adding new <em>fields</em>, use
+<em>clearNodeBeforeInsert</em>. As the name says, it will clean the <em>object</em>
+node and after that it can add new <em>fields</em> or <em>objects</em>, or even
+<em>templates</em>. Value of the attribute is always 1.</p>
+<p>Example:</p>
+<p>&lt;object hash=&quot;59F2984F&quot; name=&quot;Generic&quot;&gt;</p>
+<p>  &lt;primaryKey hash=&quot;8EDB0295&quot;&gt;7366C26342072000&lt;/primaryKey&gt;</p>
+<p>  &lt;object hash=&quot;452629B8&quot; name=&quot;InventoryItemData&quot; clearNodeBeforeInsert=&quot;1&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CBF95ACC&quot; type=&quot;String&quot;&gt;weaponproperties:fcx.autopistols.a-99&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;6993CC7C&quot;&gt;2B568CE1&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>will result into:</p>
+<p>&lt;object hash=&quot;59F2984F&quot; name=&quot;Generic&quot;&gt;</p>
+<p>  &lt;field hash=&quot;8EDB0295&quot;&gt;7366C26342072000&lt;/field&gt;</p>
+<p>  &lt;object hash=&quot;452629B8&quot; name=&quot;InventoryItemData&quot;&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<h1>Making a duplicate of an object</h1>
+<p>This can be useful if you want to add a new entry with the same values
+but only change one or two <em>fields</em>. Notice the <em>newHash</em> attribute
+which will set the new <em>object</em>&#x27;s <em>hash</em>.</p>
+<p>Example:</p>
+<p>This is original config entry:</p>
+<p>&lt;object hash=&quot;59F2984F&quot; name=&quot;Generic&quot;&gt;</p>
+<p>  &lt;field hash=&quot;8EDB0295&quot;&gt;7366C26342072000&lt;/field&gt;</p>
+<p>  &lt;object hash=&quot;452629B8&quot; name=&quot;InventoryItemData&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CBF95ACC&quot; type=&quot;String&quot;&gt;weaponproperties:fcx.autopistols.a-99&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;6993CC7C&quot;&gt;2B568CE1&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>This is prepared replace:</p>
+<p>&lt;object hash=&quot;59F2984F&quot; name=&quot;Generic&quot;&gt;</p>
+<p>  &lt;primaryKey hash=&quot;8EDB0295&quot;&gt;7366C26342072000&lt;/primaryKey&gt;</p>
+<p>  &lt;object hash=&quot;452629B8&quot; name=&quot;InventoryItemData&quot; makeObjectDuplicate=&quot;1&quot; newHash=&quot;C8AA02BC&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CBF95ACC&quot; type=&quot;String&quot;&gt;new value&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>will result into:</p>
+<p>&lt;object hash=&quot;59F2984F&quot; name=&quot;Generic&quot;&gt;</p>
+<p>  &lt;field hash=&quot;8EDB0295&quot;&gt;7366C26342072000&lt;/field&gt;</p>
+<p>  &lt;object hash=&quot;452629B8&quot; name=&quot;InventoryItemData&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CBF95ACC&quot; type=&quot;String&quot;&gt;weaponproperties:fcx.autopistols.a-99&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;6993CC7C&quot;&gt;2B568CE1&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>  &lt;object hash=&quot;452629B8&quot; name=&quot;InventoryItemData&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CBF95ACC&quot; type=&quot;String&quot;&gt;new value&lt;/field&gt;</p>
+<p>    &lt;field hash=&quot;6993CC7C&quot;&gt;2B568CE1&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>Notice the changed value of the <em>field</em>.</p>
+<h1>Making a duplicate of a field</h1>
+<p>Same as duplicate of an <em>object</em> but for a <em>field</em>. Its value is
+ignored - it&#x27;s taken from the source <em>field</em>, so it can be used only as
+duplication.</p>
+<p>    &lt;field hash=&quot;CBF95ACC&quot; newHash=&quot;AF6B90CA&quot; makeFieldDuplicate=&quot;1&quot;
+/&gt;</p>
+<h1>Advanced - sorting / reordering objects</h1>
+<p>Some config entries require to be sorted according to some <em>field</em>
+values. For this action there are attributes <em>reorder_object</em>,
+<em>reorder_by</em> and <em>reorder_type</em>. Those attributes must be used together
+and they&#x27;re applied to <em>object</em>.</p>
+<p>Example:</p>
+<p>&lt;object hash=&quot;B5456221&quot;&gt;</p>
+<p>&lt;object hash=&quot;FEFEC7DE&quot;&gt;</p>
+<p>&lt;field hash=&quot;ED668878&quot; type=&quot;BinHex&quot;&gt;01000000&lt;/field&gt;</p>
+<p>&lt;field name=&quot;SomeFieldName&quot; type=&quot;String&quot;&gt;SomeValue -
+Tree&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;object hash=&quot;FEFEC7DE&quot;&gt;</p>
+<p>&lt;field hash=&quot;ED668878&quot; type=&quot;BinHex&quot;&gt;00000000&lt;/field&gt;</p>
+<p>&lt;field name=&quot;SomeFieldName&quot; type=&quot;String&quot;&gt;SomeValue -
+House&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;object hash=&quot;FEFEC7DE&quot;&gt;</p>
+<p>&lt;field hash=&quot;ED668878&quot; type=&quot;BinHex&quot;&gt;02000000&lt;/field&gt;</p>
+<p>&lt;field name=&quot;SomeFieldName&quot; type=&quot;String&quot;&gt;SomeValue -
+Bench&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;object hash=&quot;B5456221&quot; reorder_object=&quot;FEFEC7DE&quot;
+reorder_by=&quot;ED668878&quot; reorder_type=&quot;desc&quot; /&gt;</p>
+<p>Result:</p>
+<p>&lt;object hash=&quot;B5456221&quot;&gt;</p>
+<p>&lt;object hash=&quot;FEFEC7DE&quot;&gt;</p>
+<p>&lt;field hash=&quot;ED668878&quot; type=&quot;BinHex&quot;&gt;02000000&lt;/field&gt;</p>
+<p>&lt;field name=&quot;SomeFieldName&quot; type=&quot;String&quot;&gt;SomeValue -
+Bench&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;object hash=&quot;FEFEC7DE&quot;&gt;</p>
+<p>&lt;field hash=&quot;ED668878&quot; type=&quot;BinHex&quot;&gt;01000000&lt;/field&gt;</p>
+<p>&lt;field name=&quot;SomeFieldName&quot; type=&quot;String&quot;&gt;SomeValue -
+Tree&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;object hash=&quot;FEFEC7DE&quot;&gt;</p>
+<p>&lt;field hash=&quot;ED668878&quot; type=&quot;BinHex&quot;&gt;00000000&lt;/field&gt;</p>
+<p>&lt;field name=&quot;SomeFieldName&quot; type=&quot;String&quot;&gt;SomeValue -
+House&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>So, how to define it:</p>
+<ul>
+<li class="">
+<p>reorder_object - it&#x27;s a hash of children <em>objects</em> which will be
+sorted</p>
+</li>
+<li class="">
+<p>reorder_by - it&#x27;s a <em>field</em> in the child <em>object</em>, its value is taken
+to sorting</p>
+</li>
+<li class="">
+<p>reorder_type - type of sorting, it can be <strong>asc</strong> or <strong>desc</strong></p>
+</li>
+</ul>
+<h1>Duplicating parent object of primaryKey</h1>
+<p>This is somehow the same as other <em>makeObjectDuplicate</em> and
+<em>makeFieldDuplicate</em>, but this one is used only with <em>primaryKey</em>. The
+attribute name is <em>makeParentDuplicate</em>, value is always 1.</p>
+<p>Example:</p>
+<p>&lt;object hash=&quot;59F2984F&quot;&gt;</p>
+<p>&lt;primaryKey hash=&quot;8EDB0295&quot;
+makeParentDuplicate=&quot;1&quot;&gt;2827558C65072000&lt;/primaryKey&gt;</p>
+<p>&lt;field hash=&quot;8EDB0295&quot; type=&quot;Id64&quot;&gt;9015331982223145&lt;/field&gt;</p>
+<p>&lt;object hash=&quot;452629B8&quot;&gt;</p>
+<p>&lt;object hash=&quot;3EFA8AE3&quot;&gt;</p>
+<p>&lt;field hash=&quot;561D06B4&quot; type=&quot;Id64&quot;&gt;9015331982089933&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>As you can see, it will make duplicate of <em>object</em> 59F2984F and change
+value of <em>field</em> 8EDB0295 which is also used as <em>primaryKey</em>. In this
+case it makes duplicate and also does some replacing in the newly
+duplicated <em>object</em>.</p>
+<h1>Find fields which contains string via primaryKey</h1>
+<p>There can be situations when you want to find several fields which start
+with the same string but end with different strings, in this case this
+feature can be useful. Attribute name is <em>contains</em>, value is always 1.</p>
+<p>&lt;object hash=&quot;BB96607D&quot;&gt;</p>
+<p>&lt;primaryKey hash=&quot;D91FFFD3&quot; contains=&quot;1&quot;
+type=&quot;String&quot;&gt;Databases\UI\ShoppingItems_Bowmore\Clothing&lt;/primaryKey&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>This will find all <em>objects</em> BB96607D which have a <em>field</em> D91FFFD3 with
+a string which contains
+&quot;Databases\UI\ShoppingItems_Bowmore\Clothing&quot;.</p>
+<h1>First-only child primaryKey occurrence</h1>
+<p>If you want to find <em>primaryKey</em> only in the first child of an <em>object</em>,
+you can use <em>primaryKeyExact</em>. Classic <em>primaryKey</em> searching <em>fields</em>
+in all descendants of parent <em>object</em>.</p>
+<p>&lt;object hash=&quot;507DA888&quot; name=&quot;ActivityConditionsData&quot;&gt;</p>
+<p>&lt;object hash=&quot;E4807B9E&quot; name=&quot;actdescActivity&quot;&gt;</p>
+<p>&lt;primaryKeyExact hash=&quot;BD865AD7&quot; name=&quot;hid_DbRefId&quot;
+removeParent=&quot;2&quot;&gt;40B9B35368072000&lt;/primaryKeyExact&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>The reason for usage can be that there can be two <em>fields</em> with the same
+<em>hash</em> and value in child <em>objects</em> and if you want to select only the
+first one, then this is the solution.</p>
+<h1>Replacing fields where cannot be primaryKey set</h1>
+<p>Sometimes there are config entries which have the same names, but they
+are like arrays. Like this:</p>
+<p>&lt;object hash=&quot;90E76EC8&quot; name=&quot;HealthRegenerationDelays&quot;&gt;</p>
+<p>  &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; type=&quot;Float32&quot;&gt;3&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>  &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; type=&quot;Float32&quot;&gt;5&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>  &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; type=&quot;Float32&quot;&gt;10&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>  &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; type=&quot;Float32&quot;&gt;13&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>  &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; value-Int32=&quot;0&quot; type=&quot;BinHex&quot;&gt;00000000&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>And we want to replace field which has value 13. So we make this:</p>
+<p>&lt;object hash=&quot;90E76EC8&quot; name=&quot;HealthRegenerationDelays&quot;&gt;</p>
+<p>  &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot; count=&quot;3&quot;&gt;</p>
+<p>    &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; type=&quot;Float32&quot;&gt;13&lt;/field&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>I added attribute <strong>count=&quot;3&quot;</strong>. It means that fourth (because it
+counts from zero) object will be selected. And now we have selected what
+we wanted.</p>
+<p>This example also shows that I didn&#x27;t use <strong>primaryKey</strong> even in object
+with hash <strong>90E76EC8</strong>. And why? Because if you search for hash
+<strong>90E76EC8</strong> in nomadobjecttemplates_rt.fcb you will see that it is
+there sixth times and I want to replace all sixth objects.</p>
+<p>And now a little more. What if you want to replace only one of the six
+objects? Do you know how to do it? If not, look below.</p>
+<ol>
+<li class="">
+<p>We must find parent object of object with hash <strong>90E76EC8.</strong></p>
+</li>
+<li class="">
+<p>It is an object with hash <strong>C9762625</strong> named as <strong>Health</strong>. But this
+is also sixth times there. So we must go upper.</p>
+</li>
+<li class="">
+<p>Next parent is an object with hash <strong>B96328AF</strong> named as
+<strong>StatsAndCounters.</strong> But still same. Go upper.</p>
+</li>
+<li class="">
+<p>Finally we found object with hash <strong>6E167DD5</strong> named <strong>Template</strong>.
+It has child with hash <strong>C821B0C6</strong> named <strong>FullName</strong>. Value of
+this field is unique -- this is what we need.</p>
+</li>
+</ol>
+<p>So, here is complete replace for only one specific object of six.</p>
+<p>&lt;object hash=&quot;6E167DD5&quot; name=&quot;Template&quot;&gt;</p>
+<p>  &lt;!-- CountersService:Counters.CountersService --&gt;</p>
+<p>  &lt;primaryKey hash=&quot;C821B0C6&quot; name=&quot;FullName&quot;&gt;436F756E74657273536572766963653A436F756E746572732E436F756E746572735365727669636500&lt;/primaryKey&gt;</p>
+<p>  &lt;object hash=&quot;B96328AF&quot; name=&quot;StatsAndCounters&quot;&gt;</p>
+<p>    &lt;object hash=&quot;C9762625&quot; name=&quot;Health&quot;&gt;</p>
+<p>      &lt;object hash=&quot;90E76EC8&quot; name=&quot;HealthRegenerationDelays&quot;&gt;</p>
+<p>        &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>          &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; type=&quot;Float32&quot;&gt;3&lt;/field&gt;</p>
+<p>        &lt;/object&gt;</p>
+<p>        &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>          &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; type=&quot;Float32&quot;&gt;5&lt;/field&gt;</p>
+<p>        &lt;/object&gt;</p>
+<p>        &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>          &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; type=&quot;Float32&quot;&gt;10&lt;/field&gt;</p>
+<p>        &lt;/object&gt;</p>
+<p>        &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>          &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; type=&quot;Float32&quot;&gt;13&lt;/field&gt;</p>
+<p>        &lt;/object&gt;</p>
+<p>        &lt;object hash=&quot;599C3960&quot; name=&quot;DifficultyLevel&quot;&gt;</p>
+<p>          &lt;field hash=&quot;CCB806A0&quot; name=&quot;RegenDelay&quot; value-Int32=&quot;0&quot; type=&quot;BinHex&quot;&gt;00000000&lt;/field&gt;</p>
+<p>        &lt;/object&gt;</p>
+<p>      &lt;/object&gt;</p>
+<p>    &lt;/object&gt;</p>
+<p>  &lt;/object&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>Also, all strings in <strong>primaryKey</strong> must be in hex.</p>
+<h1>What if primaryKey will not exist?</h1>
+<p>Nothing will happen. <strong>primaryKey</strong> is like search, if nothing is found,
+then whole parent <strong>object</strong> of <strong>primaryKey</strong> is ignored.</p>
+<h1>Using replace for field array</h1>
+<p>There are some config fields with arrays. It means there are multiple
+values like several Vector3 values.</p>
+<p>There are two ways to use replace on array fields - first one is
+replacing the whole field with new values, the second one is replacing
+one item in the array.</p>
+<p>This is a sample config entry taken from material. It&#x27;s a field with a
+Vector4 array defining a color.</p>
+<p>&lt;object hash=&quot;2A979110&quot; name=&quot;parameter&quot;&gt;</p>
+<p>&lt;field hash=&quot;5E237E06&quot; name=&quot;name&quot;
+value-ComputeHash32=&quot;BaseColorArray&quot;
+type=&quot;BinHex&quot;&gt;74C1B63C&lt;/field&gt;</p>
+<p>&lt;field hash=&quot;1D775834&quot; name=&quot;value&quot;&gt;</p>
+<p>&lt;Color&gt;0.29765308,0.32038102,0.35865393,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;0.05637399,0.08690139,0.061907507,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>Here is an example for the first way. We want to replace whole array
+with own values, so we make a replace:</p>
+<p>&lt;object hash=&quot;2A979110&quot; name=&quot;parameter&quot;&gt;</p>
+<p>&lt;primaryKey hash=&quot;5E237E06&quot; name=&quot;name&quot;
+value-ComputeHash32=&quot;BaseColorArray&quot;
+type=&quot;BinHex&quot;&gt;74C1B63C&lt;/primaryKey&gt;</p>
+<p>&lt;field hash=&quot;1D775834&quot; name=&quot;value&quot; type=&quot;Vector4&quot;&gt;</p>
+<p>&lt;Color&gt;0.29765308,0.32038102,0.35865393,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;0.05637399,0.08690139,0.061907507,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;1,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;2,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;3,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;4,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;5,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;6,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;7,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;8,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;9,1,1,1&lt;/Color&gt;</p>
+<p>&lt;Color&gt;10,1,1,1&lt;/Color&gt;</p>
+<p>&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>Notice that <strong>type</strong> was added to the field. It&#x27;s required because the
+Mod Installer needs to know what type of array items is used.</p>
+<p>This first way is useful when we want to change every item of the array.</p>
+<p>Now let&#x27;s try the second way. It&#x27;s useful when we want to replace just a
+single item from an array.</p>
+<p>&lt;object hash=&quot;2A979110&quot; name=&quot;parameter&quot;&gt;</p>
+<p>&lt;primaryKey hash=&quot;5E237E06&quot; name=&quot;name&quot;
+value-ComputeHash32=&quot;TilingArray&quot;
+type=&quot;BinHex&quot;&gt;24C77693&lt;/primaryKey&gt;</p>
+<p>&lt;field hash=&quot;1D775834&quot; name=&quot;value&quot; type=&quot;Vector4&quot;
+arrayIndex=&quot;10&quot;&gt;1000,1000,1000,1000&lt;/field&gt;</p>
+<p>&lt;/object&gt;</p>
+<p>Notice that <strong>type</strong> was added to the field. It&#x27;s required because the
+Mod Installer needs to know what type of array items is used.</p>
+<p>Also notice that <strong>arrayIndex</strong> attribute was added. It&#x27;s required for
+defining what item we want to replace. It&#x27;s counted from zero so it
+means the first item has index 0.</p>
+<p>In this example we&#x27;re replacing item with index 10 which is the one
+before the last one in the sample config entry.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/farcry/modding/How to use replace in oasis"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">How to use replace in oasis</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/farcry/modding/How to use templates in info"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">How to use templates in info</div></a></nav></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

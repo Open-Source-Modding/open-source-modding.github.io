@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-farcry/modding/How to create own package" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">How to create own package | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/farcry/modding/How to create own package"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="How to create own package | Open Source Modding"><meta data-rh="true" name="description" content="How to create own package"><meta data-rh="true" property="og:description" content="How to create own package"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/farcry/modding/How to create own package"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/farcry/modding/How to create own package" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/farcry/modding/How to create own package" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Far Cry modding (community docs)","item":"https://open-source-modding.github.io/docs/farcry/modding/"},{"@type":"ListItem","position":2,"name":"How to create own package","item":"https://open-source-modding.github.io/docs/farcry/modding/How to create own package"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/cgf-chunk-lineage"><span class="linkLabel_WmDU">Far Cry geometry format lineage — FC1 .cgf chunked file → FC6 .xbg</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/filelists"><span class="linkLabel_WmDU">Far Cry file lists (hash → name recovery)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/mab-animation-format"><span class="linkLabel_WmDU">Far Cry MAB animation format (buu342&#x27;s RE thread, knockout.chat/thread/55079)</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/farcry/modding/"><span class="categoryLinkLabel_W154">Far Cry modding (community docs)</span></a><button aria-label="Collapse sidebar category &#x27;Far Cry modding (community docs)&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Adding_custom_music_and_playing_it_in_Far_Cry_6"><span class="linkLabel_WmDU">**Adding custom music and playing it in Far Cry 6**</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Editing_FC4_textures_and_materials"><span class="linkLabel_WmDU">**Prerequisites:**</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/FC5_StimTypes"><span class="linkLabel_WmDU">Far Cry 5 — EStimType / EStimFilterSubType (from the FC5 DLL)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Finding_FOV_bytes_via_HEX_editing"><span class="linkLabel_WmDU">Finding_FOV_bytes_via_HEX_editing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to create own modpack"><span class="linkLabel_WmDU">How to create own modpack</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/farcry/modding/How to create own package"><span class="linkLabel_WmDU">How to create own package</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to edit a package from modpacks (Libertad, Resistance)"><span class="linkLabel_WmDU">How to edit a package from modpacks (Libertad, Resistance)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use binary replace"><span class="linkLabel_WmDU">How to use binary replace</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use dice"><span class="linkLabel_WmDU">How to use dice</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use external files"><span class="linkLabel_WmDU">How to use external files</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use option in info"><span class="linkLabel_WmDU">How to use option in info</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use prepacked files"><span class="linkLabel_WmDU">How to use prepacked files</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use replace in RML"><span class="linkLabel_WmDU">How to use replace in RML</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use replace in combined"><span class="linkLabel_WmDU">How to use replace in combined</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use replace in depload"><span class="linkLabel_WmDU">How to use replace in depload</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use replace in oasis"><span class="linkLabel_WmDU">How to use replace in oasis</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use replace package"><span class="linkLabel_WmDU">How to use replace package</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How to use templates in info"><span class="linkLabel_WmDU">How to use templates in info</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/How_to_add_suppressors_to_weapons_(FC4)"><span class="linkLabel_WmDU">How_to_add_suppressors_to_weapons_(FC4)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Tutorial_mod_outfit_FC5"><span class="linkLabel_WmDU">Tutorial_mod_outfit_FC5</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/modding/Types of package archive"><span class="linkLabel_WmDU">Types of package archive</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/shader-system-lineage"><span class="linkLabel_WmDU">Far Cry shader system — lineage (FC1 CryENGINE1 → FC6)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/xbg-format"><span class="linkLabel_WmDU">Far Cry XBG Format Notes (FC5 vs FC6)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/farcry/xentax-farcry-knowledge"><span class="linkLabel_WmDU">Far Cry (Dunia engine) — XeNTaX Forum Knowledge</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">farcry</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/farcry/modding/"><span>Far Cry modding (community docs)</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">How to create own package</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><p><strong>How to create own package</strong></p>
+<p>Creating *.a3 package is pretty easy. A3 packages are basically zip
+files with renamed extension. So if you want to create one, for example
+<em>MyPackage.zip</em> rename to <em>MyPackage.a3</em>. That&#x27;s it.</p>
+<header><h1>Structure of *.a3 package</h1></header>
+<p>Every package must contains <em>info.xml</em> or <em>info_replace.xml</em> (more
+later). This files define what the package will change in the game.</p>
+<p>Here is example of info.xml:</p>
+<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;</p>
+<p>&lt;PackageInfo&gt;</p>
+<p>  &lt;Games&gt;</p>
+<p>&lt;Game&gt;FC5&lt;/Game&gt;</p>
+<p>&lt;Game&gt;FCND&lt;/Game&gt;</p>
+<p>&lt;/Games&gt;</p>
+<p>  &lt;DefaultInclude&gt;true&lt;/DefaultInclude&gt;</p>
+<p>  &lt;Name&gt;Bunker Opener&lt;/Name&gt;</p>
+<p>  &lt;Description&gt;You are able to go inside all bunkers / silos before mission start and even after regions are liberated.&lt;/Description&gt;</p>
+<p>  &lt;HeaderPicture1&gt;bun1.jpg&lt;/HeaderPicture1&gt;</p>
+<p>  &lt;HeaderPicture2&gt;bun2.jpg&lt;/HeaderPicture2&gt;</p>
+<p>  &lt;Category&gt;3&lt;/Category&gt;</p>
+<p>  &lt;Author&gt;Me&lt;/Author&gt;</p>
+<p>  &lt;Dependencies&gt;</p>
+<p>    &lt;Dependency Action=&quot;and&quot;&gt;</p>
+<p>      &lt;Package&gt;Script Loader.a3&lt;/Package&gt;</p>
+<p>    &lt;/Dependency&gt;</p>
+<p>  &lt;/Dependencies&gt;</p>
+<p>  &lt;Pairs&gt;</p>
+<p>    &lt;Pair&gt;</p>
+<p>      &lt;FromDatFile&gt;&lt;/FromDatFile&gt;</p>
+<p>      &lt;Source&gt;fc5_bunkersopener.lua&lt;/Source&gt;</p>
+<p>      &lt;Target&gt;armaniii_stuff/fc5_bunkersopener.lua&lt;/Target&gt;</p>
+<p>    &lt;/Pair&gt;</p>
+<p>  &lt;/Pairs&gt;</p>
+<p>&lt;/PackageInfo&gt;</p>
+<p>This is info.xml of Bunker Opener package. <strong>Notice the first line which
+must be in the xml.</strong></p>
+<p>Now what all these tags mean:</p>
+<h2></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="defaultinclude">DefaultInclude<a href="#defaultinclude" class="hash-link" aria-label="Direct link to DefaultInclude" title="Direct link to DefaultInclude" translate="no">​</a></h2>
+<p>If this is set to true, then this will be selected after first run of
+Mod Installer. Also, if an user click to „CLEAR ALL MODS&quot;, then this
+package will be selected.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="name">Name<a href="#name" class="hash-link" aria-label="Direct link to Name" title="Direct link to Name" translate="no">​</a></h2>
+<p>Defines name of the package which is shown in list of packages.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<p><strong>This tag is required.</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="description">Description<a href="#description" class="hash-link" aria-label="Direct link to Description" title="Direct link to Description" translate="no">​</a></h2>
+<p>Defines description of the package. Description also can contains BBcode
+tags (more later).</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<p><strong>This tag is required.</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="headerpicture1">HeaderPicture1<a href="#headerpicture1" class="hash-link" aria-label="Direct link to HeaderPicture1" title="Direct link to HeaderPicture1" translate="no">​</a></h2>
+<p>Defines first (left one) header picture of the package.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="headerpicture2">HeaderPicture2<a href="#headerpicture2" class="hash-link" aria-label="Direct link to HeaderPicture2" title="Direct link to HeaderPicture2" translate="no">​</a></h2>
+<p>Defines second (center one) header picture of the package.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="headerpicture3">HeaderPicture3<a href="#headerpicture3" class="hash-link" aria-label="Direct link to HeaderPicture3" title="Direct link to HeaderPicture3" translate="no">​</a></h2>
+<p>Defines third (right one) header picture of the package.</p>
+<p>Note: third picture is not available in Mod Installer for Far Cry 2.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="headerpicture2--image-omitted-see-mod-installer-ui">HeaderPicture2 — (image omitted; see Mod Installer UI)<a href="#headerpicture2--image-omitted-see-mod-installer-ui" class="hash-link" aria-label="Direct link to HeaderPicture2 — (image omitted; see Mod Installer UI)" title="Direct link to HeaderPicture2 — (image omitted; see Mod Installer UI)" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dependencies">Dependencies<a href="#dependencies" class="hash-link" aria-label="Direct link to Dependencies" title="Direct link to Dependencies" translate="no">​</a></h2>
+<p>Defines what packages are required by this one. Look below how it works.
+This tag is optional.</p>
+<p>You can add as many <em>Dependency</em> tags as you want. Same as <em>Package</em> tag
+-- it&#x27;s also unlimited.</p>
+<p>The <em>Action</em> attribute is required -- it defines action of the
+dependency:</p>
+<ul>
+<li class="">
+<p><strong>and</strong> -- this means that all defined packages in <em>Package</em> tags are
+required</p>
+</li>
+<li class="">
+<p><strong>or</strong> -- only one of package from <em>Package</em> tags is required</p>
+</li>
+<li class="">
+<p><strong>optional</strong> -- all defined packages in <em>Package</em> tags are optional</p>
+</li>
+</ul>
+<p>The <em>Dependency</em> tag has one optional attribute -- <em>Name</em>. It can be
+used if you don&#x27;t want to show list of required packages names, but you
+want to show your own text.</p>
+<p>The <em>Package</em> tag defines required package. It must contain exactly the
+file name of required package including extension.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="games">Games<a href="#games" class="hash-link" aria-label="Direct link to Games" title="Direct link to Games" translate="no">​</a></h2>
+<p>This tag defines for which games the package is available. If the
+<em>Games</em> tag doesn&#x27;t contain the game name, it will not be able to load
+in Mod Installer. Every game must be in its own <em>Game</em> node.</p>
+<p>Possible values: FC2, FC3, FC4, FCP, FC5, FCND, FC6</p>
+<p><strong>This tag is required, so at least one <em>Game</em> must be defined.</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="category">Category<a href="#category" class="hash-link" aria-label="Direct link to Category" title="Direct link to Category" translate="no">​</a></h2>
+<p>Defines which category will this package have. You can use categories
+which are defined by Mod Installer. Their IDs and names (names are set
+by language ID, so you must search in languages) are defined in
+config.xml in ModInstaller.bin.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="owncategory">OwnCategory<a href="#owncategory" class="hash-link" aria-label="Direct link to OwnCategory" title="Direct link to OwnCategory" translate="no">​</a></h2>
+<p>Basically same as <em>Category</em> but with this you can define your own
+category. Just write some text. Also, if you make more packages with
+same <em>OwnCategory</em> tag value, all these packages will be in one
+category.</p>
+<p>This category is always on top in list of packages.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-1"><a href="#-1" class="hash-link" aria-label="Direct link to -1" title="Direct link to -1" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="onlyone">OnlyOne<a href="#onlyone" class="hash-link" aria-label="Direct link to OnlyOne" title="Direct link to OnlyOne" translate="no">​</a></h2>
+<p>When you have two replace packages which modifying same things, example
+can be Random NPC Weapons, then Mod Installer will not mark those
+packages as conflicting. If you don&#x27;t want to allow to use those
+packages at the same time, you define this tag. Usage is simple: create
+an unique name and put it to this tag, like:</p>
+<p>&lt;OnlyOnes&gt;</p>
+<p>  &lt;OnlyOne&gt;random_npc_weapons&lt;/OnlyOne&gt;</p>
+<p>&lt;/OnlyOnes&gt;</p>
+<p>Then put this tag to another package. And then, those two packages will
+not be allowed to be selected at the same time.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-2"><a href="#-2" class="hash-link" aria-label="Direct link to -2" title="Direct link to -2" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cannotbeenabledwith">CannotBeEnabledWith<a href="#cannotbeenabledwith" class="hash-link" aria-label="Direct link to CannotBeEnabledWith" title="Direct link to CannotBeEnabledWith" translate="no">​</a></h2>
+<p>If you want that your package should not be used with another one, you
+can add <em>CannotBeEnabledWith</em>.</p>
+<p>&lt;CannotBeEnabledWith&gt;</p>
+<p>  &lt;Package&gt;Clouds Shadows.a3&lt;/Package&gt;</p>
+<p>&lt;/CannotBeEnabledWith&gt;</p>
+<p>As you can see, you put the package file name. You can add as many
+packages as you want.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="plus18">Plus18<a href="#plus18" class="hash-link" aria-label="Direct link to Plus18" title="Direct link to Plus18" translate="no">​</a></h2>
+<p>This tag can be used if a package contains NSFW content. It shows a warn
+message box when an user select the package.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="author">Author<a href="#author" class="hash-link" aria-label="Direct link to Author" title="Direct link to Author" translate="no">​</a></h2>
+<p>This tag allows you to put your name as author of the package. It will
+be displayed in game credits.</p>
+<p><strong>This tag can be used also for info_replace.xml</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="pairs">Pairs<a href="#pairs" class="hash-link" aria-label="Direct link to Pairs" title="Direct link to Pairs" translate="no">​</a></h2>
+<p>There are defined files which will be packed if this package is
+selected. You can add as many as you want, it is not limited.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="todatfiles">ToDatFiles<a href="#todatfiles" class="hash-link" aria-label="Direct link to ToDatFiles" title="Direct link to ToDatFiles" translate="no">​</a></h3>
+<p>Defines output DAT file where the file will be installed. Use relative
+path to patch.dat, so example:</p>
+<p>We want to pack a file to patch.dat and to installpkg_hd.dat, so we add:</p>
+<p>&lt;ToDatFiles&gt;</p>
+<p>  &lt;ToDatFile&gt;patch.fat&lt;/ToDatFile&gt;</p>
+<p>  &lt;ToDatFile&gt;worlds\installpkg_hd.fat&lt;/ToDatFile&gt;</p>
+<p>&lt;/ToDatFiles&gt;</p>
+<p>Also notice that the path <strong>must end with *.fat extension</strong>. You can
+define as many DATs as you want.</p>
+<p><strong>This feature also replaces deprecated UseHD and UseHDAndPatch tags.</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fromdatfile">FromDatFile<a href="#fromdatfile" class="hash-link" aria-label="Direct link to FromDatFile" title="Direct link to FromDatFile" translate="no">​</a></h3>
+<p>If you want just replace a file, you don&#x27;t have to include it, you can
+use this tag where you define path to another fat file. Defined file
+will be extracted from this fat file and inserted to defined target
+file. <strong>This tag is not required and can be omitted.</strong></p>
+<p>Example: worlds\installpkg.fat</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="source">Source<a href="#source" class="hash-link" aria-label="Direct link to Source" title="Direct link to Source" translate="no">​</a></h3>
+<p>Name of a file in *.a3 package. If you&#x27;re using <em>FromDatFile</em>, you must
+define whole file path inside dat file.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="target">Target<a href="#target" class="hash-link" aria-label="Direct link to Target" title="Direct link to Target" translate="no">​</a></h3>
+<p>Target file name. A file will be inserted to this path.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="external">External<a href="#external" class="hash-link" aria-label="Direct link to External" title="Direct link to External" translate="no">​</a></h3>
+<p>Used for defining installing the file outside of DAT FAT, more in <strong>How
+to use external files</strong>.</p>
+<p><strong>This tag is not required and can be omitted.</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="usehd">UseHD<a href="#usehd" class="hash-link" aria-label="Direct link to UseHD" title="Direct link to UseHD" translate="no">​</a></h3>
+<p>If set to <strong>true</strong>, then the file defined in Target will be packed into
+installpkg_hd.dat, because if HD pack is installed, all textures in
+patch.dat are overrided with HD. If somebody doesn&#x27;t have HD pack
+installed, then all files marked with <strong>UseHD</strong> will <strong>NOT</strong> be packed,
+if they should be packed, use the tag below. <strong>This tag is not required
+and can be omitted.</strong></p>
+<p><strong>This tag is deprecated. Use new ToDatFiles.</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="usehdandpatch">UseHDAndPatch<a href="#usehdandpatch" class="hash-link" aria-label="Direct link to UseHDAndPatch" title="Direct link to UseHDAndPatch" translate="no">​</a></h3>
+<p>If set to <strong>true</strong>, then the file defined in Target will be packed into
+installpkg_hd.dat and into patch.dat.</p>
+<p><strong>This tag is deprecated. Use new ToDatFiles.</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="overwrite">Overwrite<a href="#overwrite" class="hash-link" aria-label="Direct link to Overwrite" title="Direct link to Overwrite" translate="no">​</a></h3>
+<p>If set to <strong>true</strong>, it can overwrite same file which is set in another
+package. Example: you have ported clothes with textures in one package,
+and now you want a small replacement, so you create new package with one
+replacement texture, and when defining <em>Pair</em>, you set this tag. <strong>This
+tag is not required and can be omitted.</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="prepacked">Prepacked<a href="#prepacked" class="hash-link" aria-label="Direct link to Prepacked" title="Direct link to Prepacked" translate="no">​</a></h3>
+<p>It can be used only with prepacked files. It requires only <em>Source</em> tag.</p>
+<h1>Alternative structure of *.a3 package</h1>
+<p>If your package has a lot of files, then adding all of them to <em>Pairs</em>
+tag could be very time consuming. So you can use alternative structure.</p>
+<p>You will not use <em>Pairs</em> tag in info.xml, just do not write it here.
+Info.xml then will look like this:</p>
+<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;</p>
+<p>&lt;PackageInfo&gt;</p>
+<p>  &lt;Games&gt;</p>
+<p>&lt;Game&gt;FC5&lt;/Game&gt;</p>
+<p>&lt;/Games&gt;</p>
+<p>  &lt;DefaultInclude&gt;true&lt;/DefaultInclude&gt;</p>
+<p>  &lt;Description&gt;Bunker Opener</p>
+<p>  You are able to go inside all bunkers / silos before mission start and even after regions are liberated.&lt;/Description&gt;</p>
+<p>  &lt;HeaderPicture1&gt;bun1.jpg&lt;/HeaderPicture1&gt;</p>
+<p>  &lt;HeaderPicture2&gt;bun2.jpg&lt;/HeaderPicture2&gt;</p>
+<p>  &lt;Dependencies&gt;Script Loader&lt;/Dependencies&gt;</p>
+<p>  &lt;Category&gt;3&lt;/Category&gt;</p>
+<p>&lt;/PackageInfo&gt;</p>
+<p>Now you must create same folder structure as it will be in patch.dat
+file. So our file <em>armaniii_stuff/fc5_bunkersopener.lua</em> will be placed
+in <em>armaniii_stuff</em> folder. Structure of the package will then look like
+this:</p>
+<p>MyPackage.a3 / armaniii_stuff / fc5_bunkersopener.lua</p>
+<p>MyPackage.a3 / info.xml</p>
+<p>MyPackage.a3 / bun1.jpg</p>
+<p>MyPackage.a3 / bun2.jpg</p>
+<p><em>Note: all files with extension jpg, png, gif will not be packed.</em></p>
+<p><strong>Alternative structure needs to have all files in the archive in root,
+because the path for installing is taken directly from root.</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-to-use-folder-structure-for-packing-to-hd">How to use folder structure for packing to HD?<a href="#how-to-use-folder-structure-for-packing-to-hd" class="hash-link" aria-label="Direct link to How to use folder structure for packing to HD?" title="Direct link to How to use folder structure for packing to HD?" translate="no">​</a></h2>
+<p>Go to below.</p>
+<p><strong>The way with UseHD and UseHDAndPatch are deprecated. Use new
+ToDatFiles.</strong></p>
+<p>As for Pair there is <em>UseHD</em> tag, in alternative structure there is any
+<em>Pair</em> tags, so you must create a directory named <strong>UseHD</strong> (case
+sensitive) and put all files you want to pack to HD there.</p>
+<p>So, it will look like this:</p>
+<p>MyPackage.a3 / armaniii_stuff / fc5_bunkersopener.lua</p>
+<p>MyPackage.a3 / UseHD / armaniii_stuff / fc5_bunkersopener.lua</p>
+<p>MyPackage.a3 / graphics / <em>&lt;any files and directories will be packed to
+patch.dat&gt;</em></p>
+<p>MyPackage.a3 / UseHD / graphics / <em>&lt;any files and directories will be
+packed to installpkg_hd.dat&gt;</em></p>
+<p>Note: HD means the file installpkg_hd.dat is used for packing. If
+somebody doesn&#x27;t have HD pack installed, then all files in <strong>UseHD</strong>
+will be packed into patch.dat</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-to-use-folder-structure-for-packing-to-more-dats">How to use folder structure for packing to more DATs?<a href="#how-to-use-folder-structure-for-packing-to-more-dats" class="hash-link" aria-label="Direct link to How to use folder structure for packing to more DATs?" title="Direct link to How to use folder structure for packing to more DATs?" translate="no">​</a></h2>
+<p>Files in the package are installed to patch.dat by default. If you want
+to install the same files to more DATs, create a new folder with any
+name, so for example <em>myfiles</em>. To this folder add your files, like
+here:</p>
+<p>From this:</p>
+<p>MyPackage.a3 / databases / general / itemdescriptor.ndb</p>
+<p>To this:</p>
+<p>MyPackage.a3 / myfiles / databases / general / itemdescriptor.ndb</p>
+<p>Now in the folder <em>myfiles</em> create new file with same name as the
+folder, so in this case <em>myfiles.xml</em></p>
+<p>And add this to the file:</p>
+<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;</p>
+<p>&lt;Manifest&gt;</p>
+<p>&lt;ToDatFiles&gt;</p>
+<p>   &lt;ToDatFile&gt;patch.fat&lt;/ToDatFile&gt;</p>
+<p>   &lt;ToDatFile&gt;worlds\installpkg_hd.fat&lt;/ToDatFile&gt;</p>
+<p>&lt;/ToDatFiles&gt;</p>
+<p>&lt;/Manifest&gt;</p>
+<p>This means that the content of the folder <em>myfiles</em> will be installed to
+patch.dat and to installpkg_hd.dat.</p>
+<h1>BBcode in description</h1>
+<p>You can use styling of text in descriptions.</p>
+<p>Due to bad UI control which displaying description text, some tags are a
+bit different than they should be.</p>
+<p>If you make a mistake in BBcode, Mod Installer show error when you move
+over package item in list of packages.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="basic-tags">Basic tags<a href="#basic-tags" class="hash-link" aria-label="Direct link to Basic tags" title="Direct link to Basic tags" translate="no">​</a></h2>
+<p>  [b]bold text[/b]</p>
+<p>  some text</p>
+<p>  [i]italic text[/i]</p>
+<p>  some text</p>
+<p>  [u]underline text[/u]</p>
+<p>  [s]strikethrough text[/s]</p>
+<p>  [color=#fba536]colored text[/color]</p>
+<p>  [color=green]green text[/color]</p>
+<p>  [b]Some[/b] [i]long[/i] [u]text[/u] [s]where[/s] [color=green]are[/color] placed multiple styles on one line.</p>
+<p>  [color=red][b]Please do not use underline and strikethrough at the same time. The program can&#x27;t display it.[/b][/color]</p>
+<p>As stated in example, you cannot use underline and strikethrough at the
+same time.</p>
+<p>In color tags you can use text names of colors -- green, black, red, and
+more.. or you can use hex color - #fba536.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dotted-list">Dotted list<a href="#dotted-list" class="hash-link" aria-label="Direct link to Dotted list" title="Direct link to Dotted list" translate="no">​</a></h2>
+<p>  Dotted list</p>
+<p>  [list]</p>
+<p>  [*]List item 1</p>
+<p>  [*]List item 2</p>
+<p>  [*][color=green]List item 3[/color]</p>
+<p>  [/list]</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="numbered-list">Numbered list<a href="#numbered-list" class="hash-link" aria-label="Direct link to Numbered list" title="Direct link to Numbered list" translate="no">​</a></h2>
+<p>  Numbered list</p>
+<p>  [list=1]</p>
+<p>  [*]List item 1</p>
+<p>  [*]List item 2</p>
+<p>  [*][color=green]List item 3[/color]</p>
+<p>  [/list]</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="pictures">Pictures<a href="#pictures" class="hash-link" aria-label="Direct link to Pictures" title="Direct link to Pictures" translate="no">​</a></h2>
+<p>You can of course insert pictures. Picture have max width of description
+area and this cannot be changed. You can of course make a half of
+picture transparent, then the picture will be only half size of
+description area. Also, if the picture is smaller than description area,
+it will be resized to max width.</p>
+<p>  [img]pic.jpg[/img]</p>
+<p>  </p>
+<p><em>Img</em> tag must be alone on whole line, otherwise it will not work.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tables">Tables<a href="#tables" class="hash-link" aria-label="Direct link to Tables" title="Direct link to Tables" translate="no">​</a></h2>
+<p>You can use two types of table -- bordered and non-border.</p>
+<p>This example will make table without borders.</p>
+<p>  Simple table without borders</p>
+<p>  [table]</p>
+<p>  [td]</p>
+<p>    [tr][b]table cell 1[/b][/tr]</p>
+<p>    [tr][i]table cell 2[/i][/tr]</p>
+<p>  [/td]</p>
+<p>  [td]</p>
+<p>    [tr][u]table cell 3[/u][/tr]</p>
+<p>    [tr][s]table cell 4[/s][/tr]</p>
+<p>  [/td]</p>
+<p>  [/table]</p>
+<p>  </p>
+<p>And this is bordered table:</p>
+<p>  Simple table with borders</p>
+<p>  [table style=1]</p>
+<p>  [td]</p>
+<p>    [tr]table cell 1[/tr]</p>
+<p>    [tr]table cell 2[/tr]</p>
+<p>  [/td]</p>
+<p>  [td]</p>
+<p>    [tr]table cell 3[/tr]</p>
+<p>    [tr]table cell 4[/tr]</p>
+<p>  [/td]</p>
+<p>  [/table]</p>
+<p>You just add parameter to <em>table</em> tag.</p>
+<p>You can also set width of column in pixels. This example set first
+column to be 400 pixels width.</p>
+<p>  Simple table with borders</p>
+<p>  [table style=1]</p>
+<p>[cols]</p>
+<p>[col=400]</p>
+<p>[col]</p>
+<p>[/cols]</p>
+<p>  [td]</p>
+<p>    [tr]table cell 1[/tr]</p>
+<p>    [tr]table cell 2[/tr]</p>
+<p>  [/td]</p>
+<p>  [td]</p>
+<p>    [tr]table cell 3[/tr]</p>
+<p>    [tr]table cell 4[/tr]</p>
+<p>  [/td]</p>
+<p>  [/table]</p>
+<p>You add after <em>table</em> tag <em>cols</em>. Tags <em>col</em> must match count of columns
+of a table otherwise Mod Installer will not load description. Width is
+in pixels.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="text-size-headers">Text size (headers)<a href="#text-size-headers" class="hash-link" aria-label="Direct link to Text size (headers)" title="Direct link to Text size (headers)" translate="no">​</a></h2>
+<p>There are three sizes of headers.</p>
+<p>  [size=1]Font size 1 more than normal[/size]</p>
+<p>  [size=2]Font size 2 middle[/size]</p>
+<p>  [size=3]Font size 3 big[/size]</p>
+<p>  </p>
+<h1>Info_replace.xml</h1>
+<p>This info is for replacing values in fcb files. It is due to many small
+changes in big files like <strong>nomadobjecttemplates_rt.fcb</strong>.</p>
+<p>Also imagine that we want four changes in the file. If the changes are
+alone the i tis OK -- we have only four combinations. But what if
+somebody want Change 1 to be merged with Change 3? And what about Change
+1 and Change 2 and Change 4? I can continue, but then we get 4 * 4
+combinations, and that&#x27;s 16 different packages with same file. Also, for
+mod file size it is too much, the file in package has 4MB, so 4 * 16
+and that&#x27;s 64MB!</p>
+<p>So that&#x27;s why this type of info.xml. You just define what you need to
+change in the file and Mod Installer replace it when packing. Only one
+negative is that packing process can take 1 minute instead of few
+seconds.</p>
+<p>Anyway, if you want to know how to use this info_replace.xml, see
+another tutorial „How to use new replace package&quot;.</p>
+<p>That&#x27;s all for now. I also make more tutorials.</p>
+<p>As always, if you want ask something, do not hesitate to ask me :D</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/farcry/modding/How to create own modpack"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">How to create own modpack</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/farcry/modding/How to edit a package from modpacks (Libertad, Resistance)"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">How to edit a package from modpacks (Libertad, Resistance)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#defaultinclude" class="table-of-contents__link toc-highlight">DefaultInclude</a></li><li><a href="#name" class="table-of-contents__link toc-highlight">Name</a></li><li><a href="#description" class="table-of-contents__link toc-highlight">Description</a></li><li><a href="#headerpicture1" class="table-of-contents__link toc-highlight">HeaderPicture1</a></li><li><a href="#headerpicture2" class="table-of-contents__link toc-highlight">HeaderPicture2</a></li><li><a href="#headerpicture3" class="table-of-contents__link toc-highlight">HeaderPicture3</a></li><li><a href="#headerpicture2--image-omitted-see-mod-installer-ui" class="table-of-contents__link toc-highlight">HeaderPicture2 — (image omitted; see Mod Installer UI)</a></li><li><a href="#dependencies" class="table-of-contents__link toc-highlight">Dependencies</a></li><li><a href="#games" class="table-of-contents__link toc-highlight">Games</a></li><li><a href="#category" class="table-of-contents__link toc-highlight">Category</a></li><li><a href="#owncategory" class="table-of-contents__link toc-highlight">OwnCategory</a></li><li><a href="#onlyone" class="table-of-contents__link toc-highlight">OnlyOne</a></li><li><a href="#cannotbeenabledwith" class="table-of-contents__link toc-highlight">CannotBeEnabledWith</a></li><li><a href="#plus18" class="table-of-contents__link toc-highlight">Plus18</a></li><li><a href="#author" class="table-of-contents__link toc-highlight">Author</a></li><li><a href="#pairs" class="table-of-contents__link toc-highlight">Pairs</a><ul><li><a href="#todatfiles" class="table-of-contents__link toc-highlight">ToDatFiles</a></li><li><a href="#fromdatfile" class="table-of-contents__link toc-highlight">FromDatFile</a></li><li><a href="#source" class="table-of-contents__link toc-highlight">Source</a></li><li><a href="#target" class="table-of-contents__link toc-highlight">Target</a></li><li><a href="#external" class="table-of-contents__link toc-highlight">External</a></li><li><a href="#usehd" class="table-of-contents__link toc-highlight">UseHD</a></li><li><a href="#usehdandpatch" class="table-of-contents__link toc-highlight">UseHDAndPatch</a></li><li><a href="#overwrite" class="table-of-contents__link toc-highlight">Overwrite</a></li><li><a href="#prepacked" class="table-of-contents__link toc-highlight">Prepacked</a></li></ul></li><li><a href="#how-to-use-folder-structure-for-packing-to-hd" class="table-of-contents__link toc-highlight">How to use folder structure for packing to HD?</a></li><li><a href="#how-to-use-folder-structure-for-packing-to-more-dats" class="table-of-contents__link toc-highlight">How to use folder structure for packing to more DATs?</a></li><li><a href="#basic-tags" class="table-of-contents__link toc-highlight">Basic tags</a></li><li><a href="#dotted-list" class="table-of-contents__link toc-highlight">Dotted list</a></li><li><a href="#numbered-list" class="table-of-contents__link toc-highlight">Numbered list</a></li><li><a href="#pictures" class="table-of-contents__link toc-highlight">Pictures</a></li><li><a href="#tables" class="table-of-contents__link toc-highlight">Tables</a></li><li><a href="#text-size-headers" class="table-of-contents__link toc-highlight">Text size (headers)</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

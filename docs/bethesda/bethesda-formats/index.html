@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-bethesda/bethesda-formats" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Bethesda Archive, Model &amp; Texture Formats | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/bethesda/bethesda-formats"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Bethesda Archive, Model &amp; Texture Formats | Open Source Modding"><meta data-rh="true" name="description" content="Source: XeNTaX forum (2010–2020). Complements Havok-focused guides in reference/bethesda/."><meta data-rh="true" property="og:description" content="Source: XeNTaX forum (2010–2020). Complements Havok-focused guides in reference/bethesda/."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/bethesda/bethesda-formats"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/bethesda-formats" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/bethesda-formats" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Bethesda Archive, Model & Texture Formats","item":"https://open-source-modding.github.io/docs/bethesda/bethesda-formats"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/bethesda/bethesda-formats"><span class="linkLabel_WmDU">Bethesda Archive, Model &amp; Texture Formats</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/fallout4-havok-guide"><span class="linkLabel_WmDU">fallout4-havok-guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/oblivion-remastered-guide"><span class="linkLabel_WmDU">Oblivion Remastered (2025) — Engine, Containers &amp; Animation Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/oblivion-remastered"><span class="linkLabel_WmDU">Research: Oblivion Remastered (2025) — engine, containers, animation, modding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/skyrim-havok-guide"><span class="linkLabel_WmDU">Skyrim Havok Animation Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/skyrim-havok"><span class="linkLabel_WmDU">Research: Skyrim Havok / Animation Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/starfield-guide"><span class="linkLabel_WmDU">Starfield Modding &amp; Reverse Engineering Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/starfield"><span class="linkLabel_WmDU">Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/bethesda/xentax-bethesda-knowledge"><span class="linkLabel_WmDU">Bethesda Games — XeNTaX Forum Knowledge</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">bethesda</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Bethesda Archive, Model &amp; Texture Formats</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Bethesda Archive, Model &amp; Texture Formats</h1></header>
+<blockquote>
+<p><strong>Source</strong>: XeNTaX forum (2010–2020). Complements Havok-focused guides in <code>reference/bethesda/</code>.
+<strong>Cross-reference</strong>: FO4 Havok animation/behavior → <a class="" href="/docs/bethesda/fallout4-havok-guide"><code>fallout4-havok-guide.md</code></a>; Skyrim Havok pipeline → <a class="" href="/docs/bethesda/skyrim-havok-guide"><code>skyrim-havok-guide.md</code></a>; Starfield CE2 → <a class="" href="/docs/bethesda/starfield-guide"><code>starfield-guide.md</code></a>; Oblivion Remastered UE5 → <a class="" href="/docs/bethesda/oblivion-remastered-guide"><code>oblivion-remastered-guide.md</code></a>; Generic HKX packfile → <a class="" href="/docs/havok/hkx_format"><code>../havok/hkx_format.md</code></a></p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-bsa-archive-format-tes3tes5-fo3nv">1. BSA Archive Format (TES3–TES5, FO3/NV)<a href="#1-bsa-archive-format-tes3tes5-fo3nv" class="hash-link" aria-label="Direct link to 1. BSA Archive Format (TES3–TES5, FO3/NV)" title="Direct link to 1. BSA Archive Format (TES3–TES5, FO3/NV)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="structure">Structure<a href="#structure" class="hash-link" aria-label="Direct link to Structure" title="Direct link to Structure" translate="no">​</a></h3>
+<p>BSA archives are the primary container format for Elder Scrolls and early Fallout games.</p>
+<p><strong>Supported games</strong> (CynicRus, 2014):</p>
+<ul>
+<li class="">TES3: Morrowind</li>
+<li class="">TES4: Oblivion</li>
+<li class="">TES5: Skyrim</li>
+<li class="">Fallout 3</li>
+<li class="">Fallout: New Vegas</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bsa-header-format-zero-diamond-2010">BSA Header Format (Zero Diamond, 2010)<a href="#bsa-header-format-zero-diamond-2010" class="hash-link" aria-label="Direct link to BSA Header Format (Zero Diamond, 2010)" title="Direct link to BSA Header Format (Zero Diamond, 2010)" translate="no">​</a></h3>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">struct</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">BSAHeader</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32 magic</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">        </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// &quot;BSA\0&quot;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32 version</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">      </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 104 (Skyrim LE), 105 (Skyrim SE)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32 offset</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">       </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Offset to filename buffer</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-notes">Version Notes<a href="#version-notes" class="hash-link" aria-label="Direct link to Version Notes" title="Direct link to Version Notes" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Version</th><th>Game</th><th>Compression</th></tr></thead><tbody><tr><td>v104 (0x68)</td><td>Skyrim LE</td><td>zlib</td></tr><tr><td>v105 (0x69)</td><td>Skyrim SE</td><td>LZ4</td></tr></tbody></table>
+<p><em>(UESP &quot;Skyrim Mod:Archive File Format&quot;)</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-observations">Key Observations<a href="#key-observations" class="hash-link" aria-label="Direct link to Key Observations" title="Direct link to Key Observations" translate="no">​</a></h3>
+<ul>
+<li class="">BSA format changed between Morrowind and Oblivion (TaylorMouse, 2011: &quot;They don&#x27;t seem to be the same bsa files as Morrowind&quot;)</li>
+<li class="">Game File Explorer can open BSA files and view IMG/### files with COL palettes (Zero Diamond, 2010)</li>
+<li class="">BSA files can contain multiple data types: meshes, textures, animations, scripts, strings</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="extraction-tools">Extraction Tools<a href="#extraction-tools" class="hash-link" aria-label="Direct link to Extraction Tools" title="Direct link to Extraction Tools" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Source</th><th>Games</th></tr></thead><tbody><tr><td>BSArch (official)</td><td>Bethesda</td><td>TES5, FO4</td></tr><tr><td>F4 Tools / BAE</td><td>Nexus Mods</td><td>FO4, FO3/NV</td></tr><tr><td>Fallout Mod Manager (FOMM)</td><td>SourceForge</td><td>TES5</td></tr><tr><td>BSAExtractor (Delphi)</td><td><a href="https://github.com/CynicRus/BSAExtractor" target="_blank" rel="noopener noreferrer" class="">https://github.com/CynicRus/BSAExtractor</a></td><td>TES3–5, FO3/NV</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-ba2-archive-format-fallout-4--fallout-76">2. BA2 Archive Format (Fallout 4 / Fallout 76)<a href="#2-ba2-archive-format-fallout-4--fallout-76" class="hash-link" aria-label="Direct link to 2. BA2 Archive Format (Fallout 4 / Fallout 76)" title="Direct link to 2. BA2 Archive Format (Fallout 4 / Fallout 76)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h3>
+<p>Fallout 4 introduced BA2 (magic <code>BTDX</code>). Two sub-formats:</p>
+<ol>
+<li class=""><strong>GNRL</strong> — General format (meshes, scripts, audio, etc.)</li>
+<li class=""><strong>DX10</strong> — Texture format (DDS textures with DX10 headers)</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ba2-gnrl-header-ekey-2015">BA2 GNRL Header (Ekey, 2015)<a href="#ba2-gnrl-header-ekey-2015" class="hash-link" aria-label="Direct link to BA2 GNRL Header (Ekey, 2015)" title="Direct link to BA2 GNRL Header (Ekey, 2015)" translate="no">​</a></h3>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">idstring </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;BTDX&quot;</span><span class="token plain">          </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Magic: &quot;BTDX&quot;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get VERSION </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain">         </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Version number</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">idstring </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;GNRL&quot;</span><span class="token plain">          </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Sub-format identifier</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get FILES </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain">           </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Number of files</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get NAMES_TABLE_OFFSET </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get </span><span class="token constant" style="color:rgb(130, 170, 255)">NULL</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">long</span><br></div></code></pre></div></div>
+<p><strong>File entry structure:</strong></p>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">get DUMMY </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain">           </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Unknown</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">getdstring EXT </span><span class="token number" style="color:rgb(247, 140, 108)">4</span><span class="token plain">         </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// File extension (4 chars)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get DUMMY </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get DUMMY </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get OFFSET </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain">          </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Offset in archive</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get </span><span class="token constant" style="color:rgb(130, 170, 255)">NULL</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain">            </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Padding</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get ZSIZE </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain">           </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Compressed size</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get SIZE </span><span class="token keyword" style="font-style:italic">long</span><span class="token plain">            </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Decompressed size</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get DUMMY </span><span class="token keyword" style="font-style:italic">long</span><br></div></code></pre></div></div>
+<p><strong>Extraction logic:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">if ZSIZE == SIZE:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    log NAME OFFSET ZSIZE      # Uncompressed</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">else:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    clog NAME OFFSET ZSIZE SIZE  # Compressed (zlib)</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ba2-dx10-texture-format-mradults-2015-loomy-2016-grinderkiller-2016">BA2 DX10 Texture Format (MrAdults, 2015; Loomy, 2016; GRiNDERKILLER, 2016)<a href="#ba2-dx10-texture-format-mradults-2015-loomy-2016-grinderkiller-2016" class="hash-link" aria-label="Direct link to BA2 DX10 Texture Format (MrAdults, 2015; Loomy, 2016; GRiNDERKILLER, 2016)" title="Direct link to BA2 DX10 Texture Format (MrAdults, 2015; Loomy, 2016; GRiNDERKILLER, 2016)" translate="no">​</a></h3>
+<p>Texture archives use DX10 DDS headers. The archive stores the DXGI format directly.</p>
+<p><strong>Key details:</strong></p>
+<ul>
+<li class="">Textures stored with full DX10 DDS headers</li>
+<li class="">DXGI format relayed directly from archive</li>
+<li class="">BC5 (ATI2) used for normal maps AND roughness/metalness (not just normals)</li>
+<li class="">BC5 also used for single-channel spec maps where both channels are identical (should be BC4)</li>
+<li class="">Noesis v4.171+ supports FO4 archives/textures/NIFs</li>
+</ul>
+<p><strong>DDS header template</strong> (010 Editor):</p>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">typedef</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">struct</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    CHAR    fType</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token number" style="color:rgb(247, 140, 108)">4</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">      </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// &quot;DDS &quot;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  size</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">           </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 124</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ubyte   flags</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token number" style="color:rgb(247, 140, 108)">4</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  height</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  width</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  sizeorpitch</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  depth</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  mipmapcount</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  alphabitdepth</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  reserved</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token number" style="color:rgb(247, 140, 108)">10</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"> DDSHEADER</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">typedef</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">struct</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  size</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ubyte   flags</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token number" style="color:rgb(247, 140, 108)">4</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  fourcc</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  rgbbitcount</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  rbitmask</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  gbitmask</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  bbitmask</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32  alphabitmask</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"> PIXELFORMAT</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="quickbms-extraction-script-ekey-2015">QuickBMS Extraction Script (Ekey, 2015)<a href="#quickbms-extraction-script-ekey-2015" class="hash-link" aria-label="Direct link to QuickBMS Extraction Script (Ekey, 2015)" title="Direct link to QuickBMS Extraction Script (Ekey, 2015)" translate="no">​</a></h3>
+<p><strong>GNRL archives:</strong></p>
+<div class="language-bms codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bms codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain"># Fallout 4 (BA2 format) — GNRL</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">idstring &quot;BTDX&quot;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get VERSION long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">idstring &quot;GNRL&quot;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get FILES long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get NAMES_TABLE_OFFSET long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">get NULL long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">savepos TEMP</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">goto NAMES_TABLE_OFFSET</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">for i = 0 &lt; FILES</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  get NSIZE short</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  getdstring NAME NSIZE</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  putarray 0 i NAME</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">next i</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">goto TEMP</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">for i = 0 &lt; FILES</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    get DUMMY long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    getdstring EXT 4</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    get DUMMY long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    get DUMMY long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    get OFFSET long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    get NULL long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    get ZSIZE long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    get SIZE long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    get DUMMY long</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    getarray NAME 0 i</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    if ZSIZE == SIZE</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       log NAME OFFSET ZSIZE</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    else</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       clog NAME OFFSET ZSIZE SIZE</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    endif</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">next i</span><br></div></code></pre></div></div>
+<p><strong>For texture archives</strong>, replace <code>idstring &quot;GNRL&quot;</code> with <code>get MAGIC long</code> (Ekey, 2015).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fallout-76-ba2-changes-notex-2018">Fallout 76 BA2 Changes (Notex, 2018)<a href="#fallout-76-ba2-changes-notex-2018" class="hash-link" aria-label="Direct link to Fallout 76 BA2 Changes (Notex, 2018)" title="Direct link to Fallout 76 BA2 Changes (Notex, 2018)" translate="no">​</a></h3>
+<ul>
+<li class="">BA2 archives still use BTDX header</li>
+<li class="">Pre-launch files encrypted (starting with <code>-&gt;</code> magic); retail files use standard BA2</li>
+<li class="">BAE v0.9.0.15 handles FO76 archives correctly</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="extraction-tools-1">Extraction Tools<a href="#extraction-tools-1" class="hash-link" aria-label="Direct link to Extraction Tools" title="Direct link to Extraction Tools" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Source</th><th>Games</th></tr></thead><tbody><tr><td>BAE (Bethesda Archive Extractor)</td><td><a href="https://www.nexusmods.com/fallout4/mods/78" target="_blank" rel="noopener noreferrer" class="">https://www.nexusmods.com/fallout4/mods/78</a></td><td>FO4, FO76</td></tr><tr><td>F4 Tools</td><td>michalss (2015)</td><td>FO4 (GNRL repacking; textures v3+)</td></tr><tr><td>BSArch (official)</td><td>Bethesda</td><td>TES5, FO4</td></tr><tr><td>Noesis v4.171+</td><td>MrAdults</td><td>FO4, FO76 (archives + textures + NIF auto-load)</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-nif-model-format-skyrim--fallout-4--fallout-76--switch">3. NIF Model Format (Skyrim / Fallout 4 / Fallout 76 / Switch)<a href="#3-nif-model-format-skyrim--fallout-4--fallout-76--switch" class="hash-link" aria-label="Direct link to 3. NIF Model Format (Skyrim / Fallout 4 / Fallout 76 / Switch)" title="Direct link to 3. NIF Model Format (Skyrim / Fallout 4 / Fallout 76 / Switch)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="skyrim-nif-format">Skyrim NIF Format<a href="#skyrim-nif-format" class="hash-link" aria-label="Direct link to Skyrim NIF Format" title="Direct link to Skyrim NIF Format" translate="no">​</a></h3>
+<p>Standard Gamebryo NIF format. NifTools/NifSkope supports it.</p>
+<p><strong>Key tools:</strong> NifSkope, 3DS Max NIF importer/exporter (MajinCry, 2015), Noesis (MrAdults, 2015)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fallout-4-nif-changes-mradults-2015">Fallout 4 NIF Changes (MrAdults, 2015)<a href="#fallout-4-nif-changes-mradults-2015" class="hash-link" aria-label="Direct link to Fallout 4 NIF Changes (MrAdults, 2015)" title="Direct link to Fallout 4 NIF Changes (MrAdults, 2015)" translate="no">​</a></h3>
+<p><strong>Major changes from Skyrim NIF:</strong></p>
+<ol>
+<li class=""><strong>BSTriShape</strong> — New shape type with embedded geometry (no data link to separate NiTriShapeData)</li>
+<li class=""><strong>Flattened skeleton</strong> — Many character models use flattened hierarchy; reference <code>skeleton.nif</code> for proper hierarchy</li>
+<li class=""><strong>FP16 vertex positions</strong> — Bind pose centered at 0 for maximum FP16 precision</li>
+<li class=""><strong>New bone reference/inverse pose data</strong> — Minimal changes</li>
+<li class=""><strong>PBR material system</strong> — Core values and texture sets mostly same as Skyrim despite PBR addition</li>
+</ol>
+<p><strong>Noesis NIF loading commands:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">-nifloadskel &lt;filename&gt;    # Load external skeleton for hierarchy</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">-nifnotransform            # Don&#x27;t transform geometry (for exported pieces)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">-ddsati2nonorm             # Disable ATI2 normalization (safe for all FO4)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">-fbxnewexport              # Export current FBX format (not legacy 6100)</span><br></div></code></pre></div></div>
+<p><strong>Vertex format flags</strong> (jonwd7, 2015):</p>
+<ul>
+<li class="">17 unique vertex flag combinations across all FO4 NIF files</li>
+<li class="">Flags determine vertex buffer layout (position, normal, tangent, UV, vertex colors, skin weights)</li>
+<li class="">Can be decoded via XOR between known buffer configurations</li>
+<li class=""><code>gpuBufferSize</code> field must be correct or PS4/XB1 will break (MrAdults, 2016)</li>
+</ul>
+<p><strong>Bind pose technique</strong> (MrAdults, 2015):</p>
+<ul>
+<li class="">FO4 uses traditional Gamebryo &quot;EVERYTHING HAS A TRANSFORM&quot; approach</li>
+<li class="">Bind pose centered at 0 to maximize FP16 precision</li>
+<li class="">Node space pose = bind pose after conversion</li>
+<li class="">Recalculate on export: <code>newInvBindPose * fittedPose</code> where fittedPose quantizes to FP16</li>
+</ul>
+<p><strong>Texture path handling</strong> (throttlekitty, 2015):</p>
+<ul>
+<li class="">Texture paths sometimes start with <code>textures\\</code> and sometimes don&#x27;t</li>
+<li class="">Extract all texture archives to a common directory for auto-loading</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fallout-76-nif-compatibility-silverm9-2018-qs12-2020">Fallout 76 NIF Compatibility (silverm9, 2018; qs12, 2020)<a href="#fallout-76-nif-compatibility-silverm9-2018-qs12-2020" class="hash-link" aria-label="Direct link to Fallout 76 NIF Compatibility (silverm9, 2018; qs12, 2020)" title="Direct link to Fallout 76 NIF Compatibility (silverm9, 2018; qs12, 2020)" translate="no">​</a></h3>
+<ul>
+<li class="">FO76 NIF files do NOT work with the FO4 Noesis script</li>
+<li class="">Some imports only load armature; others give &quot;list index out of range&quot;</li>
+<li class="">NifSkope 2.0 Dev can open and export FO76 models as OBJ</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nintendo-switch-textures-skyrim-switch-acewell-2019">Nintendo Switch Textures (Skyrim Switch) (Acewell, 2019)<a href="#nintendo-switch-textures-skyrim-switch-acewell-2019" class="hash-link" aria-label="Direct link to Nintendo Switch Textures (Skyrim Switch) (Acewell, 2019)" title="Direct link to Nintendo Switch Textures (Skyrim Switch) (Acewell, 2019)" translate="no">​</a></h3>
+<p><strong>Switch texture format:</strong></p>
+<ul>
+<li class="">Uses Nvidia Tegra X1 (XTX) format</li>
+<li class="">Width at offset 0x40 (int)</li>
+<li class="">Height at offset 0x44 (int)</li>
+<li class="">Format ID at offset 0x50 (int):
+<ul>
+<li class="">0x42 = DXT1 (BC1)</li>
+<li class="">0x44 = DXT5 (BC3)</li>
+</ul>
+</li>
+<li class="">Mipmap count at offset 0x54 (int)</li>
+<li class="">Total data size at offset 0x58 (int)</li>
+<li class="">Mip offset table starts at 0x5C</li>
+<li class="">Image data starts at 0xD0</li>
+</ul>
+<p><strong>Tools:</strong></p>
+<ul>
+<li class="">XTX-Extractor: <a href="https://github.com/aboood40091/XTX-Extractor" target="_blank" rel="noopener noreferrer" class="">https://github.com/aboood40091/XTX-Extractor</a></li>
+<li class="">RawTex tool (enter correct settings, change extension from .dds)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="early-bethesda-image-formats-arena--terminator-zero-diamond-2010">Early Bethesda Image Formats (Arena / Terminator) (Zero Diamond, 2010)<a href="#early-bethesda-image-formats-arena--terminator-zero-diamond-2010" class="hash-link" aria-label="Direct link to Early Bethesda Image Formats (Arena / Terminator) (Zero Diamond, 2010)" title="Direct link to Early Bethesda Image Formats (Arena / Terminator) (Zero Diamond, 2010)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Format</th><th>Description</th></tr></thead><tbody><tr><td><strong>COL</strong></td><td>Palette files (256 entries, 3-byte RGB triplets, red in low byte)</td></tr><tr><td><strong>CFA</strong></td><td>RLE compressed + muxed animations (variable frames)</td></tr><tr><td><strong>DFA</strong></td><td>RLE compressed, partial animations following base frame</td></tr><tr><td><strong>IMG</strong></td><td>Three variants — no-header, uncompressed with header, compressed with unknown algorithm</td></tr><tr><td><strong>SET</strong></td><td>64x64 blocks of IMG data</td></tr><tr><td><strong>###</strong></td><td>Mixed image/animation container (Future Shock, SKYNet)</td></tr></tbody></table>
+<p><strong>Source code reference</strong>: WinArena includes <code>ParseBSA.cpp</code> with full format documentation.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-texture-formats">4. Texture Formats<a href="#4-texture-formats" class="hash-link" aria-label="Direct link to 4. Texture Formats" title="Direct link to 4. Texture Formats" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dds--bcx-compression-fallout-4-volfin-2016">DDS / BCx Compression (Fallout 4) (volfin, 2016)<a href="#dds--bcx-compression-fallout-4-volfin-2016" class="hash-link" aria-label="Direct link to DDS / BCx Compression (Fallout 4) (volfin, 2016)" title="Direct link to DDS / BCx Compression (Fallout 4) (volfin, 2016)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Format</th><th>Use Case</th><th>Compression</th></tr></thead><tbody><tr><td>BC1 (DXT1)</td><td>Color + 1-bit alpha</td><td>4:1</td></tr><tr><td>BC3 (DXT5)</td><td>Color + interpolated alpha</td><td>4:1</td></tr><tr><td>BC4 (ATI1)</td><td>Single-channel (grayscale)</td><td>2:1</td></tr><tr><td>BC5 (ATI2)</td><td>Dual-channel (normals, roughness/metalness)</td><td>2:1</td></tr><tr><td>BC6H</td><td>HDR</td><td>—</td></tr><tr><td>BC7</td><td>High-quality RGBA</td><td>—</td></tr></tbody></table>
+<p><strong>Noesis ATI2 handling</strong> (MrAdults, 2015):</p>
+<ul>
+<li class="">Noesis ATI2 = BC5</li>
+<li class="">BC5 stores z derived + renormalization (correct for normal maps)</li>
+<li class="">FO4 uses BC5 for roughness/metalness (no z derivation needed)</li>
+<li class=""><strong>Use <code>-ddsati2nonorm</code> flag for all FO4 textures</strong></li>
+</ul>
+<p><strong>Intel DDS Photoshop plugin</strong>: <a href="https://software.intel.com/en-us/articles/landing-page/01000-dds-plugins-reference-guide" target="_blank" rel="noopener noreferrer" class="">https://software.intel.com/en-us/articles/landing-page/01000-dds-plugins-reference-guide</a></p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-audio-formats">5. Audio Formats<a href="#5-audio-formats" class="hash-link" aria-label="Direct link to 5. Audio Formats" title="Direct link to 5. Audio Formats" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="xwma-format-skyrim-axsis-2011">xWMA Format (Skyrim) (Axsis, 2011)<a href="#xwma-format-skyrim-axsis-2011" class="hash-link" aria-label="Direct link to xWMA Format (Skyrim) (Axsis, 2011)" title="Direct link to xWMA Format (Skyrim) (Axsis, 2011)" translate="no">​</a></h3>
+<ul>
+<li class="">xWMA = WMA frames in a RIFF container</li>
+<li class="">Can be converted to PCM using <code>xWMAEncode</code> from X360 SDK</li>
+<li class="">May be convertible to standard WMA without re-encoding (unconfirmed)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ps3-xwmmsfc-format-skyrim-ps3-notdukenukem-2012-alphatwentythree">PS3 XWM/MSFC Format (Skyrim PS3) (NotDukeNukem, 2012; AlphaTwentyThree)<a href="#ps3-xwmmsfc-format-skyrim-ps3-notdukenukem-2012-alphatwentythree" class="hash-link" aria-label="Direct link to PS3 XWM/MSFC Format (Skyrim PS3) (NotDukeNukem, 2012; AlphaTwentyThree)" title="Direct link to PS3 XWM/MSFC Format (Skyrim PS3) (NotDukeNukem, 2012; AlphaTwentyThree)" translate="no">​</a></h3>
+<ul>
+<li class="">Header tag: <code>MSFC</code> (not the same as standard MSF format)</li>
+<li class="">Conversion script: <code>msf2at3</code> by AlphaTwentyThree (works with Atrac codec)</li>
+<li class="">Install Atrac codec for audio editor support</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-save-file-formats-oblivion-jonwil-2015">6. Save File Formats (Oblivion) (jonwil, 2015)<a href="#6-save-file-formats-oblivion-jonwil-2015" class="hash-link" aria-label="Direct link to 6. Save File Formats (Oblivion) (jonwil, 2015)" title="Direct link to 6. Save File Formats (Oblivion) (jonwil, 2015)" translate="no">​</a></h2>
+<p><strong>References:</strong></p>
+<ul>
+<li class="">Oblivion save file format: <a href="http://www.uesp.net/wiki/Tes4Mod:Save_File_Format" target="_blank" rel="noopener noreferrer" class="">http://www.uesp.net/wiki/Tes4Mod:Save_File_Format</a></li>
+<li class="">Oblivion mod (ESM/ESP) format: <a href="http://www.uesp.net/wiki/Tes4Mod:Mod_File_Format" target="_blank" rel="noopener noreferrer" class="">http://www.uesp.net/wiki/Tes4Mod:Mod_File_Format</a></li>
+<li class="">Comprehensive parser code: <a href="http://forums.bethsoft.com/topic/148761-oblivion-resource-files-available/" target="_blank" rel="noopener noreferrer" class="">http://forums.bethsoft.com/topic/148761-oblivion-resource-files-available/</a></li>
+<li class="">Parser covers most Oblivion data formats figured out at the time</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-egm-morph-format-oblivion-falconcool-2010">7. EGM Morph Format (Oblivion) (falconcool, 2010)<a href="#7-egm-morph-format-oblivion-falconcool-2010" class="hash-link" aria-label="Direct link to 7. EGM Morph Format (Oblivion) (falconcool, 2010)" title="Direct link to 7. EGM Morph Format (Oblivion) (falconcool, 2010)" translate="no">​</a></h2>
+<ul>
+<li class="">Controls face morph data for facial expressions (speaking, blinking, etc.)</li>
+<li class="">Each vertex in the head mesh has an index number</li>
+<li class="">010 Editor script for modifying vertex data: <a href="http://www.tesnexus.com/downloads/file.php?id=18566" target="_blank" rel="noopener noreferrer" class="">http://www.tesnexus.com/downloads/file.php?id=18566</a></li>
+<li class="">Limitation: Cannot add new vertices, only modify existing ones</li>
+<li class="">Adding new head meshes requires new morph data for all facial expressions</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-celllandscape-data">8. Cell/Landscape Data<a href="#8-celllandscape-data" class="hash-link" aria-label="Direct link to 8. Cell/Landscape Data" title="Direct link to 8. Cell/Landscape Data" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="celltonif-conversion-yacoby">CellToNif Conversion (Yacoby)<a href="#celltonif-conversion-yacoby" class="hash-link" aria-label="Direct link to CellToNif Conversion (Yacoby)" title="Direct link to CellToNif Conversion (Yacoby)" translate="no">​</a></h3>
+<p><strong>Tool</strong>: CellToNif — converts Morrowind cell mesh data to 3D NIF format</p>
+<ul>
+<li class="">Source: <a href="https://github.com/Yacoby/CellToNif" target="_blank" rel="noopener noreferrer" class="">https://github.com/Yacoby/CellToNif</a></li>
+<li class="">Nexus: <a href="http://www.nexusmods.com/morrowind/mods/3290" target="_blank" rel="noopener noreferrer" class="">http://www.nexusmods.com/morrowind/mods/3290</a></li>
+</ul>
+<p><strong>Cell grid sizes:</strong></p>
+<ul>
+<li class="">Morrowind: 64x64 cell grid</li>
+<li class="">FO3/NV, Oblivion, Skyrim, FO4: 32x32 cell grid</li>
+</ul>
+<p><strong>VHGT data</strong> (ReeceMix, 2017):</p>
+<ul>
+<li class="">Height data stored as signed bytes (e.g., <code>7F 81</code> = height value)</li>
+<li class="">1024 DWORDs expected for a 32x32 cell (but actual may be fewer)</li>
+<li class="">Landscape is heightmap-based across all Bethsoft games</li>
+<li class="">Game-to-game cell data is NOT natively compatible (offsets differ)</li>
+</ul>
+<p><strong>Documentation sources:</strong></p>
+<ul>
+<li class="">FO3/NV/4 ESP/ESM: <a href="https://github.com/TES5Edit/fopdoc" target="_blank" rel="noopener noreferrer" class="">https://github.com/TES5Edit/fopdoc</a></li>
+<li class="">Oblivion: <a href="http://www.uesp.net/wiki/Tes4Mod:Mod_File_Format" target="_blank" rel="noopener noreferrer" class="">http://www.uesp.net/wiki/Tes4Mod:Mod_File_Format</a></li>
+<li class="">Skyrim: <a href="http://www.uesp.net/wiki/Tes5Mod:Mod_File_Format" target="_blank" rel="noopener noreferrer" class="">http://www.uesp.net/wiki/Tes5Mod:Mod_File_Format</a></li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-cross-engine-porting">9. Cross-Engine Porting<a href="#9-cross-engine-porting" class="hash-link" aria-label="Direct link to 9. Cross-Engine Porting" title="Direct link to 9. Cross-Engine Porting" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bioware--bethesda-b2b-project-adludum-2018">Bioware → Bethesda (B2B Project) (adludum, 2018)<a href="#bioware--bethesda-b2b-project-adludum-2018" class="hash-link" aria-label="Direct link to Bioware → Bethesda (B2B Project) (adludum, 2018)" title="Direct link to Bioware → Bethesda (B2B Project) (adludum, 2018)" translate="no">​</a></h3>
+<p><strong>Project</strong>: <a href="https://github.com/dhk-room101/B2B" target="_blank" rel="noopener noreferrer" class="">https://github.com/dhk-room101/B2B</a></p>
+<ul>
+<li class="">Automatic porting of Dragon Age Origins content (quests, dialogues) to Skyrim engine</li>
+<li class="">Based on Figment/Snip for Bethesda side</li>
+<li class="">Bioware side inspired by Rick (@gibbed) Dragon Age work</li>
+<li class="">Same process can port KoTOR to Fallout 4</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="10-tool-reference">10. Tool Reference<a href="#10-tool-reference" class="hash-link" aria-label="Direct link to 10. Tool Reference" title="Direct link to 10. Tool Reference" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Purpose</th><th>Games</th><th>Author/Source</th></tr></thead><tbody><tr><td>Noesis v4.171+</td><td>Archive extraction, NIF/texture viewing, FBX export</td><td>FO4, FO76</td><td>MrAdults</td></tr><tr><td>NifSkope 2.0 Dev</td><td>NIF viewing/editing, OBJ export</td><td>FO4, FO76</td><td>jonwd7</td></tr><tr><td>BAE</td><td>BA2 extraction</td><td>FO4, FO76</td><td>Nexus Mods</td></tr><tr><td>F4 Tools</td><td>BA2 extraction + GNRL repacking</td><td>FO4</td><td>michalss</td></tr><tr><td>BSArch</td><td>Official archive tool</td><td>TES5, FO4</td><td>Bethesda</td></tr><tr><td>BSAExtractor</td><td>BSA extraction (Delphi)</td><td>TES3–5, FO3/NV</td><td>CynicRus</td></tr><tr><td>FOMM</td><td>BSA extraction</td><td>TES5</td><td>SourceForge</td></tr><tr><td>CellToNif</td><td>Cell mesh → NIF</td><td>Morrowind</td><td>Yacoby</td></tr><tr><td>TESAnnwyn</td><td>Heightmap import</td><td>TES3–5, FO3/NV</td><td>—</td></tr><tr><td>XTX-Extractor</td><td>Switch texture extraction</td><td>Skyrim Switch</td><td>aboood40091</td></tr><tr><td>RawTex</td><td>Switch texture viewing</td><td>Skyrim Switch</td><td>—</td></tr><tr><td>Intel DDS Plugin</td><td>BCx texture support in Photoshop</td><td>FO4</td><td>Intel</td></tr><tr><td>hkxcmd</td><td>HKX ↔ XML</td><td>TES5, FO4</td><td>figment</td></tr><tr><td>havok2fbx</td><td>HKX → FBX</td><td>FO4</td><td>Highflex</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-key-discoveries--gotchas">11. Key Discoveries &amp; Gotchas<a href="#11-key-discoveries--gotchas" class="hash-link" aria-label="Direct link to 11. Key Discoveries &amp; Gotchas" title="Direct link to 11. Key Discoveries &amp; Gotchas" translate="no">​</a></h2>
+<ol>
+<li class=""><strong>BA2 texture archives need different extraction</strong> — GNRL script doesn&#x27;t work for DX10; change <code>idstring &quot;GNRL&quot;</code> to <code>get MAGIC long</code></li>
+<li class=""><strong>FO4 NIF bind pose is centered at 0</strong> — not a bug, intentional FP16 optimization</li>
+<li class=""><strong>BC5 used for non-normal data</strong> — FO4 uses BC5 for roughness/metalness, not just normals</li>
+<li class=""><strong>Texture paths are inconsistent</strong> — some start with <code>textures\\</code>, some don&#x27;t</li>
+<li class=""><strong>FO76 NIFs are incompatible</strong> — FO4 Noesis script fails on FO76 models</li>
+<li class=""><strong>Switch textures use XTX format</strong> — not standard DDS; need XTX-Extractor or RawTex</li>
+<li class=""><strong>Bodyslide-generated NIFs may break</strong> — <code>gpuBufferSize</code> can be incorrect, breaks console rendering</li>
+<li class=""><strong>Cell data is not cross-game compatible</strong> — Bethesda alters format between games despite same method</li>
+<li class=""><strong>BSA versions differ</strong> — v104 (zlib) vs v105 (LZ4) between Skyrim LE and SE</li>
+<li class=""><strong>17 unique vertex flag formats</strong> in FO4 NIFs — must handle all for correct mesh loading</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sources">Sources<a href="#sources" class="hash-link" aria-label="Direct link to Sources" title="Direct link to Sources" translate="no">​</a></h2>
+<ul>
+<li class="">Zero Diamond (2010): Bethesda file formats (COL/CFA/DFA/IMG/SET)</li>
+<li class="">Ekey (2014–2015): FAT/DAT headers, BA2 extraction scripts</li>
+<li class="">MrAdults (2015): Noesis FO4 support, NIF format analysis, BC5 handling</li>
+<li class="">jonwd7 (2015): Vertex flag analysis, NIF format debate</li>
+<li class="">michalss (2015): F4 Tools, BA2 extraction</li>
+<li class="">Loomy (2016): DDS header template (010 Editor)</li>
+<li class="">GRiNDERKILLER (2016): Texture header field layout</li>
+<li class="">Acewell (2019): Switch texture format specs</li>
+<li class="">shakotay2 (2016–2018): NIF debugging, hex2obj</li>
+<li class="">throttlekitty (2015): Texture pathing, FBX version</li>
+<li class="">volfin (2016): BCx format references, Intel plugin</li>
+<li class="">adludum (2018): B2B cross-engine porting project</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--next" href="/docs/bethesda/fallout4-havok-guide"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">fallout4-havok-guide</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-bsa-archive-format-tes3tes5-fo3nv" class="table-of-contents__link toc-highlight">1. BSA Archive Format (TES3–TES5, FO3/NV)</a><ul><li><a href="#structure" class="table-of-contents__link toc-highlight">Structure</a></li><li><a href="#bsa-header-format-zero-diamond-2010" class="table-of-contents__link toc-highlight">BSA Header Format (Zero Diamond, 2010)</a></li><li><a href="#version-notes" class="table-of-contents__link toc-highlight">Version Notes</a></li><li><a href="#key-observations" class="table-of-contents__link toc-highlight">Key Observations</a></li><li><a href="#extraction-tools" class="table-of-contents__link toc-highlight">Extraction Tools</a></li></ul></li><li><a href="#2-ba2-archive-format-fallout-4--fallout-76" class="table-of-contents__link toc-highlight">2. BA2 Archive Format (Fallout 4 / Fallout 76)</a><ul><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#ba2-gnrl-header-ekey-2015" class="table-of-contents__link toc-highlight">BA2 GNRL Header (Ekey, 2015)</a></li><li><a href="#ba2-dx10-texture-format-mradults-2015-loomy-2016-grinderkiller-2016" class="table-of-contents__link toc-highlight">BA2 DX10 Texture Format (MrAdults, 2015; Loomy, 2016; GRiNDERKILLER, 2016)</a></li><li><a href="#quickbms-extraction-script-ekey-2015" class="table-of-contents__link toc-highlight">QuickBMS Extraction Script (Ekey, 2015)</a></li><li><a href="#fallout-76-ba2-changes-notex-2018" class="table-of-contents__link toc-highlight">Fallout 76 BA2 Changes (Notex, 2018)</a></li><li><a href="#extraction-tools-1" class="table-of-contents__link toc-highlight">Extraction Tools</a></li></ul></li><li><a href="#3-nif-model-format-skyrim--fallout-4--fallout-76--switch" class="table-of-contents__link toc-highlight">3. NIF Model Format (Skyrim / Fallout 4 / Fallout 76 / Switch)</a><ul><li><a href="#skyrim-nif-format" class="table-of-contents__link toc-highlight">Skyrim NIF Format</a></li><li><a href="#fallout-4-nif-changes-mradults-2015" class="table-of-contents__link toc-highlight">Fallout 4 NIF Changes (MrAdults, 2015)</a></li><li><a href="#fallout-76-nif-compatibility-silverm9-2018-qs12-2020" class="table-of-contents__link toc-highlight">Fallout 76 NIF Compatibility (silverm9, 2018; qs12, 2020)</a></li><li><a href="#nintendo-switch-textures-skyrim-switch-acewell-2019" class="table-of-contents__link toc-highlight">Nintendo Switch Textures (Skyrim Switch) (Acewell, 2019)</a></li><li><a href="#early-bethesda-image-formats-arena--terminator-zero-diamond-2010" class="table-of-contents__link toc-highlight">Early Bethesda Image Formats (Arena / Terminator) (Zero Diamond, 2010)</a></li></ul></li><li><a href="#4-texture-formats" class="table-of-contents__link toc-highlight">4. Texture Formats</a><ul><li><a href="#dds--bcx-compression-fallout-4-volfin-2016" class="table-of-contents__link toc-highlight">DDS / BCx Compression (Fallout 4) (volfin, 2016)</a></li></ul></li><li><a href="#5-audio-formats" class="table-of-contents__link toc-highlight">5. Audio Formats</a><ul><li><a href="#xwma-format-skyrim-axsis-2011" class="table-of-contents__link toc-highlight">xWMA Format (Skyrim) (Axsis, 2011)</a></li><li><a href="#ps3-xwmmsfc-format-skyrim-ps3-notdukenukem-2012-alphatwentythree" class="table-of-contents__link toc-highlight">PS3 XWM/MSFC Format (Skyrim PS3) (NotDukeNukem, 2012; AlphaTwentyThree)</a></li></ul></li><li><a href="#6-save-file-formats-oblivion-jonwil-2015" class="table-of-contents__link toc-highlight">6. Save File Formats (Oblivion) (jonwil, 2015)</a></li><li><a href="#7-egm-morph-format-oblivion-falconcool-2010" class="table-of-contents__link toc-highlight">7. EGM Morph Format (Oblivion) (falconcool, 2010)</a></li><li><a href="#8-celllandscape-data" class="table-of-contents__link toc-highlight">8. Cell/Landscape Data</a><ul><li><a href="#celltonif-conversion-yacoby" class="table-of-contents__link toc-highlight">CellToNif Conversion (Yacoby)</a></li></ul></li><li><a href="#9-cross-engine-porting" class="table-of-contents__link toc-highlight">9. Cross-Engine Porting</a><ul><li><a href="#bioware--bethesda-b2b-project-adludum-2018" class="table-of-contents__link toc-highlight">Bioware → Bethesda (B2B Project) (adludum, 2018)</a></li></ul></li><li><a href="#10-tool-reference" class="table-of-contents__link toc-highlight">10. Tool Reference</a></li><li><a href="#11-key-discoveries--gotchas" class="table-of-contents__link toc-highlight">11. Key Discoveries &amp; Gotchas</a></li><li><a href="#sources" class="table-of-contents__link toc-highlight">Sources</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

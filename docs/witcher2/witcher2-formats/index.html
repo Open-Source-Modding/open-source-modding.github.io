@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-witcher2/witcher2-formats" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">The Witcher 2 (REDengine 2) — Archive, Model, Texture &amp; Audio Formats | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/witcher2/witcher2-formats"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Witcher 2 (REDengine 2) — Archive, Model, Texture &amp; Audio Formats | Open Source Modding"><meta data-rh="true" name="description" content="Source: XeNTaX forum knowledge extraction (2011–2022)."><meta data-rh="true" property="og:description" content="Source: XeNTaX forum knowledge extraction (2011–2022)."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/witcher2/witcher2-formats"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher2/witcher2-formats" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher2/witcher2-formats" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Witcher 2 (REDengine 2) — Archive, Model, Texture & Audio Formats","item":"https://open-source-modding.github.io/docs/witcher2/witcher2-formats"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/witcher2/witcher2-formats"><span class="linkLabel_WmDU">The Witcher 2 (REDengine 2) — Archive, Model, Texture &amp; Audio Formats</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/witcher2/xentax-witcher2-knowledge"><span class="linkLabel_WmDU">The Witcher 2 — XeNTaX Forum Knowledge</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">witcher2</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">The Witcher 2 (REDengine 2) — Archive, Model, Texture &amp; Audio Formats</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>The Witcher 2 (REDengine 2) — Archive, Model, Texture &amp; Audio Formats</h1></header>
+<blockquote>
+<p><strong>Source</strong>: XeNTaX forum knowledge extraction (2011–2022).
+Covers <code>.dzip</code> archives, <code>.w2ent</code>/<code>.w2mesh</code> models, <code>.xbm</code> textures, <code>.w2speech</code> dialogue, <code>.usm</code> video, <code>.fsb</code> music, and tools.</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-archive-unpacking-pack0dzip">1. Archive Unpacking (<code>pack0.dzip</code>)<a href="#1-archive-unpacking-pack0dzip" class="hash-link" aria-label="Direct link to 1-archive-unpacking-pack0dzip" title="Direct link to 1-archive-unpacking-pack0dzip" translate="no">​</a></h2>
+<p>Game data packed in <strong><code>.dzip</code></strong> archives (e.g., <code>pack0.dzip</code>).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tools">Tools<a href="#tools" class="hash-link" aria-label="Direct link to Tools" title="Direct link to Tools" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Purpose</th><th>Notes</th></tr></thead><tbody><tr><td>Gibbed&#x27;s RED Tool</td><td>Unpack <code>pack0.dzip</code></td><td>WitcherNexus file id 52; used for W2, also supports W1/W3 later</td></tr><tr><td>chrrox QuickBMS <code>w2_dzip_unpack.bms</code></td><td>Unpack <code>pack0.dzip</code></td><td>Referenced by Szkaradek123</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="important">Important<a href="#important" class="hash-link" aria-label="Direct link to Important" title="Direct link to Important" translate="no">​</a></h3>
+<p>When importing into Blender, select the <strong>entire unpacked game directory</strong> (<code>pack0</code> root), <strong>not</strong> the texture folder — the importer needs to read all textures across the tree.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-models-w2ent-vs-w2mesh">2. Models: <code>.w2ent</code> vs <code>.w2mesh</code><a href="#2-models-w2ent-vs-w2mesh" class="hash-link" aria-label="Direct link to 2-models-w2ent-vs-w2mesh" title="Direct link to 2-models-w2ent-vs-w2mesh" translate="no">​</a></h2>
+<p>The Witcher 2 stores models in <strong><code>.w2ent</code></strong> (entity) files and standalone <strong><code>.w2mesh</code></strong> files.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-distinctions">Key Distinctions<a href="#key-distinctions" class="hash-link" aria-label="Direct link to Key Distinctions" title="Direct link to Key Distinctions" translate="no">​</a></h3>
+<ul>
+<li class=""><code>.w2ent</code> files <strong>contain the mesh data</strong> — they are not just references</li>
+<li class="">Not all <code>.w2mesh</code> data lives inside <code>.w2ent</code> files; when a <code>.w2ent</code> contains <code>.w2mesh</code> data, the importer opens the package and lets you select them</li>
+<li class=""><code>.w2ent</code> files usually contain data other than <code>CMesh</code> objects too (camera config, entity settings)</li>
+<li class=""><strong>Standalone vs embedded mesh data differ</strong> — data structures are different, so a script that loads one does not trivially load the other</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="example">Example<a href="#example" class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain"># inside q102_elf_woman_hanger.w2ent   (embedded)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"># 1.   e0d2d:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">v 0.178874 -0.028297 1.424668</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"># 00 01 02 03  92 4F 19 04  86 00 80 FF  FF FF FF FF</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">vt 0.348128 0.709508</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"># standalone scoiatael_woman__body1_b1.w2mesh</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"># 1.     759:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">v 0.178874 -0.028297 1.424668</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"># 00 01 02 03  0.574310 0.310812 0.098458 0.016420 0.055559 -0.998417 0.008791</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"># FF FF FF FF</span><br></div></code></pre></div></div>
+<p>Model location example: <code>pack0.dzip\game\npc\riszon.w2ent</code> holds <code>richon__body1_b1.w2mesh</code> (Letho).</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-textures-xbm--dds">3. Textures: <code>.xbm</code> → DDS<a href="#3-textures-xbm--dds" class="hash-link" aria-label="Direct link to 3-textures-xbm--dds" title="Direct link to 3-textures-xbm--dds" translate="no">​</a></h2>
+<p><code>.xbm</code> texture files are essentially <strong>DDS files without the DDS header</strong> — usually <strong>DXT1 or DXT5</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="conversion">Conversion<a href="#conversion" class="hash-link" aria-label="Direct link to Conversion" title="Direct link to Conversion" translate="no">​</a></h3>
+<ul>
+<li class="">Throw a DDS header on them and you&#x27;re done</li>
+<li class="">Community produced <strong>witcher2_texture_converter</strong> (QuickBMS + cmd scripts) for <code>.xbm</code> ⇄ <code>.tga</code>/<code>.dds</code> conversion</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="quickbms-scripts-from-witcher2_texture_converter">QuickBMS Scripts (from witcher2_texture_converter)<a href="#quickbms-scripts-from-witcher2_texture_converter" class="hash-link" aria-label="Direct link to QuickBMS Scripts (from witcher2_texture_converter)" title="Direct link to QuickBMS Scripts (from witcher2_texture_converter)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Script</th><th>Purpose</th></tr></thead><tbody><tr><td><code>w2_xbm2dds.bms</code></td><td><code>.xbm</code> → <code>.dds</code></td></tr><tr><td><code>w2_dds2xbm.bms</code></td><td><code>.dds</code> → <code>.xbm</code></td></tr><tr><td><code>w2_dzip_unpack.bms</code></td><td>unpack <code>.dzip</code></td></tr></tbody></table>
+<p>Converter runs with <code>quickbms.exe</code> placed next to unpacked files, producing <code>filename_DXT(1,5).bin</code> (binary info) and <code>filename_DXT(1,5).tga</code> (texture).</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-blender-importer-szkaradek123">4. Blender Importer (Szkaradek123)<a href="#4-blender-importer-szkaradek123" class="hash-link" aria-label="Direct link to 4. Blender Importer (Szkaradek123)" title="Direct link to 4. Blender Importer (Szkaradek123)" translate="no">​</a></h2>
+<p><strong>Szkaradek123&#x27;s Blender 2.49 importer</strong> was the primary tool for importing Witcher 2 models (geometry, weights, UVs, textures, bones).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="requirements">Requirements<a href="#requirements" class="hash-link" aria-label="Direct link to Requirements" title="Direct link to Requirements" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Must use Blender 2.49</strong> with <strong>Python 2.6</strong> (not 2.5x / Python 3.x) — scripts not compatible with Blender 2.5+</li>
+<li class="">Run from <strong>Scripts window</strong> (open <code>.blend</code>, right-click script window, Execute)</li>
+<li class="">Select <strong>unpacked game dir</strong> (whole <code>pack0</code>), load a <code>.w2ent</code> model</li>
+<li class="">Importer reads all needed textures and converts them to <code>.dds</code>; if it can&#x27;t, script breaks</li>
+<li class="">Some models error out because file format was <strong>not 100% known</strong></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-history">Version History<a href="#version-history" class="hash-link" aria-label="Direct link to Version History" title="Direct link to Version History" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Date</th><th>Added</th></tr></thead><tbody><tr><td>2011-06-05</td><td>materials, bones (no joints)</td></tr><tr><td>2011-06-23</td><td>&#x27;magic&#x27; button, better mesh names, texture import, static meshes, bone parenting</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="magic-button">&#x27;Magic&#x27; Button<a href="#magic-button" class="hash-link" aria-label="Direct link to &#x27;Magic&#x27; Button" title="Direct link to &#x27;Magic&#x27; Button" translate="no">​</a></h3>
+<p>Fixes <code>.w2ent</code>/<code>.w2mesh</code> files that fail to import correctly — mainly body meshes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="common-troubleshooting">Common Troubleshooting<a href="#common-troubleshooting" class="hash-link" aria-label="Direct link to Common Troubleshooting" title="Direct link to Common Troubleshooting" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Textures don&#x27;t apply</strong> → load manually from character folder (search <code>.dds</code>), or use UV/Image editor; &quot;single user&quot; material workaround helps when hair texture covers body and vice versa</li>
+<li class=""><strong>No face</strong> → faces stored in <code>\templates\characters\appearances\main npc</code></li>
+<li class=""><strong>Bones import but aren&#x27;t connected</strong> → parent manually (select armature → TAB → shift+RMB child+parent → ctrl+P → Keep Offset), then remove doubles and disable deform on roll joints</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="armature--rigging-notes">Armature / Rigging Notes<a href="#armature--rigging-notes" class="hash-link" aria-label="Direct link to Armature / Rigging Notes" title="Direct link to Armature / Rigging Notes" translate="no">​</a></h3>
+<ul>
+<li class="">Bones all present but <strong>not connected</strong>; parenting is manual</li>
+<li class="">Most characters share <strong>common bone structure</strong> — one saved armature works for many models (Geralt, Iorweth)</li>
+<li class="">Roll joints (elbows, forearms, hands) need manual re-parenting to bend correctly</li>
+<li class="">Documented arm hierarchy: <code>Bicep2 → Bicep → ShoulderRoll → Forearm/Elbowroll → Forearmroll1/2 → Handroll → Hand</code></li>
+<li class="">Exporting to 3ds Max: use <strong>Blender 2.49 DAE (or FBX) exporter</strong>, or <strong>md5mesh exporter</strong> for best Blender↔Max cross-import, then Max→FBX→UDK</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-dialogue-audio-w2speech">5. Dialogue Audio: <code>.w2speech</code><a href="#5-dialogue-audio-w2speech" class="hash-link" aria-label="Direct link to 5-dialogue-audio-w2speech" title="Direct link to 5-dialogue-audio-w2speech" translate="no">​</a></h2>
+<p><code>.w2speech</code> files contain <strong>localized dialogue</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="format">Format<a href="#format" class="hash-link" aria-label="Direct link to Format" title="Direct link to Format" translate="no">​</a></h3>
+<ul>
+<li class="">Audio thought to be <strong>MPEG layer 2 @ 48000 Hz</strong> (decodable as such), with at least 21,568 individual samples</li>
+<li class="">Voice-over referenced as <code>VO_&lt;1&gt;_&lt;2&gt;_&lt;3&gt;</code>:
+<ul>
+<li class=""><code>&lt;1&gt;</code> = voice tag id (e.g., <code>TRIS</code> for Triss)</li>
+<li class=""><code>&lt;2&gt;</code> = scene/set number (all VOs in a scene usually share it, e.g., <code>300202</code>)</li>
+<li class=""><code>&lt;3&gt;</code> = line number (e.g., <code>0343</code>)</li>
+<li class="">Example: <code>VO_TRIS_300202_0343</code> (from <code>q104_triss_interaction_oneliner.w2scene</code>)</li>
+</ul>
+</li>
+<li class="">Header format <strong>not fully documented</strong>; individual samples hard to find</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="redkit-extraction">REDkit Extraction<a href="#redkit-extraction" class="hash-link" aria-label="Direct link to REDkit Extraction" title="Direct link to REDkit Extraction" translate="no">​</a></h3>
+<p>REDkit extracts all speech automatically after install:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">&quot;&lt;SteamLibrary&gt;\steamapps\common\the witcher 2\bin\editor.exe&quot; exportstrings exportvo</span><br></div></code></pre></div></div>
+<p>Extracts currently-selected Steam language. Only outputs already-extracted samples — can&#x27;t convert other-language <code>.w2speech</code> not in same format.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-video-usm-xbox-360">6. Video: <code>.usm</code> (Xbox 360)<a href="#6-video-usm-xbox-360" class="hash-link" aria-label="Direct link to 6-video-usm-xbox-360" title="Direct link to 6-video-usm-xbox-360" translate="no">​</a></h2>
+<p>Xbox 360 version uses <strong><code>.usm</code></strong> files for cutscenes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="demux-pipeline">Demux Pipeline<a href="#demux-pipeline" class="hash-link" aria-label="Direct link to Demux Pipeline" title="Direct link to Demux Pipeline" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">.usm → VGMToolbox → M2V + ADX → ADX → WAV → mkvmerge → MKV</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="issues">Issues<a href="#issues" class="hash-link" aria-label="Direct link to Issues" title="Direct link to Issues" translate="no">​</a></h3>
+<ul>
+<li class="">Some <code>.usm</code>-derived <code>.m2v</code> streams play in VLC but <strong>not recognized by mkvmerge</strong> (end-of-file / unknown type) — possibly slightly different MPEG encode</li>
+<li class="">VGMToolbox was the only widely known USM demuxer at the time</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-redkit-official-modding-tool">7. REDkit (Official Modding Tool)<a href="#7-redkit-official-modding-tool" class="hash-link" aria-label="Direct link to 7. REDkit (Official Modding Tool)" title="Direct link to 7. REDkit (Official Modding Tool)" translate="no">​</a></h2>
+<p><strong>REDkit</strong> (RedKit, CD Projekt RED) — official Witcher 2 editor, released May 2013.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="capabilities">Capabilities<a href="#capabilities" class="hash-link" aria-label="Direct link to Capabilities" title="Direct link to Capabilities" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>No import/export for skeletal meshes</strong> as of 2013; only static meshes as <code>.3ds</code>, <code>.obj</code>, <code>.fbx</code> (no characters/NPCs)</li>
+<li class="">Ships <strong>3DS Max 2009/2013 plugin</strong> exporting only <code>.re</code> static mesh format</li>
+<li class=""><strong>Extracts all speech (VO)</strong> — run editor or use CLI command above</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-music-fsb-unknown-codec">8. Music: <code>.fsb</code> (Unknown Codec)<a href="#8-music-fsb-unknown-codec" class="hash-link" aria-label="Direct link to 8-music-fsb-unknown-codec" title="Direct link to 8-music-fsb-unknown-codec" translate="no">​</a></h2>
+<p>Early Witcher 2 music <code>.fsb</code> files used an <strong>unknown codec</strong> that <code>fsbext</code> couldn&#x27;t identify and <code>towav</code>/other FSB tools wouldn&#x27;t decode.</p>
+<ul>
+<li class="">A coder later released a <strong>Witcher 2 music FSB unpacker</strong> that worked great</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-tools-reference">9. Tools Reference<a href="#9-tools-reference" class="hash-link" aria-label="Direct link to 9. Tools Reference" title="Direct link to 9. Tools Reference" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Purpose</th><th>Notes</th></tr></thead><tbody><tr><td>Gibbed&#x27;s RED Tool</td><td>Unpack <code>pack0.dzip</code></td><td>WitcherNexus file id 52; supports W1/W3 later</td></tr><tr><td>chrrox QuickBMS scripts</td><td>Unpack <code>pack0.dzip</code></td><td><code>w2_dzip_unpack.bms</code></td></tr><tr><td>witcher2_texture_converter</td><td><code>.xbm</code> ⇄ <code>.tga</code>/<code>.dds</code></td><td><code>w2_xbm2dds.bms</code>, <code>w2_dds2xbm.bms</code></td></tr><tr><td>Szkaradek123 Blender 2.49 importer</td><td>Import <code>.w2ent</code>/<code>.w2mesh</code></td><td>Geometry, weights, UVs, textures, bones</td></tr><tr><td>VGMToolbox</td><td>Demux <code>.usm</code> (M2V + ADX)</td><td>Xbox 360 cutscenes</td></tr><tr><td>mkvmerge</td><td>Mux M2V+ADX → MKV</td><td>Some M2V streams unrecognized</td></tr><tr><td>REDkit</td><td>Official W2 editor</td><td>Static mesh export only; extracts VO</td></tr><tr><td>Blender 2.49 DAE/FBX exporter</td><td>Export to Max</td><td>Use md5mesh for best cross-import</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-facts">Key Facts<a href="#key-facts" class="hash-link" aria-label="Direct link to Key Facts" title="Direct link to Key Facts" translate="no">​</a></h2>
+<ul>
+<li class="">Archive: <code>.dzip</code> (pack0.dzip)</li>
+<li class="">Models: <code>.w2ent</code> (entity, contains mesh) + <code>.w2mesh</code> (standalone) — <strong>different structures</strong></li>
+<li class="">Textures: <code>.xbm</code> = DDS without header (DXT1/DXT5)</li>
+<li class="">Dialogue: <code>.w2speech</code> = MPEG layer 2 @ 48kHz, VO naming: <code>VO_&lt;tag&gt;_&lt;scene&gt;_&lt;line&gt;</code></li>
+<li class="">Video: <code>.usm</code> (X360) → M2V + ADX via VGMToolbox</li>
+<li class="">Music: <code>.fsb</code> (custom codec, later unpacked)</li>
+<li class="">Blender importer: <strong>Blender 2.49 + Python 2.6 only</strong></li>
+<li class="">REDkit: Static mesh export only, VO extraction</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/trackmania/xentax-trackmania-knowledge"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Trackmania / Maniaplanet — XeNTaX Forum Knowledge</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/witcher2/xentax-witcher2-knowledge"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">The Witcher 2 — XeNTaX Forum Knowledge</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-archive-unpacking-pack0dzip" class="table-of-contents__link toc-highlight">1. Archive Unpacking (<code>pack0.dzip</code>)</a><ul><li><a href="#tools" class="table-of-contents__link toc-highlight">Tools</a></li><li><a href="#important" class="table-of-contents__link toc-highlight">Important</a></li></ul></li><li><a href="#2-models-w2ent-vs-w2mesh" class="table-of-contents__link toc-highlight">2. Models: <code>.w2ent</code> vs <code>.w2mesh</code></a><ul><li><a href="#key-distinctions" class="table-of-contents__link toc-highlight">Key Distinctions</a></li><li><a href="#example" class="table-of-contents__link toc-highlight">Example</a></li></ul></li><li><a href="#3-textures-xbm--dds" class="table-of-contents__link toc-highlight">3. Textures: <code>.xbm</code> → DDS</a><ul><li><a href="#conversion" class="table-of-contents__link toc-highlight">Conversion</a></li><li><a href="#quickbms-scripts-from-witcher2_texture_converter" class="table-of-contents__link toc-highlight">QuickBMS Scripts (from witcher2_texture_converter)</a></li></ul></li><li><a href="#4-blender-importer-szkaradek123" class="table-of-contents__link toc-highlight">4. Blender Importer (Szkaradek123)</a><ul><li><a href="#requirements" class="table-of-contents__link toc-highlight">Requirements</a></li><li><a href="#version-history" class="table-of-contents__link toc-highlight">Version History</a></li><li><a href="#magic-button" class="table-of-contents__link toc-highlight">&#39;Magic&#39; Button</a></li><li><a href="#common-troubleshooting" class="table-of-contents__link toc-highlight">Common Troubleshooting</a></li><li><a href="#armature--rigging-notes" class="table-of-contents__link toc-highlight">Armature / Rigging Notes</a></li></ul></li><li><a href="#5-dialogue-audio-w2speech" class="table-of-contents__link toc-highlight">5. Dialogue Audio: <code>.w2speech</code></a><ul><li><a href="#format" class="table-of-contents__link toc-highlight">Format</a></li><li><a href="#redkit-extraction" class="table-of-contents__link toc-highlight">REDkit Extraction</a></li></ul></li><li><a href="#6-video-usm-xbox-360" class="table-of-contents__link toc-highlight">6. Video: <code>.usm</code> (Xbox 360)</a><ul><li><a href="#demux-pipeline" class="table-of-contents__link toc-highlight">Demux Pipeline</a></li><li><a href="#issues" class="table-of-contents__link toc-highlight">Issues</a></li></ul></li><li><a href="#7-redkit-official-modding-tool" class="table-of-contents__link toc-highlight">7. REDkit (Official Modding Tool)</a><ul><li><a href="#capabilities" class="table-of-contents__link toc-highlight">Capabilities</a></li></ul></li><li><a href="#8-music-fsb-unknown-codec" class="table-of-contents__link toc-highlight">8. Music: <code>.fsb</code> (Unknown Codec)</a></li><li><a href="#9-tools-reference" class="table-of-contents__link toc-highlight">9. Tools Reference</a></li><li><a href="#key-facts" class="table-of-contents__link toc-highlight">Key Facts</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

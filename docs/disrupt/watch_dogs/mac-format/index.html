@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-disrupt/watch_dogs/mac-format" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Watch Dogs MAC (Mesh Animation Clip) Binary Format | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/disrupt/watch_dogs/mac-format"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Watch Dogs MAC (Mesh Animation Clip) Binary Format | Open Source Modding"><meta data-rh="true" name="description" content="Source: Decompiled AnimationMarkupTool.exe (ilspycmd 11.0.0.9375) + hex analysis of 43,253 MAC files from the Ubisoft leak."><meta data-rh="true" property="og:description" content="Source: Decompiled AnimationMarkupTool.exe (ilspycmd 11.0.0.9375) + hex analysis of 43,253 MAC files from the Ubisoft leak."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/mac-format"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/mac-format" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/mac-format" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Watch Dogs Reference","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/"},{"@type":"ListItem","position":2,"name":"Watch Dogs MAC (Mesh Animation Clip) Binary Format","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/mac-format"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.4f2b8b41.js" defer="defer"></script>
+<script src="/assets/js/main.e192b4cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/blender-addon"><span class="linkLabel_WmDU">blender-io-disrupt — Blender Addon</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/compressed_mesh_format"><span class="linkLabel_WmDU">WD1/WD2/WDL Compressed Mesh Format (Havok 2017.2)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/custom-model-workflow"><span class="linkLabel_WmDU">Custom Model Workflow (Watch Dogs 1/2)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/depload-format"><span class="linkLabel_WmDU">Depload Format (Dependency Preload Manifest)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/disrupt-editor"><span class="linkLabel_WmDU">Ubisoft&#x27;s Internal Disrupt Editor (WDL)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/engine-lineage"><span class="linkLabel_WmDU">Disrupt Engine Lineage</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/glm-format"><span class="linkLabel_WmDU">GLM Format (Watch Dogs / Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/havok-repos"><span class="linkLabel_WmDU">GitHub Repos for HKX/Havok Format Research</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/installpackage-patch"><span class="linkLabel_WmDU">installpackage-over-patch DLL Hex Edit</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/tool-gotchas"><span class="linkLabel_WmDU">Disrupt Engine — Tool Gotchas</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/disrupt/unsorted/MaterialBin/matbin"><span class="categoryLinkLabel_W154">unsorted</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/disrupt/watch_dogs/"><span class="categoryLinkLabel_W154">Watch Dogs Reference</span></a><button aria-label="Collapse sidebar category &#x27;Watch Dogs Reference&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/archive-priorities"><span class="linkLabel_WmDU">Archive Load Priority (Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/asset-pipeline-formats"><span class="linkLabel_WmDU">Disrupt Engine — Asset Pipeline Format Mapping</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/bfd-format"><span class="linkLabel_WmDU">BFD (Binary Font Data) Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/community-resources"><span class="linkLabel_WmDU">Watch Dogs — Community Tools &amp; References</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/compressed-mesh-format"><span class="linkLabel_WmDU">compressed-mesh-format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/decompiled-dlls"><span class="linkLabel_WmDU">Decompiled DLLs (Ubisoft Leak)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/engine-modules"><span class="linkLabel_WmDU">Engine Modules &amp; Library Names</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/entity-xml-structure"><span class="linkLabel_WmDU">Entity XML Structure (Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/fat-archive-format"><span class="linkLabel_WmDU">FAT/DAT Archive Format (Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/feu-format"><span class="linkLabel_WmDU">FEU Format (Flash UI)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/hashing"><span class="linkLabel_WmDU">Watch Dogs Hashing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/hkx-format"><span class="linkLabel_WmDU">Watch Dogs HKX Collision Format (WD1/WD2 — Ubisoft&#x27;s Havok fork)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/injection-internals"><span class="linkLabel_WmDU">WD1/WD2 HKX Injection Internals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/lighting-parameters"><span class="linkLabel_WmDU">Watch Dogs 1 — Environment Lighting Parameters</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/lighting-pipeline-hooks"><span class="linkLabel_WmDU">Disrupt WD1 Lighting Pipeline — Renderer Internals &amp; Hook Points</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/mab-format"><span class="linkLabel_WmDU">Watch Dogs .mab Animation Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/disrupt/watch_dogs/mac-format"><span class="linkLabel_WmDU">Watch Dogs MAC (Mesh Animation Clip) Binary Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/markup-format"><span class="linkLabel_WmDU">Watch Dogs Animation Markup XML Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/material-bin-format"><span class="linkLabel_WmDU">Watch Dogs .material.bin Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/material-descriptors"><span class="linkLabel_WmDU">Watch Dogs Material Descriptors</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/material-hex-editing"><span class="linkLabel_WmDU">Watch Dogs Material Hex Editing — Community Tips</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/materialdescriptors/"><span class="linkLabel_WmDU">Material Descriptors</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/mirror-cubemap-mod"><span class="linkLabel_WmDU">Mirror Cubemap Mod (Watch_Dogs 1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/packfile-format"><span class="linkLabel_WmDU">Havok Packfile Format — WD1/WD2 (64-bit, Havok 2012)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/player-watch-component"><span class="linkLabel_WmDU">Player Watch Component (cut alpha content)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/shader-addons"><span class="linkLabel_WmDU">Watch Dogs 1 Shader System — Parallellines&#x27; Addon Configuration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/shader-compiler-pipeline"><span class="linkLabel_WmDU">Watch Dogs 1 / Legion — Shader Compiler Pipeline &amp; Shader Registry</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/shader-editing-workflow"><span class="linkLabel_WmDU">Watch Dogs 1 — Shader Editing Workflow</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/slid-format"><span class="linkLabel_WmDU">Watch Dogs — SLID (Sound ID Link) Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/smaa-notes"><span class="linkLabel_WmDU">Watch Dogs — SMAA Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/spk-format"><span class="linkLabel_WmDU">WD1 SPK Sound Package Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/spk-sound-structure"><span class="linkLabel_WmDU">Watch Dogs — SPK Sound Pack Structure &amp; Switch Events</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/ssrtgi-project"><span class="linkLabel_WmDU">Watch Dogs 1 — SSRTGI ASI (screen-space ray-traced GI) project notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/swf-file-format-spec"><span class="linkLabel_WmDU">SWF File Format Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/wii-u-debug-symbols"><span class="linkLabel_WmDU">Watch Dogs Wii U — RPX Binary &amp; Symbol Table</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/wii-u-rpx-symbols"><span class="linkLabel_WmDU">Watch Dogs Wii U — RPX Binary &amp; Symbol Table</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/wii-u-rpx-to-elf"><span class="linkLabel_WmDU">Watch Dogs Wii U — RPX → ELF Conversion &amp; IDA Loading</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/xbg-format-geparser"><span class="linkLabel_WmDU">XBG Format — GeomParser Decompile Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/xbt-texture-format"><span class="linkLabel_WmDU">XBT Texture Format — Watch Dogs 1 (Disrupt Engine)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/watch_dogs/xentax-watchdogs-knowledge"><span class="linkLabel_WmDU">Watch Dogs / Disrupt Engine — XeNTaX Knowledge Extraction</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/disrupt/watch_dogs_2/community-resources"><span class="categoryLinkLabel_W154">watch_dogs_2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/disrupt/watch_dogs_legion/"><span class="categoryLinkLabel_W154">WDL-Reversing</span></a><button aria-label="Expand sidebar category &#x27;WDL-Reversing&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/weapon-adding-guide"><span class="linkLabel_WmDU">Adding a New Weapon to Disrupt (WD1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/wlu-format"><span class="linkLabel_WmDU">WLU Format (World Location Unit)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/xbgmip-format"><span class="linkLabel_WmDU">XBGMIP Format — High-Detail Streamed LOD (WD1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/disrupt/xbt-format"><span class="linkLabel_WmDU">XBT Texture Format — Disrupt Engine (shared)</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">disrupt</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/disrupt/watch_dogs/"><span>Watch Dogs Reference</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Watch Dogs MAC (Mesh Animation Clip) Binary Format</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Watch Dogs MAC (Mesh Animation Clip) Binary Format</h1></header>
+<blockquote>
+<p><strong>Source</strong>: Decompiled <code>AnimationMarkupTool.exe</code> (ilspycmd 11.0.0.9375) + hex analysis of 43,253 MAC files from the Ubisoft leak.
+<strong>Confidence</strong>: HIGH — derived from official tool source, verified against leak binaries.
+<strong>Python port</strong>: <code>blender-io-disrupt/modules/Watch_Dogs/animation_parser.py</code> (767 lines, MAC + markup parser + CLI).</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>MAC is the <strong>source/authoring</strong> animation format used by the Disrupt engine&#x27;s AnimationMarkupTool. It stores uncompressed animation curves, skeleton hierarchy, flags, events, and sub-animation parts. MAC files are the input to the compilation pipeline that produces runtime MAB files.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="position-in-the-pipeline">Position in the Pipeline<a href="#position-in-the-pipeline" class="hash-link" aria-label="Direct link to Position in the Pipeline" title="Direct link to Position in the Pipeline" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">animation.fbx          (FBX source — DCC tool export)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ↓  FBX import via FbxLoaderManaged.dll (C++/CLI, native FBX SDK)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">animation.mac          (binary source — curves, skeleton, flags, events, parts)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">animation.markup       (XML source — time-stamped game events)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ↓  CMarkupCompiler (AnimationMarkupTool internal)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">animation.markup.bin   (compiled markup header — 10 bytes, version=3)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">animation.mab          (compiled animation markup — compressed per-bone data)</span><br></div></code></pre></div></div>
+<ul>
+<li class=""><strong>MAC</strong> = source format (uncompressed, full skeleton, FBX path)</li>
+<li class=""><strong>MAB</strong> = compiled runtime format (Oodle compressed, quantized u8 curves, per-clip)</li>
+<li class=""><strong>Markup XML</strong> = event definitions referencing the MAC by name</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="file-counts-ubisoft-leak">File Counts (Ubisoft Leak)<a href="#file-counts-ubisoft-leak" class="hash-link" aria-label="Direct link to File Counts (Ubisoft Leak)" title="Direct link to File Counts (Ubisoft Leak)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type</th><th>Count</th><th>Location</th></tr></thead><tbody><tr><td><code>.mac</code></td><td>43,253</td><td><code>data/animations/</code></td></tr><tr><td><code>.markup</code></td><td>40,691</td><td><code>data/animations/</code></td></tr><tr><td><code>.mab</code></td><td>38,419</td><td><code>data_win64/animations/</code></td></tr><tr><td><code>.markup.bin</code></td><td>37,971</td><td><code>data_win64/animations/scr/</code></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="size-relationship">Size Relationship<a href="#size-relationship" class="hash-link" aria-label="Direct link to Size Relationship" title="Direct link to Size Relationship" translate="no">​</a></h3>
+<p>MAB is heavily compressed vs MAC — typically <strong>0.01x to 0.1x</strong> the MAC size. For example:</p>
+<ul>
+<li class=""><code>idle_spidertank.mac</code>: 139KB → <code>idle_spidertank.mab</code>: 3.4KB (0.024x)</li>
+<li class=""><code>attack01_spidertank.mac</code>: 46KB → <code>attack01_spidertank.mab</code>: 2.6KB (0.057x)</li>
+<li class=""><code>ghost-mode_mplyr.mac</code>: 1.2MB → <code>ghost-mode_mplyr.mab</code>: 7.7KB (0.006x)</li>
+</ul>
+<p>Compression uses <strong>Oodle</strong> (<code>oo2core_4_win64.dll</code> present in AnimationMarkupTool).</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mac-binary-layout">MAC Binary Layout<a href="#mac-binary-layout" class="hash-link" aria-label="Direct link to MAC Binary Layout" title="Direct link to MAC Binary Layout" translate="no">​</a></h2>
+<p>Source: <code>AnimationFile.LoadFromStream(BinaryReader stream)</code> in <code>AnimationMarkupTool.exe</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="header">Header<a href="#header" class="hash-link" aria-label="Direct link to Header" title="Direct link to Header" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Offset</th><th>Type</th><th>Field</th><th>Notes</th></tr></thead><tbody><tr><td>0x00</td><td>f32</td><td><code>version</code></td><td>Version indicator. <strong>8.305</strong> = legacy format, <strong>9.0</strong> = new format</td></tr><tr><td>0x04</td><td>(conditional)</td><td></td><td>If version == 9.0: u16 <code>file_version</code> + u8 <code>exporter_major</code> + u8 <code>exporter_minor</code></td></tr></tbody></table>
+<p>The version field determines encoding behavior throughout the file. Legacy (v8.305) and new (v9.0) differ primarily in how <code>_Source</code> is encoded after <code>_FrameRate</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="post-header">Post-Header<a href="#post-header" class="hash-link" aria-label="Direct link to Post-Header" title="Direct link to Post-Header" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Offset</th><th>Type</th><th>Field</th><th>Notes</th></tr></thead><tbody><tr><td>+0</td><td>StringID</td><td><code>_Type</code></td><td>Animation type name (e.g. <code>&quot;07_SpiderTank&quot;</code>)</td></tr><tr><td>+N</td><td>f32</td><td><code>_FrameRate</code></td><td>Frame rate (e.g. 30.0)</td></tr><tr><td>+N</td><td>StringID</td><td><code>_Source</code></td><td>FBX source path. <strong>Only present if</strong> version &gt; 7 and version &lt; 2.139e9</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="arrays">Arrays<a href="#arrays" class="hash-link" aria-label="Direct link to Arrays" title="Direct link to Arrays" translate="no">​</a></h3>
+<p>All arrays are preceded by a u32 count. Read in this order:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Order</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td>AnimFlag[]</td><td>Animation flags (<code>n_flags</code> items)</td></tr><tr><td>2</td><td>AnimFileEvent[]</td><td>Embedded animation events (<code>n_events</code> items)</td></tr><tr><td>3</td><td>AnimPart[]</td><td>Animation parts/sub-animations (<code>n_parts</code> items) — <strong>RECURSIVE</strong></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="root-motion--skeleton">Root Motion &amp; Skeleton<a href="#root-motion--skeleton" class="hash-link" aria-label="Direct link to Root Motion &amp; Skeleton" title="Direct link to Root Motion &amp; Skeleton" translate="no">​</a></h3>
+<p>After the arrays, the file contains:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Order</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>4</td><td>AnimDirNode</td><td>Root motion node (direction/speed curves)</td></tr><tr><td>5</td><td>AnimMomentum</td><td>Momentum data (direction + speed curves)</td></tr><tr><td>6</td><td>AnimSkeleton</td><td>Full skeleton with per-bone animation curves</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="trailing-data">Trailing Data<a href="#trailing-data" class="hash-link" aria-label="Direct link to Trailing Data" title="Direct link to Trailing Data" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       trailing_string_len</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">char[]    trailing_string    (optional, length-prefixed)</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="complete-layout-visual">Complete Layout (Visual)<a href="#complete-layout-visual" class="hash-link" aria-label="Direct link to Complete Layout (Visual)" title="Direct link to Complete Layout (Visual)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[0x00] f32 version (8.305 or 9.0)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[0x04] (if v9.0: u16 file_version + u8 exporter_major + u8 exporter_minor)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+0]   StringID _Type</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+N]   f32 _FrameRate</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+N]   StringID _Source (if version &gt; 7 and &lt; 2.139e9)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+N]   u32 n_flags + AnimFlag[n_flags]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+N]   u32 n_events + AnimFileEvent[n_events]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+N]   u32 n_parts + AnimPart[n_parts]  (recursive!)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+N]   AnimDirNode _DirNode (root motion)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+N]   AnimMomentum _Momentum</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+N]   AnimSkeleton</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[+N]   i32 trailing_string_len + string</span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="stringid-structure">StringID Structure<a href="#stringid-structure" class="hash-link" aria-label="Direct link to StringID Structure" title="Direct link to StringID Structure" translate="no">​</a></h2>
+<p>Used throughout the MAC format. Recurring structure:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32  type_id      (hash/type identifier)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32  string_len   (length of string in chars, NOT bytes)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">char[] string     (string_len chars)</span><br></div></code></pre></div></div>
+<p>The <code>type_id</code> is a hash of the string content. The string is length-prefixed with a signed 32-bit integer indicating character count (not byte count — relevant for Unicode, though most strings are ASCII).</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="animflag">AnimFlag<a href="#animflag" class="hash-link" aria-label="Direct link to AnimFlag" title="Direct link to AnimFlag" translate="no">​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">StringID  _Name      (e.g. &quot;MoveMgr_Poses&quot;, &quot;GameEvents&quot;)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       _FlagType  (enum FlagType)</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="flagtype-enum">FlagType Enum<a href="#flagtype-enum" class="hash-link" aria-label="Direct link to FlagType Enum" title="Direct link to FlagType Enum" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Global</td><td>Global animation flag</td></tr><tr><td>1</td><td>Curve</td><td>Curve-based flag</td></tr><tr><td>2</td><td>Step</td><td>Step trigger flag</td></tr><tr><td>3</td><td>Spike</td><td>Spike trigger flag</td></tr><tr><td>4</td><td>Frame</td><td>Frame-based flag</td></tr><tr><td>5</td><td>Unknown</td><td>Unknown/unmapped</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="animfileevent">AnimFileEvent<a href="#animfileevent" class="hash-link" aria-label="Direct link to AnimFileEvent" title="Direct link to AnimFileEvent" translate="no">​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       _Type      (enum AnimFlagName)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">f32       _Time      (time in seconds)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32       _NumParams</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">AnimFileParameter[_NumParams]  (each: StringID _Type + StringID _Name)</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="animflagname-enum">AnimFlagName Enum<a href="#animflagname-enum" class="hash-link" aria-label="Direct link to AnimFlagName Enum" title="Direct link to AnimFlagName Enum" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Unknown</td><td>Unidentified event type</td></tr><tr><td>1</td><td>MoveMgr_Poses</td><td>Movement manager pose triggers</td></tr><tr><td>2</td><td>GameEvents</td><td>General game events</td></tr><tr><td>3</td><td>DurationEvent</td><td>Duration-based events</td></tr><tr><td>4</td><td>Max</td><td>Sentinel</td></tr><tr><td>5</td><td>Force32Bit</td><td>Force 32-bit alignment</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="animpart-recursive-sub-animation">AnimPart (Recursive Sub-Animation)<a href="#animpart-recursive-sub-animation" class="hash-link" aria-label="Direct link to AnimPart (Recursive Sub-Animation)" title="Direct link to AnimPart (Recursive Sub-Animation)" translate="no">​</a></h2>
+<p>AnimPart contains a nested <code>AnimationFile</code>, making the MAC format recursive. This is how complex animations compose sub-animations (e.g., an idle animation with separate upper-body and lower-body parts).</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       version_tag_1      (always 987654321)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       version_tag_2      (unknown value)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">StringID  _Name</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">f64       _Time</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       _PartEventType     (enum PartEventType)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">StringID  _ParentId</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">StringID  _Handle</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       unk1</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       unk2</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">AnimationFile  _File          (RECURSIVE — nested MAC!)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       handle_name_len</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">char[]    _HandleName         (length-prefixed)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       ik_bone_name_len</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">char[]    _IKBoneName         (length-prefixed)</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="parteventtype-enum">PartEventType Enum<a href="#parteventtype-enum" class="hash-link" aria-label="Direct link to PartEventType Enum" title="Direct link to PartEventType Enum" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Unused0</td><td>Unused</td></tr><tr><td>1</td><td>InPossession</td><td>In possession state</td></tr><tr><td>2</td><td>Unused1</td><td>Unused</td></tr><tr><td>3</td><td>Unused2</td><td>Unused</td></tr><tr><td>4</td><td>Unused3</td><td>Unused</td></tr><tr><td>5</td><td>Unused4</td><td>Unused</td></tr><tr><td>6</td><td>IKPath</td><td>Inverse kinematics path</td></tr><tr><td>7</td><td>Anchor</td><td>Anchor point</td></tr><tr><td>8</td><td>SubPartInPossession</td><td>Sub-part in possession state</td></tr><tr><td>9</td><td>Unused5</td><td>Unused</td></tr><tr><td>10</td><td>NumberOf</td><td>Sentinel/count</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="animdirnode-root-motion">AnimDirNode (Root Motion)<a href="#animdirnode-root-motion" class="hash-link" aria-label="Direct link to AnimDirNode (Root Motion)" title="Direct link to AnimDirNode (Root Motion)" translate="no">​</a></h2>
+<p>Root motion node containing directional animation curves.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       unk1</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       unk2</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32       _NumCurves</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">AnimDiscreteCurve[_NumCurves]  _Curves</span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="animmomentum">AnimMomentum<a href="#animmomentum" class="hash-link" aria-label="Direct link to AnimMomentum" title="Direct link to AnimMomentum" translate="no">​</a></h2>
+<p>Momentum data with direction and speed curves.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       unk1</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       unk2</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">AnimCurve  _DirectionCurve    (reads i32)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">AnimCurve  _SpeedCurve        (reads i32)</span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="animskeleton">AnimSkeleton<a href="#animskeleton" class="hash-link" aria-label="Direct link to AnimSkeleton" title="Direct link to AnimSkeleton" translate="no">​</a></h2>
+<p>Full skeleton hierarchy with per-bone animation data.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       unk1</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       unk2</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32       _NumBones</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">AnimBone[_NumBones]  _Bones</span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="animbone-extends-animdirnode">AnimBone (extends AnimDirNode)<a href="#animbone-extends-animdirnode" class="hash-link" aria-label="Direct link to AnimBone (extends AnimDirNode)" title="Direct link to AnimBone (extends AnimDirNode)" translate="no">​</a></h2>
+<p>Each bone extends AnimDirNode, adding identity and parent information.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">StringID  _Name</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32       _Id</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       _ParentId</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[AnimDirNode curves: u32 count + AnimDiscreteCurve[]]</span><br></div></code></pre></div></div>
+<ul>
+<li class=""><code>_Name</code>: Bone name (e.g. <code>&quot;Hip&quot;</code>, <code>&quot;Spine1&quot;</code>, <code>&quot;LeftHand&quot;</code>)</li>
+<li class=""><code>_Id</code>: Unique bone identifier</li>
+<li class=""><code>_ParentId</code>: Parent bone ID (-1 for root)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="animdiscretecurve">AnimDiscreteCurve<a href="#animdiscretecurve" class="hash-link" aria-label="Direct link to AnimDiscreteCurve" title="Direct link to AnimDiscreteCurve" translate="no">​</a></h2>
+<p>Individual animation curve data. The core building block of MAC animation data.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32       _NumValues</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       _CurveDataType    (enum CurveDataType)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">i32       unk</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">f32[_NumValues]  _Values    (only present for Trans/Quat/Rot types)</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="curvedatatype-enum">CurveDataType Enum<a href="#curvedatatype-enum" class="hash-link" aria-label="Direct link to CurveDataType Enum" title="Direct link to CurveDataType Enum" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>RotX</td><td>Rotation X axis</td></tr><tr><td>1</td><td>RotY</td><td>Rotation Y axis</td></tr><tr><td>2</td><td>RotZ</td><td>Rotation Z axis</td></tr><tr><td>3</td><td>TransX</td><td>Translation X axis</td></tr><tr><td>4</td><td>TransY</td><td>Translation Y axis</td></tr><tr><td>5</td><td>TransZ</td><td>Translation Z axis</td></tr><tr><td>6</td><td>ScaleX</td><td>Scale X axis</td></tr><tr><td>7</td><td>ScaleY</td><td>Scale Y axis</td></tr><tr><td>8</td><td>ScaleZ</td><td>Scale Z axis</td></tr><tr><td>9</td><td>QuatX</td><td>Quaternion X component</td></tr><tr><td>10</td><td>QuatY</td><td>Quaternion Y component</td></tr><tr><td>11</td><td>QuatZ</td><td>Quaternion Z component</td></tr><tr><td>12</td><td>QuatW</td><td>Quaternion W component</td></tr><tr><td>13</td><td>Radius</td><td>Radius (cylindrical)</td></tr><tr><td>14</td><td>Height</td><td>Height (cylindrical)</td></tr><tr><td>15</td><td>Unknown</td><td>Unknown/unmapped</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="value-storage">Value Storage<a href="#value-storage" class="hash-link" aria-label="Direct link to Value Storage" title="Direct link to Value Storage" translate="no">​</a></h3>
+<ul>
+<li class="">Rotation, Translation, and Quaternion curves store <code>f32[_NumValues]</code> — one float per keyframe.</li>
+<li class="">Scale, Radius, Height, and Unknown types do <strong>not</strong> store float arrays (the curve is implicit).</li>
+<li class=""><code>_NumValues</code> is typically equal to the number of keyframes in the animation.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-insights">Key Insights<a href="#key-insights" class="hash-link" aria-label="Direct link to Key Insights" title="Direct link to Key Insights" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="recursive-structure">Recursive Structure<a href="#recursive-structure" class="hash-link" aria-label="Direct link to Recursive Structure" title="Direct link to Recursive Structure" translate="no">​</a></h3>
+<p>The MAC format&#x27;s recursive AnimPart → AnimationFile nesting allows complex animation compositions. A single <code>.mac</code> file can contain multiple sub-animations, each with their own skeleton, curves, and events. This is how blend trees and layered animations are represented at the source level.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-detection">Version Detection<a href="#version-detection" class="hash-link" aria-label="Direct link to Version Detection" title="Direct link to Version Detection" translate="no">​</a></h3>
+<p>The version float at offset 0x00 is the primary discriminator:</p>
+<ul>
+<li class=""><strong>8.305</strong> = legacy format (most common in the leak)</li>
+<li class=""><strong>9.0</strong> = new format (adds file_version + exporter version fields)</li>
+</ul>
+<p>The <code>_Source</code> field (FBX path) is only present when <code>version &gt; 7 AND version &lt; 2.139e9</code>, which covers both known versions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mac-vs-mab">MAC vs MAB<a href="#mac-vs-mab" class="hash-link" aria-label="Direct link to MAC vs MAB" title="Direct link to MAC vs MAB" translate="no">​</a></h3>
+<ul>
+<li class="">MAC stores <strong>f32 keyframe arrays</strong> per bone per curve — full precision, uncompressed</li>
+<li class="">MAB stores <strong>quantized u8 values</strong> decoded to [-1.0, +1.0] — heavily compressed</li>
+<li class="">MAB does NOT use the same data layout as MAC — it reorganizes data for runtime efficiency</li>
+<li class="">Direct byte-for-byte comparison between MAC re-encoded values and MAB shows zero matches</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/docs/disrupt/watch_dogs/mab-format">MAB Animation Format</a> — compiled runtime format</li>
+<li class=""><a class="" href="/docs/disrupt/watch_dogs/markup-format">Markup Format</a> — event definitions referencing MAC files</li>
+<li class=""><a class="" href="/docs/disrupt/watch_dogs/asset-pipeline-formats">Asset Pipeline Formats</a> — full pipeline mapping</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/disrupt/watch_dogs/mab-format"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Watch Dogs .mab Animation Format</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/disrupt/watch_dogs/markup-format"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Watch Dogs Animation Markup XML Format</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a><ul><li><a href="#position-in-the-pipeline" class="table-of-contents__link toc-highlight">Position in the Pipeline</a></li><li><a href="#file-counts-ubisoft-leak" class="table-of-contents__link toc-highlight">File Counts (Ubisoft Leak)</a></li><li><a href="#size-relationship" class="table-of-contents__link toc-highlight">Size Relationship</a></li></ul></li><li><a href="#mac-binary-layout" class="table-of-contents__link toc-highlight">MAC Binary Layout</a><ul><li><a href="#header" class="table-of-contents__link toc-highlight">Header</a></li><li><a href="#post-header" class="table-of-contents__link toc-highlight">Post-Header</a></li><li><a href="#arrays" class="table-of-contents__link toc-highlight">Arrays</a></li><li><a href="#root-motion--skeleton" class="table-of-contents__link toc-highlight">Root Motion &amp; Skeleton</a></li><li><a href="#trailing-data" class="table-of-contents__link toc-highlight">Trailing Data</a></li><li><a href="#complete-layout-visual" class="table-of-contents__link toc-highlight">Complete Layout (Visual)</a></li></ul></li><li><a href="#stringid-structure" class="table-of-contents__link toc-highlight">StringID Structure</a></li><li><a href="#animflag" class="table-of-contents__link toc-highlight">AnimFlag</a><ul><li><a href="#flagtype-enum" class="table-of-contents__link toc-highlight">FlagType Enum</a></li></ul></li><li><a href="#animfileevent" class="table-of-contents__link toc-highlight">AnimFileEvent</a><ul><li><a href="#animflagname-enum" class="table-of-contents__link toc-highlight">AnimFlagName Enum</a></li></ul></li><li><a href="#animpart-recursive-sub-animation" class="table-of-contents__link toc-highlight">AnimPart (Recursive Sub-Animation)</a><ul><li><a href="#parteventtype-enum" class="table-of-contents__link toc-highlight">PartEventType Enum</a></li></ul></li><li><a href="#animdirnode-root-motion" class="table-of-contents__link toc-highlight">AnimDirNode (Root Motion)</a></li><li><a href="#animmomentum" class="table-of-contents__link toc-highlight">AnimMomentum</a></li><li><a href="#animskeleton" class="table-of-contents__link toc-highlight">AnimSkeleton</a></li><li><a href="#animbone-extends-animdirnode" class="table-of-contents__link toc-highlight">AnimBone (extends AnimDirNode)</a></li><li><a href="#animdiscretecurve" class="table-of-contents__link toc-highlight">AnimDiscreteCurve</a><ul><li><a href="#curvedatatype-enum" class="table-of-contents__link toc-highlight">CurveDataType Enum</a></li><li><a href="#value-storage" class="table-of-contents__link toc-highlight">Value Storage</a></li></ul></li><li><a href="#key-insights" class="table-of-contents__link toc-highlight">Key Insights</a><ul><li><a href="#recursive-structure" class="table-of-contents__link toc-highlight">Recursive Structure</a></li><li><a href="#version-detection" class="table-of-contents__link toc-highlight">Version Detection</a></li><li><a href="#mac-vs-mab" class="table-of-contents__link toc-highlight">MAC vs MAB</a></li></ul></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

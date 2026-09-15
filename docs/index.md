@@ -16,7 +16,7 @@
 - [Tool Gotchas](disrupt/tool-gotchas.md) — Gibbed >4GB, UnpackWD2 wrong for WDL, FCBastard WD1-only
 - [Blender Addon](disrupt/blender-addon.md) — import/export/inject XBG/GLM, HKX, MAB, .material.bin
 - [GLM Format](disrupt/glm-format.md) — Havok skeletal mesh text format
-- [XBGMIP Format](disrupt/xbgmip-format.md) — streamed LOD0 companion (PIMG header + vertex/index blocks)
+- [XBGMIP Format](disrupt/xbgmip-format.mdx) — streamed LOD0 companion (PIMG header + vertex/index blocks)
 - [Depload Format](disrupt/depload-format.md) — resource dependency/preload tables
 - [Compressed Mesh](disrupt/compressed_mesh_format.md)
 - [Hashing](disrupt/watch_dogs/hashing.md) — CRC32, FNV32, FNV64, CRC64_WD2

@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-why-not/denuvo-analysis" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Denuvo Analysis — Combined Reference | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/why-not/denuvo-analysis"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Denuvo Analysis — Combined Reference | Open Source Modding"><meta data-rh="true" name="description" content="Two sources merged: Connor Jay Dunn&#x27;s educational blog post on Denuvo internals"><meta data-rh="true" property="og:description" content="Two sources merged: Connor Jay Dunn&#x27;s educational blog post on Denuvo internals"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/why-not/denuvo-analysis"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/why-not/denuvo-analysis" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/why-not/denuvo-analysis" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Why Not? — Miscellaneous Ubisoft References","item":"https://open-source-modding.github.io/docs/why-not/"},{"@type":"ListItem","position":2,"name":"Denuvo Analysis — Combined Reference","item":"https://open-source-modding.github.io/docs/why-not/denuvo-analysis"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.8220bf60.js" defer="defer"></script>
+<script src="/assets/js/main.615c24f5.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/hkx_format"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/docs/why-not/"><span class="categoryLinkLabel_W154">Why Not? — Miscellaneous Ubisoft References</span></a><button aria-label="Collapse sidebar category &#x27;Why Not? — Miscellaneous Ubisoft References&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/why-not/denuvo-analysis"><span class="linkLabel_WmDU">Denuvo Analysis — Combined Reference</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/witcher3-formats"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/why-not/"><span>Why Not? — Miscellaneous Ubisoft References</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Denuvo Analysis — Combined Reference</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Denuvo Analysis — Combined Reference</h1></header>
+<p>Two sources merged: Connor Jay Dunn&#x27;s educational blog post on Denuvo internals
+(2025-01-21) and 0xPacman&#x27;s DenuvOwO hypervisor bypass RE report (2026-05-13).</p>
+<blockquote>
+<p><strong>Cross-reference</strong>: Misc Ubisoft references → <a class="" href="/docs/why-not/"><code>index.md</code></a>.
+<strong>Games using Denuvo</strong>: Far Cry 6 (PC, FC6 asset decoding), Watch Dogs 2 (anti-cheat),
+Watch Dogs Legion (v1.6.3).</p>
+</blockquote>
+<hr>
+<h1>Part I — Denuvo Internals</h1>
+<p><em>Source: connorjaydunn.github.io (2025-01-21)</em></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-general-idea">The General Idea<a href="#the-general-idea" class="hash-link" aria-label="Direct link to The General Idea" title="Direct link to The General Idea" translate="no">​</a></h2>
+<p>Denuvo is a semi-online DRM. The flow:</p>
+<ol>
+<li class="">User boots <code>program.exe</code> for the first time.</li>
+<li class="">Before any game code runs, Denuvo collects hardware identification.</li>
+<li class="">The game sends this hardware info to a Denuvo server. The server combines &quot;stolen constants&quot; with the hardware info via reversible math and returns a &quot;license file.&quot;</li>
+<li class="">A local copy of the license file is cached (semi-online — no repeated network calls).</li>
+<li class="">The game is redirected to the OEP. At runtime, Denuvo collects hardware info again and attempts to decrypt stolen constants from the license file. If the hardware matches, the correct constants are decrypted and &quot;original game instructions&quot; execute.</li>
+</ol>
+<p>If hardware info at runtime doesn&#x27;t match what was used to create the license file, an incorrect constant is decrypted → crash.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="license-file-and-stolen-constants">License File and Stolen Constants<a href="#license-file-and-stolen-constants" class="hash-link" aria-label="Direct link to License File and Stolen Constants" title="Direct link to License File and Stolen Constants" translate="no">​</a></h2>
+<p>When Denuvo is added to a binary, certain functions are selected for &quot;protection&quot; — they&#x27;re executed inside a virtual machine with select instruction parts removed entirely from the binary.</p>
+<p>The <strong>license file</strong> is all removed bytes combined with the user&#x27;s hardware identification via reversible mathematical functions.</p>
+<p><strong>License DWORDs</strong>: Denuvo writes select parts of the license file into DWORDs scattered around the <code>.vm</code> section. Each DWORD is a single removed instruction combined with hardware identification.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="example-how-instructions-are-removed">Example: How Instructions Are Removed<a href="#example-how-instructions-are-removed" class="hash-link" aria-label="Direct link to Example: How Instructions Are Removed" title="Direct link to Example: How Instructions Are Removed" translate="no">​</a></h3>
+<div class="language-asm codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-asm codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">add(int, int):</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    push  rbp</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    mov  rbp, rsp</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    mov  DWORD PTR [rbp-4], edi    ; Denuvo strips the constant -4</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    mov  DWORD PTR [rbp-8], esi</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    mov  edx, DWORD PTR [rbp-4]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    mov  eax, DWORD PTR [rbp-8]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    add  eax, edx</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    pop  rbp</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ret</span><br></div></code></pre></div></div>
+<p>The constant <code>-4</code> is stripped and stored on Denuvo&#x27;s server. The VM wrapper:</p>
+<ol>
+<li class="">Collects hardware information at runtime</li>
+<li class="">Reads the corresponding license DWORD</li>
+<li class="">Performs mathematical operations to decrypt the constant</li>
+<li class="">Executes the original instruction with the decrypted constant</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="user-integrity-checks">User Integrity Checks<a href="#user-integrity-checks" class="hash-link" aria-label="Direct link to User Integrity Checks" title="Direct link to User Integrity Checks" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pre-oep-checks">Pre-OEP Checks<a href="#pre-oep-checks" class="hash-link" aria-label="Direct link to Pre-OEP Checks" title="Direct link to Pre-OEP Checks" translate="no">​</a></h3>
+<p>Before handing control to the OEP, Denuvo performs constant decryptions and verifies they equal expected values. If not, the locally saved license file is deleted and a new one is requested from the server.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="kuser_shared_data">KUSER_SHARED_DATA<a href="#kuser_shared_data" class="hash-link" aria-label="Direct link to KUSER_SHARED_DATA" title="Direct link to KUSER_SHARED_DATA" translate="no">​</a></h3>
+<p>A read-only page (4096 bytes) mapped into every Windows process. Denuvo uses:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Offset</th><th>Field</th></tr></thead><tbody><tr><td>0x026C</td><td>NtMajorVersion</td></tr><tr><td>0x02E8</td><td>NumberOfPhysicalPages</td></tr><tr><td>0x02D0</td><td>SuiteMask</td></tr><tr><td>0x0260</td><td>NtBuildNumber</td></tr><tr><td>0x0264</td><td>NtProductType</td></tr><tr><td>0x0268</td><td>ProductTypeIsValid</td></tr><tr><td>0x0270</td><td>NtMinorVersion</td></tr><tr><td>0x0274</td><td>ProcessorFeatures[0x40]</td></tr><tr><td>0x026A</td><td>NativeProcessorArchitecture</td></tr><tr><td>0x03C0</td><td>ActiveProcessorCount</td></tr></tbody></table>
+<p>(64-bit offsets)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cpuid">CPUID<a href="#cpuid" class="hash-link" aria-label="Direct link to CPUID" title="Direct link to CPUID" translate="no">​</a></h3>
+<p>Denuvo uses:</p>
+<ul>
+<li class=""><code>EAX=0x1</code>: Processor Info and Feature Bits</li>
+<li class=""><code>EAX=0x80000001</code>: Extended Processor Info and Feature Bits</li>
+<li class=""><code>EAX=0x80000002, 0x80000003, 0x80000004</code>: Processor Brand String</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="syscall">SYSCALL<a href="#syscall" class="hash-link" aria-label="Direct link to SYSCALL" title="Direct link to SYSCALL" translate="no">​</a></h3>
+<p>Uses parameter <code>0x36</code> — <code>NtQuerySystemInformation</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ntdll-checks">NTDLL Checks<a href="#ntdll-checks" class="hash-link" aria-label="Direct link to NTDLL Checks" title="Direct link to NTDLL Checks" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Function byte checks</strong>: Denuvo identifies the user based on bytes of certain ntdll.dll functions and their RVA.</li>
+<li class=""><strong>Image Data Directory</strong>: Export/Import/Resource/Exception/Relocation Directory RVA and Size fields — ntdll.dll changes per Windows update, making it an ideal fingerprint.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="peb-process-environment-block">PEB (Process Environment Block)<a href="#peb-process-environment-block" class="hash-link" aria-label="Direct link to PEB (Process Environment Block)" title="Direct link to PEB (Process Environment Block)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Offset</th><th>Field</th></tr></thead><tbody><tr><td>0x0118</td><td>OSMajorVersion</td></tr><tr><td>0x011C</td><td>OSMinorVersion</td></tr><tr><td>0x012C</td><td>ImageSubsystemMajorVersion</td></tr><tr><td>0x0130</td><td>ImageSubsystemMinorVersion</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="other-checks">Other Checks<a href="#other-checks" class="hash-link" aria-label="Direct link to Other Checks" title="Direct link to Other Checks" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>XGETBV</strong>: Reads extended control registers for CPU specifics.</li>
+<li class=""><strong>GetWindowsDirectoryW</strong>, <strong>GetVolumeInformationW</strong>, <strong>GetComputerNameW</strong>, <strong>GetUsernameW</strong>: Filesystem and identity fingerprinting.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="code-integrity-checks">Code Integrity Checks<a href="#code-integrity-checks" class="hash-link" aria-label="Direct link to Code Integrity Checks" title="Direct link to Code Integrity Checks" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="crc-checks">CRC Checks<a href="#crc-checks" class="hash-link" aria-label="Direct link to CRC Checks" title="Direct link to CRC Checks" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>VM Handler CRC</strong>: Scans important handlers (CPUID, SYSCALL, etc.) for hooks/tampering.</li>
+<li class=""><strong>Seemingly Random .VM Check</strong>: Reads a &quot;random&quot; amount of bytes from <code>.vm</code> to construct constants used in calculations that break if the bytes change. Example:</li>
+</ul>
+<div class="language-nasm codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-nasm codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">movsx r13, word ptr ds:[0x00000001467FEE8D]  ; &quot;random&quot; word from .VM</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">add r13, 0xFFFFFFFFFFFFDBAB                     ; decrypt</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">add rax, r13                                     ; update VM instruction pointer</span><br></div></code></pre></div></div>
+<p>If a breakpoint/hook tampered with that word, the VM executes random handlers → undefined behavior.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="virtual-machine">Virtual Machine<a href="#virtual-machine" class="hash-link" aria-label="Direct link to Virtual Machine" title="Direct link to Virtual Machine" translate="no">​</a></h2>
+<p>Denuvo doesn&#x27;t store values in contiguous memory. Register values have their bytes/bits scattered everywhere (&quot;bit vector&quot;). This makes it extremely difficult to track operations on values.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="randomness">Randomness<a href="#randomness" class="hash-link" aria-label="Direct link to Randomness" title="Direct link to Randomness" translate="no">​</a></h3>
+<p>Denuvo doesn&#x27;t use API calls or <code>RDRAND</code>. Instead, it generates randomness from native register values using modular arithmetic:</p>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">VCTX</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token number" style="color:rgb(247, 140, 108)">0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">%</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">9</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">==</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// VCTX -&gt; VM Context</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token function" style="color:rgb(130, 170, 255)">CPUID_A</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">else</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token function" style="color:rgb(130, 170, 255)">CPUID_B</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// semantically identical to CPUID_A</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mixed-boolean-arithmetic-mba">Mixed-Boolean-Arithmetic (MBA)<a href="#mixed-boolean-arithmetic-mba" class="hash-link" aria-label="Direct link to Mixed-Boolean-Arithmetic (MBA)" title="Direct link to Mixed-Boolean-Arithmetic (MBA)" translate="no">​</a></h3>
+<p>Denuvo exploits MBA to rewrite x86 instructions as opaque expressions:</p>
+<ul>
+<li class=""><code>x + y = (x &amp; y) + (x | y)</code></li>
+<li class=""><code>x | y = x + y + 1 + (~x | ~y)</code></li>
+<li class=""><code>x - y = (x ^ -y) + 2*(x &amp; -y)</code></li>
+</ul>
+<p>By zhou2007 (Theorem 2), every bitwise expression has a non-trivial linear MBA expression. Denuvo applies this recursively, producing deeply obfuscated VM code.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="on-the-fly-decryptedre-encrypted-cpuid">On-The-Fly Decrypted+Re-Encrypted CPUID<a href="#on-the-fly-decryptedre-encrypted-cpuid" class="hash-link" aria-label="Direct link to On-The-Fly Decrypted+Re-Encrypted CPUID" title="Direct link to On-The-Fly Decrypted+Re-Encrypted CPUID" translate="no">​</a></h3>
+<p>Denuvo decrypts a CPUID in the VM section, executes it, then re-encrypts it. Since VM handlers are shared across threads, a spin-lock prevents concurrent execution of the same encrypted CPUID. Denuvo encrypts the spin-lock too, which requires yet another spin-lock.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="anti-exception-based-hooking">Anti-Exception-Based Hooking<a href="#anti-exception-based-hooking" class="hash-link" aria-label="Direct link to Anti-Exception-Based Hooking" title="Direct link to Anti-Exception-Based Hooking" translate="no">​</a></h3>
+<p>Early attacks replaced CPUID/SYSCALL with <code>UD2</code> to trigger <code>INVALID_OPCODE_EXCEPTION</code>, then hooked <code>KiUserExceptionDispatcher</code>. Denuvo&#x27;s counter: before executing the CPUID handler, it writes important values high up in &quot;unused&quot; stack space. Later, it retrieves those values for critical calculations. When an exception fires, Windows writes an <code>EXCEPTION_RECORD</code> into that same stack space → overwrites the values → undefined behavior.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cracking-approaches">Cracking Approaches<a href="#cracking-approaches" class="hash-link" aria-label="Direct link to Cracking Approaches" title="Direct link to Cracking Approaches" translate="no">​</a></h2>
+<ol>
+<li class=""><strong>Patching Hardware ID Checks</strong>: Extremely difficult due to CRC + randomness.</li>
+<li class=""><strong>Patching Constant Decryption</strong>: More reasonable (no CRC/randomness on these routines), but finding a single decryption in 10M+ instructions is non-trivial.</li>
+<li class=""><strong>Complete Binary Restoration</strong>: Requires fix-up/devirt of thousands of instructions. One instance of complete restoration is known.</li>
+<li class=""><strong>Hypervisor</strong>: Spoof all hardware information at the hypervisor level. AMD SVM and Intel VT-x both support CPUID/XGETBV interception and SYSCALL hooking.</li>
+</ol>
+<hr>
+<h1>Part II — DenuvOwO Hypervisor Bypass</h1>
+<p><em>Source: 0xPacman (2026-05-13)</em></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="executive-summary">Executive Summary<a href="#executive-summary" class="hash-link" aria-label="Direct link to Executive Summary" title="Direct link to Executive Summary" translate="no">​</a></h2>
+<p><strong>DenuvOwO</strong> is a Denuvo anti-tamper bypass built on two open-source hypervisor research projects:</p>
+<ul>
+<li class=""><strong>AMD path:</strong> SimpleSvm (AMD SVM/AMD-V)</li>
+<li class=""><strong>Intel path:</strong> HyperDbg (Intel VT-x/EPT)</li>
+</ul>
+<p>The crack loads an unsigned kernel driver at ring -1, placing the entire OS — including Denuvo — inside a VM it controls. From this position it intercepts and spoofs every check Denuvo performs.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="file-inventory">File Inventory<a href="#file-inventory" class="hash-link" aria-label="Direct link to File Inventory" title="Direct link to File Inventory" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>File</th><th>Size</th><th>Role</th></tr></thead><tbody><tr><td><code>hypervisor-launcher.exe</code></td><td>334 KB</td><td>Usermode orchestrator (C++/MSVC)</td></tr><tr><td><code>VBS.cmd</code></td><td>50 KB</td><td>OS security stripper</td></tr><tr><td><code>driver_amd/SimpleSvm.sys</code></td><td>18 KB</td><td>AMD SVM hypervisor</td></tr><tr><td><code>driver_intel/hyperkd.sys</code></td><td>12 KB</td><td>Intel HV loader (thin)</td></tr><tr><td><code>driver_intel/hyperhv.dll</code></td><td>538 KB</td><td>Intel VT-x VMM core (~296 exports)</td></tr><tr><td><code>driver_intel/hyperevade.dll</code></td><td>7 KB</td><td>Evasion/transparency callbacks</td></tr><tr><td><code>driver_intel/hyperlog.dll</code></td><td>14 KB</td><td>Logging subsystem</td></tr><tr><td><code>DenuoOwO_SRC.7z</code></td><td>7.6 MB</td><td>Full driver source code</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="execution-flow">Execution Flow<a href="#execution-flow" class="hash-link" aria-label="Direct link to Execution Flow" title="Direct link to Execution Flow" translate="no">​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[Boot with DSE disabled via F7]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        ▼</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[hypervisor-launcher.exe]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  ├─ Acquires SE_DEBUG + SE_SYSTEM_ENVIRONMENT privilege</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  ├─ Finds ntoskrnl.exe + CI.dll base in kernel</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  ├─ Detects CPU: &quot;GenuineIntel&quot; → Intel / &quot;AuthenticAMD&quot; → AMD</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  ├─ Copies unsigned .sys driver to %TEMP%\</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  ├─ Creates kernel service via SCM → StartService → driver loads</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  └─ Steals Explorer token → launches game as non-admin</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        ▼</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[Driver loads at ring -1]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  AMD: SimpleSvm.sys → VMRUN on all cores</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  Intel: hyperkd.sys → VMXON + VMLAUNCH on all cores</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        ▼</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[OS + Denuvo + game run as guest VM]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  CPUID leaf 1     → clears ECX bit 31 (Hypervisor Present bit)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  CPUID 0x40000000 → zeros all output registers (no vendor string)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  RDTSC timing     → CounterUpdater spoofs TSC delta</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  SYSCALL          → callback table intercepts + patches return values</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  Read own code    → EPT serves original unmodified page</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  Execute own code → EPT maps to patched shadow page</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  RFLAGS.TF        → routes #DB to original handler</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        ▼</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[Game exits → driver unloaded → system returns to normal]</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="vbscmd--os-security-demolition">VBS.cmd — OS Security Demolition<a href="#vbscmd--os-security-demolition" class="hash-link" aria-label="Direct link to VBS.cmd — OS Security Demolition" title="Direct link to VBS.cmd — OS Security Demolition" translate="no">​</a></h2>
+<p>Disables before each gaming session (tracked in <code>HKLM\SOFTWARE\ManageVBS</code> for reversal):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Feature</th><th>Why It Must Go</th></tr></thead><tbody><tr><td>VBS</td><td>Windows runs its own hypervisor at ring -1; two HVs can&#x27;t coexist</td></tr><tr><td>HVCI</td><td>Would reject unsigned kernel driver code pages</td></tr><tr><td>Credential Guard</td><td>Runs inside VBS</td></tr><tr><td>System Guard</td><td>HW root-of-trust attestation would detect HV manipulation</td></tr><tr><td>KVA Shadow</td><td>Conflicts with crack&#x27;s syscall hook on older Intel CPUs</td></tr><tr><td>DSE (Driver Signature Enforcement)</td><td>F7 at boot (one-time) allows unsigned .sys</td></tr><tr><td>BitLocker</td><td>Prevents recovery key prompt at Startup Settings</td></tr></tbody></table>
+<p><strong>Revert:</strong> All changes tracked under <code>HKLM\SOFTWARE\ManageVBS</code>. Running option 3 re-enables exactly what was disabled.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="amd-path--simplesvmsys">AMD Path — SimpleSvm.sys<a href="#amd-path--simplesvmsys" class="hash-link" aria-label="Direct link to AMD Path — SimpleSvm.sys" title="Direct link to AMD Path — SimpleSvm.sys" translate="no">​</a></h2>
+<p>Lean SVM hypervisor (~9.9 KB code). DriverEntry calls exactly two functions: stack cookie init and SVM initialization.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="svm-initialization">SVM Initialization<a href="#svm-initialization" class="hash-link" aria-label="Direct link to SVM Initialization" title="Direct link to SVM Initialization" translate="no">​</a></h3>
+<ol>
+<li class="">Raises IRQL to DISPATCH_LEVEL</li>
+<li class="">Gets logical CPU count</li>
+<li class="">Allocates VMCB (VM Control Block) per core — must be physically contiguous</li>
+<li class="">Converts VMCB virtual → physical (<code>MmGetPhysicalAddress</code>)</li>
+<li class="">On each core: executes <code>VMRUN</code> (AMD SVM root entry)</li>
+<li class="">Registers power/driver-load callbacks</li>
+<li class="">Watches for game process via <code>PsSetCreateProcessNotifyRoutine</code></li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-concepts">Key Concepts<a href="#key-concepts" class="hash-link" aria-label="Direct link to Key Concepts" title="Direct link to Key Concepts" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>VMCB</strong> defines guest state: all registers, segment descriptors, MSRs</li>
+<li class=""><strong>Host saves state to VMSA</strong> (VM Save Area)</li>
+<li class=""><code>VMRUN</code> switches to guest; <code>#VMEXIT</code> returns to host handler</li>
+<li class="">VMCB contains intercept bitmaps for: exceptions, I/O, MSR reads/writes, CPUID, RDTSC</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="intel-path--hyperdbg-stack">Intel Path — HyperDbg Stack<a href="#intel-path--hyperdbg-stack" class="hash-link" aria-label="Direct link to Intel Path — HyperDbg Stack" title="Direct link to Intel Path — HyperDbg Stack" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hyperkdsys--thin-loader">hyperkd.sys — Thin Loader<a href="#hyperkdsys--thin-loader" class="hash-link" aria-label="Direct link to hyperkd.sys — Thin Loader" title="Direct link to hyperkd.sys — Thin Loader" translate="no">​</a></h3>
+<p>Pure bridge. Calls <code>VmFuncInitVmm</code> (VMXON on all cores), registers Unload routine that calls <code>VmFuncUninitVmm</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hyperhvdll--vt-x-vmm-core-538-kb-296-exports">hyperhv.dll — VT-x VMM Core (538 KB, ~296 exports)<a href="#hyperhvdll--vt-x-vmm-core-538-kb-296-exports" class="hash-link" aria-label="Direct link to hyperhv.dll — VT-x VMM Core (538 KB, ~296 exports)" title="Direct link to hyperhv.dll — VT-x VMM Core (538 KB, ~296 exports)" translate="no">​</a></h3>
+<p>Based on HyperDbg (hyperdbg.com), a full open-source Intel VT-x hypervisor with EPT.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="vmm-initialization">VMM Initialization<a href="#vmm-initialization" class="hash-link" aria-label="Direct link to VMM Initialization" title="Direct link to VMM Initialization" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">VmFuncInitVmm</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  └─ VmxCheckVmxSupport (CPUID.1:ECX.5)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      └─ VmxPerformVirtualizationOnAllCores</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">            └─ [DPC to each core]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                 └─ VmxPerformVirtualizationOnSpecificCore</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                      ├─ VmxAllocateVmxonRegion (4KB contiguous)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                      ├─ VmxAllocateVmcsRegion (4KB contiguous)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                      ├─ VmxAllocateHostGdt/Idt/Tss/Stack</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                      ├─ VmxAllocateMsrBitmap/IoBitmaps</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                      ├─ EptAllocateAndCreateIdentityPageTable</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                      └─ VmxVirtualizeCurrentSystem</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                           ├─ VMXON → VMCLEAR → VMPTRLD → VMWRITE → VMLAUNCH</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                           └─ LstarHook (syscall handler)</span><br></div></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="vmexit-handler">VMEXIT Handler<a href="#vmexit-handler" class="hash-link" aria-label="Direct link to VMEXIT Handler" title="Direct link to VMEXIT Handler" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Exit Reason</th><th>Handler</th><th>Denuvo Relevance</th></tr></thead><tbody><tr><td>CPUID</td><td><code>TransparentCheckAndModifyCpuid</code></td><td>Hides hypervisor from CPUID</td></tr><tr><td>RDMSR</td><td><code>TransparentCheckAndModifyMsrRead</code></td><td>Spoofs MSR values</td></tr><tr><td>WRMSR</td><td><code>TransparentCheckAndModifyMsrWrite</code></td><td>Monitors MSR writes</td></tr><tr><td>VMCALL</td><td><code>VmxVmcallHandler</code></td><td>Internal HV control channel</td></tr><tr><td>EPT violation</td><td><code>EptHandleEptViolation</code></td><td>Memory hook dispatch</td></tr><tr><td>RDTSC/RDTSCP</td><td>Counter spoofing</td><td>Anti-timing-attack</td></tr><tr><td>MOV to CR3</td><td>CR3 exit handler</td><td>Process switch monitoring</td></tr><tr><td>EFER syscall</td><td><code>LstarHook</code> path</td><td>Syscall intercept</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="ept-hook-subsystem">EPT Hook Subsystem<a href="#ept-hook-subsystem" class="hash-link" aria-label="Direct link to EPT Hook Subsystem" title="Direct link to EPT Hook Subsystem" translate="no">​</a></h4>
+<p>The core technique for invisible code modification:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">Normal:    Guest virtual → Guest physical → real code</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">After hook: Execute → shadow page (patched) / Read → original page</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Result: Denuvo reads its own code as unmodified, but executes patched version</span><br></div></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="lstarhook--syscall-interception">LstarHook — Syscall Interception<a href="#lstarhook--syscall-interception" class="hash-link" aria-label="Direct link to LstarHook — Syscall Interception" title="Direct link to LstarHook — Syscall Interception" translate="no">​</a></h4>
+<p>LSTAR = <code>IA32_LSTAR MSR</code> (0xC0000082) = kernel entry point for SYSCALL = <code>KiSystemCall64</code>.</p>
+<ol>
+<li class="">VMM reads current LSTAR (saves as <code>OrigLstar</code>)</li>
+<li class="">Sets up EFER.SCE VMEXIT — every SYSCALL causes a VMEXIT</li>
+<li class="">VMEXIT handler calls <code>TransparentHandleSystemCallHook</code></li>
+<li class="">Callback inspects/modifies syscall number and arguments</li>
+<li class="">After syscall: <code>TransparentCallbackHandleAfterSyscall</code> can modify return values</li>
+</ol>
+<p>This intercepts <strong>every system call</strong> made by Denuvo.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="tsc-spoofing">TSC Spoofing<a href="#tsc-spoofing" class="hash-link" aria-label="Direct link to TSC Spoofing" title="Direct link to TSC Spoofing" translate="no">​</a></h4>
+<p>Denuvo uses RDTSC/RDTSCP timing to detect VM overhead. The <code>CounterUpdater</code> thread maintains a fake TSC counter that advances at realistic speed, masking VMEXIT overhead.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hyperevadedll--evasion-layer">hyperevade.dll — Evasion Layer<a href="#hyperevadedll--evasion-layer" class="hash-link" aria-label="Direct link to hyperevade.dll — Evasion Layer" title="Direct link to hyperevade.dll — Evasion Layer" translate="no">​</a></h2>
+<p>7 KB, the most Denuvo-specific component. Provides callbacks called from VMEXIT handlers.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="transparentcheckandmodifycpuid">TransparentCheckAndModifyCpuid<a href="#transparentcheckandmodifycpuid" class="hash-link" aria-label="Direct link to TransparentCheckAndModifyCpuid" title="Direct link to TransparentCheckAndModifyCpuid" translate="no">​</a></h3>
+<p>Two anti-detection behaviors:</p>
+<ol>
+<li class=""><strong>CPUID Leaf 1</strong>: Clears ECX bit 31 — the &quot;Hypervisor Present&quot; bit. Denuvo checks this → sees bare metal.</li>
+<li class=""><strong>CPUID Leaves 0x40000000-0x40000001</strong>: Zeroes all 4 output registers. Normal hypervisors return vendor strings here (e.g., &quot;Microsoft Hv&quot;) → eliminated.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="transparenthidedebugger">TransparentHideDebugger<a href="#transparenthidedebugger" class="hash-link" aria-label="Direct link to TransparentHideDebugger" title="Direct link to TransparentHideDebugger" translate="no">​</a></h3>
+<p>Activation function that:</p>
+<ol>
+<li class="">Validates callback table (up to 11 non-null function pointers)</li>
+<li class="">Copies table to global via SSE2 movups</li>
+<li class="">Saves Denuvo&#x27;s CPUID query context</li>
+<li class="">Sets transparency active flag</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="transparentcheckandtrapflagaftervmexit">TransparentCheckAndTrapFlagAfterVmexit<a href="#transparentcheckandtrapflagaftervmexit" class="hash-link" aria-label="Direct link to TransparentCheckAndTrapFlagAfterVmexit" title="Direct link to TransparentCheckAndTrapFlagAfterVmexit" translate="no">​</a></h3>
+<p>Handles Trap Flag (TF) in RFLAGS. Denuvo uses single-step debugging to verify code integrity. The function routes <code>#DB</code> to the original handler, preserving Denuvo&#x27;s self-debugging while remaining transparent.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-impact">Security Impact<a href="#security-impact" class="hash-link" aria-label="Direct link to Security Impact" title="Direct link to Security Impact" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Security Control</th><th>While HV Active</th></tr></thead><tbody><tr><td>Driver Signature Enforcement</td><td><strong>Disabled</strong></td></tr><tr><td>Memory Integrity (HVCI)</td><td><strong>Disabled</strong></td></tr><tr><td>Credential Guard</td><td><strong>Disabled</strong></td></tr><tr><td>Windows Hypervisor (Hyper-V)</td><td><strong>Disabled</strong></td></tr><tr><td>KVA Shadow (Meltdown)</td><td><strong>Disabled</strong> (older Intel)</td></tr><tr><td>Ring -1</td><td><strong>DenuvOwO HV</strong> (unsigned code controls all hardware)</td></tr></tbody></table>
+<p>The hypervisor has complete control: read/write any memory, intercept all syscalls, hide processes, keylog, network sniff. The included source shows only Denuvo bypass functionality is implemented — no malicious payloads found.</p>
+<p>Cleanup is reversible via the tracking registry key. DSE re-enables automatically after reboot. The hypervisor unloads when the game closes.</p>
+<hr>
+<h1>Appendix A — Denuvo Hardware Fingerprinting Summary</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Vector</th><th>What&#x27;s Checked</th></tr></thead><tbody><tr><td>CPUID leaf 1</td><td>Feature bits (ECX bit 31 = hypervisor present)</td></tr><tr><td>CPUID 0x80000001</td><td>Extended features</td></tr><tr><td>CPUID 0x80000002-4</td><td>Processor brand string</td></tr><tr><td>CPUID 0x40000000-1</td><td>Hypervisor vendor (Hyper-V, VMware, KVM)</td></tr><tr><td>KUSER_SHARED_DATA</td><td>Windows version, build, processor features, architecture</td></tr><tr><td>PEB</td><td>OS version, subsystem version</td></tr><tr><td>NTDLL</td><td>Function bytes, Image Data Directory fields</td></tr><tr><td>SYSCALL 0x36</td><td>NtQuerySystemInformation</td></tr><tr><td>XGETBV</td><td>Extended control registers</td></tr><tr><td>GetWindowsDirectoryW</td><td>Windows path</td></tr><tr><td>GetVolumeInformationW</td><td>Filesystem/volume info</td></tr><tr><td>GetComputerNameW</td><td>NetBIOS name</td></tr><tr><td>GetUsernameW</td><td>Current username</td></tr></tbody></table>
+<h1>Appendix B — Hypervisor Anti-Detection Techniques</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Technique</th><th>What It Defeats</th></tr></thead><tbody><tr><td>Clear CPUID.1:ECX bit 31</td><td>HV presence detection</td></tr><tr><td>Zero CPUID 0x40000000 regs</td><td>HV vendor fingerprinting</td></tr><tr><td>TSC spoofing</td><td>Timing-based VM detection</td></tr><tr><td>EPT split pages (exec=read, read=original)</td><td>Code integrity self-checks</td></tr><tr><td>LSTAR/EFER syscall hook</td><td>Syscall-level tamper detection</td></tr><tr><td>Trap Flag forwarding</td><td>Single-step integrity verification</td></tr><tr><td>CR3 monitoring</td><td>Process-context-aware memory layout</td></tr></tbody></table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/why-not/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Why Not? — Miscellaneous Ubisoft References</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/witcher2/witcher2-formats"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">The Witcher 2 (REDengine 2) — Archive, Model, Texture &amp; Audio Formats</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#the-general-idea" class="table-of-contents__link toc-highlight">The General Idea</a></li><li><a href="#license-file-and-stolen-constants" class="table-of-contents__link toc-highlight">License File and Stolen Constants</a><ul><li><a href="#example-how-instructions-are-removed" class="table-of-contents__link toc-highlight">Example: How Instructions Are Removed</a></li></ul></li><li><a href="#user-integrity-checks" class="table-of-contents__link toc-highlight">User Integrity Checks</a><ul><li><a href="#pre-oep-checks" class="table-of-contents__link toc-highlight">Pre-OEP Checks</a></li><li><a href="#kuser_shared_data" class="table-of-contents__link toc-highlight">KUSER_SHARED_DATA</a></li><li><a href="#cpuid" class="table-of-contents__link toc-highlight">CPUID</a></li><li><a href="#syscall" class="table-of-contents__link toc-highlight">SYSCALL</a></li><li><a href="#ntdll-checks" class="table-of-contents__link toc-highlight">NTDLL Checks</a></li><li><a href="#peb-process-environment-block" class="table-of-contents__link toc-highlight">PEB (Process Environment Block)</a></li><li><a href="#other-checks" class="table-of-contents__link toc-highlight">Other Checks</a></li></ul></li><li><a href="#code-integrity-checks" class="table-of-contents__link toc-highlight">Code Integrity Checks</a><ul><li><a href="#crc-checks" class="table-of-contents__link toc-highlight">CRC Checks</a></li></ul></li><li><a href="#virtual-machine" class="table-of-contents__link toc-highlight">Virtual Machine</a><ul><li><a href="#randomness" class="table-of-contents__link toc-highlight">Randomness</a></li><li><a href="#mixed-boolean-arithmetic-mba" class="table-of-contents__link toc-highlight">Mixed-Boolean-Arithmetic (MBA)</a></li><li><a href="#on-the-fly-decryptedre-encrypted-cpuid" class="table-of-contents__link toc-highlight">On-The-Fly Decrypted+Re-Encrypted CPUID</a></li><li><a href="#anti-exception-based-hooking" class="table-of-contents__link toc-highlight">Anti-Exception-Based Hooking</a></li></ul></li><li><a href="#cracking-approaches" class="table-of-contents__link toc-highlight">Cracking Approaches</a></li><li><a href="#executive-summary" class="table-of-contents__link toc-highlight">Executive Summary</a></li><li><a href="#file-inventory" class="table-of-contents__link toc-highlight">File Inventory</a></li><li><a href="#execution-flow" class="table-of-contents__link toc-highlight">Execution Flow</a></li><li><a href="#vbscmd--os-security-demolition" class="table-of-contents__link toc-highlight">VBS.cmd — OS Security Demolition</a></li><li><a href="#amd-path--simplesvmsys" class="table-of-contents__link toc-highlight">AMD Path — SimpleSvm.sys</a><ul><li><a href="#svm-initialization" class="table-of-contents__link toc-highlight">SVM Initialization</a></li><li><a href="#key-concepts" class="table-of-contents__link toc-highlight">Key Concepts</a></li></ul></li><li><a href="#intel-path--hyperdbg-stack" class="table-of-contents__link toc-highlight">Intel Path — HyperDbg Stack</a><ul><li><a href="#hyperkdsys--thin-loader" class="table-of-contents__link toc-highlight">hyperkd.sys — Thin Loader</a></li><li><a href="#hyperhvdll--vt-x-vmm-core-538-kb-296-exports" class="table-of-contents__link toc-highlight">hyperhv.dll — VT-x VMM Core (538 KB, ~296 exports)</a></li></ul></li><li><a href="#hyperevadedll--evasion-layer" class="table-of-contents__link toc-highlight">hyperevade.dll — Evasion Layer</a><ul><li><a href="#transparentcheckandmodifycpuid" class="table-of-contents__link toc-highlight">TransparentCheckAndModifyCpuid</a></li><li><a href="#transparenthidedebugger" class="table-of-contents__link toc-highlight">TransparentHideDebugger</a></li><li><a href="#transparentcheckandtrapflagaftervmexit" class="table-of-contents__link toc-highlight">TransparentCheckAndTrapFlagAfterVmexit</a></li></ul></li><li><a href="#security-impact" class="table-of-contents__link toc-highlight">Security Impact</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

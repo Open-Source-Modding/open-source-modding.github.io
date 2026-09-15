@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Reference | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Reference | Open Source Modding"><meta data-rh="true" name="description" content="Havok (generic)"><meta data-rh="true" property="og:description" content="Havok (generic)"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Reference","item":"https://open-source-modding.github.io/docs/"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.8220bf60.js" defer="defer"></script>
-<script src="/assets/js/main.615c24f5.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.4681c2a9.js" defer="defer"></script>
+<script src="/assets/js/main.04a2e89b.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -86,6 +86,9 @@
 </li>
 <li class="">
 <p><a class="" href="/docs/farcry/filelists">File lists (hash → name)</a> — concatenated/ raw accumulation → OSM FarCry*-File-Lists submodules via RebuildFileLists; CRC64 path hashing, FAT v11 decode, positional install-path usage</p>
+</li>
+<li class="">
+<p><a class="" href="/docs/farcry/runtime-capture">Runtime capture (FC6)</a> — FileHook (log every path the game opens, then hash-match vs the fats) + DumpModule (snapshot the Denuvo/VMProtect-packed DLL after runtime unpack for real disassembly)</p>
 </li>
 <li class="">
 <p><a class="" href="/docs/farcry/mab-animation-format">MAB animation format (FC3, buu342 RE)</a> — MAB version bytes per game (0x4C FC2 … 0xB0 FC5+ND), 9-section offset table at +200, 48-bit compressed quaternions (sqrt-W reconstruction), mystery-byte = quaternion-count bitmask, frame-array interpolation (FC4+); source knockout.chat/thread/55079 + github.com/buu342/PY-DuniaAnimationExtractor</p>

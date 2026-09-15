@@ -97,15 +97,22 @@ split (manifest + data), but the hashed key scheme is newer.
 
 ## Mapping FC1 chunks → FC6 XBG chunks
 
-| FC1 `.cgf` chunk | FC6 XBG chunk (4CC) | Role |
-|---|---|---|
-| `ChunkType_Mesh` | `SULC` (CLUS) | cluster / submesh geometry |
-| `ChunkType_Node` | `EDON` (NODE) | node hierarchy |
-| `ChunkType_Mtl` | `LTMR` (material ref) | material list |
-| `ChunkType_BoneNameList` | `DNKS` (SKND) | bone names / skin data |
-| `ChunkType_BoneAnim` | `ITOM` (MOTI) | animation |
-| `ChunkType_BoneMesh` / `MeshMorphTarget` | `KSRP` / `DIKS` (SKID) | skinning / morph |
-| `ChunkType_SourceInfo` | header `HSEMI`/`HSEMG` | file metadata |
+<FormatTable
+  columns={[
+    { header: 'FC1 `.cgf` chunk' },
+    { header: 'FC6 XBG chunk (4CC)' },
+    { header: 'Role' },
+  ]}
+  rows={[
+    { 'FC1 `.cgf` chunk': '`ChunkType_Mesh`', 'FC6 XBG chunk (4CC)': '`SULC` (CLUS)', Role: 'cluster / submesh geometry' },
+    { 'FC1 `.cgf` chunk': '`ChunkType_Node`', 'FC6 XBG chunk (4CC)': '`EDON` (NODE)', Role: 'node hierarchy' },
+    { 'FC1 `.cgf` chunk': '`ChunkType_Mtl`', 'FC6 XBG chunk (4CC)': '`LTMR` (material ref)', Role: 'material list' },
+    { 'FC1 `.cgf` chunk': '`ChunkType_BoneNameList`', 'FC6 XBG chunk (4CC)': '`DNKS` (SKND)', Role: 'bone names / skin data' },
+    { 'FC1 `.cgf` chunk': '`ChunkType_BoneAnim`', 'FC6 XBG chunk (4CC)': '`ITOM` (MOTI)', Role: 'animation' },
+    { 'FC1 `.cgf` chunk': '`ChunkType_BoneMesh` / `MeshMorphTarget`', 'FC6 XBG chunk (4CC)': '`KSRP` / `DIKS` (SKID)', Role: 'skinning / morph' },
+    { 'FC1 `.cgf` chunk': '`ChunkType_SourceInfo`', 'FC6 XBG chunk (4CC)': 'header `HSEMI`/`HSEMG`', Role: 'file metadata' },
+  ]}
+/>
 
 Same architecture — type-tagged, versioned chunk headers with IDs, read via a
 chunk-file reader with per-type dispatch. Only the magic changed: FC1 uses an

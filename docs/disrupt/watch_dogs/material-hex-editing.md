@@ -2,7 +2,7 @@
 
 > **Source**: guru3D Forums thread "Watch_Dogs Material Hex Editing" (mlleemiles, 2017-10-23) + Discord logs from WD1 modding community (2020-2026).
 > **For the authoritative binary layout, type codes, and editing workflow**, see [`material-bin-format.md`](material-bin-format.md).
-> **Cross-reference**: Material descriptors (85 XML files) → [`materialdescriptors/`](materialdescriptors/); XeNTaX material section → [XeNTaX Watch Dogs knowledge §8–9](xentax-watchdogs-knowledge.md)
+> **Cross-reference**: Material descriptors (85 XML files) → [`materialdescriptors/index.md`](materialdescriptors/index.md); XeNTaX material section → [XeNTaX Watch Dogs knowledge §8–9](xentax-watchdogs-knowledge.md)
 
 ---
 

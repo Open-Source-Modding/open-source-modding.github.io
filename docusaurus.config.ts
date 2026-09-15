@@ -8,9 +8,14 @@ export default defineConfig({
   projectName: 'open-source-modding.github.io',
   organizationName: 'Open-Source-Modding',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   presets: [
     ['classic', { docs: { sidebarPath: './sidebars.ts' }, theme: { customCss: './src/css/custom.css' } }],
   ],
+  markdown: {
+    // .md = CommonMark (plain Markdown, allows indented code blocks & angle brackets),
+    // .mdx = MDX (JSX). Matches the phased MDX migration.
+    format: 'detect',
+    hooks: { onBrokenMarkdownLinks: 'throw' },
+  },
   plugins: [['@easyops-cn/docusaurus-search-local', { hashed: true, indexDocs: true }]],
 });

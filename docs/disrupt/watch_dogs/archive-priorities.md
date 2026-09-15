@@ -19,7 +19,7 @@ Decompiled from `DisruptManager.Model.GameInfos.*` → `ArchivePriorities`:
 - **No `patch2` in WDL** — only `patch` exists. Repacking `patch` with
   everything produces ~30GB result.
 - **`installpackage`** is unused by default but can be given highest priority
-  via the DLL hex edit (see [installpackage-patch.md](installpackage-patch.md)).
+  via the DLL hex edit (see [installpackage-patch.md](../installpackage-patch.md)).
 - **Archive format**: WD1/WD2 use `Depload` format; WDL uses `FatFile`
   (BigFile) format.
 - **Source**: `CBR.WatchDogsLegion.dll` (WDL), `CBR.WatchDogs*.dll` (WD1/WD2),

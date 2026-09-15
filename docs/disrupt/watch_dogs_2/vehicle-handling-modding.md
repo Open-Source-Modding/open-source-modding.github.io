@@ -82,4 +82,4 @@ Place `patch3.fat` and `patch3.dat` into `data_win64/` in your WD2 installation.
 
 - [Archive Load Priority](../watch_dogs/archive-priorities.md) — per-game archive order
 - [Hashing (CRC32 / CRC64_WD2)](../watch_dogs/hashing.md) — hash algorithms
-- [WD2 Custom Item/Clothing Tutorial](../watch_dogs/wd2-item-clothing-tutorial.md) — another WD2 modding workflow
+- [WD2 Custom Item/Clothing Tutorial](wd2-item-clothing-tutorial.md) — another WD2 modding workflow

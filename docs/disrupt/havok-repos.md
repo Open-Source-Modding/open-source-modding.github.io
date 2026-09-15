@@ -2,7 +2,7 @@
 
 > **Cross-reference**: Community tools (hkxcmd, havok2fbx, AssetCc, HavokLib, volfin hkx2smd) → [XeNTaX Havok knowledge §8–9](../havok/xentax-havok-knowledge.md)
 >
-> **Cross-reference**: Full tool workarounds, version compatibility, practical techniques → [`reference/havok/hkx_format.md`](../../havok/hkx_format.md)
+> **Cross-reference**: Full tool workarounds, version compatibility, practical techniques → [`reference/havok/hkx_format.md`](../havok/hkx_format.md)
 
 ## hkxparse (exyorha)
 - **URL**: https://github.com/exyorha/hkxparse

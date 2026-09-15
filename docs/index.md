@@ -18,9 +18,9 @@
 - [GLM Format](disrupt/glm-format.md) — Havok skeletal mesh text format
 - [XBGMIP Format](disrupt/xbgmip-format.md) — streamed LOD0 companion (PIMG header + vertex/index blocks)
 - [Depload Format](disrupt/depload-format.md) — resource dependency/preload tables
-- [Compressed Mesh](disrupt/compressed-mesh-format.md)
+- [Compressed Mesh](disrupt/compressed_mesh_format.md)
 - [Hashing](disrupt/watch_dogs/hashing.md) — CRC32, FNV32, FNV64, CRC64_WD2
-- [Material Descriptors](disrupt/watch_dogs/materialdescriptors/) — 44 shader types
+- [Material Descriptors](disrupt/watch_dogs/materialdescriptors/index.md) — 44 shader types
 
 ### Watch Dogs 1
 - [FAT/DAT Archive Format](disrupt/watch_dogs/fat-archive-format.md)

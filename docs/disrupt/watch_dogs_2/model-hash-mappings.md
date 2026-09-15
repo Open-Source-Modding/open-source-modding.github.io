@@ -145,4 +145,4 @@ available as raw text alongside this page:
 
 - `WD2/UnusedCars.txt` — 141 unused/barely-used vehicle hashnames
 - `WD2/wd2_depload_info.txt` — depload resource references (material paths, archetype IDs)
-- [depload-format.md](depload-format.md) — dependency preload manifest format
+- [depload-format.md](../depload-format.md) — dependency preload manifest format

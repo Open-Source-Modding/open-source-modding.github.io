@@ -10,7 +10,7 @@
 > **Cross-reference**: manual hex workflow + historical converter bugs →
 > [Material Hex Editing](material-hex-editing.md); CRC32 hashing →
 > [Hashing](hashing.md); per-shader parameter definitions →
-> [`materialdescriptors/`](materialdescriptors/)
+> [`materialdescriptors/index.md`](materialdescriptors/index.md)
 
 ---
 

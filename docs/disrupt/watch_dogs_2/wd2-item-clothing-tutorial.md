@@ -198,6 +198,27 @@ patch.fat/dat
 
 ---
 
+## Item Definitions and Part Lookups (clothes2-4.txt, EpicStreamMan)
+
+`items.lib` defines all potential items and their properties:
+
+- Which Graphic Kit Model to use
+- Which item grants access to this item
+- Localization IDs of short/long descriptions
+- Reward properties (looting feedback type, reward message)
+- Shop properties (price, item category — see `itemcategory.lib`)
+- Asset properties (item icon texture name)
+
+**Model lookup:** search the BinHex value (e.g. `4816479C`) of the item's
+Graphic Kit Model in `graphickit_models.lib` — the file with a matching
+`hidKey` defines all properties of which parts that item/clothing uses.
+
+**Part lookup:** search the BinHex value (e.g. `BB9F21CF`) of the Graphic Kit
+Part in `graphickit_parts.lib` — the file with a matching `hidKey` defines
+all properties of that part of the item/clothing.
+
+---
+
 ## Vehicle Modding (Car on Demand) — neburas, 2016-12-18
 
 - Add vehicles via `CarHackingRewards.Generic.Budjet.XXXX.xml` in `items.lib`

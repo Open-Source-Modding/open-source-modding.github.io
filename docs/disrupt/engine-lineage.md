@@ -6,6 +6,18 @@ prior version claimed "open world city management comes from AnvilNext
 (Assassin's Creed)" — this is UNVERIFIED: no occurrence of AnvilNext in the
 binaries or sources. Removed pending evidence.)*
 
+**Official primary source** (Ubisoft blog, 2013-07-10, "The Secrets Behind
+Watch Dogs' Next Gen Experience", Anne Lewis, interviewing Senior Producer
+Dominic Guay + Animation Director Colin Graham): Disrupt is described as
+"the product of over four years of dedication," built by Ubisoft Montreal,
+"specifically to power Watch Dogs." Four pillars: **dynamism** (simulation —
+driving, electricity, water, wind, cloth), **impact** (reputation/NPC
+reactions), **connectivity** (seamless online, no loading/matchmaking),
+**flexibility** (scales PS3/X360 → PC/PS4/XB1). No mention of AnvilNext or
+Assassin's Creed — and none of Dunia either (the Dunia-2 connection is
+established via binary-format/tooling compatibility, not this source).
+Archived: `web.archive.org/web/20140316064550/http://blog.ubi.com/watch-dogs-disrupt-engine-multiplayer/`
+
 Far Cry/Dunia modding tools (Gibbed.Disrupt, FCBastard) work across Disrupt
 games because Gibbed's tools were built FOR Dunia (the Dunia toolset,
 [github.com/Open-Source-Modding/Gibbed.Dunia](https://github.com/Open-Source-Modding/Gibbed.Dunia))

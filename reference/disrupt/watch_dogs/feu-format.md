@@ -2,6 +2,8 @@
 
 `.feu` files are the Disrupt engine's UI definition format. They are **standard Flash SWF files** with a 3-byte magic override.
 
+> **Underlying format:** The SWF body is the standard Flash format. See [SWF File Format Specification (Adobe v19)](swf-file-format-spec.md) for the full byte-level reference (tags, records, compressed header, etc.).
+
 ## Format
 
 | Offset | Size | Value | Notes |

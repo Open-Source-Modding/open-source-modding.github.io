@@ -1,6 +1,6 @@
-import { defineConfig } from '@docusaurus/types';
+import type {Config} from '@docusaurus/types';
 
-export default defineConfig({
+const config: Config = {
   title: 'Open Source Modding',
   tagline: 'Reverse engineering and modding research for game engines',
   url: 'https://open-source-modding.github.io',
@@ -50,4 +50,6 @@ export default defineConfig({
     hooks: { onBrokenMarkdownLinks: 'throw' },
   },
   plugins: [['@easyops-cn/docusaurus-search-local', { hashed: true, indexDocs: true }]],
-});
+};
+
+export default config;

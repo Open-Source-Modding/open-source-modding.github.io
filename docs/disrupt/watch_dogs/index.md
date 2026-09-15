@@ -23,9 +23,9 @@
 
 ## Modding
 - [blender-io-disrupt addon](../blender-addon.md) — Blender 5.0 add-on: import/export/inject XBG/GLM models, HKX collision, MAB animation, .material.bin
-- [installpackage-over-patch](installpackage-patch.md) — DLL hex edit to avoid repacking patch
+- [installpackage-over-patch](../installpackage-patch.md) — DLL hex edit to avoid repacking patch
 - [Archive Load Priority](archive-priorities.md) — per-game archive order, DisruptManager RE
-- [WD2 Custom Item/Clothing Tutorial](wd2-item-clothing-tutorial.md) — graphickit_models/parts, items.lib, shop setup
+- [WD2 Custom Item/Clothing Tutorial](../watch_dogs_2/wd2-item-clothing-tutorial.md) — graphickit_models/parts, items.lib, shop setup
 - [WD2 Vehicle Handling](../watch_dogs_2/vehicle-handling-modding.md) — DriveConverter, .handling.bin ↔ XML, patch3 workflow
 - [Mirror Cubemap Mod](mirror-cubemap-mod.md) — make mirrors reflective: ReflectionType=2 + ReflectionTexture via official converter
 - [Shader Addons](shader-addons.md) — Parallellines' addonconfig.h, PBR extension, lighting fixes, community context
@@ -53,4 +53,4 @@
 - [Community Resources](../watch_dogs_2/community-resources.md) — gun sounds, radio, police mod, cut content, WatchBox
 
 ## Data
-- [Material descriptors](materialdescriptors/)
+- [Material descriptors](materialdescriptors/index.md)

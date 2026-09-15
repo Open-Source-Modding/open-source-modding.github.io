@@ -36,18 +36,11 @@ Mod Installer. Now drag drop the **\_FC6Libertad.bin** on the
 **\_FC6Libertad**. Now inside the folder there are the packages, so
 select the one you need and copy it to the **ModifiedFilesFC6** folder.
 
-![](media/image2.png){width="3.6979166666666665in"
-height="4.604166666666667in"}
-
-# 
-
 ## Edit the package to be used out of modpack
 
 Now we need to edit info and remove the **ParentDir** node inside of it.
 The **ParentDir** node is always in the info where Description and Name
 nodes are.
-
-![](media/image1.png){width="4.697916666666667in" height="0.90625in"}
 
 Find it and remove the whole line.
 

@@ -55,7 +55,7 @@
 ## Far Cry (Dunia engine)
 - [XBG Format Notes (FC5 vs FC6)](farcry/xbg-format.md) — GMESH/IMESH magic vs Disrupt GEOM, SDOL/LODS chunk layout, FC5 stride 40 vs FC6 richer descriptor table, packed/quantized vertices
 - [Shader system lineage (FC1 → FC6)](farcry/shader-system-lineage.md) — FC1 runtime-preprocessed text scripts (Cg/D3DX, gen-mask defines) → Disrupt/FC6 offline ShaderCompiler2 DXBC + `<technique>` XML; FC1 render-state tokens map 1:1 to FC6 shadersobj.dat elements
-- [`.cgf` chunk → `.xbg` lineage](farcry/cgf-chunk-lineage.md) — FC1 CryChunkedFile ChunkTypes enum + CHUNK_HEADER{Type,Version,Offset,ID} is the ancestor of the FC5/FC6 XBG chunk chain; FC1 Mesh/Node/Mtl/BoneNameList/BoneAnim chunks map to SULC/EDON/LTMR/DNKS/ITOM; ResourceCompiler origins; .pak (not .dat/.fat) archive in FC1
+- [`.cgf` chunk → `.xbg` lineage](farcry/cgf-chunk-lineage.mdx) — FC1 CryChunkedFile ChunkTypes enum + CHUNK_HEADER{Type,Version,Offset,ID} is the ancestor of the FC5/FC6 XBG chunk chain; FC1 Mesh/Node/Mtl/BoneNameList/BoneAnim chunks map to SULC/EDON/LTMR/DNKS/ITOM; ResourceCompiler origins; .pak (not .dat/.fat) archive in FC1
 - [Raw XeNTaX extraction](farcry/xentax-farcry-knowledge.md) — source threads (2018–2023): FAT v10→v11 change, hook/filelist filename recovery, FC6 XBG short-signed XZY verts per-LOD, SDOL chunk struct, FC6Model.exe + .bwsk/.dpdx facial-bone workflow
 - [File lists (hash → name)](farcry/filelists.md) — concatenated/ raw accumulation → OSM FarCry*-File-Lists submodules via RebuildFileLists; CRC64 path hashing, FAT v11 decode, positional install-path usage
 

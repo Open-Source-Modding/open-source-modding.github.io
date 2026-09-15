@@ -69,5 +69,5 @@ parameter names.
 ### Cross-References
 
 - [XeNTaX Watch Dogs knowledge — Materials](../xentax-watchdogs-knowledge.md) — community format notes
-- [WDL material.bin Format](../../watch_dogs_legion/material-bin-format.md) — binary format details
+- [WDL material.bin Format](../../watch_dogs_legion/material-bin-format.mdx) — binary format details
 - [Asset Pipeline Formats](../asset-pipeline-formats.md) — material.xml → material.bin compilation

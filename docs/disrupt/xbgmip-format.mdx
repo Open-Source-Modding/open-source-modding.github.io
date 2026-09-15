@@ -33,16 +33,23 @@ All fields are little-endian.
 
 ## Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `magic` | char[4] | Always `PIMG`. Used to identify the format. |
-| `version` | u32 | Format version. Known: `1`. |
-| `reserved` | u32 | Always `0`. Purpose unknown. |
-| `n_buffers` | u32 | Number of vertex/index buffer pairs. Always `1` in observed files. |
-| `vsize` | u32 | Byte length of `vertex_data`. |
-| `vertex_data` | u8[vsize] | Packed vertex data. Layout matches the XBG's LOD0 vertex format (stride, format, drawcall offsets from the parent XBG). |
-| `isize` | u32 | Byte length of `index_data`. |
-| `index_data` | u16[isize/2] | Triangle strip/fan indices. Same format as XBG index buffers. |
+<FormatTable
+  columns={[
+    { header: 'Field' },
+    { header: 'Type' },
+    { header: 'Description' },
+  ]}
+  rows={[
+    { Field: 'magic', Type: 'char[4]', Description: 'Always PIMG. Identifies the format.' },
+    { Field: 'version', Type: 'u32', Description: 'Format version. Known: 1.' },
+    { Field: 'reserved', Type: 'u32', Description: 'Always 0. Purpose unknown.' },
+    { Field: 'n_buffers', Type: 'u32', Description: 'Number of vertex/index buffer pairs. Always 1 in observed files.' },
+    { Field: 'vsize', Type: 'u32', Description: 'Byte length of vertex_data.' },
+    { Field: 'vertex_data', Type: 'u8[vsize]', Description: 'Packed vertex data. Layout matches the XBG LOD0 vertex format (stride, format, drawcall offsets from the parent XBG).' },
+    { Field: 'isize', Type: 'u32', Description: 'Byte length of index_data.' },
+    { Field: 'index_data', Type: 'u16[isize/2]', Description: 'Triangle strip/fan indices. Same format as XBG index buffers.' },
+  ]}
+/>
 
 ## Vertex Data
 

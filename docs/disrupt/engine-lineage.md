@@ -1,12 +1,15 @@
 # Disrupt Engine Lineage
 
 The **Disrupt engine** is a fork of **Dunia 2** (Far Cry 3), sharing the same
-folder tree, binary object format (`.dat`/`.fat`), and XML conventions. Open
-world city management comes from **AnvilNext** (Assassin's Creed).
+folder tree, binary object format (`.dat`/`.fat`), and XML conventions. *(A
+prior version claimed "open world city management comes from AnvilNext
+(Assassin's Creed)" — this is UNVERIFIED: no occurrence of AnvilNext in the
+binaries or sources. Removed pending evidence.)*
 
-Far Cry modding tools (Gibbed.Disrupt, FCBastard) work across Disrupt games
-because the archive format, binary object structure, and file naming
-conventions all come from Dunia 2.
+Far Cry/Dunia modding tools (Gibbed.Disrupt, FCBastard) work across Disrupt
+games because Gibbed's tools were built FOR Dunia (the Dunia toolset at
+`game-tools/Ubisoft/Dunia`) and the archive format, binary object structure,
+and file naming conventions all come from the shared Dunia 2 lineage.
 
 ## Games
 

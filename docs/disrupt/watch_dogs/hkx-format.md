@@ -2,7 +2,7 @@
 
 > **Cross-reference**: WDL (2017.2 Dunia wrapper) leak-vs-retail bytes, build tags,
 > TAG0/TCM0 chunking, TCRF/TCID compendium, PTCH/ITEM, type catalog →
-> [`../watch_dogs_legion/HKX_FORMAT_REVERSE.md`](../watch_dogs_legion/HKX_FORMAT_REVERSE.md)
+> [`../watch_dogs_legion/hkx_format_wdl.md`](../watch_dogs_legion/hkx_format_wdl.md)
 > **Cross-reference**: Standard Havok packfile format (FO4 uses regular Havok SDK) →
 > [`reference/havok/hkx_format.md`](../../havok/hkx_format.md)
 
@@ -22,7 +22,7 @@ He reverse-engineered the format from the game's graphics engine DLL.
 
 - **WD1** (2014): Uses Havok 2012 SDK, modified by Ubisoft (old packfile format) — see [`packfile-format.md`](packfile-format.md)
 - **WD2** (2016): Uses Havok 2015.1 SDK, modified by Ubisoft (TAG0 format) — see [`../watch_dogs_2/wd2-tag0-collision-format.md`](../watch_dogs_2/wd2-tag0-collision-format.md)
-- **WDL** (2020): Uses Havok 2017.2 SDK with Dunia wrapper — see [`../watch_dogs_legion/HKX_FORMAT_REVERSE.md`](../watch_dogs_legion/HKX_FORMAT_REVERSE.md)
+- **WDL** (2020): Uses Havok 2017.2 SDK with Dunia wrapper — see [`../watch_dogs_legion/hkx_format_wdl.md`](../watch_dogs_legion/hkx_format_wdl.md)
 
 ## File Roles
 

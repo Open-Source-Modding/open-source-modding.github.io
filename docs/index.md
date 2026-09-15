@@ -48,7 +48,7 @@
 ### Watch Dogs: Legion
 - [Engine Reference](disrupt/watch_dogs_legion/wdl_engine_reference.md)
 - [Modding Workflow](disrupt/watch_dogs_legion/modding-workflow.md)
-- [HKX (Havok Physics) Dunia Wrapper Format](disrupt/watch_dogs_legion/HKX_FORMAT_REVERSE.md)
+- [HKX (Havok Physics) Dunia Wrapper Format](disrupt/watch_dogs_legion/hkx_format_wdl.md)
 - [Vehicle Adding Process](disrupt/watch_dogs_legion/vehicle-add-process.md)
 - [PreparePlatformData](disrupt/watch_dogs_legion/prepareplatformdata-pipeline.md)
 
@@ -133,3 +133,7 @@ Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc li
 ## Magic: The Gathering
 - [MTG Formats](mtg/mtg-formats.md) — Classic .cat archives (headerless TIFF card art), MTG Arena (Unity AssetBundles, Wwise/FMOD audio)
 - [Raw XeNTaX extraction](mtg/xentax-mtg-knowledge.md) — source threads (2007–2023)
+
+## Why Not?
+- [Miscellaneous Ubisoft References](why-not/index.md) — random facts, infrastructure, ecosystem references
+- [Denuvo Analysis](why-not/denuvo-analysis.md) — anti-tamper internals + DenuvOwO hypervisor bypass (used by FC6, WD2, WDL)

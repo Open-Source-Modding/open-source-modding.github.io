@@ -9,7 +9,7 @@ Source threads cover TES3–5, FO3/NV/4/76, Oblivion, and Switch ports.
 - Starfield modding & RE reference (CE2, SFSE, CK) → [Starfield guide](starfield-guide.md)
 - Oblivion Remastered (UE5 + Gamebryo hybrid) → [Oblivion Remastered guide](oblivion-remastered-guide.md)
 - Generic HKX packfile format (FO4, Havok 2014.1.0) → [HKX format](../havok/hkx_format.md)
-- Watch Dogs Legion Denuvo analysis (also Havok) → [WDL Denuvo analysis](../disrupt/watch_dogs_legion/denuvo_analysis.md)
+- Watch Dogs Legion Denuvo analysis (also Havok) → [WDL Denuvo analysis](../why-not/denuvo-analysis.md)
 
 ---
 

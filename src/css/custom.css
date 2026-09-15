@@ -1,0 +1,9 @@
+/**
+ * Custom CSS for the Open Source Modding site.
+ * Extended in later tasks; keep minimal for the skeleton.
+ */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-light: #33925d;
+}

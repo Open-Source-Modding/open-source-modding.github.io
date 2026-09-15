@@ -115,15 +115,12 @@ Note: third picture is not available in Mod Installer for Far Cry 2.
 
 **This tag can be used also for info_replace.xml**
 
-## ![](media/image2.png){width="7.052083333333333in" height="4.84375in"}
+## HeaderPicture2 — (image omitted; see Mod Installer UI)
 
 ## Dependencies
 
 Defines what packages are required by this one. Look below how it works.
 This tag is optional.
-
-![](media/image1.png){width="6.677083333333333in"
-height="2.1666666666666665in"}
 
 You can add as many *Dependency* tags as you want. Same as *Package* tag
 -- it's also unlimited.

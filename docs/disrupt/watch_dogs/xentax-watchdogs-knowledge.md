@@ -9,7 +9,7 @@ Extracted and organized from XeNTaX forum discussions (2014–2023). Technical k
 - [HKX collision format (Disrupt's modified Havok)](hkx-format.md)
 - [Compressed mesh format](compressed-mesh-format.md)
 - [Injection internals](injection-internals.md)
-- [Material descriptors (85 XML files)](materialdescriptors/)
+- [Material descriptors (85 XML files)](materialdescriptors/index.md)
 
 ---
 

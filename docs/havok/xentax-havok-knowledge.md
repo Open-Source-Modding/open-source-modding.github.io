@@ -1,7 +1,7 @@
 # Havok - XeNTaX Community Knowledge
 
 Extracted and organized from XeNTaX forum discussions (2010–2022).
-Complements the clean-room format specs in [`reference/havok/hkx_format.md`](../reference/havok/hkx_format.md) (FO4-specific, Havok 2014.1.0) and the Watch Dogs HKX collision doc [`reference/disrupt/watch_dogs/hkx-format.md`](../disrupt/watch_dogs/hkx-format.md).
+Complements the clean-room format specs in [`reference/havok/hkx_format.md`](./hkx_format.md) (FO4-specific, Havok 2014.1.0) and the Watch Dogs HKX collision doc [`reference/disrupt/watch_dogs/hkx-format.md`](../disrupt/watch_dogs/hkx-format.md).
 
 ## HKX File Format Basics
 

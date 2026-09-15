@@ -3,7 +3,7 @@
 > **Scope:** WDL Dunia-specific wrapper around Havok TAG0 — chunk structure, content hash,
 > build-tag routing. For the TAG0 collision format, see
 > [`../watch_dogs_2/wd2-tag0-collision-format.md`](../watch_dogs_2/wd2-tag0-collision-format.md).
-> For Havok packfile internals, see [`../havok/hkx_format.md`](../havok/hkx_format.md).
+> For Havok packfile internals, see [`../../havok/hkx_format.md`](../../havok/hkx_format.md).
 > For Havok 2017.2 class definitions, see
 > [`legion-primitive-files.md`](legion-primitive-files.md).
 
@@ -99,7 +99,7 @@ for chunk walk details, ITEM/PTCH format, and TYPE sub-chunks.
 > The overview above is a summary of the WDL-specific layout.
 
 > **Source:** Cross-referenced with [`../watch_dogs_2/wd2-tag0-collision-format.md`](../watch_dogs_2/wd2-tag0-collision-format.md)
-> (WD2 TAG0 format) and [`../havok/hkx_format.md`](../havok/hkx_format.md) (standard Havok packfile).
+> (WD2 TAG0 format) and [`../../havok/hkx_format.md`](../../havok/hkx_format.md) (standard Havok packfile).
 
 ### SDKV string
 
@@ -108,7 +108,7 @@ Platform-compiled files append `@`. See
 [`legion-primitive-files.md`](legion-primitive-files.md) for Havok 2017.2 class definitions.
 
 > **Source:** Watch Dogs: Legion retail files.
-> Cross-reference: Havok version table → [`../havok/hkx_format.md`](../havok/hkx_format.md).
+> Cross-reference: Havok version table → [`../../havok/hkx_format.md`](../../havok/hkx_format.md).
 
 ## Build tags
 
@@ -125,11 +125,11 @@ The build tag selects which `.hkc` compendium file to load. The engine resolves
 
 ## See also
 
-- [`../havok/hkx_format.md`](../havok/hkx_format.md) — Havok old packfile format, license keys
+- [`../../havok/hkx_format.md`](../../havok/hkx_format.md) — Havok old packfile format, license keys
 - [`../watch_dogs/hkx-format.md`](../watch_dogs/hkx-format.md) — WD1/WD2 Havok fork, collision shapes
 - [`../watch_dogs_2/wd2-tag0-collision-format.md`](../watch_dogs_2/wd2-tag0-collision-format.md) — WD2 TAG0 chunk walk, ITEM/PTCH, shape graph
 - [`legion-primitive-files.md`](legion-primitive-files.md) — Havok 2017.2 primitive files and class definitions
-- [`../disrupt/havok-repos.md`](../disrupt/havok-repos.md) — GitHub repos for HKX parsing
+- [`../havok-repos.md`](../havok-repos.md) — GitHub repos for HKX parsing
 
 
 ### Havok 2015.1 Class Definitions (WD2)

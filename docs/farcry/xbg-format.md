@@ -92,7 +92,7 @@ FC6's `0x1c020` (114720) = vertex-section size, matching region r1 (114736 =
 ## Vertex data is quantized / packed — NOT float32
 
 Positions are **quantized 16-bit** (`i16/32768 * bbox_ext + bbox_min` — see
-`disrupt/unsorted/xbg/XBG_FORMAT_FROM_GEOM_PARSER.md`), which is why naive
+`disrupt/xbg-format-geparser-raw.md`), which is why naive
 float-array scanning finds nothing clean on either FC5 or FC6 files. Compiler
 channel emission order (GeomParser): Positions → FaceIndices → Normals →
 Tangents → UV channels (up to 7, 2×f32) → VertexColors → VertexIllumination →

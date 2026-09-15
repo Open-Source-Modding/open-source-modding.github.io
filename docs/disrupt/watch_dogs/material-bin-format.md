@@ -5,7 +5,7 @@
 > 11,384 WD1 retail and 12,959 Ubisoft-leak material files) and cross-checked
 > against the **official** Disrupt Editor standalone converter
 > `ConvertMaterials.exe` (2026-08). Complements the older community notes in
-> [`../unsorted/MaterialBin/material-bin-format.md`](../unsorted/MaterialBin/material-bin-format.md).
+> [`../material-bin-format.md`](../material-bin-format.md).
 >
 > **Cross-reference**: manual hex workflow + historical converter bugs →
 > [Material Hex Editing](material-hex-editing.md); CRC32 hashing →

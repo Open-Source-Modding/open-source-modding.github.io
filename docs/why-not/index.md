@@ -2,6 +2,9 @@
 
 Miscellaneous Ubisoft infrastructure, game, and ecosystem references.
 
+> **Cross-reference**: Denuvo anti-tamper internals + hypervisor bypass RE →
+> [`denuvo-analysis.md`](denuvo-analysis.md)
+
 ---
 
 ## Ubisoft Game Service (GS) — Complete Game List

@@ -117,6 +117,7 @@ game to log which files it opens:
 
 - **PC FC6 uses Denuvo or an obfuscated tool path** — meshes from the PC
   version wouldn't decode cleanly, while **PS4 files were fine**. Tool authors
+  (see [Denuvo analysis](../why-not/denuvo-analysis.md))
   pivoted to PS4 assets for verification. *(Sharppy, 2022-02-19, t=25062)*
 - FC6 UV data was extremely hard to "dial in": padding/interval combos
   (0/12, 10/2, 8/4, 6/6, 4/8, 2/10, 12/0) all failed. Consistent with the

@@ -7,9 +7,11 @@ prior version claimed "open world city management comes from AnvilNext
 binaries or sources. Removed pending evidence.)*
 
 Far Cry/Dunia modding tools (Gibbed.Disrupt, FCBastard) work across Disrupt
-games because Gibbed's tools were built FOR Dunia (the Dunia toolset at
-`game-tools/Ubisoft/Dunia`) and the archive format, binary object structure,
-and file naming conventions all come from the shared Dunia 2 lineage.
+games because Gibbed's tools were built FOR Dunia (the Dunia toolset,
+[github.com/Open-Source-Modding/Gibbed.Dunia](https://github.com/Open-Source-Modding/Gibbed.Dunia))
+and the archive format, binary object structure, and file naming conventions
+all come from the shared Dunia 2 lineage. The org's Gibbed.Disrupt
+description itself states it is "based on the Dunia engine."
 
 ## Games
 

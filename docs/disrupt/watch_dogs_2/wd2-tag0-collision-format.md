@@ -3,7 +3,7 @@
 > Reverse-engineered from WD2 binaries + FrankMK04's `HavokDisruptWD2` parser
 > (verified against `galilei_glass_breakable02.hkx` and `roadres_*.phys`).
 > **Cross-reference**: generic TAG0/TCM0 chunk format, TCRF compendium system, WDL
-> (Havok 2017.2) type catalog → [`../watch_dogs_legion/HKX_FORMAT_REVERSE.md`](../watch_dogs_legion/HKX_FORMAT_REVERSE.md);
+> (Havok 2017.2) type catalog → [`../watch_dogs_legion/hkx_format_wdl.md`](../watch_dogs_legion/hkx_format_wdl.md);
 > wrapper/header overview → [`../watch_dogs/hkx-format.md`](../watch_dogs/hkx-format.md);
 > old WD1 packfile (Havok 2012) → [`../watch_dogs/packfile-format.md`](../watch_dogs/packfile-format.md).
 WD2 collision lives in two container kinds, both carrying the same **TAG0**

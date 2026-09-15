@@ -3,6 +3,10 @@
 Two sources merged: Connor Jay Dunn's educational blog post on Denuvo internals
 (2025-01-21) and 0xPacman's DenuvOwO hypervisor bypass RE report (2026-05-13).
 
+> **Cross-reference**: Misc Ubisoft references → [`index.md`](index.md).
+> **Games using Denuvo**: Far Cry 6 (PC, FC6 asset decoding), Watch Dogs 2 (anti-cheat),
+> Watch Dogs Legion (v1.6.3).
+
 ---
 
 # Part I — Denuvo Internals

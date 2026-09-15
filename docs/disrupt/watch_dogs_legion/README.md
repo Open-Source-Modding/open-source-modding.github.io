@@ -11,7 +11,7 @@ WDL-specific RE hub. Cross-game Disrupt engine work lives in
 
 | Path | What |
 |------|------|
-| `denuvo_analysis.md` | Denuvo internals + DenuvOwO hypervisor bypass RE |
+| [`denuvo-analysis.md`](../../why-not/denuvo-analysis.md) | Denuvo internals + DenuvOwO hypervisor bypass RE |
 | `wdl_engine_reference.md` | Engine reference: dinput8 proxy, shaders, GLM models, TAM materials, vehicle handling, Wwise audio, Lua scripting, Disrupt toolchain |
 | `pdb_build/` | PDB reconstruction pipeline |
 | `symbols/` | Extracted JSON artifacts per build tag |

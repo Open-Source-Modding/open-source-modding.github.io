@@ -2,6 +2,8 @@
 
 Curated community findings and modding references. Sources: Discord logs, AGENTS.md research notes.
 
+> **Anti-tamper**: WD2 uses Denuvo — see [Denuvo analysis](../../why-not/denuvo-analysis.md).
+
 ## Gun Sounds (Mel Breezy, Pesky Fly)
 
 Gun sounds are NOT in patch, patch2, common, or sound.dat. They live in `san_francisco` archive in bnk format.

@@ -1,3 +1,8 @@
 .opencode/
 */AGENTS.md
 .worktrees/
+
+# Node / Docusaurus artifacts
+node_modules/
+build/
+.docusaurus/

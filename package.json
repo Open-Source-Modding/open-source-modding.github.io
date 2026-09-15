@@ -1,1 +1,32 @@
-{}
+{
+  "name": "open-source-modding.github.io",
+  "version": "1.0.0",
+  "description": "Reverse engineering and modding research for game engines — Docusaurus site",
+  "private": true,
+  "scripts": {
+    "prebuild": "node scripts/check-links.mjs",
+    "build": "docusaurus build",
+    "start": "docusaurus start",
+    "clear": "docusaurus clear",
+    "swizzle": "docusaurus swizzle"
+  },
+  "keywords": [
+    "modding",
+    "reverse-engineering",
+    "docusaurus"
+  ],
+  "devDependencies": {
+    "@docusaurus/core": "^3.10.2",
+    "@docusaurus/preset-classic": "^3.10.2",
+    "@docusaurus/theme-classic": "^3.10.2",
+    "@docusaurus/theme-search-algolia": "^3.10.2",
+    "@docusaurus/tsconfig": "^3.10.2",
+    "@easyops-cn/docusaurus-search-local": "^0.55.3",
+    "glob": "^13.0.6",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}

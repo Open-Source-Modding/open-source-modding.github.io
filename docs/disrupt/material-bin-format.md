@@ -927,7 +927,7 @@ VOffset
 
 Source: `~/Documents/Code/re/Ubisoft/Disrupt/DisruptEditor/res/materialNames.txt` (916 lines, CRC32 hash→name dictionary for `.material.bin` parameters). Identical copies in `blender-io-disrupt/modules/Watch_Dogs/` and `hV_WD_ModdingKit_PLUS/Tools/DisruptEditor/res/`.
 
-## Community notes (unsorted/MaterialBin/)
+## Community notes (Discord)
 - Disrupt Editor material converter (fan-made, WD1-origin, works all 3 WD games) has BUGS: wrong file length on bin→xml→bin (crashes!), float precision loss. Hex edit safest.
 - Texture paths in XML use backslash `graphics\...`; textureHistory field lists past texture paths.
 - XBT = header + DDS; header controls brightness/usage; keep original header! _high.xbt = highest mip (separate file, referenced in header). Tools: hV_WD1ModdingKit.exe (drag xbt↔dds), Gibbed.Dunia (svn.gib.me/public/dunia2/).

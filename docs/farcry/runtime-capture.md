@@ -56,3 +56,21 @@ x86_64-w64-mingw32-objdump -d --start-address=0x180575D000 \
 
 Both plugins need the game to run to do anything. The capture-run step is the
 unvalidated part — see the common-ground `OPEN` items.
+
+## Symbol source: Disrupt debug PDB (WDL leak)
+
+A leaked *Watch Dogs: Legion* debug build ships full debug symbols:
+
+- `DuniaDemo_rt64.dll` + **`DuniaDemo_rt64.pdb`**
+- Retail (`DuniaDemo_clang_64_dx11.dll`) has different rebuild, so addresses
+  do not line up 1:1 — the PDB is a *symbolic/structure* reference, not an
+  address map.
+
+Why it matters here: Disrupt is a Dunia 2 fork, so the PDB names transfer to
+the Far Cry lineage. The thread author uses it to identify virtualized
+anti-debug functions (e.g. `ubiservices::SslCertificateValidator_BF::verifyPinning`)
+and cleanly replace the protected code in the retail DLL — the same class of
+VMProtect stub that FC6's `FC_m64d3d12.dll` carries. When DumpModule has a
+post-unpack image, cross-map the PDB's virtualized-function names against it.
+Source: Fearless Revolution (Watch Dogs: Legion thread). The "terabytes of
+Ubisoft source leak" referenced there is unverified — not yet banked on.

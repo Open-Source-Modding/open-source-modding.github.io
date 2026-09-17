@@ -50,6 +50,10 @@ dotnet run --project Gibbed.FarCry6.RebuildFileLists -- <data_final/>
 - Reads every `*.fat` under the install dir (plus `.fat.bak`), loads all
   `*.filelist` from the game's files/ dir (submodule), resolves each entry hash,
   writes `<archive>.filelist` + `status.txt` + `failure.txt`.
+- Coverage % depends on which FAT files are present — a full install with all
+  language packs will have higher coverage than an English-only install, because
+  more hashes can be resolved from more filelists.
+- Backs up existing `.filelist` to `.bak` before overwriting (fix Sep 2026).
 - `failure.txt` receives genuine hash collisions (filtered from output) —
   case variants are deduped via `HashList.Add()` + lowercase modifier.
 - Merge rule: unions with existing lists, never overwrites/removes names.

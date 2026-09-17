@@ -115,11 +115,23 @@ define-variation IDs), decoded 2026-09-14. **Big-endian, string-keyed**
 | Names | none in file | 1-byte-len-prefixed strings |
 | Entry count | ~444k members | 119,329 |
 
-## Open (FC6-specific, not in FC1)
+## FC6-specific details
 
-- FC6 `sarb` wrapper around `DXBC` in `shadersobj.dat` — the blob does not
-  validate as standard DXBC (garbage header). FC1 has no equivalent; this is
-  a Disrupt/FC6-era packaging detail.
+- **`sarb` wrapper — RESOLVED Sep 2026**: FC6 `shadersobj.dat` records are
+  LZ4-compressed (FAT flag=2) DXBC-variant containers. Decompressed layout:
+  `sarb` magic + u32 ver(=1) + u32 size1 + u32 size2 + `DXBC` + **16-byte
+  checksum** (this broke naive DXBC parsing) + DXBC header (ver=1, count=8)
+  + chunk offsets + 8 chunks: `SFI0`(shader flags) `ISG1`(input sig v1)
+  `OSG1`(output sig v1) `PSV0`(pipe state) `RTS0`(resource table)
+  `ILDN`(il debug) `HASH` **`DXIL`**(SM6.0+ bytecode). The `sarb` string is
+  an LZ4 literal-run echo of the header, not a framing layer.
+  Decompilable via dxil-spirv→spirv-cross (WDL route). Full layout in
+  [xbg-format.md](xbg-format.md#fc6-shader-blobs-lz4-compressed-dxbc-variant-containers-resolved-sep-2026).
 - FC6 ships **no shader source** (unlike WD1's leaked `shaders.dat`).
   Only `d3d12/shadersobj.dat` + `.fat` exist; the binary string dump
   references `%backend%shadersobj.dat` + `patchshadersobj.dat` only.
+- **FC6 `<technique>` XML**: 5404 `technique` records in `shadersobj.dat`
+  (AlphaBlendEnable, ZEnable/ZFunc, Stencil, CullMode CCW,
+  RenderTargetFormat, DepthStencilFormat, VertexElement input layout).
+  The XML uses a compressed-string scheme; first shader input layout shows
+  `S_Position Float3 Index 0 Stream 0 InstanceStepRate`.

@@ -33,8 +33,9 @@ Primary source threads:
   ミルクティー/miru) + cross-check against the real FC6 install. `.fat` start
   `b'2TAF'` ("FAT2") + u32 version `0x0b`. v11 header (24B): u32 'FAT2', u32
   version=11, u32 unknown=1, u32 subfatTotalEntryCount, u32 subfatCount, u32
-  totalFiles. Entries 20B each: u64 NameHash (halves byte-swapped on read →
-  stored high-half-first), u32 UncompressedSize (low 2 bits = CompressionScheme
+  totalFiles. Entries 20B each: u64 NameHash (**RAW CRC64, NOT halves-swapped**
+  — verified 200/200 known entries; earlier "halves byte-swapped" claim was wrong
+  and hid ~5,499 names, corrected Sep 2026), u32 UncompressedSize (low 2 bits = CompressionScheme
   flag: None=0/LZO1x=1/LZ4=2, >>2 = size), u32 UnresolvedOffset, u32
   CompressedSize. v11 decode: `offset = ((compressedSize>>29 | unresolvedOffset<<3) << 4)`;
   `compressedSize &= 0x1FFFFFFF`; `uncompressedSize >>= 2`; `flag = uncompressedSize&3`.
@@ -175,11 +176,12 @@ game to log which files it opens:
 ## Open questions / gaps
 
 - Exact FC6 FAT v11 entry layout — **now resolved (see §1)**: 20-byte entries,
-  offset `((comp>>29 | off<<3)<<4)`, hash halves byte-swapped on read.
-- FC6 `sarb` shader wrapper structure (in `shadersobj.dat`) — not covered in
-  any XeNTaX thread; remains open.
-- FC6 XBG **field-level** vertex decode (the repo's own open item) — threads
-  confirm the short-signed XZY verts + per-LOD splitting but not the full
-  descriptor semantics.
-- The PC vs PS4 Denuvo difference in FC6 asset decoding is worth chasing —
-  PC files reportedly need the obfuscation handled.
+  offset `((comp>>29 | off<<3)<<4)`, hash is RAW CRC64 (NOT halves-swapped,
+  corrected Sep 2026).
+- FC6 `sarb` shader wrapper structure — **RESOLVED Sep 2026**: LZ4-compressed
+  (FAT flag=2) DXBC-variant containers holding DXIL chunk. See
+  [shader-system-lineage.md](shader-system-lineage.md) and
+  [xbg-format.md](xbg-format.md#fc6-shader-blobs-lz4-compressed-dxbc-variant-containers-resolved-sep-2026).
+- FC6 XBG field-level vertex decode — **RESOLVED Sep 2026**: SDOL descriptor
+  resolved via John76's XeNTaX struct; packed i16 XZY verts, per-LOD split.
+  See [xbg-format.md](xbg-format.md).

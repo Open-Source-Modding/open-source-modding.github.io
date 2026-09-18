@@ -26,11 +26,11 @@ For the full editing workflow using `ConvertMaterials.exe`, see [material-bin-fo
 **Workarounds** (if stuck on an old converter build):
 1. **Hex edit directly** — keep original, export edited, diff bytes, port only changed values back
 2. **Manual process** (Crank Beige, 2020-05-31):
-   - Get original material
-   - Export to XML, convert back to bin, compare bytes
-   - Assign new diffuse textures in XML
-   - Compare edited XML→bin vs original
-   - Port only diffuse changes to original binary
+ - Get original material
+ - Export to XML, convert back to bin, compare bytes
+ - Assign new diffuse textures in XML
+ - Compare edited XML→bin vs original
+ - Port only diffuse changes to original binary
 3. **Run `res/material_sizefixer.1sc`** from the converter's own directory to fix the header values after the fact
 
 ### ZModeler3 Material Issues

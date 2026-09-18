@@ -5,9 +5,9 @@ Cross-game tool compatibility issues and known problems.
 ## Gibbed.Disrupt
 
 - **Breaks at archives >4GB** (The Pesky Fly confirmed). Large WDL patch
-  archives may exceed this limit.
+ archives may exceed this limit.
 - **`Gibbed.Disrupt.ConvertBinaryObject.exe`** (WD2 version) works for WDL
-  binary objects. Use the WD2 version, not the WDL-specific one.
+ binary objects. Use the WD2 version, not the WDL-specific one.
 
 ## Unpack / Pack Tools
 
@@ -31,9 +31,9 @@ Cross-game tool compatibility issues and known problems.
 ## WD2 XBG Binary Import
 
 - The Blender addon's XBG binary import (`import_wd2_xbg.py`) supports
-  **static props and character models** (pers09, wrench, etc.).
+ **static props and character models** (pers09, wrench, etc.).
 - Character model support added 2026-09-05 — handles the different binary
-  layout (skipMess blobs, secondary motion, mesh list variants).
+ layout (skipMess blobs, secondary motion, mesh list variants).
 - `.glm` text import remains available as a fallback.
 
 ## Cross-References

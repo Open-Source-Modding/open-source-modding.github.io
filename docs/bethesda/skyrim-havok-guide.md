@@ -39,9 +39,9 @@ with zlib compression, SE ships BSA v105 (0x69) with LZ4 compression**
 the layout is consistent:
 
 ```
-meshes\actors\<actor>\character assets\skeleton.hkx   (Havok skeleton)
-meshes\actors\<actor>\character assets\skeleton.nif   (rig)
-meshes\actors\<actor>\animation\*.hkx                 (animation clips)
+meshes\actors\<actor>\character assets\skeleton.hkx (Havok skeleton)
+meshes\actors\<actor>\character assets\skeleton.nif (rig)
+meshes\actors\<actor>\animation\*.hkx (animation clips)
 ```
 
 Concrete example from the `hkxcmd` README (the chicken tutorial):
@@ -77,10 +77,10 @@ End-to-end workflow:
 3. **Preview** in Havok Preview Tool (see below).
 4. **Export KF** `hkxcmd exportkf` → `.kf` files.
 5. **Import into 3ds Max** via the niftools importer (`Netimmerse/Gamebryo
-   (*.nif, *.kf)`). Import the `skeleton.nif` explicitly *before* the mesh
-   if animations come in corrupt.
+ (*.nif, *.kf)`). Import the `skeleton.nif` explicitly *before* the mesh
+ if animations come in corrupt.
 6. **Edit**, add the `start`/`end` note tracks, export as **"Single KF w/o
-   NIF"**.
+ NIF"**.
 7. **Convert back** `hkxcmd convertkf skeleton.hkx export.kf export.hkx`.
 8. **Validate** the result in NifSkope.
 
@@ -134,11 +134,11 @@ For binary-level work, `reference/havok/hkx_format.md` documents the packfile
 container (header, section table, fixups). Key Skyrim deltas from that doc:
 
 - Packfile **version 8** (SE/AE) vs 11 (FO4); LE is 32-bit → **4-byte
-  pointers**, SE/AE are 64-bit → **8-byte pointers**.
+ pointers**, SE/AE are 64-bit → **8-byte pointers**.
 - Contents version string is the `hk_2010.2.0-r1` era for Skyrim, versus
-  `hk_2014.1.0-r1` for FO4.
+ `hk_2014.1.0-r1` for FO4.
 - `hkaSkeleton` in the Skyrim era predates the HK2012+ `partitions` member
-  seen in FO4 files.
+ seen in FO4 files.
 
 ## Tools
 

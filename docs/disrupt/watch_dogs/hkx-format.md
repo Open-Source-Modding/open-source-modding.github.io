@@ -48,19 +48,19 @@ match — a mismatched CI/HKX pair causes missing or broken collision.
 ### Header (16 bytes)
 
 ```
-+0x00  u32     HeaderField0 (typically 0x89)
-+0x04  u32     HeaderCrc
-+0x08  u32     TagfileTotalSize (entire file size)
-+0x0C  u32     Reserved/unknown
++0x00 u32 HeaderField0 (typically 0x89)
++0x04 u32 HeaderCrc
++0x08 u32 TagfileTotalSize (entire file size)
++0x0C u32 Reserved/unknown
 ```
 
 ### Section Loop (starts at offset 0x10)
 
 Each section is an `hkChunk` (8 bytes header + payload):
 ```
-+0x00  u32     sizeAndFlags (24-bit size + flags, little-endian)
-+0x04  u32     tag (FourCC, little-endian)
-+0x08  byte[]  payload (size bytes)
++0x00 u32 sizeAndFlags (24-bit size + flags, little-endian)
++0x04 u32 tag (FourCC, little-endian)
++0x08 byte[] payload (size bytes)
 ```
 
 The `sizeAndFlags` field: `size = value & 0xffffff`, `isSubChunk = (value & 0x40000000) != 0`.
@@ -104,22 +104,22 @@ Contains serialized Havok objects:
 
 ### HkxConvexShape
 ```
-Variant         HkxShapeVariant   Quantized or FullPrecision
-ShapeItemIndex  int32
+Variant HkxShapeVariant Quantized or FullPrecision
+ShapeItemIndex int32
 VertexHeaderItemIndex int32
-AabbMin         Vector3
-AabbMax         Vector3
-ConvexRadius    float32
-QuantScale      Vector3
-Vertices        List<Vector3>
-QuadIndices     List<int32>
+AabbMin Vector3
+AabbMax Vector3
+ConvexRadius float32
+QuantScale Vector3
+Vertices List<Vector3>
+QuadIndices List<int32>
 ```
 
 ### HkxChildTransform
 ```
-ChildItemIndex  int32
-Transform       Matrix4x4
-Scale           Vector3
+ChildItemIndex int32
+Transform Matrix4x4
+Scale Vector3
 ```
 
 ## Ubisoft Modifications

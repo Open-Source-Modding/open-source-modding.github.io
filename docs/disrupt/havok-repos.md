@@ -44,10 +44,10 @@
 ## AssetCc (Havok SDK tool)
 - **What**: Batch converter between binary HKX and XML HKX.
 - **Commands**:
-  ```
-  AssetCc1.exe --strip bin.hkx xml.hkx      # Binary → XML (keeps version)
-  AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx  # XML → Binary
-  ```
+ ```
+ AssetCc1.exe --strip bin.hkx xml.hkx # Binary → XML (keeps version)
+ AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx # XML → Binary
+ ```
 - `--strip` removes extra junk at file start
 - `--rules4101` vs `--rules8011`: different platform rule sets (4101 = Win32, preferred)
 - Cc1 keeps original version; Cc2 converts to SDK version it was built with
@@ -71,11 +71,11 @@
 
 - **What**: The Havok SDK was freely available from Intel until Microsoft acquired Havok.
 - **Contains**:
-  - AssetCc batch converter
-  - Havok Standalone Tool (visualization)
-  - Havok Content Tools (3ds Max plugin)
-  - Full documentation files including compression algorithm details
-  - Demo projects (AnimatedSkeletonDemo for animation extraction)
+ - AssetCc batch converter
+ - Havok Standalone Tool (visualization)
+ - Havok Content Tools (3ds Max plugin)
+ - Full documentation files including compression algorithm details
+ - Demo projects (AnimatedSkeletonDemo for animation extraction)
 - **SDK demo approach**: load skeleton + animation files, then read data programmatically via the `AnimatedSkeletonDemo.cpp` class.
 
 ### Concrete SDK sources (shared by Encrypted, WD Modding Discord, 2026-08)
@@ -85,9 +85,9 @@
 - **TagTools** (blueskythlikesclouds): https://github.com/blueskythlikesclouds/TagTools — tools for editing Havok **2015/2016 binary tag files**; Havoc branch kept for reference.
 - **Havok 2014.1 SDK torrent** (rutracker): https://rutracker.org/forum/viewtopic.php?t=5174063 — "HAVOK PHYSICS 2012 SDK + HAVOK ANIMATION, NoSimd, Win32 2014.1.0" (`[rutracker-5174063].torrent`).
 - **Google Drive SDK folders**:
-  - https://drive.google.com/drive/folders/0B8SgSQGjqypSaUxIT2ptUVVwVVk?resourcekey=0-auzKqYyyhxEMzdQNNA23sA
-  - https://drive.google.com/drive/folders/0B3SZOCCKd7Ipb2w2SkN4bjJwSzg?resourcekey=0-vPD5gmb33TWGaysgqSKo-w
-  - https://drive.google.com/drive/folders/0B-85OBEi6SEkV2RhTTl0bzliZ28?resourcekey=0-Ng8WCMDV0TZ8DBsgV9TBvA
+ - https://drive.google.com/drive/folders/0B8SgSQGjqypSaUxIT2ptUVVwVVk?resourcekey=0-auzKqYyyhxEMzdQNNA23sA
+ - https://drive.google.com/drive/folders/0B3SZOCCKd7Ipb2w2SkN4bjJwSzg?resourcekey=0-vPD5gmb33TWGaysgqSKo-w
+ - https://drive.google.com/drive/folders/0B-85OBEi6SEkV2RhTTl0bzliZ28?resourcekey=0-Ng8WCMDV0TZ8DBsgV9TBvA
 
 ## Key Insight
 To parse the compressed mesh from TAG0 files, we need:

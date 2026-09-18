@@ -15,11 +15,11 @@ triggers by ID:
 
 ```xml
 <Frame Time="0.13346702" FrameCRC64="16045091570232110294">
-  <object hash="5BCF3D91" name="CDialogTriggerEvent">
-    <field hash="60534B32" name="hidEventName" value-String="DialogTriggerEvent" .../>
-    <field hash="DCC35857" name="hidTargetEntityId" type="BinHex">FDC48DA466072000</field>
-    ...
-  </object>
+ <object hash="5BCF3D91" name="CDialogTriggerEvent">
+ <field hash="60534B32" name="hidEventName" value-String="DialogTriggerEvent" .../>
+ <field hash="DCC35857" name="hidTargetEntityId" type="BinHex">FDC48DA466072000</field>
+ ...
+ </object>
 </Frame>
 ```
 
@@ -30,12 +30,12 @@ field:
 
 ```xml
 <field hash="77586435" name="text_sDialogTriggerName"
-       value-String="trigger_reflex_jump" type="BinHex">
-  747269676765725F7265666C65785F6A756D7000
+ value-String="trigger_reflex_jump" type="BinHex">
+ 747269676765725F7265666C65785F6A756D7000
 </field>
 <field hash="FC7F79B1" name="sDialogTriggerName"
-       value-ComputeHash32="trigger_reflex_jump" type="BinHex">
-  7C9F092F
+ value-ComputeHash32="trigger_reflex_jump" type="BinHex">
+ 7C9F092F
 </field>
 ```
 

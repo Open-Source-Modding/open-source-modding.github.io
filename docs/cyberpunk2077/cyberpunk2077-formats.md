@@ -13,25 +13,25 @@ Game data packed in **`.archive`** files with **`RDAR`** magic (version 12).
 ### Header & Filesystem (IceReaper's 010 template)
 ```c
 struct Header {
-    char RDAR[4];
-    int version;               // 12
-    int64 fileSystemOffset;
-    int64 fileSystemSize;
-    int64 unk2;                // 0
-    int64 fileSize;
-    int unk3[33];              // 0
+ char RDAR[4];
+ int version; // 12
+ int64 fileSystemOffset;
+ int64 fileSystemSize;
+ int64 unk2; // 0
+ int64 fileSize;
+ int unk3[33]; // 0
 };
 
 struct FileSystem {
-    int unk1;                  // 8
-    int chunkSize;
-    int64 unk2;
-    int numDataChunkGroups;
-    int numDataChunks;
-    int numUnk3;
-    DataChunkGroup dataChunkGroup[numDataChunkGroups];
-    DataChunk dataChunk[numDataChunks];
-    int64 unk3[numUnk3];
+ int unk1; // 8
+ int chunkSize;
+ int64 unk2;
+ int numDataChunkGroups;
+ int numDataChunks;
+ int numUnk3;
+ DataChunkGroup dataChunkGroup[numDataChunkGroups];
+ DataChunk dataChunk[numDataChunks];
+ int64 unk3[numUnk3];
 };
 ```
 

@@ -6,26 +6,26 @@ FC6 retail install (Sep 2026).
 ## Data flow
 
 ```
-concatenated/ (raw accumulation, RE repo /home/selene/Documents/Code/re/Ubisoft/Dunia/concatenated/)
-        |  339 snapshots, 7.35M lines; per-archive families like common (1)-(8).filelist
-        |  from FC5Hook/FC6Hook filename loggers + community file lists
-        v  [Gibbed.Dunia RebuildFileLists]
+concatenated/ (raw accumulation from FCHook/FC6Hook filename loggers)
+ | 339 snapshots, 7.35M lines; per-archive families like common (1)-(8).filelist
+ | from FC5Hook/FC6Hook filename loggers + community file lists
+ v [Gibbed.Dunia RebuildFileLists]
 FarCry*-File-Lists submodules (OSM org)
-        |  configs/Far Cry X/files/pc/<archive>.filelist
-        |  status.txt = named/total per archive
-        v  [Unpack / FCBConverter]
+ | configs/Far Cry X/files/pc/<archive>.filelist
+ | status.txt = named/total per archive
+ v [Unpack / FCBConverter]
 named files extracted
 ```
 
 ## FAT hashing
 
 - FC FAT entries store **64-bit CRC64** of the path (case-sensitive, backslash
-  separators). Verified 12/12 against the Joseph-Seed Discord bot's `!crc` outputs.
+ separators). Verified 12/12 against the Joseph-Seed Discord bot's `!crc` outputs.
 - FC_Plugins' FNV1a32 is **not** the archive hash.
 - FAT v11 decode: `offset = ((compressedSize>>29 | unresolvedOffset<<3)<<4)`,
-  `compressedSize &= 0x1FFFFFFF`, `uncompressedSize >>= 2`, `flag = uncompressedSize&3`.
-  (Full struct: see xentax-farcry-knowledge.md §1.) **The FAT stores the raw CRC64 —
-  NOT halves-swapped** (see the correction under "CRC64 algorithm" below).
+ `compressedSize &= 0x1FFFFFFF`, `uncompressedSize >>= 2`, `flag = uncompressedSize&3`.
+ (Full struct: see xentax-farcry-knowledge.md §1.) **The FAT stores the raw CRC64 —
+ NOT halves-swapped** (see the correction under "CRC64 algorithm" below).
 
 ## File-list repos (OSM)
 
@@ -48,14 +48,14 @@ dotnet run --project Gibbed.FarCry6.RebuildFileLists -- <data_final/>
 ```
 
 - Reads every `*.fat` under the install dir (plus `.fat.bak`), loads all
-  `*.filelist` from the game's files/ dir (submodule), resolves each entry hash,
-  writes `<archive>.filelist` + `status.txt` + `failure.txt`.
+ `*.filelist` from the game's files/ dir (submodule), resolves each entry hash,
+ writes `<archive>.filelist` + `status.txt` + `failure.txt`.
 - Coverage % depends on which FAT files are present — a full install with all
-  language packs will have higher coverage than an English-only install, because
-  more hashes can be resolved from more filelists.
+ language packs will have higher coverage than an English-only install, because
+ more hashes can be resolved from more filelists.
 - Backs up existing `.filelist` to `.bak` before overwriting (fix Sep 2026).
 - `failure.txt` receives genuine hash collisions (filtered from output) —
-  case variants are deduped via `HashList.Add()` + lowercase modifier.
+ case variants are deduped via `HashList.Add()` + lowercase modifier.
 - Merge rule: unions with existing lists, never overwrites/removes names.
 
 ## CRC64 algorithm (the table gotcha)
@@ -67,12 +67,12 @@ table (`Gibbed.Dunia.FileFormats/Hashing/CRC64.cs`, first entries
 ```
 hash = 0
 for each byte b (lowercased path):
-    hash = Table[(hash & 0xFF) ^ b] ^ (hash >> 8)
+ hash = Table[(hash & 0xFF) ^ b] ^ (hash >> 8)
 ```
 
 - Lowercase the path first (`ToLowerInvariant`); separators are backslashes.
 - A non-reflected table (e.g. poly 0x42F0E1EBA9EA3693 fed into a shifted
-  generator) produces **wrong hashes** — use the table verbatim from CRC64.cs.
+ generator) produces **wrong hashes** — use the table verbatim from CRC64.cs.
 
 > **⚠️ Correction (Sep 2026): the FAT stores the RAW CRC64, NOT halves-swapped.**
 > An earlier version of this doc claimed the on-disk FAT entry was the hash with
@@ -93,13 +93,13 @@ Unpack puts unknown-hash entries under `__UNKNOWN/<type>/<HASH>.<ext>` where
 To recover the real path:
 
 1. Look for the name inside **binary objects** that reference the asset —
-   compiled `.fcb` files contain plaintext paths (e.g. `PHXFT` font objects
-   embed `UI\Common\fonts\src\BenguiatProITC-BoldCond.otf`).
+ compiled `.fcb` files contain plaintext paths (e.g. `PHXFT` font objects
+ embed `UI\Common\fonts\src\BenguiatProITC-BoldCond.otf`).
 2. Verify by hashing candidate paths with the correct table + lowercase +
-   **raw CRC64** (no swap); the result must equal the stored hash. Also try
-   rewriting image-extension paths (`.png/.dds/.tga/...`) to `.xbt`.
+ **raw CRC64** (no swap); the result must equal the stored hash. Also try
+ rewriting image-extension paths (`.png/.dds/.tga/...`) to `.xbt`.
 3. Add the recovered path to the game's `.filelist` and re-run RebuildFileLists
-   so future unpacks resolve it natively.
+ so future unpacks resolve it natively.
 
 ### Case study: FC6 Benguiat font (Sep 2026)
 
@@ -129,9 +129,9 @@ After the Benguiat font, a full **binary string-crawl** over `common_unpack`
 additional paths** (`binary_recovered.filelist` in `FarCry6-File-Lists`):
 
 - Extract every `root\...ext` path string (roots: `ui|graphics|worlds|scripts|
-  sound|audio|actionmaps|dictionaries|mission|sectors|configs|engine|wwise|
-  shaders|nomad|d3d12|databases`), tolerating trailing framing bytes (e.g. the
-  `PHXFT` font object stores `...BoldCond.otfd`).
+ sound|audio|actionmaps|dictionaries|mission|sectors|configs|engine|wwise|
+ shaders|nomad|d3d12|databases`), tolerating trailing framing bytes (e.g. the
+ `PHXFT` font object stores `...BoldCond.otfd`).
 - Hash each with **raw** CRC64; also hash the `.png→.xbt` / `.dds→.xbt` rewrite.
 - Keep those whose hash is in a fat and not already in the filelists.
 
@@ -146,11 +146,11 @@ soundbinary/, animations/, move/, domino/) recovered **6,079 more paths**
 (binary_recovered.filelist, now 11,579 lines):
 
 - **5,511 .move.bin** animation state machines: movelendtrees\... and
-  move\decisiontrees\... (player 1st/3rd-person weapon reload/shoot trees,
-  animal locomotion/action trees, AI stp trees). installpkg.fat holds the whole
-  movelendtrees asset class - previously unnamed.
+ move\decisiontrees\... (player 1st/3rd-person weapon reload/shoot trees,
+ animal locomotion/action trees, AI stp trees). installpkg.fat holds the whole
+ movelendtrees asset class - previously unnamed.
 - **328 .xbt** DLC4 animal textures (_textures\<variant>\*_mips.xbt:
-  mongoose, jaguar, croc, jellyfish, crow, coyote flayed...).
+ mongoose, jaguar, croc, jellyfish, crow, coyote flayed...).
 - **173 .fcb**, **13 .xbg** (world vista_locations), **54 .material.bin**.
 
 FC6 RFL status: 961645 -> **967724/1502018 (64%)**. Commits:

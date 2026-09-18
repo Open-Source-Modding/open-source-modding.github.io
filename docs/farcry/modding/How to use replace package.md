@@ -55,11 +55,11 @@ etc...
 Now the new tags:
 
 - **Replaces** -- there are defined replace actions, you can add as many
-  as you want, see more below
+ as you want, see more below
 
 - **Replace** -- this is replace for one or only in one file. It needs
-  attribute **RequiredFile** which is complete file name of file in
-  which will be the replace created.
+ attribute **RequiredFile** which is complete file name of file in
+ which will be the replace created.
 
 Also, take care of new root tag name -- **PackageInfoReplace**
 
@@ -444,10 +444,10 @@ House\</field\>
 So, how to define it:
 
 - reorder_object - it's a hash of children *objects* which will be
-  sorted
+ sorted
 
 - reorder_by - it's a *field* in the child *object*, its value is taken
-  to sorting
+ to sorting
 
 - reorder_type - type of sorting, it can be **asc** or **desc**
 
@@ -584,17 +584,17 @@ there sixth times and I want to replace all sixth objects.
 And now a little more. What if you want to replace only one of the six
 objects? Do you know how to do it? If not, look below.
 
-1.  We must find parent object of object with hash **90E76EC8.**
+1. We must find parent object of object with hash **90E76EC8.**
 
-2.  It is an object with hash **C9762625** named as **Health**. But this
-    is also sixth times there. So we must go upper.
+2. It is an object with hash **C9762625** named as **Health**. But this
+ is also sixth times there. So we must go upper.
 
-3.  Next parent is an object with hash **B96328AF** named as
-    **StatsAndCounters.** But still same. Go upper.
+3. Next parent is an object with hash **B96328AF** named as
+ **StatsAndCounters.** But still same. Go upper.
 
-4.  Finally we found object with hash **6E167DD5** named **Template**.
-    It has child with hash **C821B0C6** named **FullName**. Value of
-    this field is unique -- this is what we need.
+4. Finally we found object with hash **6E167DD5** named **Template**.
+ It has child with hash **C821B0C6** named **FullName**. Value of
+ this field is unique -- this is what we need.
 
 So, here is complete replace for only one specific object of six.
 

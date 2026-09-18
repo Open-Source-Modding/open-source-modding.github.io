@@ -8,27 +8,27 @@ Sample structs (from `Havok2015_WD2.h`):
 
 ```c
 struct hkAlignSceneToNodeOptions : public hkReferencedObject {
-    // size: 40 bytes, version: 7
+ // size: 40 bytes, version: 7
 };
 
 struct hkGeometry : public hkReferencedObject {
-    // size: 48 bytes, version: 7
-    // 6 members (encrypted .link)
+ // size: 48 bytes, version: 7
+ // 6 members (encrypted .link)
 };
 
 struct hkMeshBody : public hkReferencedObject {
-    // size: 440 bytes, version: 7
-    // 3 members (encrypted .link)
+ // size: 440 bytes, version: 7
+ // 3 members (encrypted .link)
 };
 
 struct hkMeshSystem : public hkReferencedObject {
-    // size: 240 bytes, version: 7
-    // 1138 members (encrypted .link)
+ // size: 240 bytes, version: 7
+ // 1138 members (encrypted .link)
 };
 
 struct hknpBodyCinfo {
-    // size: 256 bytes, version: 7
-    // 22 members (encrypted .link)
+ // size: 256 bytes, version: 7
+ // 22 members (encrypted .link)
 };
 ```
 

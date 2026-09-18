@@ -88,19 +88,19 @@ The leak included the full shader compiler toolchain. Decompilation reveals the 
 
 ```
 ShaderGenerator2 (editor plugin)
-    → reads shader families from XML
-    → GenerateAllVariations()
-    → ComputeShaderID() → TShaderID<uint64>
+ → reads shader families from XML
+ → GenerateAllVariations()
+ → ComputeShaderID() → TShaderID<uint64>
 CShaderCache → stores compiled shaders indexed by TShaderID
 CPlatformShaderCompiler → dispatches to platform backend:
-    CBackEndD3D11 (PC DX11)
-    CBackEndD3D12 (PC DX12)
-    CBackEndOrbis (PS4)
-    CBackEndVulkanDxsc (Vulkan)
-    CBackEndDurango (Xbox One)
+ CBackEndD3D11 (PC DX11)
+ CBackEndD3D12 (PC DX12)
+ CBackEndOrbis (PS4)
+ CBackEndVulkanDxsc (Vulkan)
+ CBackEndDurango (Xbox One)
 ByteCodeCompiler::CCompiler → preprocesses + compiles HLSL
-    → uses d3dcompiler_47.dll (PC)
-    → or sce::Shader::Wave::Psslc (Orbis/PS4)
+ → uses d3dcompiler_47.dll (PC)
+ → or sce::Shader::Wave::Psslc (Orbis/PS4)
 ```
 
 ### TShaderID
@@ -142,10 +142,10 @@ WD1's `engine/shaders/fastinitdata.bin` (1,192,728 bytes) is a Nomad resource:
 94 XML files in the leak, 46 in WD1. Each defines parameters for a shader type:
 ```xml
 <materialdescriptor name="DriverGeneric" id="#(hash_lo, hash_hi)">
-  <geometryInputs>normal, tangent, binormal, color, uvChannels</geometryInputs>
-  <parameter type="sampler2D" name="DiffuseTexture1" default="graphics\_textures\default.xbt" />
-  <parameter type="float4" name="DiffuseTiling1AndGroup1" default="1,1,0,0" />
-  ...
+ <geometryInputs>normal, tangent, binormal, color, uvChannels</geometryInputs>
+ <parameter type="sampler2D" name="DiffuseTexture1" default="graphics\_textures\default.xbt" />
+ <parameter type="float4" name="DiffuseTiling1AndGroup1" default="1,1,0,0" />
+ ...
 </materialdescriptor>
 ```
 

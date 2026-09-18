@@ -79,10 +79,10 @@ Version 11 adds 16 extra bytes of header padding. The `--strip` flag on AssetCc1
 ### AssetCc (Havok SDK tools)
 - **Location**: `hkSDK_Root\Tools\BatchProcess\AssetCc`
 - **Usage**:
-  ```
-  AssetCc1.exe --strip bin.hkx xml.hkx          # binary → XML
-  AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx  # XML → binary
-  ```
+ ```
+ AssetCc1.exe --strip bin.hkx xml.hkx # binary → XML
+ AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx # XML → binary
+ ```
 - **Cc1 vs Cc2**: Cc1 keeps original version number; Cc2 converts to the version the exe was built with.
 - **Rules**: `--rules4101` (Win32 x64) vs `--rules8011` (Win32 x86) — different binary output
 - **Limitation**: AssetCc from 2014 SDK rejects 2013.2.0 files with "Unsupported file format"
@@ -111,48 +111,48 @@ Source: t=12857, t=11155, t=4066
 ### Animation Type Enum
 ```cpp
 enum hkaAnimation::AnimationType {
-    HK_UNKNOWN_ANIMATION = 0x0,
-    HK_INTERLEAVED_ANIMATION = 0x1,
-    HK_MIRRORED_ANIMATION = 0x2,
-    HK_SPLINE_COMPRESSED_ANIMATION = 0x3,
-    HK_QUANTIZED_COMPRESSED_ANIMATION = 0x4,
-    HK_PREDICTIVE_COMPRESSED_ANIMATION = 0x5,
-    HK_REFERENCE_POSE_ANIMATION = 0x6,
+ HK_UNKNOWN_ANIMATION = 0x0,
+ HK_INTERLEAVED_ANIMATION = 0x1,
+ HK_MIRRORED_ANIMATION = 0x2,
+ HK_SPLINE_COMPRESSED_ANIMATION = 0x3,
+ HK_QUANTIZED_COMPRESSED_ANIMATION = 0x4,
+ HK_PREDICTIVE_COMPRESSED_ANIMATION = 0x5,
+ HK_REFERENCE_POSE_ANIMATION = 0x6,
 };
 ```
 
 ### TrackCompressionParams (from PBD analysis, SergeantJoe)
 ```cpp
 struct hkaSplineCompressedAnimation::TrackCompressionParams {
-    float m_rotationTolerance;
-    float m_translationTolerance;
-    float m_scaleTolerance;
-    float m_floatingTolerance;
-    unsigned __int16 m_rotationDegree;
-    unsigned __int16 m_translationDegree;
-    unsigned __int16 m_scaleDegree;
-    unsigned __int16 m_floatingDegree;
-    hkEnum<RotationQuantization, unsigned char> m_rotationQuantizationType;
-    hkEnum<ScalarQuantization, unsigned char> m_translationQuantizationType;
-    hkEnum<ScalarQuantization, unsigned char> m_scaleQuantizationType;
-    hkEnum<ScalarQuantization, unsigned char> m_floatQuantizationType;
+ float m_rotationTolerance;
+ float m_translationTolerance;
+ float m_scaleTolerance;
+ float m_floatingTolerance;
+ unsigned __int16 m_rotationDegree;
+ unsigned __int16 m_translationDegree;
+ unsigned __int16 m_scaleDegree;
+ unsigned __int16 m_floatingDegree;
+ hkEnum<RotationQuantization, unsigned char> m_rotationQuantizationType;
+ hkEnum<ScalarQuantization, unsigned char> m_translationQuantizationType;
+ hkEnum<ScalarQuantization, unsigned char> m_scaleQuantizationType;
+ hkEnum<ScalarQuantization, unsigned char> m_floatQuantizationType;
 };
 ```
 
 ### Quantization Types
 ```cpp
 enum RotationQuantization {
-    POLAR32 = 0x0,      // 32-bit: 10-bit magnitude + 18-bit phi/theta
-    THREECOMP40 = 0x1,  // 40-bit: three 11-bit components
-    THREECOMP48 = 0x2,  // 48-bit: three 15-bit components
-    THREECOMP24 = 0x3,  // 24-bit
-    STRAIGHT16 = 0x4,   // 16-bit quat: 8-bit components
-    UNCOMPRESSED = 0x5, // 4x float32
+ POLAR32 = 0x0, // 32-bit: 10-bit magnitude + 18-bit phi/theta
+ THREECOMP40 = 0x1, // 40-bit: three 11-bit components
+ THREECOMP48 = 0x2, // 48-bit: three 15-bit components
+ THREECOMP24 = 0x3, // 24-bit
+ STRAIGHT16 = 0x4, // 16-bit quat: 8-bit components
+ UNCOMPRESSED = 0x5, // 4x float32
 };
 
 enum ScalarQuantization {
-    BITS8 = 0x0,
-    BITS16 = 0x1,
+ BITS8 = 0x0,
+ BITS16 = 0x1,
 };
 ```
 
@@ -192,7 +192,7 @@ Each tool only supports specific versions, but the underlying format is often id
 
 ### Animation Swap (SergeantJoe, Post 70)
 To swap animations that are already in-game:
-1. Replace data starting with "WaaW" and ending with "+    yyyyyy"
+1. Replace data starting with "WaaW" and ending with "+ yyyyyy"
 2. The two header numbers before "WaaW" are memory size pointers
 3. Set them to minimum possible values to avoid crashes
 
@@ -202,14 +202,14 @@ Changing `hkaAnimationBinding.blendHint` from NORMAL to ADDITIVE can reveal anim
 ### Platform Flag Issues (Loomy, Post 88)
 ```
 public enum hkPlatform {
-    HCL_PLATFORM_WIN32 = 0x0,
-    HCL_PLATFORM_X64 = 0x1,
-    HCL_PLATFORM_PS3 = 0x10,
-    HCL_PLATFORM_XBOX360 = 0x20,
-    HCL_PLATFORM_WII = 0x40,
-    HCL_PLATFORM_LINUX = 0x100,
-    HCL_PLATFORM_ANDROID = 0x800,
-    // ...
+ HCL_PLATFORM_WIN32 = 0x0,
+ HCL_PLATFORM_X64 = 0x1,
+ HCL_PLATFORM_PS3 = 0x10,
+ HCL_PLATFORM_XBOX360 = 0x20,
+ HCL_PLATFORM_WII = 0x40,
+ HCL_PLATFORM_LINUX = 0x100,
+ HCL_PLATFORM_ANDROID = 0x800,
+ // ...
 }
 ```
 PS3/big-endian files require byte-swapping for all multi-byte values.

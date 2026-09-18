@@ -56,7 +56,7 @@ Watch Dogs: Legion uses **two different Havok versions** depending on the build:
 
 **CORRECTION (2026-09-04)**: Leak WDL HKX shows `SDKV="20150100"` (2015.1), retail WDL shows `SDKV="20170200"` (2017.2). These are different Havok SDK versions, not just a wrapper difference. The retail build was updated to a newer SDK between the leak and release.
 
-54k WDL samples available in `~/Documents/Code/re/ubisoft/extracted/data_win64/`. The retail 2017.2 chunked format is in the same family as Starfield's 2019.02 and is parseable by `parsers/StarfieldMeshConverter/`.
+54k WDL samples available in . The retail 2017.2 chunked format is in the same family as Starfield's 2019.02 and is parseable by `parsers/StarfieldMeshConverter/`.
 
 ### Havok License Keys
 
@@ -85,19 +85,19 @@ Version 11 (2013.2+ / 2014+): adds `int16 max_predicates` + `int16 unknown` repl
 ### Platform Flags
 ```c
 enum hkPlatform {
-    HCL_PLATFORM_WIN32   = 0x0,
-    HCL_PLATFORM_X64     = 0x1,
-    HCL_PLATFORM_MACPPC  = 0x2,
-    HCL_PLATFORM_IOS     = 0x4,
-    HCL_PLATFORM_MAC386  = 0x8,
-    HCL_PLATFORM_PS3     = 0x10,
-    HCL_PLATFORM_XBOX360 = 0x20,
-    HCL_PLATFORM_WII     = 0x40,
-    HCL_PLATFORM_LRB     = 0x80,
-    HCL_PLATFORM_LINUX   = 0x100,
-    HCL_PLATFORM_NGP     = 0x400,
-    HCL_PLATFORM_ANDROID = 0x800,
-    HCL_PLATFORM_CTR     = 0x1000,
+ HCL_PLATFORM_WIN32 = 0x0,
+ HCL_PLATFORM_X64 = 0x1,
+ HCL_PLATFORM_MACPPC = 0x2,
+ HCL_PLATFORM_IOS = 0x4,
+ HCL_PLATFORM_MAC386 = 0x8,
+ HCL_PLATFORM_PS3 = 0x10,
+ HCL_PLATFORM_XBOX360 = 0x20,
+ HCL_PLATFORM_WII = 0x40,
+ HCL_PLATFORM_LRB = 0x80,
+ HCL_PLATFORM_LINUX = 0x100,
+ HCL_PLATFORM_NGP = 0x400,
+ HCL_PLATFORM_ANDROID = 0x800,
+ HCL_PLATFORM_CTR = 0x1000,
 };
 ```
 *(Loomy, 2017-12-09)*
@@ -115,23 +115,23 @@ header; the class descriptor index is given by
 
 Header (the field order is fixed)::
 
-    uint32  magic1              = 0x57e0e057
-    uint32  magic2              = 0x10c0c010
-    uint32  user_tag
-    uint32  version             = 11 for FO4, 8 for Skyrim SE
-    uint8   bytes_in_pointer    = 8 (4 for x86 packfiles)
-    uint8   little_endian       = 1
-    uint8   reuse_padding_optimization
-    uint8   base_class          = 1 (always)
-    int32   num_sections        = 3
-    int32   contents_section_index          = 2      (__data__)
-    int32   contents_section_offset         = 0
-    int32   contents_classname_section_index = 0    (__classnames__)
-    int32   contents_classname_section_offset = 75
-    char[16] contents_version   = "hk_2014.1.0-r1\0" for FO4
-    uint32  flags
-    int16   max_predicate       = -1 (no predicates in FO4)
-    int16   section_offset      = -1 (no extra header bytes in FO4)
+ uint32 magic1 = 0x57e0e057
+ uint32 magic2 = 0x10c0c010
+ uint32 user_tag
+ uint32 version = 11 for FO4, 8 for Skyrim SE
+ uint8 bytes_in_pointer = 8 (4 for x86 packfiles)
+ uint8 little_endian = 1
+ uint8 reuse_padding_optimization
+ uint8 base_class = 1 (always)
+ int32 num_sections = 3
+ int32 contents_section_index = 2 (__data__)
+ int32 contents_section_offset = 0
+ int32 contents_classname_section_index = 0 (__classnames__)
+ int32 contents_classname_section_offset = 75
+ char[16] contents_version = "hk_2014.1.0-r1\0" for FO4
+ uint32 flags
+ int16 max_predicate = -1 (no predicates in FO4)
+ int16 section_offset = -1 (no extra header bytes in FO4)
 
 If ``section_offset == 16``, additional fields follow before the section table:
 ``int16 unk_40, int16 unk_42, uint32 unk_44, uint32 unk_48, uint32 unk_4c``.
@@ -141,16 +141,16 @@ If ``little_endian`` is 0 all multi-byte values are byte-swapped.
 
 Section table (one entry per section, 3 sections total in FO4)::
 
-    char[16] section_tag        e.g. "__classnames__", "__types__", "__data__"
-    uint32   constant           = 0xFF000000  (00 00 00 FF little-endian)
-    uint32   absolute_data_start
-    uint32   local_fixups_offset
-    uint32   global_fixups_offset
-    uint32   virtual_fixups_offset
-    uint32   exports_offset
-    uint32   imports_offset
-    uint32   end_offset
-    ... if version >= 11: 16 bytes 0xFF padding AFTER the fields ...
+ char[16] section_tag e.g. "__classnames__", "__types__", "__data__"
+ uint32 constant = 0xFF000000 (00 00 00 FF little-endian)
+ uint32 absolute_data_start
+ uint32 local_fixups_offset
+ uint32 global_fixups_offset
+ uint32 virtual_fixups_offset
+ uint32 exports_offset
+ uint32 imports_offset
+ uint32 end_offset
+ ... if version >= 11: 16 bytes 0xFF padding AFTER the fields ...
 
 The 16-byte ``0xFF`` padding is present only for packfile version >= 11
 (verified against hkxpack ``SectionInterface`` and the FO4 __data__ section:
@@ -173,27 +173,27 @@ ends where the local fixups begin: data bytes =
 Fixup arrays are laid out after the data region, still relative to
 ``absolute_data_start``. Element counts are derived from the offsets:
 
-* local fixups:   between ``local_fixups_offset`` and ``global_fixups_offset``,
-  each ``{ int32 pointer; int32 destination }`` (8 bytes).
-* global fixups:  between ``global_fixups_offset`` and ``virtual_fixups_offset``,
-  each ``{ int32 pointer; int32 section_id; int32 destination }`` (12 bytes).
+* local fixups: between ``local_fixups_offset`` and ``global_fixups_offset``,
+ each ``{ int32 pointer; int32 destination }`` (8 bytes).
+* global fixups: between ``global_fixups_offset`` and ``virtual_fixups_offset``,
+ each ``{ int32 pointer; int32 section_id; int32 destination }`` (12 bytes).
 * virtual fixups: between ``virtual_fixups_offset`` and the section's "virtual
-  EOF", where virtual EOF is ``exports_offset`` if it is not -1 else
-  ``imports_offset``, each ``{ int32 data_offset; int32 section_id;
-  int32 classname_offset }`` (12 bytes).
+ EOF", where virtual EOF is ``exports_offset`` if it is not -1 else
+ ``imports_offset``, each ``{ int32 data_offset; int32 section_id;
+ int32 classname_offset }`` (12 bytes).
 
 Fixup semantics (all pointer/destination fields are 32-bit offsets relative
 to the owning section's ``absolute_data_start``, even for 64-bit builds):
 
 * local fixup: write the address of (section buffer + destination) at
-  (section buffer + pointer). Used for pointers into the same section.
+ (section buffer + pointer). Used for pointers into the same section.
 * global fixup: write the address of
-  (sections[section_id] buffer + destination) at (section buffer + pointer).
-  Used for pointers into other sections (e.g. class data -> classnames).
+ (sections[section_id] buffer + destination) at (section buffer + pointer).
+ Used for pointers into other sections (e.g. class data -> classnames).
 * virtual fixup: creates a virtual class object. Read the class name from
-  ``sections[section_id]`` buffer at ``classname_offset``, compute its Jenkins
-  one-at-a-time hash, look up the class descriptor, then parse the class data
-  starting at ``data_offset``.
+ ``sections[section_id]`` buffer at ``classname_offset``, compute its Jenkins
+ one-at-a-time hash, look up the class descriptor, then parse the class data
+ starting at ``data_offset``.
 
 Entries whose first field (``pointer``/``data_offset``) is ``-1``
 (``0xFFFFFFFF``) are padding and MUST be skipped (verified in the SDK reader,
@@ -219,10 +219,10 @@ Object model / pointers
 -----------------------
 A virtual class has this layout in memory (what fixups point at)::
 
-    ptr      vtable
-    int16    mem_size_and_flags
-    int16    reference_count
-    ... member data ...
+ ptr vtable
+ int16 mem_size_and_flags
+ int16 reference_count
+ ... member data ...
 
 Not every object is a virtual class. Plain structs are stored inline. Pointers
 between objects are stored as fixups, so reading an object requires following
@@ -238,14 +238,14 @@ Class names map to a hash (Jenkins one-at-a-time, see below) that indexes a
 registry. The concrete class data for the common FO4 animation objects:
 
 String pointer
-    A pointer to a NUL-terminated ASCII string (fixup target). Every object
-    that references strings does so through pointer fixups.
+ A pointer to a NUL-terminated ASCII string (fixup target). Every object
+ that references strings does so through pointer fixups.
 
 ``hkArray<T>`` (HK700+, i.e. everything relevant to FO4)::
 
-    ptr       data              (fixup target)
-    uint32    count
-    uint32    capacity_and_flags
+ ptr data (fixup target)
+ uint32 count
+ uint32 capacity_and_flags
 
 Pre-700 files use ``LegacyArray``: a pointer plus a ``uint32`` count with NO
 capacity field, and a different member order (pointer before count). FO4
@@ -253,120 +253,120 @@ animations/skeletons are HK700+, use the 3-field form.
 
 ``hkReferenceObject`` (base class of most runtime objects)::
 
-    ptr      vtable
-    int16    mem_size_and_flags
-    int16    reference_count
+ ptr vtable
+ int16 mem_size_and_flags
+ int16 reference_count
 
 ``hkQTransform`` — 48 bytes, 16-byte aligned::
 
-    hkQuaternion rotation   (4x float32, 16 bytes)
-    hkVector4   translation (4x float32)
-    hkVector4   scale       (4x float32)
+ hkQuaternion rotation (4x float32, 16 bytes)
+ hkVector4 translation (4x float32)
+ hkVector4 scale (4x float32)
 
 ``hkVariant``::
 
-    ptr   object
-    ptr   class_description
+ ptr object
+ ptr class_description
 
 ``hkNamedVariant``::
 
-    ptr   name         (string)
-    ptr   class_name   (string)
-    ptr   variant      (-> hkVariant object)   [HK700+]
+ ptr name (string)
+ ptr class_name (string)
+ ptr variant (-> hkVariant object) [HK700+]
 
 ``hkRootLevelContainer``::
 
-    hkArray<hkNamedVariant> variants
+ hkArray<hkNamedVariant> variants
 
 ``hkaBone``::
 
-    ptr    name            (string)
-    int32  lock_translation
+ ptr name (string)
+ int32 lock_translation
 
 ``hkaSkeleton`` (HK700+ form, what FO4 uses)::
 
-    hkReferenceObject  inherited
-    ptr                name          (string)
-    hkArray<int16>     parent_indices
-    hkArray<hkaBone>   bones          (struct array, no fixups between)
-    hkArray<hkQTransform> transforms
-    hkArray<float>     reference_floats          (HK2010+)
-    hkArray<ptr>       float_slots               (HK550+)
-    hkArray<hkLocalFrameOnBone> local_frames     (HK600+)
-    hkArray<hkaPartition> partitions             (HK2012+)
+ hkReferenceObject inherited
+ ptr name (string)
+ hkArray<int16> parent_indices
+ hkArray<hkaBone> bones (struct array, no fixups between)
+ hkArray<hkQTransform> transforms
+ hkArray<float> reference_floats (HK2010+)
+ hkArray<ptr> float_slots (HK550+)
+ hkArray<hkLocalFrameOnBone> local_frames (HK600+)
+ hkArray<hkaPartition> partitions (HK2012+)
 
 Order of base->derived members: base class data first, then this list.
 ``parent_indices`` are int16; -1 means root.
 
 ``hkaPartition``::
 
-    ptr     name            (string)
-    int16   start_bone_index
-    uint16  num_bones
+ ptr name (string)
+ int16 start_bone_index
+ uint16 num_bones
 
 ``hkLocalFrameOnBone``::
 
-    ptr     local_frame     (-> hkLocalFrame)
-    int32   bone_index      (int16 in HK2011_1 and older)
+ ptr local_frame (-> hkLocalFrame)
+ int32 bone_index (int16 in HK2011_1 and older)
 
 ``hkaAnimationContainer``::
 
-    hkReferenceObject      inherited   (HK700+)
-    hkArray<ptr>  skeletons
-    hkArray<ptr>  animations
-    hkArray<ptr>  bindings
-    hkArray<ptr>  attachments
-    hkArray<ptr>  skins
+ hkReferenceObject inherited (HK700+)
+ hkArray<ptr> skeletons
+ hkArray<ptr> animations
+ hkArray<ptr> bindings
+ hkArray<ptr> attachments
+ hkArray<ptr> skins
 
 ``hkaAnnotationTrack``::
 
-    ptr                    name        (string)
-    hkArray<hkaAnnotation> annotations
+ ptr name (string)
+ hkArray<hkaAnnotation> annotations
 
 ``hkaAnnotation``::
 
-    float  time
-    ptr    text           (string)
+ float time
+ ptr text (string)
 
 ``hkaAnimation`` (base)::
 
-    hkReferenceObject  inherited
-    uint32  animation_type
-    float   duration
-    uint32  num_of_transform_tracks
-    uint32  num_of_float_tracks        (HK550+)
-    ptr     extracted_motion           (-> hkaAnimatedReferenceFrame)
-    hkArray<hkaAnnotationTrack> annotations   (HK700+; NOTE: member array,
-                                              each element carries its own name ptr)
+ hkReferenceObject inherited
+ uint32 animation_type
+ float duration
+ uint32 num_of_transform_tracks
+ uint32 num_of_float_tracks (HK550+)
+ ptr extracted_motion (-> hkaAnimatedReferenceFrame)
+ hkArray<hkaAnnotationTrack> annotations (HK700+; NOTE: member array,
+ each element carries its own name ptr)
 
 Animation type enum (2011+, applies to FO4)::
 
-    0 = HK_UNKNOWN_ANIMATION
-    1 = HK_INTERLEAVED_ANIMATION
-    2 = HK_MIRRORED_ANIMATION
-    3 = HK_SPLINE_COMPRESSED_ANIMATION
-    4 = HK_QUANTIZED_COMPRESSED_ANIMATION
-    5 = HK_PREDICTIVE_COMPRESSED_ANIMATION
-    6 = HK_REFERENCE_POSE_ANIMATION
+ 0 = HK_UNKNOWN_ANIMATION
+ 1 = HK_INTERLEAVED_ANIMATION
+ 2 = HK_MIRRORED_ANIMATION
+ 3 = HK_SPLINE_COMPRESSED_ANIMATION
+ 4 = HK_QUANTIZED_COMPRESSED_ANIMATION
+ 5 = HK_PREDICTIVE_COMPRESSED_ANIMATION
+ 6 = HK_REFERENCE_POSE_ANIMATION
 
 ``hkaSplineCompressedAnimation`` (size: 176 bytes, signature: 0x792ee0bb)::
 
-    hkaAnimation   inherited
-    uint32  num_frames                    offset: 56
-    uint32  num_blocks                    offset: 60
-    uint32  max_frames_per_block          offset: 64
-    uint32  mask_and_quantization_size    offset: 68
-    float   block_duration                offset: 72
-    float   block_inverse_duration        offset: 76
-    float   frame_duration                offset: 80
-    uint32  (padding)                     offset: 84
-    hkArray<uint32> block_offsets         offset: 88
-    hkArray<uint32> float_block_offsets   offset: 104
-    hkArray<uint32> transform_offsets     offset: 120
-    hkArray<uint32> float_offsets         offset: 136
-    hkArray<uint8>  data                  offset: 152
-    int32   endian                        offset: 168
-    uint32  (padding)                     offset: 172
+ hkaAnimation inherited
+ uint32 num_frames offset: 56
+ uint32 num_blocks offset: 60
+ uint32 max_frames_per_block offset: 64
+ uint32 mask_and_quantization_size offset: 68
+ float block_duration offset: 72
+ float block_inverse_duration offset: 76
+ float frame_duration offset: 80
+ uint32 (padding) offset: 84
+ hkArray<uint32> block_offsets offset: 88
+ hkArray<uint32> float_block_offsets offset: 104
+ hkArray<uint32> transform_offsets offset: 120
+ hkArray<uint32> float_offsets offset: 136
+ hkArray<uint8> data offset: 152
+ int32 endian offset: 168
+ uint32 (padding) offset: 172
 
 ### Spline Compression Parameters (from Havok SDK)
 
@@ -374,18 +374,18 @@ The SDK exposes `hkaSplineCompressedAnimationTrackCompressionParams` (signature 
 
 ```c
 struct TrackCompressionParams {
-    float  rotationTolerance;       // +0
-    float  translationTolerance;    // +4
-    float  scaleTolerance;          // +8
-    float  floatingTolerance;       // +12
-    uint16 rotationDegree;          // +16
-    uint16 translationDegree;       // +18
-    uint16 scaleDegree;             // +20
-    uint16 floatingDegree;          // +22
-    RotationQuantization rotationQuantizationType; // +24
-    ScalarQuantization   translationQuantizationType; // +25
-    ScalarQuantization   scaleQuantizationType;       // +26
-    ScalarQuantization   floatQuantizationType;       // +27
+ float rotationTolerance; // +0
+ float translationTolerance; // +4
+ float scaleTolerance; // +8
+ float floatingTolerance; // +12
+ uint16 rotationDegree; // +16
+ uint16 translationDegree; // +18
+ uint16 scaleDegree; // +20
+ uint16 floatingDegree; // +22
+ RotationQuantization rotationQuantizationType; // +24
+ ScalarQuantization translationQuantizationType; // +25
+ ScalarQuantization scaleQuantizationType; // +26
+ ScalarQuantization floatQuantizationType; // +27
 };
 ```
 
@@ -393,17 +393,17 @@ struct TrackCompressionParams {
 
 ```c
 enum RotationQuantization {
-    POLAR32     = 0,
-    THREECOMP40 = 1,
-    THREECOMP48 = 2,
-    THREECOMP24 = 3,
-    STRAIGHT16  = 4,
-    UNCOMPRESSED= 5,
+ POLAR32 = 0,
+ THREECOMP40 = 1,
+ THREECOMP48 = 2,
+ THREECOMP24 = 3,
+ STRAIGHT16 = 4,
+ UNCOMPRESSED= 5,
 };
 
 enum ScalarQuantization {
-    BITS8  = 0,
-    BITS16 = 1,
+ BITS8 = 0,
+ BITS16 = 1,
 };
 ```
 
@@ -442,13 +442,13 @@ To process: split into individual HKX files, change the version tag from 2011→
 
 ``hkaAnimationBinding``::
 
-    hkReferenceObject    inherited    (HK700+)
-    ptr                  original_skeleton_name (string)  (HK600+)
-    ptr                  animation    (-> hkaAnimation)
-    hkArray<int16>       transform_track_to_bone_indices
-    hkArray<int16>       float_track_to_float_slot_indices  (HK550+)
-    hkArray<int16>       partition_indices                  (HK2012+)
-    uint8                blend_hint
+ hkReferenceObject inherited (HK700+)
+ ptr original_skeleton_name (string) (HK600+)
+ ptr animation (-> hkaAnimation)
+ hkArray<int16> transform_track_to_bone_indices
+ hkArray<int16> float_track_to_float_slot_indices (HK550+)
+ hkArray<int16> partition_indices (HK2012+)
+ uint8 blend_hint
 
 The XML/reflection name for the skeleton string is ``originalSkeletonName``
 (not "skeletonName"). The blend hint enum (Havok ``BlendHint``): 0 = normal,
@@ -462,14 +462,14 @@ Jenkins one-at-a-time hash
 --------------------------
 Used to map class names to descriptors::
 
-    hash = 0
-    for c in name_bytes:
-        hash += c
-        hash += hash << 10
-        hash ^= hash >> 6
-    hash += hash << 3
-    hash ^= hash >> 11
-    hash += hash << 15
+ hash = 0
+ for c in name_bytes:
+ hash += c
+ hash += hash << 10
+ hash ^= hash >> 6
+ hash += hash << 3
+ hash ^= hash >> 11
+ hash += hash << 15
 
 Returned as an unsigned 32-bit value.
 
@@ -481,25 +481,25 @@ give byte offsets into ``data_buffer`` for each block.
 
 Per-block layout::
 
-    TransformMask masks[num_tracks]        (see below)
-    ... float track data (num_float_tracks bytes) ...
-    padding to 4
-    per track, in order:
-        position track, rotation track, scale track
+ TransformMask masks[num_tracks] (see below)
+ ... float track data (num_float_tracks bytes) ...
+ padding to 4
+ per track, in order:
+ position track, rotation track, scale track
 
 ``TransformMask`` (4 bytes) packs quantization + track-type bits::
 
-    uint8 quantization_types
-    uint8 position_types      (bit flags, see below)
-    uint8 rotation_types      (low nibble static flag, high nibble spline flag)
-    uint8 scale_types
+ uint8 quantization_types
+ uint8 position_types (bit flags, see below)
+ uint8 rotation_types (low nibble static flag, high nibble spline flag)
+ uint8 scale_types
 
 Quantization bits in ``quantization_types``::
 
-    bits 0-1   position quantization:  0=8bit, 1=16bit
-    bits 2-5   rotation quantization:  value+2 -> 2=32bit, 3=40bit, 4=48bit,
-                                      5=24bit, 6=16bit-quat, 7=uncompressed
-    bits 6-7   scale quantization:     0=8bit, 1=16bit
+ bits 0-1 position quantization: 0=8bit, 1=16bit
+ bits 2-5 rotation quantization: value+2 -> 2=32bit, 3=40bit, 4=48bit,
+ 5=24bit, 6=16bit-quat, 7=uncompressed
+ bits 6-7 scale quantization: 0=8bit, 1=16bit
 
 Position/scale type flags (bit 0 = X static, bit 1 = Y static, bit 2 = Z
 static, bit 4 = X spline, bit 5 = Y spline, bit 6 = Z spline). A channel is:
@@ -511,13 +511,13 @@ Rotation: low nibble of ``rotation_types`` set = static; high nibble set =
 spline (dynamic). Otherwise identity.
 
 Track encodings (dynamic):
-    Write order: a ``uint16`` item count, one skip byte, then a ``uint8``
-    spline degree, then ``num_items + degree + 2`` knot bytes, then padding.
-    Then per channel that is dynamic: a ``{float min, float max}`` bounding
-    box (8 bytes), then ``num_items + 1`` samples. Samples are stored as
-    normalized bytes (position/scale: 8-bit or 16-bit) mapped into the
-    channel's bounding box: ``value = min + (max - min) * (sample / 255)``
-    (or / 65535 for 16-bit).
+ Write order: a ``uint16`` item count, one skip byte, then a ``uint8``
+ spline degree, then ``num_items + degree + 2`` knot bytes, then padding.
+ Then per channel that is dynamic: a ``{float min, float max}`` bounding
+ box (8 bytes), then ``num_items + 1`` samples. Samples are stored as
+ normalized bytes (position/scale: 8-bit or 16-bit) mapped into the
+ channel's bounding box: ``value = min + (max - min) * (sample / 255)``
+ (or / 65535 for 16-bit).
 
 Static channels store a single float directly (4 bytes). Identity channels
 store nothing.
@@ -529,9 +529,9 @@ aligns to 2 for 48-bit / 16-bit-quat, to 4 for 32-bit / uncompressed), then
 Quaternion quantization (all store the rotation directly, normalized via
 sign/magnitude encoding):
 * 32-bit: 10-bit magnitude ``R`` in the top bits, 18-bit ``phi/theta`` split
-  in the low bits; sign bits select which of x/y/z/w is negative.
+ in the low bits; sign bits select which of x/y/z/w is negative.
 * 40-bit: three 11-bit components + sign/w bits; component order permuted by
-  a 2-bit ``result_shift``.
+ a 2-bit ``result_shift``.
 * 48-bit: three 15-bit components (signed) + sign/w bits; same permutation.
 * 16-bit quat: 8-bit components.
 * uncompressed: 4 float32 (16 bytes).
@@ -540,12 +540,12 @@ Spline evaluation (NURBS)
 -------------------------
 Standard NURBS basis (this is the classic "NURBS Book" De Boor formulation):
 * control points: ``num_items + 1`` points, degree ``d``, knot vector of size
-  ``num_items + d + 2``.
+ ``num_items + d + 2``.
 * knot span lookup + De Boor (or Cox-de Boor) evaluation produce the value at
-  time ``t`` normalized to the local block frame.
+ time ``t`` normalized to the local block frame.
 * ``block_duration`` / ``block_inverse_duration`` / ``frame_duration`` convert
-  global animation time into a local block frame (``local = (t - block_start)
-  * block_inverse_duration * max_frames_per_block``).
+ global animation time into a local block frame (``local = (t - block_start)
+ * block_inverse_duration * max_frames_per_block``).
 
 Decoding a frame of a spline animation
 --------------------------------------
@@ -553,7 +553,7 @@ Decoding a frame of a spline animation
 2. Locate the block via ``block_offsets[block]``.
 3. Parse the block's masks, tracks, and control points (above).
 4. For each transform track, evaluate position, rotation, scale at the local
-   frame and combine into an ``hkQTransform``.
+ frame and combine into an ``hkQTransform``.
 5. Map transform tracks to bones via ``hkaAnimationBinding.transform_track_to_bone_indices``.
 
 Delta / interleaved animations
@@ -605,8 +605,8 @@ https://bitbucket.org/Volfin/hkx2smd/overview
 ### AssetCc (Havok SDK tool)
 Batch converter between binary HKX and XML HKX.
 ```
-AssetCc1.exe --strip bin.hkx xml.hkx      # Binary → XML (keeps version)
-AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx  # XML → Binary
+AssetCc1.exe --strip bin.hkx xml.hkx # Binary → XML (keeps version)
+AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx # XML → Binary
 ```
 - `--strip` removes extra junk at file start
 - `--rules4101` vs `--rules8011`: different platform rule sets (4101 = Win32, preferred)
@@ -649,7 +649,7 @@ Process semi-automated: three offsets need manual searching, rest scripted.
 
 ### Animation Swap Technique (SergeantJoe)
 To replace animations in-game:
-1. Swap data starting with `"WààW"` (magic header) and ending with `"+    yyyyyy"`
+1. Swap data starting with `"WààW"` (magic header) and ending with `"+ yyyyyy"`
 2. Two header size values control memory allocation — set both to minimum if swapping with same-sized animation
 3. Works for swapping existing in-game animations
 

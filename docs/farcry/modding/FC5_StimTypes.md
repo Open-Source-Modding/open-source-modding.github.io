@@ -62,10 +62,10 @@ stim type and filter-subtype fields.
 ## Notes / divergences vs community-extracted lists
 
 - Community threads sometimes list up to 30/31 stim values (with labels like
-  Alcohol/Drunk, Drugs, bliss variants, Gravity_Factor, Slowdown, Freeze,
-  Disable). Those extra labels beyond the DLL enum (23/18) appear to be runtime
-  AI-flavor/behavior tags in newer games (FCND or FC6), not the FC5 shipped enum.
-  The canonical FC5 DLL enum terminates at `STIM_TYPE_LAST = 23` and
-  `STIM_FILTER_SUBTYPE_COUNT = 18`.
+ Alcohol/Drunk, Drugs, bliss variants, Gravity_Factor, Slowdown, Freeze,
+ Disable). Those extra labels beyond the DLL enum (23/18) appear to be runtime
+ AI-flavor/behavior tags in newer games (FCND or FC6), not the FC5 shipped enum.
+ The canonical FC5 DLL enum terminates at `STIM_TYPE_LAST = 23` and
+ `STIM_FILTER_SUBTYPE_COUNT = 18`.
 - `STIM_TYPE_BOOM` and `STIM_FILTER_SUBTYPE_BURN_PAWNSONLY` are documented
-  engine-side as intentionally inert ("does nothing").
+ engine-side as intentionally inert ("does nothing").

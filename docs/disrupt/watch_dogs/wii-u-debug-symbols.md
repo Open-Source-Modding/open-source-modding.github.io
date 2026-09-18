@@ -35,9 +35,9 @@ The RPX contains a **massive symbol table** -- 317,063 symbols with full mangled
 Both SYMTAB and STRTAB are zlib-compressed with a 4-byte header:
 
 ```
-Offset  Size  Description
-0x00    4     Header (skip this)
-0x04    var   zlib deflate data
+Offset Size Description
+0x00 4 Header (skip this)
+0x04 var zlib deflate data
 ```
 
 **Decompression (Python):**
@@ -45,9 +45,9 @@ Offset  Size  Description
 ```python
 import zlib
 with open('duniademo.rpx', 'rb') as f:
-    f.seek(offset)  # SYMTAB: 0x1C5180, STRTAB: 0x3D5BC0
-    raw = f.read(size)  # SYMTAB: 0x210A35, STRTAB: 0x366AE2
-    data = zlib.decompress(raw[4:])  # Skip 4-byte header
+ f.seek(offset) # SYMTAB: 0x1C5180, STRTAB: 0x3D5BC0
+ raw = f.read(size) # SYMTAB: 0x210A35, STRTAB: 0x366AE2
+ data = zlib.decompress(raw[4:]) # Skip 4-byte header
 ```
 
 ### Section Layout
@@ -79,13 +79,13 @@ with open('duniademo.rpx', 'rb') as f:
 Each symbol entry is 16 bytes (ELF32_Sym, big-endian):
 
 ```
-Offset  Size  Field
-0x00    4     st_name (index into STRTAB)
-0x04    4     st_value (virtual address)
-0x08    4     st_size (symbol size in bytes)
-0x0C    1     st_info (bind << 4 | type)
-0x0D    1     st_other (visibility)
-0x0E    2     st_shndx (section index)
+Offset Size Field
+0x00 4 st_name (index into STRTAB)
+0x04 4 st_value (virtual address)
+0x08 4 st_size (symbol size in bytes)
+0x0C 1 st_info (bind << 4 | type)
+0x0D 1 st_other (visibility)
+0x0E 2 st_shndx (section index)
 ```
 
 `st_info` encoding: `bind = st_info >> 4`, `type = st_info & 0xF`
@@ -117,10 +117,10 @@ No DWARF debug sections (`.debug_*`) are present -- Cafe OS uses SYMTAB/STRTAB a
 ## Parser Script
 
 The Python parser used to extract these symbols is at:
-`/tmp/opencode/rpx_parse_v2.py`
+`rpx_parse_v2.py`
 
 Full symbol CSV (317,063 rows) at:
-`/tmp/opencode/rpx_symbols.csv`
+`rpx_symbols.csv`
 
 ## Extraction Steps
 

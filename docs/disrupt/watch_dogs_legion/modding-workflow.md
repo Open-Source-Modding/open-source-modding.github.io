@@ -50,8 +50,8 @@ The `installpackage` archive is unused by default. A hex edit to the game DLL
 priority so `installpackage/` loads before `patch`:
 
 ```
-search:  48 b8 17 00 00 00 39 00 00 00    replace 39 → 2b
-search:  c7 86 00 0d 00 00 88 13 00 00    replace 88 13 → 00 00
+search: 48 b8 17 00 00 00 39 00 00 00 replace 39 → 2b
+search: c7 86 00 0d 00 00 88 13 00 00 replace 88 13 → 00 00
 ```
 
 **Once patched, it's permanent** — install mods into `installpackage/` and

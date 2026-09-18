@@ -4,13 +4,13 @@ Bike - Pistol
 
 Vessel / Pistol M - Pistol M
 
-Vessel / Pistol M  - Pistol F
+Vessel / Pistol M - Pistol F
 
-Vessel / Pistol F  - Pistol M
+Vessel / Pistol F - Pistol M
 
-Detective / Pistol  - Pistol (San Francisco Exclusive)
+Detective / Pistol - Pistol (San Francisco Exclusive)
 
-CHP Vessel / Pistol  - Pistol (Oakland Exclusive)
+CHP Vessel / Pistol - Pistol (Oakland Exclusive)
 
 
 
@@ -26,9 +26,9 @@ Bike - Pistol
 
 Vessel / Pistol M - Pistol M
 
-Vessel / Pistol M  - Pistol F
+Vessel / Pistol M - Pistol F
 
-Vessel / Pistol F  - Pistol M
+Vessel / Pistol F - Pistol M
 
 
 
@@ -40,9 +40,9 @@ Bike - Pistol
 
 Vessel / Pistol M - Pistol M
 
-Vessel / Pistol M  - Pistol F
+Vessel / Pistol M - Pistol F
 
-Vessel / Pistol F  - Pistol M
+Vessel / Pistol F - Pistol M
 
 **HALFWAY POINT**
 
@@ -50,15 +50,15 @@ Bike - Pistol
 
 Vessel / Pistol M - Pistol M
 
-Vessel / Pistol M  - Pistol F
+Vessel / Pistol M - Pistol F
 
-Vessel / Pistol F  - Pistol M
+Vessel / Pistol F - Pistol M
 
 Vessel / Pistol M - Shotgun M
 
-Vessel / Pistol M  - Shotgun F
+Vessel / Pistol M - Shotgun F
 
-Vessel / Pistol F  - Shotgun M
+Vessel / Pistol F - Shotgun M
 
 
 
@@ -68,31 +68,31 @@ Vessel / Pistol F  - Shotgun M
 
 Vessel / Pistol M - Shotgun M
 
-Vessel / Pistol M  - Shotgun F
+Vessel / Pistol M - Shotgun F
 
-Vessel / Pistol F  - Shotgun M
+Vessel / Pistol F - Shotgun M
 
 Cavale / Pistol M - Shotgun M
 
-Cavale / Pistol M  - Shotgun F
+Cavale / Pistol M - Shotgun F
 
-Cavale / Pistol F  - Shotgun M
+Cavale / Pistol F - Shotgun M
 
 **ONE THIRD**
 
 Vessel / Pistol M - Shotgun M
 
-Vessel / Pistol M  - Shotgun F
+Vessel / Pistol M - Shotgun F
 
 Cavale / Pistol M - Shotgun M
 
-Cavale / Pistol M  - Shotgun F
+Cavale / Pistol M - Shotgun F
 
-Cavale / Pistol F  - Shotgun M
+Cavale / Pistol F - Shotgun M
 
-Cavale / Pistol F  - Shotgun M
+Cavale / Pistol F - Shotgun M
 
-Detective / Pistol  - Pistol
+Detective / Pistol - Pistol
 
 **TWO THIRDS**
 
@@ -100,17 +100,17 @@ Vessel / Pistol M - Shotgun M
 
 Cavale / Pistol M - Shotgun M
 
-Cavale / Pistol M  - Shotgun F
+Cavale / Pistol M - Shotgun F
 
-Cavale / Pistol F  - Shotgun M
+Cavale / Pistol F - Shotgun M
 
-Cavale / Pistol F  - Shotgun M
+Cavale / Pistol F - Shotgun M
 
-Cavale / Pistol M  - Shotgun F
+Cavale / Pistol M - Shotgun F
 
-Detective / Pistol  - Pistol
+Detective / Pistol - Pistol
 
-CHP Vessel / Pistol  - Pistol
+CHP Vessel / Pistol - Pistol
 
 
 
@@ -142,15 +142,15 @@ Cavale / Pistol M - Shotgun M
 
 Cavale / Pistol M - Shotgun M
 
-Cavale / Pistol M  - Shotgun F
+Cavale / Pistol M - Shotgun F
 
-Cavale / Pistol F  - Shotgun M
+Cavale / Pistol F - Shotgun M
 
 Cavale / Pistol M - Rifle M
 
-Cavale / Pistol M  - Rifle F
+Cavale / Pistol M - Rifle F
 
-Cavale / Pistol F  - Rifle M
+Cavale / Pistol F - Rifle M
 
 Sonarus / Shotgun M - Rifle M
 
@@ -158,7 +158,7 @@ Sonarus / Shotgun M - Rifle F
 
 Sonarus / Shotgun F - Rifle M
 
-Detective / Pistol  - Shotgun
+Detective / Pistol - Shotgun
 
 CHP Vessel / Pistol - Shotgun
 
@@ -168,9 +168,9 @@ CHP Sonarus / Pistol - Rifle
 
 Cavale / Pistol M - Rifle M
 
-Cavale / Pistol M  - Rifle F
+Cavale / Pistol M - Rifle F
 
-Cavale / Pistol F  - Rifle M
+Cavale / Pistol F - Rifle M
 
 Sonarus / Shotgun M - Rifle M
 
@@ -178,7 +178,7 @@ Sonarus / Shotgun M - Rifle F
 
 Sonarus / Shotgun F - Rifle M
 
-Detective / Pistol  - Shotgun
+Detective / Pistol - Shotgun
 
 CHP Sonarus / Pistol - Rifle
 
@@ -186,9 +186,9 @@ CHP Sonarus / Pistol - Rifle
 
 Cavale / Pistol M - Rifle M
 
-Cavale / Pistol M  - Rifle F
+Cavale / Pistol M - Rifle F
 
-Cavale / Pistol F  - Rifle M
+Cavale / Pistol F - Rifle M
 
 Sonarus / Shotgun M - Rifle M
 
@@ -204,15 +204,15 @@ CHP Sonarus / Rifle - Shotgun
 
 Cavale / Pistol M - Rifle M
 
-Cavale / Pistol M  - Rifle F
+Cavale / Pistol M - Rifle F
 
-Cavale / Pistol F  - Rifle M
+Cavale / Pistol F - Rifle M
 
 Sonarus / Rifle M - Shotgun M
 
-Sonarus / Rifle M  - Shotgun F
+Sonarus / Rifle M - Shotgun F
 
-Sonarus / Rifle F  - Shotgun M
+Sonarus / Rifle F - Shotgun M
 
 Sonarus / Shotgun M - Rifle M
 
@@ -220,7 +220,7 @@ Sonarus / Shotgun M - Rifle F
 
 Sonarus / Shotgun F - Rifle M
 
-Detective / Rifle  - Shotgun
+Detective / Rifle - Shotgun
 
 CHP Sonarus / Rifle - Shotgun
 
@@ -276,9 +276,9 @@ Sonarus / Rifle M - K9
 
 Sonarus / Rifle M - Shotgun M
 
-Sonarus / Rifle M  - Shotgun F
+Sonarus / Rifle M - Shotgun F
 
-Sonarus / Rifle F  - Shotgun M
+Sonarus / Rifle F - Shotgun M
 
 Sonarus / Shotgun M - Rifle M
 
@@ -286,7 +286,7 @@ Sonarus / Shotgun M - Rifle F
 
 Sonarus / Shotgun F - Rifle M
 
-Detective / Rifle  - Shotgun
+Detective / Rifle - Shotgun
 
 CHP Sonarus / Rifle - Shotgun
 
@@ -296,9 +296,9 @@ CHP Sonarus / Shotgun - Rifle
 
 Sonarus / Rifle M - Shotgun M
 
-Sonarus / Rifle M  - Shotgun F
+Sonarus / Rifle M - Shotgun F
 
-Sonarus / Rifle F  - Shotgun M
+Sonarus / Rifle F - Shotgun M
 
 Sonarus / Shotgun M - Rifle M
 
@@ -312,7 +312,7 @@ Talos / SWAT
 
 Talos / SWAT
 
-Detective / Rifle  - Shotgun
+Detective / Rifle - Shotgun
 
 CHP Sonarus / Rifle - Shotgun
 
@@ -322,9 +322,9 @@ CHP Sonarus / Shotgun - Rifle
 
 Sonarus / Rifle M - Shotgun M
 
-Sonarus / Rifle M  - Shotgun F
+Sonarus / Rifle M - Shotgun F
 
-Sonarus / Rifle F  - Shotgun M
+Sonarus / Rifle F - Shotgun M
 
 Sonarus / Shotgun M - Rifle M
 
@@ -343,7 +343,7 @@ Talos / Sniper
 MRAP / SWAT
 MRAP / SWAT
 
-Detective / Rifle  - Shotgun
+Detective / Rifle - Shotgun
 
 CHP Sonarus / Rifle - Shotgun
 
@@ -368,7 +368,7 @@ Talos / Sniper
 MRAP / SWAT
 MRAP / SWAT
 
-Detective / Rifle  - Shotgun
+Detective / Rifle - Shotgun
 
 CHP Sonarus / Rifle - Shotgun
 

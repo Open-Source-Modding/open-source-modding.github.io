@@ -13,13 +13,13 @@ Markup files are XML event definitions that reference `.mac` animation files by 
 ### Position in the Pipeline
 
 ```
-animation.fbx          (FBX source — DCC tool export)
-    ↓  FBX import via FbxLoaderManaged.dll (C++/CLI, native FBX SDK)
-animation.mac          (binary source — curves, skeleton, flags, events, parts)
-animation.markup       (XML source — time-stamped game events)   ← THIS FILE
-    ↓  CMarkupCompiler (AnimationMarkupTool internal)
-animation.markup.bin   (compiled markup header — 10 bytes, version=3)
-animation.mab          (compiled animation markup — compressed per-bone data)
+animation.fbx (FBX source — DCC tool export)
+ ↓ FBX import via FbxLoaderManaged.dll (C++/CLI, native FBX SDK)
+animation.mac (binary source — curves, skeleton, flags, events, parts)
+animation.markup (XML source — time-stamped game events) ← THIS FILE
+ ↓ CMarkupCompiler (AnimationMarkupTool internal)
+animation.markup.bin (compiled markup header — 10 bytes, version=3)
+animation.mab (compiled animation markup — compressed per-bone data)
 ```
 
 - **Markup XML** = source event definitions (human-readable, editable)
@@ -50,19 +50,19 @@ data/animations/locomotion/walk_forward.mac
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <markup>
-  <EditionHelper>
-    <ClipParams>
-      <ClipParam ResNodeID="mainroot\blendtrees\walk_forward" ClipStart="0" ClipEnd="0.966667" />
-    </ClipParams>
-  </EditionHelper>
-  <events>
-    <event time="0.39375" name="EventName" Track="AI1">
-      <CSoundEvent hidEventName="snd_footstep_left" hidTargetEntityId="18446744073709551615" bAlwaysTrigger="false" />
-    </event>
-    <event time="0.7875" name="EventName2" Track="Audio1">
-      <CFootStepEvent boneBoneName="LeftFoot" sndSound="event:/char/footstep_run_concrete_left" />
-    </event>
-  </events>
+ <EditionHelper>
+ <ClipParams>
+ <ClipParam ResNodeID="mainroot\blendtrees\walk_forward" ClipStart="0" ClipEnd="0.966667" />
+ </ClipParams>
+ </EditionHelper>
+ <events>
+ <event time="0.39375" name="EventName" Track="AI1">
+ <CSoundEvent hidEventName="snd_footstep_left" hidTargetEntityId="18446744073709551615" bAlwaysTrigger="false" />
+ </event>
+ <event time="0.7875" name="EventName2" Track="Audio1">
+ <CFootStepEvent boneBoneName="LeftFoot" sndSound="event:/char/footstep_run_concrete_left" />
+ </event>
+ </events>
 </markup>
 ```
 
@@ -148,13 +148,13 @@ The markup system uses a custom string hash for event name lookup:
 ```csharp
 uint GetHashFromName(string name)
 {
-    uint hash = 111;
-    for (int i = 0; i < name.Length; i++)
-    {
-        if (name[i] != 0)
-            hash = hash * 113 + name[i];
-    }
-    return hash;
+ uint hash = 111;
+ for (int i = 0; i < name.Length; i++)
+ {
+ if (name[i] != 0)
+ hash = hash * 113 + name[i];
+ }
+ return hash;
 }
 ```
 
@@ -216,17 +216,17 @@ The `time` attribute uses float seconds, not frame numbers.
 **Footstep events** alternate between left and right feet:
 ```xml
 <event time="0.39375" name="footstep_left" Track="Audio1">
-    <CFootStepEvent boneBoneName="LeftFoot" sndSound="event:/char/footstep_run_concrete_left" />
+ <CFootStepEvent boneBoneName="LeftFoot" sndSound="event:/char/footstep_run_concrete_left" />
 </event>
 <event time="0.7875" name="footstep_right" Track="Audio1">
-    <CFootStepEvent boneBoneName="RightFoot" sndSound="event:/char/footstep_run_concrete_right" />
+ <CFootStepEvent boneBoneName="RightFoot" sndSound="event:/char/footstep_run_concrete_right" />
 </event>
 ```
 
 **Attack events** trigger at the impact frame:
 ```xml
 <event time="0.5" name="attack_hit" Track="Weapon1">
-    <CWeaponEvent sWeaponEvent="hit" />
+ <CWeaponEvent sWeaponEvent="hit" />
 </event>
 ```
 

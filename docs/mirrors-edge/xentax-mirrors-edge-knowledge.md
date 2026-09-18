@@ -22,10 +22,10 @@ assets are packed in the shared Frostbite bundle/chunk model, so the community
 
 - **`.bundles`** — the container files holding game resources.
 - **`.chunk`** files — raw resource blobs; filenames are **not** meaningful.
-  Resource names live in **EBX** metadata files, not the chunk names.
-  *(daemon1, 2016-04-25: "Names are in EBX files. That's OK.")*
+ Resource names live in **EBX** metadata files, not the chunk names.
+ *(daemon1, 2016-04-25: "Names are in EBX files. That's OK.")*
 - **EBX** — object/type metadata database. Each sound/mesh/etc. is described
-  by an EBX file that references chunk data by hash/GUID.
+ by an EBX file that references chunk data by hash/GUID.
 - Chunks with no proper filenames are expected — you map them back through EBX.
 
 ### Dumper / decoder workflow
@@ -33,14 +33,14 @@ assets are packed in the shared Frostbite bundle/chunk model, so the community
 The working pipeline for Catalyst beta (2016):
 
 1. **Extract bundles → chunks** using a Battlefield 4 / Star Wars Battlefront
-   dumper script (`bf4dumper.py`, `sw_dumper.py`). The community-edited
-   `swbf_me-c_edit` version is adapted specifically for Mirror's Edge Catalyst.
-   *(brendan19, daemon1, 2016-04-25)*
+ dumper script (`bf4dumper.py`, `sw_dumper.py`). The community-edited
+ `swbf_me-c_edit` version is adapted specifically for Mirror's Edge Catalyst.
+ *(brendan19, daemon1, 2016-04-25)*
 2. **Decode audio** with `fb3decoder.py` (the "FB3" Frostbite 3 audio decoder
-   script). It walks the `.ebx` files, finds the audio chunks, and writes
-   decoded `.wav` files using the **ealayer3** tool for EALayer3 codec
-   (the EA-proprietary MPEG layer-3 variant used by Frostbite).
-   *(daemon1, 2016-04-25)*
+ script). It walks the `.ebx` files, finds the audio chunks, and writes
+ decoded `.wav` files using the **ealayer3** tool for EALayer3 codec
+ (the EA-proprietary MPEG layer-3 variant used by Frostbite).
+ *(daemon1, 2016-04-25)*
 
 **Required script edits** (from brendan19, 2016-04-26):
 
@@ -49,15 +49,15 @@ The working pipeline for Catalyst beta (2016):
 targetDirectory = r"<THE DIRECTORY WHERE YOU WANT THE FILES TO EXTRACT TO>"
 
 # fb3decoder.py
-dumpDirectory   = r"<THE DIRECTORY WHERE YOU EXTRACTED YOUR FILES>"
+dumpDirectory = r"<THE DIRECTORY WHERE YOU EXTRACTED YOUR FILES>"
 targetDirectory = r"<THE DIRECTORY WHERE YOU WANT THE DECODED .WAV FILES PLACED>"
 # Download Zench's ealayer3 tool so the script can handle EALayer3:
-ealayer3Path    = r"<THE DIRECTORY THAT HAS THE EALAYER3 TOOL>\ealayer3.exe"
+ealayer3Path = r"<THE DIRECTORY THAT HAS THE EALAYER3 TOOL>\ealayer3.exe"
 ```
 
 **Tool note (ealayer3 versions):**
 - Zench's ealayer3 extracts **multi-file chunks incorrectly** — e.g. a chunk
-  with 5 sounds produces 15 files, 10 of which are duplicates.
+ with 5 sounds produces 15 files, 10 of which are duplicates.
 - daemon1's **updated** ealayer3 fixes this. *(daemon1, 2016-04-26)*
 
 ### Frostbite EBX `numDict` (field type lookup table)
@@ -86,14 +86,14 @@ so you can safely **delete non-audio EBX folders** and rerun.
 *(Hello, daemon1, kkdf2, 2016-06/08)*
 
 - `kkdf2` (2016-08-29) suggested `0xC11D: ("q", 8)` — an int64 (8 bytes) — as a
-  likely fix (low-confidence community guess).
+ likely fix (low-confidence community guess).
 
 ### Practice notes
 
 - Extraction of the full beta yielded ~28.5 GB across `/bundles` and `/chunks`.
-  *(Hello, 2016-06-11)*
+ *(Hello, 2016-06-11)*
 - Successfully decoded named SFX from the initial package; then decoded the
-  full `cat`/`cas` pair set. *(brendan19, 2016-04-25)*
+ full `cat`/`cas` pair set. *(brendan19, 2016-04-25)*
 
 ---
 
@@ -102,9 +102,9 @@ so you can safely **delete non-audio EBX folders** and rerun.
 ### Ripping approach
 
 - Textures ripped using **Ninja Ripper** and **Texmod** (runtime D3D rippers)
-  for the original Mirror's Edge. *(kellne, 2017-06-05)*
+ for the original Mirror's Edge. *(kellne, 2017-06-05)*
 - Both tools work on the UE3-era original; no native texture container
-  reverse-engineering is documented in this dump.
+ reverse-engineering is documented in this dump.
 
 ---
 

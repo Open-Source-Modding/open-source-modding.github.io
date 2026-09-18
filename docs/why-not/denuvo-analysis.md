@@ -37,15 +37,15 @@ The **license file** is all removed bytes combined with the user's hardware iden
 
 ```asm
 add(int, int):
-    push  rbp
-    mov  rbp, rsp
-    mov  DWORD PTR [rbp-4], edi    ; Denuvo strips the constant -4
-    mov  DWORD PTR [rbp-8], esi
-    mov  edx, DWORD PTR [rbp-4]
-    mov  eax, DWORD PTR [rbp-8]
-    add  eax, edx
-    pop  rbp
-    ret
+ push rbp
+ mov rbp, rsp
+ mov DWORD PTR [rbp-4], edi ; Denuvo strips the constant -4
+ mov DWORD PTR [rbp-8], esi
+ mov edx, DWORD PTR [rbp-4]
+ mov eax, DWORD PTR [rbp-8]
+ add eax, edx
+ pop rbp
+ ret
 ```
 
 The constant `-4` is stripped and stored on Denuvo's server. The VM wrapper:
@@ -117,9 +117,9 @@ Uses parameter `0x36` — `NtQuerySystemInformation`.
 - **Seemingly Random .VM Check**: Reads a "random" amount of bytes from `.vm` to construct constants used in calculations that break if the bytes change. Example:
 
 ```nasm
-movsx r13, word ptr ds:[0x00000001467FEE8D]  ; "random" word from .VM
-add r13, 0xFFFFFFFFFFFFDBAB                     ; decrypt
-add rax, r13                                     ; update VM instruction pointer
+movsx r13, word ptr ds:[0x00000001467FEE8D] ; "random" word from .VM
+add r13, 0xFFFFFFFFFFFFDBAB ; decrypt
+add rax, r13 ; update VM instruction pointer
 ```
 
 If a breakpoint/hook tampered with that word, the VM executes random handlers → undefined behavior.
@@ -133,10 +133,10 @@ Denuvo doesn't store values in contiguous memory. Register values have their byt
 Denuvo doesn't use API calls or `RDRAND`. Instead, it generates randomness from native register values using modular arithmetic:
 
 ```c
-if (VCTX[0] % 9 == 0) {  // VCTX -> VM Context
-    CPUID_A();
+if (VCTX[0] % 9 == 0) { // VCTX -> VM Context
+ CPUID_A();
 } else {
-    CPUID_B();  // semantically identical to CPUID_A
+ CPUID_B(); // semantically identical to CPUID_A
 }
 ```
 
@@ -196,33 +196,33 @@ The crack loads an unsigned kernel driver at ring -1, placing the entire OS — 
 
 ```
 [Boot with DSE disabled via F7]
-        │
-        ▼
+ │
+ ▼
 [hypervisor-launcher.exe]
-  ├─ Acquires SE_DEBUG + SE_SYSTEM_ENVIRONMENT privilege
-  ├─ Finds ntoskrnl.exe + CI.dll base in kernel
-  ├─ Detects CPU: "GenuineIntel" → Intel / "AuthenticAMD" → AMD
-  ├─ Copies unsigned .sys driver to %TEMP%\
-  ├─ Creates kernel service via SCM → StartService → driver loads
-  └─ Steals Explorer token → launches game as non-admin
-        │
-        ▼
+ ├─ Acquires SE_DEBUG + SE_SYSTEM_ENVIRONMENT privilege
+ ├─ Finds ntoskrnl.exe + CI.dll base in kernel
+ ├─ Detects CPU: "GenuineIntel" → Intel / "AuthenticAMD" → AMD
+ ├─ Copies unsigned .sys driver to %TEMP%\
+ ├─ Creates kernel service via SCM → StartService → driver loads
+ └─ Steals Explorer token → launches game as non-admin
+ │
+ ▼
 [Driver loads at ring -1]
-  AMD: SimpleSvm.sys → VMRUN on all cores
-  Intel: hyperkd.sys → VMXON + VMLAUNCH on all cores
-        │
-        ▼
+ AMD: SimpleSvm.sys → VMRUN on all cores
+ Intel: hyperkd.sys → VMXON + VMLAUNCH on all cores
+ │
+ ▼
 [OS + Denuvo + game run as guest VM]
-        │
-  CPUID leaf 1     → clears ECX bit 31 (Hypervisor Present bit)
-  CPUID 0x40000000 → zeros all output registers (no vendor string)
-  RDTSC timing     → CounterUpdater spoofs TSC delta
-  SYSCALL          → callback table intercepts + patches return values
-  Read own code    → EPT serves original unmodified page
-  Execute own code → EPT maps to patched shadow page
-  RFLAGS.TF        → routes #DB to original handler
-        │
-        ▼
+ │
+ CPUID leaf 1 → clears ECX bit 31 (Hypervisor Present bit)
+ CPUID 0x40000000 → zeros all output registers (no vendor string)
+ RDTSC timing → CounterUpdater spoofs TSC delta
+ SYSCALL → callback table intercepts + patches return values
+ Read own code → EPT serves original unmodified page
+ Execute own code → EPT maps to patched shadow page
+ RFLAGS.TF → routes #DB to original handler
+ │
+ ▼
 [Game exits → driver unloaded → system returns to normal]
 ```
 
@@ -277,18 +277,18 @@ Based on HyperDbg (hyperdbg.com), a full open-source Intel VT-x hypervisor with 
 
 ```
 VmFuncInitVmm
-  └─ VmxCheckVmxSupport (CPUID.1:ECX.5)
-      └─ VmxPerformVirtualizationOnAllCores
-            └─ [DPC to each core]
-                 └─ VmxPerformVirtualizationOnSpecificCore
-                      ├─ VmxAllocateVmxonRegion (4KB contiguous)
-                      ├─ VmxAllocateVmcsRegion (4KB contiguous)
-                      ├─ VmxAllocateHostGdt/Idt/Tss/Stack
-                      ├─ VmxAllocateMsrBitmap/IoBitmaps
-                      ├─ EptAllocateAndCreateIdentityPageTable
-                      └─ VmxVirtualizeCurrentSystem
-                           ├─ VMXON → VMCLEAR → VMPTRLD → VMWRITE → VMLAUNCH
-                           └─ LstarHook (syscall handler)
+ └─ VmxCheckVmxSupport (CPUID.1:ECX.5)
+ └─ VmxPerformVirtualizationOnAllCores
+ └─ [DPC to each core]
+ └─ VmxPerformVirtualizationOnSpecificCore
+ ├─ VmxAllocateVmxonRegion (4KB contiguous)
+ ├─ VmxAllocateVmcsRegion (4KB contiguous)
+ ├─ VmxAllocateHostGdt/Idt/Tss/Stack
+ ├─ VmxAllocateMsrBitmap/IoBitmaps
+ ├─ EptAllocateAndCreateIdentityPageTable
+ └─ VmxVirtualizeCurrentSystem
+ ├─ VMXON → VMCLEAR → VMPTRLD → VMWRITE → VMLAUNCH
+ └─ LstarHook (syscall handler)
 ```
 
 #### VMEXIT Handler
@@ -309,7 +309,7 @@ VmFuncInitVmm
 The core technique for invisible code modification:
 
 ```
-Normal:    Guest virtual → Guest physical → real code
+Normal: Guest virtual → Guest physical → real code
 After hook: Execute → shadow page (patched) / Read → original page
 Result: Denuvo reads its own code as unmodified, but executes patched version
 ```

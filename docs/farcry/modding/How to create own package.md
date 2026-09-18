@@ -129,7 +129,7 @@ The *Action* attribute is required -- it defines action of the
 dependency:
 
 - **and** -- this means that all defined packages in *Package* tags are
-  required
+ required
 
 - **or** -- only one of package from *Package* tags is required
 

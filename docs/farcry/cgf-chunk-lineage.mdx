@@ -20,43 +20,43 @@ and `ResourceCompiler/ChunkFileReader.{cpp,h}`.
 
 ```cpp
 enum ChunkTypes {
-    ChunkType_ANY = 0,
-    ChunkType_Mesh = 0xCCCC0000,
-    ChunkType_Helper,
-    ChunkType_VertAnim,
-    ChunkType_BoneAnim,
-    ChunkType_GeomNameList,      // obsolete
-    ChunkType_BoneNameList,
-    ChunkType_MtlList,           // obsolete
-    ChunkType_MRM,               // obsolete
-    ChunkType_SceneProps,
-    ChunkType_Light,
-    ChunkType_PatchMesh,         // not implemented
-    ChunkType_Node,
-    ChunkType_Mtl,
-    ChunkType_Controller,
-    ChunkType_Timing,
-    ChunkType_BoneMesh,
-    ChunkType_BoneLightBinding,
-    ChunkType_MeshMorphTarget,
-    ChunkType_BoneInitialPos,
-    ChunkType_SourceInfo
+ ChunkType_ANY = 0,
+ ChunkType_Mesh = 0xCCCC0000,
+ ChunkType_Helper,
+ ChunkType_VertAnim,
+ ChunkType_BoneAnim,
+ ChunkType_GeomNameList, // obsolete
+ ChunkType_BoneNameList,
+ ChunkType_MtlList, // obsolete
+ ChunkType_MRM, // obsolete
+ ChunkType_SceneProps,
+ ChunkType_Light,
+ ChunkType_PatchMesh, // not implemented
+ ChunkType_Node,
+ ChunkType_Mtl,
+ ChunkType_Controller,
+ ChunkType_Timing,
+ ChunkType_BoneMesh,
+ ChunkType_BoneLightBinding,
+ ChunkType_MeshMorphTarget,
+ ChunkType_BoneInitialPos,
+ ChunkType_SourceInfo
 };
 ```
 
 ### Chunk header (versioned)
 
 ```cpp
-struct CHUNK_HEADER_0623 {           // VERSION = 0x0623
-    ChunkTypes  ChunkType;
-    int         ChunkVersion;
-    int         FileOffset;
+struct CHUNK_HEADER_0623 { // VERSION = 0x0623
+ ChunkTypes ChunkType;
+ int ChunkVersion;
+ int FileOffset;
 };
-struct CHUNK_HEADER_0744 {           // VERSION = 0x0744, adds ChunkID
-    ChunkTypes  ChunkType;
-    int         ChunkVersion;
-    int         FileOffset;
-    int         ChunkID;
+struct CHUNK_HEADER_0744 { // VERSION = 0x0744, adds ChunkID
+ ChunkTypes ChunkType;
+ int ChunkVersion;
+ int FileOffset;
+ int ChunkID;
 };
 typedef CHUNK_HEADER_0744 CHUNK_HEADER;
 ```
@@ -74,13 +74,13 @@ SceneProps`) dispatch on `CHUNK_HEADER.ChunkType`, and the reader throws
 ## Resource Compiler (the offline toolchain ancestor)
 
 - `ResourceCompiler/` — `CgfConvertor`-adjacent plumbing: `CryChunkedFile`,
-  `ChunkFileReader`, `CryBoneDesc`, `CryBoneHierarchyLoader`, `CgfUtils`,
-  `FileMapping`, `CfgFile`, `ExtensionManager`.
+ `ChunkFileReader`, `CryBoneDesc`, `CryBoneHierarchyLoader`, `CgfUtils`,
+ `FileMapping`, `CfgFile`, `ExtensionManager`.
 - `ResourceCompilerPC/` — the x64 converter: `CgfConvertor.cpp`,
-  `CrySkinBase`/`Builder`/`BasisBuilder`/`Full`/`Morph` (plus
-  `CrySkinAMD64.asm`), `Controller`, `CryAnimationInfo`, `BoneLightBindInfo`.
+ `CrySkinBase`/`Builder`/`BasisBuilder`/`Full`/`Morph` (plus
+ `CrySkinAMD64.asm`), `Controller`, `CryAnimationInfo`, `BoneLightBindInfo`.
 - `ResourceCompilerImage/` — `ImageCompiler`, `ImageObject`, `dds.h`,
-  `neuquant` (DDS/quantized texture compression).
+ `neuquant` (DDS/quantized texture compression).
 
 This is the origin of Disrupt's `ShaderCompiler2`/`ResourceCompiler`
 architecture — the offline compile pipeline whose outputs the FC6
@@ -98,20 +98,20 @@ split (manifest + data), but the hashed key scheme is newer.
 ## Mapping FC1 chunks → FC6 XBG chunks
 
 <FormatTable
-  columns={[
-    { header: 'FC1 `.cgf` chunk' },
-    { header: 'FC6 XBG chunk (4CC)' },
-    { header: 'Role' },
-  ]}
-  rows={[
-    { 'FC1 `.cgf` chunk': '`ChunkType_Mesh`', 'FC6 XBG chunk (4CC)': '`SULC` (CLUS)', Role: 'cluster / submesh geometry' },
-    { 'FC1 `.cgf` chunk': '`ChunkType_Node`', 'FC6 XBG chunk (4CC)': '`EDON` (NODE)', Role: 'node hierarchy' },
-    { 'FC1 `.cgf` chunk': '`ChunkType_Mtl`', 'FC6 XBG chunk (4CC)': '`LTMR` (material ref)', Role: 'material list' },
-    { 'FC1 `.cgf` chunk': '`ChunkType_BoneNameList`', 'FC6 XBG chunk (4CC)': '`DNKS` (SKND)', Role: 'bone names / skin data' },
-    { 'FC1 `.cgf` chunk': '`ChunkType_BoneAnim`', 'FC6 XBG chunk (4CC)': '`ITOM` (MOTI)', Role: 'animation' },
-    { 'FC1 `.cgf` chunk': '`ChunkType_BoneMesh` / `MeshMorphTarget`', 'FC6 XBG chunk (4CC)': '`KSRP` / `DIKS` (SKID)', Role: 'skinning / morph' },
-    { 'FC1 `.cgf` chunk': '`ChunkType_SourceInfo`', 'FC6 XBG chunk (4CC)': 'header `HSEMI`/`HSEMG`', Role: 'file metadata' },
-  ]}
+ columns={[
+ { header: 'FC1 `.cgf` chunk' },
+ { header: 'FC6 XBG chunk (4CC)' },
+ { header: 'Role' },
+ ]}
+ rows={[
+ { 'FC1 `.cgf` chunk': '`ChunkType_Mesh`', 'FC6 XBG chunk (4CC)': '`SULC` (CLUS)', Role: 'cluster / submesh geometry' },
+ { 'FC1 `.cgf` chunk': '`ChunkType_Node`', 'FC6 XBG chunk (4CC)': '`EDON` (NODE)', Role: 'node hierarchy' },
+ { 'FC1 `.cgf` chunk': '`ChunkType_Mtl`', 'FC6 XBG chunk (4CC)': '`LTMR` (material ref)', Role: 'material list' },
+ { 'FC1 `.cgf` chunk': '`ChunkType_BoneNameList`', 'FC6 XBG chunk (4CC)': '`DNKS` (SKND)', Role: 'bone names / skin data' },
+ { 'FC1 `.cgf` chunk': '`ChunkType_BoneAnim`', 'FC6 XBG chunk (4CC)': '`ITOM` (MOTI)', Role: 'animation' },
+ { 'FC1 `.cgf` chunk': '`ChunkType_BoneMesh` / `MeshMorphTarget`', 'FC6 XBG chunk (4CC)': '`KSRP` / `DIKS` (SKID)', Role: 'skinning / morph' },
+ { 'FC1 `.cgf` chunk': '`ChunkType_SourceInfo`', 'FC6 XBG chunk (4CC)': 'header `HSEMI`/`HSEMG`', Role: 'file metadata' },
+ ]}
 />
 
 Same architecture — type-tagged, versioned chunk headers with IDs, read via a
@@ -121,7 +121,7 @@ int `ChunkType` enum in `.cgf`; FC6 uses 4CC markers in `.xbg`.
 ## Open items
 
 - FC6 `.xbg` SDOL descriptor extra-field semantics (the field-level decode the
-  repo still tracks) — FC1's `MESH_CHUNK_DESC`/`NODE_CHUNK_DESC` layouts are a
-  candidate reference for what those fields mean, worth comparing field-by-field.
+ repo still tracks) — FC1's `MESH_CHUNK_DESC`/`NODE_CHUNK_DESC` layouts are a
+ candidate reference for what those fields mean, worth comparing field-by-field.
 - FC6 `sarb` shader wrapper — no FC1/`.cgf` equivalent; a Disrupt/FC6-era
-  packaging detail.
+ packaging detail.

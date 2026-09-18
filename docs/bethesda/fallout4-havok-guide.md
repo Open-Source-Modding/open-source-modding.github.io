@@ -62,35 +62,35 @@ If a new file with the extension HKX appears, you've packed file. Now delete the
 ```xml
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <hkpackfile classversion="11" contentsversion="hk_2014.1.0-r1">
-    <hksection name="__data__">
-        <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
-            <hkparam name="namedVariants" numelements="1">
-                <hkobject>
-                    <hkparam name="name">hkbProjectData</hkparam>
-                    <hkparam name="className">hkbProjectData</hkparam>
-                    <hkparam name="variant">#91</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkbProjectData" name="#91" signature="0x363c1159">
-            <hkparam name="worldUpWS">(0.0 0.0 1.0 0.0)</hkparam>
-            <hkparam name="stringData">#92</hkparam>
-            <hkparam name="defaultEventMode">2</hkparam>
-        </hkobject>
-        <hkobject class="hkbProjectStringData" name="#92" signature="0xca08c2ba">
-            <hkparam name="animationFilenames" numelements="0"/>
-            <hkparam name="behaviorFilenames" numelements="0"/>
-            <hkparam name="characterFilenames" numelements="1">
-                <hkcstring>Characters\Simple_Single_Event_Character.hkx</hkcstring>
-            </hkparam>
-            <hkparam name="eventNames" numelements="0"/>
-            <hkparam name="animationPath"/>
-            <hkparam name="behaviorPath"/>
-            <hkparam name="characterPath"/>
-            <hkparam name="scriptsPath">Scripts\</hkparam>
-            <hkparam name="fullPathToSource"/>
-        </hkobject>
-    </hksection>
+ <hksection name="__data__">
+ <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
+ <hkparam name="namedVariants" numelements="1">
+ <hkobject>
+ <hkparam name="name">hkbProjectData</hkparam>
+ <hkparam name="className">hkbProjectData</hkparam>
+ <hkparam name="variant">#91</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkbProjectData" name="#91" signature="0x363c1159">
+ <hkparam name="worldUpWS">(0.0 0.0 1.0 0.0)</hkparam>
+ <hkparam name="stringData">#92</hkparam>
+ <hkparam name="defaultEventMode">2</hkparam>
+ </hkobject>
+ <hkobject class="hkbProjectStringData" name="#92" signature="0xca08c2ba">
+ <hkparam name="animationFilenames" numelements="0"/>
+ <hkparam name="behaviorFilenames" numelements="0"/>
+ <hkparam name="characterFilenames" numelements="1">
+ <hkcstring>Characters\Simple_Single_Event_Character.hkx</hkcstring>
+ </hkparam>
+ <hkparam name="eventNames" numelements="0"/>
+ <hkparam name="animationPath"/>
+ <hkparam name="behaviorPath"/>
+ <hkparam name="characterPath"/>
+ <hkparam name="scriptsPath">Scripts\</hkparam>
+ <hkparam name="fullPathToSource"/>
+ </hkobject>
+ </hksection>
 </hkpackfile>
 ```
 
@@ -164,35 +164,35 @@ Go ahead and paste the information contained within the spoiler into your projec
 ```xml
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <hkpackfile classversion="11" contentsversion="hk_2014.1.0-r1">
-    <hksection name="__data__">
-        <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
-            <hkparam name="namedVariants" numelements="1">
-                <hkobject>
-                    <hkparam name="name">hkbProjectData</hkparam>
-                    <hkparam name="className">hkbProjectData</hkparam>
-                    <hkparam name="variant">#91</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkbProjectData" name="#91" signature="0x363c1159">
-            <hkparam name="worldUpWS">(0.0 0.0 1.0 0.0)</hkparam>
-            <hkparam name="stringData">#92</hkparam>
-            <hkparam name="defaultEventMode">2</hkparam>
-        </hkobject>
-        <hkobject class="hkbProjectStringData" name="#92" signature="0xca08c2ba">
-            <hkparam name="animationFilenames" numelements="0"/>
-            <hkparam name="behaviorFilenames" numelements="0"/>
-            <hkparam name="characterFilenames" numelements="1">
-                <hkcstring>Characters\MyCharacter.hkx</hkcstring>
-            </hkparam>
-            <hkparam name="eventNames" numelements="0"/>
-            <hkparam name="animationPath"/>
-            <hkparam name="behaviorPath"/>
-            <hkparam name="characterPath"/>
-            <hkparam name="scriptsPath">Scripts\</hkparam>
-            <hkparam name="fullPathToSource"/>
-        </hkobject>
-    </hksection>
+ <hksection name="__data__">
+ <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
+ <hkparam name="namedVariants" numelements="1">
+ <hkobject>
+ <hkparam name="name">hkbProjectData</hkparam>
+ <hkparam name="className">hkbProjectData</hkparam>
+ <hkparam name="variant">#91</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkbProjectData" name="#91" signature="0x363c1159">
+ <hkparam name="worldUpWS">(0.0 0.0 1.0 0.0)</hkparam>
+ <hkparam name="stringData">#92</hkparam>
+ <hkparam name="defaultEventMode">2</hkparam>
+ </hkobject>
+ <hkobject class="hkbProjectStringData" name="#92" signature="0xca08c2ba">
+ <hkparam name="animationFilenames" numelements="0"/>
+ <hkparam name="behaviorFilenames" numelements="0"/>
+ <hkparam name="characterFilenames" numelements="1">
+ <hkcstring>Characters\MyCharacter.hkx</hkcstring>
+ </hkparam>
+ <hkparam name="eventNames" numelements="0"/>
+ <hkparam name="animationPath"/>
+ <hkparam name="behaviorPath"/>
+ <hkparam name="characterPath"/>
+ <hkparam name="scriptsPath">Scripts\</hkparam>
+ <hkparam name="fullPathToSource"/>
+ </hkobject>
+ </hksection>
 </hkpackfile>
 ```
 
@@ -210,38 +210,38 @@ Paste this into your character xml file.
 ```xml
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <hkpackfile classversion="11" contentsversion="hk_2014.1.0-r1">
-    <hksection name="__data__">
-        <!-- No need to mess with this -->
-        <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
-            <hkparam name="namedVariants" numelements="1">
-                <hkobject>
-                    <hkparam name="name">hkbCharacterData</hkparam>
-                    <hkparam name="className">hkbCharacterData</hkparam>
-                    <hkparam name="variant">#91</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <!-- Mo need to mess with this except when you are messing with physics stuff. -->
-        <hkobject class="hkbCharacterData" name="#91" signature="0xfec46c1f">
-            <hkparam name="characterControllerSetup">
-                <hkobject class="hkbCharacterControllerSetup" name="characterControllerSetup" signature="0xaf5f7339">
-                    <hkparam name="rigidBodySetup">
-                        <hkobject class="hkbRigidBodySetup" name="rigidBodySetup" signature="0x3b082f95">
-                            <hkparam name="collisionFilterInfo">1</hkparam>
-                            <hkparam name="type">255</hkparam>
-                            <hkparam name="shapeSetup">
-                                <hkobject class="hkbShapeSetup" name="shapeSetup" signature="0xd7ff86be">
-                                    <hkparam name="capsuleHeight">1.7000000476837158</hkparam>
-                                    <hkparam name="capsuleRadius">0.4000000059604645</hkparam>
-                                    <hkparam name="fileName"/>
-                                    <hkparam name="type">CAPSULE</hkparam>
-                                </hkobject>
-                            </hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="controllerCinfo">null</hkparam>
-                </hkobject>
-            </hkparam>
+ <hksection name="__data__">
+ <!-- No need to mess with this -->
+ <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
+ <hkparam name="namedVariants" numelements="1">
+ <hkobject>
+ <hkparam name="name">hkbCharacterData</hkparam>
+ <hkparam name="className">hkbCharacterData</hkparam>
+ <hkparam name="variant">#91</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <!-- Mo need to mess with this except when you are messing with physics stuff. -->
+ <hkobject class="hkbCharacterData" name="#91" signature="0xfec46c1f">
+ <hkparam name="characterControllerSetup">
+ <hkobject class="hkbCharacterControllerSetup" name="characterControllerSetup" signature="0xaf5f7339">
+ <hkparam name="rigidBodySetup">
+ <hkobject class="hkbRigidBodySetup" name="rigidBodySetup" signature="0x3b082f95">
+ <hkparam name="collisionFilterInfo">1</hkparam>
+ <hkparam name="type">255</hkparam>
+ <hkparam name="shapeSetup">
+ <hkobject class="hkbShapeSetup" name="shapeSetup" signature="0xd7ff86be">
+ <hkparam name="capsuleHeight">1.7000000476837158</hkparam>
+ <hkparam name="capsuleRadius">0.4000000059604645</hkparam>
+ <hkparam name="fileName"/>
+ <hkparam name="type">CAPSULE</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="controllerCinfo">null</hkparam>
+ </hkobject>
+ </hkparam>
 ```
 
 ```xml
@@ -269,10 +269,10 @@ but now we can also define what axis is left/right forward/back.
 </hkobject>
 <!-- I will explain this when we get to behaviors. This is how you would "globally" define variables. -->
 <hkobject class="hkbVariableValueSet" name="#92" signature="0xeb5f7e25">
-    <hkparam name="wordVariableValues" numelements="0"/>
-    <hkparam name="quadVariableValues" numelements="0"/>
-    <hkparam name="variantVariableValues" numelements="0">
-    </hkparam>
+ <hkparam name="wordVariableValues" numelements="0"/>
+ <hkparam name="quadVariableValues" numelements="0"/>
+ <hkparam name="variantVariableValues" numelements="0">
+ </hkparam>
 </hkobject>
 ```
 
@@ -296,11 +296,11 @@ Remove this if you don't want havok animations:
 
 ```xml
 <hkobject>
-    <hkparam name="bundleName"/>
-    <hkparam name="assetNames" numelements="2">
-        <hkcstring>Animations\My_Animation_1.hkt</hkcstring>
-        <hkcstring>Animations\My_Animation_2.hkt</hkcstring>
-    </hkparam>
+ <hkparam name="bundleName"/>
+ <hkparam name="assetNames" numelements="2">
+ <hkcstring>Animations\My_Animation_1.hkt</hkcstring>
+ <hkcstring>Animations\My_Animation_2.hkt</hkcstring>
+ </hkparam>
 </hkobject>
 ```
 
@@ -318,37 +318,37 @@ Everything else you don't need to mess with.
 
 ```xml
 <hkobject class="hkbCharacterStringData" name="#93" signature="0xb9d8a52">
-    <hkparam name="skinNames" numelements="0">
-    </hkparam>
-    <hkparam name="boneAttachmentNames" numelements="0"/>
-    <hkparam name="animationBundleNameData" numelements="1">
-        <hkobject>
-            <hkparam name="bundleName"/>
-            <hkparam name="assetNames" numelements="2">
-                <hkcstring>Animations\My_Animation_1.hkt</hkcstring>
-                <hkcstring>Animations\My_Animation_2.hkt</hkcstring>
-            </hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="animationBundleFilenameData" numelements="0">
-    </hkparam>
-    <hkparam name="characterPropertyNames" numelements="0"/>
-    <hkparam name="retargetingSkeletonMapperFilenames" numelements="0"/>
-    <hkparam name="lodNames" numelements="0"/>
-    <hkparam name="mirroredSyncPointSubstringsA" numelements="0"/>
-    <hkparam name="mirroredSyncPointSubstringsB" numelements="0"/>
-    <hkparam name="name">My_Character</hkparam>
-    <hkparam name="rigName">CharacterAssets\Simple_Single_Event_Skeleton.hkt</hkparam>
-    <hkparam name="ragdollName"/>
-    <hkparam name="behaviorFilename">Behaviors\Simple_Single_Event_Behavior.hkx</hkparam>
-    <hkparam name="luaScriptOnCharacterActivated"/>
-    <hkparam name="luaScriptOnCharacterDeactivated"/>
-    <hkparam name="luaFiles" numelements="0"/>
+ <hkparam name="skinNames" numelements="0">
+ </hkparam>
+ <hkparam name="boneAttachmentNames" numelements="0"/>
+ <hkparam name="animationBundleNameData" numelements="1">
+ <hkobject>
+ <hkparam name="bundleName"/>
+ <hkparam name="assetNames" numelements="2">
+ <hkcstring>Animations\My_Animation_1.hkt</hkcstring>
+ <hkcstring>Animations\My_Animation_2.hkt</hkcstring>
+ </hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="animationBundleFilenameData" numelements="0">
+ </hkparam>
+ <hkparam name="characterPropertyNames" numelements="0"/>
+ <hkparam name="retargetingSkeletonMapperFilenames" numelements="0"/>
+ <hkparam name="lodNames" numelements="0"/>
+ <hkparam name="mirroredSyncPointSubstringsA" numelements="0"/>
+ <hkparam name="mirroredSyncPointSubstringsB" numelements="0"/>
+ <hkparam name="name">My_Character</hkparam>
+ <hkparam name="rigName">CharacterAssets\Simple_Single_Event_Skeleton.hkt</hkparam>
+ <hkparam name="ragdollName"/>
+ <hkparam name="behaviorFilename">Behaviors\Simple_Single_Event_Behavior.hkx</hkparam>
+ <hkparam name="luaScriptOnCharacterActivated"/>
+ <hkparam name="luaScriptOnCharacterDeactivated"/>
+ <hkparam name="luaFiles" numelements="0"/>
 </hkobject>
 <hkobject class="hkbMirroredSkeletonInfo" name="#94" signature="0x9f13052e">
-    <hkparam name="mirrorAxis">(1.0 0.0 0.0 0.0)</hkparam>
-    <hkparam name="bonePairMap" numelements="0"/>
-    <hkparam name="partitionPairMap" numelements="0"/>
+ <hkparam name="mirrorAxis">(1.0 0.0 0.0 0.0)</hkparam>
+ <hkparam name="bonePairMap" numelements="0"/>
+ <hkparam name="partitionPairMap" numelements="0"/>
 </hkobject>
 </hksection>
 </hkpackfile>
@@ -361,20 +361,20 @@ Paste this into your skeleton xml file.
 ```xml
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <hkpackfile classversion="11" contentsversion="hk_2014.1.0-r1">
-    <hksection name="__data__">
-        <!-- No need to mess with this.-->
-        <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
-            <hkparam name="namedVariants" numelements="1">
-                <hkobject>
-                    <hkparam name="name">Merged Animation Container</hkparam>
-                    <hkparam name="className">hkaAnimationContainer</hkparam>
-                    <hkparam name="variant">#91</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <!-- Depending on what you plan to do, you may need to mess with this object. -->
-        <hkobject class="hkaAnimationContainer" name="#91" signature="0x26859f4c">
-            <hkparam name="skeletons" numelements="1">
+ <hksection name="__data__">
+ <!-- No need to mess with this.-->
+ <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
+ <hkparam name="namedVariants" numelements="1">
+ <hkobject>
+ <hkparam name="name">Merged Animation Container</hkparam>
+ <hkparam name="className">hkaAnimationContainer</hkparam>
+ <hkparam name="variant">#91</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <!-- Depending on what you plan to do, you may need to mess with this object. -->
+ <hkobject class="hkaAnimationContainer" name="#91" signature="0x26859f4c">
+ <hkparam name="skeletons" numelements="1">
 ```
 
 #92
@@ -487,26 +487,26 @@ Be sure to set the numelements to the correct amount.
 
 ```xml
 <hkobject class="hkaSkeleton" name="#92" signature="0xfec1cedb">
-    <hkparam name="name">Root Node</hkparam>
-    <hkparam name="parentIndices" numelements="2">65535 0</hkparam>
-    <hkparam name="bones" numelements="2">
-        <hkobject>
-            <hkparam name="name">Root Node</hkparam>
-            <hkparam name="lockTranslation">false</hkparam>
-        </hkobject>
-        <hkobject>
-            <hkparam name="name">Child Node</hkparam>
-            <hkparam name="lockTranslation">false</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="referencePose" numelements="2">
-        (0.0 0.0 0.0 1.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
+ <hkparam name="name">Root Node</hkparam>
+ <hkparam name="parentIndices" numelements="2">65535 0</hkparam>
+ <hkparam name="bones" numelements="2">
+ <hkobject>
+ <hkparam name="name">Root Node</hkparam>
+ <hkparam name="lockTranslation">false</hkparam>
+ </hkobject>
+ <hkobject>
+ <hkparam name="name">Child Node</hkparam>
+ <hkparam name="lockTranslation">false</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="referencePose" numelements="2">
+ (0.0 0.0 0.0 1.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
 (0.0 0.0 0.0 1.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
-    </hkparam>
-    <hkparam name="referenceFloats" numelemensts="0"/>
-    <hkparam name="floatSlots" numelements="0"/>
-    <hkparam name="localFrames" numelements="0"/>
-    <hkparam name="partitions" numelements="0"/>
+ </hkparam>
+ <hkparam name="referenceFloats" numelemensts="0"/>
+ <hkparam name="floatSlots" numelements="0"/>
+ <hkparam name="localFrames" numelements="0"/>
+ <hkparam name="partitions" numelements="0"/>
 </hkobject>
 </hksection>
 </hkpackfile>
@@ -523,75 +523,75 @@ Go ahead and paste this into your behavior xml file. Make sure there's no spaces
 ```xml
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <hkpackfile classversion="11" contentsversion="hk_2014.1.0-r1">
-    <hksection name="__data__">
-        <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
-            <hkparam name="namedVariants" numelements="1">
-                <hkobject>
-                    <hkparam name="name">hkbBehaviorGraph</hkparam>
-                    <hkparam name="className">hkbBehaviorGraph</hkparam>
-                    <hkparam name="variant">#91</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkbBehaviorGraph" name="#91" signature="0xfdedb83b">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">My Behavior File Name.hkb</hkparam>
-            <hkparam name="variableMode">VARIABLE_MODE_DISCARD_WHEN_INACTIVE</hkparam>
-            <hkparam name="rootGenerator">#92</hkparam>
-            <hkparam name="data">#106</hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachine" name="#92" signature="0xa5896bcf">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">RootStateMachine</hkparam>
-            <hkparam name="eventToSendWhenStateOrTransitionChanges">
-                <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
-                    <hkparam name="id">-1</hkparam>
-                    <hkparam name="payload">null</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="startStateIdSelector">null</hkparam>
-            <hkparam name="startStateId">0</hkparam>
-            <hkparam name="returnToPreviousStateEventId">-1</hkparam>
-            <hkparam name="randomTransitionEventId">-1</hkparam>
-            <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
-            <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
-            <hkparam name="syncVariableIndex">-1</hkparam>
-            <hkparam name="wrapAroundStateId">false</hkparam>
-            <hkparam name="maxSimultaneousTransitions">32</hkparam>
-            <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
-            <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
-            <hkparam name="states" numelements="0">
-            </hkparam>
-            <hkparam name="wildcardTransitions">null</hkparam>
-        </hkobject>
-        <hkobject class="hkbBehaviorGraphData" name="#106" signature="0x907a8222">
-            <hkparam name="attributeDefaults" numelements="0"/>
-            <hkparam name="variableInfos" numelements="0">
-            </hkparam>
-            <hkparam name="characterPropertyInfos" numelements="0"/>
-            <hkparam name="eventInfos" numelements="0">
-            </hkparam>
-            <hkparam name="variableBounds" numelements="0"/>
-            <hkparam name="variableInitialValues">#117</hkparam>
-            <hkparam name="stringData">#118</hkparam>
-        </hkobject>
-        <hkobject class="hkbVariableValueSet" name="#117" signature="0xeb5f7e25">
-            <hkparam name="wordVariableValues" numelements="0">
-            </hkparam>
-            <hkparam name="quadVariableValues" numelements="0"/>
-            <hkparam name="variantVariableValues" numelements="0"/>
-        </hkobject>
-        <hkobject class="hkbBehaviorGraphStringData" name="#118" signature="0x1bd27f38">
-            <hkparam name="eventNames" numelements="0">
-            </hkparam>
-            <hkparam name="attributeNames" numelements="0"/>
-            <hkparam name="variableNames" numelements="0">
-            </hkparam>
-            <hkparam name="characterPropertyNames" numelements="0"/>
-        </hkobject>
-    </hksection>
+ <hksection name="__data__">
+ <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
+ <hkparam name="namedVariants" numelements="1">
+ <hkobject>
+ <hkparam name="name">hkbBehaviorGraph</hkparam>
+ <hkparam name="className">hkbBehaviorGraph</hkparam>
+ <hkparam name="variant">#91</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkbBehaviorGraph" name="#91" signature="0xfdedb83b">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My Behavior File Name.hkb</hkparam>
+ <hkparam name="variableMode">VARIABLE_MODE_DISCARD_WHEN_INACTIVE</hkparam>
+ <hkparam name="rootGenerator">#92</hkparam>
+ <hkparam name="data">#106</hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachine" name="#92" signature="0xa5896bcf">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">RootStateMachine</hkparam>
+ <hkparam name="eventToSendWhenStateOrTransitionChanges">
+ <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="startStateIdSelector">null</hkparam>
+ <hkparam name="startStateId">0</hkparam>
+ <hkparam name="returnToPreviousStateEventId">-1</hkparam>
+ <hkparam name="randomTransitionEventId">-1</hkparam>
+ <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
+ <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
+ <hkparam name="syncVariableIndex">-1</hkparam>
+ <hkparam name="wrapAroundStateId">false</hkparam>
+ <hkparam name="maxSimultaneousTransitions">32</hkparam>
+ <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
+ <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
+ <hkparam name="states" numelements="0">
+ </hkparam>
+ <hkparam name="wildcardTransitions">null</hkparam>
+ </hkobject>
+ <hkobject class="hkbBehaviorGraphData" name="#106" signature="0x907a8222">
+ <hkparam name="attributeDefaults" numelements="0"/>
+ <hkparam name="variableInfos" numelements="0">
+ </hkparam>
+ <hkparam name="characterPropertyInfos" numelements="0"/>
+ <hkparam name="eventInfos" numelements="0">
+ </hkparam>
+ <hkparam name="variableBounds" numelements="0"/>
+ <hkparam name="variableInitialValues">#117</hkparam>
+ <hkparam name="stringData">#118</hkparam>
+ </hkobject>
+ <hkobject class="hkbVariableValueSet" name="#117" signature="0xeb5f7e25">
+ <hkparam name="wordVariableValues" numelements="0">
+ </hkparam>
+ <hkparam name="quadVariableValues" numelements="0"/>
+ <hkparam name="variantVariableValues" numelements="0"/>
+ </hkobject>
+ <hkobject class="hkbBehaviorGraphStringData" name="#118" signature="0x1bd27f38">
+ <hkparam name="eventNames" numelements="0">
+ </hkparam>
+ <hkparam name="attributeNames" numelements="0"/>
+ <hkparam name="variableNames" numelements="0">
+ </hkparam>
+ <hkparam name="characterPropertyNames" numelements="0"/>
+ </hkobject>
+ </hksection>
 </hkpackfile>
 ```
 
@@ -614,13 +614,13 @@ This is located within the hkbBehaviorGraphData object.
 The basic object within variableInfos for each variable is this :
 ```xml
 <hkobject>
-    <hkparam name="role">
-        <hkobject class="hkbRoleAttribute" name="role" signature="0xfecef669">
-            <hkparam name="role">ROLE_DEFAULT</hkparam>
-            <hkparam name="flags">FLAG_NONE</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="type">VARIABLE_TYPE_REAL</hkparam>
+ <hkparam name="role">
+ <hkobject class="hkbRoleAttribute" name="role" signature="0xfecef669">
+ <hkparam name="role">ROLE_DEFAULT</hkparam>
+ <hkparam name="flags">FLAG_NONE</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="type">VARIABLE_TYPE_REAL</hkparam>
 </hkobject>
 ```
 So for each variable you define, you can copy and paste this object under variableInfos.
@@ -628,19 +628,19 @@ Make sure you adjust the numelements.
 Example :
 ```xml
 <hkparam name="variableInfos" numelements="1">
-    <hkobject>
-        <hkparam name="role">
-            <hkobject class="hkbRoleAttribute" name="role" signature="0xfecef669">
-                <hkparam name="role">ROLE_DEFAULT</hkparam>
-                <hkparam name="flags">FLAG_NONE</hkparam>
-            </hkobject>
-        </hkparam>
-        <!-- "Type" specifys the type of variable. Here's a quick reference to the possible values.
+ <hkobject>
+ <hkparam name="role">
+ <hkobject class="hkbRoleAttribute" name="role" signature="0xfecef669">
+ <hkparam name="role">ROLE_DEFAULT</hkparam>
+ <hkparam name="flags">FLAG_NONE</hkparam>
+ </hkobject>
+ </hkparam>
+ <!-- "Type" specifys the type of variable. Here's a quick reference to the possible values.
 Keep in mind this is from the 2013 version of HAVOK .
 <https://github.com/Bewolf2/projectanarchy/blob/bec6e7270c9dc797a12d167d3e8942866065364e/Source/Behavior/Behavior/Variables/hkbVariableInfo.h>
 -->
-        <hkparam name="type">VARIABLE_TYPE_REAL</hkparam>
-    </hkobject>
+ <hkparam name="type">VARIABLE_TYPE_REAL</hkparam>
+ </hkobject>
 </hkparam>
 ```
 This is located within the hkbVariableValueSet.
@@ -648,15 +648,15 @@ For each variable here, this is the object you paste :
 Make sure the value isn't a float(reason may be because of a hkx bug).
 ```xml
 <hkobject>
-    <hkparam name="value">30</hkparam>
+ <hkparam name="value">30</hkparam>
 </hkobject>
 ```
 Example :
 ```xml
 <hkparam name="wordVariableValues" numelements="1">
-    <hkobject>
-        <hkparam name="value">30</hkparam>
-    </hkobject>
+ <hkobject>
+ <hkparam name="value">30</hkparam>
+ </hkobject>
 </hkparam>
 ```
 This is within the hkbBehaviorGraphStringData object.
@@ -667,25 +667,25 @@ This one uses the tag hkcstring. For each variable define :
 Example :
 ```xml
 <hkparam name="variableNames" numelements="1">
-    <!-- Name your variable whatever you want. The index will be how you reference it. -->
-    <hkcstring>Blending_Duration</hkcstring>
+ <!-- Name your variable whatever you want. The index will be how you reference it. -->
+ <hkcstring>Blending_Duration</hkcstring>
 </hkparam>
 ```
 Finally there's the bounds which is an optional thing. It is located within hkbBehaviorGraphData.
 ```xml
 <hkparam name="variableBounds" numelements="1">
-    <hkobject>
-        <hkparam name="min">
-            <hkobject class="hkbVariableValue" name="min" signature="0xb99bd6a">
-                <hkparam name="value">0</hkparam>
-            </hkobject>
-        </hkparam>
-        <hkparam name="max">
-            <hkobject class="hkbVariableValue" name="max" signature="0xb99bd6a">
-                <hkparam name="value">5</hkparam>
-            </hkobject>
-        </hkparam>
-    </hkobject>
+ <hkobject>
+ <hkparam name="min">
+ <hkobject class="hkbVariableValue" name="min" signature="0xb99bd6a">
+ <hkparam name="value">0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="max">
+ <hkobject class="hkbVariableValue" name="max" signature="0xb99bd6a">
+ <hkparam name="value">5</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
 </hkparam>
 ```
 This would restrict the value to with 0 - 5.
@@ -699,15 +699,15 @@ Located within the hkbBehaviorGraphData object.
 Object for each event :
 ```xml
 <hkobject>
-    <hkparam name="flags">0</hkparam>
+ <hkparam name="flags">0</hkparam>
 </hkobject>
 ```
 Example :
 ```xml
 <hkparam name="eventInfos" numelements="1">
-    <hkobject>
-        <hkparam name="flags">0</hkparam>
-    </hkobject>
+ <hkobject>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
 </hkparam>
 ```
 Located within the hkbBehaviorGraphStringData object.
@@ -718,7 +718,7 @@ Object for each event :
 Examoke :
 ```xml
 <hkparam name="eventNames" numelements="1">
-    <hkcstring>Starting_State_Event</hkcstring>
+ <hkcstring>Starting_State_Event</hkcstring>
 </hkparam>
 ```
 Additional Information On Events:
@@ -744,18 +744,18 @@ I haven't explored using payload yet but it's used by the base game behavior fil
 ```xml
 <!-- Paste This Object. -->
 <hkobject class="BSTimerModifier" name="#4000" signature="0x9266ffac">
-    <hkparam name="variableBindingSet">#4001</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">My Timer Modifier</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="alarmTimeSeconds">30.0</hkparam>
-    <hkparam name="alarmEvent">
-        <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
-            <hkparam name="id">-1</hkparam>
-            <hkparam name="payload">null</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="resetAlarm">true</hkparam>
+ <hkparam name="variableBindingSet">#4001</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My Timer Modifier</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="alarmTimeSeconds">30.0</hkparam>
+ <hkparam name="alarmEvent">
+ <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="resetAlarm">true</hkparam>
 </hkobject>
 ```
 With the bindingset below, I'm binding a variable which I've defined at index 0 to the parameter named alarmTimeSeconds.
@@ -773,16 +773,16 @@ Notice that this block is referenced by it's name at the timermodifier's variabl
 ```xml
 <!-- Paste This Object. -->
 <hkobject class="hkbVariableBindingSet" name="#4001" signature="0xe942f339">
-    <hkparam name="bindings" numelements="1">
-        <!-- This is the first binding. -->
-        <hkobject>
-            <hkparam name="memberPath">alarmTimeSeconds</hkparam>
-            <hkparam name="variableIndex">0</hkparam>
-            <hkparam name="bitIndex">255</hkparam>
-            <hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="indexOfBindingToEnable">-1</hkparam>
+ <hkparam name="bindings" numelements="1">
+ <!-- This is the first binding. -->
+ <hkobject>
+ <hkparam name="memberPath">alarmTimeSeconds</hkparam>
+ <hkparam name="variableIndex">0</hkparam>
+ <hkparam name="bitIndex">255</hkparam>
+ <hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="indexOfBindingToEnable">-1</hkparam>
 </hkobject>
 ```
 Conditions :
@@ -799,11 +799,11 @@ Once again this information is all located at the Github.
 ```xml
 <!-- Paste This Object. -->
 <hkobject class="hkbExpressionCondition" name="#1555" signature="0x4a3ac449">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">My_Condition</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="expression">First variable name in which I've defined == 0</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My_Condition</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="expression">First variable name in which I've defined == 0</hkparam>
 </hkobject>
 ```
 It might be possible to send an event if something evaluates to true but I only tested this with hkbEvaluateExpressionModifier (included in my notes).
@@ -816,29 +816,29 @@ StartStateId, wildcardTransitions and states are the three parameter's you'll be
 
 ```xml
 <hkobject class="hkbStateMachine" name="#92" signature="0xa5896bcf">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">RootStateMachine</hkparam>
-    <hkparam name="eventToSendWhenStateOrTransitionChanges">
-        <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
-            <hkparam name="id">-1</hkparam>
-            <hkparam name="payload">null</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="startStateIdSelector">null</hkparam>
-    <hkparam name="startStateId">0</hkparam>
-    <hkparam name="returnToPreviousStateEventId">-1</hkparam>
-    <hkparam name="randomTransitionEventId">-1</hkparam>
-    <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
-    <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
-    <hkparam name="syncVariableIndex">-1</hkparam>
-    <hkparam name="wrapAroundStateId">false</hkparam>
-    <hkparam name="maxSimultaneousTransitions">32</hkparam>
-    <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
-    <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
-    <hkparam name="states" numelements="0">
-    </hkparam>
-    <hkparam name="wildcardTransitions">null</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">RootStateMachine</hkparam>
+ <hkparam name="eventToSendWhenStateOrTransitionChanges">
+ <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="startStateIdSelector">null</hkparam>
+ <hkparam name="startStateId">0</hkparam>
+ <hkparam name="returnToPreviousStateEventId">-1</hkparam>
+ <hkparam name="randomTransitionEventId">-1</hkparam>
+ <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
+ <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
+ <hkparam name="syncVariableIndex">-1</hkparam>
+ <hkparam name="wrapAroundStateId">false</hkparam>
+ <hkparam name="maxSimultaneousTransitions">32</hkparam>
+ <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
+ <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
+ <hkparam name="states" numelements="0">
+ </hkparam>
+ <hkparam name="wildcardTransitions">null</hkparam>
 </hkobject>
 ```
 
@@ -852,59 +852,59 @@ Here's how this would look :
 
 ```xml
 <hkobject class="hkbStateMachine" name="#92" signature="0xa5896bcf">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">RootStateMachine</hkparam>
-    <hkparam name="eventToSendWhenStateOrTransitionChanges">
-        <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
-            <hkparam name="id">-1</hkparam>
-            <hkparam name="payload">null</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="startStateIdSelector">null</hkparam>
-    <hkparam name="startStateId">0</hkparam>
-    <hkparam name="returnToPreviousStateEventId">-1</hkparam>
-    <hkparam name="randomTransitionEventId">-1</hkparam>
-    <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
-    <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
-    <hkparam name="syncVariableIndex">-1</hkparam>
-    <hkparam name="wrapAroundStateId">false</hkparam>
-    <hkparam name="maxSimultaneousTransitions">32</hkparam>
-    <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
-    <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
-    <hkparam name="states" numelements="0">
-    </hkparam>
-    <hkparam name="wildcardTransitions">#88888</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">RootStateMachine</hkparam>
+ <hkparam name="eventToSendWhenStateOrTransitionChanges">
+ <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="startStateIdSelector">null</hkparam>
+ <hkparam name="startStateId">0</hkparam>
+ <hkparam name="returnToPreviousStateEventId">-1</hkparam>
+ <hkparam name="randomTransitionEventId">-1</hkparam>
+ <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
+ <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
+ <hkparam name="syncVariableIndex">-1</hkparam>
+ <hkparam name="wrapAroundStateId">false</hkparam>
+ <hkparam name="maxSimultaneousTransitions">32</hkparam>
+ <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
+ <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
+ <hkparam name="states" numelements="0">
+ </hkparam>
+ <hkparam name="wildcardTransitions">#88888</hkparam>
 </hkobject>
 <hkobject class="hkbStateMachineTransitionInfoArray" name="#88888" signature="0x704a19af">
-    <hkparam name="transitions" numelements="1">
-        <hkobject>
-            <hkparam name="triggerInterval">
-                <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
-                    <hkparam name="enterEventId">-1</hkparam>
-                    <hkparam name="exitEventId">-1</hkparam>
-                    <hkparam name="enterTime">0.0</hkparam>
-                    <hkparam name="exitTime">0.0</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="initiateInterval">
-                <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
-                    <hkparam name="enterEventId">-1</hkparam>
-                    <hkparam name="exitEventId">-1</hkparam>
-                    <hkparam name="enterTime">0.0</hkparam>
-                    <hkparam name="exitTime">0.0</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="transition">null</hkparam>
-            <hkparam name="condition">null</hkparam>
-            <hkparam name="eventId">0</hkparam>
-            <hkparam name="toStateId">0</hkparam>
-            <hkparam name="fromNestedStateId">0</hkparam>
-            <hkparam name="toNestedStateId">0</hkparam>
-            <hkparam name="priority">0</hkparam>
-            <hkparam name="flags">FLAG_IS_LOCAL_WILDCARD</hkparam>
-        </hkobject>
-    </hkparam>
+ <hkparam name="transitions" numelements="1">
+ <hkobject>
+ <hkparam name="triggerInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="initiateInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="transition">null</hkparam>
+ <hkparam name="condition">null</hkparam>
+ <hkparam name="eventId">0</hkparam>
+ <hkparam name="toStateId">0</hkparam>
+ <hkparam name="fromNestedStateId">0</hkparam>
+ <hkparam name="toNestedStateId">0</hkparam>
+ <hkparam name="priority">0</hkparam>
+ <hkparam name="flags">FLAG_IS_LOCAL_WILDCARD</hkparam>
+ </hkobject>
+ </hkparam>
 </hkobject>
 ```
 
@@ -919,16 +919,16 @@ ID must be a unique number as this how the state if referenced.
 ```xml
 <!-- Paste two of these into your behavior file. Adjust there name attribute's, there name's and there ID's so they are unique. -->
 <hkobject class="hkbStateMachineStateInfo" name="#109" signature="0x39d76713">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="listeners" numelements="0"/>
-    <hkparam name="enterNotifyEvents">null</hkparam>
-    <hkparam name="exitNotifyEvents">null</hkparam>
-    <hkparam name="transitions">null</hkparam>
-    <hkparam name="generator">null</hkparam>
-    <hkparam name="name">Put a unique name here</hkparam>
-    <hkparam name="stateId">0</hkparam>
-    <hkparam name="probability">1.0</hkparam>
-    <hkparam name="enable">true</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="listeners" numelements="0"/>
+ <hkparam name="enterNotifyEvents">null</hkparam>
+ <hkparam name="exitNotifyEvents">null</hkparam>
+ <hkparam name="transitions">null</hkparam>
+ <hkparam name="generator">null</hkparam>
+ <hkparam name="name">Put a unique name here</hkparam>
+ <hkparam name="stateId">0</hkparam>
+ <hkparam name="probability">1.0</hkparam>
+ <hkparam name="enable">true</hkparam>
 </hkobject>
 ```
 Transition arrays.
@@ -939,22 +939,22 @@ Statemachines also use them.
 ```xml
 <!-- Paste one of these into your behavior file. Adjust it's name attribute's, name and ID so that it's unique. <hkobject class="hkbStateMachineTransitionInfoArray" name="#111" signature="0x704a19af"> <hkparam name="transitions" numelements="1"> <hkobject> <!-- I haven't played with this but you should be able to figure this out by using the HAVOK 2013 source files. -->
 <hkparam name="triggerInterval">
-    <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
-        <hkparam name="enterEventId">-1</hkparam>
-        <hkparam name="exitEventId">-1</hkparam>
-        <hkparam name="enterTime">0.0</hkparam>
-        <hkparam name="exitTime">0.0</hkparam>
-    </hkobject>
+ <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
 </hkparam>
 <hkparam name="initiateInterval">
-    <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
-        <hkparam name="enterEventId">-1</hkparam>
-        <hkparam name="exitEventId">-1</hkparam>
-        <hkparam name="enterTime">0.0</hkparam>
-        <hkparam name="exitTime">0.0</hkparam>
-    </hkobject>
+ <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
 </hkparam>
-<!-- Transition here refers to the "transition effect" that occurs when you leave this state. These are mostly  blending effects. EventID specifys which event will cause a transition to what state. For this transition array, when we receive the second event which we defined, we will transition to the second state (assuming the second state has a ID of 1). The rest I haven't explored. -->
+<!-- Transition here refers to the "transition effect" that occurs when you leave this state. These are mostly blending effects. EventID specifys which event will cause a transition to what state. For this transition array, when we receive the second event which we defined, we will transition to the second state (assuming the second state has a ID of 1). The rest I haven't explored. -->
 <hkparam name="transition">null</hkparam>
 <hkparam name="condition">null</hkparam>
 <hkparam name="eventId">1</hkparam>
@@ -975,212 +975,212 @@ Defined a single variable and event. Defined a modifier with a variablebinding s
 ```xml
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <hkpackfile classversion="11" contentsversion="hk_2014.1.0-r1">
-    <hksection name="__data__">
-        <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
-            <hkparam name="namedVariants" numelements="1">
-                <hkobject>
-                    <hkparam name="name">hkbBehaviorGraph</hkparam>
-                    <hkparam name="className">hkbBehaviorGraph</hkparam>
-                    <hkparam name="variant">#91</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkbBehaviorGraph" name="#91" signature="0xfdedb83b">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">My Behavior File Name.hkb</hkparam>
-            <hkparam name="variableMode">VARIABLE_MODE_DISCARD_WHEN_INACTIVE</hkparam>
-            <hkparam name="rootGenerator">#92</hkparam>
-            <hkparam name="data">#106</hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachine" name="#92" signature="0xa5896bcf">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">RootStateMachine</hkparam>
-            <hkparam name="eventToSendWhenStateOrTransitionChanges">
-                <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
-                    <hkparam name="id">-1</hkparam>
-                    <hkparam name="payload">null</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="startStateIdSelector">null</hkparam>
-            <hkparam name="startStateId">0</hkparam>
-            <hkparam name="returnToPreviousStateEventId">-1</hkparam>
-            <hkparam name="randomTransitionEventId">-1</hkparam>
-            <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
-            <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
-            <hkparam name="syncVariableIndex">-1</hkparam>
-            <hkparam name="wrapAroundStateId">false</hkparam>
-            <hkparam name="maxSimultaneousTransitions">32</hkparam>
-            <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
-            <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
-            <hkparam name="states" numelements="0">
-            </hkparam>
-            <hkparam name="wildcardTransitions">#88888</hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachineTransitionInfoArray" name="#88888" signature="0x704a19af">
-            <hkparam name="transitions" numelements="1">
-                <hkobject>
-                    <hkparam name="triggerInterval">
-                        <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
-                            <hkparam name="enterEventId">-1</hkparam>
-                            <hkparam name="exitEventId">-1</hkparam>
-                            <hkparam name="enterTime">0.0</hkparam>
-                            <hkparam name="exitTime">0.0</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="initiateInterval">
-                        <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
-                            <hkparam name="enterEventId">-1</hkparam>
-                            <hkparam name="exitEventId">-1</hkparam>
-                            <hkparam name="enterTime">0.0</hkparam>
-                            <hkparam name="exitTime">0.0</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="transition">null</hkparam>
-                    <hkparam name="condition">null</hkparam>
-                    <hkparam name="eventId">0</hkparam>
-                    <hkparam name="toStateId">0</hkparam>
-                    <hkparam name="fromNestedStateId">0</hkparam>
-                    <hkparam name="toNestedStateId">0</hkparam>
-                    <hkparam name="priority">0</hkparam>
-                    <hkparam name="flags">FLAG_IS_LOCAL_WILDCARD</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkbBehaviorGraphData" name="#106" signature="0x907a8222">
-            <hkparam name="attributeDefaults" numelements="0"/>
-            <hkparam name="variableInfos" numelements="1">
-                <hkobject>
-                    <hkparam name="role">
-                        <hkobject class="hkbRoleAttribute" name="role" signature="0xfecef669">
-                            <hkparam name="role">ROLE_DEFAULT</hkparam>
-                            <hkparam name="flags">FLAG_NONE</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="type">VARIABLE_TYPE_REAL</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="characterPropertyInfos" numelements="0"/>
-            <hkparam name="eventInfos" numelements="1">
-                <hkobject>
-                    <hkparam name="flags">0</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="variableBounds" numelements="0"/>
-            <hkparam name="variableInitialValues">#117</hkparam>
-            <hkparam name="stringData">#118</hkparam>
-        </hkobject>
-        <hkobject class="hkbVariableValueSet" name="#117" signature="0xeb5f7e25">
-            <hkparam name="wordVariableValues" numelements="1">
-                <hkobject>
-                    <hkparam name="value">30</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="quadVariableValues" numelements="0"/>
-            <hkparam name="variantVariableValues" numelements="0"/>
-        </hkobject>
-        <hkobject class="hkbBehaviorGraphStringData" name="#118" signature="0x1bd27f38">
-            <hkparam name="eventNames" numelements="1">
-                <hkcstring>Start State Event</hkcstring>
-            </hkparam>
-            <hkparam name="attributeNames" numelements="0"/>
-            <hkparam name="variableNames" numelements="1">
-                <hkcstring>My_First_Variable</hkcstring>
-            </hkparam>
-            <hkparam name="characterPropertyNames" numelements="0"/>
-        </hkobject>
-        <hkobject class="BSTimerModifier" name="#4000" signature="0x9266ffac">
-            <hkparam name="variableBindingSet">#4001</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">My Timer Modifier</hkparam>
-            <hkparam name="enable">true</hkparam>
-            <hkparam name="alarmTimeSeconds">30.0</hkparam>
-            <hkparam name="alarmEvent">
-                <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
-                    <hkparam name="id">-1</hkparam>
-                    <hkparam name="payload">null</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="resetAlarm">true</hkparam>
-        </hkobject>
-        <hkobject class="hkbVariableBindingSet" name="#4001" signature="0xe942f339">
-            <hkparam name="bindings" numelements="1">
-                <!-- This is the first binding. -->
-                <hkobject>
-                    <hkparam name="memberPath">alarmTimeSeconds</hkparam>
-                    <hkparam name="variableIndex">0</hkparam>
-                    <hkparam name="bitIndex">255</hkparam>
-                    <hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="indexOfBindingToEnable">-1</hkparam>
-        </hkobject>
-        <hkobject class="hkbExpressionCondition" name="#1555" signature="0x4a3ac449">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">My_Condition</hkparam>
-            <hkparam name="enable">true</hkparam>
-            <hkparam name="expression">My_First_Variable == 0</hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachineStateInfo" name="#8888" signature="0x39d76713">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="listeners" numelements="0"/>
-            <hkparam name="enterNotifyEvents">null</hkparam>
-            <hkparam name="exitNotifyEvents">null</hkparam>
-            <hkparam name="transitions">null</hkparam>
-            <hkparam name="generator">null</hkparam>
-            <hkparam name="name">My Starting State</hkparam>
-            <hkparam name="stateId">0</hkparam>
-            <hkparam name="probability">1.0</hkparam>
-            <hkparam name="enable">true</hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachineTransitionInfoArray" name="#111" signature="0x704a19af">
-            <hkparam name="transitions" numelements="1">
-                <hkobject>
-                    <!-- I haven't played with this but you should be able to figure this out by using the HAVOK 2013 source files. -->
-                    <hkparam name="triggerInterval">
-                        <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
-                            <hkparam name="enterEventId">-1</hkparam>
-                            <hkparam name="exitEventId">-1</hkparam>
-                            <hkparam name="enterTime">0.0</hkparam>
-                            <hkparam name="exitTime">0.0</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="initiateInterval">
-                        <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
-                            <hkparam name="enterEventId">-1</hkparam>
-                            <hkparam name="exitEventId">-1</hkparam>
-                            <hkparam name="enterTime">0.0</hkparam>
-                            <hkparam name="exitTime">0.0</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <!-- Transition here refers to the "transition effect" that occurs when you leave this state. These are mostly  blending effects. Condition's I will talk about next. EventID specifies which event will cause a transition to what state. Here my second event defined will transition to my second state if it is received while in this state. The rest I haven't explored. -->
-                    <hkparam name="transition">null</hkparam>
-                    <hkparam name="condition">null</hkparam>
-                    <!-- Read the next section for information on this. -->
-                    <hkparam name="eventId">1</hkparam>
-                    <hkparam name="toStateId">1</hkparam>
-                    <hkparam name="fromNestedStateId">0</hkparam>
-                    <hkparam name="toNestedStateId">0</hkparam>
-                    <hkparam name="priority">0</hkparam>
-                    <hkparam name="flags">0</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachineStateInfo" name="#9999" signature="0x39d76713">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="listeners" numelements="0"/>
-            <hkparam name="enterNotifyEvents">null</hkparam>
-            <hkparam name="exitNotifyEvents">null</hkparam>
-            <hkparam name="transitions">null</hkparam>
-            <hkparam name="generator">null</hkparam>
-            <hkparam name="name">My Second State</hkparam>
-            <hkparam name="stateId">1</hkparam>
-            <hkparam name="probability">1.0</hkparam>
-            <hkparam name="enable">true</hkparam>
-        </hkobject>
-    </hksection>
+ <hksection name="__data__">
+ <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
+ <hkparam name="namedVariants" numelements="1">
+ <hkobject>
+ <hkparam name="name">hkbBehaviorGraph</hkparam>
+ <hkparam name="className">hkbBehaviorGraph</hkparam>
+ <hkparam name="variant">#91</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkbBehaviorGraph" name="#91" signature="0xfdedb83b">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My Behavior File Name.hkb</hkparam>
+ <hkparam name="variableMode">VARIABLE_MODE_DISCARD_WHEN_INACTIVE</hkparam>
+ <hkparam name="rootGenerator">#92</hkparam>
+ <hkparam name="data">#106</hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachine" name="#92" signature="0xa5896bcf">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">RootStateMachine</hkparam>
+ <hkparam name="eventToSendWhenStateOrTransitionChanges">
+ <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="startStateIdSelector">null</hkparam>
+ <hkparam name="startStateId">0</hkparam>
+ <hkparam name="returnToPreviousStateEventId">-1</hkparam>
+ <hkparam name="randomTransitionEventId">-1</hkparam>
+ <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
+ <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
+ <hkparam name="syncVariableIndex">-1</hkparam>
+ <hkparam name="wrapAroundStateId">false</hkparam>
+ <hkparam name="maxSimultaneousTransitions">32</hkparam>
+ <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
+ <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
+ <hkparam name="states" numelements="0">
+ </hkparam>
+ <hkparam name="wildcardTransitions">#88888</hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachineTransitionInfoArray" name="#88888" signature="0x704a19af">
+ <hkparam name="transitions" numelements="1">
+ <hkobject>
+ <hkparam name="triggerInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="initiateInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="transition">null</hkparam>
+ <hkparam name="condition">null</hkparam>
+ <hkparam name="eventId">0</hkparam>
+ <hkparam name="toStateId">0</hkparam>
+ <hkparam name="fromNestedStateId">0</hkparam>
+ <hkparam name="toNestedStateId">0</hkparam>
+ <hkparam name="priority">0</hkparam>
+ <hkparam name="flags">FLAG_IS_LOCAL_WILDCARD</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkbBehaviorGraphData" name="#106" signature="0x907a8222">
+ <hkparam name="attributeDefaults" numelements="0"/>
+ <hkparam name="variableInfos" numelements="1">
+ <hkobject>
+ <hkparam name="role">
+ <hkobject class="hkbRoleAttribute" name="role" signature="0xfecef669">
+ <hkparam name="role">ROLE_DEFAULT</hkparam>
+ <hkparam name="flags">FLAG_NONE</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="type">VARIABLE_TYPE_REAL</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="characterPropertyInfos" numelements="0"/>
+ <hkparam name="eventInfos" numelements="1">
+ <hkobject>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="variableBounds" numelements="0"/>
+ <hkparam name="variableInitialValues">#117</hkparam>
+ <hkparam name="stringData">#118</hkparam>
+ </hkobject>
+ <hkobject class="hkbVariableValueSet" name="#117" signature="0xeb5f7e25">
+ <hkparam name="wordVariableValues" numelements="1">
+ <hkobject>
+ <hkparam name="value">30</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="quadVariableValues" numelements="0"/>
+ <hkparam name="variantVariableValues" numelements="0"/>
+ </hkobject>
+ <hkobject class="hkbBehaviorGraphStringData" name="#118" signature="0x1bd27f38">
+ <hkparam name="eventNames" numelements="1">
+ <hkcstring>Start State Event</hkcstring>
+ </hkparam>
+ <hkparam name="attributeNames" numelements="0"/>
+ <hkparam name="variableNames" numelements="1">
+ <hkcstring>My_First_Variable</hkcstring>
+ </hkparam>
+ <hkparam name="characterPropertyNames" numelements="0"/>
+ </hkobject>
+ <hkobject class="BSTimerModifier" name="#4000" signature="0x9266ffac">
+ <hkparam name="variableBindingSet">#4001</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My Timer Modifier</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="alarmTimeSeconds">30.0</hkparam>
+ <hkparam name="alarmEvent">
+ <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="resetAlarm">true</hkparam>
+ </hkobject>
+ <hkobject class="hkbVariableBindingSet" name="#4001" signature="0xe942f339">
+ <hkparam name="bindings" numelements="1">
+ <!-- This is the first binding. -->
+ <hkobject>
+ <hkparam name="memberPath">alarmTimeSeconds</hkparam>
+ <hkparam name="variableIndex">0</hkparam>
+ <hkparam name="bitIndex">255</hkparam>
+ <hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="indexOfBindingToEnable">-1</hkparam>
+ </hkobject>
+ <hkobject class="hkbExpressionCondition" name="#1555" signature="0x4a3ac449">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My_Condition</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="expression">My_First_Variable == 0</hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachineStateInfo" name="#8888" signature="0x39d76713">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="listeners" numelements="0"/>
+ <hkparam name="enterNotifyEvents">null</hkparam>
+ <hkparam name="exitNotifyEvents">null</hkparam>
+ <hkparam name="transitions">null</hkparam>
+ <hkparam name="generator">null</hkparam>
+ <hkparam name="name">My Starting State</hkparam>
+ <hkparam name="stateId">0</hkparam>
+ <hkparam name="probability">1.0</hkparam>
+ <hkparam name="enable">true</hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachineTransitionInfoArray" name="#111" signature="0x704a19af">
+ <hkparam name="transitions" numelements="1">
+ <hkobject>
+ <!-- I haven't played with this but you should be able to figure this out by using the HAVOK 2013 source files. -->
+ <hkparam name="triggerInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="initiateInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <!-- Transition here refers to the "transition effect" that occurs when you leave this state. These are mostly blending effects. Condition's I will talk about next. EventID specifies which event will cause a transition to what state. Here my second event defined will transition to my second state if it is received while in this state. The rest I haven't explored. -->
+ <hkparam name="transition">null</hkparam>
+ <hkparam name="condition">null</hkparam>
+ <!-- Read the next section for information on this. -->
+ <hkparam name="eventId">1</hkparam>
+ <hkparam name="toStateId">1</hkparam>
+ <hkparam name="fromNestedStateId">0</hkparam>
+ <hkparam name="toNestedStateId">0</hkparam>
+ <hkparam name="priority">0</hkparam>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachineStateInfo" name="#9999" signature="0x39d76713">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="listeners" numelements="0"/>
+ <hkparam name="enterNotifyEvents">null</hkparam>
+ <hkparam name="exitNotifyEvents">null</hkparam>
+ <hkparam name="transitions">null</hkparam>
+ <hkparam name="generator">null</hkparam>
+ <hkparam name="name">My Second State</hkparam>
+ <hkparam name="stateId">1</hkparam>
+ <hkparam name="probability">1.0</hkparam>
+ <hkparam name="enable">true</hkparam>
+ </hkobject>
+ </hksection>
 </hkpackfile>
 ```
 
@@ -1195,39 +1195,39 @@ We haven't created any animation's yet, but you should have a empty xml file in 
 This will run a HAVOK animation when the state which the generator is a child of is transitioned to.
 ```xml
 <hkobject class="hkbClipGenerator" name="#776" signature="0xd4cc9f6">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">First Animation</hkparam>
-    <hkparam name="animationBundleName"/>
-    <hkparam name="animationName">Animations\My Animation Name.hkt</hkparam>
-    <hkparam name="triggers">null</hkparam>
-    <hkparam name="userPartitionMask">0</hkparam>
-    <hkparam name="cropStartAmountLocalTime">0.0</hkparam>
-    <hkparam name="cropEndAmountLocalTime">0.0</hkparam>
-    <hkparam name="startTime">0.0</hkparam>
-    <hkparam name="playbackSpeed">1.0</hkparam>
-    <hkparam name="enforcedDuration">0.0</hkparam>
-    <hkparam name="userControlledTimeFraction">0.0</hkparam>
-    <hkparam name="animationBindingIndex">65535</hkparam>
-    <hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
-    <hkparam name="flags">0</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">First Animation</hkparam>
+ <hkparam name="animationBundleName"/>
+ <hkparam name="animationName">Animations\My Animation Name.hkt</hkparam>
+ <hkparam name="triggers">null</hkparam>
+ <hkparam name="userPartitionMask">0</hkparam>
+ <hkparam name="cropStartAmountLocalTime">0.0</hkparam>
+ <hkparam name="cropEndAmountLocalTime">0.0</hkparam>
+ <hkparam name="startTime">0.0</hkparam>
+ <hkparam name="playbackSpeed">1.0</hkparam>
+ <hkparam name="enforcedDuration">0.0</hkparam>
+ <hkparam name="userControlledTimeFraction">0.0</hkparam>
+ <hkparam name="animationBindingIndex">65535</hkparam>
+ <hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+ <hkparam name="flags">0</hkparam>
 </hkobject>
 ```
 Go ahead and paste two of this object into your behavior file. Make sure you change both of the Clipgenerator's name parameter's and the Clipgenerator's name's to something unique.
 To hook them up with the state, reference there name attribute's under the state's generator parameter like this :
 ```xml
 <hkobject class="hkbStateMachineStateInfo" name="#119" signature="0x39d76713">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="listeners" numelements="0"/>
-    <hkparam name="enterNotifyEvents">null</hkparam>
-    <hkparam name="exitNotifyEvents">null</hkparam>
-    <hkparam name="transitions">null</hkparam>
-    <hkparam name="generator">#776</hkparam>
-    <!--Right here. -->
-    <hkparam name="name">Second State</hkparam>
-    <hkparam name="stateId">1</hkparam>
-    <hkparam name="probability">1.0</hkparam>
-    <hkparam name="enable">true</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="listeners" numelements="0"/>
+ <hkparam name="enterNotifyEvents">null</hkparam>
+ <hkparam name="exitNotifyEvents">null</hkparam>
+ <hkparam name="transitions">null</hkparam>
+ <hkparam name="generator">#776</hkparam>
+ <!--Right here. -->
+ <hkparam name="name">Second State</hkparam>
+ <hkparam name="stateId">1</hkparam>
+ <hkparam name="probability">1.0</hkparam>
+ <hkparam name="enable">true</hkparam>
 </hkobject>
 ```
 Now lets setup that timer modifier we defined.
@@ -1238,11 +1238,11 @@ Here's the object :
 ```xml
 <!-- Paste This. -->
 <hkobject class="hkbModifierGenerator" name="#121" signature="0xc499fc9e">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">1</hkparam>
-    <hkparam name="name">My Modifier Generator</hkparam>
-    <hkparam name="modifier">null</hkparam>
-    <hkparam name="generator">null</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">1</hkparam>
+ <hkparam name="name">My Modifier Generator</hkparam>
+ <hkparam name="modifier">null</hkparam>
+ <hkparam name="generator">null</hkparam>
 </hkobject>
 ```
 So instead of referencing your clip generator's name attribute value in the state, reference this generator's name.
@@ -1252,55 +1252,55 @@ For instance :
 
 ```xml
 <hkobject class="hkbStateMachineStateInfo" name="#8888" signature="0x39d76713">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="listeners" numelements="0"/>
-    <hkparam name="enterNotifyEvents">null</hkparam>
-    <hkparam name="exitNotifyEvents">null</hkparam>
-    <hkparam name="transitions">null</hkparam>
-    <hkparam name="generator">#7665</hkparam>
-    <hkparam name="name">My Starting State</hkparam>
-    <hkparam name="stateId">0</hkparam>
-    <hkparam name="probability">1.0</hkparam>
-    <hkparam name="enable">true</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="listeners" numelements="0"/>
+ <hkparam name="enterNotifyEvents">null</hkparam>
+ <hkparam name="exitNotifyEvents">null</hkparam>
+ <hkparam name="transitions">null</hkparam>
+ <hkparam name="generator">#7665</hkparam>
+ <hkparam name="name">My Starting State</hkparam>
+ <hkparam name="stateId">0</hkparam>
+ <hkparam name="probability">1.0</hkparam>
+ <hkparam name="enable">true</hkparam>
 </hkobject>
 <hkobject class="hkbModifierGenerator" name="#7665" signature="0xc499fc9e">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">1</hkparam>
-    <hkparam name="name">My Modifier Generator</hkparam>
-    <hkparam name="modifier">#4000</hkparam>
-    <hkparam name="generator">#776</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">1</hkparam>
+ <hkparam name="name">My Modifier Generator</hkparam>
+ <hkparam name="modifier">#4000</hkparam>
+ <hkparam name="generator">#776</hkparam>
 </hkobject>
 <hkobject class="BSTimerModifier" name="#4000" signature="0x9266ffac">
-    <hkparam name="variableBindingSet">#4001</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">My Timer Modifier</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="alarmTimeSeconds">30.0</hkparam>
-    <hkparam name="alarmEvent">
-        <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
-            <hkparam name="id">-1</hkparam>
-            <hkparam name="payload">null</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="resetAlarm">true</hkparam>
+ <hkparam name="variableBindingSet">#4001</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My Timer Modifier</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="alarmTimeSeconds">30.0</hkparam>
+ <hkparam name="alarmEvent">
+ <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="resetAlarm">true</hkparam>
 </hkobject>
 <hkobject class="hkbClipGenerator" name="#776" signature="0xd4cc9f6">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">My Animation 1</hkparam>
-    <hkparam name="animationBundleName"/>
-    <hkparam name="animationName">Animations\My Animation Name.hkt</hkparam>
-    <hkparam name="triggers">null</hkparam>
-    <hkparam name="userPartitionMask">0</hkparam>
-    <hkparam name="cropStartAmountLocalTime">0.0</hkparam>
-    <hkparam name="cropEndAmountLocalTime">0.0</hkparam>
-    <hkparam name="startTime">0.0</hkparam>
-    <hkparam name="playbackSpeed">1.0</hkparam>
-    <hkparam name="enforcedDuration">0.0</hkparam>
-    <hkparam name="userControlledTimeFraction">0.0</hkparam>
-    <hkparam name="animationBindingIndex">65535</hkparam>
-    <hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
-    <hkparam name="flags">0</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My Animation 1</hkparam>
+ <hkparam name="animationBundleName"/>
+ <hkparam name="animationName">Animations\My Animation Name.hkt</hkparam>
+ <hkparam name="triggers">null</hkparam>
+ <hkparam name="userPartitionMask">0</hkparam>
+ <hkparam name="cropStartAmountLocalTime">0.0</hkparam>
+ <hkparam name="cropEndAmountLocalTime">0.0</hkparam>
+ <hkparam name="startTime">0.0</hkparam>
+ <hkparam name="playbackSpeed">1.0</hkparam>
+ <hkparam name="enforcedDuration">0.0</hkparam>
+ <hkparam name="userControlledTimeFraction">0.0</hkparam>
+ <hkparam name="animationBindingIndex">65535</hkparam>
+ <hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+ <hkparam name="flags">0</hkparam>
 </hkobject>
 ```
 
@@ -1323,12 +1323,12 @@ Reference each modifier's name attribute in this object's "modifiers" attribute.
 When your done, you can now reference multiple modifiers instead of just one.
 ```xml
 <hkobject class="hkbModifierList" name="#8771" signature="0xded564c">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">1</hkparam>
-    <hkparam name="name">Multi Modifier Wrapper</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="modifiers" numelements="0">
-    </hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">1</hkparam>
+ <hkparam name="name">Multi Modifier Wrapper</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="modifiers" numelements="0">
+ </hkparam>
 </hkobject>
 ```
 Now we have all the object's we need to create a functioning behavior graph, but not everything is setup.
@@ -1345,254 +1345,254 @@ Here's the complete behavior file (I've reorganized to make things clearer):
 ```xml
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <hkpackfile classversion="11" contentsversion="hk_2014.1.0-r1">
-    <hksection name="__data__">
-        <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
-            <hkparam name="namedVariants" numelements="1">
-                <hkobject>
-                    <hkparam name="name">hkbBehaviorGraph</hkparam>
-                    <hkparam name="className">hkbBehaviorGraph</hkparam>
-                    <hkparam name="variant">#91</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkbBehaviorGraph" name="#91" signature="0xfdedb83b">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">My Behavior Name.hkb</hkparam>
-            <hkparam name="variableMode">VARIABLE_MODE_DISCARD_WHEN_INACTIVE</hkparam>
-            <hkparam name="rootGenerator">#92</hkparam>
-            <hkparam name="data">#106</hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachine" name="#92" signature="0xa5896bcf">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">RootStateMachine</hkparam>
-            <hkparam name="eventToSendWhenStateOrTransitionChanges">
-                <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
-                    <hkparam name="id">-1</hkparam>
-                    <hkparam name="payload">null</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="startStateIdSelector">null</hkparam>
-            <hkparam name="startStateId">0</hkparam>
-            <hkparam name="returnToPreviousStateEventId">-1</hkparam>
-            <hkparam name="randomTransitionEventId">-1</hkparam>
-            <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
-            <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
-            <hkparam name="syncVariableIndex">-1</hkparam>
-            <hkparam name="wrapAroundStateId">false</hkparam>
-            <hkparam name="maxSimultaneousTransitions">32</hkparam>
-            <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
-            <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
-            <hkparam name="states" numelements="2">#8888 #9999</hkparam>
-            <hkparam name="wildcardTransitions">#88888</hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachineTransitionInfoArray" name="#88888" signature="0x704a19af">
-            <hkparam name="transitions" numelements="1">
-                <hkobject>
-                    <hkparam name="triggerInterval">
-                        <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
-                            <hkparam name="enterEventId">-1</hkparam>
-                            <hkparam name="exitEventId">-1</hkparam>
-                            <hkparam name="enterTime">0.0</hkparam>
-                            <hkparam name="exitTime">0.0</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="initiateInterval">
-                        <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
-                            <hkparam name="enterEventId">-1</hkparam>
-                            <hkparam name="exitEventId">-1</hkparam>
-                            <hkparam name="enterTime">0.0</hkparam>
-                            <hkparam name="exitTime">0.0</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="transition">null</hkparam>
-                    <hkparam name="condition">null</hkparam>
-                    <hkparam name="eventId">0</hkparam>
-                    <hkparam name="toStateId">0</hkparam>
-                    <hkparam name="fromNestedStateId">0</hkparam>
-                    <hkparam name="toNestedStateId">0</hkparam>
-                    <hkparam name="priority">0</hkparam>
-                    <hkparam name="flags">FLAG_IS_LOCAL_WILDCARD</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachineStateInfo" name="#8888" signature="0x39d76713">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="listeners" numelements="0"/>
-            <hkparam name="enterNotifyEvents">null</hkparam>
-            <hkparam name="exitNotifyEvents">null</hkparam>
-            <hkparam name="transitions">#111</hkparam>
-            <hkparam name="generator">#7665</hkparam>
-            <hkparam name="name">My Starting State</hkparam>
-            <hkparam name="stateId">0</hkparam>
-            <hkparam name="probability">1.0</hkparam>
-            <hkparam name="enable">true</hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachineTransitionInfoArray" name="#111" signature="0x704a19af">
-            <hkparam name="transitions" numelements="1">
-                <hkobject>
-                    <hkparam name="triggerInterval">
-                        <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
-                            <hkparam name="enterEventId">-1</hkparam>
-                            <hkparam name="exitEventId">-1</hkparam>
-                            <hkparam name="enterTime">0.0</hkparam>
-                            <hkparam name="exitTime">0.0</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="initiateInterval">
-                        <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
-                            <hkparam name="enterEventId">-1</hkparam>
-                            <hkparam name="exitEventId">-1</hkparam>
-                            <hkparam name="enterTime">0.0</hkparam>
-                            <hkparam name="exitTime">0.0</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="transition">null</hkparam>
-                    <hkparam name="condition">#1555</hkparam>
-                    <hkparam name="eventId">1</hkparam>
-                    <hkparam name="toStateId">1</hkparam>
-                    <hkparam name="fromNestedStateId">0</hkparam>
-                    <hkparam name="toNestedStateId">0</hkparam>
-                    <hkparam name="priority">0</hkparam>
-                    <hkparam name="flags">0</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkbExpressionCondition" name="#1555" signature="0x4a3ac449">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">My_Condition</hkparam>
-            <hkparam name="enable">true</hkparam>
-            <hkparam name="expression">My_First_Variable >= 0.0</hkparam>
-        </hkobject>
-        <hkobject class="hkbModifierGenerator" name="#7665" signature="0xc499fc9e">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">1</hkparam>
-            <hkparam name="name">My Modifier Generator</hkparam>
-            <hkparam name="modifier">#4000</hkparam>
-            <hkparam name="generator">#776</hkparam>
-        </hkobject>
-        <hkobject class="BSTimerModifier" name="#4000" signature="0x9266ffac">
-            <hkparam name="variableBindingSet">#4001</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">My Timer Modifier</hkparam>
-            <hkparam name="enable">true</hkparam>
-            <hkparam name="alarmTimeSeconds">30.0</hkparam>
-            <hkparam name="alarmEvent">
-                <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
-                    <hkparam name="id">-1</hkparam>
-                    <hkparam name="payload">null</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="resetAlarm">true</hkparam>
-        </hkobject>
-        <hkobject class="hkbVariableBindingSet" name="#4001" signature="0xe942f339">
-            <hkparam name="bindings" numelements="1">
-                <hkobject>
-                    <hkparam name="memberPath">alarmTimeSeconds</hkparam>
-                    <hkparam name="variableIndex">0</hkparam>
-                    <hkparam name="bitIndex">255</hkparam>
-                    <hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="indexOfBindingToEnable">-1</hkparam>
-        </hkobject>
-        <hkobject class="hkbClipGenerator" name="#776" signature="0xd4cc9f6">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">First Animation</hkparam>
-            <hkparam name="animationBundleName"/>
-            <hkparam name="animationName">Animations\My Animation Name.hkt</hkparam>
-            <hkparam name="triggers">null</hkparam>
-            <hkparam name="userPartitionMask">0</hkparam>
-            <hkparam name="cropStartAmountLocalTime">0.0</hkparam>
-            <hkparam name="cropEndAmountLocalTime">0.0</hkparam>
-            <hkparam name="startTime">0.0</hkparam>
-            <hkparam name="playbackSpeed">1.0</hkparam>
-            <hkparam name="enforcedDuration">0.0</hkparam>
-            <hkparam name="userControlledTimeFraction">0.0</hkparam>
-            <hkparam name="animationBindingIndex">65535</hkparam>
-            <hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
-            <hkparam name="flags">0</hkparam>
-        </hkobject>
-        <hkobject class="hkbStateMachineStateInfo" name="#9999" signature="0x39d76713">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="listeners" numelements="0"/>
-            <hkparam name="enterNotifyEvents">null</hkparam>
-            <hkparam name="exitNotifyEvents">null</hkparam>
-            <hkparam name="transitions">null</hkparam>
-            <hkparam name="generator">#77699</hkparam>
-            <hkparam name="name">My Second State</hkparam>
-            <hkparam name="stateId">1</hkparam>
-            <hkparam name="probability">1.0</hkparam>
-            <hkparam name="enable">true</hkparam>
-        </hkobject>
-        <hkobject class="hkbClipGenerator" name="#77699" signature="0xd4cc9f6">
-            <hkparam name="variableBindingSet">null</hkparam>
-            <hkparam name="userData">0</hkparam>
-            <hkparam name="name">Second Animation</hkparam>
-            <hkparam name="animationBundleName"/>
-            <hkparam name="animationName">Animations\My Animation Name.hkt</hkparam>
-            <hkparam name="triggers">null</hkparam>
-            <hkparam name="userPartitionMask">0</hkparam>
-            <hkparam name="cropStartAmountLocalTime">0.0</hkparam>
-            <hkparam name="cropEndAmountLocalTime">0.0</hkparam>
-            <hkparam name="startTime">0.0</hkparam>
-            <hkparam name="playbackSpeed">1.0</hkparam>
-            <hkparam name="enforcedDuration">0.0</hkparam>
-            <hkparam name="userControlledTimeFraction">0.0</hkparam>
-            <hkparam name="animationBindingIndex">65535</hkparam>
-            <hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
-            <hkparam name="flags">0</hkparam>
-        </hkobject>
-        <hkobject class="hkbBehaviorGraphData" name="#106" signature="0x907a8222">
-            <hkparam name="attributeDefaults" numelements="0"/>
-            <hkparam name="variableInfos" numelements="1">
-                <hkobject>
-                    <hkparam name="role">
-                        <hkobject class="hkbRoleAttribute" name="role" signature="0xfecef669">
-                            <hkparam name="role">ROLE_DEFAULT</hkparam>
-                            <hkparam name="flags">FLAG_NONE</hkparam>
-                        </hkobject>
-                    </hkparam>
-                    <hkparam name="type">VARIABLE_TYPE_REAL</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="characterPropertyInfos" numelements="0"/>
-            <hkparam name="eventInfos" numelements="2">
-                <hkobject>
-                    <hkparam name="flags">0</hkparam>
-                </hkobject>
-                <hkobject>
-                    <hkparam name="flags">0</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="variableBounds" numelements="0"/>
-            <hkparam name="variableInitialValues">#117</hkparam>
-            <hkparam name="stringData">#118</hkparam>
-        </hkobject>
-        <hkobject class="hkbVariableValueSet" name="#117" signature="0xeb5f7e25">
-            <hkparam name="wordVariableValues" numelements="1">
-                <hkobject>
-                    <hkparam name="value">30</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="quadVariableValues" numelements="0"/>
-            <hkparam name="variantVariableValues" numelements="0"/>
-        </hkobject>
-        <hkobject class="hkbBehaviorGraphStringData" name="#118" signature="0x1bd27f38">
-            <hkparam name="eventNames" numelements="2">
-                <hkcstring>Start State Event</hkcstring>
-                <hkcstring>Second State Event</hkcstring>
-            </hkparam>
-            <hkparam name="attributeNames" numelements="0"/>
-            <hkparam name="variableNames" numelements="1">
-                <hkcstring>My_First_Variable</hkcstring>
-            </hkparam>
-            <hkparam name="characterPropertyNames" numelements="0"/>
-        </hkobject>
-    </hksection>
+ <hksection name="__data__">
+ <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
+ <hkparam name="namedVariants" numelements="1">
+ <hkobject>
+ <hkparam name="name">hkbBehaviorGraph</hkparam>
+ <hkparam name="className">hkbBehaviorGraph</hkparam>
+ <hkparam name="variant">#91</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkbBehaviorGraph" name="#91" signature="0xfdedb83b">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My Behavior Name.hkb</hkparam>
+ <hkparam name="variableMode">VARIABLE_MODE_DISCARD_WHEN_INACTIVE</hkparam>
+ <hkparam name="rootGenerator">#92</hkparam>
+ <hkparam name="data">#106</hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachine" name="#92" signature="0xa5896bcf">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">RootStateMachine</hkparam>
+ <hkparam name="eventToSendWhenStateOrTransitionChanges">
+ <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="startStateIdSelector">null</hkparam>
+ <hkparam name="startStateId">0</hkparam>
+ <hkparam name="returnToPreviousStateEventId">-1</hkparam>
+ <hkparam name="randomTransitionEventId">-1</hkparam>
+ <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
+ <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
+ <hkparam name="syncVariableIndex">-1</hkparam>
+ <hkparam name="wrapAroundStateId">false</hkparam>
+ <hkparam name="maxSimultaneousTransitions">32</hkparam>
+ <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
+ <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
+ <hkparam name="states" numelements="2">#8888 #9999</hkparam>
+ <hkparam name="wildcardTransitions">#88888</hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachineTransitionInfoArray" name="#88888" signature="0x704a19af">
+ <hkparam name="transitions" numelements="1">
+ <hkobject>
+ <hkparam name="triggerInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="initiateInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="transition">null</hkparam>
+ <hkparam name="condition">null</hkparam>
+ <hkparam name="eventId">0</hkparam>
+ <hkparam name="toStateId">0</hkparam>
+ <hkparam name="fromNestedStateId">0</hkparam>
+ <hkparam name="toNestedStateId">0</hkparam>
+ <hkparam name="priority">0</hkparam>
+ <hkparam name="flags">FLAG_IS_LOCAL_WILDCARD</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachineStateInfo" name="#8888" signature="0x39d76713">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="listeners" numelements="0"/>
+ <hkparam name="enterNotifyEvents">null</hkparam>
+ <hkparam name="exitNotifyEvents">null</hkparam>
+ <hkparam name="transitions">#111</hkparam>
+ <hkparam name="generator">#7665</hkparam>
+ <hkparam name="name">My Starting State</hkparam>
+ <hkparam name="stateId">0</hkparam>
+ <hkparam name="probability">1.0</hkparam>
+ <hkparam name="enable">true</hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachineTransitionInfoArray" name="#111" signature="0x704a19af">
+ <hkparam name="transitions" numelements="1">
+ <hkobject>
+ <hkparam name="triggerInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="initiateInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="transition">null</hkparam>
+ <hkparam name="condition">#1555</hkparam>
+ <hkparam name="eventId">1</hkparam>
+ <hkparam name="toStateId">1</hkparam>
+ <hkparam name="fromNestedStateId">0</hkparam>
+ <hkparam name="toNestedStateId">0</hkparam>
+ <hkparam name="priority">0</hkparam>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkbExpressionCondition" name="#1555" signature="0x4a3ac449">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My_Condition</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="expression">My_First_Variable >= 0.0</hkparam>
+ </hkobject>
+ <hkobject class="hkbModifierGenerator" name="#7665" signature="0xc499fc9e">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">1</hkparam>
+ <hkparam name="name">My Modifier Generator</hkparam>
+ <hkparam name="modifier">#4000</hkparam>
+ <hkparam name="generator">#776</hkparam>
+ </hkobject>
+ <hkobject class="BSTimerModifier" name="#4000" signature="0x9266ffac">
+ <hkparam name="variableBindingSet">#4001</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">My Timer Modifier</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="alarmTimeSeconds">30.0</hkparam>
+ <hkparam name="alarmEvent">
+ <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="resetAlarm">true</hkparam>
+ </hkobject>
+ <hkobject class="hkbVariableBindingSet" name="#4001" signature="0xe942f339">
+ <hkparam name="bindings" numelements="1">
+ <hkobject>
+ <hkparam name="memberPath">alarmTimeSeconds</hkparam>
+ <hkparam name="variableIndex">0</hkparam>
+ <hkparam name="bitIndex">255</hkparam>
+ <hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="indexOfBindingToEnable">-1</hkparam>
+ </hkobject>
+ <hkobject class="hkbClipGenerator" name="#776" signature="0xd4cc9f6">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">First Animation</hkparam>
+ <hkparam name="animationBundleName"/>
+ <hkparam name="animationName">Animations\My Animation Name.hkt</hkparam>
+ <hkparam name="triggers">null</hkparam>
+ <hkparam name="userPartitionMask">0</hkparam>
+ <hkparam name="cropStartAmountLocalTime">0.0</hkparam>
+ <hkparam name="cropEndAmountLocalTime">0.0</hkparam>
+ <hkparam name="startTime">0.0</hkparam>
+ <hkparam name="playbackSpeed">1.0</hkparam>
+ <hkparam name="enforcedDuration">0.0</hkparam>
+ <hkparam name="userControlledTimeFraction">0.0</hkparam>
+ <hkparam name="animationBindingIndex">65535</hkparam>
+ <hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ <hkobject class="hkbStateMachineStateInfo" name="#9999" signature="0x39d76713">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="listeners" numelements="0"/>
+ <hkparam name="enterNotifyEvents">null</hkparam>
+ <hkparam name="exitNotifyEvents">null</hkparam>
+ <hkparam name="transitions">null</hkparam>
+ <hkparam name="generator">#77699</hkparam>
+ <hkparam name="name">My Second State</hkparam>
+ <hkparam name="stateId">1</hkparam>
+ <hkparam name="probability">1.0</hkparam>
+ <hkparam name="enable">true</hkparam>
+ </hkobject>
+ <hkobject class="hkbClipGenerator" name="#77699" signature="0xd4cc9f6">
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Second Animation</hkparam>
+ <hkparam name="animationBundleName"/>
+ <hkparam name="animationName">Animations\My Animation Name.hkt</hkparam>
+ <hkparam name="triggers">null</hkparam>
+ <hkparam name="userPartitionMask">0</hkparam>
+ <hkparam name="cropStartAmountLocalTime">0.0</hkparam>
+ <hkparam name="cropEndAmountLocalTime">0.0</hkparam>
+ <hkparam name="startTime">0.0</hkparam>
+ <hkparam name="playbackSpeed">1.0</hkparam>
+ <hkparam name="enforcedDuration">0.0</hkparam>
+ <hkparam name="userControlledTimeFraction">0.0</hkparam>
+ <hkparam name="animationBindingIndex">65535</hkparam>
+ <hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ <hkobject class="hkbBehaviorGraphData" name="#106" signature="0x907a8222">
+ <hkparam name="attributeDefaults" numelements="0"/>
+ <hkparam name="variableInfos" numelements="1">
+ <hkobject>
+ <hkparam name="role">
+ <hkobject class="hkbRoleAttribute" name="role" signature="0xfecef669">
+ <hkparam name="role">ROLE_DEFAULT</hkparam>
+ <hkparam name="flags">FLAG_NONE</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="type">VARIABLE_TYPE_REAL</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="characterPropertyInfos" numelements="0"/>
+ <hkparam name="eventInfos" numelements="2">
+ <hkobject>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ <hkobject>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="variableBounds" numelements="0"/>
+ <hkparam name="variableInitialValues">#117</hkparam>
+ <hkparam name="stringData">#118</hkparam>
+ </hkobject>
+ <hkobject class="hkbVariableValueSet" name="#117" signature="0xeb5f7e25">
+ <hkparam name="wordVariableValues" numelements="1">
+ <hkobject>
+ <hkparam name="value">30</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="quadVariableValues" numelements="0"/>
+ <hkparam name="variantVariableValues" numelements="0"/>
+ </hkobject>
+ <hkobject class="hkbBehaviorGraphStringData" name="#118" signature="0x1bd27f38">
+ <hkparam name="eventNames" numelements="2">
+ <hkcstring>Start State Event</hkcstring>
+ <hkcstring>Second State Event</hkcstring>
+ </hkparam>
+ <hkparam name="attributeNames" numelements="0"/>
+ <hkparam name="variableNames" numelements="1">
+ <hkcstring>My_First_Variable</hkcstring>
+ </hkparam>
+ <hkparam name="characterPropertyNames" numelements="0"/>
+ </hkobject>
+ </hksection>
 </hkpackfile>
 ```
 
@@ -1631,32 +1631,32 @@ Here's the basic structure.
 <!-- Paste this in your animation xml file. -->
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <hkpackfile classversion="11" contentsversion="hk_2014.1.0-r1">
-    <hksection name="__data__">
-        <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
-            <hkparam name="namedVariants" numelements="2">
-                <hkobject>
-                    <hkparam name="name">Merged Animation Container</hkparam>
-                    <hkparam name="className">hkaAnimationContainer</hkparam>
-                    <hkparam name="variant">#91</hkparam>
-                </hkobject>
-                <hkobject>
-                    <hkparam name="name">Resource Data</hkparam>
-                    <hkparam name="className">hkMemoryResourceContainer</hkparam>
-                    <hkparam name="variant">#94</hkparam>
-                </hkobject>
-            </hkparam>
-        </hkobject>
-        <hkobject class="hkaAnimationContainer" name="#91" signature="0x26859f4c">
-            <hkparam name="skeletons" numelements="0">
-            </hkparam>
-            <hkparam name="animations" numelements="1">#92</hkparam>
-            <hkparam name="bindings" numelements="1">#93</hkparam>
-            <hkparam name="attachments" numelements="0">
-            </hkparam>
-            <hkparam name="skins" numelements="0">
-            </hkparam>
-        </hkobject>
-        <!-- keeping it simple, numberOfTransformTracks is how many bones you are animating. It needs to match the amount of bones referenced in your skeleton file
+ <hksection name="__data__">
+ <hkobject class="hkRootLevelContainer" name="#90" signature="0x2772c11e">
+ <hkparam name="namedVariants" numelements="2">
+ <hkobject>
+ <hkparam name="name">Merged Animation Container</hkparam>
+ <hkparam name="className">hkaAnimationContainer</hkparam>
+ <hkparam name="variant">#91</hkparam>
+ </hkobject>
+ <hkobject>
+ <hkparam name="name">Resource Data</hkparam>
+ <hkparam name="className">hkMemoryResourceContainer</hkparam>
+ <hkparam name="variant">#94</hkparam>
+ </hkobject>
+ </hkparam>
+ </hkobject>
+ <hkobject class="hkaAnimationContainer" name="#91" signature="0x26859f4c">
+ <hkparam name="skeletons" numelements="0">
+ </hkparam>
+ <hkparam name="animations" numelements="1">#92</hkparam>
+ <hkparam name="bindings" numelements="1">#93</hkparam>
+ <hkparam name="attachments" numelements="0">
+ </hkparam>
+ <hkparam name="skins" numelements="0">
+ </hkparam>
+ </hkobject>
+ <!-- keeping it simple, numberOfTransformTracks is how many bones you are animating. It needs to match the amount of bones referenced in your skeleton file
 The amount of annotation tracks is equal to the amount of bones being animated.
 This object represents one animation track.
 <hkobject>
@@ -1676,28 +1676,28 @@ This would represent 1 annotation for previously mentioned annotation track.
 </hkobject>
 Each bone has an annotation track.
 -->
-        <hkobject class="hkaInterleavedUncompressedAnimation" name="#92" signature="0x278bffe8">
-            <hkparam name="type">HK_INTERLEAVED_ANIMATION</hkparam>
-            <hkparam name="duration">10.0</hkparam>
-            <hkparam name="numberOfTransformTracks">3</hkparam>
-            <hkparam name="numberOfFloatTracks">0</hkparam>
-            <hkparam name="extractedMotion">null</hkparam>
-            <hkparam name="annotationTracks" numelements="3">
-                <hkobject>
-                    <hkparam name="trackName"/>
-                    <hkparam name="annotations" numelements="0"/>
-                </hkobject>
-                <hkobject>
-                    <hkparam name="trackName"/>
-                    <hkparam name="annotations" numelements="0"/>
-                </hkobject>
-                <hkobject>
-                    <hkparam name="trackName"/>
-                    <hkparam name="annotations" numelements="0"/>
-                </hkobject>
-            </hkparam>
-            <!-- In general for all animation types, the structure's above this comment always exist. -->
-            <!-- Here's your animation. This is using the same format as the poses.
+ <hkobject class="hkaInterleavedUncompressedAnimation" name="#92" signature="0x278bffe8">
+ <hkparam name="type">HK_INTERLEAVED_ANIMATION</hkparam>
+ <hkparam name="duration">10.0</hkparam>
+ <hkparam name="numberOfTransformTracks">3</hkparam>
+ <hkparam name="numberOfFloatTracks">0</hkparam>
+ <hkparam name="extractedMotion">null</hkparam>
+ <hkparam name="annotationTracks" numelements="3">
+ <hkobject>
+ <hkparam name="trackName"/>
+ <hkparam name="annotations" numelements="0"/>
+ </hkobject>
+ <hkobject>
+ <hkparam name="trackName"/>
+ <hkparam name="annotations" numelements="0"/>
+ </hkobject>
+ <hkobject>
+ <hkparam name="trackName"/>
+ <hkparam name="annotations" numelements="0"/>
+ </hkobject>
+ </hkparam>
+ <!-- In general for all animation types, the structure's above this comment always exist. -->
+ <!-- Here's your animation. This is using the same format as the poses.
 Translation vector, quaternion rotation vector, scale vector.
 Here's a simple web tool which will convert Euler rotation's to quaternions.
 <https://quaternions.online/>
@@ -1706,16 +1706,16 @@ As a side note, I plan to incorporate this functionality in a tool which I'm wor
 Because I have 3 transforms tracks (animating 3 bones) I need 3 values for each "set".
 My animation understanding isn't perfect so bare with me in the next part.
 -->
-            <hkparam name="transforms" numelements="6">
-                <!--This is our first keyframe for each bone. -->
-                (0.0 0.0 1.0 0.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
+ <hkparam name="transforms" numelements="6">
+ <!--This is our first keyframe for each bone. -->
+ (0.0 0.0 1.0 0.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
 (0.0 0.0 1.0 0.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
 (0.0 0.0 1.0 0.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
-                <!--This is our second keyframe for each bone. -->
-                (0.0 0.0 1.0 0.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
+ <!--This is our second keyframe for each bone. -->
+ (0.0 0.0 1.0 0.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
 (50.0 0.0 100.0 0.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
 (0.0 100.0 1.0 0.0)(0.0 0.0 0.0 1.0)(1.0 1.0 1.0 0.0)
-                <!--
+ <!--
 With this setup, the bone's will animate from there starting pose's (or there last pose's) to the first keyframe values at 5.0 seconds and then to the second keyframe -
 values at 10.0 seconds.
 You can of course increase the amount of keyframes.
@@ -1725,31 +1725,31 @@ The "Interleaved" part of the animation type name comes from the fact that the a
 
 Kyfrme 3. It's Bone1 kyfrme 1, Bone 2 kyfrme 1, etc. According to the github information, this is a performance thing and I believe all the animation types follow this basic format.
 -->
-            </hkparam>
-            <hkparam name="floats" numelements="0"/>
-        </hkobject>
-        <!--transformTrackToBoneIndices is how we define what values affect what bones.
+ </hkparam>
+ <hkparam name="floats" numelements="0"/>
+ </hkobject>
+ <!--transformTrackToBoneIndices is how we define what values affect what bones.
 For instance if I wanted the second bone transforms for the first keyframe to affect
 the first bone instead of the second, I would right 1 0 2 instead of 0 1 2.
 You always need to specify the values for this parameter.
 OriginalSkeletonname reference's the skeleton file's name attribute value.
 -->
-        <hkobject class="hkaAnimationBinding" name="#93" signature="0xfaf9150">
-            <hkparam name="originalSkeletonName">My skeleton's name (not file name)</hkparam>
-            <hkparam name="animation">#92</hkparam>
-            <hkparam name="transformTrackToBoneIndices" numelements="3">0 1 2</hkparam>
-            <hkparam name="floatTrackToFloatSlotIndices" numelements="0"/>
-            <hkparam name="partitionIndices" numelements="0"/>
-            <hkparam name="blendHint">NORMAL</hkparam>
-        </hkobject>
-        <hkobject class="hkMemoryResourceContainer" name="#94" signature="0x1de13a73">
-            <hkparam name="name"/>
-            <hkparam name="resourceHandles" numelements="0">
-            </hkparam>
-            <hkparam name="children" numelements="0">
-            </hkparam>
-        </hkobject>
-    </hksection>
+ <hkobject class="hkaAnimationBinding" name="#93" signature="0xfaf9150">
+ <hkparam name="originalSkeletonName">My skeleton's name (not file name)</hkparam>
+ <hkparam name="animation">#92</hkparam>
+ <hkparam name="transformTrackToBoneIndices" numelements="3">0 1 2</hkparam>
+ <hkparam name="floatTrackToFloatSlotIndices" numelements="0"/>
+ <hkparam name="partitionIndices" numelements="0"/>
+ <hkparam name="blendHint">NORMAL</hkparam>
+ </hkobject>
+ <hkobject class="hkMemoryResourceContainer" name="#94" signature="0x1de13a73">
+ <hkparam name="name"/>
+ <hkparam name="resourceHandles" numelements="0">
+ </hkparam>
+ <hkparam name="children" numelements="0">
+ </hkparam>
+ </hkobject>
+ </hksection>
 </hkpackfile>
 ```
 Set the values you wish for the keyframes.
@@ -1790,14 +1790,14 @@ if the animation had been running for 50% of its duration. This option causes th
 the "positioning" is the animation. To enable this you would specify USING_TIME_PERCENTAGE instead.
 ```xml
 <hkobject class="BGSGamebryoSequenceGenerator" name="#110" signature="0x4e708fb6">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Start State For HKX Animation</hkparam>
-    <hkparam name="pSequence">Start State For HKX</hkparam>
-    <hkparam name="eBlendModeFunction">BMF_NONE</hkparam>
-    <hkparam name="fPercent">1.0</hkparam>
-    <hkparam name="eUseTimePercentage">NOT_USING_TIME_PERCENTAGE</hkparam>
-    <hkparam name="fTimePercent">0.0</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Start State For HKX Animation</hkparam>
+ <hkparam name="pSequence">Start State For HKX</hkparam>
+ <hkparam name="eBlendModeFunction">BMF_NONE</hkparam>
+ <hkparam name="fPercent">1.0</hkparam>
+ <hkparam name="eUseTimePercentage">NOT_USING_TIME_PERCENTAGE</hkparam>
+ <hkparam name="fTimePercent">0.0</hkparam>
 </hkobject>
 ```
 HAVOK basic animation blending :
@@ -1806,50 +1806,50 @@ The most simple HAVOK animation blending is done by implementing the hkbBlending
 
 ```xml
 <hkobject class="hkbBlendingTransitionEffect" name="#6698" signature="0x14e54c5c">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">zeroDuration</hkparam>
-    <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_CONTINUE_IF_CYCLIC_BLEND_IF_ACYCLIC</hkparam>
-    <hkparam name="eventMode">EVENT_MODE_DEFAULT</hkparam>
-    <hkparam name="duration">10.0</hkparam>
-    <hkparam name="toGeneratorStartTimeFraction">0.0</hkparam>
-    <hkparam name="flags">FLAG_NONE</hkparam>
-    <hkparam name="endMode">END_MODE_NONE</hkparam>
-    <hkparam name="blendCurve">0</hkparam>
-    <hkparam name="alignmentBone">65535</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">zeroDuration</hkparam>
+ <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_CONTINUE_IF_CYCLIC_BLEND_IF_ACYCLIC</hkparam>
+ <hkparam name="eventMode">EVENT_MODE_DEFAULT</hkparam>
+ <hkparam name="duration">10.0</hkparam>
+ <hkparam name="toGeneratorStartTimeFraction">0.0</hkparam>
+ <hkparam name="flags">FLAG_NONE</hkparam>
+ <hkparam name="endMode">END_MODE_NONE</hkparam>
+ <hkparam name="blendCurve">0</hkparam>
+ <hkparam name="alignmentBone">65535</hkparam>
 </hkobject>
 ```
 This object must be referenced in a transition array's transition parameter.
 ```xml
 <hkobject class="hkbStateMachineTransitionInfoArray" name="#7709" signature="0x704a19af">
-    <hkparam name="transitions" numelements="1">
-        <hkobject>
-            <hkparam name="triggerInterval">
-                <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
-                    <hkparam name="enterEventId">-1</hkparam>
-                    <hkparam name="exitEventId">-1</hkparam>
-                    <hkparam name="enterTime">0.0</hkparam>
-                    <hkparam name="exitTime">0.0</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="initiateInterval">
-                <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
-                    <hkparam name="enterEventId">-1</hkparam>
-                    <hkparam name="exitEventId">-1</hkparam>
-                    <hkparam name="enterTime">0.0</hkparam>
-                    <hkparam name="exitTime">0.0</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="transition">#6698</hkparam>
-            <hkparam name="condition">null</hkparam>
-            <hkparam name="eventId">1</hkparam>
-            <hkparam name="toStateId">1</hkparam>
-            <hkparam name="fromNestedStateId">0</hkparam>
-            <hkparam name="toNestedStateId">0</hkparam>
-            <hkparam name="priority">0</hkparam>
-            <hkparam name="flags">0</hkparam>
-        </hkobject>
-    </hkparam>
+ <hkparam name="transitions" numelements="1">
+ <hkobject>
+ <hkparam name="triggerInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="initiateInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="transition">#6698</hkparam>
+ <hkparam name="condition">null</hkparam>
+ <hkparam name="eventId">1</hkparam>
+ <hkparam name="toStateId">1</hkparam>
+ <hkparam name="fromNestedStateId">0</hkparam>
+ <hkparam name="toNestedStateId">0</hkparam>
+ <hkparam name="priority">0</hkparam>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ </hkparam>
 </hkobject>
 ```
 When you leave the state, the blendingtransitioneffect will be used to blend between the current pose to the state to transition to's first animation pose.
@@ -2020,12 +2020,12 @@ Issues : Not everything is known and some thing's may be false. All this can be 
 through testing!
 ```xml
 <hkobject class="hkbBehaviorGraph" name="#91" signature="0xfdedb83b">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Simple_Single_Event_Behavior.hkb</hkparam>
-    <hkparam name="variableMode">VARIABLE_MODE_DISCARD_WHEN_INACTIVE</hkparam>
-    <hkparam name="rootGenerator">#92</hkparam>
-    <hkparam name="data">#106</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Simple_Single_Event_Behavior.hkb</hkparam>
+ <hkparam name="variableMode">VARIABLE_MODE_DISCARD_WHEN_INACTIVE</hkparam>
+ <hkparam name="rootGenerator">#92</hkparam>
+ <hkparam name="data">#106</hkparam>
 </hkobject>
 ```
 Name : Needs to be the name of the root hkx file, using the "StagesNoLoops" hkx -
@@ -2034,26 +2034,26 @@ Data : Points to "hkbBehaviorGraphData"
 RootGenerator : Points to the root "hkbStateMachine", in other words, the starting "hkbStateMachine".
 ```xml
 <hkobject class="hkbBehaviorGraphData" name="#106" signature="0x907a8222">
-    <hkparam name="attributeDefaults" numelements="0"/>
-    <hkparam name="variableInfos" numelements="0"/>
-    <hkparam name="characterPropertyInfos" numelements="0"/>
-    <hkparam name="eventInfos" numelements="4">
-        <hkobject>
-            <hkparam name="flags">0</hkparam>
-        </hkobject>
-        <hkobject>
-            <hkparam name="flags">0</hkparam>
-        </hkobject>
-        <hkobject>
-            <hkparam name="flags">0</hkparam>
-        </hkobject>
-        <hkobject>
-            <hkparam name="flags">0</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="variableBounds" numelements="0"/>
-    <hkparam name="variableInitialValues">#107</hkparam>
-    <hkparam name="stringData">#108</hkparam>
+ <hkparam name="attributeDefaults" numelements="0"/>
+ <hkparam name="variableInfos" numelements="0"/>
+ <hkparam name="characterPropertyInfos" numelements="0"/>
+ <hkparam name="eventInfos" numelements="4">
+ <hkobject>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ <hkobject>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ <hkobject>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ <hkobject>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="variableBounds" numelements="0"/>
+ <hkparam name="variableInitialValues">#107</hkparam>
+ <hkparam name="stringData">#108</hkparam>
 </hkobject>
 ```
 Each Animation needs to have an event. The name doesn't need to match the animation name.
@@ -2066,40 +2066,40 @@ function, not the animation name.
 Variable bounds is used to restrict the values of variables.
 ```xml
 <hkobject class="hkbBehaviorGraphStringData" name="#108" signature="0x1bd27f38">
-    <hkparam name="eventNames" numelements="4">
-        <hkcstring>Test1</hkcstring>
-        <hkcstring>Test2</hkcstring>
-        <hkcstring>Test4</hkcstring>
-        <hkcstring>Test4</hkcstring>
-    </hkparam>
-    <hkparam name="attributeNames" numelements="0"/>
-    <hkparam name="variableNames" numelements="0"/>
-    <hkparam name="characterPropertyNames" numelements="0"/>
+ <hkparam name="eventNames" numelements="4">
+ <hkcstring>Test1</hkcstring>
+ <hkcstring>Test2</hkcstring>
+ <hkcstring>Test4</hkcstring>
+ <hkcstring>Test4</hkcstring>
+ </hkparam>
+ <hkparam name="attributeNames" numelements="0"/>
+ <hkparam name="variableNames" numelements="0"/>
+ <hkparam name="characterPropertyNames" numelements="0"/>
 </hkobject>
 <hkobject class="hkbStateMachine" name="#92" signature="0xa5896bcf">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">RootStateMachine</hkparam>
-    <hkparam name="eventToSendWhenStateOrTransitionChanges">
-        <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
-            <hkparam name="id">-1</hkparam>
-            <hkparam name="payload">null</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="startStateIdSelector">null</hkparam>
-    <hkparam name="startStateId">0</hkparam>
-    <hkparam name="returnToPreviousStateEventId">-1</hkparam>
-    <hkparam name="randomTransitionEventId">-1</hkparam>
-    <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
-    <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
-    <hkparam name="syncVariableIndex">-1</hkparam>
-    <hkparam name="wrapAroundStateId">false</hkparam>
-    <hkparam name="maxSimultaneousTransitions">32</hkparam>
-    <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
-    <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
-    <hkparam name="states" numelements="0">
-    </hkparam>
-    <hkparam name="wildcardTransitions">#201</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">RootStateMachine</hkparam>
+ <hkparam name="eventToSendWhenStateOrTransitionChanges">
+ <hkobject class="hkbEvent" name="eventToSendWhenStateOrTransitionChanges" signature="0x3e0fd810">
+ <hkparam name="id">-1</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="startStateIdSelector">null</hkparam>
+ <hkparam name="startStateId">0</hkparam>
+ <hkparam name="returnToPreviousStateEventId">-1</hkparam>
+ <hkparam name="randomTransitionEventId">-1</hkparam>
+ <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
+ <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
+ <hkparam name="syncVariableIndex">-1</hkparam>
+ <hkparam name="wrapAroundStateId">false</hkparam>
+ <hkparam name="maxSimultaneousTransitions">32</hkparam>
+ <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
+ <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
+ <hkparam name="states" numelements="0">
+ </hkparam>
+ <hkparam name="wildcardTransitions">#201</hkparam>
 </hkobject>
 ```
 eventToSendWhenStateOrTransitionChanges : My understanding of this is that when we -
@@ -2109,34 +2109,34 @@ wildcardTransitions : This is an transition which any State can use if it does n
 have a transition of its own.
 ```xml
 <hkobject class="hkbStateMachineTransitionInfoArray" name="#201" signature="0x704a19af">
-    <hkparam name="transitions" numelements="1">
-        <hkobject>
-            <hkparam name="triggerInterval">
-                <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
-                    <hkparam name="enterEventId">-1</hkparam>
-                    <hkparam name="exitEventId">-1</hkparam>
-                    <hkparam name="enterTime">0.0</hkparam>
-                    <hkparam name="exitTime">0.0</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="initiateInterval">
-                <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
-                    <hkparam name="enterEventId">-1</hkparam>
-                    <hkparam name="exitEventId">-1</hkparam>
-                    <hkparam name="enterTime">0.0</hkparam>
-                    <hkparam name="exitTime">0.0</hkparam>
-                </hkobject>
-            </hkparam>
-            <hkparam name="transition">null</hkparam>
-            <hkparam name="condition">null</hkparam>
-            <hkparam name="eventId">1</hkparam>
-            <hkparam name="toStateId">0</hkparam>
-            <hkparam name="fromNestedStateId">0</hkparam>
-            <hkparam name="toNestedStateId">0</hkparam>
-            <hkparam name="priority">0</hkparam>
-            <hkparam name="flags">0</hkparam>
-        </hkobject>
-    </hkparam>
+ <hkparam name="transitions" numelements="1">
+ <hkobject>
+ <hkparam name="triggerInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="triggerInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="initiateInterval">
+ <hkobject class="hkbStateMachineTimeInterval" name="initiateInterval" signature="0x60a881e5">
+ <hkparam name="enterEventId">-1</hkparam>
+ <hkparam name="exitEventId">-1</hkparam>
+ <hkparam name="enterTime">0.0</hkparam>
+ <hkparam name="exitTime">0.0</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="transition">null</hkparam>
+ <hkparam name="condition">null</hkparam>
+ <hkparam name="eventId">1</hkparam>
+ <hkparam name="toStateId">0</hkparam>
+ <hkparam name="fromNestedStateId">0</hkparam>
+ <hkparam name="toNestedStateId">0</hkparam>
+ <hkparam name="priority">0</hkparam>
+ <hkparam name="flags">0</hkparam>
+ </hkobject>
+ </hkparam>
 </hkobject>
 ```
 transition : This can reference a Blending object like "hkbBlendingTransitionEffect". Note that there are blenders which are generators so -
@@ -2148,16 +2148,16 @@ ToStateID : The "hkbStateMachineStateInfo" ID or state to transition to.
 hkbStateMachineTransitionInfoArray can have multiple transitions.
 ```xml
 <hkobject class="hkbStateMachineStateInfo" name="#119" signature="0x39d76713">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="listeners" numelements="0"/>
-    <hkparam name="enterNotifyEvents">null</hkparam>
-    <hkparam name="exitNotifyEvents">null</hkparam>
-    <hkparam name="transitions">null</hkparam>
-    <hkparam name="generator">#122</hkparam>
-    <hkparam name="name">Faster Increase State</hkparam>
-    <hkparam name="stateId">1</hkparam>
-    <hkparam name="probability">1.0</hkparam>
-    <hkparam name="enable">true</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="listeners" numelements="0"/>
+ <hkparam name="enterNotifyEvents">null</hkparam>
+ <hkparam name="exitNotifyEvents">null</hkparam>
+ <hkparam name="transitions">null</hkparam>
+ <hkparam name="generator">#122</hkparam>
+ <hkparam name="name">Faster Increase State</hkparam>
+ <hkparam name="stateId">1</hkparam>
+ <hkparam name="probability">1.0</hkparam>
+ <hkparam name="enable">true</hkparam>
 </hkobject>
 ```
 enterNotifyEvents : This sends an event when this state is entered.
@@ -2167,11 +2167,11 @@ stateId : Make sure the state ID matches the index of the event which will call 
 WARNING : Not certain this is neccessary!
 ```xml
 <hkobject class="hkbModifierGenerator" name="#122" signature="0xc499fc9e">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Mod_Generator 24</hkparam>
-    <hkparam name="modifier">#124</hkparam>
-    <hkparam name="generator">#120</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Mod_Generator 24</hkparam>
+ <hkparam name="modifier">#124</hkparam>
+ <hkparam name="generator">#120</hkparam>
 </hkobject>
 ```
 hkbModifierGenerator allows you to do neat stuff with the generators.
@@ -2182,26 +2182,26 @@ generator (BGSGamebryoSequenceGenerator etc), and then reference -
 the generator.
 ```xml
 <hkobject class="hkbModifierList" name="#124" signature="0xded564c">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Mod List 1</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="modifiers" numelements="0">
-    </hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Mod List 1</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="modifiers" numelements="0">
+ </hkparam>
 </hkobject>
 ```
 This allows you to specify multiple modifers to run.
 You would reference this in the hkbModifierGenerator instead of a single modifier.
 ```xml
 <hkobject class="BGSGamebryoSequenceGenerator" name="#130" signature="0x4e708fb6">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Faster Decrease Animation</hkparam>
-    <hkparam name="pSequence">Faster Decrease</hkparam>
-    <hkparam name="eBlendModeFunction">BMF_NONE</hkparam>
-    <hkparam name="fPercent">1.0</hkparam>
-    <hkparam name="eUseTimePercentage">NOT_USING_TIME_PERCENTAGE</hkparam>
-    <hkparam name="fTimePercent">0.0</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Faster Decrease Animation</hkparam>
+ <hkparam name="pSequence">Faster Decrease</hkparam>
+ <hkparam name="eBlendModeFunction">BMF_NONE</hkparam>
+ <hkparam name="fPercent">1.0</hkparam>
+ <hkparam name="eUseTimePercentage">NOT_USING_TIME_PERCENTAGE</hkparam>
+ <hkparam name="fTimePercent">0.0</hkparam>
 </hkobject>
 ```
 eBlendModeFunction Values :
@@ -2217,32 +2217,32 @@ if the animation had been running for 50% of its duration. This option causes th
 the "positioning" is the animation.
 ```xml
 <hkobject class="hkbExpressionCondition" name="#1555" signature="0x4a3ac449">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Condition</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="expression">Time_To_End == 0</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Condition</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="expression">Time_To_End == 0</hkparam>
 </hkobject>
 ```
 Used (as far as I know) in "Condition" Entries.
 The expression cannot have "if".
 ```xml
 <hkobject class="hkbEvaluateExpressionModifier" name="#1003" signature="0x4a3ac449">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Determine If Pause</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="expressions">#1004</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Determine If Pause</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="expressions">#1004</hkparam>
 </hkobject>
 <hkobject class="hkbExpressionDataArray" name="#1004" signature="0x1ebfc6d7">
-    <hkparam name="expressionsData" numelements="1">
-        <hkobject>
-            <hkparam name="expression">Start State For HKX if Time_To_End != 0</hkparam>
-            <hkparam name="assignmentVariableIndex">-1</hkparam>
-            <hkparam name="assignmentEventIndex">-1</hkparam>
-            <hkparam name="eventMode">EVENT_MODE_SEND_ONCE</hkparam>
-        </hkobject>
-    </hkparam>
+ <hkparam name="expressionsData" numelements="1">
+ <hkobject>
+ <hkparam name="expression">Start State For HKX if Time_To_End != 0</hkparam>
+ <hkparam name="assignmentVariableIndex">-1</hkparam>
+ <hkparam name="assignmentEventIndex">-1</hkparam>
+ <hkparam name="eventMode">EVENT_MODE_SEND_ONCE</hkparam>
+ </hkobject>
+ </hkparam>
 </hkobject>
 ```
 hkbEvaluateExpressionModifier is how you set a value for a parameter of a block.
@@ -2251,14 +2251,14 @@ To use the condition type (Example) : if My_Int == 0.
 To use the condition with the event type : My_Event_To_Send If My_Int == 0.
 ```xml
 <hkobject class="hkbEventDrivenModifier" name="#1005" signature="0x35ef356b">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Event Mod Set Value</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="modifier">#1010</hkparam>
-    <hkparam name="activateEventId">0</hkparam>
-    <hkparam name="deactivateEventId">1</hkparam>
-    <hkparam name="activeByDefault">false</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Event Mod Set Value</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="modifier">#1010</hkparam>
+ <hkparam name="activateEventId">0</hkparam>
+ <hkparam name="deactivateEventId">1</hkparam>
+ <hkparam name="activeByDefault">false</hkparam>
 </hkobject>
 ```
 Allows you to listen for events, and if events are recieved, do some behavior.
@@ -2267,15 +2267,15 @@ All hkbEventDrivenModifier's in a sequence will be activated/deactivated if both
 for an event and said event is sent out.
 ```xml
 <hkobject class="hkbVariableBindingSet" name="#999" signature="0xe942f339">
-    <hkparam name="bindings" numelements="1">
-        <hkobject>
-            <hkparam name="memberPath">alarmTimeSeconds</hkparam>
-            <hkparam name="variableIndex">0</hkparam>
-            <hkparam name="bitIndex">255</hkparam>
-            <hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="indexOfBindingToEnable">-1</hkparam>
+ <hkparam name="bindings" numelements="1">
+ <hkobject>
+ <hkparam name="memberPath">alarmTimeSeconds</hkparam>
+ <hkparam name="variableIndex">0</hkparam>
+ <hkparam name="bitIndex">255</hkparam>
+ <hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="indexOfBindingToEnable">-1</hkparam>
 </hkobject>
 ```
 This block is used to set the values of parameters based off of supplied variables.
@@ -2286,44 +2286,44 @@ hkbExpressionDataArray, we would type expressions\eventMode in the "memberPath" 
 entry (You might use "/" instead, can't remember).
 ```xml
 <hkobject class="BSRootTwistModifier" name="#5092" signature="0xcbc0b864">
-    <hkparam name="variableBindingSet">#6089</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">BSRootTwistModifier01</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="rootTwistAngle">0.0</hkparam>
-    <hkparam name="twistType">ANGLE_DEGREES</hkparam>
+ <hkparam name="variableBindingSet">#6089</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">BSRootTwistModifier01</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="rootTwistAngle">0.0</hkparam>
+ <hkparam name="twistType">ANGLE_DEGREES</hkparam>
 </hkobject>
 ```
 Twist an object only on the Z axis. Does not animate but you can blend to the twisted angle. the object will just jump to the angle specified.
 I assume based off the name this twists the "root" bone of an object. I've only ever seen "ANGLE_DEGREES" being used.
 ```xml
 <hkobject class="BSTimerModifier" name="#4000" signature="0x9266ffac">
-    <hkparam name="variableBindingSet">#4001</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Accuracy Timer Modifier</hkparam>
-    <hkparam name="enable">true</hkparam>
-    <hkparam name="alarmTimeSeconds">30.0</hkparam>
-    <hkparam name="alarmEvent">
-        <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
-            <hkparam name="id">6</hkparam>
-            <hkparam name="payload">null</hkparam>
-        </hkobject>
-    </hkparam>
-    <hkparam name="resetAlarm">true</hkparam>
+ <hkparam name="variableBindingSet">#4001</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Accuracy Timer Modifier</hkparam>
+ <hkparam name="enable">true</hkparam>
+ <hkparam name="alarmTimeSeconds">30.0</hkparam>
+ <hkparam name="alarmEvent">
+ <hkobject class="hkbEventProperty" name="alarmEvent" signature="0xdb38a15">
+ <hkparam name="id">6</hkparam>
+ <hkparam name="payload">null</hkparam>
+ </hkobject>
+ </hkparam>
+ <hkparam name="resetAlarm">true</hkparam>
 </hkobject>
 ```
 Same as the other timer except 1 important thing, this timer can loop and continue indefinetely by setting resetAlarm to true.
 ```xml
 <hkobject class="hkbGeneratorTransitionEffect" name="#101" signature="0x44208f07">
-    <hkparam name="variableBindingSet">null</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">GT_Equip_Transition</hkparam>
-    <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_BLEND</hkparam>
-    <hkparam name="eventMode">EVENT_MODE_DEFAULT</hkparam>
-    <hkparam name="transitionGenerator">#102</hkparam>
-    <hkparam name="blendInDuration">0.25</hkparam>
-    <hkparam name="blendOutDuration">0.10000000149011612</hkparam>
-    <hkparam name="syncToGeneratorStartTime">false</hkparam>
+ <hkparam name="variableBindingSet">null</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">GT_Equip_Transition</hkparam>
+ <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_BLEND</hkparam>
+ <hkparam name="eventMode">EVENT_MODE_DEFAULT</hkparam>
+ <hkparam name="transitionGenerator">#102</hkparam>
+ <hkparam name="blendInDuration">0.25</hkparam>
+ <hkparam name="blendOutDuration">0.10000000149011612</hkparam>
+ <hkparam name="syncToGeneratorStartTime">false</hkparam>
 </hkobject>
 ```
 This blends from a animation to an extra defined animation and then from that animation to the next states animation.
@@ -2331,17 +2331,17 @@ blendInDuration is to the extra animation.
 blendOutDuration is to the next states animation.
 ```xml
 <hkobject class="hkbBlendingTransitionEffect" name="#5045" signature="0x14e54c5c">
-    <hkparam name="variableBindingSet">#5021</hkparam>
-    <hkparam name="userData">0</hkparam>
-    <hkparam name="name">Needle Transition</hkparam>
-    <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_CONTINUE_IF_CYCLIC_BLEND_IF_ACYCLIC</hkparam>
-    <hkparam name="eventMode">EVENT_MODE_DEFAULT</hkparam>
-    <hkparam name="duration">0.0</hkparam>
-    <hkparam name="toGeneratorStartTimeFraction">0.0</hkparam>
-    <hkparam name="flags">FLAG_NONE</hkparam>
-    <hkparam name="endMode">END_MODE_NONE</hkparam>
-    <hkparam name="blendCurve">1</hkparam>
-    <hkparam name="alignmentBone">65535</hkparam>
+ <hkparam name="variableBindingSet">#5021</hkparam>
+ <hkparam name="userData">0</hkparam>
+ <hkparam name="name">Needle Transition</hkparam>
+ <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_CONTINUE_IF_CYCLIC_BLEND_IF_ACYCLIC</hkparam>
+ <hkparam name="eventMode">EVENT_MODE_DEFAULT</hkparam>
+ <hkparam name="duration">0.0</hkparam>
+ <hkparam name="toGeneratorStartTimeFraction">0.0</hkparam>
+ <hkparam name="flags">FLAG_NONE</hkparam>
+ <hkparam name="endMode">END_MODE_NONE</hkparam>
+ <hkparam name="blendCurve">1</hkparam>
+ <hkparam name="alignmentBone">65535</hkparam>
 </hkobject>
 ```
 This blender seems very limited. In my testing the blend occured from the blend to animations object starting position to the blended from -
@@ -2355,17 +2355,17 @@ how fast you blend to the next animation's object starting point. With gamebryo,
 predefined and generalized, atleast thats how I percieve it.
 ```xml
 <hkobject class="hkbTwistModifier" name="#8812" signature="0x98d623bc">
-    <hkparam name="variableBindingSet">#7708</hkparam>
-    <hkparam name="userData">1</hkparam>
-    <hkparam name="name">Twist Mod 2</hkparam>
-    <hkparam name="enable">false</hkparam>
-    <hkparam name="axisOfRotation">(0.0 1.0 0.0 0.0)</hkparam>
-    <hkparam name="twistAngle">0.0</hkparam>
-    <hkparam name="startBoneIndex">0</hkparam>
-    <hkparam name="endBoneIndex">0</hkparam>
-    <hkparam name="setAngleMethod">LINEAR</hkparam>
-    <hkparam name="rotationAxisCoordinates">ROTATION_AXIS_IN_LOCAL_COORDINATES</hkparam>
-    <hkparam name="isAdditive">false</hkparam>
+ <hkparam name="variableBindingSet">#7708</hkparam>
+ <hkparam name="userData">1</hkparam>
+ <hkparam name="name">Twist Mod 2</hkparam>
+ <hkparam name="enable">false</hkparam>
+ <hkparam name="axisOfRotation">(0.0 1.0 0.0 0.0)</hkparam>
+ <hkparam name="twistAngle">0.0</hkparam>
+ <hkparam name="startBoneIndex">0</hkparam>
+ <hkparam name="endBoneIndex">0</hkparam>
+ <hkparam name="setAngleMethod">LINEAR</hkparam>
+ <hkparam name="rotationAxisCoordinates">ROTATION_AXIS_IN_LOCAL_COORDINATES</hkparam>
+ <hkparam name="isAdditive">false</hkparam>
 </hkobject>
 ```
 userData must be 1.

@@ -9,96 +9,96 @@
 ### Header (17 × u32 = 68 bytes)
 
 <FormatTable
-  columns={[
-    { header: 'Offset' },
-    { header: 'Field' },
-    { header: 'Notes' },
-  ]}
-  rows={[
-    { Offset: '0x00', Field: 'magic', Notes: '`0x004D4154` ("TAM\\0")' },
-    { Offset: '0x04', Field: 'version', Notes: '**7** = WD1, **15** = WDL/Leak' },
-    { Offset: '0x08–0x40', Field: 'header block', Notes: 'Version-dependent size/offset fields' },
-  ]}
+ columns={[
+ { header: 'Offset' },
+ { header: 'Field' },
+ { header: 'Notes' },
+ ]}
+ rows={[
+ { Offset: '0x00', Field: 'magic', Notes: '`0x004D4154` ("TAM\\0")' },
+ { Offset: '0x04', Field: 'version', Notes: '**7** = WD1, **15** = WDL/Leak' },
+ { Offset: '0x08–0x40', Field: 'header block', Notes: 'Version-dependent size/offset fields' },
+ ]}
 />
 
 ### Name
 
 ```
-u32   nameSize
-char  name[nameSize]
-byte  pad[(4 - nameSize % 4) % 4]
+u32 nameSize
+char name[nameSize]
+byte pad[(4 - nameSize % 4) % 4]
 ```
 
 ### ShaderSetting
 
 ```
-u32   shaderNameSize
-char  shader[shaderNameSize]
-byte  mod = (4 - shaderNameSize % 4) % 4
-      if mod >= 2: origMod = mod, mod -= 2  // InitSettings includes extra 2 bytes
-byte  pad[mod]
+u32 shaderNameSize
+char shader[shaderNameSize]
+byte mod = (4 - shaderNameSize % 4) % 4
+ if mod >= 2: origMod = mod, mod -= 2 // InitSettings includes extra 2 bytes
+byte pad[mod]
 
 // InitSettings
-u16   unk0
-byte  unk_extra[2]     // ONLY if origMod >= 2
-u8    unk2
-u8    unk3
-u32   unk4
-i32   unk5
-i32   unk6
-i32   unk7
+u16 unk0
+byte unk_extra[2] // ONLY if origMod >= 2
+u8 unk2
+u8 unk3
+u32 unk4
+i32 unk5
+i32 unk6
+i32 unk7
 ```
 
 ### Parameters
 
 ```
-u8    unk74
-u8    unk75
-u16   parameterCount
+u8 unk74
+u8 unk75
+u16 parameterCount
 
 per parameter:
-  // Alignment (CRITICAL: type byte sits at CURRENT position, may be misaligned)
-  byte  pad = 4 - (currentOffset % 4) - 1
-  u8    type                          // read at current (misaligned) position
-  if currentOffset % 4 == 0:
-      skip 4                         // skip alignment bytes
-  skip pad
+ // Alignment (CRITICAL: type byte sits at CURRENT position, may be misaligned)
+ byte pad = 4 - (currentOffset % 4) - 1
+ u8 type // read at current (misaligned) position
+ if currentOffset % 4 == 0:
+ skip 4 // skip alignment bytes
+ skip pad
 
-  if (type - 1) <= 10:
-      u32 nameID                      // = zlib CRC32(parameter name)
+ if (type - 1) <= 10:
+ u32 nameID // = zlib CRC32(parameter name)
 
-  // Values by type
-  type 1:  u32
-  type 2:  vec2 (2 × u32)
-  type 3:  vec3 (3 × u32)
-  type 4:  vec4 (4 × u32)
-  type 5:  i32
-  type 6:  u8  (bool: 0 or 1)
-  type 7:  u32
-  type 8:  u32 size, char string[size]
-  type 9:  u32 size, char string[size]
-  type 10: u32 size, char string[size]
-  type 11: u32
+ // Values by type
+ type 1: u32
+ type 2: vec2 (2 × u32)
+ type 3: vec3 (3 × u32)
+ type 4: vec4 (4 × u32)
+ type 5: i32
+ type 6: u8 (bool: 0 or 1)
+ type 7: u32
+ type 8: u32 size, char string[size]
+ type 9: u32 size, char string[size]
+ type 10: u32 size, char string[size]
+ type 11: u32
 ```
 
 ### Gradient Block
 
 ```
 // Align to 4-byte boundary first
-u32   bUseGradient
+u32 bUseGradient
 if bUseGradient == 1:
-    i32   grad_vec                    // count of gradient vectors
-    vec4  vecs[grad_vec]              // 4 × u32 each
-    u32   grad_id
-    u32   unk1
-    u8    unk2
+ i32 grad_vec // count of gradient vectors
+ vec4 vecs[grad_vec] // 4 × u32 each
+ u32 grad_id
+ u32 unk1
+ u8 unk2
 ```
 
 ### EOF
 
 ```
-u32   eof                             // always 0
-byte  trailing[]                      // variable: 0–16 bytes of zero padding
+u32 eof // always 0
+byte trailing[] // variable: 0–16 bytes of zero padding
 ```
 
 ## Key Findings
@@ -121,25 +121,25 @@ Enum/state **values** are also CRC32-hashed: `"ColorWrap"` → `0x13371135`
 ### Type System
 
 <FormatTable
-  columns={[
-    { header: 'Type' },
-    { header: 'Name' },
-    { header: 'Stored As' },
-    { header: 'Notes' },
-  ]}
-  rows={[
-    { Type: 1, Name: 'u32', 'Stored As': 'Raw u32 bits', Notes: 'Float as bit pattern' },
-    { Type: 2, Name: 'vec2', 'Stored As': '2 × u32', Notes: 'Float pair as bit patterns' },
-    { Type: 3, Name: 'vec3', 'Stored As': '3 × u32', Notes: 'Float triple as bit patterns' },
-    { Type: 4, Name: 'vec4', 'Stored As': '4 × u32', Notes: 'Float quad as bit patterns' },
-    { Type: 5, Name: 'i32', 'Stored As': 'Signed int', Notes: '—' },
-    { Type: 6, Name: 'bool', 'Stored As': 'Single byte', Notes: '0 or 1' },
-    { Type: 7, Name: 'u32', 'Stored As': 'Raw u32 bits', Notes: 'Enum as CRC32 hash' },
-    { Type: 8, Name: 'string', 'Stored As': 'u32 len + bytes', Notes: 'Texture paths, etc.' },
-    { Type: 9, Name: 'string', 'Stored As': 'u32 len + bytes', Notes: '—' },
-    { Type: 10, Name: 'string', 'Stored As': 'u32 len + bytes', Notes: '—' },
-    { Type: 11, Name: 'u32', 'Stored As': 'Raw u32 bits', Notes: '—' },
-  ]}
+ columns={[
+ { header: 'Type' },
+ { header: 'Name' },
+ { header: 'Stored As' },
+ { header: 'Notes' },
+ ]}
+ rows={[
+ { Type: 1, Name: 'u32', 'Stored As': 'Raw u32 bits', Notes: 'Float as bit pattern' },
+ { Type: 2, Name: 'vec2', 'Stored As': '2 × u32', Notes: 'Float pair as bit patterns' },
+ { Type: 3, Name: 'vec3', 'Stored As': '3 × u32', Notes: 'Float triple as bit patterns' },
+ { Type: 4, Name: 'vec4', 'Stored As': '4 × u32', Notes: 'Float quad as bit patterns' },
+ { Type: 5, Name: 'i32', 'Stored As': 'Signed int', Notes: '—' },
+ { Type: 6, Name: 'bool', 'Stored As': 'Single byte', Notes: '0 or 1' },
+ { Type: 7, Name: 'u32', 'Stored As': 'Raw u32 bits', Notes: 'Enum as CRC32 hash' },
+ { Type: 8, Name: 'string', 'Stored As': 'u32 len + bytes', Notes: 'Texture paths, etc.' },
+ { Type: 9, Name: 'string', 'Stored As': 'u32 len + bytes', Notes: '—' },
+ { Type: 10, Name: 'string', 'Stored As': 'u32 len + bytes', Notes: '—' },
+ { Type: 11, Name: 'u32', 'Stored As': 'Raw u32 bits', Notes: '—' },
+ ]}
 />
 
 ### Critical Gotcha: Misaligned Type Byte
@@ -157,18 +157,18 @@ Files may have 0–16 bytes of zero padding after the EOF field. The decoder tol
 ## Version Differences
 
 <FormatTable
-  columns={[
-    { header: 'Field' },
-    { header: 'WD1 (v7)' },
-    { header: 'WDL/Leak (v15)' },
-  ]}
-  rows={[
-    { Field: 'Header size', 'WD1 (v7)': '68 bytes', 'WDL/Leak (v15)': '68 bytes' },
-    { Field: 'Init settings', 'WD1 (v7)': '6 × u32 (cmd_count in high 16 bits of last)', 'WDL/Leak (v15)': 'u16 + conditional + u8×2 + u32 + i32×3' },
-    { Field: 'Param layout', 'WD1 (v7)': 'u8 type, u8 sub_type, align, name_hash, data', 'WDL/Leak (v15)': 'pad, type byte (misaligned), align skip, pad skip, nameID, data' },
-    { Field: 'Gradient', 'WD1 (v7)': 'Present if bUseGradient=1', 'WDL/Leak (v15)': 'Same' },
-    { Field: 'Shader count', 'WD1 (v7)': 'Multiple shader families', 'WDL/Leak (v15)': 'Multiple shader families' },
-  ]}
+ columns={[
+ { header: 'Field' },
+ { header: 'WD1 (v7)' },
+ { header: 'WDL/Leak (v15)' },
+ ]}
+ rows={[
+ { Field: 'Header size', 'WD1 (v7)': '68 bytes', 'WDL/Leak (v15)': '68 bytes' },
+ { Field: 'Init settings', 'WD1 (v7)': '6 × u32 (cmd_count in high 16 bits of last)', 'WDL/Leak (v15)': 'u16 + conditional + u8×2 + u32 + i32×3' },
+ { Field: 'Param layout', 'WD1 (v7)': 'u8 type, u8 sub_type, align, name_hash, data', 'WDL/Leak (v15)': 'pad, type byte (misaligned), align skip, pad skip, nameID, data' },
+ { Field: 'Gradient', 'WD1 (v7)': 'Present if bUseGradient=1', 'WDL/Leak (v15)': 'Same' },
+ { Field: 'Shader count', 'WD1 (v7)': 'Multiple shader families', 'WDL/Leak (v15)': 'Multiple shader families' },
+ ]}
 />
 
 ## Validation Results
@@ -199,11 +199,11 @@ Known shaders across all games:
 
 | Source | Path | Count |
 |--------|------|-------|
-| WD1 bins | `~/Documents/Code/re/Disrupt/Watch_Dogs/WD_materials_BIN/_materials/` | 11,384 |
-| WDL bins (retail) | `~/Documents/Modding/WDL/unpacked/common/graphics/_materials/` | 70 |
-| Leak compiled | `~/Documents/Code/re/Disrupt/leak/ubisoft/data_win64/graphics/_materials/` | 13,048 |
-| Leak dev XMLs | `~/Documents/Code/re/Disrupt/leak/ubisoft/data/graphics/_materials/` | 24,082 |
-| Name dictionary | `~/Documents/Code/re/Disrupt/ConvertMaterials/res/materialNames.txt` | 916 |
+| WD1 bins | | 11,384 |
+| WDL bins (retail) | the game install directory | 70 |
+| Leak compiled | | 13,048 |
+| Leak dev XMLs | | 24,082 |
+| Name dictionary | `materialNames.txt` | 916 |
 
 ## Community Notes
 

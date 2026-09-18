@@ -4,91 +4,120 @@ title: MAB Animation Format
 
 The `.mab` animation format used by the Dunia engine (Far Cry 2 through Far Cry 5 / New Dawn). All data is little-endian.
 
-A MAB file is composed of a header, a Section Information block, and 9 sections. Every section aligns to 16 bytes, padded with zeroes.
+Sources: [buu342's RE thread](https://knockout.chat/thread/55079) (Nov 2023 – Jun 2024), [PY-DuniaAnimationExtractor wiki](https://github.com/buu342/PY-DuniaAnimationExtractor/wiki), [MabTools/FCBConverter](https://github.com/buu342/PY-DuniaAnimationExtractor) source code by ArmanIII. Method: Cheat Engine watchpoints on FC3.dll + Ghidra + FC2 cross-referencing.
 
-Source: [buu342/PY-DuniaAnimationExtractor wiki](https://github.com/buu342/PY-DuniaAnimationExtractor/wiki).
+## Why this matters
 
-## Header
+The community's long-standing blocker: *"you can't add animations"* / *"no one has researched .mab enough"*. MAB = animation, XBG = model, XBT = texture, HKX = Havok physics. FC3/BD share an engine; FC5/ND share one; FC6 is trickier; FC4/FC3 need a `move.bin` edit too.
 
-16 bytes at the start of the file.
+## Version bytes
+
+The first 4 bytes identify the game. This also determines the header size and overall layout.
+
+| Value | Game | Header size |
+|-------|------|-------------|
+| `0x0000004C` (76) | Far Cry 2 | 16 bytes |
+| `0x00000061` (97) | Far Cry 3 | 16 bytes |
+| `0x00000062` (98) | Far Cry 3: Blood Dragon | 16 bytes |
+| `0x00000081` (129) | Far Cry 4 | 16 bytes |
+| `0x00000082` (130) | Far Cry Primal | 16 bytes |
+| `0x000000B0` (176) | Far Cry 5 + New Dawn | 100 bytes |
+| `0x000000B6` (182) | Far Cry 6 | 100 bytes |
+
+FCBConverter detects FC5 vs FC6 by checking if the version equals `176` (0xB0). FC6 MABs use `0xB6` (182).
+
+## FC3 header (16 bytes)
 
 | Offset | Size | Description |
 |--------|------|-------------|
-| `0x00` | 4 bytes | MAB file version |
+| `0x00` | 4 bytes | Version |
 | `0x04` | 4 bytes | CRC (algorithm unknown) |
 | `0x08` | 8 bytes | Unknown |
 
-### File versions
+## FC5/FC6 header (100 bytes)
 
-| Value | Game |
-|-------|------|
-| `0x0000004C` | Far Cry 2 |
-| `0x00000061` | Far Cry 3 |
-| `0x00000062` | Far Cry 3: Blood Dragon |
-| `0x00000081` | Far Cry 4 |
-| `0x00000082` | Far Cry Primal |
-| `0x000000B0` | Far Cry 5 + New Dawn |
+Verified from FCBConverter source. The header extends the FC3 layout significantly:
 
-## Section 0 — Section Information
+| Offset | Size | Field | Notes |
+|--------|------|-------|-------|
+| `0x00` | 4 | Version | 0xB0 = FC5, 0xB6 = FC6 |
+| `0x04` | 4 | Unknown | |
+| `0x08` | 4 | Unknown | |
+| `0x0C` | 4 | Unknown | |
+| `0x10` | 20 | Hash[5] | 5 × uint32 |
+| `0x24` | 4 | Animation file length | Total MAB size in bytes |
+| `0x28` | 4 | Clip length | Float, seconds |
+| `0x2C` | 4 | Frame rate | Float |
+| `0x30` | 2 | Bone count | |
+| `0x32` | 14 | Unknown[7] | 7 × uint16 |
+| `0x40` | 44 | Unknown[11] | 11 × uint32; last entry is adjusted when repacking |
+| `0x6C` | 4 | Zero | |
+| `0x70` | 4 | Frame count | |
+| `0x74` | 4 | Zero | |
+| `0x78` | 4 | Section 9 offset | Points to anchor/bone data; 0 = absent |
 
-Starts at offset `0x10` (right after the header). Always 224 bytes (220 + 4 bytes zero padding).
+## Header after the fixed fields (FC3)
 
-All offsets below are relative to this section. Add 16 bytes when reading from the file start.
+All versions. This block sits at offset `0x10` for FC3, offset `0x78` for FC5/FC6.
+
+## Section 0 — Section Information (FC3 only)
+
+Starts at offset `0x10` (right after the 16-byte header). Always 224 bytes (220 + 4 bytes zero padding).
+
+All offsets are relative to this section. Add 16 bytes for absolute file offsets.
 
 ### Animation length
 
-At offset `0xB4` (relative), 4 bytes: a float describing the animation duration in seconds. Referenced as `ANIMLENGTH` in other sections.
+At offset `0xB4` (relative), 4 bytes: a float — animation duration in seconds (`ANIMLENGTH`).
 
 ### Section offsets
 
-The next 36 bytes contain nine 4-byte integers — one offset per section. These offsets are **relative to Section 0** (add 16 for absolute file offsets).
+Nine 4-byte integers — one per section. Offsets are **relative to Section 0**.
 
-- Offsets are not guaranteed ascending. In practice, sections 1 and 2 are swapped (offset 0 points to section 2, offset 1 points to section 1). All others follow ascending order.
-- An offset of 0 means the section does not exist.
+- Sections 1 and 2 are swapped (offset 0 → section 2, offset 1 → section 1). All others ascending.
+- Offset 0 = section does not exist.
 
 ### Section sizes
 
-To find the size of a section, subtract its offset from the next largest offset. This does not account for padding. For the last section, subtract its offset from the total size of the file minus 16 (the header).
+Subtract consecutive offsets. For the last section, subtract its offset from the file size minus 16.
 
-The final 4 bytes of Section 0 are always zero padding.
+Final 4 bytes are zero padding.
 
-## Section 1 — Unknown
+## FC5/FC6 post-header layout
 
-No documentation yet.
+After the 100-byte header, FC5/FC6 MABs contain:
 
-## Section 2 — Unknown
+1. **Bone array** — `boneCount` × uint32 (bone IDs)
+2. **Bone values** — `boneCount` × byte
+3. **Padding** — align to 4 bytes
+4. **Frame array** — `frameCount` × uint16 (defines playback order; 0,1,2,3 = non-culled; 0,4,9,16 = culled/skipped)
+5. **Section data** — referenced by offsets in the header
 
-No documentation yet.
+## Section 3 — Root Rotation (FC3)
 
-## Section 3 — Root Rotation
+After the first 8 bytes, describes root bone rotation. Values are 4-byte floats in Y, Z, X order. Some animations store multiple rotations; many contain only one set (12 bytes total).
 
-After the first 8 bytes, this section describes root bone rotation values. The values are 4-byte floats in Y, Z, X order. Some animations store multiple rotations; many contain only one set (12 bytes total).
-
-Partial documentation — more investigation needed.
-
-## Section 4 — Rotation Keyframes
+## Section 4 — Rotation Keyframes (FC3)
 
 ### Preamble
 
-The first 4 bytes contain two 2-byte values (purpose unknown, skipped for now). After that comes a 4-byte float called the "magic float value".
+First 4 bytes: two 2-byte values (purpose unknown). Then a 4-byte "magic float".
 
 ### Offset table
 
-After the first 8 bytes, a sequence of 4-byte offsets begins. Each points to the start of a rotation data block.
+After the first 8 bytes, a sequence of 4-byte offsets pointing to rotation data blocks.
 
-The offset to the **last** entry in this table is calculated as:
+Last offset formula:
 
 ```
 ((((int)(magicfloat * ANIMLENGTH)) >> 3) * 4) + 8
 ```
 
-One more 4-byte value follows the last offset — it stores the total size of this section (excluding zero padding).
-
-To find the size of each rotation data block, subtract consecutive offsets.
+One more 4-byte value after the last offset stores the section size (excluding padding).
 
 ### Rotation data (packed quaternions)
 
-Quaternions are stored as three groups of 16-bit values. Decode them as follows:
+FC3 quaternions are **48-bit compressed**: 1 unused bit + 2 bits (largest component) + 15 bits × 3 components. W reconstructed via square root — the `0.7071068` constant is `sin(45°)`, spotted by buu342 in FC2's lighter-optimized DLL.
 
 **Component extraction:**
 
@@ -99,7 +128,7 @@ fVar3 = ThirdWord * 4.315969e-05 - 0.7071068
 fVar4 = sqrt(1.0 - fVar1*fVar1 - fVar2*fVar2 - fVar3*fVar3)
 ```
 
-**Component order** (determined by the sign bit of the first two packed values):
+**Component order** (sign bit of first two packed values):
 
 ```
 if ((FirstWord & 0x8000) == 0)
@@ -117,24 +146,81 @@ return Quaternion(fVar4, fVar1, fVar2, fVar3);
 
 where `Quaternion` is `(x, y, z, w)`.
 
-Quaternions are stored contiguously — layout details still under investigation.
+### Keyframe mystery byte
+
+Each keyframe section starts with the first quaternion + 2 mystery bytes, then subsequent quaternions sequentially.
+
+The mystery byte is a **bitmask counting quaternions**: popcount = quaternions packed after the first. `0x47` (01000111) = 4 ones = 4 quats. First nibble = transition speed; second nibble = animation breaking. Second mystery byte possibly a bone selector.
+
+Open: why two bit representations for same count; >8 quat behavior (8-bit mask limit); multi-bone mapping (bone-to-offset table likely built at load from XBG, not in MAB).
 
 ## Section 5 — Unknown
 
 No documentation yet.
 
-## Section 6 — Root Offset Keyframes
+## Section 6 — Root Offset Keyframes (FC3)
 
-Contains root bone offset keyframes. Minimal investigation done — more details to come.
+Root bone offset keyframes. Under-investigated.
 
-## Section 7 — Animation Events
+## Section 7 — Animation Events (FC3)
 
-Contains strings describing animation events (e.g., particle effects) and likely their timestamps. Under-investigated.
+Strings describing animation events (e.g., particle effects) and likely timestamps. Under-investigated.
 
 ## Section 8 — Unknown
 
 No documentation yet.
 
-## Section 9 — Unknown
+## Section 9 — Unknown / Anchor Data
 
-No documentation yet.
+In FC5/FC6, the offset at header `0x78` points to an anchor/bone data structure. FCBConverter reads it as:
+
+- uint32 `anchorCount`
+- uint32 zero
+- uint32 `sectionSize`
+
+Then per anchor:
+
+| Size | Field | Notes |
+|------|-------|-------|
+| 4 | Signature | |
+| 4 | Child bone | |
+| 4 | Parent bone | |
+| 4 | Target bone | |
+| 1 | Anchor type | |
+| 1 | Blank (always 3) | |
+| 2 | Name start | Offset into string table |
+| 4 | Subsection end | Not present for last anchor |
+| 4 | Maybe zero | Not present for last anchor |
+
+## Frame interpolation (legendhavoc175, Jun 2024)
+
+MAB supports interpolation. Extracted "keyframes" are interpolation targets, not every frame. FC4+ have a frame array defining playback order (e.g., `0,1,2,3` non-culled; `0,4,9,16` culled/skipped).
+
+Quaternion data per section: typically 6 bytes quat + 2 bytes pad (0 or random). Complex animations vary.
+
+## RE methodology
+
+Reusable techniques for further MAB investigation:
+
+1. **FCBConverter patch workflow**: create `mymod/foo/foo2/bar.tex` matching the asset path, feed the folder to FCBConverter, place the resulting `.dat`/`.fat` patch in `data_win32` (overrides the default patch; works in map editor + Linux/Wine).
+2. **Cheat Engine watchpoints**: set a watchpoint on known animation bytes, trace the stack to FC3.dll + function offset, then open in Ghidra.
+3. **FC2 cross-reference**: FC2 has lighter compiler optimizations → cleaner Ghidra output for the same algorithm. Cross-search distinctive constants (`4.315969e-05`, `0.7071068`) in the FC3.dll C export.
+4. **Bone data**: `.skeleton` only exists for physics models. First-person models need XBG parsing for bone data.
+5. **FCBConverter MAB support**: pass a `.mab` to FCBConverter — it extracts to XML (`_converted.xml`). Pass the XML back to repack (`_new.mab`). FC5/FC6 are auto-detected by version byte.
+
+## Open questions
+
+- Exact rotation data storage beyond 48-bit quats (padding semantics, multi-bone mapping)
+- Which XBG structures set up the bone-to-offset lookup table
+- FC4+ frame array exact format
+- FC6 MAB differences beyond the version byte
+- Header unknowns at `0x04`–`0x0C` and `unkArrayA[11]`
+
+## References
+
+- [Deciphering Far Cry 3's animation format](https://knockout.chat/thread/55079) — buu342's RE thread
+- [PY-DuniaAnimationExtractor](https://github.com/buu342/PY-DuniaAnimationExtractor) — companion code + wiki
+- [MabTools/FCBConverter](https://github.com/buu342/PY-DuniaAnimationExtractor) — ArmanIII's converter (GPLv3)
+- [ResHax RE tutorials](https://reshax.com/topic/47-reverse-engineering-tutorials-collection/)
+- [3D Model Researcher](https://mr.game-viewer.org/)
+- FC4 (Oct 17, 2014 X360 prototype) + Watch Dogs 1 X360 prototypes have debug symbols at [Hidden Palace](https://hiddenpalace.org/)

@@ -16,7 +16,7 @@ or larger (string table with mip-level filepaths for streaming).
 
 - Identical format to WD1 — `xbt2dds` works.
 - `_high` textures are separate files (lowest mip level, highest res for close
-  viewing), referenced by filepath in the non-high XBT header.
+ viewing), referenced by filepath in the non-high XBT header.
 
 ## Tools
 

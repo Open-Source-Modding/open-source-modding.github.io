@@ -29,56 +29,56 @@ Same container format as FIFA and Command & Conquer.
 
 ```
 Archive Header:
-  2  - null
-  2  - Unknown
-  4  - Archive Length [+8]
-  4  - null
-  4  - Number Of Nulls (48)
-  48 - null
-  2  - null
-  2  - Unknown
-  4  - Directory Length?
-  2  - Number Of Directories (1)
-  2  - Unknown
+ 2 - null
+ 2 - Unknown
+ 4 - Archive Length [+8]
+ 4 - null
+ 4 - Number Of Nulls (48)
+ 48 - null
+ 2 - null
+ 2 - Unknown
+ 4 - Directory Length?
+ 2 - Number Of Directories (1)
+ 2 - Unknown
 
 Per Directory:
-  4  - Directory Offset [+80]
-  4  - Directory Name Length (excl. nulls)
-  28 - Directory Name (null-terminated)
-  64 - Filename
-  4  - Unknown
-  24 - null
+ 4 - Directory Offset [+80]
+ 4 - Directory Name Length (excl. nulls)
+ 28 - Directory Name (null-terminated)
+ 64 - Filename
+ 4 - Unknown
+ 24 - null
 
 Directory Entries (per file):
-  2  - Unknown (2)
-  2  - Unknown
-  4  - Length of Next FOR Loop (numFiles * 8)
-  // for each file:
-    4  - Hash?
-    4  - null
+ 2 - Unknown (2)
+ 2 - Unknown
+ 4 - Length of Next FOR Loop (numFiles * 8)
+ // for each file:
+ 4 - Hash?
+ 4 - null
 
-  2  - Unknown (2)
-  2  - Unknown
-  4  - Length of Next FOR Loop (numFiles * 24)
-  // for each file:
-    4  - Hash?
-    4  - File Offset
-    4  - File Length
-    4  - Unknown (263324)
-    4  - Padding Multiple? (256)
-    4  - null
+ 2 - Unknown (2)
+ 2 - Unknown
+ 4 - Length of Next FOR Loop (numFiles * 24)
+ // for each file:
+ 4 - Hash?
+ 4 - File Offset
+ 4 - File Length
+ 4 - Unknown (263324)
+ 4 - Padding Multiple? (256)
+ 4 - null
 
 File Data:
-  X  - File Data (per file)
+ X - File Data (per file)
 ```
 
 ### .BUN Format (Most Wanted)
 
 ```
 Per file:
-  4  - File Type ID?
-  4  - File Length
-  X  - File Data
+ 4 - File Type ID?
+ 4 - File Length
+ X - File Data
 // Padding entries exist with varying sizes including length=0
 // Continue reading until end of archive reached.
 ```
@@ -125,7 +125,7 @@ NFS Shift packs data in `.bff` files (in `Pakfiles`).
 
 ### RC4 Key (PC)
 ```
-@lLy0urRaC3ar3bE  →  "All Your Race Are Belong to us"
+@lLy0urRaC3ar3bE → "All Your Race Are Belong to us"
 ```
 Applied when `X12d` flag = 2 (`encryption rc4 "@lLy0urRaC3ar3bE"`) in QuickBMS script.
 
@@ -134,55 +134,55 @@ Applied when `X12d` flag = 2 (`encryption rc4 "@lLy0urRaC3ar3bE"`) in QuickBMS s
 
 ### BFF Header
 ```
-Offset  Size  Description
-0x00    4     " KAP"  ("PAK " in big endian)
-0x04    4     0x03004010
-0x08    4     file count
-0x0C    4     alignment
-0x10    4     zero
-0x14    4     0x800 (chunk size)
-0x18    0x100 name of archive
-0x118   4     X118 - size of information table
-0x11C   4     zero
-0x120   4     X120 - size of name table + 0x308
-0x124   4     DHSA field offset
-0x128   4     DHSA field size
-0x12C   1     zero
-0x12D   1     X12d - 0 = no encryption, 2 = RC4
-0x12E   1     zero
-0x12F   1     zero
-0x130   X118  information table
-...           "TXEP" magic
-...           not verified
-...           0x100  Gecko.xml or GeckoDemo.xml
-...           0x100  C:\DEV\Gecko\ or C:\DEV\GeckoDemo\
-...           0x100  PC
-...           X120  name table
+Offset Size Description
+0x00 4 " KAP" ("PAK " in big endian)
+0x04 4 0x03004010
+0x08 4 file count
+0x0C 4 alignment
+0x10 4 zero
+0x14 4 0x800 (chunk size)
+0x18 0x100 name of archive
+0x118 4 X118 - size of information table
+0x11C 4 zero
+0x120 4 X120 - size of name table + 0x308
+0x124 4 DHSA field offset
+0x128 4 DHSA field size
+0x12C 1 zero
+0x12D 1 X12d - 0 = no encryption, 2 = RC4
+0x12E 1 zero
+0x12F 1 zero
+0x130 X118 information table
+... "TXEP" magic
+... not verified
+... 0x100 Gecko.xml or GeckoDemo.xml
+... 0x100 C:\DEV\Gecko\ or C:\DEV\GeckoDemo\
+... 0x100 PC
+... X120 name table
 ```
 
 ### Information Table Entry (48 bytes per file)
 ```
-4  - unused (any value, game works)  [64-bit timestamp-ish]
-4  - unused (any value, game works)
-4  - absolute offset of file
-4  - ever zero
-4  - compressed size (size in archive)
-4  - extracted size (uncompressed size)
-4  - zero
-4  - zero
-4  - type: 0 = uncompressed, 2 = compressed
-4  - zero
-4  - CRC of file **as stored in archive** (decrypted but still compressed)
-4  - extension (e.g., "fxo")
+4 - unused (any value, game works) [64-bit timestamp-ish]
+4 - unused (any value, game works)
+4 - absolute offset of file
+4 - ever zero
+4 - compressed size (size in archive)
+4 - extracted size (uncompressed size)
+4 - zero
+4 - zero
+4 - type: 0 = uncompressed, 2 = compressed
+4 - zero
+4 - CRC of file **as stored in archive** (decrypted but still compressed)
+4 - extension (e.g., "fxo")
 ```
 > **Correction** (aluigi, 2009): First two fields are NOT CRC — they are likely 64-bit timestamp. Real CRC is field immediately before extension.
 
 ### Name Table Entry (16 bytes)
 ```
-4  - absolute offset where name string is located
-4  - zero
-4  - not verified
-4  - not verified (seems a date timestamp)
+4 - absolute offset where name string is located
+4 - zero
+4 - not verified
+4 - not verified (seems a date timestamp)
 ```
 
 ### CRC Semantics
@@ -193,7 +193,7 @@ Offset  Size  Description
 ```c
 unsigned int crc = 0xffffffff;
 for(i = 0; i < len; i++) {
-    crc = crctable[(data[i] ^ crc) & 0xff] ^ (crc >> 8);
+ crc = crctable[(data[i] ^ crc) & 0xff] ^ (crc >> 8);
 }
 return crc;
 ```
@@ -274,9 +274,9 @@ Six sections: **SGB, OCCL, NODE, FLAT, SUMM, END**
 
 Each section starts with:
 ```
-32bit int  section name
-32bit int  section length
-32bit int  number of blocks in section
+32bit int section name
+32bit int section length
+32bit int number of blocks in section
 ```
 
 | Section | Description |
@@ -292,16 +292,16 @@ Each section starts with:
 ### NODE/SUMM Block Semantics (maps to XML `sgx`)
 ```xml
 <OBJ_ID no="1930">
-  <NODE type="LOD" Name="GEN_TREE10_LOD0" MatrixNumber="-1">
-    <SPHERE Centre="-0.960997 10.404318 -0.533839 1.0" Radius="13.516625" />
-    <MATRIX Offset="-449.536987 -4.304690 -196.947006"
-            Orientation="0.0 0.0 -0.114994 1.0" />
-    <CONTROL Distances="0.000000 " />
-    <NODE type="OBJECT" Name="Gen_Tree10_LODA" MatrixNumber="0">
-      <RESOURCE Filename="Tracks\_Data\Instances\Gen_Tree10_LODA.imb" />
-      <SPHERE Centre="-0.960997 10.404318 -0.533839 1.0" Radius="13.516625" />
-    </NODE>
-  </NODE>
+ <NODE type="LOD" Name="GEN_TREE10_LOD0" MatrixNumber="-1">
+ <SPHERE Centre="-0.960997 10.404318 -0.533839 1.0" Radius="13.516625" />
+ <MATRIX Offset="-449.536987 -4.304690 -196.947006"
+ Orientation="0.0 0.0 -0.114994 1.0" />
+ <CONTROL Distances="0.000000 " />
+ <NODE type="OBJECT" Name="Gen_Tree10_LODA" MatrixNumber="0">
+ <RESOURCE Filename="Tracks\_Data\Instances\Gen_Tree10_LODA.imb" />
+ <SPHERE Centre="-0.960997 10.404318 -0.533839 1.0" Radius="13.516625" />
+ </NODE>
+ </NODE>
 </OBJ_ID>
 ```
 Fields: ID (unique object number), three string references (type, name, resource path + `.vhf`/`.meb`/`.imb`), count of elements with that name, unknown flag, SPHERE (center x,y,z + radius), MATRIX (3 position floats + parent index, then orientation), `userflags` bitfield.

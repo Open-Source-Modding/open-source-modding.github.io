@@ -8,12 +8,12 @@ FCBastard.
 
 ```xml
 <EntityPrototype UID="#A3E9ECF28981E387">
-  <Entity
-    disNomadObjectId="#000000000000293B"
-    hidName="Vehicle_Brawler.Brawler.Brawler_Civ_Truck.Brawler_Civ_Truck_Military"
-    text_hidEntityClass="CEntity"
-    hidEntityClass="$CEntity"
-    ...>
+ <Entity
+ disNomadObjectId="#000000000000293B"
+ hidName="Vehicle_Brawler.Brawler.Brawler_Civ_Truck.Brawler_Civ_Truck_Military"
+ text_hidEntityClass="CEntity"
+ hidEntityClass="$CEntity"
+ ...>
 ```
 
 | Field | Type | Description |
@@ -39,14 +39,14 @@ Entities contain components that define behavior:
 
 ```xml
 <Components>
-  <CFileDescriptorComponent
-    text_fileName="graphics\vehicles_nexus\land\heavy\heavy_armoredtruck_01\Heavy_ArmoredTruck_01.xml"
-    fileName="#AE95FBB4F84A9F78" />
-  <CVehicleCarPhysComponent
-    text_hidResourceId="...\Heavy_ArmoredTruck_01.hkx"
-    hidResourceId="#AECCD9B4F879A7C6"
-    ... />
-  ...
+ <CFileDescriptorComponent
+ text_fileName="graphics\vehicles_nexus\land\heavy\heavy_armoredtruck_01\Heavy_ArmoredTruck_01.xml"
+ fileName="#AE95FBB4F84A9F78" />
+ <CVehicleCarPhysComponent
+ text_hidResourceId="...\Heavy_ArmoredTruck_01.hkx"
+ hidResourceId="#AECCD9B4F879A7C6"
+ ... />
+ ...
 </Components>
 ```
 
@@ -58,10 +58,10 @@ Each component has:
 ## Important Notes
 
 - `disNomadObjectId` is **sequential** (e.g. `0x293B`, `0x2942`), assigned by
-  the editor — it is NOT a hash of the entity name
+ the editor — it is NOT a hash of the entity name
 - `UID` is the entity's unique identifier, used by `SpawnEntityFromArchetype`
 - Hashes in hand-edited XMLs may be incorrect if computed before the algorithm
-  was known — always verify with `hash_tool.py`
+ was known — always verify with `hash_tool.py`
 - Entity paths use dots as separators: `Vehicle_Brawler.Brawler.Brawler_Civ_Truck`
 - File paths use backslashes: `graphics\vehicles_nexus\land\...`
 

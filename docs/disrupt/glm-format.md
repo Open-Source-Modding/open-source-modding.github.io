@@ -79,11 +79,11 @@ SKELETON_LIST\t{
 REFLEX_SYSTEM\t{
 \t@@@@ BEGIN_EMBEDDED_BLOB "rfxblob_RFX_Legs"
 <Reflex Version="2.07" Contents="System">
-  <System Name="RFX_Legs">
-    <Constraint Type="SingleBalljoint" Name="..." ParentOfSocketBone="..." SocketBone="..." TargetBone="...">
-      ...
-    </Constraint>
-  </System>
+ <System Name="RFX_Legs">
+ <Constraint Type="SingleBalljoint" Name="..." ParentOfSocketBone="..." SocketBone="..." TargetBone="...">
+ ...
+ </Constraint>
+ </System>
 </Reflex>
 \t@@@@ END_EMBEDDED_BLOB
 }

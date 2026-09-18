@@ -20,17 +20,17 @@ Extracted and organized from XeNTaX forum discussions (2014–2023). Technical k
 **Header** (by Ekey, 2014-05-23):
 ```c
 struct FATHeader {
-    DWORD dwID;         // Magic: "3TAF" (0x33544146)
-    DWORD dwVersion;    // Always 8
-    DWORD dwUnknown;
-    DWORD dwTotalFiles;
+ DWORD dwID; // Magic: "3TAF" (0x33544146)
+ DWORD dwVersion; // Always 8
+ DWORD dwUnknown;
+ DWORD dwTotalFiles;
 };
 
 struct FATEntry {
-    DWORD dwHash;       // Filename hash
-    DWORD dwSize;       // Uncompressed size
-    DWORD dwZSize;      // Compressed size
-    DWORD dwOffset;     // Offset into .dat
+ DWORD dwHash; // Filename hash
+ DWORD dwSize; // Uncompressed size
+ DWORD dwZSize; // Compressed size
+ DWORD dwOffset; // Offset into .dat
 };
 ```
 
@@ -51,7 +51,7 @@ struct FATEntry {
 
 **Standard header** (cra0, 2014-05-25):
 ```c
-long Identifier;                  // XCOMPRESS_FILE_IDENTIFIER_LZXNATIVE
+long Identifier; // XCOMPRESS_FILE_IDENTIFIER_LZXNATIVE
 long ContextFlags;
 long Flags;
 long WindowSize;
@@ -66,7 +66,7 @@ long CompressedBlockSizeMax;
 
 **Modified version** (killerpepo, 2014-05-26; all big endian):
 ```c
-long Identifier;                  // XCOMPRESS_FILE_IDENTIFIER_LZXNATIVE
+long Identifier; // XCOMPRESS_FILE_IDENTIFIER_LZXNATIVE
 long ContextFlags;
 short Version;
 short Reserved;
@@ -86,9 +86,9 @@ long CompressedBlockSize;
 
 ```c
 struct DataHeader {
-    SHORT wChunksCount;
-    SHORT wUnknown;     // 0xFF 0x0F
-    // followed by wChunksCount × SHORT chunk sizes
+ SHORT wChunksCount;
+ SHORT wUnknown; // 0xFF 0x0F
+ // followed by wChunksCount × SHORT chunk sizes
 };
 ```
 
@@ -97,23 +97,23 @@ struct DataHeader {
 **Header** (Ekey, 2016-12-06):
 ```c
 struct FATHeader {
-    uint32_t dwID;        // Magic: "5TAF" (0x35544146)
-    uint32_t dwVersion;   // 11
-    uint32_t dwUnknown1;
-    uint32_t dwUnknown2;  // -1
-    uint32_t dwUnknown3;  // -1
-    uint32_t dwUnknown4;  // 0
-    uint32_t dwTotalFiles;
+ uint32_t dwID; // Magic: "5TAF" (0x35544146)
+ uint32_t dwVersion; // 11
+ uint32_t dwUnknown1;
+ uint32_t dwUnknown2; // -1
+ uint32_t dwUnknown3; // -1
+ uint32_t dwUnknown4; // 0
+ uint32_t dwTotalFiles;
 };
 ```
 
 **Entry format** (Ekey, 2016-12-06):
 ```c
 struct FATEntry {
-    uint64_t dwHash;      // NameHash
-    uint32_t dwSize;
-    uint32_t dwOffset;
-    uint32_t dwZSize;
+ uint64_t dwHash; // NameHash
+ uint32_t dwSize;
+ uint32_t dwOffset;
+ uint32_t dwZSize;
 };
 ```
 
@@ -130,24 +130,24 @@ CompressedSize = (uint)((c & 0x3FFFFFFF) >> 0);
 **WD2 FAT variant** (Sir Kane, 2016-12-06):
 ```c
 struct SFatFileEntry {
-    uint64_t Hash;
-    uint64_t CompressedSize : 30;
-    uint64_t Offset : 34;
-    uint32_t CompressionMethod : 2;   // 0 = LZMA, 2 = modified LZ4
-    uint32_t UncompressedSize : 30;
+ uint64_t Hash;
+ uint64_t CompressedSize : 30;
+ uint64_t Offset : 34;
+ uint32_t CompressionMethod : 2; // 0 = LZMA, 2 = modified LZ4
+ uint32_t UncompressedSize : 30;
 };
 ```
 
 **WD2 hash algorithm** — FNV1a x64 (Ekey, 2016-12-06):
 ```c
 static ulong gethash64(string value) {
-    ulong fnv64Prime = 0x00000100000001B3ul;
-    ulong hash = 0xCBF29CE484222325ul;
-    for (var i = 0; i < value.Length; i++) {
-        hash *= fnv64Prime;
-        hash = hash ^ value[i];
-    }
-    return hash & 0x1FFFFFFFFFFFFFFFul | 0xA000000000000000ul;
+ ulong fnv64Prime = 0x00000100000001B3ul;
+ ulong hash = 0xCBF29CE484222325ul;
+ for (var i = 0; i < value.Length; i++) {
+ hash *= fnv64Prime;
+ hash = hash ^ value[i];
+ }
+ return hash & 0x1FFFFFFFFFFFFFFFul | 0xA000000000000000ul;
 }
 ```
 
@@ -181,12 +181,12 @@ static ulong gethash64(string value) {
 
 **File extensions mapping** (Ekey, 2014-05-29):
 ```
-CGeometryResource:      .glm/.dae → .xbg
-CTextureResource:       .png/.dds → .xbt
-CAnimationResource:     .mac → .mab
-CSkeletonResource:      .skel.xml → .skeleton
-CPhysResource:          .hkr → .hkx
-CMaterialResource:      .material.xml → .material.bin
+CGeometryResource: .glm/.dae → .xbg
+CTextureResource: .png/.dds → .xbt
+CAnimationResource: .mac → .mab
+CSkeletonResource: .skel.xml → .skeleton
+CPhysResource: .hkr → .hkx
+CMaterialResource: .material.xml → .material.bin
 ```
 
 **Vertex format** (Wobble, 2014-07-08; cra0, 2014-07-08):
@@ -256,7 +256,7 @@ ushort count1;
 uint stringFragmentsOffset;
 struct { uint a, b; } t[count1];
 // at stringFragmentsOffset:
-int count2;  // includes zero-zero node
+int count2; // includes zero-zero node
 struct { short right, left; } nodes[count2-1];
 ```
 
@@ -324,13 +324,13 @@ Key material field hashes (disastorm/redcomet, 2016-12):
 
 ### WD2 Clothing Category Values (disastorm, 2016-12)
 ```
-DDD0721E02000080  NORMCORE
-DED0721E02000080  BIKER
-DFD0721E02000080  URBAN
-E0D0721E02000080  HIPPIE
-C61D21C801000080  HIPSTER
-DBD0721E02000080  SUITS
-DCD0721E02000080  HIP-HOP
+DDD0721E02000080 NORMCORE
+DED0721E02000080 BIKER
+DFD0721E02000080 URBAN
+E0D0721E02000080 HIPPIE
+C61D21C801000080 HIPSTER
+DBD0721E02000080 SUITS
+DCD0721E02000080 HIP-HOP
 ```
 
 ---
@@ -423,13 +423,13 @@ Gibbed.Disrupt.ConvertXml -rml music.xml music.rml
 
 **Final filelist status** (Ekey, 2016-12-15):
 ```
-common.fat          → 5,779 resolved / 256 unknown
-patch.fat           → 51,394 resolved / 4,901 unknown
-san_francisco.fat   → 152,515 resolved / 48,495 unknown
+common.fat → 5,779 resolved / 256 unknown
+patch.fat → 51,394 resolved / 4,901 unknown
+san_francisco.fat → 152,515 resolved / 48,495 unknown
 san_francisco_preload.fat → 44,247 resolved / 42,466 unknown
-shadersobj.fat      → 47,357 resolved / 2,977 unknown
-sound.fat           → 50 resolved / 0 unknown
-videos.fat          → 129 resolved / 1 unknown
+shadersobj.fat → 47,357 resolved / 2,977 unknown
+sound.fat → 50 resolved / 0 unknown
+videos.fat → 129 resolved / 1 unknown
 ```
 
 **Models location**: `windy_city` and `windy_city_cache` DAT files (Ekey, 2014-06-13).
@@ -463,16 +463,16 @@ videos.fat          → 129 resolved / 1 unknown
 
 (Ekey, 2016-12-17):
 ```
--nosplash          Skip intro videos
--nologfile         Disable log files
--nosound           Disable sound
--norender          Disable rendering
+-nosplash Skip intro videos
+-nologfile Disable log files
+-nosound Disable sound
+-norender Disable rendering
 -nophysicstepworkerthread
 -skiploggertool
--tf                Time factor
--txtlang           Language override
--spawnpos          Spawn position
--editorpc          Editor mode
+-tf Time factor
+-txtlang Language override
+-spawnpos Spawn position
+-editorpc Editor mode
 ```
 
 ---

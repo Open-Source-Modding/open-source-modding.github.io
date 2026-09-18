@@ -75,9 +75,9 @@ Shell script to launch Ubisoft Connect via Proton using AC:Liberations' compatda
 ```bash
 LATEST_PROTON=$(ls -1 ~/.local/share/Steam/compatibilitytools.d/Proton*/files/bin/wine64 | grep -v rc | tail -n1)
 WINEPREFIX="$HOME/.local/share/Steam/steamapps/compatdata/260210/pfx/" \
-    PROTON_USE_D9VK=1 PROTON_NO_ESYNC=1 \
-    WINEDLLOVERRIDES="steam.exe=b;dotnetfx35.exe=b" \
-    "$LATEST_PROTON" "c:/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe"
+ PROTON_USE_D9VK=1 PROTON_NO_ESYNC=1 \
+ WINEDLLOVERRIDES="steam.exe=b;dotnetfx35.exe=b" \
+ "$LATEST_PROTON" "c:/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe"
 ```
 
 - [Source](https://gist.github.com/IBBoard/99667decc3c04ffc138e8686cbb84730)

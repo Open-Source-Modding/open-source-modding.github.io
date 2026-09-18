@@ -426,6 +426,29 @@ FOR EACH (SoundBank):
 
 Only found in `Init.bnk`. Contains project settings, Switch Groups, State Groups, and Game Parameters.
 
+## Wwise Vorbis codebooks
+
+Wwise uses a custom Vorbis encoder (aoTuV variant) with its own codebook system. The codebook format differs from standard Vorbis:
+
+| Field | Standard Vorbis | Wwise simplified |
+|-------|-----------------|------------------|
+| Sync pattern | 24-bit `0x564342` | Implicit (`VCB`) |
+| Dimensions | 16 bits | 4 bits |
+| Entries | 24 bits | 14 bits |
+| Codeword lengths | ordered/sparse flags | 3-bit `codeword_length_length` (0 = ordered) |
+| Lookup type | 4 bits | 1 bit |
+
+### Codebook versions by Wwise release
+
+| Wwise version | Codebook type | Notes |
+|---------------|---------------|-------|
+| v34–v36 | Full standard Vorbis headers | Triad format (id/comment/setup) |
+| v38–v44 | Inline codebooks | Standard or trimmed format |
+| v48–v56 | External codebooks | Referenced by 10-bit ID, rebuilt from simplified format |
+| v62+ | aoTuV 603 external | Uses `packed_codebooks_aoTuV_603.bin` |
+
+The aoTuV 603 codebooks (Wwise 2011.2+) were introduced for games like *Star Wars: The Old Republic*. The file contains ~300 packed codebooks with an index table at the end. `ww2ogg` loads it via `--pcb packed_codebooks_aoTuV_603.bin`. vgmstream has these precompiled as C arrays in `vorbis_codebooks_wwise.h` and does not need the external file.
+
 ## Curve shapes
 
 Used across multiple sections for fade/automation curves:

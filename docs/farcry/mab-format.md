@@ -68,11 +68,11 @@ All offsets are relative to this section. Add 16 bytes for absolute file offsets
 
 ### Animation length
 
-At offset `0xB4` (relative), 4 bytes: a float — animation duration in seconds (`ANIMLENGTH`).
+At offset `0xB4` (relative), 4 bytes: a float, animation duration in seconds (`ANIMLENGTH`).
 
 ### Section offsets
 
-Nine 4-byte integers — one per section. Offsets are **relative to Section 0**.
+Nine 4-byte integers, one per section. Offsets are **relative to Section 0**.
 
 - Sections 1 and 2 are swapped (offset 0 → section 2, offset 1 → section 1). All others ascending.
 - Offset 0 = section does not exist.
@@ -87,11 +87,11 @@ Final 4 bytes are zero padding.
 
 After the 100-byte header, FC5/FC6 MABs contain:
 
-1. **Bone array** — `boneCount` × uint32 (bone IDs)
-2. **Bone values** — `boneCount` × byte
-3. **Padding** — align to 4 bytes
-4. **Frame array** — `frameCount` × uint16 (defines playback order; 0,1,2,3 = non-culled; 0,4,9,16 = culled/skipped)
-5. **Section data** — referenced by offsets in the header
+1. **Bone array**: `boneCount` × uint32 (bone IDs)
+2. **Bone values**: `boneCount` × byte
+3. **Padding**: align to 4 bytes
+4. **Frame array**: `frameCount` × uint16 (defines playback order; 0,1,2,3 = non-culled; 0,4,9,16 = culled/skipped)
+5. **Section data**: referenced by offsets in the header
 
 ## Section 3 — Root Rotation (FC3)
 
@@ -117,7 +117,7 @@ One more 4-byte value after the last offset stores the section size (excluding p
 
 ### Rotation data (packed quaternions)
 
-FC3 quaternions are **48-bit compressed**: 1 unused bit + 2 bits (largest component) + 15 bits × 3 components. W reconstructed via square root — the `0.7071068` constant is `sin(45°)`, spotted by buu342 in FC2's lighter-optimized DLL.
+FC3 quaternions are **48-bit compressed**: 1 unused bit + 2 bits (largest component) + 15 bits × 3 components. W reconstructed via square root, and the `0.7071068` constant is `sin(45°)`, spotted by buu342 in FC2's lighter-optimized DLL.
 
 **Component extraction:**
 
@@ -206,7 +206,7 @@ Reusable techniques for further MAB investigation:
 2. **Cheat Engine watchpoints**: set a watchpoint on known animation bytes, trace the stack to FC3.dll + function offset, then open in Ghidra.
 3. **FC2 cross-reference**: FC2 has lighter compiler optimizations → cleaner Ghidra output for the same algorithm. Cross-search distinctive constants (`4.315969e-05`, `0.7071068`) in the FC3.dll C export.
 4. **Bone data**: `.skeleton` only exists for physics models. First-person models need XBG parsing for bone data.
-5. **FCBConverter MAB support**: pass a `.mab` to FCBConverter — it extracts to XML (`_converted.xml`). Pass the XML back to repack (`_new.mab`). FC5/FC6 are auto-detected by version byte.
+5. **FCBConverter MAB support**: pass a `.mab` to FCBConverter and it extracts to XML (`_converted.xml`). Pass the XML back to repack (`_new.mab`). FC5/FC6 are auto-detected by version byte.
 
 ## Open questions
 
@@ -214,13 +214,13 @@ Reusable techniques for further MAB investigation:
 - Which XBG structures set up the bone-to-offset lookup table
 - FC4+ frame array exact format
 - FC6 MAB differences beyond the version byte
-- Header unknowns at `0x04`–`0x0C` and `unkArrayA[11]`
+- Header unknowns at `0x04` to `0x0C` and `unkArrayA[11]`
 
 ## References
 
-- [Deciphering Far Cry 3's animation format](https://knockout.chat/thread/55079) — buu342's RE thread
-- [PY-DuniaAnimationExtractor](https://github.com/buu342/PY-DuniaAnimationExtractor) — companion code + wiki
-- [MabTools/FCBConverter](https://github.com/buu342/PY-DuniaAnimationExtractor) — ArmanIII's converter (GPLv3)
+- [Deciphering Far Cry 3's animation format](https://knockout.chat/thread/55079), buu342's RE thread
+- [PY-DuniaAnimationExtractor](https://github.com/buu342/PY-DuniaAnimationExtractor), companion code + wiki
+- [MabTools/FCBConverter](https://github.com/buu342/PY-DuniaAnimationExtractor), ArmanIII's converter (GPLv3)
 - [ResHax RE tutorials](https://reshax.com/topic/47-reverse-engineering-tutorials-collection/)
 - [3D Model Researcher](https://mr.game-viewer.org/)
 - FC4 (Oct 17, 2014 X360 prototype) + Watch Dogs 1 X360 prototypes have debug symbols at [Hidden Palace](https://hiddenpalace.org/)

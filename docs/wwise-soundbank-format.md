@@ -16,7 +16,7 @@ Wwise SoundBanks contain:
 
 Every Wwise project has an `Init.bnk` with project settings, loaded first. Other SoundBanks hold per-area/level sounds, loaded on demand.
 
-Before 2011, Wwise used `.wav` extension instead of `.wem`. Convert `.wem` to `.ogg` with [ww2ogg](http://hcs64.com/vgm_ripping.html). Some files are streamed (not embedded) — look for `.wem` in the game archive.
+Before 2011, Wwise used `.wav` extension instead of `.wem`. Convert `.wem` to `.ogg` with [ww2ogg](http://hcs64.com/vgm_ripping.html). Some files are streamed (not embedded); look for `.wem` in the game archive.
 
 ## General structure
 
@@ -44,7 +44,7 @@ Always seek to the end of each section using the length field. This avoids error
 
 ## DIDX — Data Index
 
-References to `.wem` files embedded in the SoundBank. Each entry is 12 bytes — divide section length by 12 for the count.
+References to `.wem` files embedded in the SoundBank. Each entry is 12 bytes; divide section length by 12 for the count.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -61,7 +61,7 @@ Per embedded `.wem`:
 
 ## DATA
 
-Contains the embedded `.wem` files, concatenated. Do not read sequentially — use offsets from DIDX or HIRC.
+Contains the embedded `.wem` files, concatenated. Do not read sequentially; use offsets from DIDX or HIRC.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -201,7 +201,7 @@ FOR EACH (event action):
 
 ### Types #5–#7 — Containers and Actor-Mixer
 
-Types 5 (Random/Sequence Container), 6 (Switch Container), 7 (Actor-Mixer) — format not yet documented.
+Types 5 (Random/Sequence Container), 6 (Switch Container), 7 (Actor-Mixer). Format not yet documented.
 
 ### Type #8 — Audio Bus
 
@@ -468,8 +468,8 @@ Used across multiple sections for fade/automation curves:
 
 ## Tools
 
-- [bnkextr](https://github.com/eXpl0it3r/bnkextr) — extract `.wem` from `.bnk` (C++)
-- [ww2ogg](http://hcs64.com/vgm_ripping.html) — convert `.wem` to `.ogg`. Requires `packed_codebooks_aoTuV_603.bin` in the same directory (Vorbis codebook data for Wwise's custom encoding)
-- [bnk.ksy](https://github.com/WolvenKit/wwise-audio-tools/blob/master/ksy/bnk.ksy) — Kaitai Struct spec
-- [rewwise](https://github.com/vswarte/rewwise) — Rust parser (deku-based)
-- [pycozmo audiokinetic.soundbank](https://pycozmo.readthedocs.io/) — Python reader
+- [bnkextr](https://github.com/eXpl0it3r/bnkextr): extract `.wem` from `.bnk` (C++)
+- [ww2ogg](http://hcs64.com/vgm_ripping.html): convert `.wem` to `.ogg`. Requires `packed_codebooks_aoTuV_603.bin` in the same directory (Vorbis codebook data for Wwise's custom encoding)
+- [bnk.ksy](https://github.com/WolvenKit/wwise-audio-tools/blob/master/ksy/bnk.ksy): Kaitai Struct spec
+- [rewwise](https://github.com/vswarte/rewwise): Rust parser (deku-based)
+- [pycozmo audiokinetic.soundbank](https://pycozmo.readthedocs.io/): Python reader

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Magic: The Gathering (Duels of the Planeswalkers / MTG Arena) — XeNTaX Forum Knowledge Extraction | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/mtg/xentax-mtg-knowledge"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Magic: The Gathering (Duels of the Planeswalkers / MTG Arena) — XeNTaX Forum Knowledge Extraction | Open Source Modding"><meta data-rh="true" name="description" content="1. Games &amp; Engines Covered"><meta data-rh="true" property="og:description" content="1. Games &amp; Engines Covered"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/mtg/xentax-mtg-knowledge"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/mtg/xentax-mtg-knowledge" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/mtg/xentax-mtg-knowledge" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Magic: The Gathering (Duels of the Planeswalkers / MTG Arena) — XeNTaX Forum Knowledge Extraction","item":"https://open-source-modding.github.io/docs/mtg/xentax-mtg-knowledge"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.2f5ba44d.js" defer="defer"></script>
-<script src="/assets/js/main.42d27a7f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.22a917db.js" defer="defer"></script>
+<script src="/assets/js/main.67bb3cce.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -56,7 +56,8 @@
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-extracted-file-format-card-art">2.2 Extracted File Format (Card Art)<a href="#22-extracted-file-format-card-art" class="hash-link" aria-label="Direct link to 2.2 Extracted File Format (Card Art)" title="Direct link to 2.2 Extracted File Format (Card Art)" translate="no">​</a></h3>
 <ul>
 <li class=""><strong>Format</strong>: <strong>Headerless TIFF</strong> (missing TIFF/IFF header)</li>
-<li class=""><strong>Header bytes</strong> (common):
+<li class=""><strong>Header bytes</strong> (common):</li>
+</ul>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">0001 0000 9C00 0000 4602 0000 D301 0000 2001 0000 E800 0000 0900 0000 0100 0000 0000 0000</span><br></div></code></pre></div></div>
 <ul>
 <li class=""><code>0001</code> = version</li>
@@ -67,8 +68,6 @@
 <li class=""><code>E800</code> = 232 = ?</li>
 <li class=""><code>0900</code> = 9 = bits per sample?</li>
 <li class=""><code>0100</code> = 1 = samples per pixel?</li>
-</ul>
-</li>
 <li class=""><strong>Data marker</strong>: <code>0080</code> precedes pixel data</li>
 <li class=""><strong>Compression</strong>: Unknown (possibly custom or uncompressed)</li>
 </ul>
@@ -102,12 +101,9 @@
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-header-reconstruction-community-findings">2.4 Header Reconstruction (Community Findings)<a href="#24-header-reconstruction-community-findings" class="hash-link" aria-label="Direct link to 2.4 Header Reconstruction (Community Findings)" title="Direct link to 2.4 Header Reconstruction (Community Findings)" translate="no">​</a></h3>
 <ul>
 <li class=""><strong>Silver / Matsy (2007)</strong>: Confirmed headerless TIFF</li>
-<li class=""><strong>Fix</strong>: Prepend standard TIFF header:
-<ul>
+<li class=""><strong>Fix</strong>: Prepend standard TIFF header:</li>
 <li class="">Little-endian: <code>49 49 2A 00</code> (II*) + IFD offset</li>
 <li class="">Big-endian: <code>4D 4D 00 2A</code> (MM*) + IFD offset</li>
-</ul>
-</li>
 <li class=""><strong>IFD</strong>: Must describe width, height, compression, photometric, etc. from header bytes</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="25-archives-mentioned">2.5 Archives Mentioned<a href="#25-archives-mentioned" class="hash-link" aria-label="Direct link to 2.5 Archives Mentioned" title="Direct link to 2.5 Archives Mentioned" translate="no">​</a></h3>
@@ -128,13 +124,10 @@
 <ul>
 <li class=""><strong>Issue</strong>: Audio extraction help requested</li>
 <li class=""><strong>Likely format</strong>: <strong>Wwise</strong> (<code>.bnk</code>, <code>.pck</code>) or <strong>FMOD</strong> — standard Unity middleware</li>
-<li class=""><strong>Tools</strong>:
-<ul>
+<li class=""><strong>Tools</strong>:</li>
 <li class=""><strong>AssetStudio</strong> — extract AudioClips from AssetBundles</li>
 <li class=""><strong>Wwise CLI</strong> / <strong>bnkextr</strong> — decode <code>.bnk</code>/<code>.pck</code></li>
 <li class=""><strong>vgmstream</strong> — playback</li>
-</ul>
-</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-general-unity-modding">3.3 General Unity Modding<a href="#33-general-unity-modding" class="hash-link" aria-label="Direct link to 3.3 General Unity Modding" title="Direct link to 3.3 General Unity Modding" translate="no">​</a></h3>
 

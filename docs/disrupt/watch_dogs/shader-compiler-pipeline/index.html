@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Watch Dogs 1 / Legion — Shader Compiler Pipeline &amp; Shader Registry | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/disrupt/watch_dogs/shader-compiler-pipeline"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Watch Dogs 1 / Legion — Shader Compiler Pipeline &amp; Shader Registry | Open Source Modding"><meta data-rh="true" name="description" content="Sources: Ubisoft leak (leak/ubisoft/), Disrupt-Shader-Compiler RE, WDL obj_editor/ analysis (2026-09-12)."><meta data-rh="true" property="og:description" content="Sources: Ubisoft leak (leak/ubisoft/), Disrupt-Shader-Compiler RE, WDL obj_editor/ analysis (2026-09-12)."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/shader-compiler-pipeline"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/shader-compiler-pipeline" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/shader-compiler-pipeline" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Watch Dogs Reference","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/"},{"@type":"ListItem","position":2,"name":"Watch Dogs 1 / Legion — Shader Compiler Pipeline & Shader Registry","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/shader-compiler-pipeline"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.2f5ba44d.js" defer="defer"></script>
-<script src="/assets/js/main.42d27a7f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.22a917db.js" defer="defer"></script>
+<script src="/assets/js/main.67bb3cce.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -27,14 +27,14 @@ checksum(16) + version + length + chunk count. The <code>.crc</code> file (2 byt
 shader-verifier, not a header.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-compiler-pipeline-shadercompiler2">The compiler pipeline (ShaderCompiler2)<a href="#the-compiler-pipeline-shadercompiler2" class="hash-link" aria-label="Direct link to The compiler pipeline (ShaderCompiler2)" title="Direct link to The compiler pipeline (ShaderCompiler2)" translate="no">​</a></h2>
 <p>Ubisoft&#x27;s toolchain (from the leak <code>bin/</code>, decompiled <code>ubi_shader_compiler2/</code>):</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ShaderGenerator2 --GenerateAllVariations()</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    -&gt; ComputeShaderID(name, defines[]) -&gt; TShaderID&lt;uint64&gt;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    -&gt; CShaderCache -&gt; CPlatformShaderCompiler</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    -&gt; CBackEndD3D11 / D3D12 -&gt; ByteCodeCompiler (d3dcompiler_47.dll)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    -&gt; obj/pixel_&lt;64bitid&gt;.pso</span><br></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ShaderGenerator2 --GenerateAllVariations()</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"> -&gt; ComputeShaderID(name, defines[]) -&gt; TShaderID&lt;uint64&gt;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"> -&gt; CShaderCache -&gt; CPlatformShaderCompiler</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"> -&gt; CBackEndD3D11 / D3D12 -&gt; ByteCodeCompiler (d3dcompiler_47.dll)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"> -&gt; obj/pixel_&lt;64bitid&gt;.pso</span><br></div></code></pre></div></div>
 <ul>
 <li class=""><strong>TShaderID</strong> = uint64: HIGH bits = shader family, LOW bits = define-variation.</li>
 <li class=""><strong>ComputeShaderID</strong> mangled signature (recovered from ShaderGenerator2 import table):
 <code>?ComputeShaderID@@YA?AU?$TShaderID@_K@@AEAVCShaderHandlerManager@@AEAV?$ndStringBase@DUndStringAllocator@@@@AEBV?$ndVector@USDefi...</code>
 = <code>ComputeShaderID(CShaderHandlerManager&amp;, ndStringBase&lt;char,ndStringAllocator&gt;&amp;, ndVector&lt;SDefine&gt;&amp;) -&gt; TShaderID&lt;u64&gt;</code>.
 Imported from <code>ShaderCompilerUtils_r64.dll</code>.</li>
-<li class=""><strong>Build flow (PC)</strong> (<code>comp_shadersids.bat</code>): <code>ShaderGenerator2 operation=Generate shaderidsfile=shaderids.txt</code> → <code>prepareplatformdata64.exe -shaders</code> → collect
+<li class=""><strong>Build flow (PC)</strong> (<code>comp_shadersids.bat</code>): <code>ShaderGenerator2 operation=Generate  shaderidsfile=shaderids.txt</code> → <code>prepareplatformdata64.exe -shaders</code> → collect
 <code>obj/*.pso</code> → <code>FileArchiver archive=shadersobj.dat</code>.</li>
 <li class=""><strong>ShaderCompilerUtils_r64.dll is obfuscated</strong>: export dir base=1, nfuncs=526,
 nnames=0 (ordinal-only), and <code>AddressOfFunctions RVA = 0x20e</code> (bogus/corrupted).
@@ -50,13 +50,10 @@ string hash is FNV-1 64 (<code>0xcbf29ce484222325</code> offset + <code>0x100000
 <strong><code>bucket = shaderID_low_byte &amp; 0x7F</code></strong> (verified 100% on 2388 WDL shaders).
 Bit 7 of the low byte = free flag (shader-type or variant bit, ~50% set).</li>
 <li class=""><strong><code>.dep</code> file</strong> (<code>dependencies_&lt;id&gt;.dep</code>): XML <code>&lt;ShaderFileChecksums&gt;</code> listing
-every <code>#include</code>d source file + a <strong>uint64 content Checksum</strong>.
-<ul>
+every <code>#include</code>d source file + a <strong>uint64 content Checksum</strong>.</li>
 <li class=""><strong>The Checksum = plain FNV-1 64 of the raw (CRLF) file bytes</strong> (VERIFIED:
 <code>fnv164(DepthShadow.inc.fx raw)</code> = <code>0xb8d6781ddfedf051</code> = 13318965017701118033
 exactly matches the .dep). NOT FNV-1a, NOT masked, NOT a path hash.</li>
-</ul>
-</li>
 <li class=""><strong><code>.crc</code> file</strong>: 2-byte shader verifier.</li>
 <li class=""><strong><code>.header</code> stub</strong> (WD1 DSC): 12 bytes <code>02 000000 + hash + hash</code> (version + two
 u32 hashes); some are longer. NOT the shader ID (u32[1] ≠ filename id). Some are
@@ -65,7 +62,7 @@ just <code>00000000</code> (4 bytes). These are prepended to compiled output —
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fastinitdata_editorbin--the-required-shader-registry">FastInitData_editor.bin — the REQUIRED shader registry<a href="#fastinitdata_editorbin--the-required-shader-registry" class="hash-link" aria-label="Direct link to FastInitData_editor.bin — the REQUIRED shader registry" title="Direct link to FastInitData_editor.bin — the REQUIRED shader registry" translate="no">​</a></h2>
 <p><code>leak/ubisoft/data_win64/engine/shaders/FastInitData_editor.bin</code> (3.5MB, nbCF v3) is
 the AUTHORITATIVE shader registry — required for shader modding.</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[nbCF v3 header]       RootId 0x67974467</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[family base-ID block] 143 u64s (file 0x30..0x4A8): 0x03,0x05,0x06,0x09,0x0B..0xE6</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                       each 0xNN_00000000000000 = a shader FAMILY base ID</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[shader member block]  444k u64s (from 0x4A8): 0x54_0000..., 0x58_...01...</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                       each family&#x27;s member shader IDs (low bits = defines + type flag)</span><br></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[nbCF v3 header] RootId 0x67974467</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[family base-ID block] 143 u64s (file 0x30..0x4A8): 0x03,0x05,0x06,0x09,0x0B..0xE6</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"> each 0xNN_00000000000000 = a shader FAMILY base ID</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[shader member block] 444k u64s (from 0x4A8): 0x54_0000..., 0x58_...01...</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"> each family&#x27;s member shader IDs (low bits = defines + type flag)</span><br></div></code></pre></div></div>
 <ul>
 <li class=""><strong>shader top byte (<code>sid&gt;&gt;56</code>) = family ID</strong> (240 distinct among 2385 shipped WDL shaders).</li>
 <li class="">To MOD a shader: its ID must fall in the family&#x27;s range AND be registered in
@@ -93,7 +90,7 @@ members and bare entry returns lack semantics, and <strong>neither fxc nor DXC a
 </ul>
 <p>The semantic layer uses <strong>custom semantic names + macros</strong>:</p>
 <ul>
-<li class=""><code>GlobalSemantics.inc.fx</code>: <code>ATTR0=position, ATTR1=normal, ATTR2=color0, ATTR3=color1, ATTR4=blendweight, ATTR5=blendindices, ATTR6-15=texcoord0-9</code>.</li>
+<li class=""><code>GlobalSemantics.inc.fx</code>: <code>ATTR0=position, ATTR1=normal, ATTR2=color0, ATTR3=color1,  ATTR4=blendweight, ATTR5=blendindices, ATTR6-15=texcoord0-9</code>.</li>
 <li class=""><code>CustomSemantics.inc.fx</code>: <code>CS_Position=ATTR0</code>, etc.</li>
 <li class=""><code>Profile.inc.fx</code> (PC): <code>SEMANTIC_VAR(var) var : var</code>, <code>SEMANTIC_OUTPUT(semantic) : semantic</code>,
 <code>VS_TARGET=vs_3_0</code>, <code>PS_TARGET=ps_3_0</code>, cbuffer gating for SHADERMODEL&gt;=40.</li>

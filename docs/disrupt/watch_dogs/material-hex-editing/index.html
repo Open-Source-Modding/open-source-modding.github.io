@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Watch Dogs Material Hex Editing — Community Tips | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/disrupt/watch_dogs/material-hex-editing"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Watch Dogs Material Hex Editing — Community Tips | Open Source Modding"><meta data-rh="true" name="description" content="Source: guru3D Forums thread &quot;Watch_Dogs Material Hex Editing&quot; (mlleemiles, 2017-10-23) + Discord logs from WD1 modding community (2020-2026)."><meta data-rh="true" property="og:description" content="Source: guru3D Forums thread &quot;Watch_Dogs Material Hex Editing&quot; (mlleemiles, 2017-10-23) + Discord logs from WD1 modding community (2020-2026)."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/material-hex-editing"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/material-hex-editing" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/material-hex-editing" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Watch Dogs Reference","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/"},{"@type":"ListItem","position":2,"name":"Watch Dogs Material Hex Editing — Community Tips","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/material-hex-editing"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.2f5ba44d.js" defer="defer"></script>
-<script src="/assets/js/main.42d27a7f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.22a917db.js" defer="defer"></script>
+<script src="/assets/js/main.67bb3cce.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -33,7 +33,8 @@
 <p><strong>Workarounds</strong> (if stuck on an old converter build):</p>
 <ol>
 <li class=""><strong>Hex edit directly</strong> — keep original, export edited, diff bytes, port only changed values back</li>
-<li class=""><strong>Manual process</strong> (Crank Beige, 2020-05-31):
+<li class=""><strong>Manual process</strong> (Crank Beige, 2020-05-31):</li>
+</ol>
 <ul>
 <li class="">Get original material</li>
 <li class="">Export to XML, convert back to bin, compare bytes</li>
@@ -41,7 +42,7 @@
 <li class="">Compare edited XML→bin vs original</li>
 <li class="">Port only diffuse changes to original binary</li>
 </ul>
-</li>
+<ol start="3">
 <li class=""><strong>Run <code>res/material_sizefixer.1sc</code></strong> from the converter&#x27;s own directory to fix the header values after the fact</li>
 </ol>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="zmodeler3-material-issues">ZModeler3 Material Issues<a href="#zmodeler3-material-issues" class="hash-link" aria-label="Direct link to ZModeler3 Material Issues" title="Direct link to ZModeler3 Material Issues" translate="no">​</a></h3>

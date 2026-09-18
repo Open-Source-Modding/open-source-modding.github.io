@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">GitHub Repos for HKX/Havok Format Research | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/disrupt/havok-repos"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="GitHub Repos for HKX/Havok Format Research | Open Source Modding"><meta data-rh="true" name="description" content="Cross-reference: Community tools (hkxcmd, havok2fbx, AssetCc, HavokLib, volfin hkx2smd) → XeNTaX Havok knowledge §8–9"><meta data-rh="true" property="og:description" content="Cross-reference: Community tools (hkxcmd, havok2fbx, AssetCc, HavokLib, volfin hkx2smd) → XeNTaX Havok knowledge §8–9"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/disrupt/havok-repos"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/havok-repos" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/havok-repos" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"GitHub Repos for HKX/Havok Format Research","item":"https://open-source-modding.github.io/docs/disrupt/havok-repos"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.2f5ba44d.js" defer="defer"></script>
-<script src="/assets/js/main.42d27a7f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.22a917db.js" defer="defer"></script>
+<script src="/assets/js/main.67bb3cce.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -62,9 +62,10 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="assetcc-havok-sdk-tool">AssetCc (Havok SDK tool)<a href="#assetcc-havok-sdk-tool" class="hash-link" aria-label="Direct link to AssetCc (Havok SDK tool)" title="Direct link to AssetCc (Havok SDK tool)" translate="no">​</a></h2>
 <ul>
 <li class=""><strong>What</strong>: Batch converter between binary HKX and XML HKX.</li>
-<li class=""><strong>Commands</strong>:
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">AssetCc1.exe --strip bin.hkx xml.hkx      # Binary → XML (keeps version)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx  # XML → Binary</span><br></div></code></pre></div></div>
-</li>
+<li class=""><strong>Commands</strong>:</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">AssetCc1.exe --strip bin.hkx xml.hkx # Binary → XML (keeps version)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx # XML → Binary</span><br></div></code></pre></div></div>
+<ul>
 <li class=""><code>--strip</code> removes extra junk at file start</li>
 <li class=""><code>--rules4101</code> vs <code>--rules8011</code>: different platform rule sets (4101 = Win32, preferred)</li>
 <li class="">Cc1 keeps original version; Cc2 converts to SDK version it was built with</li>
@@ -91,15 +92,12 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="havok-sdk-intel--microsoft">Havok SDK (Intel / Microsoft)<a href="#havok-sdk-intel--microsoft" class="hash-link" aria-label="Direct link to Havok SDK (Intel / Microsoft)" title="Direct link to Havok SDK (Intel / Microsoft)" translate="no">​</a></h2>
 <ul>
 <li class=""><strong>What</strong>: The Havok SDK was freely available from Intel until Microsoft acquired Havok.</li>
-<li class=""><strong>Contains</strong>:
-<ul>
+<li class=""><strong>Contains</strong>:</li>
 <li class="">AssetCc batch converter</li>
 <li class="">Havok Standalone Tool (visualization)</li>
 <li class="">Havok Content Tools (3ds Max plugin)</li>
 <li class="">Full documentation files including compression algorithm details</li>
 <li class="">Demo projects (AnimatedSkeletonDemo for animation extraction)</li>
-</ul>
-</li>
 <li class=""><strong>SDK demo approach</strong>: load skeleton + animation files, then read data programmatically via the <code>AnimatedSkeletonDemo.cpp</code> class.</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="concrete-sdk-sources-shared-by-encrypted-wd-modding-discord-2026-08">Concrete SDK sources (shared by Encrypted, WD Modding Discord, 2026-08)<a href="#concrete-sdk-sources-shared-by-encrypted-wd-modding-discord-2026-08" class="hash-link" aria-label="Direct link to Concrete SDK sources (shared by Encrypted, WD Modding Discord, 2026-08)" title="Direct link to Concrete SDK sources (shared by Encrypted, WD Modding Discord, 2026-08)" translate="no">​</a></h3>
@@ -109,13 +107,10 @@
 <ul>
 <li class=""><strong>TagTools</strong> (blueskythlikesclouds): <a href="https://github.com/blueskythlikesclouds/TagTools" target="_blank" rel="noopener noreferrer" class="">https://github.com/blueskythlikesclouds/TagTools</a> — tools for editing Havok <strong>2015/2016 binary tag files</strong>; Havoc branch kept for reference.</li>
 <li class=""><strong>Havok 2014.1 SDK torrent</strong> (rutracker): <a href="https://rutracker.org/forum/viewtopic.php?t=5174063" target="_blank" rel="noopener noreferrer" class="">https://rutracker.org/forum/viewtopic.php?t=5174063</a> — &quot;HAVOK PHYSICS 2012 SDK + HAVOK ANIMATION, NoSimd, Win32 2014.1.0&quot; (<code>[rutracker-5174063].torrent</code>).</li>
-<li class=""><strong>Google Drive SDK folders</strong>:
-<ul>
+<li class=""><strong>Google Drive SDK folders</strong>:</li>
 <li class=""><a href="https://drive.google.com/drive/folders/0B8SgSQGjqypSaUxIT2ptUVVwVVk?resourcekey=0-auzKqYyyhxEMzdQNNA23sA" target="_blank" rel="noopener noreferrer" class="">https://drive.google.com/drive/folders/0B8SgSQGjqypSaUxIT2ptUVVwVVk?resourcekey=0-auzKqYyyhxEMzdQNNA23sA</a></li>
 <li class=""><a href="https://drive.google.com/drive/folders/0B3SZOCCKd7Ipb2w2SkN4bjJwSzg?resourcekey=0-vPD5gmb33TWGaysgqSKo-w" target="_blank" rel="noopener noreferrer" class="">https://drive.google.com/drive/folders/0B3SZOCCKd7Ipb2w2SkN4bjJwSzg?resourcekey=0-vPD5gmb33TWGaysgqSKo-w</a></li>
 <li class=""><a href="https://drive.google.com/drive/folders/0B-85OBEi6SEkV2RhTTl0bzliZ28?resourcekey=0-Ng8WCMDV0TZ8DBsgV9TBvA" target="_blank" rel="noopener noreferrer" class="">https://drive.google.com/drive/folders/0B-85OBEi6SEkV2RhTTl0bzliZ28?resourcekey=0-Ng8WCMDV0TZ8DBsgV9TBvA</a></li>
-</ul>
-</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-insight">Key Insight<a href="#key-insight" class="hash-link" aria-label="Direct link to Key Insight" title="Direct link to Key Insight" translate="no">​</a></h2>
 <p>To parse the compressed mesh from TAG0 files, we need:</p>

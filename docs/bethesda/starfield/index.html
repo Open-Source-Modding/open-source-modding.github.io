@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/bethesda/starfield"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding | Open Source Modding"><meta data-rh="true" name="description" content="Date: 2026-08-18"><meta data-rh="true" property="og:description" content="Date: 2026-08-18"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/bethesda/starfield"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/starfield" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/starfield" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research: Starfield (Creation Engine 2, 2023) — engine, animation, file formats, modding","item":"https://open-source-modding.github.io/docs/bethesda/starfield"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.2f5ba44d.js" defer="defer"></script>
-<script src="/assets/js/main.42d27a7f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.22a917db.js" defer="defer"></script>
+<script src="/assets/js/main.67bb3cce.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -136,13 +136,10 @@ This is the same BSArch engine that packs/unpacks the game archives.</p>
 <li class=""><code>MAGIC_BSA = &#x27;BSA\0&#x27;</code> (classic TES4/FO3/SSE .bsa)</li>
 <li class=""><code>MAGIC_BTDX = &#x27;BTDX&#x27;</code> (FO4 / Starfield .ba2)</li>
 <li class=""><code>MAGIC_GNRL = &#x27;GNRL&#x27;</code>, <code>MAGIC_DX10</code> (BA2 subtype: general vs texture/DDS)</li>
-<li class="">Version values:
-<ul>
+<li class="">Version values:</li>
 <li class=""><code>0x67</code> TES4 (Oblivion), <code>0x68</code> FO3/FNV/TES5, <code>0x69</code> SSE</li>
 <li class=""><code>0x01</code> FO4, <code>0x07</code>/<code>0x08</code> FO4 NG/AE</li>
 <li class=""><strong><code>0x02</code> Starfield v2, <code>0x03</code> Starfield v3</strong> (SF)</li>
-</ul>
-</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="starfield-ba2-header-layout-after-btdx-magic">Starfield BA2 header layout (after <code>BTDX</code> magic)<a href="#starfield-ba2-header-layout-after-btdx-magic" class="hash-link" aria-label="Direct link to starfield-ba2-header-layout-after-btdx-magic" title="Direct link to starfield-ba2-header-layout-after-btdx-magic" translate="no">​</a></h3>
 <ol>
@@ -151,13 +148,12 @@ This is the same BSArch engine that packs/unpacks the game archives.</p>
 <li class=""><code>FileCount</code> (uint32)</li>
 <li class=""><code>FileTableOffset</code> (int64)</li>
 <li class=""><strong>SF v2+</strong>: <code>ReadUInt64</code> — &quot;always set to 1, immediately discarded on load&quot; (padding/hash placeholder)</li>
-<li class=""><strong>SF v3+</strong>: <code>CompressionMethod</code> (uint32):
+<li class=""><strong>SF v3+</strong>: <code>CompressionMethod</code> (uint32):</li>
+</ol>
 <ul>
 <li class=""><code>COMPRESSION_METHOD_ZLIB = 0</code> (default)</li>
 <li class=""><code>COMPRESSION_METHOD_LZ4 = 3</code></li>
 </ul>
-</li>
-</ol>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="compression-support-per-archive-type-first--default">Compression support (per archive type; first = default)<a href="#compression-support-per-archive-type-first--default" class="hash-link" aria-label="Direct link to Compression support (per archive type; first = default)" title="Direct link to Compression support (per archive type; first = default)" translate="no">​</a></h3>
 <ul>
 <li class=""><code>baSF</code> (Starfield general): <code>[ctZLib, ctLZ4]</code> → default <strong>ZLib</strong></li>

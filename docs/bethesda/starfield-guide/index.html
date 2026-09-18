@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Starfield Modding &amp; Reverse Engineering Reference | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/bethesda/starfield-guide"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Starfield Modding &amp; Reverse Engineering Reference | Open Source Modding"><meta data-rh="true" name="description" content="Cross-reference: BA2 archives (BTDX/GNRL/DX10), NIF changes (BSTriShape, FP16), texture formats (BC5 for roughness/metalness), tools (BAE, F4 Tools, Noesis) → XeNTaX Bethesda knowledge §2–4"><meta data-rh="true" property="og:description" content="Cross-reference: BA2 archives (BTDX/GNRL/DX10), NIF changes (BSTriShape, FP16), texture formats (BC5 for roughness/metalness), tools (BAE, F4 Tools, Noesis) → XeNTaX Bethesda knowledge §2–4"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/bethesda/starfield-guide"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/starfield-guide" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/bethesda/starfield-guide" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Starfield Modding & Reverse Engineering Reference","item":"https://open-source-modding.github.io/docs/bethesda/starfield-guide"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.2f5ba44d.js" defer="defer"></script>
-<script src="/assets/js/main.42d27a7f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.22a917db.js" defer="defer"></script>
+<script src="/assets/js/main.67bb3cce.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -108,13 +108,12 @@ BSArch engine that packs and unpacks the game archives. High confidence.</p>
 <li class=""><code>FileTableOffset</code> (int64)</li>
 <li class=""><strong>SF v2+</strong>: <code>ReadUInt64</code> — &quot;always set to 1, immediately discarded on load&quot;
 (padding/hash placeholder)</li>
-<li class=""><strong>SF v3+</strong>: <code>CompressionMethod</code> (uint32):
+<li class=""><strong>SF v3+</strong>: <code>CompressionMethod</code> (uint32):</li>
+</ol>
 <ul>
 <li class=""><code>COMPRESSION_METHOD_ZLIB = 0</code> (default)</li>
 <li class=""><code>COMPRESSION_METHOD_LZ4 = 3</code></li>
 </ul>
-</li>
-</ol>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="compression-support-per-archive-type-first-entry--default">Compression support (per archive type; first entry = default)<a href="#compression-support-per-archive-type-first-entry--default" class="hash-link" aria-label="Direct link to Compression support (per archive type; first entry = default)" title="Direct link to Compression support (per archive type; first entry = default)" translate="no">​</a></h3>
 
 
@@ -206,24 +205,16 @@ full master chain).</li>
 <p>SFSE is the community script extender for Starfield, maintained by ianpatt and
 behippo (the same team behind F4SE/SKSE).</p>
 <ul>
-<li class="">
-<p><strong>Current build</strong>: 0.2.21, targeting game version 1.16.244.</p>
-</li>
-<li class="">
-<p><strong>Availability</strong>: Steam only. The MS Store/Game Pass release is explicitly
-<strong>not supported</strong>.</p>
-</li>
-<li class="">
-<p><strong>Install</strong>: Nexus Mods page (mod ID 106); do not link directly to the download
-files. Use 7-Zip (or the installer) to extract — avoid Windows Store archivers.</p>
-</li>
-<li class="">
-<p><strong>Source</strong>: <code>github.com/ianpatt/sfse</code>. Build with CMake:</p>
+<li class=""><strong>Current build</strong>: 0.2.21, targeting game version 1.16.244.</li>
+<li class=""><strong>Availability</strong>: Steam only. The MS Store/Game Pass release is explicitly
+<strong>not supported</strong>.</li>
+<li class=""><strong>Install</strong>: Nexus Mods page (mod ID 106); do not link directly to the download
+files. Use 7-Zip (or the installer) to extract — avoid Windows Store archivers.</li>
+<li class=""><strong>Source</strong>: <code>github.com/ianpatt/sfse</code>. Build with CMake:</li>
+</ul>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">git clone https://github.com/ianpatt/sfse</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">cmake -B sfse/build -S sfse</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">cmake --build sfse/build --config Release</span><br></div></code></pre></div></div>
 <p>This generates the solution at <code>sfse/build/umbrella.sln</code>. SFSE supports only the
 latest Starfield version on Steam — the Game Pass files are not loadable.</p>
-</li>
-</ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="official-creation-kit">Official Creation Kit<a href="#official-creation-kit" class="hash-link" aria-label="Direct link to Official Creation Kit" title="Direct link to Official Creation Kit" translate="no">​</a></h2>
 <ul>
 <li class="">Bethesda released the Starfield Creation Kit on 2024-06-09 (Steam AppID 2722710,
@@ -243,40 +234,26 @@ mesh/collision authoring guides are summarized in the next section.</li>
 plugin (Autodesk license required for the Max version). Workflow summarized from
 the <em>Starfield Wiki</em> guides:</p>
 <ol>
-<li class="">
-<p><strong>Plugin setup</strong>: create <code>%LOCALAPPDATA%\Autodesk\3dsMax\2021 - 64bit\ENU\en-US\plugcfg\BSToolSettings.ini</code>:</p>
+<li class=""><strong>Plugin setup</strong>: create <code>%LOCALAPPDATA%\Autodesk\3dsMax\2021 - 64bit\ENU\en-US\plugcfg\BSToolSettings.ini</code>:</li>
+</ol>
 <div class="language-ini codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-ini codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[Config]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ConfigFilesDir=C:\Users\&lt;USERNAME&gt;\AppData\Local\Autodesk\3dsMax\2021 - 64bit\ENU\en-US\plugcfg\BGS\Configs</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[Materials]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">LocalSourcePath=&lt;PATH TO STARFIELD&gt;\Source</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">LocalDataPath=&lt;PATH TO STARFIELD&gt;\Data</span><br></div></code></pre></div></div>
-<p>Skipping this makes collision materials fail to load in Max.</p>
-</li>
-<li class="">
-<p><strong>Toolbar</strong>: Customize → Customize User Interface → Toolbars tab, Group <em>Main UI</em>,
-Category <em>Bethesda</em> → drag <strong>Open Bethesda FBX Export Tool</strong> onto the toolbar.</p>
-</li>
-<li class="">
-<p><strong>Utilities</strong>: Utilities panel → Configure Button Sets → add <strong>CollisionGroup</strong> under
-<em>BGS Utility</em>.</p>
-</li>
-<li class="">
-<p><strong>Author the mesh</strong> with the FBX export-config naming convention (root node = export
-config name, e.g. <code>TestExport</code>).</p>
-</li>
-<li class="">
-<p><strong>Collision</strong> (Havok Content Tools → Physics): primitives (Sphere → Capsule →
+<p>Skipping this makes collision materials fail to load in Max.
+2. <strong>Toolbar</strong>: Customize → Customize User Interface → Toolbars tab, Group <em>Main UI</em>,
+Category <em>Bethesda</em> → drag <strong>Open Bethesda FBX Export Tool</strong> onto the toolbar.
+3. <strong>Utilities</strong>: Utilities panel → Configure Button Sets → add <strong>CollisionGroup</strong> under
+<em>BGS Utility</em>.
+4. <strong>Author the mesh</strong> with the FBX export-config naming convention (root node = export
+config name, e.g. <code>TestExport</code>).
+5. <strong>Collision</strong> (Havok Content Tools → Physics): primitives (Sphere → Capsule →
 Cylinder/Box → Convex Hull → Mesh, in escalating cost) named <code>c_&lt;name&gt;</code>, linked as
 siblings under the mesh, then <strong>Create Rigid Body with Proxy(s)</strong> — the mesh gets a
 <em>Rigid Body</em> modifier, each collision a <em>Shape</em> modifier (set Shape Type, e.g. Box).
-Avoid converting primitives to Editable Poly/Mesh (breaks transform/scale).</p>
-</li>
-<li class="">
-<p><strong>Collision materials</strong>: with the CollisionGroup utility, set <em>Default Materials</em>
+Avoid converting primitives to Editable Poly/Mesh (breaks transform/scale).
+6. <strong>Collision materials</strong>: with the CollisionGroup utility, set <em>Default Materials</em>
 (e.g. <code>MetalHollow</code>, <code>WoodHeavy</code>) and <em>Object Type</em> (Static) per collision mesh,
-then Apply To Selected. Materials define bullet reactions and footstep sounds.</p>
-</li>
-<li class="">
-<p><strong>Export</strong>: Open Bethesda FBX export → Export Checked; in Creation Kit place the
+then Apply To Selected. Materials define bullet reactions and footstep sounds.
+7. <strong>Export</strong>: Open Bethesda FBX export → Export Checked; in Creation Kit place the
 static, select it and press <strong>F4</strong> to preview the collision overlay (red).</p>
-</li>
-</ol>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-resources">Community Resources<a href="#community-resources" class="hash-link" aria-label="Direct link to Community Resources" title="Direct link to Community Resources" translate="no">​</a></h2>
 
 

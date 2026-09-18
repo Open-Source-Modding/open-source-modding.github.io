@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Disrupt Community Notes (Discord) | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/disrupt/community-notes"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Disrupt Community Notes (Discord) | Open Source Modding"><meta data-rh="true" name="description" content="Signal extracted from raw Discord dumps. Original authors credited per topic."><meta data-rh="true" property="og:description" content="Signal extracted from raw Discord dumps. Original authors credited per topic."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/disrupt/community-notes"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/community-notes" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/community-notes" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Disrupt Community Notes (Discord)","item":"https://open-source-modding.github.io/docs/disrupt/community-notes"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.2f5ba44d.js" defer="defer"></script>
-<script src="/assets/js/main.42d27a7f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.22a917db.js" defer="defer"></script>
+<script src="/assets/js/main.67bb3cce.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -45,12 +45,9 @@ cars by FenderBender.</li>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="convertbatchfileexe--cbatch-converter-qstlijku-2026">ConvertBatchFile.exe — cbatch converter (qstlijku, 2026)<a href="#convertbatchfileexe--cbatch-converter-qstlijku-2026" class="hash-link" aria-label="Direct link to ConvertBatchFile.exe — cbatch converter (qstlijku, 2026)" title="Direct link to ConvertBatchFile.exe — cbatch converter (qstlijku, 2026)" translate="no">​</a></h3>
 <ul>
 <li class="">Converts <strong>all 3409 compound cbatch files</strong>.</li>
-<li class="">Usage:
-<ul>
+<li class="">Usage:</li>
 <li class=""><code>ConvertBatchFile.exe ./cbatch</code> — converts in place</li>
 <li class=""><code>ConvertBatchFile.exe ./cbatch ./cbatch_converted</code> — output to a folder</li>
-</ul>
-</li>
 <li class="">Release version (<code>ConvertBatchFile_Release.zip</code>, 11.47 MB) needs no Visual
 Studio debug runtime; supports hi-res cbatch.</li>
 <li class="">Round-trip conversion (cbatch → XML → cbatch) works.</li>
@@ -77,7 +74,8 @@ files used live; copy the filename into a filelist.</li>
 <li class="">Problem: spawning drones via NOMAD Scripthook gives the Albion livery
 even when the drone is labeled as a Kelly Clan drone with Kelly&#x27;s GUID.</li>
 <li class="">Solution: the drone needs both the drone GUID <strong>and</strong> its <strong>material
-override ID</strong>:
+override ID</strong>:</li>
+</ul>
 <ol>
 <li class="">Find the Kelly drone GUID and the material override script in the
 vehicle spawn script.</li>
@@ -86,7 +84,7 @@ bank</strong>.</li>
 <li class="">Extract the Legion <code>.dat</code>/<code>.fat</code> (common + london) to locate where
 override IDs are banked and get the drone&#x27;s ID.</li>
 </ol>
-</li>
+<ul>
 <li class="">Change both the drone ID and its livery (material override) ID.</li>
 </ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/disrupt/blender-addon"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">blender-io-disrupt — Blender Addon</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/disrupt/compressed_mesh_format"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">WD1/WD2/WDL Compressed Mesh Format (Havok 2017.2)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#watch-dogs-1" class="table-of-contents__link toc-highlight">Watch Dogs 1</a><ul><li><a href="#depload-entries-and-crash-stability-olanov-2022-07-22" class="table-of-contents__link toc-highlight">depload entries and crash stability (Olanov, 2022-07-22)</a></li><li><a href="#cop-ped-overhaul-olanov--fenderbender--dukeoffail-2022-07-22" class="table-of-contents__link toc-highlight">Cop ped overhaul (Olanov + FenderBender + DukeOfFail, 2022-07-22)</a></li></ul></li><li><a href="#watch-dogs-2" class="table-of-contents__link toc-highlight">Watch Dogs 2</a><ul><li><a href="#convertbatchfileexe--cbatch-converter-qstlijku-2026" class="table-of-contents__link toc-highlight">ConvertBatchFile.exe — cbatch converter (qstlijku, 2026)</a></li><li><a href="#wd2_filelogger-2lua--streamed-file-debug-logger-jrjman05--legi0n" class="table-of-contents__link toc-highlight">WD2_FileLogger-2.lua — streamed file debug logger (Jrjman05 / Legi0n)</a></li></ul></li><li><a href="#watch-dogs-legion" class="table-of-contents__link toc-highlight">Watch Dogs Legion</a><ul><li><a href="#kelly-clan-drone-livery-spawning-junk--ξncryptξd-discord" class="table-of-contents__link toc-highlight">Kelly clan drone livery spawning (Junk / □ΞnCrypTΞD□, Discord)</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
 </body>

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Magic: The Gathering — MTG 1997, Duels of the Planeswalkers, MTG Arena | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/mtg/mtg-formats"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Magic: The Gathering — MTG 1997, Duels of the Planeswalkers, MTG Arena | Open Source Modding"><meta data-rh="true" name="description" content="Source: XeNTaX forum knowledge extraction (2007–2023)."><meta data-rh="true" property="og:description" content="Source: XeNTaX forum knowledge extraction (2007–2023)."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/mtg/mtg-formats"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/mtg/mtg-formats" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/mtg/mtg-formats" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Magic: The Gathering — MTG 1997, Duels of the Planeswalkers, MTG Arena","item":"https://open-source-modding.github.io/docs/mtg/mtg-formats"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.2f5ba44d.js" defer="defer"></script>
-<script src="/assets/js/main.42d27a7f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.22a917db.js" defer="defer"></script>
+<script src="/assets/js/main.67bb3cce.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -106,12 +106,9 @@ Covers MicroProse MTG (1997), DotP 2009–2014 (<code>.cat</code> archives), MTG
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="header-reconstruction-silver--matsy-2007">Header Reconstruction (Silver / Matsy, 2007)<a href="#header-reconstruction-silver--matsy-2007" class="hash-link" aria-label="Direct link to Header Reconstruction (Silver / Matsy, 2007)" title="Direct link to Header Reconstruction (Silver / Matsy, 2007)" translate="no">​</a></h3>
 <ul>
 <li class="">Confirmed headerless TIFF</li>
-<li class=""><strong>Fix</strong>: Prepend standard TIFF header:
-<ul>
+<li class=""><strong>Fix</strong>: Prepend standard TIFF header:</li>
 <li class="">Little-endian: <code>49 49 2A 00</code> (II*) + IFD offset</li>
 <li class="">Big-endian: <code>4D 4D 00 2A</code> (MM*) + IFD offset</li>
-</ul>
-</li>
 <li class=""><strong>IFD</strong>: Must describe width, height, compression, photometric, etc. from header bytes</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="archives-mentioned">Archives Mentioned<a href="#archives-mentioned" class="hash-link" aria-label="Direct link to Archives Mentioned" title="Direct link to Archives Mentioned" translate="no">​</a></h3>
@@ -131,13 +128,10 @@ Covers MicroProse MTG (1997), DotP 2009–2014 (<code>.cat</code> archives), MTG
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="audio-format">Audio Format<a href="#audio-format" class="hash-link" aria-label="Direct link to Audio Format" title="Direct link to Audio Format" translate="no">​</a></h3>
 <ul>
 <li class=""><strong>Likely</strong>: <strong>Wwise</strong> (<code>.bnk</code>, <code>.pck</code>) or <strong>FMOD</strong> — standard Unity middleware</li>
-<li class=""><strong>Tools</strong>:
-<ul>
+<li class=""><strong>Tools</strong>:</li>
 <li class=""><strong>AssetStudio</strong> — extract AudioClips from AssetBundles</li>
 <li class=""><strong>Wwise CLI</strong> / <strong>bnkextr</strong> — decode <code>.bnk</code>/<code>.pck</code></li>
 <li class=""><strong>vgmstream</strong> — playback</li>
-</ul>
-</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="general-unity-modding-tools">General Unity Modding Tools<a href="#general-unity-modding-tools" class="hash-link" aria-label="Direct link to General Unity Modding Tools" title="Direct link to General Unity Modding Tools" translate="no">​</a></h3>
 

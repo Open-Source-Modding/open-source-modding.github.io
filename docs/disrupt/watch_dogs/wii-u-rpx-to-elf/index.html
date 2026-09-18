@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Watch Dogs Wii U — RPX → ELF Conversion &amp; IDA Loading | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/disrupt/watch_dogs/wii-u-rpx-to-elf"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Watch Dogs Wii U — RPX → ELF Conversion &amp; IDA Loading | Open Source Modding"><meta data-rh="true" name="description" content="Companion to Wii U Debug Symbols. Turns the raw duniademo.rpx"><meta data-rh="true" property="og:description" content="Companion to Wii U Debug Symbols. Turns the raw duniademo.rpx"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/wii-u-rpx-to-elf"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/wii-u-rpx-to-elf" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs/wii-u-rpx-to-elf" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Watch Dogs Reference","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/"},{"@type":"ListItem","position":2,"name":"Watch Dogs Wii U — RPX → ELF Conversion & IDA Loading","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs/wii-u-rpx-to-elf"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.2f5ba44d.js" defer="defer"></script>
-<script src="/assets/js/main.42d27a7f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.22a917db.js" defer="defer"></script>
+<script src="/assets/js/main.67bb3cce.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -148,7 +148,7 @@ comes from the matching <strong>SECTION symbol&#x27;s <code>st_size</code></stro
 <table><thead><tr><th>Type ID</th><th>Mapped to</th><th>Sections</th></tr></thead><tbody><tr><td><code>0x80000001</code></td><td>SHT_PROGBITS</td><td>.syscall, .text, .fexports, .rodata, .data, .module_id, .sdata</td></tr><tr><td><code>0x80000002</code></td><td>SHT_PROGBITS</td><td>.fimport_<em>/ .dimport_</em> (relocation/import stubs)</td></tr><tr><td><code>0x80000003</code></td><td>SHT_NOTE</td><td>.rela.* leftovers</td></tr><tr><td><code>0x80000004</code></td><td>SHT_NOTE</td><td>—</td></tr></tbody></table>
 <p>Section flags must be masked <code>&amp; 0x3</code> to get the ELF-visible permission bits.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="load-addresses-these-are-valid-elf-vas--keep-them">Load addresses (these ARE valid ELF VAs — keep them)<a href="#load-addresses-these-are-valid-elf-vas--keep-them" class="hash-link" aria-label="Direct link to Load addresses (these ARE valid ELF VAs — keep them)" title="Direct link to Load addresses (these ARE valid ELF VAs — keep them)" translate="no">​</a></h3>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">.syscall  0x02000000   .text  0x02000020   .fexports 0xC0000000</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">.rodata   0x10000000   .data  0x106896A0   .module_id 0x106B4560</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">.bss      0x106B4600   .sdata 0x10875AC0   .sbss     0x10875F80</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">.fimports 0xC226FE80-0xC2276080</span><br></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">.syscall 0x02000000 .text 0x02000020 .fexports 0xC0000000</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">.rodata 0x10000000 .data 0x106896A0 .module_id 0x106B4560</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">.bss 0x106B4600 .sdata 0x10875AC0 .sbss 0x10875F80</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">.fimports 0xC226FE80-0xC2276080</span><br></div></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-converter">The Converter<a href="#the-converter" class="hash-link" aria-label="Direct link to The Converter" title="Direct link to The Converter" translate="no">​</a></h2>
 <p>Script: <code>Watch_Dogs Wii U Retail/rpx_to_elf.py</code> (in the Disrupt RE hub).</p>
 <p>Algorithm:</p>
@@ -159,12 +159,13 @@ NOBITS sections (.bss/.sbss) are zero-filled at their VA.</li>
 <li class="">Emit a fresh ELF32 PPC <strong>EXEC</strong>: <code>[ELF hdr @0][phdrs @0x34][section data][shdrs at end]</code>.
 Reserve <code>phdr_off + 32*7</code> bytes up front so the program header table does not
 overwrite the first sections.</li>
-<li class="">Build 7 <code>PT_LOAD</code> segments:
+<li class="">Build 7 <code>PT_LOAD</code> segments:</li>
+</ol>
 <ul>
 <li class="">text (secs 1-2, R+X), rodata (4, R), data (5-6, RW), bss (7, RW NOBITS),
 sdata (8-9, RW), fexports (3, R), fimports (14-30, RW)</li>
 </ul>
-</li>
+<ol start="5">
 <li class="">Keep the <strong>original section order</strong> so <code>st_shndx</code> values stay valid.</li>
 <li class="">Map Cafe OS types as above; entry point stays <code>0x6E67A08</code>.</li>
 </ol>

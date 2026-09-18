@@ -172,18 +172,16 @@ archive-path hash of the asset it references. The internal strings use the
 (wrong prefix/extension reconstruction -> hash never matches the fat). Verified
 against the community Joseph Seed CRC64 bot (matches the Gibbed table exactly).
 
-## Hash algorithm status
+## Hash algorithm — RESOLVED
 
-The FC6 managers.xml uses 32-bit hashes for entity/class names (e.g. B88F49FD for
-"MissionLayer"). These are NOT standard CRC32 — they don't match binascii.crc32()
-of the class name strings.
+**All hashes are standard CRC32** of the ASCII name string. Verified against 11+ field
+names and object names in FC6 managers.fcb — 100% match with `binascii.crc32(name)`.
 
-The FC4 PDB (MSF 7.00, page size 21316) contains symbols:
-- `CreateCRC` / `CreateCRCNoCase` — CRC32 for file paths
-- `CreateCRC64` / `CreateCRC64NoCase` — CRC64 for file paths
-- `setAttrCRC` — sets CRC on binary object attributes
-- `StringID`, `PathID`, `SerializationID` — binary object identifiers
+Source: `Gibbed.Dunia.BinaryObjectInfo/Definitions/` uses `CRC32.Compute(name)` for
+all hash lookups. Field names like `disEntityId`, `hidEntityClass`, `hidPos`,
+`matMaterial`, `hidName`, `Name`, `Entity`, `MissionLayer` all match CRC32 exactly.
 
-The hash algorithm for managers.xml entity IDs is likely a custom variant
-stored in the engine binary, not directly extractable from the PDB. Resolution
-requires runtime capture or a custom PDB parser for MSF 7.00 (page size 21316).
+Example: `CRC32("disEntityId") = 0x052A103F` ✓
+
+The `hash="B88F49FD"` attribute on MissionLayer objects is NOT a name hash — it's a
+data-specific hash for the64-byte binary blob that follows it.

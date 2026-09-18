@@ -7,25 +7,39 @@ title: "FC4/FC5/FC6 .move.bin format"
 Compiled animation state machines that define how animations blend, transition,
 and are controlled by game parameters. Part of the Dunia "move" system.
 
-## File structure
+## Format — RESOLVED (Sep 2026)
 
+### combinedmovefile.bin (FC5/ND/FC6)
 ```
-u16 version     (22093=FC4 "VM", 65=ND, 85=FC6)
+u32 version          (64=FC5, 65=ND, 85=FC6)
+u32 moveDataSize     (size of animation tree data)
+u32 fcbDataSize      (size of FCbn binary object data)
+byte[] moveData      (animation trees with classNameType dispatch)
+byte[] fcbData       (FCbn: PerMoveResourceInfo + OffsetsHashesArray)
+```
+
+PerMoveResourceInfo (from fcbData): 34951 entries with file paths (`.mab` animation
+files), sizes, and rootNodeIds. File paths decode to readable animation paths like
+`animations\legacy\locomotion\transition\panic\run\stops\...`.
+
+### movedef.move.bin (FC4)
+```
+u16 version          (22093=FC4 "MV")
 u16 unknown
-byte[] data     (Gibbed.Dunia2 binary object format — NOT nbCF)
+byte[] header        (complex metadata, tree data starts at ~0x523)
+byte[] treeData      (classNameType dispatch system)
 ```
 
-The binary object data is the same format as other `.fcb` files in the engine,
-parsed by Gibbed.Dunia2.ConvertBinaryObject. It uses hash-based field identifiers,
-not human-readable names.
+### classNameType dispatch (both formats)
+Each node starts with a classNameType byte (7-47) that determines the binary layout:
 
-## Three file variants
+| File | Game | Size | CRC64 | Description |
+|------|------|------|-------|-------------|
+| `movedef.move.bin` | FC4 | 11MB | `0x49137233ebb533d4` | Core move definitions |
+| `movedefnamed.move.bin` | FC4 | 29MB | — | Named variant (more entries) |
+| `combinedmovefile.bin` | FC5 | 40MB | — | Combined root state machine |
 
-| File | Game | Size | Description |
-|------|------|------|-------------|
-| `movedef.move.bin` | FC4 | 11MB | Core move definitions |
-| `movedefnamed.move.bin` | FC4 | 29MB | Named variant (more entries) |
-| `combinedmovefile.bin` | FC5 | 40MB | Combined root state machine |
+Source: sharp_razor8 (Discord), samir (MoveValueDefinitions)
 
 ## MoveValueDefinitions
 

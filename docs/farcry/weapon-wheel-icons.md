@@ -36,7 +36,7 @@ Open the SWF XML. Look for tags like:
 
 ```xml
 <UnknownTag id="0xF6">
-    <data>3wAsATwAdWlccmVzb3VyY2VzXHRleHR1cmVzXDA2X2ljb25zXHdlYXBvbnNcdHhfMTg4Ny5wbmcAAAA=</data>
+ <data>3wAsATwAdWlccmVzb3VyY2VzXHRleHR1cmVzXDA2X2ljb25zXHdlYXBvbnNcdHhfMTg4Ny5wbmcAAAA=</data>
 </UnknownTag>
 ```
 
@@ -44,10 +44,10 @@ Duplicate the entire `UnknownTag` block, then replace the `<data>` content in th
 
 ```xml
 <UnknownTag id="0xF6">
-    <data>3wAsATwAdWlccmVzb3VyY2VzXHRleHR1cmVzXDA2X2ljb25zXHdlYXBvbnNcdHhfMTg4Ny5wbmcAAAA=</data>
+ <data>3wAsATwAdWlccmVzb3VyY2VzXHRleHR1cmVzXDA2X2ljb25zXHdlYXBvbnNcdHhfMTg4Ny5wbmcAAAA=</data>
 </UnknownTag>
 <UnknownTag id="0xF6">
-    <data>UgMwAoQAdWlccmVzb3VyY2VzXHRleHR1cmVzXDA2X2ljb25zXHdlYXBvbnNcdHhfcmVjdXJ2ZWJvd21ha2VzaGlmdC5wbmcAAAA=</data>
+ <data>UgMwAoQAdWlccmVzb3VyY2VzXHRleHR1cmVzXDA2X2ljb25zXHdlYXBvbnNcdHhfcmVjdXJ2ZWJvd21ha2VzaGlmdC5wbmcAAAA=</data>
 </UnknownTag>
 ```
 
@@ -67,38 +67,38 @@ Copy the entire `DefineShape` block. Replace the inner `ClippedBitmap2 objectID`
 
 ```xml
 <DefineShape objectID="477">
-    <bounds>
-        <Rectangle left="-2680" right="2920" top="-660" bottom="660"/>
-    </bounds>
-    <styles>
-        <StyleList>
-            <fillStyles>
-                <ClippedBitmap2 objectID="65535">
-                    <matrix>
-                        <Transform scaleX="20.00000000000000" scaleY="20.00000000000000" transX="0" transY="0"/>
-                    </matrix>
-                </ClippedBitmap2>
-                <ClippedBitmap2 objectID="22">
-                    <matrix>
-                        <Transform scaleX="10.00000000000000" scaleY="10.00000000000000" transX="-2680" transY="-660"/>
-                    </matrix>
-                </ClippedBitmap2>
-            </fillStyles>
-            <lineStyles/>
-        </StyleList>
-    </styles>
-    <shapes>
-        <Shape>
-            <edges>
-                <ShapeSetup x="2920" y="660" fillStyle1="2"/>
-                <LineTo x="-5600" y="0"/>
-                <LineTo x="0" y="-1320"/>
-                <LineTo x="5600" y="0"/>
-                <LineTo x="0" y="1320"/>
-                <ShapeSetup/>
-            </edges>
-        </Shape>
-    </shapes>
+ <bounds>
+ <Rectangle left="-2680" right="2920" top="-660" bottom="660"/>
+ </bounds>
+ <styles>
+ <StyleList>
+ <fillStyles>
+ <ClippedBitmap2 objectID="65535">
+ <matrix>
+ <Transform scaleX="20.00000000000000" scaleY="20.00000000000000" transX="0" transY="0"/>
+ </matrix>
+ </ClippedBitmap2>
+ <ClippedBitmap2 objectID="22">
+ <matrix>
+ <Transform scaleX="10.00000000000000" scaleY="10.00000000000000" transX="-2680" transY="-660"/>
+ </matrix>
+ </ClippedBitmap2>
+ </fillStyles>
+ <lineStyles/>
+ </StyleList>
+ </styles>
+ <shapes>
+ <Shape>
+ <edges>
+ <ShapeSetup x="2920" y="660" fillStyle1="2"/>
+ <LineTo x="-5600" y="0"/>
+ <LineTo x="0" y="-1320"/>
+ <LineTo x="5600" y="0"/>
+ <LineTo x="0" y="1320"/>
+ <ShapeSetup/>
+ </edges>
+ </Shape>
+ </shapes>
 </DefineShape>
 ```
 
@@ -106,9 +106,9 @@ In the duplicate, change the `ClippedBitmap2 objectID` to your icon ID (e.g. `85
 
 ```xml
 <DefineShape objectID="849">
-    ...
-    <ClippedBitmap2 objectID="850">
-    ...
+ ...
+ <ClippedBitmap2 objectID="850">
+ ...
 </DefineShape>
 ```
 
@@ -118,12 +118,12 @@ Search the XML for the keyword of the icon you copied (e.g. "recurve"). You will
 
 ```xml
 <FrameLabel label="BowRecurve">
-    <flags/>
+ <flags/>
 </FrameLabel>
 <PlaceObject2 replace="0" depth="1" objectID="477">
-    <transform>
-        <Transform transX="0" transY="0"/>
-    </transform>
+ <transform>
+ <Transform transX="0" transY="0"/>
+ </transform>
 </PlaceObject2>
 <ShowFrame/>
 ```
@@ -132,7 +132,7 @@ Duplicate this block and change it to your new icon name:
 
 ```xml
 <FrameLabel label="PrimitiveBow">
-    <flags/>
+ <flags/>
 </FrameLabel>
 <PlaceObject2 replace="1" depth="1" objectID="849"/>
 <ShowFrame/>

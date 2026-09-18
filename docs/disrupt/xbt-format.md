@@ -14,23 +14,23 @@ acronym — community references simply call it "XBT".
 ## File Layout
 
 ```
-+0x00  TBX\0 magic (4 bytes)
-+0x04  Version u16 (0x0092)
-+0x06  Padding u16
-+0x08  Header size u32 (total XBT header, before DDS)
-+0x0C  Reserved u32 (0)
-+0x10  Format/density code u32
-+0x14  Bytes-per-pixel/block code u32
-+0x18  Quality bytes u32 ([byte0][quality class][byte2][0xFF])
-+0x1C  Source file CRC32 (CSourceCrcEvaluator Hash)
-+0x20  Texture profile ID (ProfileId)
-+0x24  Texture profile CRC32 (ProfileCrc)
-+0x28  Source .meta CRC (CSourceMetaCrcEvaluator Hash, usually 0)
-+0x2C  Constant u32 (0x7F7F7F7F)
-+0x30  String count u8, String table version u8
-+0x32  String table (variable length, null-terminated strings)
-       [DDS header starts at offset = header_size]
-       [Pixel data follows immediately after DDS header]
++0x00 TBX\0 magic (4 bytes)
++0x04 Version u16 (0x0092)
++0x06 Padding u16
++0x08 Header size u32 (total XBT header, before DDS)
++0x0C Reserved u32 (0)
++0x10 Format/density code u32
++0x14 Bytes-per-pixel/block code u32
++0x18 Quality bytes u32 ([byte0][quality class][byte2][0xFF])
++0x1C Source file CRC32 (CSourceCrcEvaluator Hash)
++0x20 Texture profile ID (ProfileId)
++0x24 Texture profile CRC32 (ProfileCrc)
++0x28 Source .meta CRC (CSourceMetaCrcEvaluator Hash, usually 0)
++0x2C Constant u32 (0x7F7F7F7F)
++0x30 String count u8, String table version u8
++0x32 String table (variable length, null-terminated strings)
+ [DDS header starts at offset = header_size]
+ [Pixel data follows immediately after DDS header]
 ```
 
 ## Header Fields
@@ -81,7 +81,7 @@ preintegratedskinindirect, waterdetailnormalmap, wavebase, blue_noise_array):
 - **+0x24** = Texture profile CRC32 = `ProfileCrc` (e.g. grid = 0xec506e3c = 3964694076)
 - **+0x28** = Source `.meta` CRC = `CSourceMetaCrcEvaluator Hash` (usually 0)
 - **String table** entries = `CCompiledFileExistsEvaluator` / `CTextureMipResource`
-  filepaths (e.g. `grid_med`/`grid_high`), matching the `.dep` file.
+ filepaths (e.g. `grid_med`/`grid_high`), matching the `.dep` file.
 - **Version 0x0092** = `CTexCompiler Version`.
 
 The source texture files were removed after compilation, so the CRC32 cannot be
@@ -142,8 +142,8 @@ streaming (e.g. the `_high` variant filepaths).
 
 - Starts at offset +0x32 (after u8 count + u8 version at +0x30)
 - Each string: 1-byte type prefix, then null-terminated path
-  - `0x02` = filepath (e.g. `_high` variant path)
-  - `0x03` = variant path (e.g. `_ultra` variant path)
+ - `0x02` = filepath (e.g. `_high` variant path)
+ - `0x03` = variant path (e.g. `_ultra` variant path)
 - Surveyed across 500+ leak XBTs: only prefix bytes 0x02 and 0x03 observed
 - Padded to align DDS data to header_size offset
 
@@ -233,9 +233,9 @@ For mip chains: sum all mip levels (each halved, minimum 1×1).
 ## Common Issues
 
 - **Textures too dark/bright in-game**: wrong header (brightness/gamma). Always
-  round-trip via a header-preserving tool, never a generic dummy header.
+ round-trip via a header-preserving tool, never a generic dummy header.
 - **White/black reflective surfaces**: XBT filename mismatch — header references
-  a `_high` texture that doesn't exist; rename to match existing names and update
-  the material.bin reference.
+ a `_high` texture that doesn't exist; rename to match existing names and update
+ the material.bin reference.
 - **Skin turns white**: repacking with a dummy header instead of preserving the
-  original header.
+ original header.

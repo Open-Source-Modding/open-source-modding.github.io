@@ -59,29 +59,29 @@ Batch mesh physics can be read but requires parsing the other HKX files to displ
 
 ```
 ┌─────────────────────────────────────────────────┐
-│ 16-byte wrapper (Dunia engine)                   │
-│   +0x00..0x0f: game-specific header              │
+│ 16-byte wrapper (Dunia engine) │
+│ +0x00..0x0f: game-specific header │
 ├─────────────────────────────────────────────────┤
-│ Havok packfile (starts at wrapper+0x10)          │
-│   +0x00..0x07: magic 0x57e0e057 10c0c010        │
-│   +0x10: bytesInPointer (8 = 64-bit)            │
-│   +0x14: numSections (i32)                       │
-│   +0x28..0x37: version string (e.g. "hk_2012.2.0-r1\0") │
+│ Havok packfile (starts at wrapper+0x10) │
+│ +0x00..0x07: magic 0x57e0e057 10c0c010 │
+│ +0x10: bytesInPointer (8 = 64-bit) │
+│ +0x14: numSections (i32) │
+│ +0x28..0x37: version string (e.g. "hk_2012.2.0-r1\0") │
 ├─────────────────────────────────────────────────┤
 │ Section headers (48 bytes each, starting at +40) │
-│   +0x00..0x12: tag (19 bytes, null-terminated)  │
-│   +0x14: abs (i32) — absolute address            │
-│   +0x18: local (i32) — local fixup offset        │
-│   +0x1c: global (i32) — global fixup offset      │
-│   +0x20: virtual (i32) — virtual fixup offset    │
-│   +0x24: exports (i32) — export offset           │
-│   +0x28: imports (i32) — import offset           │
-│   +0x2c: end (i32) — end offset                  │
+│ +0x00..0x12: tag (19 bytes, null-terminated) │
+│ +0x14: abs (i32) — absolute address │
+│ +0x18: local (i32) — local fixup offset │
+│ +0x1c: global (i32) — global fixup offset │
+│ +0x20: virtual (i32) — virtual fixup offset │
+│ +0x24: exports (i32) — export offset │
+│ +0x28: imports (i32) — import offset │
+│ +0x2c: end (i32) — end offset │
 ├─────────────────────────────────────────────────┤
-│ __classnames__ section: class name strings       │
-│ __types__ section: type definitions (optional)   │
-│ __data__ section: serialized object data         │
-│   Contains: fixup tables + object instances      │
+│ __classnames__ section: class name strings │
+│ __types__ section: type definitions (optional) │
+│ __data__ section: serialized object data │
+│ Contains: fixup tables + object instances │
 └─────────────────────────────────────────────────┘
 ```
 

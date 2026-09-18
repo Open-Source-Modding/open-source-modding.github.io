@@ -48,12 +48,12 @@ Key PAK: NMSARC.553AF401.pak (engine settings), NMSARC.EEAC04FA.pak (shaders)
 ### 3.1 Structure
 ```
 Header:
-  int32  cc / magic
-  int32  version
-  int32  padding[2]
-  int64  hash
-  char   type[64]       # e.g., "cTkLocalisationTable", "GcWidgetData"
-  int64  padding
+ int32 cc / magic
+ int32 version
+ int32 padding[2]
+ int64 hash
+ char type[64] # e.g., "cTkLocalisationTable", "GcWidgetData"
+ int64 padding
 
 Type-dependent data follows...
 ```

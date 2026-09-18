@@ -17,16 +17,16 @@ The format is a proprietary/compiled binary; it is **not** plain text.
 ### Editing approach
 
 - A working method for editing `.locale` files was posted to the Steam
-  Community forums for app 255710 (Cities: Skylines) in March 2015.
-  *(SkyF1, 2015-03-15; confirmed by WRS, 2015-04-11)*
+ Community forums for app 255710 (Cities: Skylines) in March 2015.
+ *(SkyF1, 2015-03-15; confirmed by WRS, 2015-04-11)*
 - No in-thread format spec is provided — the practical answer points to the
-  Steam Community guide/discussion rather than a standalone tool.
+ Steam Community guide/discussion rather than a standalone tool.
 
 ### Fonts
 
 - Localization also needs the game **font** (which may not cover all scripts).
-  The font file location was an open question; no definitive answer is given
-  in this dump. *(Fodosan, 2015-04-11)*
+ The font file location was an open question; no definitive answer is given
+ in this dump. *(Fodosan, 2015-04-11)*
 
 ---
 
@@ -42,13 +42,13 @@ about building/object **coordinates and placement** is stored in the `.crp`.
 ### What's in a `.crp`
 
 - A `.crp` contains both the **mesh/data** and a **`.bin`** portion with the
-  placement/coordinate information.
+ placement/coordinate information.
 - A GitHub tool exists that extracts **map preview textures** from a `.crp`,
-  but the rest (coordinates in the `.bin`) is **not** extracted by that tool.
-  *(eyewee, 2018-08-12)*
+ but the rest (coordinates in the `.bin`) is **not** extracted by that tool.
+ *(eyewee, 2018-08-12)*
 - Third-party mesh extraction: the in-game **modTools** can extract 3D meshes
-  placed on a map, but does **not** save coordinates needed to recreate the
-  map layout in an external 3D application. *(eyewee, 2018-08-12)*
+ placed on a map, but does **not** save coordinates needed to recreate the
+ map layout in an external 3D application. *(eyewee, 2018-08-12)*
 
 ### Recreating a map externally
 
@@ -68,7 +68,7 @@ but no public spec/tool was provided in the thread. *(jfwfreo, ikskoks,
 ## 3. Open Questions
 
 - `.locale` file binary format spec — not documented in the dump (solution
-  points to a Steam Community guide).
+ points to a Steam Community guide).
 - Game font file location for non-Latin localizations — unresolved.
 - `.crp` `.bin` placement/coordinate format — not publicly documented.
 - `.crp` format description / up-to-date unpacker for modern patches — open.

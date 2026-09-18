@@ -41,19 +41,19 @@ Version 9 (used by 2010–2013) has simpler header padding. Version 11 (2013.2+ 
 
 ```c
 enum hkPlatform {
-    HCL_PLATFORM_WIN32   = 0x0,
-    HCL_PLATFORM_X64     = 0x1,
-    HCL_PLATFORM_MACPPC  = 0x2,
-    HCL_PLATFORM_IOS     = 0x4,
-    HCL_PLATFORM_MAC386  = 0x8,
-    HCL_PLATFORM_PS3     = 0x10,
-    HCL_PLATFORM_XBOX360 = 0x20,
-    HCL_PLATFORM_WII     = 0x40,
-    HCL_PLATFORM_LRB     = 0x80,
-    HCL_PLATFORM_LINUX   = 0x100,
-    HCL_PLATFORM_NGP     = 0x400,
-    HCL_PLATFORM_ANDROID = 0x800,
-    HCL_PLATFORM_CTR     = 0x1000,
+ HCL_PLATFORM_WIN32 = 0x0,
+ HCL_PLATFORM_X64 = 0x1,
+ HCL_PLATFORM_MACPPC = 0x2,
+ HCL_PLATFORM_IOS = 0x4,
+ HCL_PLATFORM_MAC386 = 0x8,
+ HCL_PLATFORM_PS3 = 0x10,
+ HCL_PLATFORM_XBOX360 = 0x20,
+ HCL_PLATFORM_WII = 0x40,
+ HCL_PLATFORM_LRB = 0x80,
+ HCL_PLATFORM_LINUX = 0x100,
+ HCL_PLATFORM_NGP = 0x400,
+ HCL_PLATFORM_ANDROID = 0x800,
+ HCL_PLATFORM_CTR = 0x1000,
 };
 ```
 
@@ -67,13 +67,13 @@ PS3 files are big-endian; changing the endianness flag alone is insufficient —
 
 ```c
 enum hkaAnimation::AnimationType {
-    HK_UNKNOWN_ANIMATION              = 0,
-    HK_INTERLEAVED_ANIMATION          = 1,
-    HK_MIRRORED_ANIMATION             = 2,
-    HK_SPLINE_COMPRESSED_ANIMATION    = 3,
-    HK_QUANTIZED_COMPRESSED_ANIMATION = 4,
-    HK_PREDICTIVE_COMPRESSED_ANIMATION= 5,
-    HK_REFERENCE_POSE_ANIMATION       = 6,
+ HK_UNKNOWN_ANIMATION = 0,
+ HK_INTERLEAVED_ANIMATION = 1,
+ HK_MIRRORED_ANIMATION = 2,
+ HK_SPLINE_COMPRESSED_ANIMATION = 3,
+ HK_QUANTIZED_COMPRESSED_ANIMATION = 4,
+ HK_PREDICTIVE_COMPRESSED_ANIMATION= 5,
+ HK_REFERENCE_POSE_ANIMATION = 6,
 };
 ```
 
@@ -83,19 +83,19 @@ enum hkaAnimation::AnimationType {
 
 ```c
 struct hkaSplineCompressedAnimation : hkaAnimation {
-    int  m_numFrames;
-    int  m_numBlocks;
-    int  m_maxFramesPerBlock;
-    int  m_maskAndQuantizationSize;
-    float m_blockDuration;
-    float m_blockInverseDuration;
-    float m_frameDuration;
-    hkArray<unsigned int> m_blockOffsets;
-    hkArray<unsigned int> m_floatBlockOffsets;
-    hkArray<unsigned int> m_transformOffsets;
-    hkArray<unsigned int> m_floatOffsets;
-    hkArray<unsigned char> m_data;
-    int  m_endian;
+ int m_numFrames;
+ int m_numBlocks;
+ int m_maxFramesPerBlock;
+ int m_maskAndQuantizationSize;
+ float m_blockDuration;
+ float m_blockInverseDuration;
+ float m_frameDuration;
+ hkArray<unsigned int> m_blockOffsets;
+ hkArray<unsigned int> m_floatBlockOffsets;
+ hkArray<unsigned int> m_transformOffsets;
+ hkArray<unsigned int> m_floatOffsets;
+ hkArray<unsigned char> m_data;
+ int m_endian;
 };
 ```
 
@@ -107,18 +107,18 @@ The Havok SDK exposes `hkaSplineCompressedAnimationTrackCompressionParams` (sign
 
 ```c
 struct TrackCompressionParams {
-    float  rotationTolerance;       // +0
-    float  translationTolerance;    // +4
-    float  scaleTolerance;          // +8
-    float  floatingTolerance;       // +12
-    uint16 rotationDegree;          // +16
-    uint16 translationDegree;       // +18
-    uint16 scaleDegree;             // +20
-    uint16 floatingDegree;          // +22
-    RotationQuantization rotationQuantizationType; // +24
-    ScalarQuantization   translationQuantizationType; // +25
-    ScalarQuantization   scaleQuantizationType;       // +26
-    ScalarQuantization   floatQuantizationType;       // +27
+ float rotationTolerance; // +0
+ float translationTolerance; // +4
+ float scaleTolerance; // +8
+ float floatingTolerance; // +12
+ uint16 rotationDegree; // +16
+ uint16 translationDegree; // +18
+ uint16 scaleDegree; // +20
+ uint16 floatingDegree; // +22
+ RotationQuantization rotationQuantizationType; // +24
+ ScalarQuantization translationQuantizationType; // +25
+ ScalarQuantization scaleQuantizationType; // +26
+ ScalarQuantization floatQuantizationType; // +27
 };
 ```
 
@@ -126,17 +126,17 @@ struct TrackCompressionParams {
 
 ```c
 enum RotationQuantization {
-    POLAR32     = 0,
-    THREECOMP40 = 1,
-    THREECOMP48 = 2,
-    THREECOMP24 = 3,
-    STRAIGHT16  = 4,
-    UNCOMPRESSED= 5,
+ POLAR32 = 0,
+ THREECOMP40 = 1,
+ THREECOMP48 = 2,
+ THREECOMP24 = 3,
+ STRAIGHT16 = 4,
+ UNCOMPRESSED= 5,
 };
 
 enum ScalarQuantization {
-    BITS8  = 0,
-    BITS16 = 1,
+ BITS8 = 0,
+ BITS16 = 1,
 };
 ```
 
@@ -228,8 +228,8 @@ https://bitbucket.org/Volfin/hkx2smd/overview
 Batch converter between binary HKX and XML HKX.
 
 ```
-AssetCc1.exe --strip bin.hkx xml.hkx      # Binary → XML (keeps version)
-AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx  # XML → Binary
+AssetCc1.exe --strip bin.hkx xml.hkx # Binary → XML (keeps version)
+AssetCc1.exe --strip --rules8011 xml.hkx bin.hkx # XML → Binary
 ```
 
 - `--strip` removes the extra junk at file start
@@ -298,7 +298,7 @@ The process was semi-automated: three offsets needed manual searching, but the r
 ### Anim Swap Technique
 
 To replace animations in-game:
-1. Swap data starting with `"WààW"` (magic header) and ending with `"+    yyyyyy"`
+1. Swap data starting with `"WààW"` (magic header) and ending with `"+ yyyyyy"`
 2. Two header size values control memory allocation — set both to minimum if swapping with same-sized animation
 3. Works for swapping existing in-game animations
 
@@ -398,14 +398,14 @@ hkpBvCompressedMeshShape
 ### Animation Classes
 
 ```
-hkaAnimationContainer    — top-level container
-hkaSkeleton              — bone hierarchy
-hkaBone                  — individual bone
-hkaAnimation             — base animation class
+hkaAnimationContainer — top-level container
+hkaSkeleton — bone hierarchy
+hkaBone — individual bone
+hkaAnimation — base animation class
 hkaSplineCompressedAnimation — spline-compressed (most common)
-hkaAnimationBinding      — maps animation tracks to skeleton bones
+hkaAnimationBinding — maps animation tracks to skeleton bones
 hkaAnimatedReferenceFrame — root motion reference
-hkaAnnotationTrack       — named annotation markers
+hkaAnnotationTrack — named annotation markers
 ```
 
 ## References and Resources

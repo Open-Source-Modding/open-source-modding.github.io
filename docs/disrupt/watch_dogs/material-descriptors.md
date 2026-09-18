@@ -12,9 +12,9 @@ Material descriptors define the **parameter schema** for each shader type in the
 ### Relationship to .material.bin
 
 ```
-materialdescriptor.xml    (schema - defines what parameters exist)
-    |  CompileMaterials.exe
-.material.bin              (runtime - stores actual parameter values)
+materialdescriptor.xml (schema - defines what parameters exist)
+ | CompileMaterials.exe
+.material.bin (runtime - stores actual parameter values)
 ```
 
 The descriptor is like a class definition; the `.material.bin` is an instance. A material descriptor named `DriverCarGeneric` defines that car paint materials can have `DiffuseTexture1`, `NormalTexture1`, `SpecularPower`, etc. Each car's `.material.bin` stores the actual texture paths and numeric values for those parameters.
@@ -209,10 +209,10 @@ The descriptor defines the schema; the `.material.bin` stores the values:
 ### Compile Pipeline
 
 ```
-material.xml              (source - parameter values + descriptor reference)
-materialdescriptor.xml    (schema - parameter definitions)
-    |  CompileMaterials.exe
-material.bin              (runtime - binary packed parameter values)
+material.xml (source - parameter values + descriptor reference)
+materialdescriptor.xml (schema - parameter definitions)
+ | CompileMaterials.exe
+material.bin (runtime - binary packed parameter values)
 ```
 
 The compiler reads the descriptor to know parameter types and sizes, then packs the XML values into the binary format. The descriptor's `id` hash is embedded in the `.material.bin` header so the engine can look up the correct shader.

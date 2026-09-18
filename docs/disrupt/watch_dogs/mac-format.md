@@ -13,13 +13,13 @@ MAC is the **source/authoring** animation format used by the Disrupt engine's An
 ### Position in the Pipeline
 
 ```
-animation.fbx          (FBX source — DCC tool export)
-    ↓  FBX import via FbxLoaderManaged.dll (C++/CLI, native FBX SDK)
-animation.mac          (binary source — curves, skeleton, flags, events, parts)
-animation.markup       (XML source — time-stamped game events)
-    ↓  CMarkupCompiler (AnimationMarkupTool internal)
-animation.markup.bin   (compiled markup header — 10 bytes, version=3)
-animation.mab          (compiled animation markup — compressed per-bone data)
+animation.fbx (FBX source — DCC tool export)
+ ↓ FBX import via FbxLoaderManaged.dll (C++/CLI, native FBX SDK)
+animation.mac (binary source — curves, skeleton, flags, events, parts)
+animation.markup (XML source — time-stamped game events)
+ ↓ CMarkupCompiler (AnimationMarkupTool internal)
+animation.markup.bin (compiled markup header — 10 bytes, version=3)
+animation.mab (compiled animation markup — compressed per-bone data)
 ```
 
 - **MAC** = source format (uncompressed, full skeleton, FBX path)
@@ -90,8 +90,8 @@ After the arrays, the file contains:
 ### Trailing Data
 
 ```
-i32       trailing_string_len
-char[]    trailing_string    (optional, length-prefixed)
+i32 trailing_string_len
+char[] trailing_string (optional, length-prefixed)
 ```
 
 ### Complete Layout (Visual)
@@ -99,16 +99,16 @@ char[]    trailing_string    (optional, length-prefixed)
 ```
 [0x00] f32 version (8.305 or 9.0)
 [0x04] (if v9.0: u16 file_version + u8 exporter_major + u8 exporter_minor)
-[+0]   StringID _Type
-[+N]   f32 _FrameRate
-[+N]   StringID _Source (if version > 7 and < 2.139e9)
-[+N]   u32 n_flags + AnimFlag[n_flags]
-[+N]   u32 n_events + AnimFileEvent[n_events]
-[+N]   u32 n_parts + AnimPart[n_parts]  (recursive!)
-[+N]   AnimDirNode _DirNode (root motion)
-[+N]   AnimMomentum _Momentum
-[+N]   AnimSkeleton
-[+N]   i32 trailing_string_len + string
+[+0] StringID _Type
+[+N] f32 _FrameRate
+[+N] StringID _Source (if version > 7 and < 2.139e9)
+[+N] u32 n_flags + AnimFlag[n_flags]
+[+N] u32 n_events + AnimFileEvent[n_events]
+[+N] u32 n_parts + AnimPart[n_parts] (recursive!)
+[+N] AnimDirNode _DirNode (root motion)
+[+N] AnimMomentum _Momentum
+[+N] AnimSkeleton
+[+N] i32 trailing_string_len + string
 ```
 
 ---
@@ -118,9 +118,9 @@ char[]    trailing_string    (optional, length-prefixed)
 Used throughout the MAC format. Recurring structure:
 
 ```
-u32  type_id      (hash/type identifier)
-i32  string_len   (length of string in chars, NOT bytes)
-char[] string     (string_len chars)
+u32 type_id (hash/type identifier)
+i32 string_len (length of string in chars, NOT bytes)
+char[] string (string_len chars)
 ```
 
 The `type_id` is a hash of the string content. The string is length-prefixed with a signed 32-bit integer indicating character count (not byte count — relevant for Unicode, though most strings are ASCII).
@@ -130,8 +130,8 @@ The `type_id` is a hash of the string content. The string is length-prefixed wit
 ## AnimFlag
 
 ```
-StringID  _Name      (e.g. "MoveMgr_Poses", "GameEvents")
-i32       _FlagType  (enum FlagType)
+StringID _Name (e.g. "MoveMgr_Poses", "GameEvents")
+i32 _FlagType (enum FlagType)
 ```
 
 ### FlagType Enum
@@ -150,10 +150,10 @@ i32       _FlagType  (enum FlagType)
 ## AnimFileEvent
 
 ```
-i32       _Type      (enum AnimFlagName)
-f32       _Time      (time in seconds)
-u32       _NumParams
-AnimFileParameter[_NumParams]  (each: StringID _Type + StringID _Name)
+i32 _Type (enum AnimFlagName)
+f32 _Time (time in seconds)
+u32 _NumParams
+AnimFileParameter[_NumParams] (each: StringID _Type + StringID _Name)
 ```
 
 ### AnimFlagName Enum
@@ -174,20 +174,20 @@ AnimFileParameter[_NumParams]  (each: StringID _Type + StringID _Name)
 AnimPart contains a nested `AnimationFile`, making the MAC format recursive. This is how complex animations compose sub-animations (e.g., an idle animation with separate upper-body and lower-body parts).
 
 ```
-i32       version_tag_1      (always 987654321)
-i32       version_tag_2      (unknown value)
-StringID  _Name
-f64       _Time
-i32       _PartEventType     (enum PartEventType)
-StringID  _ParentId
-StringID  _Handle
-i32       unk1
-i32       unk2
-AnimationFile  _File          (RECURSIVE — nested MAC!)
-i32       handle_name_len
-char[]    _HandleName         (length-prefixed)
-i32       ik_bone_name_len
-char[]    _IKBoneName         (length-prefixed)
+i32 version_tag_1 (always 987654321)
+i32 version_tag_2 (unknown value)
+StringID _Name
+f64 _Time
+i32 _PartEventType (enum PartEventType)
+StringID _ParentId
+StringID _Handle
+i32 unk1
+i32 unk2
+AnimationFile _File (RECURSIVE — nested MAC!)
+i32 handle_name_len
+char[] _HandleName (length-prefixed)
+i32 ik_bone_name_len
+char[] _IKBoneName (length-prefixed)
 ```
 
 ### PartEventType Enum
@@ -213,10 +213,10 @@ char[]    _IKBoneName         (length-prefixed)
 Root motion node containing directional animation curves.
 
 ```
-i32       unk1
-i32       unk2
-u32       _NumCurves
-AnimDiscreteCurve[_NumCurves]  _Curves
+i32 unk1
+i32 unk2
+u32 _NumCurves
+AnimDiscreteCurve[_NumCurves] _Curves
 ```
 
 ---
@@ -226,10 +226,10 @@ AnimDiscreteCurve[_NumCurves]  _Curves
 Momentum data with direction and speed curves.
 
 ```
-i32       unk1
-i32       unk2
-AnimCurve  _DirectionCurve    (reads i32)
-AnimCurve  _SpeedCurve        (reads i32)
+i32 unk1
+i32 unk2
+AnimCurve _DirectionCurve (reads i32)
+AnimCurve _SpeedCurve (reads i32)
 ```
 
 ---
@@ -239,10 +239,10 @@ AnimCurve  _SpeedCurve        (reads i32)
 Full skeleton hierarchy with per-bone animation data.
 
 ```
-i32       unk1
-i32       unk2
-u32       _NumBones
-AnimBone[_NumBones]  _Bones
+i32 unk1
+i32 unk2
+u32 _NumBones
+AnimBone[_NumBones] _Bones
 ```
 
 ---
@@ -252,9 +252,9 @@ AnimBone[_NumBones]  _Bones
 Each bone extends AnimDirNode, adding identity and parent information.
 
 ```
-StringID  _Name
-u32       _Id
-i32       _ParentId
+StringID _Name
+u32 _Id
+i32 _ParentId
 [AnimDirNode curves: u32 count + AnimDiscreteCurve[]]
 ```
 
@@ -269,10 +269,10 @@ i32       _ParentId
 Individual animation curve data. The core building block of MAC animation data.
 
 ```
-u32       _NumValues
-i32       _CurveDataType    (enum CurveDataType)
-i32       unk
-f32[_NumValues]  _Values    (only present for Trans/Quat/Rot types)
+u32 _NumValues
+i32 _CurveDataType (enum CurveDataType)
+i32 unk
+f32[_NumValues] _Values (only present for Trans/Quat/Rot types)
 ```
 
 ### CurveDataType Enum

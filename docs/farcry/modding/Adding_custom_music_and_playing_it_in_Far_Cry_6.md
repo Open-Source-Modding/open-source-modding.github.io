@@ -24,7 +24,7 @@ Useful files for the tutorial, for example if you don’t want to make some part
 
 Here are two sample music files, they’re from Far Cry 4 from Meh Teh airport mission:
 
-* [Meh Teh Airport.wav](https://fcmodding.com/files/FC6%20Custom%20Music%20Tutorial%20Files/Meh%20Teh%20Airport.wav)  
+* [Meh Teh Airport.wav](https://fcmodding.com/files/FC6%20Custom%20Music%20Tutorial%20Files/Meh%20Teh%20Airport.wav) 
 * [Meh Teh Airport War.wav](https://fcmodding.com/files/FC6%20Custom%20Music%20Tutorial%20Files/Meh%20Teh%20Airport%20War.wav)
 
 Here is whole Wwise project:
@@ -79,7 +79,7 @@ In Dunia there are always two soundbanks (BNK) \- first one has defined all musi
 
 Ubi named them in this format:
 
-* **Play\_MUS\_MIS0020**  
+* **Play\_MUS\_MIS0020** 
 * **Stop\_MUS\_MIS0020**
 
 MIS0020 is the name of a mission in FC6.
@@ -194,7 +194,7 @@ Now we assign each state to the correct music track, so now basically define whi
 
 Drag drop both states to the place below and select for each music container, so:
 
-* ST\_MUS\_MIS\_Step\_01 \- MyMusic\_MusicPlaylistContainer\_1  
+* ST\_MUS\_MIS\_Step\_01 \- MyMusic\_MusicPlaylistContainer\_1 
 * ST\_MUS\_MIS\_Step\_02 \- MyMusic\_MusicPlaylistContainer\_2
 
 ![][image17]
@@ -355,9 +355,9 @@ Those IDs are actually some hashes of the names. More in Wwise docs.
 
 We will need those files:
 
-* 117581209.bnk \- our stop BNK  
-* 691342655.bnk \- our play BNK  
-* 474404542.wem \- our first music  
+* 117581209.bnk \- our stop BNK 
+* 691342655.bnk \- our play BNK 
+* 474404542.wem \- our first music 
 * 831668348.wem \- our second music
 
 # **Second part \- making package**
@@ -368,36 +368,36 @@ You can use the template from the links at the beginning. Here we must make info
 
 We need to pack our files and add basic info about our package.
 
-\<?xml version\="1.0" encoding\="utf-8" standalone\="yes"?\>  
-\<PackageInfo\>  
-  \<Games\>  
-    \<Game\>FC6\</Game\>  
-  \</Games\>  
-  \<Name\>My Music\</Name\>  
-  \<Description\>  
-  \</Description\>  
-  \<Pairs\>  
-    \<Pair\>  
-      \<Source\>fc6\_mymusic.fc6\_mymusic.lua\</Source\>  
-      \<Target\>domino\\user\\fcmodding\\fc6\_mymusic.fc6\_mymusic.lua\</Target\>  
-    \</Pair\>  
-    \<Pair\>  
-      \<Source\>117581209.bnk\</Source\>  
-      \<Target\>soundbinary\\117581209.bnk\</Target\>  
-    \</Pair\>  
-    \<Pair\>  
-      \<Source\>691342655.bnk\</Source\>  
-      \<Target\>soundbinary\\691342655.bnk\</Target\>  
-    \</Pair\>  
-    \<Pair\>  
-      \<Source\>474404542.wem\</Source\>  
-      \<Target\>soundbinary\\474404542.wem\</Target\>  
-    \</Pair\>  
-    \<Pair\>  
-      \<Source\>831668348.wem\</Source\>  
-      \<Target\>soundbinary\\831668348.wem\</Target\>  
-    \</Pair\>  
-  \</Pairs\>  
+\<?xml version\="1.0" encoding\="utf-8" standalone\="yes"?\> 
+\<PackageInfo\> 
+ \<Games\> 
+ \<Game\>FC6\</Game\> 
+ \</Games\> 
+ \<Name\>My Music\</Name\> 
+ \<Description\> 
+ \</Description\> 
+ \<Pairs\> 
+ \<Pair\> 
+ \<Source\>fc6\_mymusic.fc6\_mymusic.lua\</Source\> 
+ \<Target\>domino\\user\\fcmodding\\fc6\_mymusic.fc6\_mymusic.lua\</Target\> 
+ \</Pair\> 
+ \<Pair\> 
+ \<Source\>117581209.bnk\</Source\> 
+ \<Target\>soundbinary\\117581209.bnk\</Target\> 
+ \</Pair\> 
+ \<Pair\> 
+ \<Source\>691342655.bnk\</Source\> 
+ \<Target\>soundbinary\\691342655.bnk\</Target\> 
+ \</Pair\> 
+ \<Pair\> 
+ \<Source\>474404542.wem\</Source\> 
+ \<Target\>soundbinary\\474404542.wem\</Target\> 
+ \</Pair\> 
+ \<Pair\> 
+ \<Source\>831668348.wem\</Source\> 
+ \<Target\>soundbinary\\831668348.wem\</Target\> 
+ \</Pair\> 
+ \</Pairs\> 
 \</PackageInfo\>
 
 File **fc6\_mymusic.fc6\_mymusic.lua** is a script file for playing the music, we make it in the third part.
@@ -416,8 +416,8 @@ And its ID is 3803692087\.
 
 Now we make replacer:
 
-\<Replace RequiredFile\="soundbinary\\691342655.bnk"\>  
-  \<Replace find\="3803692087" replace\="2989583526" type\="UInt32" /\>  
+\<Replace RequiredFile\="soundbinary\\691342655.bnk"\> 
+ \<Replace find\="3803692087" replace\="2989583526" type\="UInt32" /\> 
 \</Replace\>
 
 Next is adding info about Wwise files to Dunia sound config called soundinfo.bin

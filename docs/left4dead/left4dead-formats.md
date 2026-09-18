@@ -24,21 +24,21 @@ Xbox 360 version uses a **slightly modified Valve VTF format** called **VTFX**. 
 ### VTFX File Header
 ```c
 struct VTFXFileHeader {
-    int   fileSignature;   // 0x56544658 ("VTFX")
-    int   version1;        // 0x00000360
-    int   version2;        // 0x00000008
-    int   headerSize;      // 0x00000044
-    int   unknown;
-    short width;
-    short height;
-    short unknown;  (x4)
-    float reflectivityX;
-    float reflectivityY;
-    float reflectivityZ;
-    float bumpMapScale;
-    int   imageFormat;
-    int   unknown;  (x3)
-    int   headerSize2;     // 0x00000044
+ int fileSignature; // 0x56544658 ("VTFX")
+ int version1; // 0x00000360
+ int version2; // 0x00000008
+ int headerSize; // 0x00000044
+ int unknown;
+ short width;
+ short height;
+ short unknown; (x4)
+ float reflectivityX;
+ float reflectivityY;
+ float reflectivityZ;
+ float bumpMapScale;
+ int imageFormat;
+ int unknown; (x3)
+ int headerSize2; // 0x00000044
 };
 ```
 
@@ -103,7 +103,7 @@ log NAME OFFSET_IMG IMG_SIZE 1
 Open . NAME 2
 xmath NUM_SHORTS "IMG_SIZE / 2"
 for i = 0 < NUM_SHORTS
-   encryption swap 2
+ encryption swap 2
 next i
 get NAME basename
 string NAME + "_swp.texture"
@@ -112,7 +112,7 @@ log NAME 0x0 IMG_SIZE 2
 # Step 4. Prepend a DXT5 DDS header
 Open . NAME 3
 encryption "" ""
-set MEMORY_FILE binary "\x44\x44\x53\x20\x7c\x00..."  # DDS "DDS " header
+set MEMORY_FILE binary "\x44\x44\x53\x20\x7c\x00..." # DDS "DDS " header
 putVarChr MEMORY_FILE 0xc IMG_HEIGHT short
 putVarChr MEMORY_FILE 0x10 IMG_WIDTH short
 string NAME += ".dds"

@@ -29,12 +29,12 @@ The editor binaries + debug symbols ship in the Ubisoft leak (`re/Ubisoft/Disrup
 **Default (embedded) config** — extracted from strings in `Dunia.Bloomberg.dll`:
 ```xml
 <BloombergConfig IsActive="1" ServerIP="msr-wd3-blo01.ubisoft.org" ServerPort="12090"
-  ReporterPort="12092" ... PerforceCodeServer="p4-tor-dunia-code:2326" ...>
-  <Proxies>
-    <Proxy Address="buc-proxy-bloomberg.ubisoft.org" Port="12090" IPRanges="10.18." .../>
-    <Proxy Address="pdc-wd-bloom.ubisoft.org" Port="12090" IPRanges="10.39.;..." .../>
-    <Proxy Address="192.168.5.100" Port="12090" IPRanges="192.168." .../>
-  </Proxies>
+ ReporterPort="12092" ... PerforceCodeServer="p4-tor-dunia-code:2326" ...>
+ <Proxies>
+ <Proxy Address="buc-proxy-bloomberg.ubisoft.org" Port="12090" IPRanges="10.18." .../>
+ <Proxy Address="pdc-wd-bloom.ubisoft.org" Port="12090" IPRanges="10.39.;..." .../>
+ <Proxy Address="192.168.5.100" Port="12090" IPRanges="192.168." .../>
+ </Proxies>
 </BloombergConfig>
 ```
 `Editor.log` also shows `bloomberg.kibana.url` → `https://logging-wd3-uat4.ubisoft.onbe...` (Kibana log backend) and `Connected to ORWELL_PC_UAT_B` (Orwell = WDL codename).

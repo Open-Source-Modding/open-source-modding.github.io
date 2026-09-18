@@ -32,16 +32,16 @@ The Witcher 2 stores models in **`.w2ent`** (entity) files and standalone **`.w2
 
 ### Example
 ```
-# inside q102_elf_woman_hanger.w2ent   (embedded)
-# 1.   e0d2d:
+# inside q102_elf_woman_hanger.w2ent (embedded)
+# 1. e0d2d:
 v 0.178874 -0.028297 1.424668
-# 00 01 02 03  92 4F 19 04  86 00 80 FF  FF FF FF FF
+# 00 01 02 03 92 4F 19 04 86 00 80 FF FF FF FF FF
 vt 0.348128 0.709508
 
 # standalone scoiatael_woman__body1_b1.w2mesh
-# 1.     759:
+# 1. 759:
 v 0.178874 -0.028297 1.424668
-# 00 01 02 03  0.574310 0.310812 0.098458 0.016420 0.055559 -0.998417 0.008791
+# 00 01 02 03 0.574310 0.310812 0.098458 0.016420 0.055559 -0.998417 0.008791
 # FF FF FF FF
 ```
 
@@ -109,10 +109,10 @@ Fixes `.w2ent`/`.w2mesh` files that fail to import correctly — mainly body mes
 ### Format
 - Audio thought to be **MPEG layer 2 @ 48000 Hz** (decodable as such), with at least 21,568 individual samples
 - Voice-over referenced as `VO_<1>_<2>_<3>`:
-  - `<1>` = voice tag id (e.g., `TRIS` for Triss)
-  - `<2>` = scene/set number (all VOs in a scene usually share it, e.g., `300202`)
-  - `<3>` = line number (e.g., `0343`)
-  - Example: `VO_TRIS_300202_0343` (from `q104_triss_interaction_oneliner.w2scene`)
+ - `<1>` = voice tag id (e.g., `TRIS` for Triss)
+ - `<2>` = scene/set number (all VOs in a scene usually share it, e.g., `300202`)
+ - `<3>` = line number (e.g., `0343`)
+ - Example: `VO_TRIS_300202_0343` (from `q104_triss_interaction_oneliner.w2scene`)
 - Header format **not fully documented**; individual samples hard to find
 
 ### REDkit Extraction

@@ -1,10 +1,10 @@
 ## Pre-requisites
 
-* You are familiar with creating .a3 packages  
-* Know info\_replace and using addNode  
-* Extracting files with and converting with FCBConverter.  
-* Use HxD  
-* Familiar with file extensions (.fat, .fcb, converted.xml etc)  
+* You are familiar with creating .a3 packages 
+* Know info\_replace and using addNode 
+* Extracting files with and converting with FCBConverter. 
+* Use HxD 
+* Familiar with file extensions (.fat, .fcb, converted.xml etc) 
 * Don’t give up\!
 
 ## Weapons:
@@ -29,7 +29,7 @@ In the archetype file, you want to locate the following:
 
 “**hidDescriptor**”
 
-This section dictates the meshes/models/joints the weapon can attach its objects and player customizable attachments on. A catch: You can see there’s no BinHex value assigned to the fields. They are all in plain text. More on that later.  
+This section dictates the meshes/models/joints the weapon can attach its objects and player customizable attachments on. A catch: You can see there’s no BinHex value assigned to the fields. They are all in plain text. More on that later. 
 Further down the file, you should see **skeleton\_reference\_list**
 
 ![][image1]
@@ -40,15 +40,15 @@ If you have found the Buzzsaw, its Archetype file does not have this line. But, 
 
 ## WeaponProperties file:
 
-In the weaponproperties file of the same weapon, scroll down to attachments. Most of them have a silencer entry. Unfortunately, machine guns don’t. As I mentioned earlier, we can use **addNode=”1”** in our info\_replace to tell MI to add in a silencer attachment. Be aware that not all weapons with silencers can work. I used the “silencersmg” from the Vector. Ubisoft somehow tied shooting sounds to the RPM/fire mode of the weapon. It’s been like that since FC2.  
+In the weaponproperties file of the same weapon, scroll down to attachments. Most of them have a silencer entry. Unfortunately, machine guns don’t. As I mentioned earlier, we can use **addNode=”1”** in our info\_replace to tell MI to add in a silencer attachment. Be aware that not all weapons with silencers can work. I used the “silencersmg” from the Vector. Ubisoft somehow tied shooting sounds to the RPM/fire mode of the weapon. It’s been like that since FC2. 
 ![][image2]
 
 ## Editing the skeleton\_reference\_list.
 
 MI looks after hashes to replace. This section doesn’t have one. How can we make it work? You need HxD.
 
-In your editor of your choice, copy the entire “**hidDescriptor**” section only. Rename the file like this:  
-![][image3]  
+In your editor of your choice, copy the entire “**hidDescriptor**” section only. Rename the file like this: 
+![][image3] 
 ![][image4]
 
 It will look like this in the editor. We copy-paste the PKM’s suppressor coordinates and place it after the bullet bone, usually the bottom of this section.
@@ -57,7 +57,7 @@ It will look like this in the editor. We copy-paste the PKM’s suppressor coord
 
 You might wonder how to find the coordinates for the suppressor to attach. Since the suppressor attaches itself at the end of the barrel and it is also where the muzzle FX (smoke and flames) spawn from, it makes sense to have coordinates be very close.
 
-Let’s assume it’s X, Y, Z. For the PKM, the Y-value is about **0.06** from the FX\_FIRE, while Z is identical. FX\_FIRE will always be different from weapon to weapon. If you want 100% accuracy, subtract the Y-values. The PKM value in this case is **0.058783** difference on the Y-axis. Very close to the **0.06** I guessed on.  
+Let’s assume it’s X, Y, Z. For the PKM, the Y-value is about **0.06** from the FX\_FIRE, while Z is identical. FX\_FIRE will always be different from weapon to weapon. If you want 100% accuracy, subtract the Y-values. The PKM value in this case is **0.058783** difference on the Y-axis. Very close to the **0.06** I guessed on. 
 ![][image6]
 
 ## Time to HxD\!
@@ -76,7 +76,7 @@ Open up in HxD. In HxD, ensure you only see the bytes in hexadecimal and that th
 
 If it looks like this, then it’s all good\!
 
-In your .xml editor of choice, make an info\_replace and paste all the hash values in. You can wrap the content for readability.  
+In your .xml editor of choice, make an info\_replace and paste all the hash values in. You can wrap the content for readability. 
 ![][image9]
 
 ## You are done\!

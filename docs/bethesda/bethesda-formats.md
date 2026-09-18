@@ -22,9 +22,9 @@ BSA archives are the primary container format for Elder Scrolls and early Fallou
 
 ```c
 struct BSAHeader {
-    uint32 magic;        // "BSA\0"
-    uint32 version;      // 104 (Skyrim LE), 105 (Skyrim SE)
-    uint32 offset;       // Offset to filename buffer
+ uint32 magic; // "BSA\0"
+ uint32 version; // 104 (Skyrim LE), 105 (Skyrim SE)
+ uint32 offset; // Offset to filename buffer
 };
 ```
 
@@ -66,33 +66,33 @@ Fallout 4 introduced BA2 (magic `BTDX`). Two sub-formats:
 ### BA2 GNRL Header (Ekey, 2015)
 
 ```c
-idstring "BTDX"          // Magic: "BTDX"
-get VERSION long         // Version number
-idstring "GNRL"          // Sub-format identifier
-get FILES long           // Number of files
+idstring "BTDX" // Magic: "BTDX"
+get VERSION long // Version number
+idstring "GNRL" // Sub-format identifier
+get FILES long // Number of files
 get NAMES_TABLE_OFFSET long
 get NULL long
 ```
 
 **File entry structure:**
 ```c
-get DUMMY long           // Unknown
-getdstring EXT 4         // File extension (4 chars)
+get DUMMY long // Unknown
+getdstring EXT 4 // File extension (4 chars)
 get DUMMY long
 get DUMMY long
-get OFFSET long          // Offset in archive
-get NULL long            // Padding
-get ZSIZE long           // Compressed size
-get SIZE long            // Decompressed size
+get OFFSET long // Offset in archive
+get NULL long // Padding
+get ZSIZE long // Compressed size
+get SIZE long // Decompressed size
 get DUMMY long
 ```
 
 **Extraction logic:**
 ```
 if ZSIZE == SIZE:
-    log NAME OFFSET ZSIZE      # Uncompressed
+ log NAME OFFSET ZSIZE # Uncompressed
 else:
-    clog NAME OFFSET ZSIZE SIZE  # Compressed (zlib)
+ clog NAME OFFSET ZSIZE SIZE # Compressed (zlib)
 ```
 
 ### BA2 DX10 Texture Format (MrAdults, 2015; Loomy, 2016; GRiNDERKILLER, 2016)
@@ -109,27 +109,27 @@ Texture archives use DX10 DDS headers. The archive stores the DXGI format direct
 **DDS header template** (010 Editor):
 ```c
 typedef struct {
-    CHAR    fType[4];      // "DDS "
-    uint32  size;           // 124
-    ubyte   flags[4];
-    uint32  height;
-    uint32  width;
-    uint32  sizeorpitch;
-    uint32  depth;
-    uint32  mipmapcount;
-    uint32  alphabitdepth;
-    uint32  reserved[10];
+ CHAR fType[4]; // "DDS "
+ uint32 size; // 124
+ ubyte flags[4];
+ uint32 height;
+ uint32 width;
+ uint32 sizeorpitch;
+ uint32 depth;
+ uint32 mipmapcount;
+ uint32 alphabitdepth;
+ uint32 reserved[10];
 } DDSHEADER;
 
 typedef struct {
-    uint32  size;
-    ubyte   flags[4];
-    uint32  fourcc;
-    uint32  rgbbitcount;
-    uint32  rbitmask;
-    uint32  gbitmask;
-    uint32  bbitmask;
-    uint32  alphabitmask;
+ uint32 size;
+ ubyte flags[4];
+ uint32 fourcc;
+ uint32 rgbbitcount;
+ uint32 rbitmask;
+ uint32 gbitmask;
+ uint32 bbitmask;
+ uint32 alphabitmask;
 } PIXELFORMAT;
 ```
 
@@ -148,28 +148,28 @@ savepos TEMP
 
 goto NAMES_TABLE_OFFSET
 for i = 0 < FILES
-  get NSIZE short
-  getdstring NAME NSIZE
-  putarray 0 i NAME
+ get NSIZE short
+ getdstring NAME NSIZE
+ putarray 0 i NAME
 next i
 
 goto TEMP
 for i = 0 < FILES
-    get DUMMY long
-    getdstring EXT 4
-    get DUMMY long
-    get DUMMY long
-    get OFFSET long
-    get NULL long
-    get ZSIZE long
-    get SIZE long
-    get DUMMY long
-    getarray NAME 0 i
-    if ZSIZE == SIZE
-       log NAME OFFSET ZSIZE
-    else
-       clog NAME OFFSET ZSIZE SIZE
-    endif
+ get DUMMY long
+ getdstring EXT 4
+ get DUMMY long
+ get DUMMY long
+ get OFFSET long
+ get NULL long
+ get ZSIZE long
+ get SIZE long
+ get DUMMY long
+ getarray NAME 0 i
+ if ZSIZE == SIZE
+ log NAME OFFSET ZSIZE
+ else
+ clog NAME OFFSET ZSIZE SIZE
+ endif
 next i
 ```
 
@@ -211,10 +211,10 @@ Standard Gamebryo NIF format. NifTools/NifSkope supports it.
 
 **Noesis NIF loading commands:**
 ```
--nifloadskel <filename>    # Load external skeleton for hierarchy
--nifnotransform            # Don't transform geometry (for exported pieces)
--ddsati2nonorm             # Disable ATI2 normalization (safe for all FO4)
--fbxnewexport              # Export current FBX format (not legacy 6100)
+-nifloadskel <filename> # Load external skeleton for hierarchy
+-nifnotransform # Don't transform geometry (for exported pieces)
+-ddsati2nonorm # Disable ATI2 normalization (safe for all FO4)
+-fbxnewexport # Export current FBX format (not legacy 6100)
 ```
 
 **Vertex format flags** (jonwd7, 2015):
@@ -246,8 +246,8 @@ Standard Gamebryo NIF format. NifTools/NifSkope supports it.
 - Width at offset 0x40 (int)
 - Height at offset 0x44 (int)
 - Format ID at offset 0x50 (int):
-  - 0x42 = DXT1 (BC1)
-  - 0x44 = DXT5 (BC3)
+ - 0x42 = DXT1 (BC1)
+ - 0x44 = DXT5 (BC3)
 - Mipmap count at offset 0x54 (int)
 - Total data size at offset 0x58 (int)
 - Mip offset table starts at 0x5C

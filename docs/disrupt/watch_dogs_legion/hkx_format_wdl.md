@@ -9,14 +9,14 @@ Reversed from Watch Dogs: Legion retail and leak (2026-08-19).
 
 ## Dunia Wrapper Header (16 bytes)
 
-| Offset | Type   | Field           | Cooked 0x9C     | Portable 0x9B   |
+| Offset | Type | Field | Cooked 0x9C | Portable 0x9B |
 |--------|--------|-----------------|-----------------|-----------------|
-| +0     | u8     | Class           | `0x9C` (x64)   | `0x9B` (portable)|
-| +1..3  | u8[3]  | Zero padding    | `00 00 00`      | `00 00 00`      |
-| +4     | u32 LE | Content hash    | varies (0 = injected) | varies   |
-| +8     | u32 LE | Payload size    | TAG0 chunk size | TAG0 chunk size |
-| +12    | u16 LE | Format case     | `0x0000`–`0x0008` | `0x0000`     |
-| +14    | u16 LE | Build tag       | `0x83DE`/`0xFFFF` | `0x3ACA`     |
+| +0 | u8 | Class | `0x9C` (x64) | `0x9B` (portable)|
+| +1..3 | u8[3] | Zero padding | `00 00 00` | `00 00 00` |
+| +4 | u32 LE | Content hash | varies (0 = injected) | varies |
+| +8 | u32 LE | Payload size | TAG0 chunk size | TAG0 chunk size |
+| +12 | u16 LE | Format case | `0x0000`–`0x0008` | `0x0000` |
+| +14 | u16 LE | Build tag | `0x83DE`/`0xFFFF` | `0x3ACA` |
 
 **Havok tagfile starts at +16** — the first 8 bytes at +16 are the TAG0 chunk header:
 `[chunk_size:u32be][magic:4 = "TAG0"]`, so the ASCII "TAG0" appears at file offset 20.
@@ -45,29 +45,29 @@ corpus files. The Havok tagfile size is **uncompressed**.
 
 ### Format Case + Build Tag Combinations
 
-| FC (+12) | Tag (+14) | TCRF? | Description                          |
+| FC (+12) | Tag (+14) | TCRF? | Description |
 |----------|-----------|-------|--------------------------------------|
-| 0        | `0x3ACA`  | Yes   | Portable cooked (0x9B and 0x9C)      |
-| 0        | `0x83DE`  | Yes   | Platform-compiled cooked (0x9C only)  |
-| 1        | `0x83DE`  | Yes   | Retail platform-compiled (0x9C only)  |
-| 8        | `0xFFFF`  | No    | Self-contained TYPE (no compendium)   |
+| 0 | `0x3ACA` | Yes | Portable cooked (0x9B and 0x9C) |
+| 0 | `0x83DE` | Yes | Platform-compiled cooked (0x9C only) |
+| 1 | `0x83DE` | Yes | Retail platform-compiled (0x9C only) |
+| 8 | `0xFFFF` | No | Self-contained TYPE (no compendium) |
 
 Handler allocation sizes per format case in `sub_187EA1140`:
-- Case 0: 128 bytes  | Case 1: 88 bytes  | Case 2,7,8: 72 bytes
-- Case 3: 88 bytes   | Case 4: 336 bytes | Case 5: 104 bytes | Case 6: 80 bytes
+- Case 0: 128 bytes | Case 1: 88 bytes | Case 2,7,8: 72 bytes
+- Case 3: 88 bytes | Case 4: 336 bytes | Case 5: 104 bytes | Case 6: 80 bytes
 
 ### Header parsing in engine (`sub_187EA1140`)
 
 ```
-*(_DWORD *)a1  must == 0x9C (156 LE) — only class 0x9C with zero padding accepted
-*(_WORD *)(a1 + 12)  — format case switch (cases 0–8, different handler sizes)
+*(_DWORD *)a1 must == 0x9C (156 LE) — only class 0x9C with zero padding accepted
+*(_WORD *)(a1 + 12) — format case switch (cases 0–8, different handler sizes)
 *(_WORD *)(a1 + 14) == 0xFFFF — special compendium-based path (sub_187EA14C0)
 a1 + 16 → havok tagfile stream passed to hkSerialize_Load_toVarInplace
 ```
 
 Format case handler sizes (allocated per case):
-- Case 0: 128 bytes  | Case 1: 88 bytes | Case 2,7,8: 72 bytes
-- Case 3: 88 bytes   | Case 4: 336 bytes | Case 5: 104 bytes | Case 6: 80 bytes
+- Case 0: 128 bytes | Case 1: 88 bytes | Case 2,7,8: 72 bytes
+- Case 3: 88 bytes | Case 4: 336 bytes | Case 5: 104 bytes | Case 6: 80 bytes
 
 Class `0x9B` resources fail the `!= 156` check and are rejected via
 `CPhysResource_OnDeserializeHeaderFail`, which sets flag `0x40` on the resource.
@@ -88,11 +88,11 @@ Class `0x9B` resources fail the `!= 156` check and are rejected via
 **Crash Call Stack** (identified):
 ```
 Entity_GetComponentByTypeId — null entity pointer crash
-sub_186038230                   Vehicle streaming update (huge func, 1113 lines decompiled)
-sub_18661C580                   Entity component accessor
+sub_186038230 Vehicle streaming update (huge func, 1113 lines decompiled)
+sub_18661C580 Entity component accessor
 CVehiclePhys_RecomputeHealth... Vehicle physics health ratio
-CVehiclePhys_InitializeDamage   Vehicle damage state init
-CVehiclePhys_UpdateDamageTimer  Vehicle damage timer (decompiled)
+CVehiclePhys_InitializeDamage Vehicle damage state init
+CVehiclePhys_UpdateDamageTimer Vehicle damage timer (decompiled)
 ```
 
 **Key Functions Named in IDA:**
@@ -113,34 +113,34 @@ CVehiclePhys_UpdateDamageTimer  Vehicle damage timer (decompiled)
 **WDL Retail Havok Call Flow (□ΞnCrypTΞD□, 8/19/26):**
 ```
 Parse header
-  → Factory create
-       ├─► fail → C [CPhysResource_OnDeserializeHeaderFail 0x187F17730]
-       → Load tagfile
-                    ├─► E {CPhysCompendium_LoadOrCache 0x187EA1650}
-                    │    └─► F [generated\physics\%s.hkc via ArchiveFS]
-                    │         └─► G [CPhysCompendium_ParseTCM0Buffer 0x188D89B20]
-                    └─► H [hkSerialize_LoadtoVarInplace 0x188D89D60]
-                         └─► I [hkTagfileReadFormat* chunk dispatch]
-                              → Read TCRF
-                                   → Apply pointer fixups
+ → Factory create
+ ├─► fail → C [CPhysResource_OnDeserializeHeaderFail 0x187F17730]
+ → Load tagfile
+ ├─► E {CPhysCompendium_LoadOrCache 0x187EA1650}
+ │ └─► F [generated\physics\%s.hkc via ArchiveFS]
+ │ └─► G [CPhysCompendium_ParseTCM0Buffer 0x188D89B20]
+ └─► H [hkSerialize_LoadtoVarInplace 0x188D89D60]
+ └─► I [hkTagfileReadFormat* chunk dispatch]
+ → Read TCRF
+ → Apply pointer fixups
 ```
 
 **Resource Descriptor Table:**
 Located at `0x18B295120`. Each entry is 0x60 (96) bytes:
 ```
-+0x00: u32     Resource type hash (e.g. 0x048086C9 for nomadPhysResourceData)
-+0x04: u32     Padding (0)
-+0x08: ptr     Secondary table pointer
-+0x10: u64     Flags/count (0x7)
-+0x18: ptr     Name string → "nomadPhysResourceData" at 0x18A697EC0
-+0x20: ptr     Pre-compile func (0x187EE5430) — zeroes out resource slots
-+0x28: ptr     Compile function
-+0x30: ptr     Cleanup func (0x187EE54E0) — calls destructors
-+0x38: ptr     Bind function
-+0x40: ptr     null
-+0x48: u64     Flags (0x80018)
-+0x50: ptr     Name suffix pointer
-+0x58: u64     null
++0x00: u32 Resource type hash (e.g. 0x048086C9 for nomadPhysResourceData)
++0x04: u32 Padding (0)
++0x08: ptr Secondary table pointer
++0x10: u64 Flags/count (0x7)
++0x18: ptr Name string → "nomadPhysResourceData" at 0x18A697EC0
++0x20: ptr Pre-compile func (0x187EE5430) — zeroes out resource slots
++0x28: ptr Compile function
++0x30: ptr Cleanup func (0x187EE54E0) — calls destructors
++0x38: ptr Bind function
++0x40: ptr null
++0x48: u64 Flags (0x80018)
++0x50: ptr Name suffix pointer
++0x58: u64 null
 ```
 95+ resource types share the same CPhysResource_Compile/Bind pointers.
 6 code locations reference the table base (LEA instructions).
@@ -160,22 +160,22 @@ The 16-byte Dunia header is NOT parsed by the `CPhysResource_Compile`/`Bind` fun
 
 **CPhysResource_Compile Flow (session 2):**
 ```
-+0x000  Prologue, save registers
-+0x01E  CALL 0x188DC32B0 — get resource type/version (MOVZX ax)
-+0x030  CALL 0x188DFBD70 — memset/init buffer
-+0x03D  CALL 0x188DC40C0 — popcount-based array index
-+0x062  JZ +0x09C if accessor returns null → skip Havok deser
-+0x064  CALL 0x188DC4260 — another accessor
-+0x089  CALL 0x188DC9D20 — Havok container/array loader
-+0x097  CALL 0x1895EA010 — Havok tagfile loader
-+0x0A4  CALL 0x188DC40C0 — get physics world resource (hash 0x04000000)
-+0x0AC  JZ +0x153 if world resource null → clean exit (no crash)
-+0x0D7  Loop: iterate resource elements
-+0x0EB  CALL 0x188DC4540 — init resource slot
-+0x100  CALL 0x188DC4800 — load element
-+0x136  CALL 0x188DC9D20 — deserialize element Havok data
-+0x142  JNZ +0x0E0 — loop back
-+0x153  Epilogue
++0x000 Prologue, save registers
++0x01E CALL 0x188DC32B0 — get resource type/version (MOVZX ax)
++0x030 CALL 0x188DFBD70 — memset/init buffer
++0x03D CALL 0x188DC40C0 — popcount-based array index
++0x062 JZ +0x09C if accessor returns null → skip Havok deser
++0x064 CALL 0x188DC4260 — another accessor
++0x089 CALL 0x188DC9D20 — Havok container/array loader
++0x097 CALL 0x1895EA010 — Havok tagfile loader
++0x0A4 CALL 0x188DC40C0 — get physics world resource (hash 0x04000000)
++0x0AC JZ +0x153 if world resource null → clean exit (no crash)
++0x0D7 Loop: iterate resource elements
++0x0EB CALL 0x188DC4540 — init resource slot
++0x100 CALL 0x188DC4800 — load element
++0x136 CALL 0x188DC9D20 — deserialize element Havok data
++0x142 JNZ +0x0E0 — loop back
++0x153 Epilogue
 ```
 
 CPhysResource_Compile handles null resources gracefully (JZ to clean exit at +0x0AC). The crash is NOT in the compile phase — it's downstream when `CVehiclePhys` tries to access an entity that was never fully created. The physics component compiles but produces a broken world due to malformed cooked Havok DATA (3,616 missing bytes, different pointer fixups in 16,221 ranges).
@@ -183,29 +183,29 @@ CPhysResource_Compile handles null resources gracefully (JZ to clean exit at +0x
 ## Havok Tagfile Structure (inside payload)
 
 ```
-+0   TAG0 (4 bytes) — Havok binary tagfile magic
-+4   u32 BE — TAG0 header size? (0x40000010)
-+8   SDKV (4 bytes) — SDK version marker
-+12  "20170200" (8 bytes) — Havok SDK 2017.2.0 (portable files use `20170200`
-     without `@`; platform-compiled files append `@`)
-+20  u32 LE — Data size (0x4003CFF8 retail, 0x4003C1D8 cooked)
-+24  DATA (4 bytes) — Data section marker
-+28  ... data content ...
++0 TAG0 (4 bytes) — Havok binary tagfile magic
++4 u32 BE — TAG0 header size? (0x40000010)
++8 SDKV (4 bytes) — SDK version marker
++12 "20170200" (8 bytes) — Havok SDK 2017.2.0 (portable files use `20170200`
+ without `@`; platform-compiled files append `@`)
++20 u32 LE — Data size (0x4003CFF8 retail, 0x4003C1D8 cooked)
++24 DATA (4 bytes) — Data section marker
++28 ... data content ...
 ...
-     TCRF (4 bytes) — Type Compendium Reference (platform-specific only)
+ TCRF (4 bytes) — Type Compendium Reference (platform-specific only)
 ```
 
 ## Key Differences: Retail vs Cooked
 
-| Property           | Retail           | Cooked           | Portable         |
+| Property | Retail | Cooked | Portable |
 |--------------------|------------------|------------------|------------------|
-| File size          | 274,000 B        | 270,384 B        | 283,256 B        |
-| Checksum           | 0x0CE24C15       | **0x00000000**   | 0x2F8B7D52       |
-| DATA section size  | 249,848 B        | 246,232 B        | ~259,148 B       |
-| TCRF present       | Yes (24,108 B)   | Yes (24,108 B)   | **No**           |
-| TCRF identical     | —                | **5,594 byte diffs** | —             |
-| DATA byte diffs    | —                | 16,221 ranges    | ~165 vs cooked   |
-| Extra DATA bytes   | +3,616 B         | baseline         | much larger      |
+| File size | 274,000 B | 270,384 B | 283,256 B |
+| Checksum | 0x0CE24C15 | **0x00000000** | 0x2F8B7D52 |
+| DATA section size | 249,848 B | 246,232 B | ~259,148 B |
+| TCRF present | Yes (24,108 B) | Yes (24,108 B) | **No** |
+| TCRF identical | — | **5,594 byte diffs** | — |
+| DATA byte diffs | — | 16,221 ranges | ~165 vs cooked |
+| Extra DATA bytes | +3,616 B | baseline | much larger |
 
 ### DATA differences detail
 
@@ -222,11 +222,11 @@ Both retail and cooked have TCRF sections at 24,108 B with 5,594 byte difference
 
 ```
 .hkr (Havok Resource)
-  ↓ CPhysCompiler (version 0x9B)
+ ↓ CPhysCompiler (version 0x9B)
 .hkx.portable (class 0x9B, checksum = CRC32 of .hkr)
-  ↓ Platform compilation (adds TCRF, fixes up pointers)
+ ↓ Platform compilation (adds TCRF, fixes up pointers)
 .hkx (class 0x9C, checksum = ???, build 0xDE83)
-  ↓ FAT packing
+ ↓ FAT packing
 london_preload.fat/.dat
 ```
 
@@ -236,7 +236,7 @@ london_preload.fat/.dat
 After tagfile loading, a fixup loop iterates pairs of `(offset, value)` from a fixup table and writes QWORD values into the deserialized buffer:
 ```
 for each fixup_entry:
-    *(u64*)(target_buffer + fixup_table[i].offset) = fixup_table[i].value
+ *(u64*)(target_buffer + fixup_table[i].offset) = fixup_table[i].value
 ```
 Malformed data causes pointer fixup failures leading to crashes in physics bind.
 
@@ -271,11 +271,11 @@ All 4 variants are class `0x9B` (portable), same checksum `0xE8C22BBC`, same TCR
 
 | Build tag | Class | Description |
 |-----------|-------|-------------|
-| `0x0000`  | 0x9B  | Portable (from .hkr source) |
-| `0x0100`  | 0x9C  | Platform-compiled variant A |
-| `0x0800`  | 0x9C  | Platform-compiled variant B (no TCRF!) |
-| `0xDE83`  | 0x9C  | Standard retail platform build |
-| `0xFFFF`  | 0x9B  | Portable variant B |
+| `0x0000` | 0x9B | Portable (from .hkr source) |
+| `0x0100` | 0x9C | Platform-compiled variant A |
+| `0x0800` | 0x9C | Platform-compiled variant B (no TCRF!) |
+| `0xDE83` | 0x9C | Standard retail platform build |
+| `0xFFFF` | 0x9B | Portable variant B |
 
 ## Havok Tagfile Chunk Format (session 4)
 
@@ -328,16 +328,16 @@ Reads a Type Compendium Reference from the TCRF chunk:
 
 Processes object entries from the ITEM section — the critical path for pointer fixups:
 - **ITEM entry format**: 12 bytes per entry
-  ```
-  [type_index:u24 + flags:u8] [data_offset:u32] [data_size:u32]
-  ```
+ ```
+ [type_index:u24 + flags:u8] [data_offset:u32] [data_size:u32]
+ ```
 - Each ITEM entry points into the DATA section at a specific offset with a specific size
 - Error: "ITEMS section has the wrong size" if `size % 12 != 0`
 - Error: "No types found. Was this input created for inplace loading?"
 - For each ITEM:
-  1. Extracts type index (low 24 bits of first DWORD)
-  2. Resolves type via `sub_1895E9CE0` → type identity resolution
-  3. If type resolved (index >= 0): calls `sub_1895E9D00` → pointer fixup loop
+ 1. Extracts type index (low 24 bits of first DWORD)
+ 2. Resolves type via `sub_1895E9CE0` → type identity resolution
+ 3. If type resolved (index >= 0): calls `sub_1895E9D00` → pointer fixup loop
 
 ### Type Identity Resolver (`sub_1895EB070`)
 
@@ -369,9 +369,9 @@ Resolves tagfile type descriptors to runtime type indices:
 
 **Function Pointer Patcher (`sub_1895EC4E0`)**:
 - Uses popcount accessor (`sub_188DC4120`) to look up handler function pointers:
-  - Flag `64` → compile function pointer
-  - Flag `128` → serialization handler (Compile function)
-  - Flag `1024` → bind function pointer
+ - Flag `64` → compile function pointer
+ - Flag `128` → serialization handler (Compile function)
+ - Flag `1024` → bind function pointer
 - If loaded handler doesn't match expected: patches in engine's own handlers
 - Ensures `CPhysResource_Compile` and `CPhysResource_Bind` are always used
 - **Class byte (0x9B/0x9C) does NOT affect which compile function is called**
@@ -380,25 +380,25 @@ Resolves tagfile type descriptors to runtime type indices:
 
 All HKX files share this chunk structure inside TAG0:
 ```
-TAG0                          Container (sibling chunks inside)
-  SDKV  (8 bytes)             SDK version: "20170200"
-  DATA  (variable)            Serialized object data
-  TCRF  (24 bytes)  OR        Type Compendium Reference (sibling chunk inside TAG0)
-  TYPE  (variable)            Self-contained type definitions (replaces TCRF)
-  INDX                        Index container:
-    ITEM  (N*12 bytes)          Object entries: [type_idx:u24+flags:u8][data_off:u32][data_sz:u32]
-    PTCH  (variable)            Pointer fixup list
+TAG0 Container (sibling chunks inside)
+ SDKV (8 bytes) SDK version: "20170200"
+ DATA (variable) Serialized object data
+ TCRF (24 bytes) OR Type Compendium Reference (sibling chunk inside TAG0)
+ TYPE (variable) Self-contained type definitions (replaces TCRF)
+ INDX Index container:
+ ITEM (N*12 bytes) Object entries: [type_idx:u24+flags:u8][data_off:u32][data_sz:u32]
+ PTCH (variable) Pointer fixup list
 ```
 **TCRF is a sibling chunk inside TAG0** (alongside DATA, INDX, etc.) — NOT a separate section after TAG0's closing.
 
 ### Build Tags and Format Cases
 
-| Header +12 | Header +14 | Chunk   | Description |
+| Header +12 | Header +14 | Chunk | Description |
 |------------|------------|---------|-------------|
-| 0 (case 0) | `0x3ACA`   | TCRF    | Cooked portable (0x9B and 0x9C) |
-| 0 (case 0) | `0x83DE`   | TCRF    | Retail platform-compiled (0x9C) |
-| 1 (case 1) | `0x83DE`   | TCRF    | Custom injected (0x9C) |
-| 8 (case 8) | `0xFFFF`   | TYPE    | Self-contained, no compendium |
+| 0 (case 0) | `0x3ACA` | TCRF | Cooked portable (0x9B and 0x9C) |
+| 0 (case 0) | `0x83DE` | TCRF | Retail platform-compiled (0x9C) |
+| 1 (case 1) | `0x83DE` | TCRF | Custom injected (0x9C) |
+| 8 (case 8) | `0xFFFF` | TYPE | Self-contained, no compendium |
 
 ### TCRF Compendium Signatures
 
@@ -434,17 +434,17 @@ ITEM INDEX (not a byte offset).** Resolve: `target = u32le(DATA, location)` →
 
 Example (armoredtruck, 32 entries, 910 total fixup locations):
 ```
-type=3   count=69  offsets=[184, 248, 312, ...]    # hkRefPtr pointers
-type=17  count=22  offsets=[11336, 12696, ...]      # shape references
-type=74  count=95  offsets=[1752, 43432, ...]        # convex polytope data
+type=3 count=69 offsets=[184, 248, 312, ...] # hkRefPtr pointers
+type=17 count=22 offsets=[11336, 12696, ...] # shape references
+type=74 count=95 offsets=[1752, 43432, ...] # convex polytope data
 ```
 
 ### ITEM Entry Format (LE)
 
 12 bytes per entry:
 ```
-[byte 0-3]  type_index (low 24 bits) + flags (high 8 bits)
-[byte 4-7]  data_offset into DATA section
+[byte 0-3] type_index (low 24 bits) + flags (high 8 bits)
+[byte 4-7] data_offset into DATA section
 [byte 8-11] element_count (NOT byte size)
 ```
 - flags `0x10` = single object
@@ -532,20 +532,20 @@ When an HKX uses an external compendium (TCRF chunk, build tag != `0xFFFF`), the
 
 1. Linear search cache for matching build tag.
 2. On miss: format path `generated\physics\<build_tag_decimal>.hkc` where the build tag
-   u16 (+14) is formatted as a **decimal string** (e.g. `0x83DE` → `"33758"` →
-   `generated\physics\33758.hkc`; `0x3ACA` → `"15050"` → `generated\physics\15050.hkc`).
-   Open via `ArchiveFS_OpenStream`, read entire file into buffer.
+ u16 (+14) is formatted as a **decimal string** (e.g. `0x83DE` → `"33758"` →
+ `generated\physics\33758.hkc`; `0x3ACA` → `"15050"` → `generated\physics\15050.hkc`).
+ Open via `ArchiveFS_OpenStream`, read entire file into buffer.
 3. Call `sub_188D89B20(entry, buffer, size)` → parses TCM0 tagfile into the entry's
-   TagfileReadFormat inner state.
+ TagfileReadFormat inner state.
 4. Return cache entry pointer; callers pass this as the `hkSerialize` context to
-   `hkSerialize_Load_toVarInplace` when loading the HKX payload.
+ `hkSerialize_Load_toVarInplace` when loading the HKX payload.
 
 **Callers:**
 
 - `sub_187EA14C0` — primary Havok resource factory path (`CPhysResource` compile/bind).
 - `sub_187EA72A0` — alternate loader; if `sub_187EA1650` returns NULL (missing `.hkc`),
-  falls back to `hkSerialize_Load_toVarInplace` **without** compendium context → TCRF load
-  fails at runtime.
+ falls back to `hkSerialize_Load_toVarInplace` **without** compendium context → TCRF load
+ fails at runtime.
 
 **TCM0 parse state machine (TagfileReadFormat inner object, 544 bytes from `sub_188DD77E0`):**
 
@@ -558,14 +558,14 @@ When an HKX uses an external compendium (TCRF chunk, build tag != `0xFFFF`), the
 Lifecycle inside Havok tagfile reader:
 
 1. `sub_188DDAA50` — magic check: `TAG0` (`0x54414730`) for HKX, `TCM0` (`0x54434D30`)
-   for `.hkc`; TCM0 sets mode **2**.
+ for `.hkc`; TCM0 sets mode **2**.
 2. `sub_188DD3990` (TCID chunk) — only valid in mode 2; reads 8-byte signatures from TCID
-   chunk body, appends to array at +288.
+ chunk body, appends to array at +288.
 3. `sub_188DDAEE0` — post-load finalizer; when root magic was TCM0, sets mode **1**
-   (compendium ready).
+ (compendium ready).
 4. `hkTagfileReadFormat_ReadTCRF` (`0x188DD3B10`) — requires mode **1**; reads 8-byte
-   signature from TCRF chunk, linear-searches +288 array; on match + inplace load, patches
-   type-table pointers into the TCRF buffer (+16 bytes after signature).
+ signature from TCRF chunk, linear-searches +288 array; on match + inplace load, patches
+ type-table pointers into the TCRF buffer (+16 bytes after signature).
 
 Chunk handler table: `0x18A772C10` (32-byte entries, BE-swapped ASCII magic at +16).
 
@@ -606,19 +606,19 @@ in HKX files are **big-endian u64** (wire order matches hex literals like
 type indices in ITEM entries are compendium-specific. Different TCRF signatures
 map the SAME logical type (e.g., `hknpConvexPolytopeShape`) to DIFFERENT indices:
 
-| Logical Type (estimated)        | TCRF `0x1D2C...` | TCRF `0xC85CE6...` | TCRF `0x8BD53C...` | TYPE (FC=8) |
+| Logical Type (estimated) | TCRF `0x1D2C...` | TCRF `0xC85CE6...` | TCRF `0x8BD53C...` | TYPE (FC=8) |
 |--------------------------------|-------------------|--------------------|--------------------|-------------|
-| hkUint16 array                 | 4                 | 4                  | -                  | -           |
-| hkVector4 array                | 13                | 13                 | 13                 | 13          |
-| nomadPhysResourceData          | 15                | 15                 | -                  | -           |
-| hkHalf16 array                 | 16                | 16                 | -                  | -           |
-| nomadStaticPhysResourceData    | 25                | 25                 | 25                 | 25          |
-| hkRefCountedProperties         | 30                | 30                 | 30                 | 30          |
-| hknpConvexPolytopeShape::Face  | 60                | 60                 | -                  | -           |
-| hknpConvexPolytopeShape        | 61                | 61                 | -                  | 61          |
-| ...                            | ...               | ...                | ...                | ...         |
-| hknpShapeMassProperties        | 151/153           | 153                | 151                | 80          |
-| hkCompressedMassProperties     | 152/157           | 157                | 152                | -           |
+| hkUint16 array | 4 | 4 | - | - |
+| hkVector4 array | 13 | 13 | 13 | 13 |
+| nomadPhysResourceData | 15 | 15 | - | - |
+| hkHalf16 array | 16 | 16 | - | - |
+| nomadStaticPhysResourceData | 25 | 25 | 25 | 25 |
+| hkRefCountedProperties | 30 | 30 | 30 | 30 |
+| hknpConvexPolytopeShape::Face | 60 | 60 | - | - |
+| hknpConvexPolytopeShape | 61 | 61 | - | 61 |
+| ... | ... | ... | ... | ... |
+| hknpShapeMassProperties | 151/153 | 153 | 151 | 80 |
+| hkCompressedMassProperties | 152/157 | 157 | 152 | - |
 
 Files with TCRF `0x75BD986E53EDABBB` (the zero-hash injected file) use the same
 35 type indices as TCRF `0x1D2C7F8EF1C03947`, referencing compendiums with
@@ -627,21 +627,21 @@ compatible type layouts.
 **Key findings from cross-compendium analysis:**
 
 1. **TCRF compendiums for the same class (0x9C) share type indices** — types 3, 4, 13,
-   16, 25, 30, 70, 76, 98, 152, 160, 161, 164, 167, 208 are identical across 0x8BD5,
-   0xC85CE6EA, and 0x1D2C7F8E compendiums. Only the root container type differs
-   (206 in small compendium vs 333 in larger ones).
+ 16, 25, 30, 70, 76, 98, 152, 160, 161, 164, 167, 208 are identical across 0x8BD5,
+ 0xC85CE6EA, and 0x1D2C7F8E compendiums. Only the root container type differs
+ (206 in small compendium vs 333 in larger ones).
 
 2. **portable compendiums use DIFFERENT type indices AND different type sizes.**
-   The BD28 compendium (0x9B) maps hknpConvexPolytopeShape to type[153] at 96 bytes,
-   while C85C (0x9C) maps it to type[152] at 112 bytes. Portable types use different
-   alignment or pointer sizes.
+ The BD28 compendium (0x9B) maps hknpConvexPolytopeShape to type[153] at 96 bytes,
+ while C85C (0x9C) maps it to type[152] at 112 bytes. Portable types use different
+ alignment or pointer sizes.
 
 3. **Cross-class swapping is impossible** — 0x9B and 0x9C files have physically different
-   DATA layouts due to different type sizes. The engine rejects 0x9B files
-   (`sub_187EA1140` requires DWORD==0x9C).
+ DATA layouts due to different type sizes. The engine rejects 0x9B files
+ (`sub_187EA1140` requires DWORD==0x9C).
 
 4. **Same-class swapping between 0x9C compendiums is safe** for most types since indices
-   are shared. Only the root type index needs attention.
+ are shared. Only the root type index needs attention.
 
 **Implication**: To inject HKX physics into a different vehicle slot:
 - Use same-class (0x9C) files only

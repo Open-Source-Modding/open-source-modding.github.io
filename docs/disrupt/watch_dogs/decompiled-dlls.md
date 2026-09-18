@@ -71,7 +71,7 @@ rendezvous server communication. Debug traces from hook development reveal:
 
 **Rendezvous Backend Login:**
 - `RdvBackendLogin_Detour` — detour hook function in Disrupt_b64.dll for
-  intercepting the backend login flow
+ intercepting the backend login flow
 - Sandbox alias: `main_dlc`
 - Sandbox access key: `p4BkcPBh`
 - PRUDP endpoint: `prudp:/address=1b-rdv-as-prodel.ubisoft.com;port=21601`

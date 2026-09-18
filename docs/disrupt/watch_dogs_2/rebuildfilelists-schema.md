@@ -49,9 +49,9 @@ schemas drive the `RebuildFileLists` tool (Gibbed.Disrupt).
 
 ```bash
 dotnet run --project projects/Gibbed.WatchDogs2.RebuildFileLists -- \
-  --install-path="/path/to/WATCH_DOGS2" \
-  --output-dir="output/" \
-  --data-prefix="data_win64"
+ --install-path="/path/to/WATCH_DOGS2" \
+ --output-dir="output/" \
+ --data-prefix="data_win64"
 ```
 
 Output: `data_win64/filelist.txt` — one path per line, backslash-separated.

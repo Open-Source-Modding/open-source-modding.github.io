@@ -36,12 +36,12 @@ description itself states it is "based on the Dunia engine."
 ## Format Inheritance
 
 - **Archive format** (`.dat`/`.fat`) is identical across Far Cry 3–6 and all
-  Disrupt titles. Tools like Gibbed.Disrupt handle both.
+ Disrupt titles. Tools like Gibbed.Disrupt handle both.
 - **Binary object format** (`.fcb`, compiled XML) uses the same serialization.
-  `Gibbed.Disrupt.ConvertBinaryObject.exe` works across games (WD2 version
-  handles WDL binary objects).
+ `Gibbed.Disrupt.ConvertBinaryObject.exe` works across games (WD2 version
+ handles WDL binary objects).
 - **XML conventions** for material descriptors, entity definitions, and world
-  data follow Dunia 2 patterns.
+ data follow Dunia 2 patterns.
 
 ## Cross-References
 

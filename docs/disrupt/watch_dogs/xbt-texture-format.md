@@ -71,9 +71,9 @@ header in `DDS2XBT.bat` causes brightness/gamma issues.
 - `_High` textures = lowest mip level (highest resolution for close viewing)
 - Separate files (WD doesn't use mipmap chain in single file)
 - **Correct replacement workflow**:
-  1. Export `_high` WITHOUT mipmaps
-  2. Halve non-high resolution + export WITH mipmaps
-  3. Non-high XBT header references `_high` filepath
+ 1. Export `_high` WITHOUT mipmaps
+ 2. Halve non-high resolution + export WITH mipmaps
+ 3. Non-high XBT header references `_high` filepath
 
 ### Skin Turns White In-Game (Manu, 2024-12-14)
 
@@ -88,25 +88,25 @@ header in `DDS2XBT.bat` causes brightness/gamma issues.
 ### TBX Header Layout (123 bytes, 0x00–0x7A)
 
 ```
-Offset  Size  Field                       Notes
-──────  ────  ─────────────────────────── ──────────────────────────────────────
-0x00    4     Magic                       "TBX\0" (0x54425800)
-0x04    4     Header block size           Always 123 (0x7B) for weapon textures
-0x08    4     DDS offset from file start  0x2C (self-contained) / 0x60–0x68 (regular w/ path)
-0x0C    4     Reserved                    Always 0
-0x10    2     Format flags A              Varies per texture (see format table below)
-0x12    2     Format flags B              Varies per texture
-0x14    4     Constant                    Always 1
-0x18    1     ???                         0x01 observed
-0x19    1     Quality/variant class       KEY FIELD — see below
-0x1A    2     Constant                    Always 0xFFFF
-0x1C    4     Source CRC32                Hash of source file (varies)
-0x20    4     Profile ID                  Texture profile ID (varies)
-0x22    4     ???                         Usually 0x02000000
-0x24    4     ???                         Usually 0x722A6101
-0x28    var   String table                Null-terminated path(s), padded to 16-byte alignment
-      ...     [padding]                   Zero bytes to align DDS to 16-byte boundary
-DDS     var   DDS data                    Standard DDS header + pixel data
+Offset Size Field Notes
+────── ──── ─────────────────────────── ──────────────────────────────────────
+0x00 4 Magic "TBX\0" (0x54425800)
+0x04 4 Header block size Always 123 (0x7B) for weapon textures
+0x08 4 DDS offset from file start 0x2C (self-contained) / 0x60–0x68 (regular w/ path)
+0x0C 4 Reserved Always 0
+0x10 2 Format flags A Varies per texture (see format table below)
+0x12 2 Format flags B Varies per texture
+0x14 4 Constant Always 1
+0x18 1 ??? 0x01 observed
+0x19 1 Quality/variant class KEY FIELD — see below
+0x1A 2 Constant Always 0xFFFF
+0x1C 4 Source CRC32 Hash of source file (varies)
+0x20 4 Profile ID Texture profile ID (varies)
+0x22 4 ??? Usually 0x02000000
+0x24 4 ??? Usually 0x722A6101
+0x28 var String table Null-terminated path(s), padded to 16-byte alignment
+ ... [padding] Zero bytes to align DDS to 16-byte boundary
+DDS var DDS data Standard DDS header + pixel data
 ```
 
 ### Byte 0x19 — Quality/Variant Class (CRITICAL)
@@ -161,10 +161,10 @@ quality is set to Ultra. Always starts DDS at 0x2C. Example:
 ```
 1. Engine reads regular xbt header
 2. Checks byte 0x19:
-   ├── 0x08 → Use this file at all distances (no _high variant)
-   └── 0x0A/0x0B → Read string table → follow path to _high.xbt
-       ├── Close + Ultra quality → Load _high version
-       └── Far or lower quality → Use this (regular) version
+ ├── 0x08 → Use this file at all distances (no _high variant)
+ └── 0x0A/0x0B → Read string table → follow path to _high.xbt
+ ├── Close + Ultra quality → Load _high version
+ └── Far or lower quality → Use this (regular) version
 ```
 
 **Key insight** (HardVatsuki, 2025-01-28):
@@ -204,24 +204,24 @@ All _high counterparts use byte 0x19 = 0x01 and DDS at 0x2C.
 
 **Regular** (`gfx_handgunmuzzleflash01_d.xbt`, 22,092 bytes):
 ```
-0x00: 54 42 58 00  TBX\0
-0x04: 7B 00 00 00  header size = 123
-0x08: 64 00 00 00  DDS offset = 0x64 (100)
-0x19: 0A           has_path = yes
+0x00: 54 42 58 00 TBX\0
+0x04: 7B 00 00 00 header size = 123
+0x08: 64 00 00 00 DDS offset = 0x64 (100)
+0x19: 0A has_path = yes
 0x28: "graphics\gfx\weapons\gfx_handgunmuzzleflash01_d_high.xbt\0"
-0x60: 00 01 00 00  padding
-0x64: 44 44 53 20  DDS header begins
+0x60: 00 01 00 00 padding
+0x64: 44 44 53 20 DDS header begins
 ```
 DDS: 256×128, DXT1, 9 mipmaps
 
 **_high** (`gfx_handgunmuzzleflash01_d_high.xbt`, 22,036 bytes):
 ```
-0x00: 54 42 58 00  TBX\0
-0x04: 7B 00 00 00  header size = 123
-0x08: 2C 00 00 00  DDS offset = 0x2C (44)
-0x19: 01           self-contained (no path)
-0x24: 00 00 00 00  null (no string table)
-0x2C: 44 44 53 20  DDS header begins
+0x00: 54 42 58 00 TBX\0
+0x04: 7B 00 00 00 header size = 123
+0x08: 2C 00 00 00 DDS offset = 0x2C (44)
+0x19: 01 self-contained (no path)
+0x24: 00 00 00 00 null (no string table)
+0x2C: 44 44 53 20 DDS header begins
 ```
 DDS: 256×128, DXT1, 9 mipmaps (same as regular — muzzle flashes are small)
 
@@ -232,17 +232,17 @@ If you need to add _high support for a texture:
 **Step 1: Create the _high file**
 1. Start with your texture DDS (higher resolution if possible)
 2. Create TBX header:
-   - Magic: `TBX\0`
-   - Header block size: 123 (0x7B)
-   - DDS offset: 0x2C (44)
-   - Byte 0x19: 0x01
-   - Bytes 0x24–0x27: 0x00000000 (null string table)
+ - Magic: `TBX\0`
+ - Header block size: 123 (0x7B)
+ - DDS offset: 0x2C (44)
+ - Byte 0x19: 0x01
+ - Bytes 0x24–0x27: 0x00000000 (null string table)
 3. Append DDS data after header (at offset 0x2C)
 
 **Step 2: Modify the regular file to reference _high**
 1. Change byte 0x19 from 0x08 to 0x0A
 2. Insert path string at offset 0x28:
-   `graphics\gfx\weapons\<texture_name>_high.xbt\0`
+ `graphics\gfx\weapons\<texture_name>_high.xbt\0`
 3. Pad with zeros to align DDS to 16-byte boundary
 4. Update DDS offset at 0x08 (typically 0x60–0x68 depending on string length)
 
@@ -253,12 +253,12 @@ If you need to add _high support for a texture:
 - `_high` textures = lowest mip level (highest resolution for viewing up close)
 - WD1 doesn't use mipmap chains in a single file — highest mip is a separate file
 - **Correct replacement workflow**:
-  1. Export `_high` WITHOUT mipmaps (it's the single highest-res level)
-  2. Halve non-high resolution + export WITH mipmaps
-  3. Non-high XBT header references `_high` filepath
+ 1. Export `_high` WITHOUT mipmaps (it's the single highest-res level)
+ 2. Halve non-high resolution + export WITH mipmaps
+ 3. Non-high XBT header references `_high` filepath
 - "sometimes other games simply cap rendering the highest mipmap levels when lowering
-  texture quality, WD instead has the highest mipmap as a separate file altogether"
-  — The Silver
+ texture quality, WD instead has the highest mipmap as a separate file altogether"
+ — The Silver
 
 ### FBI Texture Gotcha (F_Aria, 2025-08-15)
 

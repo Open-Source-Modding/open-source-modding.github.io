@@ -66,13 +66,13 @@ Noesis plugin for `.gbx` from **VG Resource forums** (`vg-resource.com/thread-37
 header: "GBX" magic (3 bytes)
 seek +0x89 (relative) -> NumMeshes (uint32)
 per mesh:
-  pattern search \x0E\x60\x00\x09\x38\x00\x00 -> mesh block
-  MaterialName: 8 bytes ASCII
-  VCount:  uint32
-  UVs:     VCount * 8 bytes (float2, stride 8)
-  Vertex buffer: FVF size 40 bytes per vertex (position float3 + ...)
-  FCount:  uint32
-  Indices: FCount * 2 bytes (uint16, triangles)
+ pattern search \x0E\x60\x00\x09\x38\x00\x00 -> mesh block
+ MaterialName: 8 bytes ASCII
+ VCount: uint32
+ UVs: VCount * 8 bytes (float2, stride 8)
+ Vertex buffer: FVF size 40 bytes per vertex (position float3 + ...)
+ FCount: uint32
+ Indices: FCount * 2 bytes (uint16, triangles)
 ```
 
 > **Note:** Fails on `MainbodyHigh.Solid.Decompressed.Gbx`; no working sample accompanied the script, limiting further debugging.

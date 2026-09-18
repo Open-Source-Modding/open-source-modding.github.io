@@ -11,26 +11,26 @@
 
 XBT (Texture Bank) is the runtime texture format used by the Disrupt engine (Watch Dogs Legion). It wraps a standard DDS header with a compact metadata header containing mip-level file paths for streaming.
 
-**Magic**: `TBX\x00`  
+**Magic**: `TBX\x00` 
 **Version**: `0x0092` (all observed WDL files)
 
 ## File Layout
 
 ```
-+0x00  TBX\0 magic (4 bytes)
-+0x04  Version u16 (0x0092)
-+0x06  Padding u16
-+0x08  Header size u32 (total XBT header, before DDS)
-+0x0C  Reserved u32 (0)
-+0x10  Texture flags u32[4] (format/mip metadata)
-+0x20  Value u32 (unknown)
-+0x24  Hash u32
-+0x28  Hash u32 (often 0)
-+0x2C  Constant u32 (0x7F7F7F7F)
-+0x30  String count u8, Version u8, Reserved u16
-+0x32  String table (variable length, null-terminated strings)
-       [DDS header starts at offset = header_size]
-       [Pixel data follows immediately after DDS header]
++0x00 TBX\0 magic (4 bytes)
++0x04 Version u16 (0x0092)
++0x06 Padding u16
++0x08 Header size u32 (total XBT header, before DDS)
++0x0C Reserved u32 (0)
++0x10 Texture flags u32[4] (format/mip metadata)
++0x20 Value u32 (unknown)
++0x24 Hash u32
++0x28 Hash u32 (often 0)
++0x2C Constant u32 (0x7F7F7F7F)
++0x30 String count u8, Version u8, Reserved u16
++0x32 String table (variable length, null-terminated strings)
+ [DDS header starts at offset = header_size]
+ [Pixel data follows immediately after DDS header]
 ```
 
 ## XBT Header Fields
@@ -57,8 +57,8 @@ Present when `header_size > 0x34`. Contains mip-level file paths for texture str
 
 **Format**:
 - Each string: 1-byte type prefix, null-terminated
-  - `0x02` = filepath (e.g. `_med` variant path)
-  - `0x03` = variant path (e.g. `_high` variant path)
+ - `0x02` = filepath (e.g. `_med` variant path)
+ - `0x03` = variant path (e.g. `_high` variant path)
 - Padded to align
 
 **Example** (waterdetailnormalmap.xbt):
@@ -144,11 +144,11 @@ Scanned 103 files from WDL unpacked:
 import struct
 
 with open("texture.xbt", "rb") as f:
-    data = f.read()
+ data = f.read()
 
 # Parse XBT header
-magic = data[0:4]  # b'TBX\x00'
-version = struct.unpack_from('<H', data, 4)[0]  # 0x0092
+magic = data[0:4] # b'TBX\x00'
+version = struct.unpack_from('<H', data, 4)[0] # 0x0092
 hdr_size = struct.unpack_from('<I', data, 8)[0]
 
 # DDS header at hdr_size
@@ -167,12 +167,12 @@ pixel_data = data[data_start:]
 ## Decoder
 
 A working Python decoder implementing this layout is at
-`/tmp/opencode/xbt/xbt_decode.py` (untracked, outside the repo). It parses the
+`xbt_decode.py` (untracked, outside the repo). It parses the
 TBX header, string table, DDS header, and DX10 extended header, and reports
 format/dimensions/mip info. Supports DXT1 (BC1), DXT3 (BC2), DXT5 (BC3), ZOLA
 (BC3), BGRA8, and DX10 extended formats.
 
 ```
-python3 xbt_decode.py <file.xbt>          # print texture info
-python3 xbt_decode.py --batch <dir> [--csv out.csv]   # scan a directory
+python3 xbt_decode.py <file.xbt> # print texture info
+python3 xbt_decode.py --batch <dir> [--csv out.csv] # scan a directory
 ```

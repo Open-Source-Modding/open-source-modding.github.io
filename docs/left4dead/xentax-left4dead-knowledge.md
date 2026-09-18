@@ -15,7 +15,7 @@ the standard `.gcf` format used by other Source games, but in a series of
 **Tools** (Rick/Gibbed, 2008-11-14):
 - `Gibbed.Valve.ExtractPackage` — VPK extraction tool by Rick.
 - Requires **.NET Framework 2.0**; without it, throws
-  `System.IO.FileNotFoundException` for `System.Windows.Forms`. (asmxtx, 2008-11-26; fix: nicoli_s)
+ `System.IO.FileNotFoundException` for `System.Windows.Forms`. (asmxtx, 2008-11-26; fix: nicoli_s)
 
 > **Practical note**: On XP, the tool fails silently unless the GUI .EXE is
 > patched to console mode; missing .NET 2.0 is the usual cause.
@@ -31,21 +31,21 @@ TheGeneral's initial structure (files are **big-endian** — byte-swap before vi
 
 ```
 struct VTFXFileHeader {
-    int   fileSignature;   // 0x56544658 ("VTFX")
-    int   version1;        // 0x00000360
-    int   version2;        // 0x00000008
-    int   headerSize;      // 0x00000044
-    int   unknown;
-    short width;
-    short height;
-    short unknown;  (x4)
-    float reflectivityX;
-    float reflectivityY;
-    float reflectivityZ;
-    float bumpMapScale;
-    int   imageFormat;
-    int   unknown;  (x3)
-    int   headerSize2;     // 0x00000044
+ int fileSignature; // 0x56544658 ("VTFX")
+ int version1; // 0x00000360
+ int version2; // 0x00000008
+ int headerSize; // 0x00000044
+ int unknown;
+ short width;
+ short height;
+ short unknown; (x4)
+ float reflectivityX;
+ float reflectivityY;
+ float reflectivityZ;
+ float bumpMapScale;
+ int imageFormat;
+ int unknown; (x3)
+ int headerSize2; // 0x00000044
 };
 ```
 
@@ -58,11 +58,11 @@ struct VTFXFileHeader {
 
 - The image data inside is **LZMA-compressed** (cfarl, 2017-11-20).
 - The decompressed payload is a **`.textures`** file containing a **DXT5**
-  big-endian image (1024×512 example).
+ big-endian image (1024×512 example).
 - **Mipmap order is inverted**: the *smallest* mip comes first, the *largest*
-  (main) mip is **last** in the uncompressed data. (fatduck, 2009-02-04; Acewell, 2017-12-01)
+ (main) mip is **last** in the uncompressed data. (fatduck, 2009-02-04; Acewell, 2017-12-01)
 - DXT5 data size = width × height. To extract the main mip, count back
-  `width × height` bytes from the end of the decompressed file.
+ `width × height` bytes from the end of the decompressed file.
 
 ### LZMA payload header (at `LZMA_OFF`, little-endian)
 
@@ -115,7 +115,7 @@ log NAME OFFSET_IMG IMG_SIZE 1
 Open . NAME 2
 xmath NUM_SHORTS "IMG_SIZE / 2"
 for i = 0 < NUM_SHORTS
-   encryption swap 2
+ encryption swap 2
 next i
 get NAME basename
 string NAME + "_swp.texture"
@@ -124,7 +124,7 @@ log NAME 0x0 IMG_SIZE 2
 # Step 4. Prepend a DXT5 DDS header
 Open . NAME 3
 encryption "" ""
-set MEMORY_FILE binary "\x44\x44\x53\x20\x7c\x00..."  # DDS "DDS " header
+set MEMORY_FILE binary "\x44\x44\x53\x20\x7c\x00..." # DDS "DDS " header
 putVarChr MEMORY_FILE 0xc IMG_HEIGHT short
 putVarChr MEMORY_FILE 0x10 IMG_WIDTH short
 string NAME += ".dds"
@@ -141,11 +141,11 @@ log NAME 0 IMG_SIZE 3
 3. Byte-swap back to little-endian.
 4. Prepend a DXT5 DDS header.
 5. To re-import: recompress with your own LZMA (QuickBMS reimport is unreliable —
-   compressed size differs). (Acewell, cfarl, 2017-12-03)
+ compressed size differs). (Acewell, cfarl, 2017-12-03)
 6. **Maintain the same image format, size, and mipmaps**, and byte-swap back to
-   big-endian after editing. (Acewell, 2017-12-02)
+ big-endian after editing. (Acewell, 2017-12-02)
 7. cfarl's fix for the "english shadow" (stale mipmaps): zero out all bytes
-   before the DDS image so leftover mip data doesn't display. (cfarl, 2017-12-03)
+ before the DDS image so leftover mip data doesn't display. (cfarl, 2017-12-03)
 
 > **Relevance**: VTFX also applies to **Portal: Still Alive** on Xbox 360
 > (cfarl extracted `howtoplay01.360.vtf` for localization).
@@ -158,11 +158,11 @@ log NAME 0 IMG_SIZE 3
 the format looks identical to a standard zip. (TheGeneral, 2008-12-19)
 
 - **Tool**: `XZIP.rar` extractor (TheGeneral) — works on the `360.zip` files of
-  *Left 4 Dead* and *Portal: Still Alive*.
+ *Left 4 Dead* and *Portal: Still Alive*.
 - **Rebuilding**: rezip the files into an **uncompressed** zip archive and the
-  game still loads everything. (TheGeneral, 2008-12-19)
+ game still loads everything. (TheGeneral, 2008-12-19)
 - **Gotcha**: rebuilding must produce an uncompressed archive; compression
-  breaks the injection (Frosty, 2009-06-15; adamharms, 2011-12-22).
+ breaks the injection (Frosty, 2009-06-15; adamharms, 2011-12-22).
 
 ## 4. Script/Data Encryption (Source SDK)
 
@@ -183,6 +183,6 @@ tool to encrypt/decrypt the `.dat`/`.txt` files. (qabRieL, 2012-01-02)
 - PC L4D uses `.vpk` archives (not `.gcf`).
 - Xbox 360 L4D uses `360.zip` archives and `VTFX` textures.
 - VTFX = modified Valve VTF with LZMA-compressed payload, big-endian DXT5,
-  inverted mip order (smallest first, largest last).
+ inverted mip order (smallest first, largest last).
 - VTFX header magic `0x56544658` ("VTFX"); image dims at `0x14`/`0x16`;
-  LZMA offset pointer at `0x0C`.
+ LZMA offset pointer at `0x0C`.

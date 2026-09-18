@@ -35,9 +35,9 @@ Both SYMTAB and STRTAB are zlib-compressed with a 4-byte header:
 ```python
 import zlib
 with open('duniademo.rpx', 'rb') as f:
-    f.seek(offset)  # SYMTAB: 0x1C5180, STRTAB: 0x3D5BC0
-    raw = f.read(size)  # SYMTAB: 0x210A35, STRTAB: 0x366AE2
-    data = zlib.decompress(raw[4:])
+ f.seek(offset) # SYMTAB: 0x1C5180, STRTAB: 0x3D5BC0
+ raw = f.read(size) # SYMTAB: 0x210A35, STRTAB: 0x366AE2
+ data = zlib.decompress(raw[4:])
 ```
 
 ### Section Layout
@@ -93,8 +93,8 @@ PC/PS4/X360 retail builds have symbols **completely stripped**. The Wii U build 
 
 ## Parser
 
-- Script: `/tmp/opencode/rpx_parse_v2.py`
-- CSV: `/tmp/opencode/rpx_symbols.csv` (317,063 rows)
+- Script: `rpx_parse_v2.py`
+- CSV: `rpx_symbols.csv` (317,063 rows)
 
 ## Extraction Steps
 

@@ -22,7 +22,7 @@ sit alongside it (CRC32 `0x74CE3` / `0x74CE4`).
 
 - **Cell** confirmed the component works in the March 30 2012 build.
 - **The Silver**: hours/minutes were likely driven separately by in-game
-  time-of-day via vertex animation — the standard Disrupt clock approach
-  (the huge in-game world clocks use the same trick).
+ time-of-day via vertex animation — the standard Disrupt clock approach
+ (the huge in-game world clocks use the same trick).
 - Fittingly for a watch that shows real time: WD1's world clock only advances
-  while the player is moving.
+ while the player is moving.

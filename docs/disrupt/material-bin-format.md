@@ -1,18 +1,18 @@
 # material.bin FORMAT — CONFIRMED (010 Editor template = authoritative spec)
 
-Source: `/home/selene/Documents/Code/re/Disrupt/ConvertMaterials/res/material.bin.bt` (010 Editor v9.0.1 template) + `materialNames.txt` (916 param names = CRC32 dict) + `types.xml` (59KB param type defs). Converter: `ConvertMaterials.exe` (WD1, 2020).
+Source: (010 Editor v9.0.1 template) + `materialNames.txt` (916 param names = CRC32 dict) + `types.xml` (59KB param type defs). Converter: `ConvertMaterials.exe` (WD1, 2020).
 
 ## Structure (LITTLE-endian on PC)
 ```
 Header: 18 x u32: magic('TAM\x00'=0x004D4154), version, unk2..7, size, size2, unk8, unk9, size3, unk10, size4, unk11, unk12
-Name:   u32 nameSize, name bytes, pad to 4
+Name: u32 nameSize, name bytes, pad to 4
 ShaderSetting: u32 shaderNameSize, shader bytes, pad-to-4 (minus 2 if mod>=2), then InitSettings:
-        u16 unk0, [u8 unk1_1, u8 unk1_2 if pad>=2], u8 unk2, u8 unk3, u32 unk4, i32 unk5, i32 unk6, i32 unk7
+ u16 unk0, [u8 unk1_1, u8 unk1_2 if pad>=2], u8 unk2, u8 unk3, u32 unk4, i32 unk5, i32 unk6, i32 unk7
 Parameters: u8 unk74, u8 unk75, u16 parameterCount, then per param:
-        pad to 4, u8 type, skip pad, [u32 nameID if type-1<=10]  <- nameID = CRC32(param name)!
-        switch(type):
-          1: u32 | 2: vec2 (2x u32) | 3: vec3 | 4: vec4 | 5: i32 | 6: byte(bool)
-          7: u32 | 8/9/10: u32 size + string bytes | 11: u32
+ pad to 4, u8 type, skip pad, [u32 nameID if type-1<=10] <- nameID = CRC32(param name)!
+ switch(type):
+ 1: u32 | 2: vec2 (2x u32) | 3: vec3 | 4: vec4 | 5: i32 | 6: byte(bool)
+ 7: u32 | 8/9/10: u32 size + string bytes | 11: u32
 bUseGradient: u32; if==1: grad_vec i32, vecs[grad_vec] (4x u32), id u32, unk1 u32, unk2 u8
 eof: u32 always 0
 ```
@@ -22,8 +22,8 @@ eof: u32 always 0
 - **Enum values also hashed**: "ColorWrap" → 0x13371135 (found in DiffuseTexture0State value slot).
 - Binary param ORDER ≠ XML order (binary: Opacity, DiffuseColor, DiffuseTexture0State, IgnoreMapEffect, UseFakeLighting, HeightScaleColor, AmbientColor, then 6x count=4 vec4 blocks = DiffuseTiling-ish 1,1,0,0).
 - My earlier "count+hash" reading was wrong — the leading u32 in each block is the **TYPE byte + count u16 area**, not a value count. Parse: u8 type, then nameID, then typed values per table above.
-- Sample: `~/Documents/Modding/WDL/unpacked/common/graphics/_materials/amundt-m-9223372119553324321.material.bin` (416B) ↔ `leak/ubisoft/data/graphics/_materials/amundt-m-9223372119553324321.material.xml` — SAME hash name in both games (WDL + leak), XML = editor form of binary.
-- 24,079-24,082 .material.xml in leak (`~/Documents/Code/re/Disrupt/leak/ubisoft/data/graphics/_materials/`) = ground truth for every material.
+- Sample: the game install directory (416B) ↔ `leak/ubisoft/data/graphics/_materials/amundt-m-9223372119553324321.material.xml` — SAME hash name in both games (WDL + leak), XML = editor form of binary.
+- 24,079-24,082 .material.xml in leak () = ground truth for every material.
 
 ## materialNames.txt — CRC32 Parameter Name Dictionary
 
@@ -925,7 +925,7 @@ VOffset
 
 </details>
 
-Source: `~/Documents/Code/re/Ubisoft/Disrupt/DisruptEditor/res/materialNames.txt` (916 lines, CRC32 hash→name dictionary for `.material.bin` parameters). Identical copies in `blender-io-disrupt/modules/Watch_Dogs/` and `hV_WD_ModdingKit_PLUS/Tools/DisruptEditor/res/`.
+Source: `materialNames.txt` (916 lines, CRC32 hash→name dictionary for `.material.bin` parameters). Identical copies in `blender-io-disrupt/modules/Watch_Dogs/` and `hV_WD_ModdingKit_PLUS/Tools/DisruptEditor/res/`.
 
 ## Community notes (Discord)
 - Disrupt Editor material converter (fan-made, WD1-origin, works all 3 WD games) has BUGS: wrong file length on bin→xml→bin (crashes!), float precision loss. Hex edit safest.

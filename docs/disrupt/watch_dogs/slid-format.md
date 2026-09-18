@@ -13,9 +13,9 @@ hierarchy, just hashes.
 ## Layout
 
 ```
-Offset  Size  Type          Description
-0x00    4     uint32 LE     Entry count (N)
-0x04    8×N   (u32,u32) LE  N pairs: (SoundID, LinkID)
+Offset Size Type Description
+0x00 4 uint32 LE Entry count (N)
+0x04 8×N (u32,u32) LE N pairs: (SoundID, LinkID)
 ```
 
 **No magic number.** File size is always `4 + N*8`.
@@ -76,6 +76,6 @@ list), and `SoundID → LinkID → .spk` (binary SLID).
 ## Notes
 
 - Multiple SoundIDs can share a LinkID (many events → one bank); within this sample all
-  pairs were unique but the format does not require it.
+ pairs were unique but the format does not require it.
 - The `.spk` files themselves are the audio packs referenced by the game's sound system
-  (SND_fn_* symbols in the Wii U build — see [Wii U Debug Symbols](wii-u-debug-symbols.md)).
+ (SND_fn_* symbols in the Wii U build — see [Wii U Debug Symbols](wii-u-debug-symbols.md)).

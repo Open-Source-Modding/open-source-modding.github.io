@@ -30,14 +30,14 @@
 ```
 0001 0000 9C00 0000 4602 0000 D301 0000 2001 0000 E800 0000 0900 0000 0100 0000 0000 0000
 ```
-  - `0001` = version
-  - `9C00` = 156 = header size
-  - `4602` = 582 = width?
-  - `D301` = 467 = height?
-  - `2001` = 288 = ?
-  - `E800` = 232 = ?
-  - `0900` = 9 = bits per sample?
-  - `0100` = 1 = samples per pixel?
+ - `0001` = version
+ - `9C00` = 156 = header size
+ - `4602` = 582 = width?
+ - `D301` = 467 = height?
+ - `2001` = 288 = ?
+ - `E800` = 232 = ?
+ - `0900` = 9 = bits per sample?
+ - `0100` = 1 = samples per pixel?
 - **Data marker**: `0080` precedes pixel data
 - **Compression**: Unknown (possibly custom or uncompressed)
 
@@ -52,8 +52,8 @@
 ### Header Reconstruction (Silver / Matsy, 2007)
 - Confirmed headerless TIFF
 - **Fix**: Prepend standard TIFF header:
-  - Little-endian: `49 49 2A 00` (II*) + IFD offset
-  - Big-endian: `4D 4D 00 2A` (MM*) + IFD offset
+ - Little-endian: `49 49 2A 00` (II*) + IFD offset
+ - Big-endian: `4D 4D 00 2A` (MM*) + IFD offset
 - **IFD**: Must describe width, height, compression, photometric, etc. from header bytes
 
 ### Archives Mentioned
@@ -73,9 +73,9 @@
 ### Audio Format
 - **Likely**: **Wwise** (`.bnk`, `.pck`) or **FMOD** — standard Unity middleware
 - **Tools**:
-  - **AssetStudio** — extract AudioClips from AssetBundles
-  - **Wwise CLI** / **bnkextr** — decode `.bnk`/`.pck`
-  - **vgmstream** — playback
+ - **AssetStudio** — extract AudioClips from AssetBundles
+ - **Wwise CLI** / **bnkextr** — decode `.bnk`/`.pck`
+ - **vgmstream** — playback
 
 ### General Unity Modding Tools
 | Tool | Purpose |

@@ -15,11 +15,11 @@ Maniaplanet). *(Trackmania Wiki; forum threads t=11078, t=24378)*
 ### Format characteristics
 
 - **Binary** format; **text variants** exist in older games (e.g. the TM
-  Nations ESWC game config). *(Trackmania Wiki)*
+ Nations ESWC game config). *(Trackmania Wiki)*
 - Content is **serialized objects** with an additional header describing the
-  **main object type**. *(Trackmania Wiki)*
+ **main object type**. *(Trackmania Wiki)*
 - The file magic is the ASCII string **`GBX`** (3 bytes) at offset 0.
-  *(shakotay2's patched Noesis script, t=24378)*
+ *(shakotay2's patched Noesis script, t=24378)*
 - Extension is sometimes **lowercase** (`.gbx`). *(Trackmania Wiki)*
 
 ### Double-extension naming
@@ -43,13 +43,13 @@ format; the header identifies it as a **`NadeoPak r18`** container. *(WRS,
 ### Protection / encryption
 
 - As of 2016, there were **no working extractors for Maniaplanet Paks** because
-  the archives are **protected by a key — apparently Blowfish encryption**.
-  *(Matsilagi, 2016-11-18, t=14143)*
+ the archives are **protected by a key — apparently Blowfish encryption**.
+ *(Matsilagi, 2016-11-18, t=14143)*
 - A Maniaplanet forum tool (version 1.57) was expected to support `r18` Paks,
-  but it only **read the headers and showed no data**. *(WRS, 2016-11-15,
-  t=14143)*
+ but it only **read the headers and showed no data**. *(WRS, 2016-11-15,
+ t=14143)*
 - A Pastebin link with further analysis was shared but **expired/removed** by
-  2021. *(Matsilagi 2016-11-18; fajNYgosciu1234, 2021-08-21, t=14143)*
+ 2021. *(Matsilagi 2016-11-18; fajNYgosciu1234, 2021-08-21, t=14143)*
 
 ### Known PAK specification
 
@@ -99,13 +99,13 @@ offsets observed in the Noesis script:
 header: "GBX" magic (3 bytes)
 seek +0x89 (relative) -> NumMeshes (uint32)
 per mesh:
-  pattern search \x0E\x60\x00\x09\x38\x00\x00 -> mesh block
-  MaterialName: 8 bytes ASCII
-  VCount:  uint32
-  UVs:     VCount * 8 bytes (float2, stride 8)
-  Vertex buffer: FVF size 40 bytes per vertex (position float3 + ...)
-  FCount:  uint32
-  Indices: FCount * 2 bytes (uint16, triangles)
+ pattern search \x0E\x60\x00\x09\x38\x00\x00 -> mesh block
+ MaterialName: 8 bytes ASCII
+ VCount: uint32
+ UVs: VCount * 8 bytes (float2, stride 8)
+ Vertex buffer: FVF size 40 bytes per vertex (position float3 + ...)
+ FCount: uint32
+ Indices: FCount * 2 bytes (uint16, triangles)
 ```
 
 *(shakotay2, 2022-11-23, t=24378)*

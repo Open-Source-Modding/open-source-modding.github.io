@@ -5,9 +5,9 @@ BFD files define UI sprite atlas mappings in the Disrupt engine. Each BFD maps i
 ## File Structure
 
 ```
-+0x00  u8    magic (0x01)
-+0x01  u16   entry_count (little-endian)
-+0x03  [entries...] — variable-length
++0x00 u8 magic (0x01)
++0x01 u16 entry_count (little-endian)
++0x03 [entries...] — variable-length
 ```
 
 Each entry consists of:

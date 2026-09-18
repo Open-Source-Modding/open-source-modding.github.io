@@ -36,10 +36,10 @@ Working pipeline for Catalyst beta (2016):
 targetDirectory = r"<THE DIRECTORY WHERE YOU WANT THE FILES TO EXTRACT TO>"
 
 # fb3decoder.py
-dumpDirectory   = r"<THE DIRECTORY WHERE YOU EXTRACTED YOUR FILES>"
+dumpDirectory = r"<THE DIRECTORY WHERE YOU EXTRACTED YOUR FILES>"
 targetDirectory = r"<THE DIRECTORY WHERE YOU WANT THE DECODED .WAV FILES PLACED>"
 # Download Zench's ealayer3 tool so the script can handle EALayer3:
-ealayer3Path    = r"<THE DIRECTORY THAT HAS THE EALAYER3 TOOL>\ealayer3.exe"
+ealayer3Path = r"<THE DIRECTORY THAT HAS THE EALAYER3 TOOL>\ealayer3.exe"
 ```
 
 ### ealayer3 Tool Note
@@ -146,9 +146,9 @@ Source: [XeNTaX forums](https://zenhax.com/threads/frostbite-file-system-browser
 # Frostbite 3 audio decoder
 # Walks .ebx files, finds audio chunks, writes decoded .wav
 
-dumpDirectory   = r"<EXTRACTED FILES DIR>"
+dumpDirectory = r"<EXTRACTED FILES DIR>"
 targetDirectory = r"<OUTPUT .WAV DIR>"
-ealayer3Path    = r"<EALAYER3 TOOL DIR>\ealayer3.exe"
+ealayer3Path = r"<EALAYER3 TOOL DIR>\ealayer3.exe"
 ```
 
 Source: [XeNTaX forums](https://zenhax.com/threads/frostbite-audio-tools-and-info.4618/)

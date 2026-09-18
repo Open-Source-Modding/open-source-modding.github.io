@@ -102,9 +102,9 @@ GLM can potentially be converted to XBG for importing beta models into the retai
 | ZModeler 3 | XBG import/export with material support | Commercial; only tool that fully handles WD1 XBG |
 | Material Converter | XML to/from .material.bin conversion | Disrupt Editor fan tool; works across WD1/WD2/WDL |
 | hash_tool.py | CRC32 + CRC64_WD2 hash calculator | `python3 hash_tool.py "string"` |
-| Gibbed.Disrupt | .dat/.fat archive unpack/pack | dotnet 8.0; see `~/Documents/Code/game-tools/Ubisoft/Disrupt/Gibbed.Disrupt/` |
+| Gibbed.Disrupt | .dat/.fat archive unpack/pack | dotnet 8.0; see |
 | Razor Data Conversion Utility | String to CRC32 to BinHex conversion | For manual material hex editing |
-| DisruptEditor | Open-source C++ model editor (MIT license) | `~/Documents/Code/re/Ubisoft/Disrupt/DisruptEditor/` — patched working version; handles material conversion, XBG import/export. Source: [GitHub](https://github.com/Open-Source-Modding/DisruptEditor) |
+| DisruptEditor | Open-source C++ model editor (MIT license) | — patched working version; handles material conversion, XBG import/export. Source: [GitHub](https://github.com/Open-Source-Modding/DisruptEditor) |
 
 ---
 

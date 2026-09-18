@@ -8,16 +8,16 @@ they provide, clearly marked where applicable.
 ## HavokLib / HavokMax (PredatorCZ)
 
 - **HavokLib** — independent C++ library (GPL-3.0) for Havok **packfile**
-  serialize + XML, v5.0.0–2017, both endians, x86/x64, all compilers.
-  Handles `hkaSkeleton`, `hkaAnimation*`, `hkRootLevelContainer`,
-  `hkxEnvironment`; binary export for v5–2014.
+ serialize + XML, v5.0.0–2017, both endians, x86/x64, all compilers.
+ Handles `hkaSkeleton`, `hkaAnimation*`, `hkRootLevelContainer`,
+ `hkxEnvironment`; binary export for v5–2014.
 - **HavokMax** — 3ds Max importer/exporter plugin built on HavokLib
-  (archived 2022; development moved to HavokLib's `toolset/`).
+ (archived 2022; development moved to HavokLib's `toolset/`).
 - **Relevance:** the authoritative cross-reference for the **WD1 native Havok
-  packfile** (`import_hkx_wd.py`). It does **not** support tagfiles ("never
-  will"), so it does *not* apply to WD2/WDL Disrupt `.hkx` (tagfile wrapper) —
-  [HavokDisruptWD2](https://github.com/FranciscoManzanilla/HavokDisruptWD2)'s port
-  remains authoritative there.
+ packfile** (`import_hkx_wd.py`). It does **not** support tagfiles ("never
+ will"), so it does *not* apply to WD2/WDL Disrupt `.hkx` (tagfile wrapper) —
+ [HavokDisruptWD2](https://github.com/FranciscoManzanilla/HavokDisruptWD2)'s port
+ remains authoritative there.
 
 ## OpenDogs tools (Nexus, WD2)
 
@@ -25,16 +25,16 @@ Watch Dogs 2 UWP tools that bundle an embedded Blender 2.79 + Volfin's
 `import_WD2.py`:
 
 - **OpenDogs FileSystem** — 119 **Gibbed.Disrupt filelists** for WD2 (~604k
-  paths, 60% coverage) and WDL. Format: `;` progress header, a GUID line, then
-  one path per line (`\`-separated). Useful as a hash→path database companion
-  to the FNV-1a 64-bit `hash_wd2.py` utility (practical value mostly on the
-  Fat/hash side, since `.xbg` materials store paths as plaintext Wstr).
+ paths, 60% coverage) and WDL. Format: `;` progress header, a GUID line, then
+ one path per line (`\`-separated). Useful as a hash→path database companion
+ to the FNV-1a 64-bit `hash_wd2.py` utility (practical value mostly on the
+ Fat/hash side, since `.xbg` materials store paths as plaintext Wstr).
 - **OpenDogs NewUI / 3D View** — WinUI 3 viewers. Bundle `xbgtools/` with
-  Volfin's `import_WD2.py` (already ported into the addon) and
-  `convert_xbg_to_obj.py` (a thin Blender CLI wrapper).
+ Volfin's `import_WD2.py` (already ported into the addon) and
+ `convert_xbg_to_obj.py` (a thin Blender CLI wrapper).
 - **Volfin importer confirmations** (from the bundled `import_WD2.py`):
-  vertex strides 40/36/32/28/24/20; 16-bit half-float UVs; MOEG 0x89/0x46
-  version gate; `.skel` (nbCF v3) reading.
+ vertex strides 40/36/32/28/24/20; 16-bit half-float UVs; MOEG 0x89/0x46
+ version gate; `.skel` (nbCF v3) reading.
 
 ## FranciscoManzanilla WD2 tooling (GitHub, C# — experimental, source-only)
 
@@ -43,19 +43,19 @@ Small, AI-assisted source dumps (Spanish docs, 1 star, no releases) by
 tools, but useful as *implementation cross-references* for format details:
 
 - **[HavokDisruptWD2](https://github.com/FranciscoManzanilla/HavokDisruptWD2)** —
-  "hkx resolver for wd2". `HkxParserD.cs` parses WD2
-  Disrupt `.hkx`; docs cover injection modes and an autofit-all option. The
-  port referenced in the HavokLib section above.
+ "hkx resolver for wd2". `HkxParserD.cs` parses WD2
+ Disrupt `.hkx`; docs cover injection modes and an autofit-all option. The
+ port referenced in the HavokLib section above.
 - **[xbgModelModInjector](https://github.com/FranciscoManzanilla/xbgModelModInjector)** —
-  WD2 XBG model injector. `XbgParserD.cs`,
-  `XbgMeshInjector.cs`, `XbgVertexPatcher.cs`, `XbgBoundsAnalyzer.cs` —
-  mesh inject + vertex patching + bounds analysis for `.xbg`.
+ WD2 XBG model injector. `XbgParserD.cs`,
+ `XbgMeshInjector.cs`, `XbgVertexPatcher.cs`, `XbgBoundsAnalyzer.cs` —
+ mesh inject + vertex patching + bounds analysis for `.xbg`.
 - **[WD2MSCore](https://github.com/FranciscoManzanilla/WD2MSCore)** —
-  "Watch Dogs 2 Model Studio BETA".
+ "Watch Dogs 2 Model Studio BETA".
 - **[OpenII](https://github.com/FranciscoManzanilla/OpenII)** —
-  "Watch Dogs 2 — Open Explorer UI".
+ "Watch Dogs 2 — Open Explorer UI".
 - **[WLUManager](https://github.com/FranciscoManzanilla/WLUManager)** —
-  "WLU Explorer Watch Dogs 2".
+ "WLU Explorer Watch Dogs 2".
 
 ## XeNTaX Forum Knowledge (community — **format confirmations**)
 
@@ -96,40 +96,40 @@ but document **gameplay/modding semantics** that still hold:
 ### Materials (`*.material.bin` + `engine\shaders\materialdescriptors`)
 
 - Material name matters: e.g. a material named `VehicleName_CarPaint_01` gets
-  the game's *variative paint color scheme* automatically (settings ignored).
+ the game's *variative paint color scheme* automatically (settings ignored).
 - **`Damage` user property** — comma-separated case-sensitive object names,
-  where the *position* is the damage-part index (`,,,TireFront_L` → L=#4,
-  R=#5). Indices are **coded in the collision `.hkx`** — retain original
-  indices or in-game damage (windshield cracks, tire deflate) will map to the
-  wrong parts.
+ where the *position* is the damage-part index (`,,,TireFront_L` → L=#4,
+ R=#5). Indices are **coded in the collision `.hkx`** — retain original
+ indices or in-game damage (windshield cracks, tire deflate) will map to the
+ wrong parts.
 - Shader-parameter overrides can force any materialdescriptor parameter by name.
 
 ### Scene setup, hierarchy, LODs
 
 - Export roots on a dummy node named like the output file; name suffixes
-  toggle export scenarios: **`.rigid`** (rigid skinning — vehicles, whole
-  volume split into parts), **`.skel`+`.mesh`** (blend skinning — characters,
-  up to 8 bones/vertex in the tool, 6 in WD1), no suffix = regular objects
-  (weapons/scenery).
+ toggle export scenarios: **`.rigid`** (rigid skinning — vehicles, whole
+ volume split into parts), **`.skel`+`.mesh`** (blend skinning — characters,
+ up to 8 bones/vertex in the tool, 6 in WD1), no suffix = regular objects
+ (weapons/scenery).
 - Blend skinning models carry "unknown fragments" reused from the original —
-  interactive physics (movement/wind) is lost without them.
+ interactive physics (movement/wind) is lost without them.
 - **LODs**: UH/VH/H/M/L/VL scene states; `LODs` property on the root dummy is
-  comma-separated switch distances (`10, 20, 30, 45, 90, 250`).
+ comma-separated switch distances (`10, 20, 30, 45, 90, 250`).
 - Hierarchy dummies in square brackets (`[DoorFront_R_Hinge]`) are export-time
-  only — the **`.skeleton` file** is required to retain them (vehicle hinge
-  pivots for animations).
+ only — the **`.skeleton` file** is required to retain them (vehicle hinge
+ pivots for animations).
 
 ### Mod workflow (packing)
 
 - `Gibbed.Disrupt.Pack.exe patch.fat <folder>` → single `patch.fat`/`patch.dat`
-  pair dropped in the game root (WD1 honors one patch bundle).
+ pair dropped in the game root (WD1 honors one patch bundle).
 - XBT = repacked DDS; header refinement is hex-edit work (a garbled but
-  consistent sample: TBX magic, version byte 0x7B/0x8F family, 0x2C header
-  size for DXT5).
+ consistent sample: TBX magic, version byte 0x7B/0x8F family, 0x2C header
+ size for DXT5).
 
 ## hV_WD_ModdingKit_PLUS (hardVatsuki, v2.1)
 
-Watch Dogs 1 modding toolkit — collection of 22 community tools. Source: `~/Documents/Code/game-tools/Ubisoft/Disrupt/hV_WD_ModdingKit_PLUS/`.
+Watch Dogs 1 modding toolkit — collection of 22 community tools. Source: .
 
 | Tool | Purpose | Notes |
 |------|---------|-------|

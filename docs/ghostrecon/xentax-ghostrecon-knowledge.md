@@ -24,9 +24,9 @@ handle these files. (friendsofwatto, 2005-04-06)
 
 Header:
 ```
-DWORD: Header    // "BNDL"
-DWORD: Version   // 0x02
-ULONG: TOC size  // e.g. 0x021F6
+DWORD: Header // "BNDL"
+DWORD: Version // 0x02
+ULONG: TOC size // e.g. 0x021F6
 ```
 
 **TOC markers:**
@@ -39,9 +39,9 @@ ULONG: TOC size  // e.g. 0x021F6
 
 **Entry layout:**
 ```
-string   filename = data/anims/ghost/ghost_machine.xmb
-ulong    offset   = 0x021cbdfc
-DWORD    filesize = 0x0703D82
+string filename = data/anims/ghost/ghost_machine.xmb
+ulong offset = 0x021cbdfc
+DWORD filesize = 0x0703D82
 ```
 
 **Example TOC hex:**
@@ -49,23 +49,23 @@ DWORD    filesize = 0x0703D82
 00000010 0101 6461 7461 0001 0161 6E69 6D73 0001 ..data...anims..
 00000020 0167 686F 7374 0002 FCBD 1C02 0000 0000 .ghost..........
 00000030 823D 7000 0167 686F 7374 5F6D 6163 6869 .=p..ghost_machi
-00000040 6E65 2E78 6D62 00                       ne.xmb.
+00000040 6E65 2E78 6D62 00 ne.xmb.
 ```
 (`0101` = dir "data", `01` = "anims", `01` = "ghost", `02` = file info,
 then filename `ghost_machine.xmb` + offset + filesize)
 
 ```
 000001C5 0301 0167 7569 0002 308A 2E01 0000 0000 ...gui..0.......
-000001D5 52D7 0200 0161 6C65 7274 2E78 6D62 00   R....alert.xmb.
+000001D5 52D7 0200 0161 6C65 7274 2E78 6D62 00 R....alert.xmb.
 ```
 (`03 0101` = go to parent dir and enter `gui`)
 
 ### .bundle Tools
 
 - **GRAWbundle-reader v1.0** (`GRAWbundle-readerv1.0.zip`) — *.bundle unpacker.
-  (KorNet, 2007-07-17)
+ (KorNet, 2007-07-17)
 - **itg's tool** — extraction + **packing** abilities (repacking `patch.bundle`
-  works; game loads fine after repack). (itg, 2007-07-23)
+ works; game loads fine after repack). (itg, 2007-07-23)
 
 > **Ubisoft SS files**: Users asked whether a tool could be written for
 > Ubisoft's **SS0** / SS-numbered files. (kimkalisto, 2007-07-20)
@@ -108,45 +108,45 @@ get DATASTART long
 get FILES long
 
 for i = 1 <= FILES
-   savepos POS
-   get NAMEPOS long
-   math NAMEPOS + POS
-   get OFFSET long
-   savepos POS
+ savepos POS
+ get NAMEPOS long
+ math NAMEPOS + POS
+ get OFFSET long
+ savepos POS
 
-   goto NAMEPOS
-   getdstring NAME 0x40
-   goto POS
+ goto NAMEPOS
+ getdstring NAME 0x40
+ goto POS
 
-   if i == FILES
-      get SIZE asize
-   else
-      get DUMMY long
-      get SIZE long
-   endif
-   math SIZE - OFFSET
-   log NAME OFFSET SIZE
+ if i == FILES
+ get SIZE asize
+ else
+ get DUMMY long
+ get SIZE long
+ endif
+ math SIZE - OFFSET
+ log NAME OFFSET SIZE
 
-   goto POS
+ goto POS
 next i
 ```
 
 - Header: `DATASTART` (long) + `FILES` (long).
 - Per entry: NAMEPOS (relative to current pos) then OFFSET; filename is a
-  fixed **0x40-byte** string; size computed as next offset minus current.
+ fixed **0x40-byte** string; size computed as next offset minus current.
 
 ## 4. GRAW (Xbox 360) — Audio
 
 **Topic 4089** (2010). Xbox version audio is **xbadpcm** (Xbox ADPCM).
 
 - Use **Luigi's Xbox ADPCM decoder** (`xbadpdec.exe`):
-  http://aluigi.org/papers.htm#xbox
+ http://aluigi.org/papers.htm#xbox
 - The container has several tracks separated by **zero blocks** — no header
-  inside the container. Find the correct stream start.
-  - First file offset `0`, second offset `0x4B800`. (Kataah, 2010-02-03)
-  - `xbadpdec.exe mp_01_nl.SS2 stream.wav` (all tracks need correct start).
+ inside the container. Find the correct stream start.
+ - First file offset `0`, second offset `0x4B800`. (Kataah, 2010-02-03)
+ - `xbadpdec.exe mp_01_nl.SS2 stream.wav` (all tracks need correct start).
 - PS2 version: audio is **PS2 ADPCM**, not `.vox`. Track offsets need manual
-  locating (e.g. `0x227810` for the next track). (Kataah, 2010-02-03)
+ locating (e.g. `0x227810` for the next track). (Kataah, 2010-02-03)
 
 > **Issue**: streams can be "scratched" (interleave change ~3.5s before the end
 > of each decoded PS2 stream). (AlphaTwentyThree, 2010-02-06)
@@ -170,41 +170,41 @@ get DUMMY long
 
 savepos OFFSET_OFF
 for i = 0 < FILES
-    get DUMMY long
-    get DUMMY long
+ get DUMMY long
+ get DUMMY long
 next i
 
 savepos SIZE_OFF
 for i = 0 < FILES
-    get DUMMY long
+ get DUMMY long
 next i
 
-savepos CRC_OFF         # crc of the filenames?
+savepos CRC_OFF # crc of the filenames?
 for i = 0 < FILES
-    get DUMMY long
+ get DUMMY long
 next i
 
 savepos DUMMY_OFF
 for i = 0 < FILES
-    get DUMMY string    # or byte?
+ get DUMMY string # or byte?
 next i
 
 for i = 0 < FILES
-    goto OFFSET_OFF
-    get OFFSET long
-    get OFFSET64 long
-    savepos OFFSET_OFF
+ goto OFFSET_OFF
+ get OFFSET long
+ get OFFSET64 long
+ savepos OFFSET_OFF
 
-    goto SIZE_OFF
-    get SIZE long
-    savepos SIZE_OFF
+ goto SIZE_OFF
+ get SIZE long
+ savepos SIZE_OFF
 
-    goto CRC_OFF
-    get CRC long
-    savepos CRC_OFF
+ goto CRC_OFF
+ get CRC long
+ savepos CRC_OFF
 
-    string CRC p= "%08x" CRC
-    log CRC OFFSET SIZE
+ string CRC p= "%08x" CRC
+ log CRC OFFSET SIZE
 next i
 ```
 
@@ -216,11 +216,11 @@ next i
 ### YBIG / multi-part BIG archives
 
 - **`yeti2.bms`** (aluigi): http://aluigi.org/papers/bms/yeti2.bms — for `YBIG`,
-  but reported **incomplete/broken** (extracts 1KB files). (deepshit, 2012-07-18)
+ but reported **incomplete/broken** (extracts 1KB files). (deepshit, 2012-07-18)
 - **`yeti_gear.bms`** (aluigi): http://aluigi.org/papers/bms/yeti_gear.bms
 - **`yeti_ybig.bms`** (aluigi, 2013-03-07): http://aluigi.org/papers/bms/yeti_ybig.bms
-  — fixed 2013-03-17: **non-compressed files don't have the SIZE field**.
-  Output files have **no extensions** in the names. (aluigi, 2013-03-17)
+ — fixed 2013-03-17: **non-compressed files don't have the SIZE field**.
+ Output files have **no extensions** in the names. (aluigi, 2013-03-17)
 
 ### Manual multi-part merge workaround (GRiNDERKILLER, 2018-09-23)
 
@@ -253,7 +253,7 @@ can be merged into a single `Yeti_1.big`:
 - **Ghost Recon 2**: Unreal engine (MexCom unsupported as of 2005).
 - **GRAW PC**: `.bundle` archives, XMB TOC structure, magic `BNDL` v0x02.
 - **GRAW PS2**: `.PKG` archives (0x40-char names, DATASTART/FILES header) and
-  IMG containers with 0x30-byte linked-list entries.
+ IMG containers with 0x30-byte linked-list entries.
 - **GRAW Xbox 360**: audio = xbadpcm, track-separated by zero blocks, no header.
 - **GRFS**: Yeti/GEAR BigFile — `[ GEAR BigFile ]` and `YBIG` magics, CRC32
-  filenames, multi-part BIG1–3 chunks (65536-byte alignment).
+ filenames, multi-part BIG1–3 chunks (65536-byte alignment).

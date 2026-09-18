@@ -15,7 +15,7 @@ Use **hcs64's `ww2ogg`** tool to convert RIFF Vorbis `.wav` → standard OGG:
 
 ```bash
 ww2ogg.exe SCP_0x0d9e5710-0x40490000-0x0b67f070.wav \
-  --pcb packed_codebooks_aoTuV_603.bin
+ --pcb packed_codebooks_aoTuV_603.bin
 ```
 
 - `--pcb` points to the **packed codebooks** file (`packed_codebooks_aoTuV_603.bin`) required by ww2ogg to decode the Vorbis streams
@@ -26,7 +26,7 @@ Optionally run **`revorb`** (also from hcs64's site) on the resulting OGG to fix
 
 ```bash
 revorb.exe SCP_0x0d9e5710-0x40490000-0x0b67f070.ogg \
-  new_SCP_0x0d9e5710-0x40490000-0x0b67f070.ogg
+ new_SCP_0x0d9e5710-0x40490000-0x0b67f070.ogg
 ```
 
 ### Filename Pattern

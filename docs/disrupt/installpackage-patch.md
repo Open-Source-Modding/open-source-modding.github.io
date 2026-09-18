@@ -12,8 +12,8 @@ without repacking the ~16GB `patch` archive.
 Two byte patterns in every Disrupt DLL (WD1/WD2/WDL):
 
 ```
-search:  48 b8 17 00 00 00 39 00 00 00    replace 39 → 2b
-search:  c7 86 00 0d 00 00 88 13 00 00    replace 88 13 → 00 00
+search: 48 b8 17 00 00 00 39 00 00 00 replace 39 → 2b
+search: c7 86 00 0d 00 00 88 13 00 00 replace 88 13 → 00 00
 ```
 
 **Applies to all Disrupt DLLs:**
@@ -48,10 +48,10 @@ repack `patch` again. It's a **permanent** fix (Pesky Fly, 7/26/25).
 ## Caveats
 
 - **BattlEye**: editing the DLL trips BattlEye's modified-file check. Launch
-  with `-BattlEyeLauncher` in launch arguments to bypass. (BattlEye was removed
-  in the latest WDL version, so this no longer applies there.)
+ with `-BattlEyeLauncher` in launch arguments to bypass. (BattlEye was removed
+ in the latest WDL version, so this no longer applies there.)
 - **`PreparePlatformData.ini`**: has an `installpackage` param, which is why the
-  load path exists (Troplo noted this).
+ load path exists (Troplo noted this).
 
 ## Workflow
 

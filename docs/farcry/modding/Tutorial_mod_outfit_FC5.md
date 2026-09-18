@@ -1,4 +1,4 @@
-Here is a tutorial on how to change the clothes of an NPC  
+Here is a tutorial on how to change the clothes of an NPC 
 first we want to remove for example the balaclava from the chosen one
 
 you need to convert the install pkg file and then go to this "graphics \\ \_common \\ characters \\ fc5 \\ wardrobe \\ \_dna \\ cult \\ chosen file path"
@@ -9,12 +9,12 @@ And then there you find this file BWSK and you convert it (with FCBconverter) in
 
 Then you need to create a new file containing your mod, you will copy the folder containing the BWSK file and paste it into your new folder
 
-![][image2]  
+![][image2] 
 You must now create two files, "info.xml" and "info replace.xml"
 
 ![][image3]
 
-open the info.xml file and you must write this  so that the mod knows where the file is with the path (if you do not know how to write with the different combinations, you can help yourself by going to another mod having a file info.xml and copy paste to your file and modify)
+open the info.xml file and you must write this so that the mod knows where the file is with the path (if you do not know how to write with the different combinations, you can help yourself by going to another mod having a file info.xml and copy paste to your file and modify)
 
 ![][image4]
 
@@ -42,7 +42,7 @@ now that you have removed the paragraph, remove the empty space
 
 save the file and convert it by putting it in "FCBConverter.exe" and delete the old BWSK file and rename your new file to remove the word "\_new"
 
-![][image11]  
+![][image11] 
 now select all files and putting them in a compressed file and choose a name and at the end put ".a3"
 
 ![][image12]

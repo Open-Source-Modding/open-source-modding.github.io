@@ -60,7 +60,7 @@
 - [File lists (hash → name)](farcry/filelists.md) — concatenated/ raw accumulation → OSM FarCry*-File-Lists submodules via RebuildFileLists; CRC64 path hashing, FAT v11 decode, positional install-path usage
 - [Runtime capture (FC6)](farcry/runtime-capture.md) — FileHook (log every path the game opens, then hash-match vs the fats) + DumpModule (snapshot the Denuvo/VMProtect-packed DLL after runtime unpack for real disassembly)
 
-- [MAB animation format (FC3, buu342 RE)](farcry/mab-animation-format.md) — MAB version bytes per game (0x4C FC2 … 0xB0 FC5+ND), 9-section offset table at +200, 48-bit compressed quaternions (sqrt-W reconstruction), mystery-byte = quaternion-count bitmask, frame-array interpolation (FC4+); source knockout.chat/thread/55079 + github.com/buu342/PY-DuniaAnimationExtractor
+- [MAB animation format](farcry/mab-format.md) — version bytes per game (FC2–FC6), FC3 16-byte vs FC5/FC6 100-byte header, 9-section layout, 48-bit compressed quaternions (sqrt-W reconstruction), mystery-byte bitmask, anchor data structure, frame interpolation (FC4+); sources knockout.chat/thread/55079, PY-DuniaAnimationExtractor wiki, FCBConverter source
 - [Far Cry modding (community docs)](farcry/modding/index.md) — FCModInstaller workflows (package/replace/option/template from the .docx) + community guides (FC4 materials/suppressors, FC5 outfit BWSK, FC6 Wwise music, FOV hex editing, StimTypes)
 
 ## XeNTaX Forum Knowledge (all games)

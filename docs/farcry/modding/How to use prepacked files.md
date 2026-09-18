@@ -24,23 +24,23 @@ prepacked, you'll need to use the CMD version of Mod Installer.**
 
 Mod Installer has this functionality, you just need to keep these steps:
 
-1.  Create a directory with name: for example **myfiles_prepacked**
+1. Create a directory with name: for example **myfiles_prepacked**
 
-2.  Then keep in this folder same folder structure as in unpacked game
-    files or like in alternative package structure, so for example:
-    **myfiles_prepacked\\soundbinary\\2066755731.wem**
+2. Then keep in this folder same folder structure as in unpacked game
+ files or like in alternative package structure, so for example:
+ **myfiles_prepacked\\soundbinary\\2066755731.wem**
 
-3.  Now we need Mod Installer, it's required to start it with a launch
-    param:
+3. Now we need Mod Installer, it's required to start it with a launch
+ param:
 
 ModInstallerCMD.exe \"d:\\modding\\myfiles_prepacked\"
 
-4.  Now it will create prepacked file from source directory with name:
-    myfile.prepacked.dat and myfile.prepacked.xml
+4. Now it will create prepacked file from source directory with name:
+ myfile.prepacked.dat and myfile.prepacked.xml
 
-5.  Now copy these two files to your package
+5. Now copy these two files to your package
 
-6.  If your package has Pairs, you need to add this:
+6. If your package has Pairs, you need to add this:
 
     \<Pair\>
 
@@ -50,10 +50,10 @@ ModInstallerCMD.exe \"d:\\modding\\myfiles_prepacked\"
 
     \</Pair\>
 
-7.  If your package uses alternative structure, then you don't need to
-    do anything
+7. If your package uses alternative structure, then you don't need to
+ do anything
 
-8.  That's all, now you have prepacked file
+8. That's all, now you have prepacked file
 
 ## Unpacking prepacked file
 

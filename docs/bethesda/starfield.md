@@ -30,22 +30,22 @@ Primary-source evidence from CommonLibSF (`include/RE/`):
 - `BSAnimationGraph` — base class (derives `BSIntrusiveRefCounted` + several `BSTEventSource`s). Subclass `AnimationManager : public BSAnimationGraph`.
 - `BSAnimationGraphManager` (`sizeof == 0x80`) — the graph manager object.
 - `BGSAnimationGraphComponent` (`sizeof == 0x40`) — Form component carrying the graph
-  project/behavior names as `BSFixedString` members (`unk10..unk28`) + a smart-ptr.
+ project/behavior names as `BSFixedString` members (`unk10..unk28`) + a smart-ptr.
 - `IAnimationGraphManagerHolder` — interface with `NotifyAnimationGraphImpl`,
-  `GetAnimationGraphManagerImpl`, `GetGraphVariableImpl{Float,Int,Bool}`, and
-  `Pre/PostUpdateAnimationGraphManager`. This is **identical in role** to the Skyrim SE
-  `BGSAnimationGraphManager` / `IAnimationGraphManagerHolder` AnimGraph system.
+ `GetAnimationGraphManagerImpl`, `GetGraphVariableImpl{Float,Int,Bool}`, and
+ `Pre/PostUpdateAnimationGraphManager`. This is **identical in role** to the Skyrim SE
+ `BGSAnimationGraphManager` / `IAnimationGraphManagerHolder` AnimGraph system.
 - **No `hkb*` or `hkx*` Havok types are exposed** in CommonLibSF — Havok behavior is
-  handled opaquely behind the AnimGraph interface (same as Skyrim SE).
+ handled opaquely behind the AnimGraph interface (same as Skyrim SE).
 
 Implication (MEDIUM-HIGH confidence, inference from architecture):
 - Starfield `.hkx` files (Havok packfile, same magic `0x57e0e057 0x10c0c010`) still carry
-  behavior graphs (`hkbBehaviorGraph`), skeletons (`hkaSkeleton`), and animation bindings
-  (`hkaAnimationBinding`), organized into **project / character / behavior file sets**.
+ behavior graphs (`hkbBehaviorGraph`), skeletons (`hkaSkeleton`), and animation bindings
+ (`hkaAnimationBinding`), organized into **project / character / behavior file sets**.
 - The AnimGraph framework (graph variables, `NotifyAnimationGraph` events) is the
-  high-level API over those `.hkx` files — the same design Bethesda used since Skyrim SE.
+ high-level API over those `.hkx` files — the same design Bethesda used since Skyrim SE.
 - Behavior project authoring tooling for CE2 (official Havok Behavior Tool or a community
-  equivalent) is **not confirmed** — see Open Questions.
+ equivalent) is **not confirmed** — see Open Questions.
 
 | Fact | Detail | Source | Confidence |
 |------|--------|--------|------------|
@@ -65,9 +65,9 @@ This is the same BSArch engine that packs/unpacks the game archives.
 - `MAGIC_BTDX = 'BTDX'` (FO4 / Starfield .ba2)
 - `MAGIC_GNRL = 'GNRL'`, `MAGIC_DX10` (BA2 subtype: general vs texture/DDS)
 - Version values:
-  - `0x67` TES4 (Oblivion), `0x68` FO3/FNV/TES5, `0x69` SSE
-  - `0x01` FO4, `0x07`/`0x08` FO4 NG/AE
-  - **`0x02` Starfield v2, `0x03` Starfield v3** (SF)
+ - `0x67` TES4 (Oblivion), `0x68` FO3/FNV/TES5, `0x69` SSE
+ - `0x01` FO4, `0x07`/`0x08` FO4 NG/AE
+ - **`0x02` Starfield v2, `0x03` Starfield v3** (SF)
 
 ### Starfield BA2 header layout (after `BTDX` magic)
 1. `Version` — `0x02` (SFv2) or `0x03` (SFv3)
@@ -76,19 +76,19 @@ This is the same BSArch engine that packs/unpacks the game archives.
 4. `FileTableOffset` (int64)
 5. **SF v2+**: `ReadUInt64` — "always set to 1, immediately discarded on load" (padding/hash placeholder)
 6. **SF v3+**: `CompressionMethod` (uint32):
-   - `COMPRESSION_METHOD_ZLIB = 0` (default)
-   - `COMPRESSION_METHOD_LZ4 = 3`
+ - `COMPRESSION_METHOD_ZLIB = 0` (default)
+ - `COMPRESSION_METHOD_LZ4 = 3`
 
 ### Compression support (per archive type; first = default)
 - `baSF` (Starfield general): `[ctZLib, ctLZ4]` → default **ZLib**
 - `baSFdds` (Starfield DDS/texture): `[ctLZ4, ctZLib]` → default **LZ4**
 - (FO4 general `baFO4`: `[ctZLib]`; SSE `baSSE`: `[ctLZ4F]`)
 - Note (line 1608): "official Archive2 tool creates v3 archives for lz4 compression only"
-  → Starfield **v3 (0x03)** header + CompressionMethod is used specifically when LZ4 is chosen.
+ → Starfield **v3 (0x03)** header + CompressionMethod is used specifically when LZ4 is chosen.
 
 ### Asset folders (root + extensions) — from `cBSAssets` table
 - `meshes` (atMesh): `.nif .kf .kfm .egm .egt .tri .psa .hkt .hkx .ssf .btr .bto .btt .dtl`
-  → **`.hkx` animation files live in `meshes/`**; NIF `.nif` is still a mesh extension (FO4-era).
+ → **`.hkx` animation files live in `meshes/`**; NIF `.nif` is still a mesh extension (FO4-era).
 - `geometries` (atGeometry): **`.mesh`** → Starfield's new geometry format, root `geometries/`
 - `textures` (atTexture): `.dds .tga .png`
 - `materials` (atMaterial): `.bgsm .bgem`
@@ -99,27 +99,27 @@ This is the same BSArch engine that packs/unpacks the game archives.
 ### Important distinction: `.nif` vs `.mesh`
 - xEdit whatsnew (dev-4.1.6): "Add a **Geometries** root asset folder for Starfield **.mesh** files."
 - Confirmed in `cBSAssets`: geometry uses `.mesh` under `geometries/`, while the `meshes/` root
-  still lists `.nif` (legacy/FO4-era). So **Starfield ships geometry as `.mesh`** but the
-  archive system still understands NIF `.nif` + `.hkx` in `meshes/`.
+ still lists `.nif` (legacy/FO4-era). So **Starfield ships geometry as `.mesh`** but the
+ archive system still understands NIF `.nif` + `.hkx` in `meshes/`.
 - Whether CE2 *runtime* reads `.nif` directly is not fully confirmed; the xEdit model treats
-  `.mesh` as the current geometry and `.nif` as legacy. MEDIUM confidence.
+ `.mesh` as the current geometry and `.nif` as legacy. MEDIUM confidence.
 
 ## 4. Plugin (.esm/.esp) format — CONFIRMED from xEdit whatsnew (dev-4.1.6)
 
 - Starfield `.esp` editing enabled with **small/medium master** support.
 - **Master limits**: up to **252 full**, **4095 light**, **254 medium** masters in one file
-  (vs FO4's 254 full / 4095 light).
+ (vs FO4's 254 full / 4095 light).
 - "small or medium masters" + **blueprint master** concept: modules with a blueprint master
-  can't be saved; blueprints can't be masters.
+ can't be saved; blueprints can't be masters.
 - An `.esp` may be loaded as a master for editing but cannot be saved as a master; small/medium
-  flags cannot be set on `.esps`.
+ flags cannot be set on `.esps`.
 - Adding a master also adds its required up-chain masters (engine requires the full master chain).
 - Starfield record updates: `SCEN` changes (v1.8.83.0), Freelanes, Reflection organization,
-  new DLC records; navmesh cover flag addition; wbDOBJ etc. moved to Common.
+ new DLC records; navmesh cover flag addition; wbDOBJ etc. moved to Common.
 - xEdit ships `Core/Hardcoded/Starfield.esm` + `Core/wbDefinitionsSF1.pas` (Starfield record
-  definitions, ~19k lines).
+ definitions, ~19k lines).
 - `.mesh` geometry handled in xEdit's SNIFF via `Sniff/Proc/ProcAnalyzeMesh.pas` (uses
-  zeux/meshoptimizer for vertex-cache/fetch efficiency metrics; also checks NIF `NifVersion >= nfFO4`).
+ zeux/meshoptimizer for vertex-cache/fetch efficiency metrics; also checks NIF `NifVersion >= nfFO4`).
 
 ## 5. Modding tools (Starfield)
 
@@ -151,23 +151,23 @@ This is the same BSArch engine that packs/unpacks the game archives.
 ## 7. URLs that could NOT be accessed (user may paste content)
 
 1. `https://www.creationkit.com/starfield/` and `.../starfield/index.php?title=Main_Page` — XWiki
-   returns "This wiki is currently down for backend maintenance" (as of 2026-08-18).
+ returns "This wiki is currently down for backend maintenance" (as of 2026-08-18).
 2. `https://starfieldwiki.net/wiki/...` and its `api.php` — Cloudflare "Just a moment..."
-   challenge (HTTP 403).
+ challenge (HTTP 403).
 3. `https://www.nexusmods.com/starfield/mods/106` — page shell fetched (7 lines) but description
-   not rendered.
+ not rendered.
 4. DuckDuckGo / Bing HTML search — served anomaly/captcha pages; no organic results usable.
 5. No public source found stating the exact **Havok contents-version string** for Starfield
-   `.hkx` files (e.g. `hk_2014.1.0-r1` vs a newer SDK). This is the biggest remaining gap.
+ `.hkx` files (e.g. `hk_2014.1.0-r1` vs a newer SDK). This is the biggest remaining gap.
 
 ## 8. Guide-writing pointers (for later)
 
 - Emphasize the **Animation Graph (AnimGraph)** framework as the bridge: CE2 keeps Havok `.hkx`
-  behavior/animation but exposes it via `BSAnimationGraph`/`BSAnimationGraphManager`
-  (graph variables + `NotifyAnimationGraph` events) — same architecture as Skyrim SE.
+ behavior/animation but exposes it via `BSAnimationGraph`/`BSAnimationGraphManager`
+ (graph variables + `NotifyAnimationGraph` events) — same architecture as Skyrim SE.
 - `.hkx` files remain in the `meshes/` asset folder inside `.ba2` archives.
 - BA2 format: `BTDX` magic, version `0x02`/`0x03`, `GNRL`/`DX10` subtype, ZLib default
-  (LZ4 for DDS, or for v3 archives packed by Archive2). This is a concrete, verifiable spec.
+ (LZ4 for DDS, or for v3 archives packed by Archive2). This is a concrete, verifiable spec.
 - `.esm/.esp`: 252 full / 4095 light / 254 medium masters; small/medium/blueprint master concepts.
 - Geometry moved to **`.mesh`** under `geometries/`; NIF `.nif` retained as legacy mesh.
 - Honest gaps: exact Havok SDK version, `.hkx` class layout vs FO4, behavior-authoring tooling.

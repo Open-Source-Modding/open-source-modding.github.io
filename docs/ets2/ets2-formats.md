@@ -35,14 +35,14 @@ File count: uint32
 Offset 0x1000: File table begins
 
 Per file (24 bytes):
-  uint32 HASH1
-  uint32 HASH2
-  uint32 OFFSET
-  uint32 NULLS
-  uint32 FLAG
-  uint32 CRC
-  uint32 SIZE (decompressed)
-  uint32 ZSIZE (compressed)
+ uint32 HASH1
+ uint32 HASH2
+ uint32 OFFSET
+ uint32 NULLS
+ uint32 FLAG
+ uint32 CRC
+ uint32 SIZE (decompressed)
+ uint32 ZSIZE (compressed)
 Filename = "%08X%08X" % (HASH1, HASH2)
 If SIZE == ZSIZE: stored; else: zlib compressed
 ```
@@ -57,10 +57,10 @@ If SIZE == ZSIZE: stored; else: zlib compressed
 - **Header**: `3nK` (little-endian)
 - **Files**: `locale.scs`, `def.scs`, `base_cfg.scs` contain encrypted `.sii` files
 - **Tool**: **SCSSIITool** (Ekey) — `SCSSIITool <InFILE> <OutFILE>`
-  - Input: extracted file with `3nK` header
-  - Output: decrypted `.sii` (text) or `.txt`
+ - Input: extracted file with `3nK` header
+ - Output: decrypted `.sii` (text) or `.txt`
 - **QuickBMS**: aluigi's `scsgames.bms` supports SCS# + ZIP + 3nK decryption
-  - aluigi.org/papers/bms/scsgames.bms
+ - aluigi.org/papers/bms/scsgames.bms
 
 ### Repacking
 | Tool | Status |

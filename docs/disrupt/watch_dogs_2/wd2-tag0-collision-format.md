@@ -22,9 +22,9 @@ required — feeding `buf[0x40:]` alone yields 0 items).
 Chunks start at offset 0x10 (after the wrapper). Each chunk:
 
 ```
-+0x00  u32  sizeAndFlags   (size = value & 0x3FFFFFFF, big-endian word)
-+0x04  u32  fourcc         (little-endian)
-+0x08  byte[size] payload
++0x00 u32 sizeAndFlags (size = value & 0x3FFFFFFF, big-endian word)
++0x04 u32 fourcc (little-endian)
++0x08 byte[size] payload
 ```
 
 | FourCC | Constant (LE) | Meaning |
@@ -43,9 +43,9 @@ Chunks start at offset 0x10 (after the wrapper). Each chunk:
 `numItems = (chunkSize - 8) / 12`. Each entry is 12 bytes:
 
 ```
-+0x00  u32  raw     (type = raw & 0xFFFFFF, flags = raw >> 28)
-+0x04  u32  offset  (dataOffset into DATA)
-+0x08  u32  count
++0x00 u32 raw (type = raw & 0xFFFFFF, flags = raw >> 28)
++0x04 u32 offset (dataOffset into DATA)
++0x08 u32 count
 ```
 
 Item payload = `DATA[offset : next_item_offset]` (items are contiguous;
@@ -56,8 +56,8 @@ type-0 items are empty placeholders with count 0).
 Sequence of fixup groups:
 
 ```
-+0x00  u32  ptrType
-+0x04  u32  count
++0x00 u32 ptrType
++0x04 u32 count
 then count × { u32 location }
 ```
 
@@ -73,34 +73,34 @@ every item is reachable, no dangling targets.
 ### Quantized variant (hkx type 33 root)
 
 ```
-type 33  hknpConvexPolytopeShape (root)
-   └─fixup→ type 45 shapeData        AABB min @ +0x20, max @ +0x30  ← GLOBAL bbox
-             ├─fixup→ type 73 vertexHeader   (96 B, per-region sub-bboxes)
-             ├─fixup→ type 75 indexArray     (quad indices, count = idx_len/4)
-             └─fixup→ type 37 vertexArray    (u32 4B quantized, biggest = vert array)
+type 33 hknpConvexPolytopeShape (root)
+ └─fixup→ type 45 shapeData AABB min @ +0x20, max @ +0x30 ← GLOBAL bbox
+ ├─fixup→ type 73 vertexHeader (96 B, per-region sub-bboxes)
+ ├─fixup→ type 75 indexArray (quad indices, count = idx_len/4)
+ └─fixup→ type 37 vertexArray (u32 4B quantized, biggest = vert array)
 ```
 
 ### Full-precision variant (hkx type 147 root)
 
 ```
 type 147 root
-   └─fixup→ type 45 shapeData
-             ├─fixup→ type 78 planes     (16 B each)
-             ├─fixup→ type 87 vertices   (16 B each, hkVector4)
-             ├─fixup→ type 13 indices    (1 B each, count = total indices)
-             └─fixup→ type 130/131       (aux / connectivity)
+ └─fixup→ type 45 shapeData
+ ├─fixup→ type 78 planes (16 B each)
+ ├─fixup→ type 87 vertices (16 B each, hkVector4)
+ ├─fixup→ type 13 indices (1 B each, count = total indices)
+ └─fixup→ type 130/131 (aux / connectivity)
 ```
 
 ## Quantized vertex decode (11:11:10)
 
 ```
 u32 q:
-  xq =  q        & 0x7FF      (11 bits)
-  yq = (q >> 11) & 0x7FF      (11 bits)
-  zq = (q >> 22) & 0x3FF      (10 bits)
+ xq = q & 0x7FF (11 bits)
+ yq = (q >> 11) & 0x7FF (11 bits)
+ zq = (q >> 22) & 0x3FF (10 bits)
 
 scale = (aabbMax - aabbMin) / (2047, 2047, 1023)
-vert  = aabbMin + (xq, yq, zq) * scale
+vert = aabbMin + (xq, yq, zq) * scale
 ```
 
 Global AABB comes from type-45 shapeData `+0x20` (min) / `+0x30` (max) —
@@ -174,16 +174,16 @@ deltas. **TBD.**
 Child shape object layout (from `roadres_aac25fa5ac1b95dd.phys`, item 179):
 
 ```
-+0x00  16 B  zeros
-+0x10  u32   fixup slot → item type 104 (16 B, zeros)
-+0x20  f32×3 AABB min
-+0x30  f32×3 AABB max          (same offset convention as hkx type-45!)
-+0x40  u32×4 counts            (50, 6, 51, 255)
-+0x50  fixup slot → item type 99  (96 B: AABB + u32 ref to item 533)
-+0x60  fixup slot → item type 101 (112 B, count 26)
-+0x80  fixup slot → item type 13  (16 B, count 2, zeros)
-+0xa0  fixup slot → item type 82  (16 B)
-+0xb8  fixup slot → item type 85  (224 B, count 2)
++0x00 16 B zeros
++0x10 u32 fixup slot → item type 104 (16 B, zeros)
++0x20 f32×3 AABB min
++0x30 f32×3 AABB max (same offset convention as hkx type-45!)
++0x40 u32×4 counts (50, 6, 51, 255)
++0x50 fixup slot → item type 99 (96 B: AABB + u32 ref to item 533)
++0x60 fixup slot → item type 101 (112 B, count 26)
++0x80 fixup slot → item type 13 (16 B, count 2, zeros)
++0xa0 fixup slot → item type 82 (16 B)
++0xb8 fixup slot → item type 85 (224 B, count 2)
 ```
 
 Fixup graph: compound35 → 174× instance66 → each → 1× shape72 + 1× type13.
@@ -195,11 +195,11 @@ count 51, 208 B).
 | Type | Size/count | Contents |
 |------|-----------|----------|
 | 101 | 112 B, count 26 | **8-bit face indices** (verified: `23 24 21 22...`, all < 32) |
-| 85  | 224 B, count 2 | `ee ff 7f 7f` repeating = 0x7F7FFFEE — NOT plain u32 quant (would be floats 3.4e38 = NaN-ish); likely hkPackedVector3 / half16 / 7-bit-packed |
-| 99  | 96 B, count 1 | AABB + item ref (indirect) |
+| 85 | 224 B, count 2 | `ee ff 7f 7f` repeating = 0x7F7FFFEE — NOT plain u32 quant (would be floats 3.4e38 = NaN-ish); likely hkPackedVector3 / half16 / 7-bit-packed |
+| 99 | 96 B, count 1 | AABB + item ref (indirect) |
 | 104 | 16 B, count 1 | zeros |
-| 82  | 16 B, count 1 | sparse (`2a 80 00 1a...`) |
-| 13  | 16 B, count 2 | zeros (per-instance) |
+| 82 | 16 B, count 1 | sparse (`2a 80 00 1a...`) |
+| 13 | 16 B, count 2 | zeros (per-instance) |
 
 ## NEXT STEPS (open)
 
@@ -210,37 +210,37 @@ count 51, 208 B).
 
 ## Implementation notes
 
-- Script: `/tmp/opencode/wd2_decode.py` — end-to-end decoder (parse → fixup
-  walk → AABB → 11:11:10 quant → faces; type-ID overrides for .phys).
+- Script: `wd2_decode.py` — end-to-end decoder (parse → fixup
+ walk → AABB → 11:11:10 quant → faces; type-ID overrides for .phys).
 - Fixup target resolution must use **item index** semantics — offset-based
-  lookup only ever matched type 35 by accident.
+ lookup only ever matched type 35 by accident.
 - SDKV in WD2 retail = `20150100` (Havok 2015.1.0 as source — Ubisoft modified the SDK, removed several classes, and added custom collision mesh generation). The leaked Havok 2015 SDK can be used as a baseline to diff against Ubisoft's changes. The 2013 SDK binary
-  tagfile format (magic 0xCAB00D1E) is a DIFFERENT, older format — not a
-  reference for TCM0/TAG0.
+ tagfile format (magic 0xCAB00D1E) is a DIFFERENT, older format — not a
+ reference for TCM0/TAG0.
 - ES (EncryptedStudios) confirmed this compendium/TYPE-section approach is
-  what he used to crack WDL collision; he has not written his logic down.
+ what he used to crack WDL collision; he has not written his logic down.
 
 ## Status (2026-08-19)
 
-- ✅ **WD2 hkx decode VERIFIED end-to-end** — `/tmp/opencode/wd2_decode.py` on
-  `galilei_glass_breakable02.hkx` → 2 quantized shapes (8 verts/6 quads each,
-  closed boxes, valid indices 0-7, plausible window-pane AABBs). FrankMK04
-  algorithm confirmed working.
-- ✅ **WD2 .phys decode COMPLETE (ground truth)** — `/tmp/opencode/wd2_phys_decode.py`
-  on `roadres_aac25fa5ac1b95dd.phys` → **all 174 child shapes decoded to OBJ
-  (4247 verts, 3050 quads, 0 out-of-range refs, 0 degenerate quads)**. Road
-  surface flat at Z≈2.704, spanning a real road patch. Shape 179: 52 verts.
+- ✅ **WD2 hkx decode VERIFIED end-to-end** — `wd2_decode.py` on
+ `galilei_glass_breakable02.hkx` → 2 quantized shapes (8 verts/6 quads each,
+ closed boxes, valid indices 0-7, plausible window-pane AABBs). FrankMK04
+ algorithm confirmed working.
+- ✅ **WD2 .phys decode COMPLETE (ground truth)** — `wd2_phys_decode.py`
+ on `roadres_aac25fa5ac1b95dd.phys` → **all 174 child shapes decoded to OBJ
+ (4247 verts, 3050 quads, 0 out-of-range refs, 0 degenerate quads)**. Road
+ surface flat at Z≈2.704, spanning a real road patch. Shape 179: 52 verts.
 - ✅ **.phys vertex encoding SOLVED (correct mapping, all combos tested)**:
-  - **type 13** = 11:11:10 quantized vertices (u32 4 B each; count = vert
-    count, EXACT size match: shape179 count 52 × 4 = 208 B ✓; 8×4=32 ✓)
-  - **type 101** = u8 face indices — **count = QUAD count, indices = count×4
-    bytes** (item payload padded to 16 B: 26 quads = 104 B stored as 112 B)
-  - **shape72** = per-child wrapper (AABB @+0x20 min / +0x30 max, 6 fixup
-    slots: +0x10→104, +0x50→99, +0x60→101, +0x80→13, +0xa0→82, +0xb8→85)
-  - type 116 = secondary vertex array (count field unreliable — 51 vs 52
-    words; not used by the index array; role open)
-  - Small shapes (1 vert, 0 quads) are legitimate markers/degenerate children
+ - **type 13** = 11:11:10 quantized vertices (u32 4 B each; count = vert
+ count, EXACT size match: shape179 count 52 × 4 = 208 B ✓; 8×4=32 ✓)
+ - **type 101** = u8 face indices — **count = QUAD count, indices = count×4
+ bytes** (item payload padded to 16 B: 26 quads = 104 B stored as 112 B)
+ - **shape72** = per-child wrapper (AABB @+0x20 min / +0x30 max, 6 fixup
+ slots: +0x10→104, +0x50→99, +0x60→101, +0x80→13, +0xa0→82, +0xb8→85)
+ - type 116 = secondary vertex array (count field unreliable — 51 vs 52
+ words; not used by the index array; role open)
+ - Small shapes (1 vert, 0 quads) are legitimate markers/degenerate children
 - ⏳ Remaining: Reviewer verification (S2.4.2/S2.4.3), TNAM varint encoding
-  still unsolved (not needed for decode).
+ still unsolved (not needed for decode).
 - ℹ️ File organization within this repo: initial attempt made; further
-  organization/linking deferred (noted in repo AGENTS.md).
+ organization/linking deferred (noted in repo AGENTS.md).

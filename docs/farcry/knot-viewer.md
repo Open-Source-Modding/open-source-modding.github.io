@@ -17,13 +17,13 @@ Exports back to XML for re-injection.
 
 ```xml
 <object hash="F32C0E1C" name="Knots">
-  <object hash="9A152447" name="Knot">
-    <field hash="DCB67730" name="Value" value-Vector4="time,value,hx,hy"
-           type="BinHex">...</field>
-    <field hash="6BBB9E69" name="Info"
-           value-Vector4="6.2831993,1,0,0" type="BinHex">...</field>
-    <field hash="2CECF817" name="Type" value-Int32="0" type="BinHex">...</field>
-  </object>
+ <object hash="9A152447" name="Knot">
+ <field hash="DCB67730" name="Value" value-Vector4="time,value,hx,hy"
+ type="BinHex">...</field>
+ <field hash="6BBB9E69" name="Info"
+ value-Vector4="6.2831993,1,0,0" type="BinHex">...</field>
+ <field hash="2CECF817" name="Type" value-Int32="0" type="BinHex">...</field>
+ </object>
 </object>
 ```
 

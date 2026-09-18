@@ -40,11 +40,11 @@ Reference implementation (C#):
 
 ```csharp
 string text = value.Replace("/", "\\").ToLower();
-ulong num = 14695981039346656037uL;              // FNV-1 64 offset basis
+ulong num = 14695981039346656037uL; // FNV-1 64 offset basis
 foreach (char c in text)
 {
-    num *= 1099511628211L;                        // FNV-1 64 prime
-    num ^= c;
+ num *= 1099511628211L; // FNV-1 64 prime
+ num ^= c;
 }
 return (num & 0x1FFFFFFFFFFFFFFFuL) | 0xA000000000000000uL;
 ```
@@ -52,20 +52,20 @@ return (num & 0x1FFFFFFFFFFFFFFFuL) | 0xA000000000000000uL;
 Decoding the pieces:
 
 - **Input normalization**: `/` → `\` and `.ToLower()` — case-insensitive and
-  slash-normalized, so `Meshes/foo` and `MESHES\FOO` hash identically.
-  **Case-sensitive variant exists**: tooling also exposes a *raw input* hash
-  that skips the `.ToLower()` (case-preserving) — same FNV-1 64 core, same
-  mask/tag; only the normalization differs.
+ slash-normalized, so `Meshes/foo` and `MESHES\FOO` hash identically.
+ **Case-sensitive variant exists**: tooling also exposes a *raw input* hash
+ that skips the `.ToLower()` (case-preserving) — same FNV-1 64 core, same
+ mask/tag; only the normalization differs.
 - **Core loop**: exactly FNV-1 64 (multiply-then-xor per byte, same prime
-  `1099511628211` and offset `14695981039346656037` as the FNV64 row above).
-  **Note**: This is FNV-**1** (multiply before XOR), not FNV-1a. The CBR.Disrupt.dll
-  class is misnamed `FNV1a64`.
+ `1099511628211` and offset `14695981039346656037` as the FNV64 row above).
+ **Note**: This is FNV-**1** (multiply before XOR), not FNV-1a. The CBR.Disrupt.dll
+ class is misnamed `FNV1a64`.
 - **61-bit fold**: `num & 0x1FFFFFFFFFFFFFFF` keeps only the low 61 bits
-  (top 3 bits cleared).
+ (top 3 bits cleared).
 - **Type tag**: `| 0xA000000000000000` forces the top 3 bits to `101`
-  (`0xA` = `1010` in the top nibble). This tags the hash's namespace/type,
-  distinct from the raw FNV64 and from the 30-bit fold (`bIs30bit`) noted
-  above. Only the low 61 bits carry hash entropy.
+ (`0xA` = `1010` in the top nibble). This tags the hash's namespace/type,
+ distinct from the raw FNV64 and from the 30-bit fold (`bIs30bit`) noted
+ above. Only the low 61 bits carry hash entropy.
 
 **Verified against live tool output** (WD modding ModBot, 2026-08-18) — all
 values reproduced exactly:
@@ -94,19 +94,19 @@ The engine's FNV is the **FNV-1a** variant:
 - **FNV64**: prime `1099511628211`, offset `14695981039346656037`.
 - **FNV32**: prime `16777619`, offset `2166136261`.
 - **`ReverseBytes()`** is applied to produce the on-disk (byte-flipped)
-  "big endian" form. A `bIs30bit` flag additionally folds to 30 bits via
-  `(h >> 30) ^ (h & 0x3FFFFFFF)`.
+ "big endian" form. A `bIs30bit` flag additionally folds to 30 bits via
+ `(h >> 30) ^ (h & 0x3FFFFFFF)`.
 - **CRC32**: standard poly `0xEDB88320`, final XOR inversion, over the
-  ASCII bytes of the input.
+ ASCII bytes of the input.
 
 ## Notes
 
 - WD2/WDL use **FNV64** (64-bit) — fewer collisions than WD1's 32-bit
-  hashes. Each hash "bucket" offers ~4 billion namespace options.
+ hashes. Each hash "bucket" offers ~4 billion namespace options.
 - The `.lib`/`.fcb` binary-object naming, model/material paths, and the
-  Rulesmith hash tables all key off these functions.
+ Rulesmith hash tables all key off these functions.
 - The 7z archive's CRC / pack-stream integrity uses the standard zlib
-  CRC32 (little-endian), unrelated to the in-game hashing above.
+ CRC32 (little-endian), unrelated to the in-game hashing above.
 
 ## ⚠ CBR.Disrupt.dll Gotcha
 
@@ -114,13 +114,13 @@ The engine's FNV is the **FNV-1a** variant:
 produce incorrect results:
 
 - **`FNV1a64` in CBR** does raw FNV-1 — no path normalization (`/`→`\`), no
-  `.ToLower()`, no 57-bit mask, no `0xA000000000000000` type tag. The real
-  algorithm (documented in [§CRC64 (WD2)](#crc64-wd2) above) normalizes,
-  masks, and tags the hash.
+ `.ToLower()`, no 57-bit mask, no `0xA000000000000000` type tag. The real
+ algorithm (documented in [§CRC64 (WD2)](#crc64-wd2) above) normalizes,
+ masks, and tags the hash.
 - **`CRC64` in CBR** does polynomial CRC64 — not used by the game. The
-  real "CRC64_WD2" is FNV-1 64-bit with the modifications described above.
+ real "CRC64_WD2" is FNV-1 64-bit with the modifications described above.
 - **`FNV32` in CBR** may produce different results than the engine's WD1 hash.
-  WD1 FNV32 is the low 32 bits of the 64-bit computation, not an independent
-  FNV-1a 32.
+ WD1 FNV32 is the low 32 bits of the 64-bit computation, not an independent
+ FNV-1a 32.
 
 **Use `hash_tool.py`** — it reproduces the exact values the game engine produces.

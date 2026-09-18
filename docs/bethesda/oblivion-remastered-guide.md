@@ -15,86 +15,86 @@ what is not yet confirmed.
 ## 1. Overview: A Hybrid Engine, Not a Havok Title
 
 - **Release**: 2025-04-22 (PS5 / Windows / Xbox Series X|S); Switch 2 port on
-  2026-08-11. Development began 2021; co-developed by **Virtuos (Paris)** and
-  **Bethesda Game Studios**. [HIGH — Wikipedia]
+ 2026-08-11. Development began 2021; co-developed by **Virtuos (Paris)** and
+ **Bethesda Game Studios**. [HIGH — Wikipedia]
 - **Renderer**: Unreal Engine 5.3 (5.3.2 per community tooling; FModel's preset
-  is `GAME_UE5_3`; animation modding requires compiling UE **5.3.2** source).
-  Uses UE5's Lumen dynamic lighting and ray tracing. [HIGH — multiple sources]
+ is `GAME_UE5_3`; animation modding requires compiling UE **5.3.2** source).
+ Uses UE5's Lumen dynamic lighting and ray tracing. [HIGH — multiple sources]
 - **Game logic**: the original Gamebryo engine is still used to handle core
-  game logic — quests, AI, scripting, physics, combat. [HIGH — UESP]
+ game logic — quests, AI, scripting, physics, combat. [HIGH — UESP]
 - **Consequence for modders**: there are **two asset pipelines** — UE5 `.pak`
-  assets for presentation, and the legacy Gamebryo Data/plugin layer for logic.
-  Original game data (ESM/BSA/NIF) was re-authored as UE5 assets for rendering;
-  BSA/NIF are ignored at runtime.
+ assets for presentation, and the legacy Gamebryo Data/plugin layer for logic.
+ Original game data (ESM/BSA/NIF) was re-authored as UE5 assets for rendering;
+ BSA/NIF are ignored at runtime.
 - **Why the FO4 guide does not apply**: 2006 Oblivion used Gamebryo `.kf`/`.nif`
-  animation (`.hkx` behavior files only arrived with Skyrim/FO4). The remaster
-  ignores NIF entirely; the original animation files are not loadable. There is
-  **no Havok hkx anywhere** on the UE5 side. [HIGH]
+ animation (`.hkx` behavior files only arrived with Skyrim/FO4). The remaster
+ ignores NIF entirely; the original animation files are not loadable. There is
+ **no Havok hkx anywhere** on the UE5 side. [HIGH]
 - The Gamebryo core is reported as updated to 64-bit stable. [MEDIUM — secondary
-  source]
+ source]
 
 ## 2. Content Containers & File Structure
 
 ### UE5 side — Io Store paks
 
 - Install layout: `\Steam\steamapps\common\Oblivion Remastered\OblivionRemastered\Content\Paks`
-  holds all `.pak` files. [HIGH]
+ holds all `.pak` files. [HIGH]
 - Main package: `OblivionRemastered-Windows.pak` — all new sounds, code, and most
-  content. [HIGH]
+ content. [HIGH]
 - Container format: UE5 **Io Store** — each archive is a triple of `.pak` +
-  `.utoc` + `.ucas`; mod managers must list/delete all three, and repacking
-  `.utoc` requires the `retoc` tool. Assets inside are `.uasset`/`.uexp`.
-  [HIGH]
+ `.utoc` + `.ucas`; mod managers must list/delete all three, and repacking
+ `.utoc` requires the `retoc` tool. Assets inside are `.uasset`/`.uexp`.
+ [HIGH]
 - Browsing paks in FModel needs a **usmap** mappings file and the `GAME_UE5_3`
-  preset. No entry exists in TheNaeem/Unreal-Mappings-Archive; the community
-  standard is huwiee's usmap. [HIGH]
+ preset. No entry exists in TheNaeem/Unreal-Mappings-Archive; the community
+ standard is huwiee's usmap. [HIGH]
 - Compression is **not explicitly confirmed** as Oodle; UE 5.3 Io Store defaults
-  to Oodle — verify from the `.pak`/`.utoc` header or FModel. [MEDIUM]
+ to Oodle — verify from the `.pak`/`.utoc` header or FModel. [MEDIUM]
 
 ### Legacy Gamebryo side — Data folder & plugins
 
 - Legacy Data lives at `Content\OblivionRemastered\Content\Dev\ObvData\Data`
-  (contains the ESMs/ESPs and `Plugins.txt`; the Generate Plugins.txt Loader
-  regenerates `Plugins.txt` there). [MEDIUM — gist, corroborated by forum posts]
+ (contains the ESMs/ESPs and `Plugins.txt`; the Generate Plugins.txt Loader
+ regenerates `Plugins.txt` there). [MEDIUM — gist, corroborated by forum posts]
 - The original ESM/ESP plugins are **byte-identical to the 2006 release**; the
-  only exception is `DLCHorseArmor.esp` (one dirty message). Remaster changes
-  ship via **3 new ESPs**: `AltarESPMain.esp`, `AltarDeluxe.esp`,
-  `AltarESPLocal.esp`. [HIGH — UESP]
+ only exception is `DLCHorseArmor.esp` (one dirty message). Remaster changes
+ ship via **3 new ESPs**: `AltarESPMain.esp`, `AltarDeluxe.esp`,
+ `AltarESPLocal.esp`. [HIGH — UESP]
 - Localization: every ESM/ESP record's Full Name was replaced by a unique **UE5
-  string-table key**; unkeyed mod records show a `[NL]` prefix, unresolved keys
-  show `<MISSING STRING TABLE ENTRY>`. [HIGH]
+ string-table key**; unkeyed mod records show a `[NL]` prefix, unresolved keys
+ show `<MISSING STRING TABLE ENTRY>`. [HIGH]
 - Console: the UE5 console replaces the classic console; legacy commands need
-  the `obvConsole` prefix (e.g. `obvConsole tgm`), and some Gamebryo commands
-  (e.g. `tcl`) are inert. [HIGH]
+ the `obvConsole` prefix (e.g. `obvConsole tgm`), and some Gamebryo commands
+ (e.g. `tcl`) are inert. [HIGH]
 - Audio: **Wwise**; sounds ship as `.wem` under `Content\WwiseAudio\Media`,
-  referenced via `MediaPathName` (e.g. `Media/94211525.wem`); new sounds live
-  under `OblivionRemastered/Content/WwiseAudio/Interface/...`. [HIGH]
+ referenced via `MediaPathName` (e.g. `Media/94211525.wem`); new sounds live
+ under `OblivionRemastered/Content/WwiseAudio/Interface/...`. [HIGH]
 
 ## 3. Animation & Physics
 
 ### UE5-native animation — not Havok behavior graphs
 
 - Animation is **UE5 native** (Animation Sequences / Skeletal Meshes). The
-  workflow is: import **FBX** into a UE 5.3.2 project → asset becomes a
-  `.uasset` → package into a `.pak` with Io Store. **No hkx anywhere.** [HIGH]
+ workflow is: import **FBX** into a UE 5.3.2 project → asset becomes a
+ `.uasset` → package into a `.pak` with Io Store. **No hkx anywhere.** [HIGH]
 - Prerequisites (per the official-style animation article): ~200 GB free disk,
-  Blender 4.2 LTS, UE 5.3.2 source, Visual Studio 2022 (C++ workload), the
-  Oblivion Remastered sample project, and FModel. [HIGH — Nexus article 141]
+ Blender 4.2 LTS, UE 5.3.2 source, Visual Studio 2022 (C++ workload), the
+ Oblivion Remastered sample project, and FModel. [HIGH — Nexus article 141]
 - Naming/paths example: `A_Humanoid_OneHand_Sprint.fbx` lands in
-  `Content/Art/Animation/Humanoid/ThirdPerson/OneHanded/Locomotion/Normal`.
-  [HIGH]
+ `Content/Art/Animation/Humanoid/ThirdPerson/OneHanded/Locomotion/Normal`.
+ [HIGH]
 - Skeleton: `SKEL_HumanoidSkeleton` — its **virtual bones are IK leg targets**;
-  the humanoid rig FBX is `SK_HumanoidFull.fbx`. [HIGH]
+ the humanoid rig FBX is `SK_HumanoidFull.fbx`. [HIGH]
 - Lip-sync is an **entirely new system**. [HIGH]
 
 ### Physics — legacy Gamebryo era
 
 - Physics are the **exact same as the original Oblivion**: gravity is slightly
-  heavier with less ragdolling, and physics-enabled objects settle immediately
-  on cell load. [HIGH — Steam discussion + UESP]
+ heavier with less ragdolling, and physics-enabled objects settle immediately
+ on cell load. [HIGH — Steam discussion + UESP]
 - There is no Havok on the UE5 side; the Gamebryo side retains the legacy
-  (Havok-era) physics stack — but Oblivion physics were never the hkx behavior
-  system anyway. [MEDIUM — inference]
+ (Havok-era) physics stack — but Oblivion physics were never the hkx behavior
+ system anyway. [MEDIUM — inference]
 
 ## 4. Modding Tools
 
@@ -136,16 +136,16 @@ for MO2/Vortex to load it. [HIGH]
 ## 6. Open Questions & Unconfirmed Details
 
 - **Pak compression**: Oodle is likely (UE 5.3 Io Store default) but was not
-  confirmed from the `.pak`/`.utoc` header — verify with FModel. [MEDIUM]
+ confirmed from the `.pak`/`.utoc` header — verify with FModel. [MEDIUM]
 - **usmap completeness**: the community usmap (huwiee, Nexus mods/47) works with
-  FModel, but no mapping exists in TheNaeem/Unreal-Mappings-Archive; coverage of
-  all classes is unverified.
+ FModel, but no mapping exists in TheNaeem/Unreal-Mappings-Archive; coverage of
+ all classes is unverified.
 - **Gamebryo 64-bit update** rests on a single secondary source. [MEDIUM]
 - **"No Havok on the UE5 side"** is an inference from the animation pipeline and
-  container contents, not a Bethesda statement. [MEDIUM]
+ container contents, not a Bethesda statement. [MEDIUM]
 - The Wakui tecblog UE 5.3.2 animation-replacement guide
-  (https://wakui-tecblog.chimpoy.click/modding-oblivion-remastered-in-ue-5-3-2-a-guide-to-replacing-animations/)
-  could not be fetched at research time (connection error).
+ (https://wakui-tecblog.chimpoy.click/modding-oblivion-remastered-in-ue-5-3-2-a-guide-to-replacing-animations/)
+ could not be fetched at research time (connection error).
 
 ## 7. Sources
 

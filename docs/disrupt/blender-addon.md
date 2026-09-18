@@ -4,7 +4,7 @@ Blender 5.0 add-on for importing, editing and re-exporting 3D models from
 Disrupt engine games: **Watch Dogs 1**, **Watch Dogs 2**, and **Watch Dogs:
 Legion**.
 
-Source: `~/Documents/Code/game-tools/Ubisoft/Disrupt/blender-io-disrupt/`
+Source: 
 
 ## What it does
 
@@ -53,12 +53,12 @@ Source: `~/Documents/Code/game-tools/Ubisoft/Disrupt/blender-io-disrupt/`
 
 ```
 modules/
-  Core/           shared builder, logging, preferences
-  Havok/          HKX collision parser, decompressor, injector
-  Watch_Dogs/     WD1 import, export, inject, collision, materials, animation
-  Watch_Dogs_2/   WD2 GLM/xbg import, export, collision, materials
-  Watch_Dogs_Legion/  WDL import, export, inject, animation, collision
-  UI/             game picker + per-game panels
+ Core/ shared builder, logging, preferences
+ Havok/ HKX collision parser, decompressor, injector
+ Watch_Dogs/ WD1 import, export, inject, collision, materials, animation
+ Watch_Dogs_2/ WD2 GLM/xbg import, export, collision, materials
+ Watch_Dogs_Legion/ WDL import, export, inject, animation, collision
+ UI/ game picker + per-game panels
 ```
 
 Games share `Core/` and `Havok/`. WDL reuses WD1's MAB animation parser.

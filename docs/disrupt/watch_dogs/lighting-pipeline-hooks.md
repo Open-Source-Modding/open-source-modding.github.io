@@ -17,11 +17,11 @@ into the SSRTGI pass.
 
 ```text
 world + vehicle lights
-  → CSceneLightInstance / CSceneLightInstancePrivateData (CRendererLighting)
-  → light candidate records in the renderer queue (0x24C0 bytes each)
-  → CMultiPassDeferredLighting::JobSetup (deferred lighting pass)
-  → per-light LightData constant buffer (LightPosition/LightFrontColor/...)
-  → GPU shaders (lighting.inc.fx SSunLight/SOmniLight/SSpotLight)
+ → CSceneLightInstance / CSceneLightInstancePrivateData (CRendererLighting)
+ → light candidate records in the renderer queue (0x24C0 bytes each)
+ → CMultiPassDeferredLighting::JobSetup (deferred lighting pass)
+ → per-light LightData constant buffer (LightPosition/LightFrontColor/...)
+ → GPU shaders (lighting.inc.fx SSunLight/SOmniLight/SSpotLight)
 ```
 
 The renderer queue record stride is `0x24C0` bytes; face/light-object slots at
@@ -86,14 +86,14 @@ for its own patch — **the vanilla game uses 16**):
 `shaders_unpack/engine/shaders/lighting.inc.fx`:
 
 - `SOmniLight` (132 B): `position float3, attenuation float3, rcpRadius,
-  rcpShadowFadeRange, backColor float3, frontColor float3, capsuleDivLength
-  float4, capsuleMulLength float3, shadowMapSizes float4, shadowFactor float2,
-  halfLambert bool, receiveShadow bool, hiResShadowFilter bool,
-  specularIntensity float, depthTransform float2`
+ rcpShadowFadeRange, backColor float3, frontColor float3, capsuleDivLength
+ float4, capsuleMulLength float3, shadowMapSizes float4, shadowFactor float2,
+ halfLambert bool, receiveShadow bool, hiResShadowFilter bool,
+ specularIntensity float, depthTransform float2`
 - `SSpotLight` (180 B): position, direction, attenuation, backColor, frontColor,
-  coneFactors float2, specularIntensity, shadowProjections float4x4, ...
+ coneFactors float2, specularIntensity, shadowProjections float4x4, ...
 - `SSunLight` (160 B): direction, shadowProjection float4x4, backColor,
-  frontColor, halfLambert, receiveShadow, shadowFactor float2, ...
+ frontColor, halfLambert, receiveShadow, shadowFactor float2, ...
 
 `parameters/lightdata.fx` (per-light CB): `LightPosition`, `LightFrontColor`,
 `LightDirection`, `LightAttenuation`, `LightSpecularIntensity`,
@@ -102,13 +102,13 @@ for its own patch — **the vanilla game uses 16**):
 
 Ambient / GI systems:
 - `parameters/ambientdata.fx`: `AmbientLightDirectionWS`, `SkyColor`,
-  `GroundColor` (sky/ground ambient)
+ `GroundColor` (sky/ground ambient)
 - `ambient.inc.fx`: `WorldAmbientColorTexture` viewport-sized world ambient
 - `meta/lightmap/lightprobesupdate.fx`: `SRadianceTransferProbeCompute` (32 B)
-  — SH radiance transfer + static irradiance + sky visibility, relit by a
-  compute shader. The engine's native GI probe volume.
+ — SH radiance transfer + static irradiance + sky visibility, relit by a
+ compute shader. The engine's native GI probe volume.
 - `meta/lightmap/lightprobes.fx`: `CLightProbeRenderer` generates a
-  viewport-sized GI image.
+ viewport-sized GI image.
 
 ## Verified CPU-side LightData CB layout (from Ghidra decomp)
 
@@ -208,9 +208,9 @@ for GPU upload.
 ### Light candidate linked list (THE enumeration source)
 
 ```
-head = **(param_7 + 0x10)        // 5375511 — list head
-puVar33 = *puVar33               // 5375516/5376158 — next pointer
-loop: param_12 .. param_13       // 5375519,5376160 — [start, count) window
+head = **(param_7 + 0x10) // 5375511 — list head
+puVar33 = *puVar33 // 5375516/5376158 — next pointer
+loop: param_12 .. param_13 // 5375519,5376160 — [start, count) window
 ```
 
 Each `puVar33` node (light candidate):
@@ -242,11 +242,11 @@ spot cone `0x1c0`, specular `0x370`.
 
 Type handling:
 - **type 3** (spot/capsule): position from `[2]+8/0xc/0x10` (5375878-5882);
-  direction normalized from `[2]+0x14/0x18/0x1c` (5375880-5892); cone factors
-  from `[0xa]+0x28/0x2c` (5375897-98); front/back color from `[1]+0xa8/0xac`.
+ direction normalized from `[2]+0x14/0x18/0x1c` (5375880-5892); cone factors
+ from `[0xa]+0x28/0x2c` (5375897-98); front/back color from `[1]+0xa8/0xac`.
 - **type 4**: `FUN_181c67cd0(node[2], node[1], &param_14, &pos, &range, &shadow, &out)`
-  extracts color+position+range (5376002); position written 5376008-10;
-  range `0xc0` from `[1]`+0x1c; capsule params from `+0x44/0x4c`.
+ extracts color+position+range (5376002); position written 5376008-10;
+ range `0xc0` from `[1]`+0x1c; capsule params from `+0x44/0x4c`.
 
 ### For SSRTGI capture (recommended)
 

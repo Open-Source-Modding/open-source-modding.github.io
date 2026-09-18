@@ -51,7 +51,7 @@ directly:
 
 ```
 x86_64-w64-mingw32-objdump -d --start-address=0x180575D000 \
-    --stop-address=0x180575D05A FC_m64d3d12.dll.dump.dll
+ --stop-address=0x180575D05A FC_m64d3d12.dll.dump.dll
 ```
 
 Both plugins need the game to run to do anything. The capture-run step is the
@@ -63,8 +63,8 @@ A leaked *Watch Dogs: Legion* debug build ships full debug symbols:
 
 - `DuniaDemo_rt64.dll` + **`DuniaDemo_rt64.pdb`**
 - Retail (`DuniaDemo_clang_64_dx11.dll`) has different rebuild, so addresses
-  do not line up 1:1 — the PDB is a *symbolic/structure* reference, not an
-  address map.
+ do not line up 1:1 — the PDB is a *symbolic/structure* reference, not an
+ address map.
 
 Why it matters here: Disrupt is a Dunia 2 fork, so the PDB names transfer to
 the Far Cry lineage. The thread author uses it to identify virtualized

@@ -9,10 +9,10 @@
 The RPX uses Cafe OS ELF extensions that break every standard tool:
 
 - `readelf` (GNU and devkitPPC) reports **corrupt** symbols/section names — it cannot
-  handle Cafe OS zlib-compressed sections.
+ handle Cafe OS zlib-compressed sections.
 - `powerpc-eabi-objcopy` fails with "string table corrupt" / "file format not recognized".
 - IDA 9.3 rejects `e_type 0xFE01` and loads the file as a **flat binary at base 0**,
-  so a VA-based PDB never resolves (VA−file_offset differs per section).
+ so a VA-based PDB never resolves (VA−file_offset differs per section).
 
 ## Key Discovery: ALL file-backed sections are zlib-compressed
 
@@ -49,9 +49,9 @@ Section flags must be masked `& 0x3` to get the ELF-visible permission bits.
 ### Load addresses (these ARE valid ELF VAs — keep them)
 
 ```
-.syscall  0x02000000   .text  0x02000020   .fexports 0xC0000000
-.rodata   0x10000000   .data  0x106896A0   .module_id 0x106B4560
-.bss      0x106B4600   .sdata 0x10875AC0   .sbss     0x10875F80
+.syscall 0x02000000 .text 0x02000020 .fexports 0xC0000000
+.rodata 0x10000000 .data 0x106896A0 .module_id 0x106B4560
+.bss 0x106B4600 .sdata 0x10875AC0 .sbss 0x10875F80
 .fimports 0xC226FE80-0xC2276080
 ```
 
@@ -63,13 +63,13 @@ Algorithm:
 
 1. Parse ELF32 BE header; read 36 section headers at `0x40` (40 bytes each).
 2. For each file-backed section: skip 4-byte size header, `zlib.decompress` the rest.
-   NOBITS sections (.bss/.sbss) are zero-filled at their VA.
+ NOBITS sections (.bss/.sbss) are zero-filled at their VA.
 3. Emit a fresh ELF32 PPC **EXEC**: `[ELF hdr @0][phdrs @0x34][section data][shdrs at end]`.
-   Reserve `phdr_off + 32*7` bytes up front so the program header table does not
-   overwrite the first sections.
+ Reserve `phdr_off + 32*7` bytes up front so the program header table does not
+ overwrite the first sections.
 4. Build 7 `PT_LOAD` segments:
-   - text (secs 1-2, R+X), rodata (4, R), data (5-6, RW), bss (7, RW NOBITS),
-     sdata (8-9, RW), fexports (3, R), fimports (14-30, RW)
+ - text (secs 1-2, R+X), rodata (4, R), data (5-6, RW), bss (7, RW NOBITS),
+ sdata (8-9, RW), fexports (3, R), fimports (14-30, RW)
 5. Keep the **original section order** so `st_shndx` values stay valid.
 6. Map Cafe OS types as above; entry point stays `0x6E67A08`.
 
@@ -107,14 +107,14 @@ base-address mismatch.
 ## Demangler Notes
 
 - `__ct__` ctor, `__dt__` dtor, `__nw__` new, `__dl__` delete, `__nwa__` new[],
-  `__dla__` delete[], `__vc__` `operator[]`, `__cl__` `operator()`, `__as__` `operator=`,
-  `__eq__` `operator==`.
+ `__dla__` delete[], `__vc__` `operator[]`, `__cl__` `operator()`, `__as__` `operator=`,
+ `__eq__` `operator==`.
 - `Q2_`/`Q3_` = qualified names (`SetAffinity__Q2_4Gear10ThreadBaseFi` →
-  `Gear::ThreadBase::SetAffinity(int)`).
+ `Gear::ThreadBase::SetAffinity(int)`).
 - `__CPR<n>__` = copy/ref wrapper (strip).
 - `__tm__` = template marker (deeply nested `Z` template params remain undemangled).
 - Type codes: `v` void, `i` int, `l` long, `c` char, `f` float, `d` double, `b` bool,
-  `P` pointer, `PC` const pointer, `R` ref, `RC` const ref, `Ul/Us/Uc/Ui` unsigned.
+ `P` pointer, `PC` const pointer, `R` ref, `RC` const ref, `Ul/Us/Uc/Ui` unsigned.
 - Length-prefixed class names: `<digits><name>` (e.g. `24SEngineNetworkParameters`).
 
 ## Files

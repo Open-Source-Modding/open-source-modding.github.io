@@ -21,9 +21,9 @@ loop behavior):
 
 ```xml
 <m_events>
-    <Elem>00018029</Elem>   <!-- the shot itself (a 4-layer multilayer track) -->
-    <Elem>0010d5ae</Elem>   <!-- echo / reverb / location-based reflection — keep as-is -->
-    <Elem>000170a4</Elem>   <!-- casing sounds — MUST add this Elem to hear shell casings -->
+ <Elem>00018029</Elem> <!-- the shot itself (a 4-layer multilayer track) -->
+ <Elem>0010d5ae</Elem> <!-- echo / reverb / location-based reflection — keep as-is -->
+ <Elem>000170a4</Elem> <!-- casing sounds — MUST add this Elem to hear shell casings -->
 </m_events>
 ```
 
@@ -31,7 +31,7 @@ loop behavior):
 - **Middle** = location-based reflection/echo (`0010d5ae` — contains many sounds).
 - **Last** = casing (`000170a4`).
 - To replace a gunshot: create a single-layer SPK swapping just the player shot sound,
-  then add casing + echo/reverb as `<Elem>` children in the parent SPK.
+ then add casing + echo/reverb as `<Elem>` children in the parent SPK.
 
 **Adding a new layer:** add it as an `<Elem>` in the parent SPK (e.g.
 `<Elem>B5A2EE00F</Elem>` for `B5A2E00F.spk`), then register it in **depload** (search
@@ -43,7 +43,7 @@ Separates **player** vs **AI** sound per SPK via a switch event. The weapon arch
 declares the switch values:
 
 ```xml
-sndswvlAISoundSwitchValue="#434D"   <!-- 17229 = AI sound spk id -->
+sndswvlAISoundSwitchValue="#434D" <!-- 17229 = AI sound spk id -->
 sndswvlPlayerSoundSwitchValue="#434C" <!-- 17228 = player sound spk id -->
 ```
 
@@ -51,30 +51,30 @@ The switch-event SPK maps each switch value to a sound event:
 
 ```xml
 <type>SwitchEventDescriptor</type>
-<Id>0004eacc</Id>                       <!-- this SPK's id → change to your new spk id -->
+<Id>0004eacc</Id> <!-- this SPK's id → change to your new spk id -->
 <m_elements>
-    <Elem><eventRef>0004eac2</eventRef><switchValueId>17228</switchValueId></Elem>  <!-- player -->
-    <Elem><eventRef>0004eb0e</eventRef><switchValueId>17229</switchValueId></Elem>  <!-- ai -->
-    <Elem><eventRef>0004eb0e</eventRef><switchValueId>1147235</switchValueId></Elem>
-    <Elem><eventRef>0004eb0e</eventRef><switchValueId>1211638</switchValueId></Elem>
+ <Elem><eventRef>0004eac2</eventRef><switchValueId>17228</switchValueId></Elem> <!-- player -->
+ <Elem><eventRef>0004eb0e</eventRef><switchValueId>17229</switchValueId></Elem> <!-- ai -->
+ <Elem><eventRef>0004eb0e</eventRef><switchValueId>1147235</switchValueId></Elem>
+ <Elem><eventRef>0004eb0e</eventRef><switchValueId>1211638</switchValueId></Elem>
 </m_elements>
 ```
 
 Rules from the community:
 - **`17228`** = player sound spk id, **`17229`** = ai sound spk id. Change these in your
-  copy of the switch-event SPK.
+ copy of the switch-event SPK.
 - This keeps player audio from spilling into NPC/AI sounds — set a **switchevent**
-  inside the SPK for that separation.
+ inside the SPK for that separation.
 - For AI-only, use `eventRef = ffffffff`.
 - To drive a moving-part/trigger sound with the switch: point the trigger sound SPK at
-  your new switch-event SPK (new SPK may need depload).
+ your new switch-event SPK (new SPK may need depload).
 
 ## Tools
 
 - **SPK tool** (community, current) — the recommended SPK editor (supersedes the Mirus
-  010 script for most cases).
+ 010 script for most cases).
 - **Mirus 010 script** — still useful for multilayer in-game tracks (e.g. replacing the
-  "Dot Connexion" music track with 2 layers).
+ "Dot Connexion" music track with 2 layers).
 
 ## Relation to SLID
 
@@ -86,4 +86,4 @@ what those `.spk` files contain. `snd.txt` / `Eng_snd_Fileslist_Loc.csv` resolve
 
 - [SLID Format](slid-format.md)
 - [Wii U Debug Symbols](wii-u-debug-symbols.md) — `SND_*` engine symbols backing the
-  sound system
+ sound system

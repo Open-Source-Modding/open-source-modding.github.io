@@ -9,14 +9,14 @@
 ## File Header (32 bytes)
 
 ```
-+ 0: u32  HSEM magic (0x4853454D)
-+ 4: u32  version (0x00130049)
-+ 8: u32  hash1 (zero observed)
-+12: u32  hash2 (zero observed)
-+16: u32  unknown (zero observed)
-+20: u32  filesize_minus_12
-+24: u32  reserved (zero)
-+28: u32  n_chunks (UNRELIABLE — walk by fourcc+size instead)
++ 0: u32 HSEM magic (0x4853454D)
++ 4: u32 version (0x00130049)
++ 8: u32 hash1 (zero observed)
++12: u32 hash2 (zero observed)
++16: u32 unknown (zero observed)
++20: u32 filesize_minus_12
++24: u32 reserved (zero)
++28: u32 n_chunks (UNRELIABLE — walk by fourcc+size instead)
 +32: first chunk
 ```
 
@@ -40,19 +40,19 @@ PMCP/PMCU may appear as trailing chunks after SDPD (not inline in the chain).
 u32 n_materials
 u32 unknown
 per material:
-  u32 length, string path (e.g. "graphics\_materials\X.material.bin")
-  u32 length, string name (e.g. "Vaas_head2")
+ u32 length, string path (e.g. "graphics\_materials\X.material.bin")
+ u32 length, string name (e.g. "Vaas_head2")
 ```
 
 ### EDON — Node/Bone Hierarchy
 ```
 u32 n_bones
 per bone:
-  i32 parent_id (-1 = root)
-  f32[3] translation
-  f32[4] quaternion (xyzw)
-  u32 bone_id
-  u32 length, string name
+ i32 parent_id (-1 = root)
+ f32[3] translation
+ f32[4] quaternion (xyzw)
+ u32 bone_id
+ u32 length, string name
 ```
 Uses same layout as FC5 `_read_edon()`.
 
@@ -68,30 +68,30 @@ importer by Szkaradek123, FC6 binary analysis).
 ```
 u32 lod_count
 per LOD:
-  f32 lod_distance
-  u32 vb_count
-  per VB (16B):
-    u32 flags        — vertex format bitmask (D3D9-style, see below)
-    u32 stride       — bytes per vertex
-    u32 vcount       — number of vertices
-    u32 offset       — byte offset within LOD vertex data
-  u32 sm_count       — submesh count
-  per submesh (28B):
-    u32[7] — vb_index, material_index, sub_entry_index,
-             idx_start, last_vert, vert_byte_off, reserved
-  u32 vb_size        — total vertex data bytes
-  align(16)
-  vertex_data        — vcount × stride bytes per VB, concatenated
-  align(16)
-  u32 index_count
-  align(16)
-  index_data          — index_count × u16 indices
+ f32 lod_distance
+ u32 vb_count
+ per VB (16B):
+ u32 flags — vertex format bitmask (D3D9-style, see below)
+ u32 stride — bytes per vertex
+ u32 vcount — number of vertices
+ u32 offset — byte offset within LOD vertex data
+ u32 sm_count — submesh count
+ per submesh (28B):
+ u32[7] — vb_index, material_index, sub_entry_index,
+ idx_start, last_vert, vert_byte_off, reserved
+ u32 vb_size — total vertex data bytes
+ align(16)
+ vertex_data — vcount × stride bytes per VB, concatenated
+ align(16)
+ u32 index_count
+ align(16)
+ index_data — index_count × u16 indices
 ```
 
 ### PMCP — Position Compression
 ```
 f32 unknown
-f32 pos_scale     — typically 1/16384 (baked into vertex decode)
+f32 pos_scale — typically 1/16384 (baked into vertex decode)
 ```
 
 ### PMCU — UV Compression
@@ -105,20 +105,20 @@ f32 uv_scale
 Same flag system as FC2-FC5 (Gibbed Dunia Tools / Avatar module):
 
 ```
-Bit   Hex      Name        Size  Description
-0     0x0001   POS_FLOAT   12B   Position: float32 × 3
-1     0x0002   POS_INT16    8B   Position: int16 × 4 (÷16383.5, most common)
-2     0x0004   POS_HALF     8B   Position: float16 × 4
-3     0x0008   UV0          4B   UV channel 0: int16 × 2
-4     0x0010   BONE_WTS1    8B   Bone weights: u8 × 4 + u8 × 4 (indices)
-5     0x0020   BONE_WTS2    8B   Bone weights set 2 (rare, >4 influences)
-6     0x0040   NORMAL       4B   Normal: R10G10B10A2 (FC5/FC6) or D3DCOLOR
-7     0x0080   COLOR        4B   Vertex color: D3DCOLOR (BGRA)
-8     0x0100   TANGENT      4B   Tangent: R10G10B10A2 or D3DCOLOR
-9     0x0200   BINORMAL     4B   Binormal: R10G10B10A2 or D3DCOLOR
-10    0x0400   UNK_400      4B   Unknown (sometimes stores tangent)
-11    0x0800   UV1          4B   UV channel 1: int16 × 2
-12    0x1000   UV2          4B   UV channel 2: int16 × 2
+Bit Hex Name Size Description
+0 0x0001 POS_FLOAT 12B Position: float32 × 3
+1 0x0002 POS_INT16 8B Position: int16 × 4 (÷16383.5, most common)
+2 0x0004 POS_HALF 8B Position: float16 × 4
+3 0x0008 UV0 4B UV channel 0: int16 × 2
+4 0x0010 BONE_WTS1 8B Bone weights: u8 × 4 + u8 × 4 (indices)
+5 0x0020 BONE_WTS2 8B Bone weights set 2 (rare, >4 influences)
+6 0x0040 NORMAL 4B Normal: R10G10B10A2 (FC5/FC6) or D3DCOLOR
+7 0x0080 COLOR 4B Vertex color: D3DCOLOR (BGRA)
+8 0x0100 TANGENT 4B Tangent: R10G10B10A2 or D3DCOLOR
+9 0x0200 BINORMAL 4B Binormal: R10G10B10A2 or D3DCOLOR
+10 0x0400 UNK_400 4B Unknown (sometimes stores tangent)
+11 0x0800 UV1 4B UV channel 1: int16 × 2
+12 0x1000 UV2 4B UV channel 2: int16 × 2
 ```
 
 ### Known format values
@@ -139,7 +139,7 @@ Bit   Hex      Name        Size  Description
 
 ### Position decode
 ```
-x = posTrans + i16_x × posScale    (posTrans=0, posScale from PMCP, typically 1/16384)
+x = posTrans + i16_x × posScale (posTrans=0, posScale from PMCP, typically 1/16384)
 y = posTrans + i16_y × posScale
 z = posTrans + i16_z × posScale
 ```
@@ -147,7 +147,7 @@ XZY order (not XYZ).
 
 ### UV decode
 ```
-u = uvTrans + i16_u × uvScale      (uvTrans=0, uvScale from PMCU, typically 1/16384)
+u = uvTrans + i16_u × uvScale (uvTrans=0, uvScale from PMCU, typically 1/16384)
 v = uvTrans + i16_v × uvScale
 ```
 

@@ -62,10 +62,10 @@ FEU files contain Flash movieclips with ActionScript 2 classes. The engine loads
 
 ```
 MovieClip (Flash built-in)
-  └── driver.LoadableContainer
-        ├── driver.gamehud.Gh_CompanionBoard
-        ├── driver.gamehud.Gh_* (other HUD elements)
-        └── driver.* (menu classes)
+ └── driver.LoadableContainer
+ ├── driver.gamehud.Gh_CompanionBoard
+ ├── driver.gamehud.Gh_* (other HUD elements)
+ └── driver.* (menu classes)
 ```
 
 Key classes from `gh_companionboard.feu`:
@@ -92,8 +92,8 @@ Typical FEU files contain:
 FEU files reference engine resources via string paths embedded in the SWF:
 
 ```
-UI\fonts\WD_Tech_Plain_Default.ffd      — font definitions
-UI\supertextures\temp_idle.bfd          — texture atlases
+UI\fonts\WD_Tech_Plain_Default.ffd — font definitions
+UI\supertextures\temp_idle.bfd — texture atlases
 UI\supertextures\lib_icons_greenalpha.bfd
 ```
 

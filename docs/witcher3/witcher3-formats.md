@@ -30,12 +30,12 @@ Witcher 3 packs data in **`.bundle`** and **`.cache`** files.
 ### XBM Structure (CR2W)
 ```
 CR2W magic → version → string table → CBitmapTexture fields:
-  - width (Uint32)
-  - height (Uint32)
-  - compression (ETextureCompression = TCM_DXTNoAlpha)
-  - textureGroup (CName, e.g., CharacterDiffuse)
-  - residentMipIndex (Uint8)
-  - textureCacheKey (Uint32)
+ - width (Uint32)
+ - height (Uint32)
+ - compression (ETextureCompression = TCM_DXTNoAlpha)
+ - textureGroup (CName, e.g., CharacterDiffuse)
+ - residentMipIndex (Uint8)
+ - textureCacheKey (Uint32)
 ```
 
 ### Conversion

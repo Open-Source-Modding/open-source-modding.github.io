@@ -151,13 +151,13 @@ Example:
 So, there are used three values, let's describe how it will work:
 
 - **{MyOpt}** will be replaced with option MyOpt's first value -
-  **value**
+ **value**
 
 - **{MyOpt\|2}** will be replaced with option MyOpt's second value -
-  **value2**
+ **value2**
 
 - **{MyOpt\|3}** will be replaced with option MyOpt's three value -
-  **value3**
+ **value3**
 
 You can also use options as part of string:
 
@@ -341,15 +341,15 @@ based on the selected option's value.
 So, possible characters:
 
 - **!** (this means the Replace will used ONLY if the option's value
-  does NOT equal the defined value)
+ does NOT equal the defined value)
 
 - **\>** (this means the Replace will used ONLY if the option's value is
-  BIGGER than the defined value - WARNING - option's value MUST be
-  number)
+ BIGGER than the defined value - WARNING - option's value MUST be
+ number)
 
 - **\<** (this means the Replace will used ONLY if the option's value is
-  SMALLER than the defined value - WARNING - option's value MUST be
-  number)
+ SMALLER than the defined value - WARNING - option's value MUST be
+ number)
 
 And how to use them?
 

@@ -12,9 +12,9 @@ TAG0 header → DATA chunk → ITEM table → PTCH table → TCRF compendium
 ### ITEM Table (12 bytes each)
 ```c
 struct HkxItem {
-    uint32 typeIdAndFlags;  // typeId & 0xFFFFFF, flags (typeId >> 28) & 0xF
-    uint32 dataOffset;      // offset within DATA section
-    uint32 count;           // element count
+ uint32 typeIdAndFlags; // typeId & 0xFFFFFF, flags (typeId >> 28) & 0xF
+ uint32 dataOffset; // offset within DATA section
+ uint32 count; // element count
 };
 ```
 
@@ -41,9 +41,9 @@ struct HkxItem {
 ### PTCH Table (fixups)
 ```c
 struct HkxFixup {
-    uint32 pointerType;      // type of pointer
-    uint32 pointerLocation;  // offset within DATA
-    uint32 targetItemIndex;  // index into ITEM table
+ uint32 pointerType; // type of pointer
+ uint32 pointerLocation; // offset within DATA
+ uint32 targetItemIndex; // index into ITEM table
 };
 ```
 Fixups resolve inter-item references (e.g., shape → shape_data → vertex_array).

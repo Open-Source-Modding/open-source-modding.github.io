@@ -30,25 +30,25 @@ Starts directly with the u32 count (no version byte). Parse consumes the file
 exactly.
 
 ```
-u32 containerCount                        (WD1: 96,927)
+u32 containerCount (WD1: 96,927)
 count × 12-byte record:
-    u32 startIndex      → index into the dep-hash/dep-type arrays
-    u32 depCount        → number of consecutive deps starting there
-    u32 fileHash        → 32-bit TRUNCATED FNV1a64 of the container path
+ u32 startIndex → index into the dep-hash/dep-type arrays
+ u32 depCount → number of consecutive deps starting there
+ u32 fileHash → 32-bit TRUNCATED FNV1a64 of the container path
 u32 depHashCount (= max startIndex + 1)
-depHashCount × u32                          ← dep hashes (truncated FNV1a64)
+depHashCount × u32 ← dep hashes (truncated FNV1a64)
 u32 depTypeCount
-depTypeCount × u8                           ← parallel to dep hashes
+depTypeCount × u8 ← parallel to dep hashes
 u32 typeStringCount
-typeStringCount × u32                       ← CRC32s of element names
+typeStringCount × u32 ← CRC32s of element names
 ```
 
 Notes:
 
 - The 32-bit hash is `(uint)FNV1a64(lowercased-path)` — i.e. the low 32 bits of
-  the same 64-bit hash family WD2/WDL use (see [hashing](watch_dogs/hashing.md):
-  WD1 "FNV32" = WD2 FNV64 & 0xFFFFFFFF). One reserved value is remapped on
-  decode: `0xFFFF0000 → 0xFFFEFFFF`.
+ the same 64-bit hash family WD2/WDL use (see [hashing](watch_dogs/hashing.md):
+ WD1 "FNV32" = WD2 FNV64 & 0xFFFFFFFF). One reserved value is remapped on
+ decode: `0xFFFF0000 → 0xFFFEFFFF`.
 - Unlike the 64-bit format, both dep arrays carry explicit u32 counts.
 
 ### WD2 / WDL — 64-bit era (version byte 0x01)
@@ -57,25 +57,25 @@ First byte is `0x01` (WD1 files never start with 0x01 — their first byte is th
 low byte of a large count). Otherwise the layout is close to WD1's, widened:
 
 ```
-u8  version = 0x01
-u32 containerCount                        (raw; last 1-2 records may be filler)
-<header gap>                              COPY VERBATIM — purpose unknown
-    observed: 9 bytes in both games
-    WD2: 1a 91 ae 05 00 01 00 00 00
-    WDL: 08 08 26 01 00 01 00 00 00
+u8 version = 0x01
+u32 containerCount (raw; last 1-2 records may be filler)
+<header gap> COPY VERBATIM — purpose unknown
+ observed: 9 bytes in both games
+ WD2: 1a 91 ae 05 00 01 00 00 00
+ WDL: 08 08 26 01 00 01 00 00 00
 count × 17-byte record:
-    u64 hash          masked CRC64_WD2 of the RESOURCE PATH (see below)
-    u8  type          index into the footer type-string table
-    u32 startIndex    index into the dep arrays
-    u32 count         number of deps
-    ⚠ last 1-2 records are malformed FILLER (type out of range) — stop parsing
-      at the first invalid record
-dep hashes: u64 × (maxValidStartIndex + 1)  ← count NOT stored; implied!
-dep types:  u8  × same length               (may overrun the implied count by a
-                                             few bytes of boundary fuzz — parsers
-                                             should tolerate this)
+ u64 hash masked CRC64_WD2 of the RESOURCE PATH (see below)
+ u8 type index into the footer type-string table
+ u32 startIndex index into the dep arrays
+ u32 count number of deps
+ ⚠ last 1-2 records are malformed FILLER (type out of range) — stop parsing
+ at the first invalid record
+dep hashes: u64 × (maxValidStartIndex + 1) ← count NOT stored; implied!
+dep types: u8 × same length (may overrun the implied count by a
+ few bytes of boundary fuzz — parsers
+ should tolerate this)
 u32 typeStringCount
-typeStringCount × u32 CRC32                 ← to EXACT EOF
+typeStringCount × u32 CRC32 ← to EXACT EOF
 ```
 
 Verified stats (our dumps, `depload_tool.py dump`):
@@ -103,17 +103,17 @@ masked = (CRC64_WD2_raw & 0x03FFFFFFFFFFFFFF) | 0xA000000000000000
 ```
 
 - `CRC64_WD2_raw` is the standard tagged hash (normalize `/`→`\`, lowercase,
-  FNV-1 64, fold to 61 bits, `| 0xA000…`). Compute it with
-  `hash_tool.py --crc64wd2` in the WDL RE repo.
+ FNV-1 64, fold to 61 bits, `| 0xA000…`). Compute it with
+ `hash_tool.py --crc64wd2` in the WDL RE repo.
 - The depload mask keeps only the **low 58 entropy bits** and forces the top
-  pattern `101000` — so every hash lands in `0xA000000000000000–0xBF…`
-  (top byte `0xA0`–`0xBF`). Because the mask keeps a subset of the bits the
-  tag already preserved, it doesn't matter whether you start from the raw
-  FNV-1 or the tagged CRC64_WD2 — the result is identical.
+ pattern `101000` — so every hash lands in `0xA000000000000000–0xBF…`
+ (top byte `0xA0`–`0xBF`). Because the mask keeps a subset of the bits the
+ tag already preserved, it doesn't matter whether you start from the raw
+ FNV-1 or the tagged CRC64_WD2 — the result is identical.
 - Cross-game portability: the low 32 bits still equal the old WD1 truncated
-  FNV1a32 for the same path.
+ FNV1a32 for the same path.
 - Paths that couldn't be resolved during conversion show up as
-  `__unknown\0x<hash>` in exported XMLs.
+ `__unknown\0x<hash>` in exported XMLs.
 
 ### Worked example
 
@@ -122,7 +122,7 @@ Container: `graphics\vehicles_nexus\land\special\forklift_01\forklift_01.xbg`
 
 ```bash
 $ python3 hash_tool.py --crc64wd2 'graphics\vehicles_nexus\land\special\forklift_01\forklift_01.xbg'
-  CRC64_WD2   : #4E28FC7F86CD16AD  (BE: AD16CD867FFC284E)
+ CRC64_WD2 : #4E28FC7F86CD16AD (BE: AD16CD867FFC284E)
 ```
 
 ⚠ `hash_tool.py` prints the **little-endian byte order** first; the numeric
@@ -131,9 +131,9 @@ value is the `(BE:)` column: `0xAD16CD867FFC284E`.
 Apply the depload mask:
 
 ```
-  0xAD16CD867FFC284E
-& 0x03FFFFFFFFFFFFFF  = 0x0116CD867FFC284E
-| 0xA000000000000000  = 0xA116CD867FFC284E
+ 0xAD16CD867FFC284E
+& 0x03FFFFFFFFFFFFFF = 0x0116CD867FFC284E
+| 0xA000000000000000 = 0xA116CD867FFC284E
 ```
 
 `0xA116CD867FFC284E` is exactly the record appended to
@@ -148,10 +148,10 @@ Two different shapes exist for the human-readable form:
 
 ```xml
 <root>
-  <CBinaryResourceContainer ID="path\to\model">
-    <CGraphicResource ID="path\to\texture"/>
-    <CPhysResource ID="path\to\hkx"/>
-  </CBinaryResourceContainer>
+ <CBinaryResourceContainer ID="path\to\model">
+ <CGraphicResource ID="path\to\texture"/>
+ <CPhysResource ID="path\to\hkx"/>
+ </CBinaryResourceContainer>
 </root>
 ```
 
@@ -161,23 +161,23 @@ the records; nested children are their dependency ranges:
 
 ```xml
 <root>
-  <CGeometryResource Id="graphics\...\forklift_01.xbg">
-    <CMaterialResource Id="graphics\_materials\a.material.bin"/>
-    <CMaterialResource Id="graphics\_materials\b.material.bin"/>
-  </CGeometryResource>
-  <CPhysResource Id="graphics\...\forklift_01.hkx"/>
+ <CGeometryResource Id="graphics\...\forklift_01.xbg">
+ <CMaterialResource Id="graphics\_materials\a.material.bin"/>
+ <CMaterialResource Id="graphics\_materials\b.material.bin"/>
+ </CGeometryResource>
+ <CPhysResource Id="graphics\...\forklift_01.hkx"/>
 </root>
 ```
 
 Each top-level element maps to one 17-byte record:
 
 - record hash = masked CRC64_WD2 of its `Id` **path**
-  (validated: Encrypted's exported `CModelResource Id="__unknown\0xA0002818A08BE5BC"`
-  equals binary `london_depload.dat` record 1),
+ (validated: Encrypted's exported `CModelResource Id="__unknown\0xA0002818A08BE5BC"`
+ equals binary `london_depload.dat` record 1),
 - record type = index of the element name in the type-string footer
-  (matched by CRC32),
+ (matched by CRC32),
 - `startIndex` = current dep-array position, `count` = number of child
-  elements.
+ elements.
 
 Observed nesting examples: `CGeometryResource > CMaterialResource ×2`,
 `CAnimationResource > CMarkupResource`,
@@ -203,17 +203,17 @@ the only route for WD2/WDL.
 ## Modding rules (learned the hard way)
 
 - **Overlay entries go at the END of the file** (after existing records,
-  before the trailing footer/filler — `depload_tool.py add` handles this).
-  Wrong order or position of IDs = crash (Yorpie).
+ before the trailing footer/filler — `depload_tool.py add` handles this).
+ Wrong order or position of IDs = crash (Yorpie).
 - **Materials-only overlays**: if the models/textures are already loaded by
-  other means, the overlay only needs the materials registered — "doesn't need
-  dupes of the cars since they're already loaded. It doesn't even need the
-  textures added. It just needs the materials loaded." (Yorpie)
+ other means, the overlay only needs the materials registered — "doesn't need
+ dupes of the cars since they're already loaded. It doesn't even need the
+ textures added. It just needs the materials loaded." (Yorpie)
 - Adding unrelated resources can break *other* entities (e.g. motorcycle cops
-  broke when an unrelated overlay landed mid-file).
+ broke when an unrelated overlay landed mid-file).
 - Back up the retail `.dat` before testing; keep the previous attempt around
-  (the forklift PoC's first try used the WD1 container-GUID form and was
-  superseded once Encrypted's XML revealed the WDL convention).
+ (the forklift PoC's first try used the WD1 container-GUID form and was
+ superseded once Encrypted's XML revealed the WDL convention).
 
 ## Stability Warnings (WD2)
 

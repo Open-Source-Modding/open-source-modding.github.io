@@ -7,9 +7,9 @@
 
 ## Under construction, lad. This project aims to go live in 2026.
 
-    In the meantime, you can check these subprojects:
+ In the meantime, you can check these subprojects:
 
-    
+ 
 - [explorer.gbx.tools](https://explorer.gbx.tools)
 - [3d.gbx.tools](https://3d.gbx.tools)
 - [io.gbx.tools](https://io.gbx.tools)

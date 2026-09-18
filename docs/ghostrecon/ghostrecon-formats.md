@@ -20,9 +20,9 @@ GRAW (PC) uses **`.bundle`** files with an **XMB-based** structure similar to En
 
 **Header:**
 ```
-DWORD: Header    // "BNDL"
-DWORD: Version   // 0x02
-ULONG: TOC size  // e.g. 0x021F6
+DWORD: Header // "BNDL"
+DWORD: Version // 0x02
+ULONG: TOC size // e.g. 0x021F6
 ```
 
 **TOC Markers:**
@@ -35,9 +35,9 @@ ULONG: TOC size  // e.g. 0x021F6
 
 **Entry Layout:**
 ```
-string   filename = data/anims/ghost/ghost_machine.xmb
-ulong    offset   = 0x021cbdfc
-DWORD    filesize = 0x0703D82
+string filename = data/anims/ghost/ghost_machine.xmb
+ulong offset = 0x021cbdfc
+DWORD filesize = 0x0703D82
 ```
 
 **Example TOC Hex:**
@@ -45,13 +45,13 @@ DWORD    filesize = 0x0703D82
 00000010 0101 6461 7461 0001 0161 6E69 6D73 0001 ..data...anims..
 00000020 0167 686F 7374 0002 FCBD 1C02 0000 0000 .ghost..........
 00000030 823D 7000 0167 686F 7374 5F6D 6163 6869 .=p..ghost_machi
-00000040 6E65 2E78 6D62 00                       ne.xmb.
+00000040 6E65 2E78 6D62 00 ne.xmb.
 ```
 (`0101` = dir "data", `01` = "anims", `01` = "ghost", `02` = file info, then filename + offset + filesize)
 
 ```
 000001C5 0301 0167 7569 0002 308A 2E01 0000 0000 ...gui..0.......
-000001D5 52D7 0200 0161 6C65 7274 2E78 6D62 00   R....alert.xmb.
+000001D5 52D7 0200 0161 6C65 7274 2E78 6D62 00 R....alert.xmb.
 ```
 (`03 0101` = go to parent dir and enter `gui`)
 
@@ -97,26 +97,26 @@ get DATASTART long
 get FILES long
 
 for i = 1 <= FILES
-   savepos POS
-   get NAMEPOS long
-   math NAMEPOS + POS
-   get OFFSET long
-   savepos POS
+ savepos POS
+ get NAMEPOS long
+ math NAMEPOS + POS
+ get OFFSET long
+ savepos POS
 
-   goto NAMEPOS
-   getdstring NAME 0x40
-   goto POS
+ goto NAMEPOS
+ getdstring NAME 0x40
+ goto POS
 
-   if i == FILES
-      get SIZE asize
-   else
-      get DUMMY long
-      get SIZE long
-   endif
-   math SIZE - OFFSET
-   log NAME OFFSET SIZE
+ if i == FILES
+ get SIZE asize
+ else
+ get DUMMY long
+ get SIZE long
+ endif
+ math SIZE - OFFSET
+ log NAME OFFSET SIZE
 
-   goto POS
+ goto POS
 next i
 ```
 
@@ -136,8 +136,8 @@ Xbox version audio is **xbadpcm** (Xbox ADPCM).
 ### Container Structure
 - Several tracks separated by **zero blocks** — no header inside container
 - Must find correct stream start manually:
-  - First file offset `0`, second offset `0x4B800` (Kataah, 2010)
-  - `xbadpdec.exe mp_01_nl.SS2 stream.wav` (all tracks need correct start)
+ - First file offset `0`, second offset `0x4B800` (Kataah, 2010)
+ - `xbadpdec.exe mp_01_nl.SS2 stream.wav` (all tracks need correct start)
 
 ### PS2 Audio
 - Audio is **PS2 ADPCM**, not `.vox`
@@ -164,41 +164,41 @@ get DUMMY long
 
 savepos OFFSET_OFF
 for i = 0 < FILES
-    get DUMMY long
-    get DUMMY long
+ get DUMMY long
+ get DUMMY long
 next i
 
 savepos SIZE_OFF
 for i = 0 < FILES
-    get DUMMY long
+ get DUMMY long
 next i
 
-savepos CRC_OFF         # crc of the filenames?
+savepos CRC_OFF # crc of the filenames?
 for i = 0 < FILES
-    get DUMMY long
+ get DUMMY long
 next i
 
 savepos DUMMY_OFF
 for i = 0 < FILES
-    get DUMMY string    # or byte?
+ get DUMMY string # or byte?
 next i
 
 for i = 0 < FILES
-    goto OFFSET_OFF
-    get OFFSET long
-    get OFFSET64 long
-    savepos OFFSET_OFF
+ goto OFFSET_OFF
+ get OFFSET long
+ get OFFSET64 long
+ savepos OFFSET_OFF
 
-    goto SIZE_OFF
-    get SIZE long
-    savepos SIZE_OFF
+ goto SIZE_OFF
+ get SIZE long
+ savepos SIZE_OFF
 
-    goto CRC_OFF
-    get CRC long
-    savepos CRC_OFF
+ goto CRC_OFF
+ get CRC long
+ savepos CRC_OFF
 
-    string CRC p= "%08x" CRC
-    log CRC OFFSET SIZE
+ string CRC p= "%08x" CRC
+ log CRC OFFSET SIZE
 next i
 ```
 

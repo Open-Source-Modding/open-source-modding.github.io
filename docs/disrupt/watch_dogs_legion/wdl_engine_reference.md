@@ -46,13 +46,13 @@ a background thread.
 
 ```
 engine/shaders/
-├── obj/               # DX11-style compiled shader objects (.cso / .vso)
-├── obj_d3d12/         # D3D12 variant (primary modding target)
-├── obj_vulkan_dxc/    # Vulkan via DXC (vestigial — PC only ships DX11/D3D12)
-├── fastinitdata.bin           # Precompiled shader blob (DX11)
-├── fastinitdata_d3d12.bin     # Precompiled D3D12 blob
+├── obj/ # DX11-style compiled shader objects (.cso / .vso)
+├── obj_d3d12/ # D3D12 variant (primary modding target)
+├── obj_vulkan_dxc/ # Vulkan via DXC (vestigial — PC only ships DX11/D3D12)
+├── fastinitdata.bin # Precompiled shader blob (DX11)
+├── fastinitdata_d3d12.bin # Precompiled D3D12 blob
 ├── fastinitdata_vulkan_dxc.bin
-└── shaders.crc                # 4-byte CRC checksum
+└── shaders.crc # 4-byte CRC checksum
 ```
 
 Each `obj*/` has 128 hash buckets (`h00`–`h7f`). File naming:
@@ -75,7 +75,7 @@ dd if=input.cso bs=1 skip=56 of=stripped.cso
 
 Key properties:
 - All cbuffer reads use `cbufferLoadLegacy` (opcode 59), zero scalar
-  `cbufferLoad` (opcode 58) — early SM 6.0 scalar-CBV layout
+ `cbufferLoad` (opcode 58) — early SM 6.0 scalar-CBV layout
 - `float[N]` arrays have `ArrayStride 4` (tightly packed, not vec4-aligned)
 - HLSL cannot express stride-4 arrays → requires flattened cbuffer fallback
 
@@ -417,38 +417,38 @@ handling.
 ```
 VEdit/
 ├── Data/
-│   ├── Contexts/Car/        # Chassis, Engine, Transmission contexts
-│   ├── Controls/Car/        # Car UI controls
-│   ├── Controls/Helicopter/ # Helicopter UI controls
-│   ├── Controls/DesignSettings/
-│   ├── Graphs/              # Handling curves/graphs
-│   ├── Layouts/             # UI layouts
-│   ├── Parameters/Car/      # Parameter definitions
-│   ├── Simulation/          # Physics simulation config
-│   │   ├── DefaultHandlings/
-│   │   ├── Measurement/
-│   │   ├── ParameterDefinitions/
-│   │   └── TelemetryDefinitions/
-│   └── Windows/Car/         # Editor windows
-│       └── TestBezier/
+│ ├── Contexts/Car/ # Chassis, Engine, Transmission contexts
+│ ├── Controls/Car/ # Car UI controls
+│ ├── Controls/Helicopter/ # Helicopter UI controls
+│ ├── Controls/DesignSettings/
+│ ├── Graphs/ # Handling curves/graphs
+│ ├── Layouts/ # UI layouts
+│ ├── Parameters/Car/ # Parameter definitions
+│ ├── Simulation/ # Physics simulation config
+│ │ ├── DefaultHandlings/
+│ │ ├── Measurement/
+│ │ ├── ParameterDefinitions/
+│ │ └── TelemetryDefinitions/
+│ └── Windows/Car/ # Editor windows
+│ └── TestBezier/
 ├── Documentation/
-│   └── html/CarHandling/    # Full handling documentation
-│       ├── brakes/          + diagrams
-│       ├── cameras/         + diagrams
-│       ├── chassis/         + diagrams
-│       ├── drag/            + diagrams
-│       ├── drivetrain/      + diagrams
-│       ├── engine/          + diagrams
-│       ├── gearbox/         + diagrams
-│       ├── graphics/
-│       ├── loadtransfer/    + diagrams
-│       ├── steering/        + diagrams
-│       ├── surface/         + diagrams
-│       ├── suspension/      + diagrams
-│       ├── tutorial/
-│       └── tyres/           + diagrams
+│ └── html/CarHandling/ # Full handling documentation
+│ ├── brakes/ + diagrams
+│ ├── cameras/ + diagrams
+│ ├── chassis/ + diagrams
+│ ├── drag/ + diagrams
+│ ├── drivetrain/ + diagrams
+│ ├── engine/ + diagrams
+│ ├── gearbox/ + diagrams
+│ ├── graphics/
+│ ├── loadtransfer/ + diagrams
+│ ├── steering/ + diagrams
+│ ├── surface/ + diagrams
+│ ├── suspension/ + diagrams
+│ ├── tutorial/
+│ └── tyres/ + diagrams
 └── Tool/
-    └── locales/             # Multi-language support
+ └── locales/ # Multi-language support
 ```
 
 ### Handling Parameters (from `handling.bin`)

@@ -25,13 +25,13 @@ First big different is primaryKey. In FCB you define it as node, but in
 RML you define it as attribute of a node you want to select.
 
 +-----------------------------------------------------------------+-------------------------------------------------------------+
-| ### FCB                                                         | ### RML                                                     |
+| ### FCB | ### RML |
 +-----------------------------------------------------------------+-------------------------------------------------------------+
-| \<object hash=\"BB96607D\"\>                                    | \<ManagedObject primaryKey_disLibItemId=\"7667812319534\"\> |
-|                                                                 |                                                             |
-| \<primaryKey hash=\"8EDB0295\"\>EA0A817C58072000\</primaryKey\> | \</ManagedObject\>                                          |
-|                                                                 |                                                             |
-| \</object\>                                                     |                                                             |
+| \<object hash=\"BB96607D\"\> | \<ManagedObject primaryKey_disLibItemId=\"7667812319534\"\> |
+| | |
+| \<primaryKey hash=\"8EDB0295\"\>EA0A817C58072000\</primaryKey\> | \</ManagedObject\> |
+| | |
+| \</object\> | |
 +-----------------------------------------------------------------+-------------------------------------------------------------+
 
 > *Note: hash BB96607D is „ManagedObject", hash 8EDB0295 is

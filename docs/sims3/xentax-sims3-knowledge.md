@@ -13,12 +13,12 @@ similar to those used in *Spore* and already well understood by the community.
 
 - Packages use **standard zlib compression** for most content.
 - One notable exception: the **`scripts.package`** file did not use standard
-  zlib — its contents appeared compressed/encrypted with practically no
-  repeating bytecode/text strings.
+ zlib — its contents appeared compressed/encrypted with practically no
+ repeating bytecode/text strings.
 - All such files shared the same ~5-byte starting header.
 - The scripts were suspected to be **LUA** (hinted at in the executables),
-  compiled or uncompiled, or another homebrew bytecode similar to TS1/TS2.
-  (JMPescado, 2009-05-18) — later resolved by the community.
+ compiled or uncompiled, or another homebrew bytecode similar to TS1/TS2.
+ (JMPescado, 2009-05-18) — later resolved by the community.
 
 **Tool** (PC): **S3PE** — used to open/edit PC package files. (brendan19, 2010-11-06)
 
@@ -29,9 +29,9 @@ the music. On **Xbox 360**, the same file exists but could not be opened with
 the PC tool (S3PE).
 
 - Likely a **big-endian** variant of the format (the 360 runs on big-endian
-  hardware). (huckleberrypie, 2010-11-09)
+ hardware). (huckleberrypie, 2010-11-09)
 - Hex Workshop cannot trivially convert endianness for a whole file — a custom
-  program is required. (AlphaTwentyThree, 2010-11-17)
+ program is required. (AlphaTwentyThree, 2010-11-17)
 - The 360 audio files are **EAlayer3** encoded. (AlphaTwentyThree, 2010-11-17)
 
 ## 3. Audio Streams — audiostr.arc / FSB

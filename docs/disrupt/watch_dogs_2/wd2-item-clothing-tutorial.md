@@ -18,14 +18,14 @@
 
 ```
 patch.fat/dat
-├── items.lib              # Clothing/item definitions
-├── graphickit_models.lib  # Character model assemblies
-├── graphickit_parts.lib   # Individual model parts (heads, torsos, etc.)
+├── items.lib # Clothing/item definitions
+├── graphickit_models.lib # Character model assemblies
+├── graphickit_parts.lib # Individual model parts (heads, torsos, etc.)
 ├── itemsshopproperties.lib # Shop data (category, price, unlock)
 ├── shopcomponentsettings.lib # Which items appear in which shops
-├── tagcategories.lib      # Category definitions
-├── tags.lib               # Tag definitions
-└── texturedb.lib          # Texture database references
+├── tagcategories.lib # Category definitions
+├── tags.lib # Tag definitions
+└── texturedb.lib # Texture database references
 ```
 
 ---
@@ -96,37 +96,37 @@ patch.fat/dat
 ### Step-by-Step: New Clothing Item
 
 1. **Create graphickit_parts entry**
-   - Duplicate existing part entry
-   - Assign unique IDs
-   - Erase all model overrides except one
-   - Replace with your custom `.model` (hashed filepath)
-   - Point material to your custom `.material.bin` (with new texture paths)
+ - Duplicate existing part entry
+ - Assign unique IDs
+ - Erase all model overrides except one
+ - Replace with your custom `.model` (hashed filepath)
+ - Point material to your custom `.material.bin` (with new texture paths)
 
 2. **Create items.lib entry**
-   - Unique IDs
-   - Point to your graphickit_parts entry (`D935FAD9`)
-   - Set availability rules to `FFFFFFFFFFFFFFFF`
+ - Unique IDs
+ - Point to your graphickit_parts entry (`D935FAD9`)
+ - Set availability rules to `FFFFFFFFFFFFFFFF`
 
 3. **Extract tagcategories.lib + tags.lib**
-   - Find store tag category in tagcategories.lib
-   - Find matching store tag in tags.lib
-   - Replace `FF...` store tag in graphickit_parts with your store tag
+ - Find store tag category in tagcategories.lib
+ - Find matching store tag in tags.lib
+ - Replace `FF...` store tag in graphickit_parts with your store tag
 
 4. **Create itemsshopproperties.lib entry**
-   - Unique IDs
-   - Point to your items.lib entry (`73280CDE`)
-   - Set category hash (`E7575742`) and price (`33E4CFD7`)
+ - Unique IDs
+ - Point to your items.lib entry (`73280CDE`)
+ - Set category hash (`E7575742`) and price (`33E4CFD7`)
 
 5. **Edit shopcomponentsettings.lib**
-   - Add your item to desired shop
+ - Add your item to desired shop
 
 6. **Create custom model + material**
-   - Extract original texture + model
-   - Locate original `.material.bin`
-   - Duplicate material, point to new texture path
-   - Locate original `.model` file
-   - Duplicate `.model`, hex edit to point to new material
-   - Hash the new filepath for graphickit_parts entry
+ - Extract original texture + model
+ - Locate original `.material.bin`
+ - Duplicate material, point to new texture path
+ - Locate original `.model` file
+ - Duplicate `.model`, hex edit to point to new material
+ - Hash the new filepath for graphickit_parts entry
 
 ---
 
@@ -184,15 +184,15 @@ patch.fat/dat
 
 ```xml
 <object name="libobj">
-  <field name="hidSingleObject" type="Boolean">False</field>
-  <field name="text_hidName" type="String">Clothing.SP_MOD</field>
-  <field name="hidName" type="BinHex">80C15CE9</field>
-  <field name="hidKey" type="BinHex">80C15CE9</field>
-  <field name="bEnable" type="Boolean">True</field>
-  <field name="blgnoreCurrentGen" type="Boolean">False</field>
-  <object name="locstridltemCategoryNameld">
-    <field name="Localizationld" type="Int64">190602</field>
-  </object>
+ <field name="hidSingleObject" type="Boolean">False</field>
+ <field name="text_hidName" type="String">Clothing.SP_MOD</field>
+ <field name="hidName" type="BinHex">80C15CE9</field>
+ <field name="hidKey" type="BinHex">80C15CE9</field>
+ <field name="bEnable" type="Boolean">True</field>
+ <field name="blgnoreCurrentGen" type="Boolean">False</field>
+ <object name="locstridltemCategoryNameld">
+ <field name="Localizationld" type="Int64">190602</field>
+ </object>
 </object>
 ```
 

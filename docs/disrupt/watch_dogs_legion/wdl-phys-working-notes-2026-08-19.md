@@ -17,7 +17,7 @@ applies to WDL `.phys`; the WD2-`.phys` compound mapping does NOT.
 - AABB min @+16 (3 floats), AABB max @+32 (3 floats)
 - codecParms (quant scales) @+60/+64/+68 — e.g. 0.0019, 0.0316, 0.0023
 - Stored scales EXACTLY match computed: (amax-amin)/2047 for x,y; /1023 for z
-  (3.86/2047=0.0019 ✓, 64.77/2047=0.0316 ✓, 2.39/1023=0.0023 ✓)
+ (3.86/2047=0.0019 ✓, 64.77/2047=0.0316 ✓, 2.39/1023=0.0023 ✓)
 
 **type 140 = shared vertices** (11:11:10 quant, count×4B, u32)
 - vert = amin + ((u&0x7FF)*sx, ((u>>11)&0x7FF)*sy, ((u>>22)&0x3FF)*sz)
@@ -39,33 +39,33 @@ with ±FLT_MAX AABB sentinels; type 108 = 12×144B tree nodes; type 124 = 16B
 
 ### UNFINISHED: face/primitive index decode (state as of 18:13)
 - **Data runs (160) are a BINARY-SEARCH index** (2018 SDK getPrimitiveData):
-  for localIndex, find run where `localIndex - run.m_index` in `[0, run.m_count)`;
-  run.m_value = the triangle data (u16). Binary search, then linear for ≤4 runs.
+ for localIndex, find run where `localIndex - run.m_index` in `[0, run.m_count)`;
+ run.m_value = the triangle data (u16). Binary search, then linear for ≤4 runs.
 - **Primitive struct** (m_primitives array): 4×u8 vertex indices; triangle if
-  idx[2]==idx[3] else quad. decodeVertex: localIndex >= firstSharedIndex →
-  shared else packed.
+ idx[2]==idx[3] else quad. decodeVertex: localIndex >= firstSharedIndex →
+ shared else packed.
 - **Section layout (96B) deduced**: tree base (+16 AABB min, +32 AABB max),
-  +48 codecParms[6] = {min.x, min.y, min.z, scale.x, scale.y, scale.z} ✓
-  (16.985,-29.334,4.197 + 0.0019,0.0316,0.0023), +76 firstSharedVertex=40?,
-  +80 numPackedVertices=32 (matches type140 count!), +84 leafIndex=1?,
-  +88 firstDataRunIndex=40?
+ +48 codecParms[6] = {min.x, min.y, min.z, scale.x, scale.y, scale.z} ✓
+ (16.985,-29.334,4.197 + 0.0019,0.0316,0.0023), +76 firstSharedVertex=40?,
+ +80 numPackedVertices=32 (matches type140 count!), +84 leafIndex=1?,
+ +88 firstDataRunIndex=40?
 - **Type 124 (16B) = packed (count<<24)|first refs** per child:
-  0x2000003C(32,60), 0x26000002(38,2), 0x01000002(1,2), 0x28000002(40,2),
-  0x1000003C(16,60), 0x13000002(19,2), 0x15000002(21,2) — primitive/shared refs?
+ 0x2000003C(32,60), 0x26000002(38,2), 0x01000002(1,2), 0x28000002(40,2),
+ 0x1000003C(16,60), 0x13000002(19,2), 0x15000002(21,2) — primitive/shared refs?
 - **Type 11 large items (96-192B) = s16 delta values** (0xFFD0=-48, 0xFCF4=-780)
-  = Codec3Axis5 tree codec data (node deltas), NOT primitive indices
+ = Codec3Axis5 tree codec data (node deltas), NOT primitive indices
 - **Type 98 (13 items) = tree node AABBs** (DefaultTree5): ±FLT_MAX sentinels
-  (0x7F7FFFEE/0xFF7F7FFF) + real bounds (2.82/2.59/4.99, 17.73/20.84/20.89,
-  -94.2/-93.7/-29.3, 35.44/36.13...) = node storage array
+ (0x7F7FFFEE/0xFF7F7FFF) + real bounds (2.82/2.59/4.99, 17.73/20.84/20.89,
+ -94.2/-93.7/-29.3, 35.44/36.13...) = node storage array
 - ⚠️ CAVEAT: my run parse used t160[0] (FIRST item) — must use the fixup-resolved
-  per-child 160 (138→160 fixup). Run index must be monotonic per child.
+ per-child 160 (138→160 fixup). Run index must be monotonic per child.
 - **NEXT**: (1) resolve per-child 160 via 138→160 fixup, verify run indices
-  monotonic; (2) locate m_primitives array (4×u8 idx) — candidates: type 124
-  refs into a global primitive array, or inside type 98; (3) decode faces,
-  write WDL decoder → OBJ; (4) compare WDL hkx (33758.hkc compendium)
+ monotonic; (2) locate m_primitives array (4×u8 idx) — candidates: type 124
+ refs into a global primitive array, or inside type 98; (3) decode faces,
+ write WDL decoder → OBJ; (4) compare WDL hkx (33758.hkc compendium)
 - SectionDecoder source (authoritative):
-  `havok/sdk/havok-content-tools-2018/Havok 2018/hk2018_1_0_r1/Source/Geometry/Internal/DataStructures/StaticMeshTree/hkcdStaticMeshTreeDecoder.inl`
-  + `hkcdStaticMeshTree.h` (Section/Primitive/PrimitiveDataRun structs)
+ `havok/sdk/havok-content-tools-2018/Havok 2018/hk2018_1_0_r1/Source/Geometry/Internal/DataStructures/StaticMeshTree/hkcdStaticMeshTreeDecoder.inl`
+ + `hkcdStaticMeshTree.h` (Section/Primitive/PrimitiveDataRun structs)
 - PrimitiveDataRun (2013 patch): value(u16 TYPE_INT), index(TYPE_BYTE), count(TYPE_BYTE)
 
 ## Type map (compendium-specific — differs from WD2)
@@ -125,6 +125,6 @@ with ±FLT_MAX AABB sentinels; type 108 = 12×144B tree nodes; type 124 = 16B
 ## Related
 
 - WD2 ground truth: `watch_dogs/wd2-tag0-collision-format.md` (type 13 = verts, type 101 = quads count×4, 174 shapes/4247 verts/3050 quads/0 bad/0 degenerate)
-- WD2 decoders: `/tmp/opencode/wd2_phys_decode.py`, `/tmp/opencode/wd2_decode.py`
-- FrankMK04 parser: `~/Documents/Code/re/Disrupt/HavokDisruptWD2/HkxParserD.cs`
-- WDL compendium: `~/Documents/Modding/WDL/unpacked/worlds/london/london/generated/physics/33758.hkc`
+- WD2 decoders: `wd2_phys_decode.py`, `wd2_decode.py`
+- FrankMK04 parser: `HkxParserD.cs`
+- WDL compendium: the game install directory

@@ -26,14 +26,14 @@ File count: uint32
 Offset 0x1000: File table begins
 
 Per file (24 bytes):
-  uint32 HASH1
-  uint32 HASH2
-  uint32 OFFSET
-  uint32 NULLS
-  uint32 FLAG
-  uint32 CRC
-  uint32 SIZE (decompressed)
-  uint32 ZSIZE (compressed)
+ uint32 HASH1
+ uint32 HASH2
+ uint32 OFFSET
+ uint32 NULLS
+ uint32 FLAG
+ uint32 CRC
+ uint32 SIZE (decompressed)
+ uint32 ZSIZE (compressed)
 Filename = "%08X%08X" % (HASH1, HASH2)
 If SIZE == ZSIZE: stored; else: zlib compressed
 ```
@@ -48,10 +48,10 @@ If SIZE == ZSIZE: stored; else: zlib compressed
 - **Header**: `3nK` (little-endian) / `3nK` magic
 - **Files**: `locale.scs`, `def.scs`, `base_cfg.scs` contain encrypted `.sii` files
 - **Tool**: **SCSSIITool** by Ekey — `SCSSIITool <InFILE> <OutFILE>`
-  - Input: extracted file with `3nK` header
-  - Output: decrypted `.sii` (text) or `.txt`
+ - Input: extracted file with `3nK` header
+ - Output: decrypted `.sii` (text) or `.txt`
 - **QuickBMS**: aluigi's `scsgames.bms` supports both SCS# and ZIP + 3nK decryption
-  - http://aluigi.org/papers/bms/scsgames.bms
+ - http://aluigi.org/papers/bms/scsgames.bms
 
 ### 2.4 Repacking
 | Tool | Status |
@@ -74,10 +74,10 @@ If SIZE == ZSIZE: stored; else: zlib compressed
 - **Format**: Custom text format (key-value, nested)
 - **Extension**: `.sii` (binary/encrypted) → `.sii.txt` (decrypted)
 - **Example**:
-  ```
-  model_desc: "/model/sign/navigation/3hw_exit_far_d.pmd"
-  model_coll: "/model/sign/navigation/3hw_exit_far_d.pmc"
-  ```
+ ```
+ model_desc: "/model/sign/navigation/3hw_exit_far_d.pmd"
+ model_coll: "/model/sign/navigation/3hw_exit_far_d.pmc"
+ ```
 
 ### 3.2 Editing
 - Decrypt with SCSSIITool → edit text → re-encrypt (problematic)
@@ -131,11 +131,11 @@ If SIZE == ZSIZE: stored; else: zlib compressed
 - **Format**: Text (`.tobj`) or binary
 - **Content**: Texture path, wrap mode, filter, alpha test, etc.
 - **Example**:
-  ```
-  texture: "/vehicle/truck/man_tgx/texture.dds"
-  wrap: repeat
-  filter: linear
-  ```
+ ```
+ texture: "/vehicle/truck/man_tgx/texture.dds"
+ wrap: repeat
+ filter: linear
+ ```
 
 ---
 

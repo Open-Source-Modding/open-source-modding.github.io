@@ -5,7 +5,7 @@
 Reverse engineering work for **Watch Dogs: Legion** (v1.6.3, Denuvo-packed).
 
 WDL-specific RE hub. Cross-game Disrupt engine work lives in
-`~/Documents/Code/re/Disrupt/`.
+.
 
 ## Contents
 
@@ -30,9 +30,9 @@ WDL-specific RE hub. Cross-game Disrupt engine work lives in
 
 ```bash
 cd pdb_build
-python3 extract_dll_symbols.py <path-to-dll> <tag>   # produces ../symbols/<tag>_*.json
-./rebuild_pdb.sh                                       # dx12 (default)
-./rebuild_pdb_dx11.sh                                  # dx11
+python3 extract_dll_symbols.py <path-to-dll> <tag> # produces ../symbols/<tag>_*.json
+./rebuild_pdb.sh # dx12 (default)
+./rebuild_pdb_dx11.sh # dx11
 ```
 
 **Dependencies**: `python3`, `numpy`, `llvm-pdbutil`, `llvm-undname`

@@ -10,32 +10,32 @@ is supported by Adobe® Flash® Player software. The SWF file format is designed
 format, not a format for exchanging graphics between graphics editors. It is designed to meet the following
 goals:
 
-     •   On-screen display—The format is primarily intended for on-screen display and supports anti-aliasing,
-         fast rendering to a bitmap of any color format, animation, and interactive buttons.
+ • On-screen display—The format is primarily intended for on-screen display and supports anti-aliasing,
+ fast rendering to a bitmap of any color format, animation, and interactive buttons.
 
-     •   Extensibility—The format is a tagged format, so it can be evolved with new features while maintaining
-         backward compatibility with earlier versions of Flash Player.
+ • Extensibility—The format is a tagged format, so it can be evolved with new features while maintaining
+ backward compatibility with earlier versions of Flash Player.
 
-     •   Network delivery—The format can travel over a network with limited and unpredictable bandwidth. The
-         files are compressed to be small and support incremental rendering through streaming. The SWF file
-         format is a binary format and is not human readable like HTML. The SWF file format uses techniques
-         such as bit-packing and structures with optional fields to minimize file size.
+ • Network delivery—The format can travel over a network with limited and unpredictable bandwidth. The
+ files are compressed to be small and support incremental rendering through streaming. The SWF file
+ format is a binary format and is not human readable like HTML. The SWF file format uses techniques
+ such as bit-packing and structures with optional fields to minimize file size.
 
-     •   Simplicity—The format is simple so that Flash Player is small and easily ported. Also, Flash Player
-         depends upon a limited set of operating system features only.
+ • Simplicity—The format is simple so that Flash Player is small and easily ported. Also, Flash Player
+ depends upon a limited set of operating system features only.
 
-     •   File independence—The files display with minimal dependence on external resources such as fonts.
+ • File independence—The files display with minimal dependence on external resources such as fonts.
 
-     •   Scalability—The files work well on limited hardware, and can take advantage of better hardware when it
-         is available. This ability is important because computers have different monitor resolutions and bit
-         depths.
+ • Scalability—The files work well on limited hardware, and can take advantage of better hardware when it
+ is available. This ability is important because computers have different monitor resolutions and bit
+ depths.
 
-     •   Speed—The graphics described by SWF files render quickly.
+ • Speed—The graphics described by SWF files render quickly.
 
-     •   Scriptability—The format includes tags that provide sequences of byte codes to be interpreted by a
-         stack machine. The byte codes support the ActionScript® language. Flash Player provides a runtime
-         ActionScript object model that allows interaction with drawing primitives, servers, and features of Flash
-         Player.
+ • Scriptability—The format includes tags that provide sequences of byte codes to be interpreted by a
+ stack machine. The byte codes support the ActionScript® language. Flash Player provides a runtime
+ ActionScript object model that allows interaction with drawing primitives, servers, and features of Flash
+ Player.
 
 SWF files have the extension .swf and a MIME type of application/x-shockwave-flash.
 
@@ -62,7 +62,7 @@ www.adobe.com/misc/copyright.html.
 
 Summary of post-ship changes:
 
-     •   April 23, 2013 – Fixed wrong order in ActionStackSwap
+ • April 23, 2013 – Fixed wrong order in ActionStackSwap
 
 13
 Chapter 1: Basic Data Types
@@ -95,8 +95,8 @@ SWF file format is big-endian: the most significant bit is stored first, and the
 
 For example:
 
-     •   The 32-bit value 0x456e7120 is stored as 20 71          6e 45.
-     •   The 16-bit value 0xe712 is stored as 12 e7.
+ • The 32-bit value 0x456e7120 is stored as 20 71 6e 45.
+ • The 16-bit value 0xe712 is stored as 12 e7.
 
 All integer types must be byte-aligned. That is, the first bit of an integer value must be stored in the first bit of a
 byte in the SWF file.
@@ -110,33 +110,33 @@ represented as the bitwise opposite of the positive-zero number n-1.
 
 ## Integer Types
 
- Type                            Comment
+ Type Comment
 
- SI8                             Signed 8-bit integer value
+ SI8 Signed 8-bit integer value
 
- SI16                            Signed 16-bit integer value
+ SI16 Signed 16-bit integer value
 
- SI32                            Signed 32-bit integer value
+ SI32 Signed 32-bit integer value
 
- SI8[n]                          Signed 8-bit array—n is the number of array elements
+ SI8[n] Signed 8-bit array—n is the number of array elements
 
- SI16[n]                         Signed 16-bit array—n is the is number of array elements
+ SI16[n] Signed 16-bit array—n is the is number of array elements
 
- UI8                             Unsigned 8-bit integer value
+ UI8 Unsigned 8-bit integer value
 
- UI16                            Unsigned 16-bit integer value
+ UI16 Unsigned 16-bit integer value
 
- UI32                            Unsigned 32-bit integer value
+ UI32 Unsigned 32-bit integer value
 
- UI8[n]                          Unsigned 8-bit array—n is the number of array elements
+ UI8[n] Unsigned 8-bit array—n is the number of array elements
 
- UI16[n]                         Unsigned 16-bit array—n is the number of array elements
+ UI16[n] Unsigned 16-bit array—n is the number of array elements
 
- UI24[n]                         Unsigned 24-bit array—n is the number of array elements
+ UI24[n] Unsigned 24-bit array—n is the number of array elements
 
- UI32[n]                         Unsigned 32-bit array—n is the number of array elements
+ UI32[n] Unsigned 32-bit array—n is the number of array elements
 
- UI64[n]                         Unsigned 64-bit array—n is the number of array elements
+ UI64[n] Unsigned 64-bit array—n is the number of array elements
 
 ## Fixed-point numbers
 
@@ -157,11 +157,11 @@ the decimal point, and the low 8 bits represent the number after the decimal poi
 
 ## Fixed-Point Types
 
- Type                  Comment
+ Type Comment
 
- FIXED                 32-bit 16.16 fixed-point number
+ FIXED 32-bit 16.16 fixed-point number
 
- FIXED8                16-bit 8.8 fixed-point number
+ FIXED8 16-bit 8.8 fixed-point number
 
 ## Floating-point numbers
 
@@ -170,20 +170,20 @@ point numbers are supported.
 
 ## Floating-Point Types
 
- Type                   Comment
+ Type Comment
 
- FLOAT16                Half-precision (16-bit) floating-point number
+ FLOAT16 Half-precision (16-bit) floating-point number
 
- FLOAT                  Single-precision (32-bit) IEEE Standard 754 compatible
+ FLOAT Single-precision (32-bit) IEEE Standard 754 compatible
 
- DOUBLE                 Double-precision (64-bit) IEEE Standard 754 compatible
+ DOUBLE Double-precision (64-bit) IEEE Standard 754 compatible
 
 FLOAT16 is identical to the characteristics of FLOAT except for changes to the number of bits allocated to the
 exponent and mantissa:
 
-     •   1 bit for the sign
-     •   5 bits for the exponent, with an exponent bias of 16
-     •   10 bits for the mantissa
+ • 1 bit for the sign
+ • 5 bits for the exponent, with an exponent bias of 16
+ • 10 bits for the mantissa
 
 ## Encoded integers
 
@@ -192,9 +192,9 @@ integer is supported.
 
 ## Floating-Point Types
 
- Type                   Comment
+ Type Comment
 
- EncodedU32             Variable length encoded 32-bit unsigned integer
+ EncodedU32 Variable length encoded 32-bit unsigned integer
 
 This is a 32-bit unsigned integer value encoded with a variable number of bytes to save space. All EncodedU32's
 are encoded as 1-5 bytes depending on the value (larger values need more space). The encoding method is if the
@@ -206,42 +206,42 @@ the value, with the hi bit telling us whether to use the next byte, or if this i
 
 int GetEncodedU32(unsigned char*& pos)
 {
-  int result = pos[0];
-  if (!(result & 0x00000080))
-  {
-    pos++;
-    return result;
-  }
-  result = (result & 0x0000007f) | pos[1]<<7;
-  if (!(result & 0x00004000))
-  {
-    pos += 2;
-    return result;
-  }
-  result = (result & 0x00003fff) | pos[2]<<14;
-  if (!(result & 0x00200000))
-  {
-    pos += 3;
-    return result;
-  }
-  result = (result & 0x001fffff) | pos[3]<<21;
-  if (!(result & 0x10000000))
-  {
-    pos += 4;
-    return result;
-  }
-  result = (result & 0x0fffffff) | pos[4]<<28;
-  pos += 5;
-  return result;
+ int result = pos[0];
+ if (!(result & 0x00000080))
+ {
+ pos++;
+ return result;
+ }
+ result = (result & 0x0000007f) | pos[1]<<7;
+ if (!(result & 0x00004000))
+ {
+ pos += 2;
+ return result;
+ }
+ result = (result & 0x00003fff) | pos[2]<<14;
+ if (!(result & 0x00200000))
+ {
+ pos += 3;
+ return result;
+ }
+ result = (result & 0x001fffff) | pos[3]<<21;
+ if (!(result & 0x10000000))
+ {
+ pos += 4;
+ return result;
+ }
+ result = (result & 0x0fffffff) | pos[4]<<28;
+ pos += 5;
+ return result;
 }
 
 ## Bit values
 
 Bit values are variable-length bit fields that can represent three types of numbers:
 
-     1. Unsigned integers
-     2. Signed integers
-     3. Signed 16.16 fixed-point values.
+ 1. Unsigned integers
+ 2. Signed integers
+ 3. Signed 16.16 fixed-point values.
 
 Bit values do not have to be byte aligned. Other types (such as UI8 and UI16) are always byte aligned. If a byte-
 aligned type follows a bit value, the last byte that contains the bit value is padded with zeros.
@@ -258,13 +258,13 @@ with zeros.
 
 ## Bit Values
 
- Type                 Comment
+ Type Comment
 
- SB[nBits]            Signed-bit value (nBits is the number of bits used to store the value)
+ SB[nBits] Signed-bit value (nBits is the number of bits used to store the value)
 
- UB[nBits]            Unsigned-bit value (nBits is the number of bits used to store the value)
+ UB[nBits] Unsigned-bit value (nBits is the number of bits used to store the value)
 
- FB[nBits]            Signed, fixed-point bit value (nBits is the number of bits used to store the value)
+ FB[nBits] Signed, fixed-point bit value (nBits is the number of bits used to store the value)
 
 When an unsigned-bit value is expanded into a larger word size, the leftmost bits are filled with zeros. When a
 signed-bit value is expanded into a larger word size, the high bit is copied to the leftmost bits.
@@ -297,17 +297,17 @@ preserve the leading 0; otherwise sign extension changes the bit value into a ne
 18
  As an example of variable-sized bit values, consider the RECT structure:
 
- Field                    Type                           Comment
+ Field Type Comment
 
- Nbits                    UB[5]                          Bits in each rect value field
+ Nbits UB[5] Bits in each rect value field
 
- Xmin                     SB[Nbits]                      x minimum position for rect
+ Xmin SB[Nbits] x minimum position for rect
 
- Xmax                     SB[Nbits]                      x maximum position for rect
+ Xmax SB[Nbits] x maximum position for rect
 
- Ymin                     SB[Nbits]                      y minimum position for rect
+ Ymin SB[Nbits] y minimum position for rect
 
- Ymax                     SB[Nbits]                      y maximum position for rect
+ Ymax SB[Nbits] y maximum position for rect
 
 The Nbits field determines the number of bits used to store the coordinate values Xmin, Xmax, Ymin, and Ymax.
 Say the coordinates of the rectangle are as follows:
@@ -321,29 +321,29 @@ Nbits is calculated by finding the coordinate that requires the most bits to rep
 514 (01000000010 binary) which requires 11 bits to represent. The rectangle is stored as the following table
 shows:
 
- Field                 Type and Value                          Comment
+ Field Type and Value Comment
 
- Nbits                 UB[5] = 01011                           Bits required (11)
+ Nbits UB[5] = 01011 Bits required (11)
 
- Xmin                  SB[11] = 00100000100                    x minimum in twips (127)
+ Xmin SB[11] = 00100000100 x minimum in twips (127)
 
- Xmax                  SB[11] = 00001111111                    x maximum in twips (260)
+ Xmax SB[11] = 00001111111 x maximum in twips (260)
 
- Ymin                  SB[11] = 00000001111                    y minimum in twips (15)
+ Ymin SB[11] = 00000001111 y minimum in twips (15)
 
- Ymax                  SB[11] = 01000000010                    y maximum in twips (514)
+ Ymax SB[11] = 01000000010 y maximum in twips (514)
 
 ## String values
 
 A string value represents a null-terminated character string. The format for a string value is a sequential list of
 bytes terminated by the null character byte.
 
- Field                                  Type                   Comment
+ Field Type Comment
 
- String                                 UI8[zero or more]      Non-null string character data
+ String UI8[zero or more] Non-null string character data
 
 19
- StringEnd                              UI8                    Marks end of string; always zero
+ StringEnd UI8 Marks end of string; always zero
 
 In SWF 5 or earlier, STRING values are encoded using either ANSI (which is a superset of ASCII) or shift-JIS (a
 Japanese encoding). You cannot indicate the encoding that is used; instead, the decoding choice is made
@@ -366,9 +366,9 @@ specifications in the SWF file format.
 
 Note: A language code does not specify a text encoding; it specifies a spoken language.
 
- Field                        Type                 Comment
+ Field Type Comment
 
- LanguageCode                 UI8                  Language code (see following)
+ LanguageCode UI8 Language code (see following)
 
 Flash Player uses language codes to determine line-breaking rules for dynamic text, and to choose backup fonts
 when a specified device font is unavailable. Other uses for language codes may be found in the future.
@@ -378,15 +378,15 @@ which Flash Player is running.
 
 At the time of writing, the following language codes are recognized by Flash Player:
 
-     •   1 = Latin (the western languages covered by Latin-1: English, French, German, and so on)
+ • 1 = Latin (the western languages covered by Latin-1: English, French, German, and so on)
 
-     •   2 = Japanese
+ • 2 = Japanese
 
-     •   3 = Korean
+ • 3 = Korean
 
-     •   4 = Simplified Chinese
+ • 4 = Simplified Chinese
 
-     •   5 = Traditional Chinese
+ • 5 = Traditional Chinese
 
 20
 
@@ -394,13 +394,13 @@ At the time of writing, the following language codes are recognized by Flash Pla
 
 The RGB record represents a color as a 24-bit red, green, and blue value.
 
- Field                  Type                   Comment
+ Field Type Comment
 
- Red                    UI8                    Red color value
+ Red UI8 Red color value
 
- Green                  UI8                    Green color value
+ Green UI8 Green color value
 
- Blue                   UI8                    Blue color value
+ Blue UI8 Blue color value
 
 ## RGBA color with alpha record
 
@@ -408,30 +408,30 @@ The RGBA record represents a color as 32-bit red, green, blue and alpha value. A
 value of 255 is completely opaque. An RGBA color with an alpha value of zero is completely transparent. Alpha
 values between zero and 255 are partially transparent.
 
- Field                  Type                   Comment
+ Field Type Comment
 
- Red                    UI8                    Red color value
+ Red UI8 Red color value
 
- Green                  UI8                    Green color value
+ Green UI8 Green color value
 
- Blue                   UI8                    Blue color value
+ Blue UI8 Blue color value
 
- Alpha                  UI8                    alpha value defining opacity
+ Alpha UI8 alpha value defining opacity
 
 ## ARGB color with alpha record
 
 The ARGB record behaves exactly like the RGBA record, but the alpha value for the ARGB record is in the first
 byte.
 
- Field                  Type                   Comment
+ Field Type Comment
 
- Alpha                  UI8                    alpha value defining opacity
+ Alpha UI8 alpha value defining opacity
 
- Red                    UI8                    Red color value
+ Red UI8 Red color value
 
- Green                  UI8                    Green color value
+ Green UI8 Green color value
 
- Blue                   UI8                    Blue color value
+ Blue UI8 Blue color value
 
 21
 
@@ -440,17 +440,17 @@ byte.
 A rectangle value represents a rectangular region defined by a minimum x- and y-coordinate position and a
 maximum x- and y-coordinate position. The RECT record must be byte aligned.
 
- Field                  Type                     Comment
+ Field Type Comment
 
- Nbits                  UB[5]                    Bits used for each subsequent field
+ Nbits UB[5] Bits used for each subsequent field
 
- Xmin                   SB[Nbits]                x minimum position for rectangle in twips
+ Xmin SB[Nbits] x minimum position for rectangle in twips
 
- Xmax                   SB[Nbits]                x maximum position for rectangle in twips
+ Xmax SB[Nbits] x maximum position for rectangle in twips
 
- Ymin                   SB[Nbits]                y minimum position for rectangle in twips
+ Ymin SB[Nbits] y minimum position for rectangle in twips
 
- Ymax                   SB[Nbits]                y maximum position for rectangle in twips
+ Ymax SB[Nbits] y maximum position for rectangle in twips
 
 ## MATRIX record
 
@@ -458,29 +458,29 @@ The MATRIX record represents a standard 2x3 transformation matrix of the sort co
 It is used to describe the scale, rotation, and translation of a graphic object. The MATRIX record must be byte
 aligned.
 
- Field                  Type                                         Comment
+ Field Type Comment
 
- HasScale               UB[1]                                        Has scale values if equal to 1
+ HasScale UB[1] Has scale values if equal to 1
 
- NScaleBits             If HasScale = 1, UB[5]                       Bits in each scale value field
+ NScaleBits If HasScale = 1, UB[5] Bits in each scale value field
 
- ScaleX                 If HasScale = 1, FB[NScaleBits]              x scale value
+ ScaleX If HasScale = 1, FB[NScaleBits] x scale value
 
- ScaleY                 If HasScale = 1, FB[NScaleBits]              y scale value
+ ScaleY If HasScale = 1, FB[NScaleBits] y scale value
 
- HasRotate              UB[1]                                        Has rotate and skew values if equal to 1
+ HasRotate UB[1] Has rotate and skew values if equal to 1
 
- NRotateBits            If HasRotate = 1, UB[5]                      Bits in each rotate value field
+ NRotateBits If HasRotate = 1, UB[5] Bits in each rotate value field
 
- RotateSkew0            If HasRotate = 1, FB[NRotateBits]            First rotate and skew value
+ RotateSkew0 If HasRotate = 1, FB[NRotateBits] First rotate and skew value
 
- RotateSkew1            If HasRotate = 1, FB[NRotateBits]            Second rotate and skew value
+ RotateSkew1 If HasRotate = 1, FB[NRotateBits] Second rotate and skew value
 
- NTranslateBits         UB[5]                                        Bits in each translate value field
+ NTranslateBits UB[5] Bits in each translate value field
 
- TranslateX             SB[NTranslateBits]                           x translate value in twips
+ TranslateX SB[NTranslateBits] x translate value in twips
 
- TranslateY             SB[NTranslateBits]                           y translate value in twips
+ TranslateY SB[NTranslateBits] y translate value in twips
 
 22
 The ScaleX, ScaleY, RotateSkew0 and RotateSkew1 fields are stored as 16.16 fixed-point values. The TranslateX
@@ -491,11 +491,11 @@ the HasScale and HasRotate flags are zero, and the matrix only contains the Tran
 
 The mapping from the MATRIX fields to the 2x3 matrix is as follows:
 
- ScaleX                      RotateSkew0
+ ScaleX RotateSkew0
 
- RotateSkew1                 ScaleY
+ RotateSkew1 ScaleY
 
- TranslateX                  TranslateY
+ TranslateX TranslateY
 
 For any coordinates (x, y), the transformed coordinates (x', y') are calculated as follows:
 
@@ -504,19 +504,19 @@ y' = x * RotateSkew0 + y * ScaleY + TranslateY
 
 The following table describes how the members of the matrix are used for each type of operation:
 
-                    ScaleX                     RotateSkew0             RotateSkew1            ScaleY
+ ScaleX RotateSkew0 RotateSkew1 ScaleY
 
- Rotation           Cosine                     Sine                    Negative sine          Cosine
+ Rotation Cosine Sine Negative sine Cosine
 
- Scaling            Horizontal scaling         Nothing                 Nothing                Vertical scaling
-                    component                                                                 component
+ Scaling Horizontal scaling Nothing Nothing Vertical scaling
+ component component
 
- Shear              Nothing                    Horizontal              Vertical               Nothing
-                                               proportionality         proportionality
-                                               constant                constant
+ Shear Nothing Horizontal Vertical Nothing
+ proportionality proportionality
+ constant constant
 
- Reflection         Horizontal reflection      Nothing                 Nothing                Vertical reflection
-                    component                                                                 component
+ Reflection Horizontal reflection Nothing Nothing Vertical reflection
+ component component
 
 23
 
@@ -525,18 +525,18 @@ The following table describes how the members of the matrix are used for each ty
 The CXFORM record defines a simple transform that can be applied to the color space of a graphic object. The
 following are the two types of transform possible:
 
-     •   Multiplication transforms
+ • Multiplication transforms
 
-     •   Addition transforms
+ • Addition transforms
 
 Multiplication transforms multiply the red, green, and blue components by an 8.8 fixed-point multiplication
 term. The fixed-point representation of 1.0 is 0x100 or 256 decimal.
 
 For any color (R,G,B), the transformed color (R', G', B') is calculated as follows:
 
- R' = (R * RedMultTerm)                / 256
- G' = (G * GreenMultTerm)              / 256
- B' = (B * BlueMultTerm)               / 256
+ R' = (R * RedMultTerm) / 256
+ G' = (G * GreenMultTerm) / 256
+ B' = (B * BlueMultTerm) / 256
 Addition transforms add an addition term (positive or negative) to the red, green, and blue components of the
 object being displayed. If the result is greater than 255, the result is clamped to 255. If the result is less than
 zero, the result is clamped to zero.
@@ -556,26 +556,26 @@ B' = max(0, min(((B * BlueMultTerm) / 256) + BlueAddTerm, 255))
 
 The CXFORM record must be byte aligned.
 
- Field                         Type                                   Comment
+ Field Type Comment
 
- HasAddTerms                   UB[1]                                  Has color addition values if equal to 1
+ HasAddTerms UB[1] Has color addition values if equal to 1
 
- HasMultTerms                  UB[1]                                  Has color multiply values if equal to 1
+ HasMultTerms UB[1] Has color multiply values if equal to 1
 
- Nbits                         UB[4]                                  Bits in each value field
+ Nbits UB[4] Bits in each value field
 
- RedMultTerm                   If HasMultTerms = 1, SB[Nbits]         Red multiply value
+ RedMultTerm If HasMultTerms = 1, SB[Nbits] Red multiply value
 
- GreenMultTerm                 If HasMultTerms = 1, SB[Nbits]         Green multiply value
+ GreenMultTerm If HasMultTerms = 1, SB[Nbits] Green multiply value
 
 24
- BlueMultTerm                 If HasMultTerms = 1, SB[Nbits]           Blue multiply value
+ BlueMultTerm If HasMultTerms = 1, SB[Nbits] Blue multiply value
 
- RedAddTerm                   If HasAddTerms = 1, SB[Nbits]            Red addition value
+ RedAddTerm If HasAddTerms = 1, SB[Nbits] Red addition value
 
- GreenAddTerm                 If HasAddTerms = 1, SB[Nbits]            Green addition value
+ GreenAddTerm If HasAddTerms = 1, SB[Nbits] Green addition value
 
- BlueAddTerm                  If HasAddTerms = 1, SB[Nbits]            Blue addition value
+ BlueAddTerm If HasAddTerms = 1, SB[Nbits] Blue addition value
 
 ## Color transform with alpha record
 
@@ -584,9 +584,9 @@ to the alpha channel, as well as the red, green, and blue channels.
 
 The following are the two types of transform possible:
 
-     •   Multiplication Transforms
+ • Multiplication Transforms
 
-     •   Addition Transforms
+ • Addition Transforms
 
 Multiplication transforms multiply the red, green, blue, and alpha components by an 8.8 fixed-point value. The
 fixed-point representation of 1.0 is 0x100 or 256 decimal. Therefore, the result of a multiplication operation
@@ -624,29 +624,29 @@ A' = max(0, min(((A * AlphaMultTerm) / 256) + AlphaAddTerm, 255))
 
 Like the CXFORM record, the CXFORMWITHALPHA record is byte aligned.
 
- Field                    Type                                 Comment
+ Field Type Comment
 
- HasAddTerms              UB[1]                                Has color addition values if equal to 1
+ HasAddTerms UB[1] Has color addition values if equal to 1
 
- HasMultTerms             UB[1]                                Has color multiply values if equal to 1
+ HasMultTerms UB[1] Has color multiply values if equal to 1
 
- Nbits                    UB[4]                                Bits in each value field
+ Nbits UB[4] Bits in each value field
 
- RedMultTerm              If HasMultTerms = 1, SB[Nbits]       Red multiply value
+ RedMultTerm If HasMultTerms = 1, SB[Nbits] Red multiply value
 
- GreenMultTerm            If HasMultTerms = 1, SB[Nbits]       Green multiply value
+ GreenMultTerm If HasMultTerms = 1, SB[Nbits] Green multiply value
 
- BlueMultTerm             If HasMultTerms = 1, SB[Nbits]       Blue multiply value
+ BlueMultTerm If HasMultTerms = 1, SB[Nbits] Blue multiply value
 
- AlphaMultTerm            If HasMultTerms = 1, SB[Nbits]       Alpha multiply value
+ AlphaMultTerm If HasMultTerms = 1, SB[Nbits] Alpha multiply value
 
- RedAddTerm               If HasAddTerms = 1, SB[Nbits]        Red addition value
+ RedAddTerm If HasAddTerms = 1, SB[Nbits] Red addition value
 
- GreenAddTerm             If HasAddTerms = 1, SB[Nbits]        Green addition value
+ GreenAddTerm If HasAddTerms = 1, SB[Nbits] Green addition value
 
- BlueAddTerm              If HasAddTerms = 1, SB[Nbits]        Blue addition value
+ BlueAddTerm If HasAddTerms = 1, SB[Nbits] Blue addition value
 
- AlphaAddTerm             If HasAddTerms = 1, SB[Nbits]        Transparency addition value
+ AlphaAddTerm If HasAddTerms = 1, SB[Nbits] Transparency addition value
 
 26
 Chapter 2: SWF Structure Summary
@@ -656,44 +656,44 @@ This chapter provides a summary of the elements that comprise a SWF file.
 
 All SWF files begin with the following header. The types are defined in Chapter 1: Basic Data Types.
 
- Field                                  Type                         Comment
+ Field Type Comment
 
- Signature                              UI8                          Signature byte:
-                                                                     “F” indicates uncompressed
-                                                                     “C” indicates a zlib compressed SWF (SWF 6
-                                                                     and later only)
+ Signature UI8 Signature byte:
+ “F” indicates uncompressed
+ “C” indicates a zlib compressed SWF (SWF 6
+ and later only)
 
-                                                                     “Z” indicates a LZMA compressed SWF (SWF
-                                                                     13 and later only)
+ “Z” indicates a LZMA compressed SWF (SWF
+ 13 and later only)
 
- Signature                              UI8                          Signature byte always “W”
+ Signature UI8 Signature byte always “W”
 
- Signature                              UI8                          Signature byte always “S”
+ Signature UI8 Signature byte always “S”
 
- Version                                UI8                          Single byte file version (for example, 0x06 for
-                                                                     SWF 6)
+ Version UI8 Single byte file version (for example, 0x06 for
+ SWF 6)
 
- FileLength                             UI32                         Length of entire file in bytes
+ FileLength UI32 Length of entire file in bytes
 
- FrameSize                              RECT                         Frame size in twips
+ FrameSize RECT Frame size in twips
 
- FrameRate                              UI16                         Frame delay in 8.8 fixed number of frames
-                                                                     per second
+ FrameRate UI16 Frame delay in 8.8 fixed number of frames
+ per second
 
- FrameCount                             UI16                         Total number of frames in file
+ FrameCount UI16 Total number of frames in file
 
 The header begins with a three-byte signature of one of:
 
-              •   0x46, 0x57, 0x53 (“FWS”). An FWS signature indicates an uncompressed SWF file.
-              •   0x43, 0x57, 0x53 (“CWS”). A CWS indicates that the entire file after the first 8 bytes (that is,
-                  after the FileLength field) was compressed by using the ZLIB open standard. The data format
-                  that the ZLIB library uses is described by Request for Comments (RFCs) documents 1950 to
-                  1952. CWS file compression is permitted in SWF 6 or later only.
-              •   0x5a, 0x57, 0x53 (“ZWS”). A ZWS indicates that the entire file after the first 8 bytes (that is,
-                  after the FileLength field) was compressed by using the LZMA open standard: http://www.7-
+ • 0x46, 0x57, 0x53 (“FWS”). An FWS signature indicates an uncompressed SWF file.
+ • 0x43, 0x57, 0x53 (“CWS”). A CWS indicates that the entire file after the first 8 bytes (that is,
+ after the FileLength field) was compressed by using the ZLIB open standard. The data format
+ that the ZLIB library uses is described by Request for Comments (RFCs) documents 1950 to
+ 1952. CWS file compression is permitted in SWF 6 or later only.
+ • 0x5a, 0x57, 0x53 (“ZWS”). A ZWS indicates that the entire file after the first 8 bytes (that is,
+ after the FileLength field) was compressed by using the LZMA open standard: http://www.7-
 
 27
-                 zip.org/sdk.html. ZWS file compression is permitted in SWF 13 or later only.
+ zip.org/sdk.html. ZWS file compression is permitted in SWF 13 or later only.
 
 A one-byte version number follows the signature. The version number is not an ASCII character, but an 8-bit
 number. For example, for SWF 4, the version byte is 0x04, not the ASCII character “4” (0x34).
@@ -723,8 +723,8 @@ by tools that process a SWF file.
 
 The FileAttributes tag is only required for SWF 8 and later.
 
-     Header        FileAttributes      Tag                 Tag                 …      End tag
-                   tag
+ Header FileAttributes Tag Tag … End tag
+ tag
 
 28
 
@@ -736,9 +736,9 @@ used for any tag size up to 2GB, far larger than is presently practical.
 
 ## RECORDHEADER (short)
 
- Field                          Type                  Comment
+ Field Type Comment
 
- TagCodeAndLength               UI16                  Upper 10 bits: tag type Lower 6 bits: tag length
+ TagCodeAndLength UI16 Upper 10 bits: tag type Lower 6 bits: tag length
 
 Note: The TagCodeAndLength field is a two-byte word, not a bit field of 10 bits followed by a bit field of 6 bits.
 The little-endian byte ordering of a SWF file makes these two layouts different.
@@ -750,24 +750,24 @@ header with a length of 0x3f, followed by a 32-bit length.
 
 ## RECORDHEADER (long)
 
- Field                          Type                  Comment
+ Field Type Comment
 
- TagCodeAndLength               UI16                  Tag type and length of 0x3F Packed together as in short
-                                                      header
+ TagCodeAndLength UI16 Tag type and length of 0x3F Packed together as in short
+ header
 
- Length                         UI32                  Length of tag
+ Length UI32 Length of tag
 
 ## Definition and control tags
 
 The two categories of tags in a SWF file are as follows:
 
-     •   Definition tags define the content of the SWF file—the shapes, text, bitmaps, sounds, and so on. Each
-         definition tag assigns a unique ID called a character ID to the content it defines. Flash Player then stores
-         the character in a repository called the dictionary. Definition tags, by themselves, do not cause anything
-         to be rendered.
+ • Definition tags define the content of the SWF file—the shapes, text, bitmaps, sounds, and so on. Each
+ definition tag assigns a unique ID called a character ID to the content it defines. Flash Player then stores
+ the character in a repository called the dictionary. Definition tags, by themselves, do not cause anything
+ to be rendered.
 
-     •   Control tags create and manipulate rendered instances of characters in the dictionary, and control the
-         flow of the file.
+ • Control tags create and manipulate rendered instances of characters in the dictionary, and control the
+ flow of the file.
 
 29
 
@@ -775,31 +775,31 @@ The two categories of tags in a SWF file are as follows:
 
 Generally speaking, tags in a SWF can occur in any order. However, you must observe the following rules:
 
-     •   The FileAttributes tag must be the first tag in the SWF file for SWF 8 and later.
+ • The FileAttributes tag must be the first tag in the SWF file for SWF 8 and later.
 
-     •   A tag should only depend on tags that come before it. A tag should never depend on a tag that comes
-         later in the file.
+ • A tag should only depend on tags that come before it. A tag should never depend on a tag that comes
+ later in the file.
 
-     •   A definition tag that defines a character must occur before any control tag that refers to that character.
+ • A definition tag that defines a character must occur before any control tag that refers to that character.
 
-     •   Streaming sound tags must be in order. Out-of-order streaming sound tags result in the sound being
-         played out of order.
+ • Streaming sound tags must be in order. Out-of-order streaming sound tags result in the sound being
+ played out of order.
 
-     •   The End tag is always the last tag in the SWF file.
+ • The End tag is always the last tag in the SWF file.
 
 ## The dictionary
 
 The dictionary is a repository of characters that are defined, and are available for control tags to use. The
 process of building and using the dictionary is as follows:
 
-     1. The definition tag defines some content, such as a shape, font, bitmap, or sound.
+ 1. The definition tag defines some content, such as a shape, font, bitmap, or sound.
 
-     2. The definition tag assigns a unique CharacterId to the content.
+ 2. The definition tag assigns a unique CharacterId to the content.
 
-     3. The content is saved in the dictionary under the CharacterId.
+ 3. The content is saved in the dictionary under the CharacterId.
 
-     4. A control tag uses the CharacterId to retrieve the content from the dictionary, and performs some
-        action on the content, such as displaying a shape, or playing a sound.
+ 4. A control tag uses the CharacterId to retrieve the content from the dictionary, and performs some
+ action on the content, such as displaying a shape, or playing a sound.
 
 Every definition tag must specify a unique ID. Duplicate IDs are not allowed. Typically, the first CharacterId is 1,
 the second CharacterId is 2, and so on. The number zero (0) is special and is considered a null character.
@@ -812,36 +812,36 @@ fonts for the text.
 30
 The following diagram illustrates a typical interaction between definition tags, control tags, and the dictionary:
 
-         Tags in SWF file                              Dictionary
+ Tags in SWF file Dictionary
 
-     DefineShape as character 1                         Character 1
-                                                         Shape
-     DefineSound as character 2
-                                                       Character 2
-     DefineFont as character 3                          Sound
+ DefineShape as character 1 Character 1
+ Shape
+ DefineSound as character 2
+ Character 2
+ DefineFont as character 3 Sound
 
-     PlaceObject character 1                           Character 3
-     Add shape to display list*                          Font
+ PlaceObject character 1 Character 3
+ Add shape to display list* Font
 
-     DefineText as character 4                         Character 4
-     Uses font defined as character 3                    Text
+ DefineText as character 4 Character 4
+ Uses font defined as character 3 Text
 
-     PlaceObject character 4                           Character 5
-     Add text to display list*                          Morph
+ PlaceObject character 4 Character 5
+ Add text to display list* Morph
 
-     ShowFrame
-     Render contents of the display*
+ ShowFrame
+ Render contents of the display*
 
-     DefineMorphShape as character 5
-                                                      Contol tag
-     StartSound character 2
-                                                      Definition tag
-     PlaceObject character 5
-                                                      Character
-     Add Morph to display list*
+ DefineMorphShape as character 5
+ Contol tag
+ StartSound character 2
+ Definition tag
+ PlaceObject character 5
+ Character
+ Add Morph to display list*
 
-     ShowFrame
-     Render contents of the display*
+ ShowFrame
+ Render contents of the display*
 
 31
 
@@ -858,25 +858,25 @@ operations from the beginning of the file to the second ShowFrame tag, and so on
 Since SWF files are frequently delivered over a network connection, they should be as compact as possible.
 Several techniques are used to accomplish this, including the following items:
 
-     •   Reuse—The structure of the character dictionary makes it easy to reuse elements in a SWF file. For
-         example, a shape, button, sound, font, or bitmap can be stored in a file once and referenced many
-         times.
+ • Reuse—The structure of the character dictionary makes it easy to reuse elements in a SWF file. For
+ example, a shape, button, sound, font, or bitmap can be stored in a file once and referenced many
+ times.
 
-     •   Compression—Shapes are compressed by using an efficient delta encoding scheme; often the first
-         coordinate of a line is assumed to be the last coordinate of the previous line. Distances are also often
-         expressed relative to the last position.
+ • Compression—Shapes are compressed by using an efficient delta encoding scheme; often the first
+ coordinate of a line is assumed to be the last coordinate of the previous line. Distances are also often
+ expressed relative to the last position.
 
-     •   Default values—Some structures, like matrixes and color transforms, have common fields that are used
-         more often than others. For example, for a matrix, the most common field is the translation field.
-         Scaling and rotation are less common. Therefore, if the scaling field is not present, it is assumed to be
-         100%. If the rotation field is not present, it is assumed that there is no rotation. This use of default
-         values helps to minimize file sizes.
+ • Default values—Some structures, like matrixes and color transforms, have common fields that are used
+ more often than others. For example, for a matrix, the most common field is the translation field.
+ Scaling and rotation are less common. Therefore, if the scaling field is not present, it is assumed to be
+ 100%. If the rotation field is not present, it is assumed that there is no rotation. This use of default
+ values helps to minimize file sizes.
 
-     •   Change Encoding—As a rule, SWF files only store the changes between states. This is reflected in shape
-         data structures and in the place-move-remove model that the display list uses.
+ • Change Encoding—As a rule, SWF files only store the changes between states. This is reflected in shape
+ data structures and in the place-move-remove model that the display list uses.
 
-     •   Shape Data Structure—The shape data structure uses a unique structure to minimize the size of shapes
-         and to render anti-aliased shapes efficiently on the screen.
+ • Shape Data Structure—The shape data structure uses a unique structure to minimize the size of shapes
+ and to render anti-aliased shapes efficiently on the screen.
 
 ## Summary
 
@@ -888,13 +888,13 @@ tags manipulate characters, and control the flow of the file.
 Chapter 3: The Display List
 Displaying a frame of a SWF file is a three-stage process:
 
-     1. Objects are defined with definition tags such as DefineShape, DefineSprite, and so on. Each object is
-        given a unique ID called a character, and is stored in a repository called the dictionary.
+ 1. Objects are defined with definition tags such as DefineShape, DefineSprite, and so on. Each object is
+ given a unique ID called a character, and is stored in a repository called the dictionary.
 
-     2. Selected characters are copied from the dictionary and placed on the display list, which is the list of the
-        characters that will be displayed in the next frame.
+ 2. Selected characters are copied from the dictionary and placed on the display list, which is the list of the
+ characters that will be displayed in the next frame.
 
-     3. Once complete, the contents of the display list are rendered to the screen with ShowFrame.
+ 3. Once complete, the contents of the display list are rendered to the screen with ShowFrame.
 
 A depth value is assigned to each character on the display list. The depth determines the stacking order of the
 character. Characters with lower depth values are displayed underneath characters with higher depth values. A
@@ -907,16 +907,16 @@ child elements. For more information, see DefineSprite.
 
 The following six tags are used to control the display list:
 
-     •   PlaceObject     Adds a character to the display list.
+ • PlaceObject Adds a character to the display list.
 
-     •   PlaceObject2 & PlaceObject3      Adds a character to the display list, or modifies the character at the
-         specified depth.
+ • PlaceObject2 & PlaceObject3 Adds a character to the display list, or modifies the character at the
+ specified depth.
 
-     •   RemoveObject Removes the specified character from the display list.
+ • RemoveObject Removes the specified character from the display list.
 
-     •   RemoveObject2 Removes the character at the specified depth.
+ • RemoveObject2 Removes the character at the specified depth.
 
-     •   ShowFrame       Renders the contents of the display list to the display.
+ • ShowFrame Renders the contents of the display list to the display.
 
 Note: The older tags, PlaceObject and RemoveObject, are rarely used in SWF 3 and later versions.
 
@@ -927,21 +927,21 @@ placed at depth 1, the bottom of the stack, and will be obscured by all other ch
 rendered. Character 2 (the text) is placed twice; once at depth 2, and once at depth 4, the top of the stack.
 Character 3 (the sprite) is placed at depth 3.
 
-     Definition                   Dictionary               Display List
+ Definition Dictionary Display List
 
-                                                                             Top
-     DefineShape                Character ID = 1         Character ID = 2
-     Character ID = 1                                       Depth = 4
+ Top
+ DefineShape Character ID = 1 Character ID = 2
+ Character ID = 1 Depth = 4
 
-     DefineText                Character ID = 2          Character ID = 3
-     Character ID = 1                                       Depth = 3
+ DefineText Character ID = 2 Character ID = 3
+ Character ID = 1 Depth = 3
 
-      DefineSprite             Character ID = 3          Character ID = 2
-      Character ID = 1                                      Depth = 2
+ DefineSprite Character ID = 3 Character ID = 2
+ Character ID = 1 Depth = 2
 
-                                                         Character ID = 1
-                                                           Depth = 1
-                                                                            Bottom
+ Character ID = 1
+ Depth = 1
+ Bottom
 
 34
 
@@ -954,75 +954,75 @@ PlaceObject2 specifies the top-most depth that the clipping layer masks.
 For example, if a shape was placed at depth 1 with a ClipDepth of 4, all depths above 1, up to and including
 depth 4, are masked by the shape placed at depth 1. Characters placed at depths above 4 are not masked.
 
-     Display List                            Key
+ Display List Key
 
-                         Top
-      Character ID =4
-                                        Clipping Layer
-         Depth = 5
+ Top
+ Character ID =4
+ Clipping Layer
+ Depth = 5
 
-      Character ID = 3                  Character masked
-         Depth = 4                      by Clipping Layer
+ Character ID = 3 Character masked
+ Depth = 4 by Clipping Layer
 
-      Character ID = 3                Character not masked
-         Depth = 3                      by Clipping Layer
+ Character ID = 3 Character not masked
+ Depth = 3 by Clipping Layer
 
-      Character ID = 2
-         Depth = 2
+ Character ID = 2
+ Depth = 2
 
-      Character ID = 1
-         Depth = 1
-       ClipDepth = 4
-                         Bottom
+ Character ID = 1
+ Depth = 1
+ ClipDepth = 4
+ Bottom
 
 ## Using the display list
 
 The following procedure creates and displays an animation:
 
-     1. Define each character with a definition tag.
-        Each character is given a unique character ID, and added to the dictionary.
+ 1. Define each character with a definition tag.
+ Each character is given a unique character ID, and added to the dictionary.
 
-     2. Add each character to the display list with a PlaceObject2 tag. Each PlaceObject2 tag specifies the
-        character to be displayed, plus the following attributes:
+ 2. Add each character to the display list with a PlaceObject2 tag. Each PlaceObject2 tag specifies the
+ character to be displayed, plus the following attributes:
 
-         •    A depth value, which controls the stacking order of the character being placed. Characters with
-              lower depth values appear to be underneath characters with higher depth values. A depth value of 1
-              means the character is displayed at the bottom of the stack. Only one character can be at any given
-              depth.
+ • A depth value, which controls the stacking order of the character being placed. Characters with
+ lower depth values appear to be underneath characters with higher depth values. A depth value of 1
+ means the character is displayed at the bottom of the stack. Only one character can be at any given
+ depth.
 
-         •    A transformation matrix, which determines the position, scale, factor, and angle of rotation of the
-              character being placed. The same character can be placed more than once (at different depths) with
-              a different transformation matrix.
+ • A transformation matrix, which determines the position, scale, factor, and angle of rotation of the
+ character being placed. The same character can be placed more than once (at different depths) with
+ a different transformation matrix.
 
-         •    An optional color transform, which specifies the color effect applied to the character being placed.
-              Color effects include transparency and color shifts.
+ • An optional color transform, which specifies the color effect applied to the character being placed.
+ Color effects include transparency and color shifts.
 
 33
-        •   An optional name string, which identifies the character being placed for SetTarget actions. SetTarget
-            is used to perform actions inside sprite objects.
+ • An optional name string, which identifies the character being placed for SetTarget actions. SetTarget
+ is used to perform actions inside sprite objects.
 
-        •   An optional ClipDepth value, which specifies the top-most depth that will be masked by the
-            character being placed.
+ • An optional ClipDepth value, which specifies the top-most depth that will be masked by the
+ character being placed.
 
-        •   An optional ratio value, which controls how a morph character is displayed when placed. A ratio of
-            zero displays the character at the start of the morph. A ratio of 65535 displays the character at the
-            end of the morph.
+ • An optional ratio value, which controls how a morph character is displayed when placed. A ratio of
+ zero displays the character at the start of the morph. A ratio of 65535 displays the character at the
+ end of the morph.
 
-     3. Use a ShowFrame tag to render the contents of the display list to the screen.
+ 3. Use a ShowFrame tag to render the contents of the display list to the screen.
 
-     4. Use a PlaceObject2 tag to modify each character on the display List.
-        Each PlaceObject2 assigns a new transformation matrix to the character at a given depth. The character
-        ID is not specified because each depth can have only one character.
+ 4. Use a PlaceObject2 tag to modify each character on the display List.
+ Each PlaceObject2 assigns a new transformation matrix to the character at a given depth. The character
+ ID is not specified because each depth can have only one character.
 
-     5. Use a ShowFrame tag to display the characters in their new positions.
+ 5. Use a ShowFrame tag to display the characters in their new positions.
 
-        Repeat steps 4 and 5 for each frame of the animation.
+ Repeat steps 4 and 5 for each frame of the animation.
 
-        If a character does not change from frame to frame, you do not need to replace the unchanged
-        character after each frame.
+ If a character does not change from frame to frame, you do not need to replace the unchanged
+ character after each frame.
 
-     6. Use a RemoveObject2 tag to Remove each character from the display list. Only the depth value is
-        required to identify the character being removed.
+ 6. Use a RemoveObject2 tag to Remove each character from the display list. Only the depth value is
+ required to identify the character being removed.
 
 ## Display list tags
 
@@ -1042,17 +1042,17 @@ PlaceObject is rarely used in SWF 3 and later versions; it is superseded by Plac
 The minimum file format version is SWF 1.
 
 34
- Field                             Type                      Comment
+ Field Type Comment
 
- Header                            RECORDHEADER              Tag type = 4
+ Header RECORDHEADER Tag type = 4
 
- CharacterId                       UI16                      ID of character to place
+ CharacterId UI16 ID of character to place
 
- Depth                             UI16                      Depth of character
+ Depth UI16 Depth of character
 
- Matrix                            MATRIX                    Transform matrix data
+ Matrix MATRIX Transform matrix data
 
- ColorTransform (optional)         CXFORM                    Color transform data
+ ColorTransform (optional) CXFORM Color transform data
 
 ## PlaceObject2
 
@@ -1072,17 +1072,17 @@ on the display list can be identified by its depth alone (that is, a CharacterId
 The PlaceFlagMove and PlaceFlagHasCharacter tags indicate whether a new character is being added to the
 display list, or a character already on the display list is being modified. The meaning of the flags is as follows:
 
-     •    PlaceFlagMove = 0 and PlaceFlagHasCharacter = 1
-          A new character (with ID of CharacterId) is placed on the display list at the specified depth. Other fields
-          set the attributes of this new character.
+ • PlaceFlagMove = 0 and PlaceFlagHasCharacter = 1
+ A new character (with ID of CharacterId) is placed on the display list at the specified depth. Other fields
+ set the attributes of this new character.
 
-     •    PlaceFlagMove = 1 and PlaceFlagHasCharacter = 0
-          The character at the specified depth is modified. Other fields modify the attributes of this character.
-          Because any given depth can have only one character, no CharacterId is required.
+ • PlaceFlagMove = 1 and PlaceFlagHasCharacter = 0
+ The character at the specified depth is modified. Other fields modify the attributes of this character.
+ Because any given depth can have only one character, no CharacterId is required.
 
-     •    PlaceFlagMove = 1 and PlaceFlagHasCharacter = 1
-          The character at the specified Depth is removed, and a new character (with ID of CharacterId) is placed
-          at that depth. Other fields set the attributes of this new character.
+ • PlaceFlagMove = 1 and PlaceFlagHasCharacter = 1
+ The character at the specified Depth is removed, and a new character (with ID of CharacterId) is placed
+ at that depth. Other fields set the attributes of this new character.
 
 Frames replace the transformation matrix of the character at the desired depth. For example, a character that is
 moved over a series of frames has PlaceFlagHasCharacter set in the first frame, and PlaceFlagMove set in
@@ -1093,203 +1093,203 @@ transformation matrix. Subsequent
 
 The optional fields in PlaceObject2 have the following meaning:
 
-     •   The CharacterId field specifies the character to be added to the display list. CharacterId is used only
-         when a new character is being added. If a character that is already on the display list is being modified,
-         the CharacterId field is absent.
+ • The CharacterId field specifies the character to be added to the display list. CharacterId is used only
+ when a new character is being added. If a character that is already on the display list is being modified,
+ the CharacterId field is absent.
 
-     •   The Matrix field specifies the position, scale and rotation of the character being added or modified.
+ • The Matrix field specifies the position, scale and rotation of the character being added or modified.
 
-     •   The ColorTransform field specifies the color effect applied to the character being added or modified.
+ • The ColorTransform field specifies the color effect applied to the character being added or modified.
 
-     •   The Ratio field specifies a morph ratio for the character being added or modified. This field applies only
-         to characters defined with DefineMorphShape, and controls how far the morph has progressed. A ratio
-         of zero displays the character at the start of the morph. A ratio of 65535 displays the character at the
-         end of the morph. For values between zero and 65535 Flash Player interpolates between the start and
-         end shapes, and displays an in- between shape.
+ • The Ratio field specifies a morph ratio for the character being added or modified. This field applies only
+ to characters defined with DefineMorphShape, and controls how far the morph has progressed. A ratio
+ of zero displays the character at the start of the morph. A ratio of 65535 displays the character at the
+ end of the morph. For values between zero and 65535 Flash Player interpolates between the start and
+ end shapes, and displays an in- between shape.
 
-     •   The ClipDepth field specifies the top-most depth that will be masked by the character being added. A
-         ClipDepth of zero indicates that this is not a clipping character.
+ • The ClipDepth field specifies the top-most depth that will be masked by the character being added. A
+ ClipDepth of zero indicates that this is not a clipping character.
 
-     •   The Name field specifies a name for the character being added or modified. This field is typically used
-         with sprite characters, and is used to identify the sprite for SetTarget actions. It allows the main file (or
-         other sprites) to perform actions inside the sprite (see Chapter 13: Sprites and Movie Clips).
+ • The Name field specifies a name for the character being added or modified. This field is typically used
+ with sprite characters, and is used to identify the sprite for SetTarget actions. It allows the main file (or
+ other sprites) to perform actions inside the sprite (see Chapter 13: Sprites and Movie Clips).
 
-     •   The ClipActions field, which is valid only for placing sprite characters, defines one or more event
-         handlers to be invoked when certain events occur.
+ • The ClipActions field, which is valid only for placing sprite characters, defines one or more event
+ handlers to be invoked when certain events occur.
 
 The minimum file format version is SWF 3.
 
- Field                                   Type                                 Comment
+ Field Type Comment
 
- Header                                  RECORDHEADER                         Tag type = 26
+ Header RECORDHEADER Tag type = 26
 
- PlaceFlagHasClipActions                 UB[1]                                SWF 5 and later: has clip actions
-                                                                              (sprite characters only) Otherwise:
-                                                                              always 0
+ PlaceFlagHasClipActions UB[1] SWF 5 and later: has clip actions
+ (sprite characters only) Otherwise:
+ always 0
 
- PlaceFlagHasClipDepth                   UB[1]                                Has clip depth
+ PlaceFlagHasClipDepth UB[1] Has clip depth
 
- PlaceFlagHasName                        UB[1]                                Has name
+ PlaceFlagHasName UB[1] Has name
 
- PlaceFlagHasRatio                       UB[1]                                Has ratio
+ PlaceFlagHasRatio UB[1] Has ratio
 
- PlaceFlagHasColorTransform              UB[1]                                Has color transform
+ PlaceFlagHasColorTransform UB[1] Has color transform
 
 36
- PlaceFlagHasMatrix                     UB[1]                                Has matrix
+ PlaceFlagHasMatrix UB[1] Has matrix
 
- PlaceFlagHasCharacter                  UB[1]                                Places a character
+ PlaceFlagHasCharacter UB[1] Places a character
 
- PlaceFlagMove                          UB[1]                                Defines a character to be moved
+ PlaceFlagMove UB[1] Defines a character to be moved
 
- Depth                                  UI16                                 Depth of character
+ Depth UI16 Depth of character
 
- CharacterId                            If PlaceFlagHasCharacter, UI16       ID of character to place
+ CharacterId If PlaceFlagHasCharacter, UI16 ID of character to place
 
- Matrix                                 If PlaceFlagHasMatrix, MATRIX        Transform matrix data
+ Matrix If PlaceFlagHasMatrix, MATRIX Transform matrix data
 
- ColorTransform                         If PlaceFlagHasColorTransform,       Color transform data
-                                        CXFORMWITHALPHA
+ ColorTransform If PlaceFlagHasColorTransform, Color transform data
+ CXFORMWITHALPHA
 
- Ratio                                  If PlaceFlagHasRatio, UI16
+ Ratio If PlaceFlagHasRatio, UI16
 
- Name                                   If PlaceFlagHasName, STRING          Name of character
+ Name If PlaceFlagHasName, STRING Name of character
 
- ClipDepth                              If PlaceFlagHasClipDepth, UI16       Clip depth (see “Clipping layers”)
+ ClipDepth If PlaceFlagHasClipDepth, UI16 Clip depth (see “Clipping layers”)
 
- ClipActions                            If PlaceFlagHasClipActions,          SWF 5 and later: Clip Actions Data
-                                        CLIPACTIONS
+ ClipActions If PlaceFlagHasClipActions, SWF 5 and later: Clip Actions Data
+ CLIPACTIONS
 
 Clip actions are valid for placing sprite characters only. Clip actions define event handlers for a sprite character.
 
- Field                       Type                                          Comment
+ Field Type Comment
 
- Reserved                    UI16                                          Must be 0
+ Reserved UI16 Must be 0
 
- AllEventFlags               CLIPEVENTFLAGS                                All events used in these clip actions
+ AllEventFlags CLIPEVENTFLAGS All events used in these clip actions
 
- ClipActionRecords           CLIPACTIONRECORD [one or more]                Individual event handlers
+ ClipActionRecords CLIPACTIONRECORD [one or more] Individual event handlers
 
- ClipActionEndFlag           If SWF version <= 5, UI16,                    Must be 0
-                             If SWF version >= 6, UI32
+ ClipActionEndFlag If SWF version <= 5, UI16, Must be 0
+ If SWF version >= 6, UI32
 
 ## CLIPACTIONRECORD
 
- Field                    Type                                              Comment
+ Field Type Comment
 
- EventFlags               CLIPEVENTFLAGS                                    Events to which this handler applies
+ EventFlags CLIPEVENTFLAGS Events to which this handler applies
 
- ActionRecordSize         UI32                                              Offset in bytes from end of this field
+ ActionRecordSize UI32 Offset in bytes from end of this field
 
 37
-                                                                          to next CLIPACTIONRECORD (or
-                                                                          ClipActionEndFlag)
+ to next CLIPACTIONRECORD (or
+ ClipActionEndFlag)
 
- KeyCode                  If EventFlags contain ClipEventKeyPress: UI8,   Key code to trap (see
-                          Otherwise absent                                “DefineButton2”)
+ KeyCode If EventFlags contain ClipEventKeyPress: UI8, Key code to trap (see
+ Otherwise absent “DefineButton2”)
 
- Actions                  ACTIONRECORD [one or more]                      Actions to perform
+ Actions ACTIONRECORD [one or more] Actions to perform
 
 ## PlaceObject3
 
 The PlaceObject3 tag extends the functionality of the PlaceObject2 tag. PlaceObject3 adds the following new
 features:
 
-     •   The PlaceFlagHasClassName field indicates that a class name will be specified, indicating the type
-         of object to place. Because we no longer use ImportAssets in ActionScript 3.0, there needed to be some
-         way to place a Timeline object using a class imported from another SWF, which does not have a 16-bit
-         character ID in the instantiating SWF. Supported in Flash Player 9.0.45.0 and later.
+ • The PlaceFlagHasClassName field indicates that a class name will be specified, indicating the type
+ of object to place. Because we no longer use ImportAssets in ActionScript 3.0, there needed to be some
+ way to place a Timeline object using a class imported from another SWF, which does not have a 16-bit
+ character ID in the instantiating SWF. Supported in Flash Player 9.0.45.0 and later.
 
-     •   The PlaceFlagHasImage field indicates the creation of native Bitmap objects on the display list.
-         When PlaceFlagHasClassName and PlaceFlagHasImage are both defined, this indicates a Bitmap class to
-         be loaded from another SWF. Immediately following the flags is the class name (as above) for the
-         BitmapData class in the loaded SWF. A Bitmap object will be placed with the named BitmapData class as
-         it's internal data. When PlaceFlagHasCharacter and PlaceFlagHasImage are both defined, this indicates a
-         Bitmap from the current SWF. The BitmapData to be used as its internal data will be defined by the
-         following characterID. This only occurs when the BitmapData has a class associated with it. If there is no
-         class associated with the BitmapData, DefineShape should be used with a Bitmap fill. Supported in Flash
-         Player 9.0.45.0 and later.
+ • The PlaceFlagHasImage field indicates the creation of native Bitmap objects on the display list.
+ When PlaceFlagHasClassName and PlaceFlagHasImage are both defined, this indicates a Bitmap class to
+ be loaded from another SWF. Immediately following the flags is the class name (as above) for the
+ BitmapData class in the loaded SWF. A Bitmap object will be placed with the named BitmapData class as
+ it's internal data. When PlaceFlagHasCharacter and PlaceFlagHasImage are both defined, this indicates a
+ Bitmap from the current SWF. The BitmapData to be used as its internal data will be defined by the
+ following characterID. This only occurs when the BitmapData has a class associated with it. If there is no
+ class associated with the BitmapData, DefineShape should be used with a Bitmap fill. Supported in Flash
+ Player 9.0.45.0 and later.
 
-     •   The PlaceFlagHasCacheAsBitmap field specifies whether Flash Player should internally cache a
-         display object as a bitmap. Caching can speed up rendering when the object does not change frequently.
+ • The PlaceFlagHasCacheAsBitmap field specifies whether Flash Player should internally cache a
+ display object as a bitmap. Caching can speed up rendering when the object does not change frequently.
 
-     •   A number of different blend modes can be specified as an alternative to normal alpha compositing. The
-         following blend modes are supported:
+ • A number of different blend modes can be specified as an alternative to normal alpha compositing. The
+ following blend modes are supported:
 
-             o   Add
+ o Add
 
-             o   Layer Alpha
+ o Layer Alpha
 
-             o   Lighten Darken
+ o Lighten Darken
 
-             o   Overlay Difference
+ o Overlay Difference
 
-             o   Multiply Erase
+ o Multiply Erase
 
-             o   Screen Hardlight
+ o Screen Hardlight
 
 38
-            o     Subtract
+ o Subtract
 
-            o     Invert
+ o Invert
 
-     •    A number of bitmap filters can be applied to the display object. Adding filters implies that the display
-          object will be cached as a bitmap. The following bitmap filters are supported:
-              o Bevel
+ • A number of bitmap filters can be applied to the display object. Adding filters implies that the display
+ object will be cached as a bitmap. The following bitmap filters are supported:
+ o Bevel
 
-              o    Drop shadow
+ o Drop shadow
 
-              o    Blur
+ o Blur
 
-              o    Glow
+ o Glow
 
-              o    Color matrix
+ o Color matrix
 
-              o    Gradient bevel
+ o Gradient bevel
 
-              o    Convolution
+ o Convolution
 
-              o    Gradient glow
+ o Gradient glow
 
 The minimum file format version is SWF 8.
 
 ## PlaceObject3
 
- Field                              Type                                   Comment
+ Field Type Comment
 
- Header                             RECORDHEADER                           Tag type = 70
+ Header RECORDHEADER Tag type = 70
 
- PlaceFlagHasClipActions            UB[1]                                  SWF 5 and later: has clip actions
-                                                                           (sprite characters only) Otherwise:
-                                                                           always 0
+ PlaceFlagHasClipActions UB[1] SWF 5 and later: has clip actions
+ (sprite characters only) Otherwise:
+ always 0
 
- PlaceFlagHasClipDepth              UB[1]                                  Has clip depth
+ PlaceFlagHasClipDepth UB[1] Has clip depth
 
- PlaceFlagHasName                   UB[1]                                  Has name
+ PlaceFlagHasName UB[1] Has name
 
- PlaceFlagHasRatio                  UB[1]                                  Has ratio
+ PlaceFlagHasRatio UB[1] Has ratio
 
- PlaceFlagHasColorTransform         UB[1]                                  Has color transform
+ PlaceFlagHasColorTransform UB[1] Has color transform
 
- PlaceFlagHasMatrix                 UB[1]                                  Has matrix
+ PlaceFlagHasMatrix UB[1] Has matrix
 
- PlaceFlagHasCharacter              UB[1]                                  Places a character
+ PlaceFlagHasCharacter UB[1] Places a character
 
- PlaceFlagMove                      UB[1]                                  Defines a character to be moved
+ PlaceFlagMove UB[1] Defines a character to be moved
 
 39
-Reserved                    UB[1]                                   Must be 0
+Reserved UB[1] Must be 0
 
 PlaceFlagOpaqueBackground UB[1] Has opaque background. SWF 11 and
-                                                                    higher.
+ higher.
 
 PlaceFlagHasVisible UB[1] Has visibility flag. SWF 11 and higher.
 
 PlaceFlagHasImage UB[1] Has class name or character ID of
-                                                                    bitmap to place. If
-                                                                    PlaceFlagHasClassName, use
-                                                                    ClassName. If PlaceFlagHasCharacter,
-                                                                    use CharacterId
+ bitmap to place. If
+ PlaceFlagHasClassName, use
+ ClassName. If PlaceFlagHasCharacter,
+ use CharacterId
 
 PlaceFlagHasClassName UB[1] Has class name of object to place
 
@@ -1302,15 +1302,15 @@ PlaceFlagHasFilterList UB[1] Has filter list
 Depth UI16 Depth of character
 
 ClassName If PlaceFlagHasClassName or Name of the class to place
-                            (PlaceFlagHasImage and
-                            PlaceFlagHasCharacter), String
+ (PlaceFlagHasImage and
+ PlaceFlagHasCharacter), String
 
 CharacterId If PlaceFlagHasCharacter, UI16 ID of character to place
 
 Matrix If PlaceFlagHasMatrix, MATRIX Transform matrix data
 
 ColorTransform If PlaceFlagHasColorTransform, Color transform data
-                            CXFORMWITHALPHA
+ CXFORMWITHALPHA
 
 Ratio If PlaceFlagHasRatio, UI16
 
@@ -1321,32 +1321,32 @@ ClipDepth If PlaceFlagHasClipDepth, UI16 Clip depth (see Clipping layers)
 SurfaceFilterList If PlaceFlagHasFilterList, FILTERLIST List of filters on this object
 
 BlendMode If PlaceFlagHasBlendMode, UI8 0 or 1 = normal;
-                                                                    2 = layer;
-                                                                    3 = multiply;
-                                                                    4 = screen;
-                                                                    5 = lighten;
+ 2 = layer;
+ 3 = multiply;
+ 4 = screen;
+ 5 = lighten;
 
 40
-                                                              6 = darken;
-                                                              7 = difference;
-                                                              8 = add;
-                                                              9 = subtract;
-                                                              10 = invert;
-                                                              11 = alpha;
-                                                              12 = erase;
-                                                              13 = overlay;
-                                                              14 = hardlight;
-                                                              Values 15 to 255 are reserved.
+ 6 = darken;
+ 7 = difference;
+ 8 = add;
+ 9 = subtract;
+ 10 = invert;
+ 11 = alpha;
+ 12 = erase;
+ 13 = overlay;
+ 14 = hardlight;
+ Values 15 to 255 are reserved.
 
 BitmapCache If PlaceFlagHasCacheAsBitmap, UI8 0 = Bitmap cache disabled; 1-255 =
-                                                              Bitmap cache enabled
+ Bitmap cache enabled
 
 Visible If PlaceFlagHasVisible, UI8 0 = Place invisible, 1 = Place visible
 
 Background Color If PlaceFlagHasVisible, RGBA
 
 ClipActions If PlaceFlagHasClipActions, SWF 5 and later: Clip Actions Data
-                          CLIPACTIONS
+ CLIPACTIONS
 
 ## FILTERLIST
 
@@ -1361,30 +1361,30 @@ Filter FILTER[NumberOfFilters] List of filters
 Field Type Comment
 
 FilterID UI8 0 = Has DropShadowFilter
-                                                         1 = Has BlurFilter
-                                                         2 = Has GlowFilter
-                                                         3 = Has BevelFilter
-                                                         4 = Has GradientGlowFilter
-                                                         5 = Has ConvolutionFilter
-                                                         6 = Has ColorMatrixFilter
-                                                         7 = Has GradientBevelFilter
+ 1 = Has BlurFilter
+ 2 = Has GlowFilter
+ 3 = Has BevelFilter
+ 4 = Has GradientGlowFilter
+ 5 = Has ConvolutionFilter
+ 6 = Has ColorMatrixFilter
+ 7 = Has GradientBevelFilter
 
 41
- DropShadowFilter           If FilterID = 0, DROPSHADOWFILTER         Drop Shadow filter
+ DropShadowFilter If FilterID = 0, DROPSHADOWFILTER Drop Shadow filter
 
- BlurFilter                 If FilterID = 1, BLURFILTER               Blur filter
+ BlurFilter If FilterID = 1, BLURFILTER Blur filter
 
- GlowFilter                 If FilterID = 2, GLOWFILTER               Glow filter
+ GlowFilter If FilterID = 2, GLOWFILTER Glow filter
 
- BevelFilter                If FilterID = 3, BEVELFILTER              Bevel filter
+ BevelFilter If FilterID = 3, BEVELFILTER Bevel filter
 
- GradientGlowFilter         If FilterID = 4, GRADIENTGLOWFILTER       Gradient Glow filter
+ GradientGlowFilter If FilterID = 4, GRADIENTGLOWFILTER Gradient Glow filter
 
- ConvolutionFilter          If FilterID = 5, CONVOLUTIONFILTER        Convolution filter
+ ConvolutionFilter If FilterID = 5, CONVOLUTIONFILTER Convolution filter
 
- ColorMatrixFilter          If FilterID = 6, COLORMATRIXFILTER        Color Matrix filter
+ ColorMatrixFilter If FilterID = 6, COLORMATRIXFILTER Color Matrix filter
 
- GradientBevelFilter        If FilterID = 7, GRADIENTBEVELFILTER      Gradient Bevel filter
+ GradientBevelFilter If FilterID = 7, GRADIENTBEVELFILTER Gradient Bevel filter
 
 ## Color Matrix filter
 
@@ -1398,15 +1398,15 @@ to be (0,0,0,0,1) and does not need to be stored.
 
 ## COLORMATRIXFILTER
 
- Field                       Type                    Comment
+ Field Type Comment
 
- Matrix                      FLOAT[20]               Color matrix values
+ Matrix FLOAT[20] Color matrix values
 
-                                    R'       r0 r1 r2 r3 r4      R
-                                    G'       g0 g1 g2 g3 g4      G
-                                    B'     = b0 b1 b2 b3 b4      B
-                                    A'       a0 a1 a2 a3 a4      A
-                                    1        0 0 0 0 1           1
+ R' r0 r1 r2 r3 r4 R
+ G' g0 g1 g2 g3 g4 G
+ B' = b0 b1 b2 b3 b4 B
+ A' a0 a1 a2 a3 a4 A
+ 1 0 0 0 0 1 1
 
 ## Convolution filter
 
@@ -1415,12 +1415,12 @@ the following mathematical representation, F is the input pixel plane, G is the 
 pixel plane:
 
 42
-             Ma tri x Y – 1 Ma tri x X – 1
-                                                                      M a t r i xX                                   Ma trix Y
-     H x y   =                                  F x + i – --------------------- y + j – ---------------------- + Bias G i j
-                                                                                  2                                             2
-                 j=0            i=0          ----------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                        Divisor
+ Ma tri x Y – 1 Ma tri x X – 1
+ M a t r i xX Ma trix Y
+ H x y = F x + i – --------------------- y + j – ---------------------- + Bias G i j
+ 2 2
+ j=0 i=0 ----------------------------------------------------------------------------------------------------------------------------------------
+ Divisor
 
 43
 The convolution is applied on each of the RGBA color components and then saturated, except when the
@@ -1430,25 +1430,25 @@ the pixel is clamped to the closest valid input pixel.
 
 ## CONVOLUTIONFILTER
 
- Field                         Type                               Comment
+ Field Type Comment
 
- MatrixX                       UI8                                Horizontal matrix size
+ MatrixX UI8 Horizontal matrix size
 
- MatrixY                       UI8                                Vertical matrix size
+ MatrixY UI8 Vertical matrix size
 
- Divisor                       FLOAT                              Divisor applied to the matrix values
+ Divisor FLOAT Divisor applied to the matrix values
 
- Bias                          FLOAT                              Bias applied to the matrix values
+ Bias FLOAT Bias applied to the matrix values
 
- Matrix                        FLOAT[MatrixX * MatrixY]           Matrix values
+ Matrix FLOAT[MatrixX * MatrixY] Matrix values
 
- DefaultColor                  RGBA                               Default color for pixels outside the image
+ DefaultColor RGBA Default color for pixels outside the image
 
- Reserved                      UB[6]                              Must be 0
+ Reserved UB[6] Must be 0
 
- Clamp                         UB[1]                              Clamp mode
+ Clamp UB[1] Clamp mode
 
- PreserveAlpha                 UB[1]                              Preserve the alpha
+ PreserveAlpha UB[1] Preserve the alpha
 
 ## Blur filter
 
@@ -1468,15 +1468,15 @@ passes is possible, but for performance reasons, Adobe does not recommend it.
 
 ## BLURFILTER
 
- Field                Type                      Comment
+ Field Type Comment
 
- BlurX                FIXED                     Horizontal blur amount
+ BlurX FIXED Horizontal blur amount
 
- BlurY                FIXED                     Vertical blur amount
+ BlurY FIXED Vertical blur amount
 
- Passes               UB[5]                     Number of blur passes
+ Passes UB[5] Number of blur passes
 
- Reserved             UB[3]                     Must be 0
+ Reserved UB[3] Must be 0
 
 ## Drop Shadow filter
 
@@ -1499,28 +1499,28 @@ input pixel plane by using one of the specified compositing modes.
 
 ## DROPSHADOWFILTER
 
- Field                        Type               Comment
+ Field Type Comment
 
- DropShadowColor              RGBA               Color of the shadow
+ DropShadowColor RGBA Color of the shadow
 
- BlurX                        FIXED              Horizontal blur amount
+ BlurX FIXED Horizontal blur amount
 
- BlurY                        FIXED              Vertical blur amount
+ BlurY FIXED Vertical blur amount
 
- Angle                        FIXED              Radian angle of the drop shadow
+ Angle FIXED Radian angle of the drop shadow
 
- Distance                     FIXED              Distance of the drop shadow
+ Distance FIXED Distance of the drop shadow
 
- Strength                     FIXED8             Strength of the drop shadow
+ Strength FIXED8 Strength of the drop shadow
 
 45
- InnerShadow                 UB[1]               Inner shadow mode
+ InnerShadow UB[1] Inner shadow mode
 
- Knockout                    UB[1]               Knockout mode
+ Knockout UB[1] Knockout mode
 
- CompositeSource             UB[1]               Composite source. Always 1
+ CompositeSource UB[1] Composite source. Always 1
 
- Passes                      UB[5]               Number of blur passes
+ Passes UB[5] Number of blur passes
 
 ## Glow filter
 
@@ -1529,23 +1529,23 @@ angle parameter. Therefore, it can run slightly faster.
 
 ## GLOWFILTER
 
- Field                       Type              Comment
+ Field Type Comment
 
- GlowColor                   RGBA              Color of the shadow
+ GlowColor RGBA Color of the shadow
 
- BlurX                       FIXED             Horizontal blur amount
+ BlurX FIXED Horizontal blur amount
 
- BlurY                       FIXED             Vertical blur amount
+ BlurY FIXED Vertical blur amount
 
- Strength                    FIXED8            Strength of the glow
+ Strength FIXED8 Strength of the glow
 
- InnerGlow                   UB[1]             Inner glow mode
+ InnerGlow UB[1] Inner glow mode
 
- Knockout                    UB[1]             Knockout mode
+ Knockout UB[1] Knockout mode
 
- CompositeSource             UB[1]             Composite source. Always 1
+ CompositeSource UB[1] Composite source. Always 1
 
- Passes                      UB[5]             Number of blur passes
+ Passes UB[5] Number of blur passes
 
 ## Bevel filter
 
@@ -1553,32 +1553,32 @@ The Bevel filter creates a smooth bevel on display list objects.
 
 ## BEVELFILTER
 
- Field                        Type             Comment
+ Field Type Comment
 
- ShadowColor                  RGBA             Color of the shadow
+ ShadowColor RGBA Color of the shadow
 
- HighlightColor               RGBA             Color of the highlight
+ HighlightColor RGBA Color of the highlight
 
- BlurX                        FIXED            Horizontal blur amount
+ BlurX FIXED Horizontal blur amount
 
 46
- BlurY                        FIXED           Vertical blur amount
+ BlurY FIXED Vertical blur amount
 
- Angle                        FIXED           Radian angle of the drop shadow
+ Angle FIXED Radian angle of the drop shadow
 
- Distance                     FIXED           Distance of the drop shadow
+ Distance FIXED Distance of the drop shadow
 
- Strength                     FIXED8          Strength of the drop shadow
+ Strength FIXED8 Strength of the drop shadow
 
- InnerShadow                  UB[1]           Inner shadow mode
+ InnerShadow UB[1] Inner shadow mode
 
- Knockout                     UB[1]           Knockout mode
+ Knockout UB[1] Knockout mode
 
- CompositeSource              UB[1]           Composite source. Always 1
+ CompositeSource UB[1] Composite source. Always 1
 
- OnTop                        UB[1]           OnTop mode
+ OnTop UB[1] OnTop mode
 
- Passes                       UB[4]           Number of blur passes
+ Passes UB[4] Number of blur passes
 
 ## Gradient Glow and Gradient Bevel filters
 
@@ -1589,64 +1589,64 @@ pixel value, which is then composited by using one of the specified compositing 
 
 ## GRADIENTGLOWFILTER
 
- Field                        Type                  Comment
+ Field Type Comment
 
- NumColors                    UI8                   Number of colors in the gradient
+ NumColors UI8 Number of colors in the gradient
 
- GradientColors               RGBA[NumColors]       Gradient colors
+ GradientColors RGBA[NumColors] Gradient colors
 
- GradientRatio                UI8[NumColors]        Gradient ratios
+ GradientRatio UI8[NumColors] Gradient ratios
 
- BlurX                        FIXED                 Horizontal blur amount
+ BlurX FIXED Horizontal blur amount
 
- BlurY                        FIXED                 Vertical blur amount
+ BlurY FIXED Vertical blur amount
 
- Angle                        FIXED                 Radian angle of the gradient glow
+ Angle FIXED Radian angle of the gradient glow
 
- Distance                     FIXED                 Distance of the gradient glow
+ Distance FIXED Distance of the gradient glow
 
- Strength                     FIXED8                Strength of the gradient glow
+ Strength FIXED8 Strength of the gradient glow
 
- InnerShadow                  UB[1]                 Inner glow mode
+ InnerShadow UB[1] Inner glow mode
 
 47
- Knockout                   UB[1]                Knockout mode
+ Knockout UB[1] Knockout mode
 
- CompositeSource            UB[1]                Composite source. Always 1
+ CompositeSource UB[1] Composite source. Always 1
 
- OnTop                      UB[1]                OnTop mode
+ OnTop UB[1] OnTop mode
 
- Passes                     UB[4]                Number of blur passes
+ Passes UB[4] Number of blur passes
 
- NumColors                  UI8                  Number of colors in the gradient
+ NumColors UI8 Number of colors in the gradient
 
- GradientColors             RGBA[NumColors]      Gradient colors
+ GradientColors RGBA[NumColors] Gradient colors
 
- GradientRatio              UI8[NumColors]       Gradient ratios
+ GradientRatio UI8[NumColors] Gradient ratios
 
- BlurX                      FIXED                Horizontal blur amount
+ BlurX FIXED Horizontal blur amount
 
- BlurY                      FIXED                Vertical blur amount
+ BlurY FIXED Vertical blur amount
 
- Angle                      FIXED                Radian angle of the gradient bevel
+ Angle FIXED Radian angle of the gradient bevel
 
- Distance                   FIXED                Distance of the gradient bevel
+ Distance FIXED Distance of the gradient bevel
 
- Strength                   FIXED8               Strength of the gradient bevel
+ Strength FIXED8 Strength of the gradient bevel
 
- InnerShadow                UB[1]                Inner bevel mode
+ InnerShadow UB[1] Inner bevel mode
 
- Knockout                   UB[1]                Knockout mode
+ Knockout UB[1] Knockout mode
 
 ## GRADIENTBEVELFILTER
 
- Field                      Type                 Comment
+ Field Type Comment
 
- CompositeSource            UB[1]                Composite source. Always 1
+ CompositeSource UB[1] Composite source. Always 1
 
- OnTop                      UB[1]                OnTop mode
+ OnTop UB[1] OnTop mode
 
- Passes                     UB[4]                Number of blur passes
+ Passes UB[4] Number of blur passes
 
 ## ClipEventFlags
 
@@ -1656,7 +1656,7 @@ and earlier, CLIPEVENTFLAGS is 2 bytes; in SWF 6 and later, it is 4 bytes.
 ## CLIPEVENTFLAGS
 
 48
-Field                     Type                   Comment
+Field Type Comment
 
 ClipEventKeyUp UB[1] Key up event
 
@@ -1675,43 +1675,43 @@ ClipEventEnterFrame UB[1] Frame event
 ClipEventLoad UB[1] Clip load event
 
 ClipEventDragOver UB[1] SWF 6 and later: mouse drag over event Otherwise:
-                                                 always 0
+ always 0
 
 ClipEventRollOut UB[1] SWF 6 and later: mouse rollout event. Otherwise:
-                                                 always 0
+ always 0
 
 ClipEventRollOver UB[1] SWF 6 and later: mouse rollover event. Otherwise:
-                                                 always 0
+ always 0
 
 ClipEventReleaseOutside UB[1] SWF 6 and later: mouse release outside event
-                                                 Otherwise: always 0
+ Otherwise: always 0
 
 ClipEventRelease UB[1] SWF 6 and later: mouse release inside event
-                                                 Otherwise: always 0
+ Otherwise: always 0
 
 ClipEventPress UB[1] SWF 6 and later: mouse press event. Otherwise:
-                                                 always 0
+ always 0
 
 ClipEventInitialize UB[1] SWF 6 and later: initialize event. Otherwise: always
-                                                 0
+ 0
 
 ClipEventData UB[1] Data received event
 
 Reserved If SWF version >= 6, Always 0
-                          UB[5]
+ UB[5]
 
 ClipEventConstruct If SWF version >= 6, SWF 7 and later: construct event Otherwise: always
-                          UB[1]                  0
+ UB[1] 0
 
 49
- ClipEventKeyPress              If SWF version >= 6,       Key press event
-                                UB[1]
+ ClipEventKeyPress If SWF version >= 6, Key press event
+ UB[1]
 
- ClipEventDragOut               If SWF version >= 6,       Mouse drag out event
-                                UB[1]
+ ClipEventDragOut If SWF version >= 6, Mouse drag out event
+ UB[1]
 
- Reserved                       If SWF version >= 6,       Always 0
-                                UB[8]
+ Reserved If SWF version >= 6, Always 0
+ UB[8]
 
 The extra events added in SWF 6 correspond to the button movie clips in the Flash authoring tool, which are
 sprites that can be scripted in the same way as buttons (see BUTTONCONDACTION). The DragOut through Press
@@ -1733,25 +1733,25 @@ The RemoveObject tag removes the specified character (at the specified depth) fr
 
 The minimum file format version is SWF 1.
 
- Field                   Type                          Comment
+ Field Type Comment
 
- Header                  RECORDHEADER                  Tag type = 5
+ Header RECORDHEADER Tag type = 5
 
- CharacterId             UI16                          ID of character to remove
+ CharacterId UI16 ID of character to remove
 
- Depth                   UI16                          Depth of character
+ Depth UI16 Depth of character
 
 ## RemoveObject2
 
 The RemoveObject2 tag removes the character at the specified depth from the display list. The minimum file
 format version is SWF 3.
 
- Field                   Type                          Comment
+ Field Type Comment
 
- Header                  RECORDHEADER                  Tag type = 28
+ Header RECORDHEADER Tag type = 28
 
 50
- Depth                    UI16                           Depth of character
+ Depth UI16 Depth of character
 
 ## ShowFrame
 
@@ -1760,9 +1760,9 @@ duration of a single frame.
 
 The minimum file format version is SWF 1.
 
- Field                    Type                           Comment
+ Field Type Comment
 
- Header                   RECORDHEADER                   Tag type = 1
+ Header RECORDHEADER Tag type = 1
 
 51
 Chapter 4: Control Tags
@@ -1772,11 +1772,11 @@ Control tags manage some overall aspects of files, frames, and playback in SWF f
 
 The SetBackgroundColor tag sets the background color of the display. The minimum file format version is SWF 1.
 
- Field                   Type                     Comment
+ Field Type Comment
 
- Header                  RECORDHEADER             Tag type = 9
+ Header RECORDHEADER Tag type = 9
 
- BackgroundColor         RGB                      Color of the display background
+ BackgroundColor RGB Color of the display background
 
 ## FrameLabel
 
@@ -1785,11 +1785,11 @@ the frame.
 
 The minimum file format version is SWF 3.
 
- Field                   Type                     Comment
+ Field Type Comment
 
- Header                  RECORDHEADER             Tag type = 43
+ Header RECORDHEADER Tag type = 43
 
- Name                    STRING                   Label for frame
+ Name STRING Label for frame
 
 In SWF files of version 6 or later, an extension to the FrameLabel tag called named anchors is available. A named
 anchor is a special kind of frame label that, in addition to labeling a frame for seeking using ActionGoToLabel,
@@ -1811,13 +1811,13 @@ is valid only for SWF 6 or later.
 
 ## NamedAnchor
 
- Field                     Type                                       Comment
+ Field Type Comment
 
- Header                    RECORDHEADER                               Tag type = 43
+ Header RECORDHEADER Tag type = 43
 
- Name                      Null-terminated STRING. (0 is NULL)        Label for frame.
+ Name Null-terminated STRING. (0 is NULL) Label for frame.
 
- Named Anchor flag         UI8                                        Always 1
+ Named Anchor flag UI8 Always 1
 
 ## Protect
 
@@ -1835,9 +1835,9 @@ encryption algorithm.
 
 The minimum file format version is SWF 2.
 
- Field                     Type                                       Comment
+ Field Type Comment
 
- Header                    RECORDHEADER                               Tag type = 24
+ Header RECORDHEADER Tag type = 24
 
 End
 The End tag marks the end of a file. This must always be the last tag in a file. The End tag is also required to end
@@ -1845,9 +1845,9 @@ a sprite definition.
 
 The minimum file format version is SWF 1.
 
- Field                     Type                                       Comment
+ Field Type Comment
 
- Header                    RECORDHEADER                               Tag type = 0
+ Header RECORDHEADER Tag type = 0
 
 ## ExportAssets
 
@@ -1864,19 +1864,19 @@ the same Tag1 value is read later in the SWF file, the second Name1 value is use
 
 The minimum file format version is SWF 5.
 
- Field                    Type                          Comment
+ Field Type Comment
 
- Header                   RECORDHEADER                  Tag type = 56
+ Header RECORDHEADER Tag type = 56
 
- Count                    UI16                          Number of assets to export
+ Count UI16 Number of assets to export
 
- Tag1                     UI16                          First character ID to export
+ Tag1 UI16 First character ID to export
 
- Name1                    STRING                        Identifier for first exported character
+ Name1 STRING Identifier for first exported character
 
- TagN                     UI16                          Last character ID to export
+ TagN UI16 Last character ID to export
 
- NameN                    STRING                        Identifier for last exported character
+ NameN STRING Identifier for last exported character
 
 ## ImportAssets
 
@@ -1894,25 +1894,25 @@ ImportAssets2 tag instead.
 
 The minimum file format version is SWF 5, and the maximum file format version is SWF 7.
 
- Field                    Type                       Comment
+ Field Type Comment
 
- Header                   RECORDHEADER               Tag type = 57
+ Header RECORDHEADER Tag type = 57
 
- URL                      STRING                     URL where the source SWF file can be found
+ URL STRING URL where the source SWF file can be found
 
 54
- Count                  UI16                    Number of assets to import
+ Count UI16 Number of assets to import
 
- Tag1                   UI16                    Character ID to use for first imported character in importing
-                                                SWF file (need not match character ID in exporting SWF file)
+ Tag1 UI16 Character ID to use for first imported character in importing
+ SWF file (need not match character ID in exporting SWF file)
 
- Name1                  STRING                  Identifier for first imported character (must match an
-                                                identifier in exporting SWF file)
+ Name1 STRING Identifier for first imported character (must match an
+ identifier in exporting SWF file)
 
- TagN                   UI16                    Character ID to use for last imported character in importing
-                                                SWF file
+ TagN UI16 Character ID to use for last imported character in importing
+ SWF file
 
- NameN                  STRING                  Identifier for last imported character
+ NameN STRING Identifier for last imported character
 
 ## EnableDebugger
 
@@ -1925,11 +1925,11 @@ the EnableDebugger2 tag instead.
 
 The minimum and maximum file format version is SWF 5.
 
- Field                   Type                                   Comment
+ Field Type Comment
 
- Header                  RECORDHEADER                           Tag type = 58
+ Header RECORDHEADER Tag type = 58
 
- Password                Null-terminated STRING. (0 is NULL)    MD5-encrypted password
+ Password Null-terminated STRING. (0 is NULL) MD5-encrypted password
 
 ## EnableDebugger2
 
@@ -1938,13 +1938,13 @@ the same way as the Protect tag.
 
 The minimum file format version is SWF 6.
 
- Field                   Type                                   Comment
+ Field Type Comment
 
- Header                  RECORDHEADER                           Tag type = 64
+ Header RECORDHEADER Tag type = 64
 
- Reserved                UI16                                   Always 0
+ Reserved UI16 Always 0
 
- Password                Null-terminated STRING. (0 is NULL)    MD5-encrypted password
+ Password Null-terminated STRING. (0 is NULL) MD5-encrypted password
 
 55
 
@@ -1962,14 +1962,14 @@ varies by platform and is between 15 to 20 seconds. This default value is subjec
 
 The minimum file format version is SWF 7.
 
- Field                          Type                   Comment
+ Field Type Comment
 
- Header                         RECORDHEADER           Tag type = 65
+ Header RECORDHEADER Tag type = 65
 
- MaxRecursionDepth              UI16                   Maximum recursion depth
+ MaxRecursionDepth UI16 Maximum recursion depth
 
- ScriptTimeoutSeconds           UI16                   Maximum ActionScript processing time before script stuck
-                                                       dialog box displays
+ ScriptTimeoutSeconds UI16 Maximum ActionScript processing time before script stuck
+ dialog box displays
 
 ## SetTabIndex
 
@@ -1989,14 +1989,14 @@ contains static text objects, the SetTabIndex tag is more useful than the tabInd
 
 The minimum file format version is SWF 7.
 
- Field                Type                   Comment
+ Field Type Comment
 
- Header               RECORDHEADER           Tag type = 66
+ Header RECORDHEADER Tag type = 66
 
 56
- Depth                UI16                   Depth of character
+ Depth UI16 Depth of character
 
- TabIndex             UI16                   Tab order value
+ TabIndex UI16 Tab order value
 
 ## FileAttributes
 
@@ -2014,39 +2014,39 @@ locally loaded SWF files that are running in Flash Player 8 or later.
 
 The minimum file format version is SWF 8.
 
- Field                          Type                           Comment
+ Field Type Comment
 
- Header                         RECORDHEADER                   Tag type = 69
+ Header RECORDHEADER Tag type = 69
 
- Reserved                       UB[1]                          Must be 0
+ Reserved UB[1] Must be 0
 
- UseDirectBlit (see note        UB[1]                          If 1, the SWF file uses hardware acceleration to blit
- following table)                                              graphics to the screen, where such acceleration is
-                                                               available. If 0, the SWF file will not use hardware
-                                                               accelerated graphics facilities. Minimum file
-                                                               version is 10.
+ UseDirectBlit (see note UB[1] If 1, the SWF file uses hardware acceleration to blit
+ following table) graphics to the screen, where such acceleration is
+ available. If 0, the SWF file will not use hardware
+ accelerated graphics facilities. Minimum file
+ version is 10.
 
- UseGPU (see note               UB[1]                          If 1, the SWF file uses GPU compositing features
- following table)                                              when drawing graphics, where such acceleration is
-                                                               available. If 0, the SWF file will not use hardware
-                                                               accelerated graphics facilities. Minimum file
-                                                               version is 10.
+ UseGPU (see note UB[1] If 1, the SWF file uses GPU compositing features
+ following table) when drawing graphics, where such acceleration is
+ available. If 0, the SWF file will not use hardware
+ accelerated graphics facilities. Minimum file
+ version is 10.
 
- HasMetadata                    UB[1]                          If 1, the SWF file contains the Metadata tag. If 0,
-                                                               the SWF file does not contain the Metadata tag.
+ HasMetadata UB[1] If 1, the SWF file contains the Metadata tag. If 0,
+ the SWF file does not contain the Metadata tag.
 
- ActionScript3                  UB[1]                          If 1, this SWF uses ActionScript 3.0. If 0, this SWF
-                                                               uses ActionScript 1.0 or 2.0. Minimum file format
-                                                               version is 9.
+ ActionScript3 UB[1] If 1, this SWF uses ActionScript 3.0. If 0, this SWF
+ uses ActionScript 1.0 or 2.0. Minimum file format
+ version is 9.
 
 57
- Reserved                        UB[2]                          Must be 0
+ Reserved UB[2] Must be 0
 
- UseNetwork                      UB[1]                          If 1, this SWF file is given network file access when
-                                                                loaded locally. If 0, this SWF file is given local file
-                                                                access when loaded locally.
+ UseNetwork UB[1] If 1, this SWF file is given network file access when
+ loaded locally. If 0, this SWF file is given local file
+ access when loaded locally.
 
- Reserved                        UB[24]                         Must be 0
+ Reserved UB[24] Must be 0
 
 The UseDirectBlit and UseGPU flags are relevant only when a SWF file is playing in the standalone Flash Player.
 When a SWF file plays in a web browser plug-in, UseDirectBlit is equivalent to specifying a wmode of “direct” in
@@ -2068,30 +2068,30 @@ The ImportAssets2 tag must be earlier in the frame than any later tags that rely
 
 The minimum file format version is SWF 8.
 
- Field                    Type                     Comment
+ Field Type Comment
 
- Header                   RECORDHEADER             Tag type = 71
+ Header RECORDHEADER Tag type = 71
 
- URL                      STRING                   URL where the source SWF file can be found
+ URL STRING URL where the source SWF file can be found
 
- Reserved                 UI8                      Must be 1
+ Reserved UI8 Must be 1
 
- Reserved                 UI8                      Must be 0
+ Reserved UI8 Must be 0
 
- Count                    UI16                     Number of assets to import
+ Count UI16 Number of assets to import
 
- Tag1                     UI16                     Character ID to use for first imported character in importing
-                                                   SWF file (need not match character ID in exporting SWF file)
+ Tag1 UI16 Character ID to use for first imported character in importing
+ SWF file (need not match character ID in exporting SWF file)
 
- Name1                    STRING                   Identifier for first imported character (must match an identifier
+ Name1 STRING Identifier for first imported character (must match an identifier
 
 58
-                                                 in exporting SWF file)
+ in exporting SWF file)
 
- TagN                    UI16                    Character ID to use for last imported character in importing
-                                                 SWF file
+ TagN UI16 Character ID to use for last imported character in importing
+ SWF file
 
- NameN                   STRING                  Identifier for last imported character
+ NameN STRING Identifier for last imported character
 
 ## SymbolClass
 
@@ -2102,23 +2102,23 @@ are available for creation by other SWF files (see StartSound2, DefineEditText (
 (PlaceFlagHasClassName and PlaceFlagHasImage). For example, ten SWF files that are all part of the same
 website can share an embedded custom font if one file embeds and exports the font class.
 
- Field                      Type                   Comment
+ Field Type Comment
 
- Header                     RECORDHEADER           Tag type = 76
+ Header RECORDHEADER Tag type = 76
 
- NumSymbols                 UI16                   Number of symbols that will be associated by this tag.
+ NumSymbols UI16 Number of symbols that will be associated by this tag.
 
- Tag1                       U16                    The 16-bit character tag ID for the symbol to associate
+ Tag1 U16 The 16-bit character tag ID for the symbol to associate
 
- Name1                      STRING                 The fully-qualified name of the ActionScript 3.0 class with
-                                                   which to associate this symbol. The class must have already
-                                                   been declared by a DoABC tag.
+ Name1 STRING The fully-qualified name of the ActionScript 3.0 class with
+ which to associate this symbol. The class must have already
+ been declared by a DoABC tag.
 
- ...                        ...                    ...
+ ... ... ...
 
- TagN                       U16                    Tag ID for symbol N
+ TagN U16 Tag ID for symbol N
 
- NameN                      STRING                 Fully-qualified class name for symbol N
+ NameN STRING Fully-qualified class name for symbol N
 
 ## Metadata
 
@@ -2134,11 +2134,11 @@ be in the SWF file. The Metadata tag can only be in the SWF file one time.
 The format of the metadata is RDF that is compliant with Adobe’s Extensible Metadata Platform (XMP™)
 specification. For more information about RDF and XMP, see the following sources:
 
-     •    The RDF Primer at www.w3.org/TR/rdf-primer
+ • The RDF Primer at www.w3.org/TR/rdf-primer
 
-     •    The RDF Specification at www.w3.org/TR/1999/REC-rdf-syntax-19990222
+ • The RDF Specification at www.w3.org/TR/1999/REC-rdf-syntax-19990222
 
-     •    The XMP home page at www.adobe.com/products/xmp
+ • The XMP home page at www.adobe.com/products/xmp
 
 The following examples show two of many acceptable ways to represent the Metadata string in the SWF file.
 The first example provides basic information about the SWF file, the title and description:
@@ -2167,11 +2167,11 @@ In the second example, the title is described for multiple languages:
 The Metadata string is stored in the SWF file with all unnecessary white space removed. The minimum file
 format version is SWF 1.
 
- Field               Type                          Comment
+ Field Type Comment
 
- Header              RECORDHEADER                  Tag type = 77
+ Header RECORDHEADER Tag type = 77
 
- Metadata            STRING                        XML Metadata
+ Metadata STRING XML Metadata
 
 ## DefineScalingGrid
 
@@ -2185,14 +2185,14 @@ sprite or button into nine sections with a grid-like overlay. When the character
 scaled independently. To maintain the visual integrity of the character, corners are not scaled, while the
 remaining areas of the image are scaled larger or smaller, as needed.
 
- Field                Type                           Comment
+ Field Type Comment
 
- Header               RECORDHEADER                   Tag type = 78
+ Header RECORDHEADER Tag type = 78
 
- CharacterId          UI16                           ID of sprite or button character upon which the scaling grid
-                                                     will be applied.
+ CharacterId UI16 ID of sprite or button character upon which the scaling grid
+ will be applied.
 
- Splitter             RECT                           Center region of 9-slice grid
+ Splitter RECT Center region of 9-slice grid
 
 The Splitter rectangle specifies the center portion of the nine regions of the scaling grid, and from this rectangle
 Flash Player derives the 9-slice grid. The width and height of the rectangle must be at least one twip each (1/20
@@ -2201,11 +2201,11 @@ pixel), or Flash Player ignores the DefineScalingGrid tag.
 When a sprite or button with a DefineScalingGrid association is scaled, the nine regions of the character scale
 according to the following table:
 
- No scale          Horizontal scale         No scale
+ No scale Horizontal scale No scale
 
- Vertical scale    Horizontal and vertical Vertical scale
-                   scale
- No scale          Horizontal scale        No scale
+ Vertical scale Horizontal and vertical Vertical scale
+ scale
+ No scale Horizontal scale No scale
 
 9-slice scaling does not affect the children of, or any text within, the specified character. These objects
 transform normally.
@@ -2230,35 +2230,35 @@ The minimum file format version is SWF 8.
 The DefineSceneAndFrameLabelData tag contains scene and frame label data for a MovieClip. Scenes are
 supported for the main timeline only, for all other movie clips a single scene is exported.
 
- Field                   Type                     Comment
+ Field Type Comment
 
- Header                  RECORDHEADER             Tag type = 86
+ Header RECORDHEADER Tag type = 86
 
- SceneCount              EncodedU32               Number of scenes
+ SceneCount EncodedU32 Number of scenes
 
- Offset1                 EncodedU32               Frame offset for scene 1
+ Offset1 EncodedU32 Frame offset for scene 1
 
- Name1                   STRING                   Name of scene 1
+ Name1 STRING Name of scene 1
 
- ...                     ...                      ...
+ ... ... ...
 
- OffsetN                 EncodedU32               Frame offset for scene N
+ OffsetN EncodedU32 Frame offset for scene N
 
- NameN                   STRING                   Name of scene N
+ NameN STRING Name of scene N
 
- FrameLabelCount         EncodedU32               Number of frame labels
+ FrameLabelCount EncodedU32 Number of frame labels
 
- FrameNum1               EncodedU32               Frame number of frame label #1 (zero-based, global to
-                                                  symbol)
+ FrameNum1 EncodedU32 Frame number of frame label #1 (zero-based, global to
+ symbol)
 
- FrameLabel1             STRING                   Frame label string of frame label #1
+ FrameLabel1 STRING Frame label string of frame label #1
 
- ...                     ...                      ...
+ ... ... ...
 
- FrameNumN               EncodedU32               Frame number of frame label #N (zero-based, global to
-                                                  symbol)
+ FrameNumN EncodedU32 Frame number of frame label #N (zero-based, global to
+ symbol)
 
- FrameLabelN             STRING                   Frame label string of frame label #N
+ FrameLabelN STRING Frame label string of frame label #N
 
 62
 Chapter 5: Actions
@@ -2272,30 +2272,30 @@ functions.
 
 The SWF 3 action model consists of eleven instructions for Flash Player:
 
- Instruction                 See                           Description
+ Instruction See Description
 
- Play                        ActionPlay                    Start playing at the current frame
+ Play ActionPlay Start playing at the current frame
 
- Stop                        ActionStop                    Stop playing at the current frame
+ Stop ActionStop Stop playing at the current frame
 
- NextFrame                   ActionNextFrame               Go to the next frame
+ NextFrame ActionNextFrame Go to the next frame
 
- PreviousFrame               ActionPreviousFrame           Go to the previous frame
+ PreviousFrame ActionPreviousFrame Go to the previous frame
 
- GotoFrame                   ActionGotoFrame               Go to the specified frame
+ GotoFrame ActionGotoFrame Go to the specified frame
 
- GotoLabel                   ActionGoToLabel               Go to the frame with the specified label
+ GotoLabel ActionGoToLabel Go to the frame with the specified label
 
- WaitForFrame                ActionWaitForFrame            Wait for the specified frame
+ WaitForFrame ActionWaitForFrame Wait for the specified frame
 
- GetURL                      ActionGetURL                  Get the specified URL
+ GetURL ActionGetURL Get the specified URL
 
- StopSounds                  ActionStopSounds              Stop all sounds playing
+ StopSounds ActionStopSounds Stop all sounds playing
 
- ToggleQuality               ActionToggleQuality           Toggle the display between high and low quality
+ ToggleQuality ActionToggleQuality Toggle the display between high and low quality
 
- SetTarget                   ActionSetTarget               Change the context of subsequent actions to a
-                                                           named object
+ SetTarget ActionSetTarget Change the context of subsequent actions to a
+ named object
 
 An action (or list of actions) can be triggered by a button state transition, or by SWF 3 actions. The action is not
 executed immediately, but is added to a list of actions to be processed. The list is executed on a ShowFrame tag,
@@ -2322,14 +2322,14 @@ appears.
 Starting with SWF 9, if the ActionScript3 field of the FileAttributes tag is 1, the contents of the DoAction tag will
 be ignored.
 
- Field                     Type                                  Comment
+ Field Type Comment
 
- Header                    RECORDHEADER                          Tag type = 12
+ Header RECORDHEADER Tag type = 12
 
- Actions                   ACTIONRECORD [zero or more]           List of actions to perform (see following table,
-                                                                 ActionRecord)
+ Actions ACTIONRECORD [zero or more] List of actions to perform (see following table,
+ ActionRecord)
 
- ActionEndFlag             UI8 = 0                               Always set to 0
+ ActionEndFlag UI8 = 0 Always set to 0
 
 ## ACTIONRECORD
 
@@ -2340,23 +2340,23 @@ payload. Note that many actions have no data payload and only consist of a singl
 
 An ACTIONRECORDHEADER has the following layout:
 
- Field              Type                       Comment
+ Field Type Comment
 
- ActionCode         UI8                        An action code
+ ActionCode UI8 An action code
 
- Length             If code >= 0x80, UI16      The number of bytes in the ACTIONRECORDHEADER, not counting
-                                               the ActionCode and Length fields.
+ Length If code >= 0x80, UI16 The number of bytes in the ACTIONRECORDHEADER, not counting
+ the ActionCode and Length fields.
 
 ## ActionGotoFrame
 
 ActionGotoFrame instructs Flash Player to go to the specified frame in the current file.
 
 64
- Field                  Type                         Comment
+ Field Type Comment
 
- ActionGotoFrame        ACTIONRECORDHEADER           ActionCode = 0x81; Length is always 2
+ ActionGotoFrame ACTIONRECORDHEADER ActionCode = 0x81; Length is always 2
 
- Frame                  UI16                         Frame index
+ Frame UI16 Frame index
 
 ## ActionGetURL
 
@@ -2365,37 +2365,37 @@ an HTML file, an image or another SWF file. If the file is playing in a browser,
 that TargetString specifies. The "_level0" and "_level1" special target names are used to load another SWF file
 into levels 0 and 1 respectively.
 
- Field                  Type                         Comment
+ Field Type Comment
 
- ActionGetURL           ACTIONRECORDHEADER           ActionCode = 0x83
+ ActionGetURL ACTIONRECORDHEADER ActionCode = 0x83
 
- UrlString              STRING                       Target URL string
+ UrlString STRING Target URL string
 
- TargetString           STRING                       Target string
+ TargetString STRING Target string
 
 ## ActionNextFrame
 
 ActionNextFrame instructs Flash Player to go to the next frame in the current file.
 
- Field                  Type                         Comment
+ Field Type Comment
 
- ActionNextFrame        ACTIONRECORDHEADER           ActionCode = 0x04
+ ActionNextFrame ACTIONRECORDHEADER ActionCode = 0x04
 
 ## ActionPreviousFrame
 
 ActionPreviousFrame instructs Flash Player to go to the previous frame of the current file.
 
- Field                  Type                         Comment
+ Field Type Comment
 
- ActionPrevFrame        ACTIONRECORDHEADER           ActionCode = 0x05
+ ActionPrevFrame ACTIONRECORDHEADER ActionCode = 0x05
 
 ## ActionPlay
 
 ActionPlay instructs Flash Player to start playing at the current frame.
 
- Field                  Type                         Comment
+ Field Type Comment
 
- ActionPlay             ACTIONRECORDHEADER           ActionCode = 0x06
+ ActionPlay ACTIONRECORDHEADER ActionCode = 0x06
 
 65
 
@@ -2403,38 +2403,38 @@ ActionPlay instructs Flash Player to start playing at the current frame.
 
 ActionStop instructs Flash Player to stop playing the file at the current frame.
 
- Field                  Type                         Comment
+ Field Type Comment
 
- ActionStop             ACTIONRECORDHEADER           ActionCode = 0x07
+ ActionStop ACTIONRECORDHEADER ActionCode = 0x07
 
 ## ActionToggleQuality
 
 ActionToggleQuality toggles the display between high and low quality.
 
- Field                  Type                         Comment
+ Field Type Comment
 
- ActionToggleQualty ACTIONRECORDHEADER               ActionCode = 0x08
+ ActionToggleQualty ACTIONRECORDHEADER ActionCode = 0x08
 
 ## ActionStopSounds
 
 ActionStopSounds instructs Flash Player to stop playing all sounds.
 
- Field                  Type                         Comment
+ Field Type Comment
 
- ActionStopSounds       ACTIONRECORDHEADER           ActionCode = 0x09
+ ActionStopSounds ACTIONRECORDHEADER ActionCode = 0x09
 
 ## ActionWaitForFrame
 
 ActionWaitForFrame instructs Flash Player to wait until the specified frame; otherwise skips the specified
 number of actions.
 
- Field                   Type                        Comment
+ Field Type Comment
 
- ActionWaitForFrame ACTIONRECORDHEADER               ActionCode = 0x8A; Length is always 3
+ ActionWaitForFrame ACTIONRECORDHEADER ActionCode = 0x8A; Length is always 3
 
- Frame                   UI16                        Frame to wait for
+ Frame UI16 Frame to wait for
 
- SkipCount               UI8                         Number of actions to skip if frame is not loaded
+ SkipCount UI8 Number of actions to skip if frame is not loaded
 
 ## ActionSetTarget
 
@@ -2444,34 +2444,34 @@ object (TargetName) rather than the current file.
 For example, the SetTarget action can be used to control the Timeline of a sprite object. The following sequence
 of actions sends a sprite called "spinner" to the first frame in its Timeline:
 
-     1. SetTarget "spinner"
+ 1. SetTarget "spinner"
 
 66
-     2. GotoFrame zero
+ 2. GotoFrame zero
 
-     3. SetTarget " " (empty string)
+ 3. SetTarget " " (empty string)
 
-     4. End of actions. (Action code = 0)
+ 4. End of actions. (Action code = 0)
 
 All actions following SetTarget “spinner” apply to the spinner object until SetTarget “”, which sets the action
 context back to the current file. For a complete discussion of target names see DefineSprite.
 
- Field                    Type                         Comment
+ Field Type Comment
 
- ActionSetTarget          ACTIONRECORDHEADER           ActionCode = 0x8B
+ ActionSetTarget ACTIONRECORDHEADER ActionCode = 0x8B
 
- TargetName               STRING                       Target of action target
+ TargetName STRING Target of action target
 
 ## ActionGoToLabel
 
 ActionGoToLabel instructs Flash Player to go to the frame associated with the specified label. You can attach a
 label to a frame with the FrameLabel tag.
 
- Field                    Type                         Comment
+ Field Type Comment
 
- ActionGoToLabel          ACTIONRECORDHEADER           ActionCode = 0x8C
+ ActionGoToLabel ACTIONRECORDHEADER ActionCode = 0x8C
 
- Label                    STRING                       Frame label
+ Label STRING Frame label
 
 ## SWF 4 action model
 
@@ -2518,31 +2518,31 @@ occur, so Flash Player can jump forward and backward in the action sequence.
 
 The following actions are available in SWF 4:
 
- Type of action               Name of action
+ Type of action Name of action
 
- Arithmetic operators         ActionAdd ActionDivide ActionMultiply ActionSubtract
+ Arithmetic operators ActionAdd ActionDivide ActionMultiply ActionSubtract
 
- Numerical comparison         ActionEquals ActionLess
+ Numerical comparison ActionEquals ActionLess
 
- Logical operators            ActionAnd ActionNot ActionOr
+ Logical operators ActionAnd ActionNot ActionOr
 
- String manipulation          ActionStringAdd ActionStringEquals ActionStringExtract ActionStringLength
-                              ActionMBStringExtract ActionMBStringLength ActionStringLess
+ String manipulation ActionStringAdd ActionStringEquals ActionStringExtract ActionStringLength
+ ActionMBStringExtract ActionMBStringLength ActionStringLess
 
- Stack operations             ActionPop ActionPush
+ Stack operations ActionPop ActionPush
 
- Type conversion              ActionAsciiToChar ActionCharToAscii ActionToInteger ActionMBAsciiToChar
-                              ActionMBCharToAscii
+ Type conversion ActionAsciiToChar ActionCharToAscii ActionToInteger ActionMBAsciiToChar
+ ActionMBCharToAscii
 
- Control flow                 ActionCall ActionIf ActionJump
+ Control flow ActionCall ActionIf ActionJump
 
- Variables                    ActionGetVariable ActionSetVariable
+ Variables ActionGetVariable ActionSetVariable
 
- Movie control                ActionGetURL2 ActionGetProperty ActionGotoFrame2 ActionRemoveSprite
-                              ActionSetProperty ActionSetTarget2 ActionStartDrag ActionWaitForFrame2
-                              ActionCloneSprite ActionEndDrag
+ Movie control ActionGetURL2 ActionGetProperty ActionGotoFrame2 ActionRemoveSprite
+ ActionSetProperty ActionSetTarget2 ActionStartDrag ActionWaitForFrame2
+ ActionCloneSprite ActionEndDrag
 
- Utilities                    ActionGetTime ActionRandomNumber ActionTrace
+ Utilities ActionGetTime ActionRandomNumber ActionTrace
 
 ## Stack operations
 
@@ -2554,43 +2554,43 @@ This section lists stack operations.
 
 ActionPush pushes one or more values to the stack.
 
- Field                                Type                                  Comment
+ Field Type Comment
 
- ActionPush                           ACTIONRECORDHEADER                    ActionCode = 0x96
+ ActionPush ACTIONRECORDHEADER ActionCode = 0x96
 
- Type                                 UI8                                   0 = string literal
-                                                                            1 = floating-point literal
+ Type UI8 0 = string literal
+ 1 = floating-point literal
 
-                                                                            The following types are available
-                                                                            in SWF, 5 and later:
-                                                                            2 = null
-                                                                            3 = undefined
-                                                                            4 = register
-                                                                            5 = Boolean
-                                                                            6 = double
-                                                                            7 = integer
-                                                                            8 = constant 8
-                                                                             9 = constant 16
+ The following types are available
+ in SWF, 5 and later:
+ 2 = null
+ 3 = undefined
+ 4 = register
+ 5 = Boolean
+ 6 = double
+ 7 = integer
+ 8 = constant 8
+ 9 = constant 16
 
- String                               If Type = 0, STRING                   Null-terminated character string
+ String If Type = 0, STRING Null-terminated character string
 
- Float                                If Type = 1, FLOAT                    32-bit IEEE single-precision little-
-                                                                            endian floating-point value
+ Float If Type = 1, FLOAT 32-bit IEEE single-precision little-
+ endian floating-point value
 
- RegisterNumber                       If Type = 4, UI8                      Register number
+ RegisterNumber If Type = 4, UI8 Register number
 
- Boolean                              If Type = 5, UI8                      Boolean value
+ Boolean If Type = 5, UI8 Boolean value
 
- Double                               If Type = 6, DOUBLE                   64-bit IEEE double-precision little-
-                                                                            endian double value
+ Double If Type = 6, DOUBLE 64-bit IEEE double-precision little-
+ endian double value
 
- Integer                              If Type = 7, UI32                     32-bit little-endian integer
+ Integer If Type = 7, UI32 32-bit little-endian integer
 
- Constant8                            If Type = 8, UI8                      Constant pool index (for indexes <
-                                                                            256) (see ActionConstantPool)
+ Constant8 If Type = 8, UI8 Constant pool index (for indexes <
+ 256) (see ActionConstantPool)
 
- Constant16                           If Type = 9, UI16                     Constant pool index (for indexes
-                                                                            >= 256) (see ActionConstantPool)
+ Constant16 If Type = 9, UI16 Constant pool index (for indexes
+ >= 256) (see ActionConstantPool)
 
 ActionPush pushes one or more values onto the stack. The Type field specifies the type of the value to be
 pushed.
@@ -2611,9 +2611,9 @@ depending on the number of bytes that the length in ACTIONRECORD specifies.
 
 ActionPop pops a value from the stack and discards it.
 
- Field                  Type                          Comment
+ Field Type Comment
 
- ActionPop              ACTIONRECORDHEADER            ActionCode = 0x17
+ ActionPop ACTIONRECORDHEADER ActionCode = 0x17
 
 ActionPop pops a value off the stack and discards the value.
 
@@ -2625,21 +2625,21 @@ The following sections describe arithmetic operators.
 
 ActionAdd adds two numbers and pushes the result back to the stack.
 
- Field              Type                             Comment
+ Field Type Comment
 
- ActionAdd          ACTIONRECORDHEADER               ActionCode = 0x0A
+ ActionAdd ACTIONRECORDHEADER ActionCode = 0x0A
 
 ActionAdd does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. Converts A and B to floating-point; non-numeric values evaluate to 0.
+ 3. Converts A and B to floating-point; non-numeric values evaluate to 0.
 
-     4. Adds the numbers A and B.
+ 4. Adds the numbers A and B.
 
-     5. Pushes the result, A+B, to the stack.
+ 5. Pushes the result, A+B, to the stack.
 
 70
 
@@ -2647,41 +2647,41 @@ ActionAdd does the following:
 
 ActionSubtract subtracts two numbers and pushes the result back to the stack.
 
- Field                    Type                         Comment
+ Field Type Comment
 
- ActionSubtract           ACTIONRECORDHEADER           ActionCode = 0x0B
+ ActionSubtract ACTIONRECORDHEADER ActionCode = 0x0B
 
 ActionSubtract does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. Converts A and B to floating-point; non-numeric values evaluate to 0.
+ 3. Converts A and B to floating-point; non-numeric values evaluate to 0.
 
-     4. Subtracts A from B.
+ 4. Subtracts A from B.
 
-     5. Pushes the result, B-A, to the stack.
+ 5. Pushes the result, B-A, to the stack.
 
 ## ActionMultiply
 
 ActionMultiply multiplies two numbers and pushes the result back to the stack.
 
- Field                  Type                           Comment
+ Field Type Comment
 
- ActionMultiply         ACTIONRECORDHEADER             ActionCode = 0x0C
+ ActionMultiply ACTIONRECORDHEADER ActionCode = 0x0C
 
 ActionMultiply does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. Converts A and B to floating-point; non-numeric values evaluate to 0.
+ 3. Converts A and B to floating-point; non-numeric values evaluate to 0.
 
-     4. Multiplies A times B.
+ 4. Multiplies A times B.
 
-     5. Pushes the result, A*B, to the stack.
+ 5. Pushes the result, A*B, to the stack.
 
 71
 
@@ -2689,24 +2689,24 @@ ActionMultiply does the following:
 
 ActionDivide divides two numbers and pushes the result back to the stack.
 
- Field                    Type                              Comment
+ Field Type Comment
 
- ActionDivide             ACTIONRECORDHEADER                ActionCode = 0x0D
+ ActionDivide ACTIONRECORDHEADER ActionCode = 0x0D
 
 ActionDivide does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. Converts A and B to floating-point; non-numeric values evaluate to 0.
+ 3. Converts A and B to floating-point; non-numeric values evaluate to 0.
 
-     4. Divides B by A.
+ 4. Divides B by A.
 
-     5. Pushes the result, B/A, to the stack.
+ 5. Pushes the result, B/A, to the stack.
 
-     6. If A is zero, the result NaN, Infinity, or -Infinity is pushed to the stack in SWF 5 and later. In SWF 4, the
-        result is the string #ERROR#.
+ 6. If A is zero, the result NaN, Infinity, or -Infinity is pushed to the stack in SWF 5 and later. In SWF 4, the
+ result is the string #ERROR#.
 
 ## Numerical comparison
 
@@ -2714,45 +2714,45 @@ ActionDivide does the following:
 
 ActionEquals tests two numbers for equality.
 
- Field                    Type                           Comment
+ Field Type Comment
 
- ActionEquals             ACTIONRECORDHEADER             ActionCode = 0x0E
+ ActionEquals ACTIONRECORDHEADER ActionCode = 0x0E
 
 ActionEquals does the following:
 
-         1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-         2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-         3. Converts A and B to floating-point; non-numeric values evaluate to 0.
+ 3. Converts A and B to floating-point; non-numeric values evaluate to 0.
 
-         4. Compares the numbers for equality.
+ 4. Compares the numbers for equality.
 
-         5. If the numbers are equal, true is pushed to the stack for SWF 5 and later.
+ 5. If the numbers are equal, true is pushed to the stack for SWF 5 and later.
 
-         6. For SWF 4, 1 is pushed to the stack.
+ 6. For SWF 4, 1 is pushed to the stack.
 
 72
-         7. Otherwise, false is pushed to the stack for SWF 5 and later. (For SWF 4, 0 is pushed to the stack.)
+ 7. Otherwise, false is pushed to the stack for SWF 5 and later. (For SWF 4, 0 is pushed to the stack.)
 
 ## ActionLess
 
 ## ActionLess tests if a number is less than another number
 
- Field                 Type                                Comment
+ Field Type Comment
 
- ActionLess            ACTIONRECORDHEADER                  ActionCode = 0x0F
+ ActionLess ACTIONRECORDHEADER ActionCode = 0x0F
 
 ActionLess does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. Converts A and B to floating-point; non-numeric values evaluate to 0.
+ 3. Converts A and B to floating-point; non-numeric values evaluate to 0.
 
-     4. If B < A, true is pushed to the stack for SWF 5 and later (1 is pushed for SWF 4); otherwise, false is
-        pushed to the stack for SWF 5 and later (0 is pushed for SWF 4).
+ 4. If B < A, true is pushed to the stack for SWF 5 and later (1 is pushed for SWF 4); otherwise, false is
+ pushed to the stack for SWF 5 and later (0 is pushed for SWF 4).
 
 ## Logical operators
 
@@ -2760,40 +2760,40 @@ ActionLess does the following:
 
 ActionAnd performs a logical AND of two numbers.
 
- Field                Type                              Comment
+ Field Type Comment
 
- ActionAnd            ACTIONRECORDHEADER                ActionCode = 0x10
+ ActionAnd ACTIONRECORDHEADER ActionCode = 0x10
 
 ActionAdd does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. Converts A and B to floating-point; non-numeric values evaluate to 0.
+ 3. Converts A and B to floating-point; non-numeric values evaluate to 0.
 
-     4. If both numbers are nonzero, true is pushed to the stack for SWF 5 and later (1 is pushed for SWF 4);
-        otherwise, false is pushed to the stack for SWF 5 and later (0 is pushed for SWF 4).
+ 4. If both numbers are nonzero, true is pushed to the stack for SWF 5 and later (1 is pushed for SWF 4);
+ otherwise, false is pushed to the stack for SWF 5 and later (0 is pushed for SWF 4).
 
 ## ActionOr
 
 ActionOr performs a logical OR of two numbers.
 
 73
- Field                Type                             Comment
+ Field Type Comment
 
- ActionOr             ACTIONRECORDHEADER               ActionCode = 0x11
+ ActionOr ACTIONRECORDHEADER ActionCode = 0x11
 
 ActionOr does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. Converts A and B to floating-point; non-numeric values evaluate to 0.
+ 3. Converts A and B to floating-point; non-numeric values evaluate to 0.
 
-     4. If either of the numbers is nonzero, true is pushed to the stack for SWF 5 and later (1 is pushed for SWF
-        4); otherwise, false is pushed to the stack for SWF 5 and later (0 is pushed for SWF 4).
+ 4. If either of the numbers is nonzero, true is pushed to the stack for SWF 5 and later (1 is pushed for SWF
+ 4); otherwise, false is pushed to the stack for SWF 5 and later (0 is pushed for SWF 4).
 
 ## ActionNot
 
@@ -2802,21 +2802,21 @@ ActionNot performs a logical NOT of a number.
 Note: In SWF 5 files, the ActionNot operator converts its argument to a Boolean value, and pushes a result of
 type Boolean. In SWF 4 files, the argument and result are numbers.
 
- Field                  Type                               Comment
+ Field Type Comment
 
- ActionNot              ACTIONRECORDHEADER                 ActionCode = 0x12
+ ActionNot ACTIONRECORDHEADER ActionCode = 0x12
 
- Result                 Boolean
+ Result Boolean
 
 ActionNot does the following:
 
-     1. Pops a value off the stack.
+ 1. Pops a value off the stack.
 
-     2. Converts the value to floating point; non-numeric values evaluate to 0.
+ 2. Converts the value to floating point; non-numeric values evaluate to 0.
 
-     3. If the value is zero, true is pushed on the stack for SWF 5 and later (1 is pushed for SWF 4).
+ 3. If the value is zero, true is pushed on the stack for SWF 5 and later (1 is pushed for SWF 4).
 
-     4. If the value is nonzero, false is pushed on the stack for SWF 5 and later (0 is pushed for SWF 4).
+ 4. If the value is nonzero, false is pushed on the stack for SWF 5 and later (0 is pushed for SWF 4).
 
 74
 
@@ -2826,35 +2826,35 @@ ActionNot does the following:
 
 ActionStringEquals tests two strings for equality.
 
- Field                        Type                                  Comment
+ Field Type Comment
 
- ActionStringEquals           ACTIONRECORDHEADER                    ActionCode = 0x13
+ ActionStringEquals ACTIONRECORDHEADER ActionCode = 0x13
 
 ActionStringEquals does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. Compares A and B as strings.( The comparison is case-sensitive)
+ 3. Compares A and B as strings.( The comparison is case-sensitive)
 
-     4. If the strings are equal, true is pushed to the stack for SWF 5 and later (SWF 4 pushes 1).
+ 4. If the strings are equal, true is pushed to the stack for SWF 5 and later (SWF 4 pushes 1).
 
-     5. Otherwise, false is pushed to the stack for SWF 5 and later (SWF 4 pushes 0).
+ 5. Otherwise, false is pushed to the stack for SWF 5 and later (SWF 4 pushes 0).
 
 ## ActionStringLength
 
 ActionStringLength computes the length of a string.
 
- Field                        Type                                             Comment
+ Field Type Comment
 
- ActionStringLength           ACTIONRECORDHEADER                               ActionCode = 0x14
+ ActionStringLength ACTIONRECORDHEADER ActionCode = 0x14
 
 ActionStringLength does the following:
 
-     1. Pops a string off the stack.
+ 1. Pops a string off the stack.
 
-     2. Calculates the length of the string and pushes it to the stack.
+ 2. Calculates the length of the string and pushes it to the stack.
 
 ## ActionStringAdd
 
@@ -2867,49 +2867,49 @@ ActionStringAdd ACTIONRECORDHEADER ActionCode = 0x21
 75
 ActionStringAdd does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. Pushes the concatenation BA to the stack.
+ 3. Pushes the concatenation BA to the stack.
 
 ## ActionStringExtract
 
 ActionStringExtract extracts a substring from a string.
 
- Field                       Type                             Comment
+ Field Type Comment
 
- ActionStringExtract         ACTIONRECORDHEADER               ActionCode = 0x15
+ ActionStringExtract ACTIONRECORDHEADER ActionCode = 0x15
 
 ActionStringExtract does the following:
 
-     1. Pops number count off the stack.
+ 1. Pops number count off the stack.
 
-     2. Pops number index off the stack.
+ 2. Pops number index off the stack.
 
-     3. Pops string string off the stack.
+ 3. Pops string string off the stack.
 
-     4. Pushes the substring of the string starting at the indexed character and count characters in length to the
-        stack.
+ 4. Pushes the substring of the string starting at the indexed character and count characters in length to the
+ stack.
 
-     5. If either index or count do not evaluate to integers, the result is the empty string.
+ 5. If either index or count do not evaluate to integers, the result is the empty string.
 
 ## ActionStringLess
 
 ## ActionStringLess tests to see if a string is less than another string
 
- Field                        Type                              Comment
+ Field Type Comment
 
- ActionStringLess             ACTIONRECORDHEADER                ActionCode = 0x29
+ ActionStringLess ACTIONRECORDHEADER ActionCode = 0x29
 
 ActionStringLess does the following:
 
-     1. Pops value A off the stack.
+ 1. Pops value A off the stack.
 
-     2. Pops value B off the stack.
+ 2. Pops value B off the stack.
 
-     3. If B < A using a byte-by-byte comparison, true is pushed to the stack for SWF 5 and later (SWF 4 pushes
-        1); otherwise, false is pushed to the stack for SWF 5 and later (SWF 4 pushes 0).
+ 3. If B < A using a byte-by-byte comparison, true is pushed to the stack for SWF 5 and later (SWF 4 pushes
+ 1); otherwise, false is pushed to the stack for SWF 5 and later (SWF 4 pushes 0).
 
 76
 
@@ -2917,15 +2917,15 @@ ActionStringLess does the following:
 
 ActionMBStringLength computes the length of a string and is multi-byte aware.
 
- Field                        Type                             Comment
+ Field Type Comment
 
- ActionMBStringLength         ACTIONRECORDHEADER               ActionCode = 0x31
+ ActionMBStringLength ACTIONRECORDHEADER ActionCode = 0x31
 
 ActionMBStringLength does the following:
 
-     1. Pops a string off the stack.
+ 1. Pops a string off the stack.
 
-     2. Calculates the length of the string in characters and pushes it to the stack.
+ 2. Calculates the length of the string in characters and pushes it to the stack.
 
 This is a multi-byte aware version of ActionStringLength. On systems with double-byte support, a double-byte
 character is counted as a single character.
@@ -2934,20 +2934,20 @@ character is counted as a single character.
 
 ActionMBStringExtract extracts a substring from a string and is multi-byte aware.
 
- Field                          Type                              Comment
+ Field Type Comment
 
- ActionMBStringExtract          ACTIONRECORDHEADER                ActionCode = 0x35
+ ActionMBStringExtract ACTIONRECORDHEADER ActionCode = 0x35
 
 It does the following:
 
-     1. Pops the number count off the stack.
+ 1. Pops the number count off the stack.
 
-     2. Pops the number index off the stack.
+ 2. Pops the number index off the stack.
 
-     3. Pops the string string off the stack.
+ 3. Pops the string string off the stack.
 
-     4. Pushes the substring of string starting at the index’th character and count characters in length to the
-        stack.
+ 4. Pushes the substring of string starting at the index’th character and count characters in length to the
+ stack.
 
 Note: If either index or count do not evaluate to integers, the result is the empty string.
 
@@ -2961,43 +2961,43 @@ counting double-byte characters as single characters.
 ActionToInteger converts a value to an integer.
 
 77
- Field                      Type                                                Comment
+ Field Type Comment
 
- ActionToInteger            ACTIONRECORDHEADER                                  ActionCode = 0x18
+ ActionToInteger ACTIONRECORDHEADER ActionCode = 0x18
 
 ActionToInteger does the following:
 
-     1. Pops a value off the stack.
+ 1. Pops a value off the stack.
 
-     2. Converts the value to a number.
+ 2. Converts the value to a number.
 
-     3. Discards any digits after the decimal point, resulting in an integer.
+ 3. Discards any digits after the decimal point, resulting in an integer.
 
-     4. Pushes the resulting integer to the stack.
+ 4. Pushes the resulting integer to the stack.
 
 ## ActionCharToAscii
 
 ActionCharToAscii converts character code to ASCII.
 
- Field                        Type                               Comment
+ Field Type Comment
 
- ActionCharToAscii            ACTIONRECORDHEADER                 ActionCode = 0x32
+ ActionCharToAscii ACTIONRECORDHEADER ActionCode = 0x32
 
 ActionCharToAscii does the following:
 
-     1. Pops a value off the stack.
+ 1. Pops a value off the stack.
 
-     2. Converts the first character of the value to a numeric ASCII character code.
+ 2. Converts the first character of the value to a numeric ASCII character code.
 
-     3. Pushes the resulting character code to the stack.
+ 3. Pushes the resulting character code to the stack.
 
 ## ActionAsciiToChar
 
 ActionAsciiToChar converts a value to an ASCII character code.
 
- Field                        Type                               Comment
+ Field Type Comment
 
- ActionAsciiToChar            ACTIONRECORDHEADER                 ActionCode = 0x33
+ ActionAsciiToChar ACTIONRECORDHEADER ActionCode = 0x33
 
 ActionAsciiToChar does the following:
 
@@ -3012,37 +3012,37 @@ ActionAsciiToChar does the following:
 
 ActionMBCharToAscii converts character code to ASCII and is multi-byte aware.
 
- Field                        Type                                Comment
+ Field Type Comment
 
- ActionMBCharToAscii          ACTIONRECORDHEADER                  ActionCode = 0x36
+ ActionMBCharToAscii ACTIONRECORDHEADER ActionCode = 0x36
 
 ActionMBCharToAscii does the following:
 
-     1. Pops a value off the stack.
+ 1. Pops a value off the stack.
 
-     2. Converts the first character of the value to a numeric character code.
-        If the first character of the value is a double-byte character, a 16-bit value is constructed with the first
-        byte as the high-order byte and the second byte as the low-order byte.
+ 2. Converts the first character of the value to a numeric character code.
+ If the first character of the value is a double-byte character, a 16-bit value is constructed with the first
+ byte as the high-order byte and the second byte as the low-order byte.
 
-     3. Pushes the resulting character code to the stack.
+ 3. Pushes the resulting character code to the stack.
 
 ## ActionMBAsciiToChar
 
 ActionMBAsciiToChar converts ASCII to character code and is multi-byte aware.
 
- Field                         Type                             Comment
+ Field Type Comment
 
- ActionMBAsciiToChar           ACTIONRECORDHEADER                ActionCode = 0x37
+ ActionMBAsciiToChar ACTIONRECORDHEADER ActionCode = 0x37
 
 ActionMBAsciiToChar does the following:
 
-     1. Pops a value off the stack.
+ 1. Pops a value off the stack.
 
-     2. Converts the value from a number to the corresponding character. If the character is a 16-bit value (>=
-        256), a double-byte character is constructed with the first byte containing the high-order byte, and the
-        second byte containing the low-order byte.
+ 2. Converts the value from a number to the corresponding character. If the character is a 16-bit value (>=
+ 256), a double-byte character is constructed with the first byte containing the high-order byte, and the
+ second byte containing the low-order byte.
 
-     3. Pushes the resulting character to the stack.
+ 3. Pushes the resulting character to the stack.
 
 79
 
@@ -3052,11 +3052,11 @@ ActionMBAsciiToChar does the following:
 
 ActionJump creates an unconditional branch.
 
- Field                    Type                              Comment
+ Field Type Comment
 
- ActionJump               ACTIONRECORDHEADER                ActionCode = 0x99
+ ActionJump ACTIONRECORDHEADER ActionCode = 0x99
 
- BranchOffset             SI16                              Offset
+ BranchOffset SI16 Offset
 
 ActionJump adds BranchOffset bytes to the instruction pointer in the execution stream. The offset is a signed
 quantity, enabling branches from –32,768 bytes to 32,767 bytes. An offset of 0 points to the action directly after
@@ -3066,20 +3066,20 @@ the ActionJump action.
 
 ActionIf creates a conditional test and branch.
 
- Field                   Type                            Comment
+ Field Type Comment
 
- ActionIf                ACTIONRECORDHEADER              ActionCode = 0x9D
+ ActionIf ACTIONRECORDHEADER ActionCode = 0x9D
 
- BranchOffset            SI16                            Offset
+ BranchOffset SI16 Offset
 
 ActionIf does the following:
 
-     1. Pops Condition, a number, off the stack.
+ 1. Pops Condition, a number, off the stack.
 
-     2. Converts Condition to a Boolean value.
+ 2. Converts Condition to a Boolean value.
 
-     3. Tests if Condition is true. If Condition is true, BranchOffset bytes are added to the instruction pointer in
-        the execution stream.
+ 3. Tests if Condition is true. If Condition is true, BranchOffset bytes are added to the instruction pointer in
+ the execution stream.
 
 Note: When playing a SWF 4 file, Condition is not converted to a Boolean value and is instead compared to 0,
 not true.
@@ -3093,20 +3093,20 @@ action directly after the ActionIf action.
 
 ActionCall calls a subroutine.
 
- Field                 Type                                Comment
+ Field Type Comment
 
- ActionCall            ACTIONRECORDHEADER                  ActionCode = 0x9E
+ ActionCall ACTIONRECORDHEADER ActionCode = 0x9E
 
 ActionCall does the following:
 
-     1. Pops a value off the stack. This value should be either a string that matches a frame label, or a number
-        that indicates a frame number. The value can be prefixed by a target string that identifies the movie clip
-        that contains the frame being called.
+ 1. Pops a value off the stack. This value should be either a string that matches a frame label, or a number
+ that indicates a frame number. The value can be prefixed by a target string that identifies the movie clip
+ that contains the frame being called.
 
-     2. If the frame is successfully located, the actions in the target frame are executed. After the actions in the
-        target frame are executed, execution resumes at the instruction after the ActionCall instruction.
+ 2. If the frame is successfully located, the actions in the target frame are executed. After the actions in the
+ target frame are executed, execution resumes at the instruction after the ActionCall instruction.
 
-     3. If the frame cannot be found, nothing happens.
+ 3. If the frame cannot be found, nothing happens.
 
 ## Variables
 
@@ -3114,9 +3114,9 @@ ActionCall does the following:
 
 ActionGetVariable gets a variable’s value.
 
- Field                     Type                         Comment
+ Field Type Comment
 
- ActionGetVariable         ACTIONRECORDHEADER           ActionCode = 0x1C
+ ActionGetVariable ACTIONRECORDHEADER ActionCode = 0x1C
 
 ActionGetVariable does the following:
 
@@ -3133,17 +3133,17 @@ and a colon. For example: /A/B:FOO references variable FOO in a movie clip with 
 
 ActionSetVariable sets a variable.
 
- Field                    Type                        Comment
+ Field Type Comment
 
- ActionSetVariable        ACTIONRECORDHEADER          ActionCode = 0x1D
+ ActionSetVariable ACTIONRECORDHEADER ActionCode = 0x1D
 
 ActionSetVariable does the following:
 
-     1. Pops the value off the stack.
+ 1. Pops the value off the stack.
 
-     2. Pops the name off the stack, a string which names the variable to set.
+ 2. Pops the name off the stack, a string which names the variable to set.
 
-     3. Sets the variable name in the current execution context to value.
+ 3. Sets the variable name in the current execution context to value.
 
 A variable in another execution context can be referenced by prefixing the variable name with the target path
 and a colon. For example: /A/B:FOO references the FOO variable in the movie clip with a target path of /A/B.
@@ -3154,47 +3154,47 @@ and a colon. For example: /A/B:FOO references the FOO variable in the movie clip
 
 ActionGetURL2 gets a URL and is stack based.
 
- Field                    Type                       Comment
+ Field Type Comment
 
- ActionGetURL2            ACTIONRECORDHEADER         ActionCode = 0x9A
-                                                     Length is always 1
+ ActionGetURL2 ACTIONRECORDHEADER ActionCode = 0x9A
+ Length is always 1
 
- SendVarsMethod           UB[2]                      0 = None; 1 = GET
-                                                     2 = POST
+ SendVarsMethod UB[2] 0 = None; 1 = GET
+ 2 = POST
 
- Reserved                 UB[4]                      Always 0
+ Reserved UB[4] Always 0
 
- LoadTargetFlag           UB[1]                      0 = Target is a browser window
-                                                     1 = Target is a path to a sprite
+ LoadTargetFlag UB[1] 0 = Target is a browser window
+ 1 = Target is a path to a sprite
 
- LoadVariablesFlag        UB[1]                      0 = No variables to load
-                                                     1 = Load variables
+ LoadVariablesFlag UB[1] 0 = No variables to load
+ 1 = Load variables
 
 ActionGetURL2 does the following:
 
-     1. Pops target off the stack.
+ 1. Pops target off the stack.
 
 82
-         •   A LoadTargetFlag value of 0 indicates that the target is a window. The target can be an empty string
-             to indicate the current window.
+ • A LoadTargetFlag value of 0 indicates that the target is a window. The target can be an empty string
+ to indicate the current window.
 
-         •   A LoadTargetFlag value of 1 indicates that the target is a path to a sprite. The target path can be in
-             slash or dot syntax.
+ • A LoadTargetFlag value of 1 indicates that the target is a path to a sprite. The target path can be in
+ slash or dot syntax.
 
-     2. Pops a URL off the stack; the URL specifies the URL to be retrieved.
+ 2. Pops a URL off the stack; the URL specifies the URL to be retrieved.
 
-     3. SendVarsMethod specifies the method to use for the HTTP request.
+ 3. SendVarsMethod specifies the method to use for the HTTP request.
 
-         •   A SendVarsMethod value of 0 indicates that this is not a form request, so the movie clip’s variables
-             should not be encoded and submitted.
+ • A SendVarsMethod value of 0 indicates that this is not a form request, so the movie clip’s variables
+ should not be encoded and submitted.
 
-         •   A SendVarsMethod value of 1 specifies a HTTP GET request.
+ • A SendVarsMethod value of 1 specifies a HTTP GET request.
 
-         •   A SendVarsMethod value of 2 specifies a HTTP POST request.
+ • A SendVarsMethod value of 2 specifies a HTTP POST request.
 
-     4. If the SendVarsMethod value is 1 (GET) or 2 (POST), the variables in the current movie clip are submitted
-        to the URL by using the standard x-www-form-urlencoded encoding and the HTTP request method
-        specified by method.
+ 4. If the SendVarsMethod value is 1 (GET) or 2 (POST), the variables in the current movie clip are submitted
+ to the URL by using the standard x-www-form-urlencoded encoding and the HTTP request method
+ specified by method.
 
 If the LoadVariablesFlag is set, the server is expected to respond with a MIME type of application/x-www-form-
 urlencoded and a body in the format var1=value1&var2=value2&...&varx=valuex. This response is used to
@@ -3209,46 +3209,46 @@ subfile into the specified sprite rather than to display an HTML document.
 
 ActionGotoFrame2 goes to a frame and is stack based.
 
- Field                     Type                              Comment
+ Field Type Comment
 
- ActionGotoFrame2          ACTIONRECORDHEADER                ActionCode = 0x9F
+ ActionGotoFrame2 ACTIONRECORDHEADER ActionCode = 0x9F
 
- Reserved                  UB[6]                             Always 0
+ Reserved UB[6] Always 0
 
- SceneBiasFlag             UB[1]                             Scene bias flag
+ SceneBiasFlag UB[1] Scene bias flag
 
- Play flag                 UB[1]                             0 = Go to frame and stop
-                                                             1 = Go to frame and play
+ Play flag UB[1] 0 = Go to frame and stop
+ 1 = Go to frame and play
 
- SceneBias                 If SceneBiasFlag = 1, UI16        Number to be added to
-                                                             frame determined by stack
+ SceneBias If SceneBiasFlag = 1, UI16 Number to be added to
+ frame determined by stack
 
 83
-                                                               argument
+ argument
 
 ActionGotoFrame2 does the following:
 
-     1. Pops a frame off the stack.
+ 1. Pops a frame off the stack.
 
-         •   If the frame is a number, n, the next frame of the movie to be displayed is the nth frame in the
-             current movie clip.
+ • If the frame is a number, n, the next frame of the movie to be displayed is the nth frame in the
+ current movie clip.
 
-         •   If the frame is a string, frame is treated as a frame label. If the specified label exists in the current
-             movie clip, the labeled frame will become the current frame. Otherwise, the action is ignored.
+ • If the frame is a string, frame is treated as a frame label. If the specified label exists in the current
+ movie clip, the labeled frame will become the current frame. Otherwise, the action is ignored.
 
-     2. Either a frame or a number can be prefixed by a target path, for example, /MovieClip:3 or
-        /MovieClip:FrameLabel.
+ 2. Either a frame or a number can be prefixed by a target path, for example, /MovieClip:3 or
+ /MovieClip:FrameLabel.
 
-     3. If the Play flag is set, the action goes to the specified frame and begins playing the enclosing movie clip.
-        Otherwise, the action goes to the specified frame and stops.
+ 3. If the Play flag is set, the action goes to the specified frame and begins playing the enclosing movie clip.
+ Otherwise, the action goes to the specified frame and stops.
 
 ## ActionSetTarget2
 
 ActionSetTarget2 sets the current context and is stack based.
 
- Field                    Type                           Comment
+ Field Type Comment
 
- ActionSetTarget2         ACTIONRECORDHEADER             ActionCode = 0x20
+ ActionSetTarget2 ACTIONRECORDHEADER ActionCode = 0x20
 
 ActionSetTarget2 pops the target off the stack and makes it the current active context.
 
@@ -3259,105 +3259,105 @@ expression evaluation.
 
 ActionGetProperty gets a file property.
 
- Field                    Type                           Comment
+ Field Type Comment
 
- ActionGetProperty        ACTIONRECORDHEADER             ActionCode = 0x22
+ ActionGetProperty ACTIONRECORDHEADER ActionCode = 0x22
 
 ActionGetProperty does the following:
 
-     1. Pops index off the stack.
+ 1. Pops index off the stack.
 
 84
-      2. Pops target off the stack.
+ 2. Pops target off the stack.
 
-      3. Retrieves the value of the property enumerated as index from the movie clip with target path target and
-         pushes the value to the stack.
+ 3. Retrieves the value of the property enumerated as index from the movie clip with target path target and
+ pushes the value to the stack.
 
 The following table lists property index values. The _quality, _xmouse and _ymouse properties are available in
 SWF 5 and later.
 
- Property                         Value
+ Property Value
 
- _X                               0
+ _X 0
 
- _Y                               1
+ _Y 1
 
- _xscale                          2
+ _xscale 2
 
- _yscale                          3
+ _yscale 3
 
- _currentframe                    4
+ _currentframe 4
 
- _totalframes                     5
+ _totalframes 5
 
- _alpha                           6
+ _alpha 6
 
- _visible                         7
+ _visible 7
 
- _width                           8
+ _width 8
 
- _height                          9
+ _height 9
 
- _rotation                        10
+ _rotation 10
 
- _target                          11
+ _target 11
 
- _framesloaded                    12
+ _framesloaded 12
 
- _name                            13
+ _name 13
 
- _droptarget                      14
+ _droptarget 14
 
- _url                             15
+ _url 15
 
- _highquality                     16
+ _highquality 16
 
- _focusrect                       17
+ _focusrect 17
 
- _soundbuftime                    18
+ _soundbuftime 18
 
 85
- _quality                        19
+ _quality 19
 
- _xmouse                         20
+ _xmouse 20
 
- _ymouse                         21
+ _ymouse 21
 
 ## ActionSetProperty
 
 ActionSetProperty sets a file property.
 
- Field                  Type                       Comment
+ Field Type Comment
 
- ActionSetProperty      ACTIONRECORDHEADER         ActionCode = 0x23
+ ActionSetProperty ACTIONRECORDHEADER ActionCode = 0x23
 
 ActionSetProperty does the following:
 
-     1. Pops a value off the stack.
+ 1. Pops a value off the stack.
 
-     2. Pops an index off the stack.
+ 2. Pops an index off the stack.
 
-     3. Pops a target off the stack.
+ 3. Pops a target off the stack.
 
-     4. Sets the property enumerated as index in the movie clip with the target path target to the value value.
+ 4. Sets the property enumerated as index in the movie clip with the target path target to the value value.
 
 ## ActionCloneSprite
 
 ActionCloneSprite clones a sprite.
 
- Field                  Type                        Comment
+ Field Type Comment
 
- ActionCloneSprite      ACTIONRECORDHEADER          ActionCode = 0x24
+ ActionCloneSprite ACTIONRECORDHEADER ActionCode = 0x24
 
 ActionCloneSprite does the following:
 
-     1. Pops a depth off the stack.
+ 1. Pops a depth off the stack.
 
-     2. Pops a target off the stack.
+ 2. Pops a target off the stack.
 
-     3. Pops a source off the stack.
+ 3. Pops a source off the stack.
 
-     4. Duplicates the movie clip source, giving the new instance the name target, at z-order depth
+ 4. Duplicates the movie clip source, giving the new instance the name target, at z-order depth
 
 86
 
@@ -3365,43 +3365,43 @@ ActionCloneSprite does the following:
 
 ActionRemoveSprite removes a clone sprite.
 
- Field                    Type                         Comment
+ Field Type Comment
 
- ActionRemoveSprite       ACTIONRECORDHEADER           ActionCode = 0x25
+ ActionRemoveSprite ACTIONRECORDHEADER ActionCode = 0x25
 
 ActionRemoveSprite does the following:
 
-     1. Pops a target off the stack.
+ 1. Pops a target off the stack.
 
-     2. Removes the clone movie clip that the target path target identifies.
+ 2. Removes the clone movie clip that the target path target identifies.
 
 ## ActionStartDrag
 
 ActionStartDrag starts dragging a movie clip.
 
- Field                    Type                         Comment
+ Field Type Comment
 
- ActionStartDrag          ACTIONRECORDHEADER           ActionCode = 0x27
+ ActionStartDrag ACTIONRECORDHEADER ActionCode = 0x27
 
 ActionStartDrag does the following:
 
-     1. Pops a target off the stack; target identifies the movie clip to be dragged.
+ 1. Pops a target off the stack; target identifies the movie clip to be dragged.
 
-     2. Pops lockcenter off the stack. If lockcenter evaluates to a nonzero value, the center of the dragged
-        movie clip is locked to the mouse position. Otherwise, the movie clip moves relative to the mouse
-        position when the drag started.
+ 2. Pops lockcenter off the stack. If lockcenter evaluates to a nonzero value, the center of the dragged
+ movie clip is locked to the mouse position. Otherwise, the movie clip moves relative to the mouse
+ position when the drag started.
 
-     3. Pops constrain off the stack.
+ 3. Pops constrain off the stack.
 
-     4. If constrain evaluates to a nonzero value:
+ 4. If constrain evaluates to a nonzero value:
 
-         •   Pops y2 off the stack.
+ • Pops y2 off the stack.
 
-         •   Pops x2 off the stack.
+ • Pops x2 off the stack.
 
-         •   Pops y1 off the stack.
+ • Pops y1 off the stack.
 
-         •   Pops x1 off the stack.
+ • Pops x1 off the stack.
 
 87
 
@@ -3409,26 +3409,26 @@ ActionStartDrag does the following:
 
 ActionEndDrag ends the drag operation in progress, if any.
 
- Field                    Type                          Comment
+ Field Type Comment
 
- ActionEndDrag            ACTIONRECORDHEADER            ActionCode = 0x28
+ ActionEndDrag ACTIONRECORDHEADER ActionCode = 0x28
 
 ## ActionWaitForFrame2
 
 ActionWaitForFrame2 waits for a frame to be loaded and is stack based.
 
- Field                     Type                        Comment
+ Field Type Comment
 
- ActionWaitForFrame2       ACTIONRECORDHEADER          ActionCode = 0x8D; Length is always 1
+ ActionWaitForFrame2 ACTIONRECORDHEADER ActionCode = 0x8D; Length is always 1
 
- SkipCount                 UI8                         The number of actions to skip
+ SkipCount UI8 The number of actions to skip
 
 ActionWaitForFrame2 does the following:
 
-     1. Pops a frame off the stack.
+ 1. Pops a frame off the stack.
 
-     2. If the frame is loaded, skip the next n actions that follow the current action, where n is indicated by
-        SkipCount.
+ 2. If the frame is loaded, skip the next n actions that follow the current action, where n is indicated by
+ SkipCount.
 
 The frame is evaluated in the same way as ActionGotoFrame2.
 
@@ -3438,16 +3438,16 @@ The frame is evaluated in the same way as ActionGotoFrame2.
 
 ActionTrace sends a debugging output string.
 
- Field             Type                           Comment
+ Field Type Comment
 
- ActionTrace       ACTIONRECORDHEADER             ActionCode = 0x26
+ ActionTrace ACTIONRECORDHEADER ActionCode = 0x26
 
 ActionTrace does the following:
 
-     1. Pops a value off the stack.
+ 1. Pops a value off the stack.
 
-     2. In the Test Movie mode of the Adobe Flash editor, ActionTrace appends a value to the output window if
-        the debugging level is not set to None.
+ 2. In the Test Movie mode of the Adobe Flash editor, ActionTrace appends a value to the output window if
+ the debugging level is not set to None.
 
 In Adobe Flash Player, nothing happens.
 
@@ -3457,31 +3457,31 @@ In Adobe Flash Player, nothing happens.
 
 ActionGetTime reports the milliseconds since Adobe Flash Player started.
 
- Field               Type                        Comment
+ Field Type Comment
 
- ActionGetTime       ACTIONRECORDHEADER          ActionCode = 0x34
+ ActionGetTime ACTIONRECORDHEADER ActionCode = 0x34
 
 ActionGetTime does the following:
 
-     1. Calculates as an integer the number of milliseconds since Flash Player was started.
+ 1. Calculates as an integer the number of milliseconds since Flash Player was started.
 
-     2. Pushes the number to the stack.
+ 2. Pushes the number to the stack.
 
 ## ActionRandomNumber
 
 ActionRandomNumber calculates a random number.
 
- Field                       Type                         Comment
+ Field Type Comment
 
- ActionRandomNumber          ACTIONRECORDHEADER           ActionCode = 0x30
+ ActionRandomNumber ACTIONRECORDHEADER ActionCode = 0x30
 
 ActionRandomNumber does the following:
 
-     1. Pops the maximum off the stack.
+ 1. Pops the maximum off the stack.
 
-     2. Calculates a random number as an integer in the range 0…(maximum-1).
+ 2. Calculates a random number as an integer in the range 0…(maximum-1).
 
-     3. Pushes the random number to the stack.
+ 3. Pushes the random number to the stack.
 
 ## SWF 5 action model
 
@@ -3492,48 +3492,48 @@ conversion, math and stack operator actions.
 
 Following is an overview of SWF 5 actions:
 
- Type of action               Name of action
+ Type of action Name of action
 
- ScriptObject actions         ActionCallFunction
-                              ActionCallMethod
-                              ActionConstantPool
+ ScriptObject actions ActionCallFunction
+ ActionCallMethod
+ ActionConstantPool
 
 89
-                             ActionDefineFunction
-                             ActionDefineLocal
-                             ActionDefineLocal2
-                             ActionDelete
-                             ActionDelete2
-                             ActionEnumerate
-                             ActionEquals2
-                             ActionGetMember
-                             ActionInitArray
-                             ActionInitObject
-                             ActionNewMethod
-                             ActionNewObject
-                             ActionSetMember
-                             ActionTargetPath
-                             ActionWith
+ ActionDefineFunction
+ ActionDefineLocal
+ ActionDefineLocal2
+ ActionDelete
+ ActionDelete2
+ ActionEnumerate
+ ActionEquals2
+ ActionGetMember
+ ActionInitArray
+ ActionInitObject
+ ActionNewMethod
+ ActionNewObject
+ ActionSetMember
+ ActionTargetPath
+ ActionWith
 
- Type actions                ActionToNumber
-                             ActionToString
-                             ActionTypeOf
+ Type actions ActionToNumber
+ ActionToString
+ ActionTypeOf
 
- Math actions                ActionAdd2
-                             ActionLess2
-                             ActionModulo
+ Math actions ActionAdd2
+ ActionLess2
+ ActionModulo
 
- Stack operator actions      ActionBitAnd
-                             ActionBitLShift
-                             ActionBitOr
-                             ActionBitRShift
-                             ActionBitURShift
-                             ActionBitXor ActionDecrement
-                             ActionIncrement
-                             ActionPush (Enhancements)
-                             ActionPushDuplicate ActionReturn
-                             ActionStackSwap
-                             ActionStoreRegister
+ Stack operator actions ActionBitAnd
+ ActionBitLShift
+ ActionBitOr
+ ActionBitRShift
+ ActionBitURShift
+ ActionBitXor ActionDecrement
+ ActionIncrement
+ ActionPush (Enhancements)
+ ActionPushDuplicate ActionReturn
+ ActionStackSwap
+ ActionStoreRegister
 
 ## ScriptObject actions
 
@@ -3543,24 +3543,24 @@ ActionCallFunction executes a function. The function can be an ActionScript buil
 user-defined ActionScript function, or a native function. For more information, see ActionNewObject.
 
 90
- Field                    Type                            Comment
+ Field Type Comment
 
- ActionCallFunction       ACTIONRECORDHEADER              ActionCode = 0x3D
+ ActionCallFunction ACTIONRECORDHEADER ActionCode = 0x3D
 
 ActionCallFunction does the following:
 
-     1. Pops the function name (String) from the stack.
+ 1. Pops the function name (String) from the stack.
 
-     2. Pops numArgs (int) from the stack.
+ 2. Pops numArgs (int) from the stack.
 
-     3. Pops the arguments off the stack.
+ 3. Pops the arguments off the stack.
 
-     4. Invokes the function, passing the arguments to it.
+ 4. Invokes the function, passing the arguments to it.
 
-     5. Pushes the return value of the function invocation to the stack.
-        If no appropriate return value is present (that is, the function does not have a return statement), a push
-        undefined message is generated by the compiler and is pushed to the stack. The undefined return value
-        should be popped off the stack.
+ 5. Pushes the return value of the function invocation to the stack.
+ If no appropriate return value is present (that is, the function does not have a return statement), a push
+ undefined message is generated by the compiler and is pushed to the stack. The undefined return value
+ should be popped off the stack.
 
 For all of the call actions (ActionCallMethod, ActionNewMethod, ActionNewObject, and ActionCallFunction) and
 initialization actions (ActionInitObject and ActionInitArray), the arguments of the function are pushed onto the
@@ -3571,36 +3571,36 @@ subsequently popped off in order (first to last).
 
 ActionCallMethod pushes a method (function) call onto the stack, similar to ActionNewMethod.
 
- Field                   Type                             Comment
+ Field Type Comment
 
- ActionCallMethod        ACTIONRECORDHEADER               ActionCode = 0x52
+ ActionCallMethod ACTIONRECORDHEADER ActionCode = 0x52
 
 If the named method exists, ActionCallMethod does the following:
 
-     1. Pops the name of the method from the stack. If the method name is blank or undefined, the object is
-        taken to be a function object that should be invoked, rather than the container object of a method. For
-        example, if CallMethod is invoked with object obj and method name blank, it's equivalent to using the
-        syntax:
+ 1. Pops the name of the method from the stack. If the method name is blank or undefined, the object is
+ taken to be a function object that should be invoked, rather than the container object of a method. For
+ example, if CallMethod is invoked with object obj and method name blank, it's equivalent to using the
+ syntax:
 
-         obj();
+ obj();
 
-         If a method’s name is foo, it's equivalent to:
+ If a method’s name is foo, it's equivalent to:
 
-         obj.foo();
+ obj.foo();
 
 91
-     2. Pops the ScriptObject, object, from the stack.
+ 2. Pops the ScriptObject, object, from the stack.
 
-     3. Pops the number of arguments, args, from the stack.
+ 3. Pops the number of arguments, args, from the stack.
 
-     4. Pops the arguments off the stack.
+ 4. Pops the arguments off the stack.
 
-     5. Executes the method call with the specified arguments.
+ 5. Executes the method call with the specified arguments.
 
-     6. Pushes the return value of the method or function to the stack.
-        If no appropriate return value is present (the function does not have a return statement), a push
-        undefined is generated by the compiler and is pushed to the stack. The undefined return value should
-        be popped off the stack.
+ 6. Pushes the return value of the method or function to the stack.
+ If no appropriate return value is present (the function does not have a return statement), a push
+ undefined is generated by the compiler and is pushed to the stack. The undefined return value should
+ be popped off the stack.
 
 For all of the call actions (ActionCallMethod, ActionNewMethod, ActionNewObject, and ActionCallFunction) and
 initialization actions (ActionInitObject and ActionInitArray), the arguments of the function are pushed onto the
@@ -3611,13 +3611,13 @@ subsequently popped off in order (first to last).
 
 ActionConstantPool creates a new constant pool, and replaces the old constant pool if one already exists.
 
- Field                    Type                           Comment
+ Field Type Comment
 
- ActionConstantPool       ACTIONRECORDHEADER             ActionCode = 0x88
+ ActionConstantPool ACTIONRECORDHEADER ActionCode = 0x88
 
- Count                    UI16                           Number of constants to follow
+ Count UI16 Number of constants to follow
 
- ConstantPool             STRING[Count]                  String constants
+ ConstantPool STRING[Count] String constants
 
 ## ActionDefineFunction
 
@@ -3625,24 +3625,24 @@ Note: ActionDefineFunction is rarely used as of SWF 7 and later; it was supersed
 
 ActionDefineFunction defines a function with a given name and body size.
 
- Field                     Type                           Comment
+ Field Type Comment
 
- ActionDefineFunction      ACTIONRECORDHEADER             ActionCode = 0x9B
+ ActionDefineFunction ACTIONRECORDHEADER ActionCode = 0x9B
 
- FunctionName              STRING                         Function name, empty if anonymous
+ FunctionName STRING Function name, empty if anonymous
 
- NumParams                 UI16                           # of parameters
+ NumParams UI16 # of parameters
 
- param 1                   STRING                         Parameter name 1
+ param 1 STRING Parameter name 1
 
- param 2                   STRING                         Parameter name 2
+ param 2 STRING Parameter name 2
 
 92
  ...
 
- param N                    STRING                         Parameter name N
+ param N STRING Parameter name N
 
- codeSize                   UI16                           # of bytes of code that follow
+ codeSize UI16 # of bytes of code that follow
 
 ActionDefineFunction parses (in order) FunctionName, NumParams, [param1, param2, …, param N] and then
 code size.
@@ -3670,8 +3670,8 @@ Usage 2 Sets a variable with a given FunctionName and a given function definitio
 conventional function definition. For example, in ActionScript:
 
 function Circle(radius) {
-  this.radius = radius;
-  this.area = Math.PI * radius * radius;
+ this.radius = radius;
+ this.area = Math.PI * radius * radius;
 }
 
 ## ActionDefineLocal
@@ -3679,25 +3679,25 @@ function Circle(radius) {
 ActionDefineLocal defines a local variable and sets its value. If the variable already exists, the value is set to the
 newly specified value.
 
- Field                    Type                            Comment
+ Field Type Comment
 
- ActionDefineLocal        ACTIONRECORDHEADER              ActionCode = 0x3C
+ ActionDefineLocal ACTIONRECORDHEADER ActionCode = 0x3C
 
 93
 ActionDefineLocal does the following:
 
-     1. Pops a value off the stack.
+ 1. Pops a value off the stack.
 
-     2. Pops a name off the stack.
+ 2. Pops a name off the stack.
 
 ## ActionDefineLocal2
 
 ActionDefineLocal2 defines a local variable without setting its value. If the variable already exists, nothing
 happens. The initial value of the local variable is undefined.
 
- Field                    Type                          Comment
+ Field Type Comment
 
- ActionDefineLocal2       ACTIONRECORDHEADER            ActionCode = 0x41
+ ActionDefineLocal2 ACTIONRECORDHEADER ActionCode = 0x41
 
 ActionDefineLocal2 pops name off the stack.
 
@@ -3705,24 +3705,24 @@ ActionDefineLocal2 pops name off the stack.
 
 ActionDelete deletes a named property from a ScriptObject.
 
- Field                    Type                          Comment
+ Field Type Comment
 
- ActionDelete             ACTIONRECORDHEADER            ActionCode = 0x3A
+ ActionDelete ACTIONRECORDHEADER ActionCode = 0x3A
 
 ActionDelete does the following:
 
-     1. Pops the name of the property to delete off the stack.
+ 1. Pops the name of the property to delete off the stack.
 
-     2. Pops the object to delete the property from.
+ 2. Pops the object to delete the property from.
 
 ## ActionDelete2
 
 ActionDelete2 deletes a named property. Flash Player first looks for the property in the current scope, and if the
 property cannot be found, continues to search in the encompassing scopes.
 
- Field                 Type                            Comment
+ Field Type Comment
 
- ActionDelete2         ACTIONRECORDHEADER              ActionCode = 0x3B
+ ActionDelete2 ACTIONRECORDHEADER ActionCode = 0x3B
 
 ActionDelete2 pops the name of the property to delete off the stack.
 
@@ -3737,17 +3737,17 @@ statement in ActionScript.
 Note: Certain special slot names are omitted; for a list of these, search for the term DontEnum in the ECMA-262
 standard.
 
- Field                 Type                          Comment
+ Field Type Comment
 
- ActionEnumerate       ACTIONRECORDHEADER            ActionCode = 0x46
+ ActionEnumerate ACTIONRECORDHEADER ActionCode = 0x46
 
 ActionEnumerate does the following:
 
-     1. Pops the name of the object variable (which can include slash-path or dot-path syntax) off of the stack.
+ 1. Pops the name of the object variable (which can include slash-path or dot-path syntax) off of the stack.
 
-     2. Pushes a null value onto the stack to indicate the end of the slot names.
+ 2. Pushes a null value onto the stack to indicate the end of the slot names.
 
-     3. Pushes each slot name (a string) onto the stack.
+ 3. Pushes each slot name (a string) onto the stack.
 
 The order in which slot names are pushed is undefined.
 
@@ -3756,17 +3756,17 @@ The order in which slot names are pushed is undefined.
 ActionEquals2 is similar to ActionEquals, but ActionEquals2 knows about types. The equality comparison
 algorithm from ECMA-262 Section 11.9.3 is applied.
 
- Field                 Type                          Comment
+ Field Type Comment
 
- ActionEquals2         ACTIONRECORDHEADER            ActionCode = 0x49
+ ActionEquals2 ACTIONRECORDHEADER ActionCode = 0x49
 
 ActionEquals2 does the following:
 
-     1. Pops arg1 off the stack.
+ 1. Pops arg1 off the stack.
 
-     2. Pops arg2 off the stack.
+ 2. Pops arg2 off the stack.
 
-     3. Pushes the return value to the stack.
+ 3. Pushes the return value to the stack.
 
 95
 
@@ -3775,16 +3775,16 @@ ActionEquals2 does the following:
 ActionGetMember retrieves a named property from an object, and pushes the value of the property onto the
 stack.
 
- Field                    Type                           Comment
+ Field Type Comment
 
- ActionGetMember          ACTIONRECORDHEADER             ActionCode = 0x4E
+ ActionGetMember ACTIONRECORDHEADER ActionCode = 0x4E
 
  ActionGetMember does the following:
-   1. Pops the name of the member function.
+ 1. Pops the name of the member function.
 
-     2. Pops the ScriptObject object off of the stack.
+ 2. Pops the ScriptObject object off of the stack.
 
-     3. Pushes the value of the property on to the stack.
+ 3. Pushes the value of the property on to the stack.
 
 For example, assume obj is an object, and it is assigned a property, foo, as follows:
 
@@ -3810,22 +3810,22 @@ ActionInitArray initializes an array in a ScriptObject and is similar to ActionI
 pushed to the stack. The stack is the only existing reference to the newly created object. A subsequent
 SetVariable or SetMember action can store the newly created object in a variable.
 
- Field                  Type                          Comment
+ Field Type Comment
 
- ActionInitArray        ACTIONRECORDHEADER            ActionCode = 0x42
+ ActionInitArray ACTIONRECORDHEADER ActionCode = 0x42
 
 96
 ActionInitArray pops elems and then [arg1, arg2, …, argn] off the stack. ActionInitArray does the following:
 
-     1. Gets the number of arguments (or elements) from the stack.
+ 1. Gets the number of arguments (or elements) from the stack.
 
-     2. If arguments are present, ActionInitArray initializes an array object with the right number of elements.
+ 2. If arguments are present, ActionInitArray initializes an array object with the right number of elements.
 
-     3. Initializes the array as a ScriptObject.
+ 3. Initializes the array as a ScriptObject.
 
-     4. Sets the object type to Array.
+ 4. Sets the object type to Array.
 
-     5. Populates the array with initial elements by popping the values off of the stack.
+ 5. Populates the array with initial elements by popping the values off of the stack.
 
 For all of the call actions (ActionCallMethod, ActionNewMethod, ActionNewObject, and ActionCallFunction) and
 initialization actions (ActionInitObject and ActionInitArray), the arguments of the function are pushed onto the
@@ -3838,24 +3838,24 @@ ActionInitObject initializes an object and is similar to ActionInitArray. The ne
 stack. The stack is the only existing reference to the newly created object. A subsequent SetVariable or
 SetMember action can store the newly created object in a variable.
 
- Field                  Type                        Comment
+ Field Type Comment
 
- ActionInitObject       ACTIONRECORDHEADER          ActionCode = 0x43
+ ActionInitObject ACTIONRECORDHEADER ActionCode = 0x43
 
 ActionInitObject pops elems off of the stack. Pops [value1, name1, …, valueN, nameN] off the stack.
 
 ActionInitObject does the following:
 
-     1. Pops the number of initial properties from the stack.
+ 1. Pops the number of initial properties from the stack.
 
-     2. Initializes the object as a ScriptObject.
+ 2. Initializes the object as a ScriptObject.
 
-     3. Sets the object type to Object.
+ 3. Sets the object type to Object.
 
-     4. Pops each initial property off the stack.
-        For each initial property, the value of the property is popped off the stack, then the name of the
-        property is popped off the stack. The name of the property is converted to a string. The value can be of
-        any type.
+ 4. Pops each initial property off the stack.
+ For each initial property, the value of the property is popped off the stack, then the name of the
+ property is popped off the stack. The name of the property is converted to a string. The value can be of
+ any type.
 
 For all of the call actions (ActionCallMethod, ActionNewMethod, ActionNewObject, and ActionCallFunction) and
 initialization actions (ActionInitObject and ActionInitArray), the arguments of the function are pushed onto the
@@ -3871,25 +3871,25 @@ passed to the constructor function as the value of the this keyword. Arguments c
 constructor function. The return value from the constructor function is discarded. The newly constructed object
 is pushed to the stack, similar to ActionCallMethod and ActionNewObject.
 
- Field                   Type                         Comment
+ Field Type Comment
 
- ActionNewMethod         ACTIONRECORDHEADER           ActionCode = 0x53
+ ActionNewMethod ACTIONRECORDHEADER ActionCode = 0x53
 
 ActionNewMethod does the following:
 
-     1. Pops the name of the method from the stack.
+ 1. Pops the name of the method from the stack.
 
-     2. Pops the ScriptObject from the stack. If the name of the method is blank, the ScriptObject is treated as a
-        function object that is invoked as the constructor function. If the method name is not blank, the named
-        method of the ScriptObject is invoked.
+ 2. Pops the ScriptObject from the stack. If the name of the method is blank, the ScriptObject is treated as a
+ function object that is invoked as the constructor function. If the method name is not blank, the named
+ method of the ScriptObject is invoked.
 
-     3. Pops the number of arguments from the stack.
+ 3. Pops the number of arguments from the stack.
 
-     4. Executes the method call.
+ 4. Executes the method call.
 
-     5. Pushes the newly constructed object to the stack. If no appropriate return value occurs (for instance, the
-        function does not have a return statement), the compiler generates a push undefined and pushes it to
-        the stack. The undefined return value should be popped off the stack.
+ 5. Pushes the newly constructed object to the stack. If no appropriate return value occurs (for instance, the
+ function does not have a return statement), the compiler generates a push undefined and pushes it to
+ the stack. The undefined return value should be popped off the stack.
 
 For all of the call actions (ActionCallMethod, ActionNewMethod, ActionNewObject, and ActionCallFunction) and
 initialization actions (ActionInitObject and ActionInitArray), the arguments of the function are pushed onto the
@@ -3903,9 +3903,9 @@ as the this keyword. In addition, arguments can optionally be specified to the c
 The return value of the constructor function is discarded. The newly constructed object is pushed to the stack.
 ActionNewObject is similar to ActionCallFunction and ActionNewMethod.
 
- Field                    Type                        Comment
+ Field Type Comment
 
- ActionNewObject          ACTIONRECORDHEADER          ActionCode = 0x40
+ ActionNewObject ACTIONRECORDHEADER ActionCode = 0x40
 
 98
 ActionNewObject does the following:
@@ -3933,58 +3933,58 @@ subsequently popped off in order (first to last).
 ActionSetMember sets a property of an object. If the property does not already exist, it is created. Any existing
 value in the property is overwritten.
 
- Field                    Type                              Comment
+ Field Type Comment
 
- ActionSetMember          ACTIONRECORDHEADER                ActionCode = 0x4F
+ ActionSetMember ACTIONRECORDHEADER ActionCode = 0x4F
 
 ActionSetMember does the following:
 
-     1. Pops the new value off the stack.
+ 1. Pops the new value off the stack.
 
-     2. Pops the object name off the stack.
+ 2. Pops the object name off the stack.
 
-     3. Pops the object off of the stack.
+ 3. Pops the object off of the stack.
 
 ## ActionTargetPath
 
 If the object in the stack is of type MovieClip, the object’s target path is pushed on the stack in dot notation. If
 the object is not a MovieClip, the result is undefined rather than the movie clip target path.
 
- Field                   Type                                Comment
+ Field Type Comment
 
- ActionTargetPath        ACTIONRECORDHEADER                  ActionCode = 0x45
+ ActionTargetPath ACTIONRECORDHEADER ActionCode = 0x45
 
 99
 ActionTargetPath does the following:
 
-      1. Pops the object off the stack.
+ 1. Pops the object off the stack.
 
-      2. Pushes the target path onto the stack.
+ 2. Pushes the target path onto the stack.
 
 ## ActionWith
 
 Defines a With block of script.
 
- Field                   Type                               Comment
+ Field Type Comment
 
- ActionWith              ACTIONRECORDHEADER                 ActionCode = 0x94
+ ActionWith ACTIONRECORDHEADER ActionCode = 0x94
 
- Size                    UI16                               # of bytes of code that follow
+ Size UI16 # of bytes of code that follow
 
 ActionWith does the following:
 
-      1. Pops the object involved with the With.
+ 1. Pops the object involved with the With.
 
-      2. Parses the size (body length) of the With block from the ActionWith tag.
+ 2. Parses the size (body length) of the With block from the ActionWith tag.
 
-      3. Checks to see if the depth of calls exceeds the maximum depth, which is 16 for SWF 6 and later, and 8
-         for SWF 5. If the With depth exceeds the maximum depth, the next Size bytes of data are skipped rather
-         than executed.
+ 3. Checks to see if the depth of calls exceeds the maximum depth, which is 16 for SWF 6 and later, and 8
+ for SWF 5. If the With depth exceeds the maximum depth, the next Size bytes of data are skipped rather
+ than executed.
 
-      4. After the ActionWith tag, the next Size bytes of action codes are considered to be the body of the With
-         block.
+ 4. After the ActionWith tag, the next Size bytes of action codes are considered to be the body of the With
+ block.
 
-      5. Adds the With block to the scope chain.
+ 5. Adds the With block to the scope chain.
 
 ## Type actions
 
@@ -3995,16 +3995,16 @@ Converts the object on the top of the stack into a number, and pushes the number
 For the Object type, the ActionScript valueOf() method is invoked to convert the object to a Number type for
 ActionToNumber. Conversions between primitive types, such as from String to Number, are built-in.
 
- Field                      Type                             Comment
+ Field Type Comment
 
- ActionToNumber             ACTIONRECORDHEADER               ActionCode = 0x4A
+ ActionToNumber ACTIONRECORDHEADER ActionCode = 0x4A
 
 100
 ActionToNumber does the following:
 
-      1. Pops the object off of the stack.
+ 1. Pops the object off of the stack.
 
-      2. Pushes the number on to the stack.
+ 2. Pushes the number on to the stack.
 
 ## ActionToString
 
@@ -4013,15 +4013,15 @@ ActionToString converts the object on the top of the stack into a String, and pu
 For the Object type, the ActionScript toString() method is invoked to convert the object to the String type for
 ActionToString.
 
- Field                      Type                              Comment
+ Field Type Comment
 
- ActionToString             ACTIONRECORDHEADER                ActionCode = 0x4B
+ ActionToString ACTIONRECORDHEADER ActionCode = 0x4B
 
 ActionToString does the following:
 
-      1. Pops the object off of the stack.
+ 1. Pops the object off of the stack.
 
-      2. Pushes the string on to the stack.
+ 2. Pushes the string on to the stack.
 
 ## ActionTypeOf
 
@@ -4037,15 +4037,15 @@ null
 undefined
 function
 
- Field                   Type                               Comment
+ Field Type Comment
 
- ActionTypeOf            ACTIONRECORDHEADER                 ActionCode = 0x44
+ ActionTypeOf ACTIONRECORDHEADER ActionCode = 0x44
 
 ActionTypeOf does the following:
 
-      1. Pops the value to determine the type of off the stack.
+ 1. Pops the value to determine the type of off the stack.
 
-      2. Pushes a string with the type of the object on to the stack.
+ 2. Pushes a string with the type of the object on to the stack.
 
 101
 
@@ -4063,11 +4063,11 @@ ActionAdd2 ACTIONRECORDHEADER ActionCode = 0x47
 
 ActionAdd2 does the following:
 
-      1. Pops arg1 off of the stack.
+ 1. Pops arg1 off of the stack.
 
-      2. Pops arg2 off of the stack.
+ 2. Pops arg2 off of the stack.
 
-      3. Pushes the result back to the stack.
+ 3. Pushes the result back to the stack.
 
 ## ActionLess2
 
@@ -4081,13 +4081,13 @@ ActionLess2 ACTIONRECORDHEADER ActionCode = 0x48
 
 ActionLess2 does the following:
 
-      1. Pops arg1 off of the stack.
+ 1. Pops arg1 off of the stack.
 
-      2. Pops arg2 off of the stack.
+ 2. Pops arg2 off of the stack.
 
-      3. Compares arg2 < arg1.
+ 3. Compares arg2 < arg1.
 
-      4. Pushes the return value (a Boolean value) onto the stack.
+ 4. Pushes the return value (a Boolean value) onto the stack.
 
 102
 
@@ -4101,9 +4101,9 @@ ActionModulo ACTIONRECORDHEADER ActionCode = 0x3F
 
 ActionModulo does the following:
 
-      1. Pops x then y off of the stack.
+ 1. Pops x then y off of the stack.
 
-      2. Pushes the value x % y on to the stack.
+ 2. Pushes the value x % y on to the stack.
 
 ## Stack operator actions
 
@@ -4116,13 +4116,13 @@ result is a SIGNED 32-bit integer.
 Field Type Comment
 
 ActionBitAnd ACTIONRECORDHEADER
-                                           ActionCode = 0x60
+ ActionCode = 0x60
 
 ActionBitAnd does the following:
 
-      1. Pops arg1 then arg2 off of the stack.
+ 1. Pops arg1 then arg2 off of the stack.
 
-      2. Pushes the result to the stack.
+ 2. Pushes the result to the stack.
 
 ## ActionBitLShift
 
@@ -4137,9 +4137,9 @@ ActionBitLShift ACTIONRECORDHEADER ActionCode = 0x63
 103
 ActionBitLShift does the following:
 
-      1. Pops shift count arg, then value off of the stack.
+ 1. Pops shift count arg, then value off of the stack.
 
-      2. Pushes the result to the stack.
+ 2. Pushes the result to the stack.
 
 ## ActionBitOr
 
@@ -4153,9 +4153,9 @@ ActionBitOr ACTIONRECORDHEADER ActionCode = 0x61
 
 ActionBitOr does the following:
 
-      1. Pops arg1 then arg2 off of the stack.
+ 1. Pops arg1 then arg2 off of the stack.
 
-      2. Pushes the result to the stack.
+ 2. Pushes the result to the stack.
 
 ## ActionBitRShift
 
@@ -4171,11 +4171,11 @@ ActionBitRShift ACTIONRECORDHEADER ActionCode = 0x64
 
 ActionBitRShift does the following:
 
-      1. Pops the shift count from the stack.
+ 1. Pops the shift count from the stack.
 
-      2. Pops the value to shift from the stack.
+ 2. Pops the value to shift from the stack.
 
-      3. Pushes the result to the stack.
+ 3. Pushes the result to the stack.
 
 104
 
@@ -4193,11 +4193,11 @@ ActionBitURShift ACTIONRECORDHEADER ActionCode = 0x65
 
 ActionBitURShift does the following:
 
-      1. Pops the shift count from the stack.
+ 1. Pops the shift count from the stack.
 
-      2. Pops the value to shift from the stack.
+ 2. Pops the value to shift from the stack.
 
-      3. Pushes the result to the stack.
+ 3. Pushes the result to the stack.
 
 ## ActionBitXor
 
@@ -4213,9 +4213,9 @@ ActionBitXor ACTIONRECORDHEADER ActionCode = 0x62
 
 ActionBitXor does the following:
 
-      1. Pops arg1 and arg2 off of the stack.
+ 1. Pops arg1 and arg2 off of the stack.
 
-      2. Pushes the result back to the stack.
+ 2. Pushes the result back to the stack.
 
 105
 
@@ -4230,9 +4230,9 @@ ActionDecrement ACTIONRECORDHEADER ActionCode = 0x51
 
 ActionDecrement does the following:
 
-      1. Pops the number off of the stack.
+ 1. Pops the number off of the stack.
 
-      2. Pushes the result on to the stack.
+ 2. Pushes the result on to the stack.
 
 ## ActionIncrement
 
@@ -4245,9 +4245,9 @@ ActionIncrement ACTIONRECORDHEADER ActionCode = 0x50
 
 ActionIncrement does the following:
 
-      1. Pops the number off of the stack.
+ 1. Pops the number off of the stack.
 
-      2. Pushes the result on to the stack.
+ 2. Pushes the result on to the stack.
 
 ## ActionPush (Enhancements)
 
@@ -4284,9 +4284,9 @@ ActionStackSwap ACTIONRECORDHEADER ActionCode = 0x4D
 
 ActionStackSwap does the following:
 
-      1. Pops Item1 and then Item2 off of the stack.
+ 1. Pops Item1 and then Item2 off of the stack.
 
-      2. Pushes Item1 and then Item2 back to the stack.
+ 2. Pushes Item1 and then Item2 back to the stack.
 
 ## ActionStoreRegister
 
@@ -4311,17 +4311,17 @@ SWF 6 adds the DoInitAction action-definition tag, and a few new action bytecode
 
 The following actions are available in SWF 6:
 
-      •   DoInitAction
+ • DoInitAction
 
-      •   ActionInstanceOf
+ • ActionInstanceOf
 
-      •   ActionEnumerate2
+ • ActionEnumerate2
 
-      •   ActionStrictEquals
+ • ActionStrictEquals
 
-      •   ActionGreater
+ • ActionGreater
 
-      •   ActionStringGreater
+ • ActionStringGreater
 
 ## DoInitAction
 
@@ -4351,7 +4351,7 @@ ActionScript objects that represent sprites. The actions in DoInitAction occur b
 performed.
 
 108
-Field                                   Type                                  Comment
+Field Type Comment
 
 Header RECORDHEADER Tag type = 59
 
@@ -4377,11 +4377,11 @@ ActionInstanceOf ACTIONRECORDHEADER ActionCode = 0x54
 
 ActionInstanceOf does the following:
 
-      1. Pops constr then obj off of the stack.
+ 1. Pops constr then obj off of the stack.
 
-      2. Determines if obj is an instance of constr.
+ 2. Determines if obj is an instance of constr.
 
-      3. Pushes the return value (a Boolean value) onto the stack.
+ 3. Pushes the return value (a Boolean value) onto the stack.
 
 ## ActionEnumerate2
 
@@ -4394,12 +4394,12 @@ ActionEnumerate2 ACTIONRECORDHEADER ActionCode = 0x55
 
 ActionEnumerate2 does the following:
 
-      1. Pops obj off of the stack.
+ 1. Pops obj off of the stack.
 
 109
-      2. Pushes a null value onto the stack to indicate the end of the slot names.
+ 2. Pushes a null value onto the stack to indicate the end of the slot names.
 
-      3. Pushes each slot name (a string) from obj onto the stack.
+ 3. Pushes each slot name (a string) from obj onto the stack.
 
 Note: The order in which slot names are pushed is undefined.
 
@@ -4414,9 +4414,9 @@ ActionStrictEquals ACTIONRECORDHEADER ActionCode = 0x66
 
 ActionStrictEquals does the following:
 
-      1. Pops arg1 then arg2 off the stack.
+ 1. Pops arg1 then arg2 off the stack.
 
-      2. Pushes the return value, a Boolean value, to the stack.
+ 2. Pushes the return value, a Boolean value, to the stack.
 
 ## ActionGreater
 
@@ -4431,11 +4431,11 @@ ActionGreater ACTIONRECORDHEADER ActionCode = 0x67
 
 ActionGreater does the following:
 
-      1. Pops arg1 and then arg2 off of the stack.
+ 1. Pops arg1 and then arg2 off of the stack.
 
-      2. Compares if arg2 > arg1.
+ 2. Compares if arg2 > arg1.
 
-      3. Pushes the return value, a Boolean value, onto the stack.
+ 3. Pushes the return value, a Boolean value, onto the stack.
 
 ## ActionStringGreater
 
@@ -4443,17 +4443,17 @@ ActionStringGreater is the exact opposite of ActionStringLess. This action code 
 as ActionGreater.
 
 110
-Field                                  Type                                   Comment
+Field Type Comment
 
 ActionStringGreater ACTIONRECORDHEADER ActionCode = 0x68
 
 ActionStringGreater does the following:
 
-      1. Pops arg1 and then arg2 off of the stack.
+ 1. Pops arg1 and then arg2 off of the stack.
 
-      2. Compares if arg2 > arg1, using byte-by-byte comparison.
+ 2. Compares if arg2 > arg1, using byte-by-byte comparison.
 
-      3. Pushes the return value, a Boolean value, onto the stack.
+ 3. Pushes the return value, a Boolean value, onto the stack.
 
 ## SWF 7 action model
 
@@ -4461,17 +4461,17 @@ ActionStringGreater does the following:
 
 The following actions are available in SWF 7:
 
-      •   ActionDefineFunction2
+ • ActionDefineFunction2
 
-      •   ActionExtends
+ • ActionExtends
 
-      •   ActionCastOp
+ • ActionCastOp
 
-      •   ActionImplementsOp
+ • ActionImplementsOp
 
-      •   ActionTry
+ • ActionTry
 
-      •   ActionThrow
+ • ActionThrow
 
 ## ActionDefineFunction2
 
@@ -4508,56 +4508,56 @@ Field Type Comment
 ActionDefineFunction2 ACTIONRECORDHEADER ActionCode = 0x8E
 
 FunctionName STRING Name of function, empty if
-                                                                              anonymous
+ anonymous
 
 NumParams UI16 # of parameters
 
 RegisterCount UI8 Number of registers to allocate,
-                                                                              (from 0 to 254) up to 255 registers
+ (from 0 to 254) up to 255 registers
 
 PreloadParentFlag UB[1] 0 = Don’t preload _parent into
-                                                                              register
+ register
 
-                                                                              1 = Preload _parent into register
+ 1 = Preload _parent into register
 
 PreloadRootFlag UB[1] 0 = Don’t preload _root into
-                                                                              register
+ register
 
-                                                                              1 = Preload _root into register
+ 1 = Preload _root into register
 
 SuppressSuperFlag UB[1] 0 = Create super variable
 
-                                                                              1 = Don’t create super variable
+ 1 = Don’t create super variable
 
 PreloadSuperFlag UB[1] 0 = Don’t preload super into
-                                                                              register
+ register
 
-                                                                              1 = Preload super into register
+ 1 = Preload super into register
 
 SuppressArgumentsFlag UB[1] 0 = Create arguments variable
 
 112
-                                                                              1 = Don’t create arguments variable
+ 1 = Don’t create arguments variable
 
 PreloadArgumentsFlag UB[1] 0 = Don’t preload arguments into
-                                                                              register
+ register
 
-                                                                              1 = Preload arguments into register
+ 1 = Preload arguments into register
 
 SuppressThisFlag UB[1] 0 = Create this variable
 
-                                                                              1 = Don’t create this variable
+ 1 = Don’t create this variable
 
 PreloadThisFlag UB[1] 0 = Don’t preload this into register
 
-                                                                              1 = Preload this into register
+ 1 = Preload this into register
 
 Reserved UB[7] Always 0
 
 PreloadGlobalFlag UB[1] 0 = Don’t preload _global into
-                                                                              register
+ register
 
-                                                                              1 = Preload _global into register
+ 1 = Preload _global into register
 
 Parameters REGISTERPARAM[NumParams] See REGISTERPARAM, following
 
@@ -4568,12 +4568,12 @@ REGISTERPARAM is defined as follows:
 Field Type Comment
 
 Register UI8 For each parameter to the function, a register can be specified. If the
-                                       register specified is zero, the parameter is created as a variable named
-                                       ParamName in the activation object, which can be referenced with
-                                       ActionGetVariable and ActionSetVariable. If the register specified is
-                                       nonzero, the parameter is copied into the register, and it can be
-                                       referenced with ActionPush and ActionStoreRegister, and no variable is
-                                       created in the activation object.
+ register specified is zero, the parameter is created as a variable named
+ ParamName in the activation object, which can be referenced with
+ ActionGetVariable and ActionSetVariable. If the register specified is
+ nonzero, the parameter is copied into the register, and it can be
+ referenced with ActionPush and ActionStoreRegister, and no variable is
+ created in the activation object.
 
 ParamName STRING Parameter name
 
@@ -4616,23 +4616,23 @@ ActionExtends ACTIONRECORDHEADER ActionCode = 0x69
 
 ActionExtends does the following:
 
-      1. Pops the ScriptObject superclass constructor off the stack.
+ 1. Pops the ScriptObject superclass constructor off the stack.
 
-      2. Pops the ScriptObject subclass constructor off the stack.
+ 2. Pops the ScriptObject subclass constructor off the stack.
 
-      3. Creates a new ScriptObject.
+ 3. Creates a new ScriptObject.
 
-      4. Sets the new ScriptObject’s proto property to the superclass’ prototype property.
+ 4. Sets the new ScriptObject’s proto property to the superclass’ prototype property.
 
-      5. Sets the new ScriptObject’s constructor property to the superclass.
+ 5. Sets the new ScriptObject’s constructor property to the superclass.
 
-      6. Sets the subclass’ prototype property to the new ScriptObject. These steps are the equivalent to the
-         following ActionScript:
+ 6. Sets the subclass’ prototype property to the new ScriptObject. These steps are the equivalent to the
+ following ActionScript:
 
 114
-          Subclass.prototype = new Object();
-          Subclass.prototype. proto = Superclass.prototype;
-          Subclass.prototype. constructor = Superclass;
+ Subclass.prototype = new Object();
+ Subclass.prototype. proto = Superclass.prototype;
+ Subclass.prototype. constructor = Superclass;
 
 ## ActionCastOp
 
@@ -4646,13 +4646,13 @@ ActionCastOp ACTIONRECORDHEADER ActionCode = 0x2B
 
 ActionCastOp does the following:
 
-      1. Pops the ScriptObject to cast off the stack.
+ 1. Pops the ScriptObject to cast off the stack.
 
-      2. Pops the constructor function off the stack.
+ 2. Pops the constructor function off the stack.
 
-      3. Determines if object is an instance of constructor (doing the same comparison as ActionInstanceOf).
+ 3. Determines if object is an instance of constructor (doing the same comparison as ActionInstanceOf).
 
-      4. If the object is an instance of constructor, the popped ScriptObject is pushed onto the stack.
+ 4. If the object is an instance of constructor, the popped ScriptObject is pushed onto the stack.
 
 If the object is not an instance of constructor, a null value is pushed onto the stack.
 
@@ -4668,17 +4668,17 @@ ActionImplementsOp ACTIONRECORDHEADER ActionCode = 0x2C
 
 ActionImplementsOp does the following:
 
-      1. Pops the constructor function off the stack. The constructor function represents the class that will
-         implement the interfaces. The constructor function must have a prototype property.
+ 1. Pops the constructor function off the stack. The constructor function represents the class that will
+ implement the interfaces. The constructor function must have a prototype property.
 
-      2. Pops the count of implemented interfaces off the stack.
+ 2. Pops the count of implemented interfaces off the stack.
 
-      3. For each interface count, pops a constructor function off of the stack. The constructor function
-         represents an interface.
+ 3. For each interface count, pops a constructor function off of the stack. The constructor function
+ represents an interface.
 
 115
-      4. Sets the constructor function’s list of interfaces to the array collected in the previous step, and sets the
-         count of interfaces to the count popped in step 2.
+ 4. Sets the constructor function’s list of interfaces to the array collected in the previous step, and sets the
+ count of interfaces to the count popped in step 2.
 
 ## ActionTry
 
@@ -4692,15 +4692,15 @@ ActionTry ACTIONRECORDHEADER ActionCode = 0x8F
 Reserved UB[5] Always zero
 
 CatchInRegisterFlag UB[1] 0 - Do not put caught object into register (instead,
-                                                                  store in named variable)
-                                                                  1 - Put caught object into register (do not store in
-                                                                  named variable)
+ store in named variable)
+ 1 - Put caught object into register (do not store in
+ named variable)
 
 FinallyBlockFlag UB[1] 0 - No finally block
-                                                                  1 - Has finally block
+ 1 - Has finally block
 
 CatchBlockFlag UB[1] 0 - No catch block
-                                                                  1 - Has catch block
+ 1 - Has catch block
 
 TrySize UI16 Length of the try block
 
@@ -4761,14 +4761,14 @@ Field Type Comment
 Header RECORDHEADER Tag type = 82
 
 Flags UI32 A 32-bit flags value, which may contain the following bits set:
-                                           kDoAbcLazyInitializeFlag = 1: Indicates that the ABC block should not
-                                           be executed immediately, but only parsed. A later finddef may cause
-                                           its scripts to execute.
+ kDoAbcLazyInitializeFlag = 1: Indicates that the ABC block should not
+ be executed immediately, but only parsed. A later finddef may cause
+ its scripts to execute.
 
 Name STRING The name assigned to the bytecode
 
 ABCData BYTE[] A block of .abc bytecode to be parsed by the ActionScript 3.0 virtual
-                                           machine, up to the end of the tag.
+ machine, up to the end of the tag.
 
 117
 For details on the contents and format of the ABCData field, see the Adobe ActionScript Virtual Machine 2
@@ -4804,18 +4804,18 @@ edge.
 
 A shape is composed of the following elements:
 
-      •   CharacterId—A 16-bit value that uniquely identifies this shape as a ‘character’ in the dictionary. The
-          CharacterId can be referred to in control tags such as PlaceObject. Characters can be reused and
-          combined with other characters to make more complex shapes.
+ • CharacterId—A 16-bit value that uniquely identifies this shape as a ‘character’ in the dictionary. The
+ CharacterId can be referred to in control tags such as PlaceObject. Characters can be reused and
+ combined with other characters to make more complex shapes.
 
-      •   Bounding box—The rectangle that completely encloses the shape.
+ • Bounding box—The rectangle that completely encloses the shape.
 
-      •   Fill style array—A list of all the fill styles used in a shape.
+ • Fill style array—A list of all the fill styles used in a shape.
 
-      •   Line style array—A list of all the line styles used in a shape.
+ • Line style array—A list of all the line styles used in a shape.
 
-      •   Shape record array—A list of shape records. Shape records can define straight or curved edges, style
-          changes, or move the drawing position.
+ • Shape record array—A list of shape records. Shape records can define straight or curved edges, style
+ changes, or move the drawing position.
 
 Note: Line and fill styles are defined only once and may be used (and reused) by any of the edges in the shape.
 
@@ -4838,23 +4838,23 @@ Here’s how to describe this example with the SWF file format.
 
 Define the fill styles:
 
-      1. First, the fill styles are defined with a FILLSTYLEARRAY. The two unique fill styles are solid red and solid
-         green.
+ 1. First, the fill styles are defined with a FILLSTYLEARRAY. The two unique fill styles are solid red and solid
+ green.
 
-      2. This is followed by a LINESTYLEARRAY that includes the two unique line styles: 1-pixel black, and 2-pixel
-         black.
+ 2. This is followed by a LINESTYLEARRAY that includes the two unique line styles: 1-pixel black, and 2-pixel
+ black.
 
-      3. This is followed by an array of shape records (see Shape records).
+ 3. This is followed by an array of shape records (see Shape records).
 
 All shape records share a similar structure but can have varied meaning. A shape record can define straight or
 curved edge, a style change, or it can move the current drawing position.
 
 Define the curved line:
 
-      1. The first shape record selects the 2-pixel-wide line style, and moves the drawing position to the top of
-         the curved line by setting the StateMoveTo flag.
+ 1. The first shape record selects the 2-pixel-wide line style, and moves the drawing position to the top of
+ the curved line by setting the StateMoveTo flag.
 
-      2. The next shape record is a curved edge, which ends to the bottom of the line. The path is not closed.
+ 2. The next shape record is a curved edge, which ends to the bottom of the line. The path is not closed.
 
 Define the red square:
 
@@ -4867,19 +4867,19 @@ Player requires that closed figures be joined explicitly. That is, the first and
 
 Define the red circle:
 
-      1. The next shape record does not change any style settings, but moves the drawing position to the top of
-         the red circle.
+ 1. The next shape record does not change any style settings, but moves the drawing position to the top of
+ the red circle.
 
-      2. The following eight shape records are curved edges that define the circle. Again, the path must finish
-         where it started.
+ 2. The following eight shape records are curved edges that define the circle. Again, the path must finish
+ where it started.
 
 Define the green rounded-rectangle:
 
-      1. The next shape record selects the 2-pixel-wide line style, and the green fill. It also moves the drawing
-         position to the upper left of the rounded-rectangle.
+ 1. The next shape record selects the 2-pixel-wide line style, and the green fill. It also moves the drawing
+ position to the upper left of the rounded-rectangle.
 
-      2. The following twelve shape records are a mixture of straight shape records (the sides) interspersed with
-         curved shape records (the rounded corners). The path finishes where it began.
+ 2. The following twelve shape records are a mixture of straight shape records (the sides) interspersed with
+ curved shape records (the rounded corners). The path finishes where it began.
 
 ## Shape structures
 
@@ -4887,16 +4887,16 @@ Define the green rounded-rectangle:
 
 The SWF file format supports three basic types of fills for a shape.
 
-      •   Solid fill A simple RGB or RGBA color that fills a portion of a shape. An alpha value of 255 means a
-          completely opaque fill. An alpha value of zero means a completely transparent fill. Any alpha between 0
-          and 255 will be partially transparent.
+ • Solid fill A simple RGB or RGBA color that fills a portion of a shape. An alpha value of 255 means a
+ completely opaque fill. An alpha value of zero means a completely transparent fill. Any alpha between 0
+ and 255 will be partially transparent.
 
-      •   Gradient Fill  A gradient fill can be either a linear or a radial gradient. For an in-depth description of
-          how gradients are defined, see Gradients.
+ • Gradient Fill A gradient fill can be either a linear or a radial gradient. For an in-depth description of
+ how gradients are defined, see Gradients.
 
-      •   Bitmap fill Bitmap fills refer to a bitmap characterId. There are two styles: clipped and tiled. A clipped
-          bitmap fill repeats the color on the edge of a bitmap if the fill extends beyond the edge of the bitmap. A
-          tiled fill repeats the bitmap if the fill extends beyond the edge of the bitmap.
+ • Bitmap fill Bitmap fills refer to a bitmap characterId. There are two styles: clipped and tiled. A clipped
+ bitmap fill repeats the color on the edge of a bitmap if the fill extends beyond the edge of the bitmap. A
+ tiled fill repeats the bitmap if the fill extends beyond the edge of the bitmap.
 
 121
 
@@ -4910,8 +4910,8 @@ Field Type Comment
 FillStyleCount UI8 Count of fill styles.
 
 FillStyleCountExtended If FillStyleCount = 0xFF, UI16 Extended count of fill styles.
-                                                                                  Supported only for Shape2 and
-                                                                                  Shape3.
+ Supported only for Shape2 and
+ Shape3.
 
 FillStyles FILLSTYLE[FillStyleCount] Array of fill styles.
 
@@ -4923,41 +4923,41 @@ Field Type Comment
 
 FillStyleType UI8 Type of fill style:
 
-                                                                                  0x00 = solid fill
+ 0x00 = solid fill
 
-                                                                                  0x10 = linear gradient fill
+ 0x10 = linear gradient fill
 
-                                                                                  0x12 = radial gradient fill
+ 0x12 = radial gradient fill
 
-                                                                                  0x13 = focal radial gradient fill (SWF
-                                                                                  8 file format and later only)
+ 0x13 = focal radial gradient fill (SWF
+ 8 file format and later only)
 
-                                                                                  0x40 = repeating bitmap fill
+ 0x40 = repeating bitmap fill
 
-                                                                                  0x41 = clipped bitmap fill
+ 0x41 = clipped bitmap fill
 
-                                                                                  0x42 = non-smoothed repeating
-                                                                                  bitmap
+ 0x42 = non-smoothed repeating
+ bitmap
 
-                                                                                  0x43 = non-smoothed clipped
-                                                                                  bitmap
+ 0x43 = non-smoothed clipped
+ bitmap
 
 Color If type = 0x00, RGBA (if Shape3); Solid fill color with opacity
-                                         RGB (if Shape1 or Shape2)                information.
+ RGB (if Shape1 or Shape2) information.
 
 GradientMatrix If type = 0x10, 0x12, or 0x13, Matrix for gradient fill.
-                                         MATRIX
+ MATRIX
 
 122
-Gradient                                If type = 0x10 or 0x12, GRADIENT If      Gradient fill.
-                                        type = 0x13, FOCALGRADIENT (SWF
-                                        8 and later only)
+Gradient If type = 0x10 or 0x12, GRADIENT If Gradient fill.
+ type = 0x13, FOCALGRADIENT (SWF
+ 8 and later only)
 
 BitmapId If type = 0x40, 0x41, 0x42 or 0x43, ID of bitmap character for fill.
-                                        UI16
+ UI16
 
 BitmapMatrix If type = 0x40, 0x41, 0x42 or 0x43, Matrix for bitmap fill.
-                                        MATRIX
+ MATRIX
 
 ## Line styles
 
@@ -4974,8 +4974,8 @@ LineStyleCount UI8 Count of line styles.
 LineStyleCountExtended If LineStyleCount = 0xFF, UI16 Extended count of line styles.
 
 LineStyles If Shape1, Shape2, or Shape3, Array of line styles.
-                                        LINESTYLE[count]. If Shape4,
-                                        LINESTYLE2[count]
+ LINESTYLE[count]. If Shape4,
+ LINESTYLE2[count]
 
 ## LINESTYLE
 
@@ -4987,7 +4987,7 @@ Field Type Comment
 Width UI16 Width of line in twips.
 
 Color RGB (Shape1 or Shape2) RGBA Color value including alpha channel
-                                        (Shape3)                                 information for Shape3.
+ (Shape3) information for Shape3.
 
 Note 1: Before the introduction of LINESTYLE2 in SWF 8, all lines in the SWF file format have rounded joins and
 round caps. Different join styles and end styles can be simulated with a very narrow shape that looks identical to
@@ -5006,9 +5006,9 @@ defined with DefineShape4—not DefineShape, DefineShape2, or DefineShape3.
 While the LINESTYLE record permits only rounded joins and round caps, LINESTYLE2 also supports miter and
 bevel joins, and square caps and no caps. The following diagram illustrates the complete array of joins and caps:
 
-      Miter Join     Round Join       Bevel Join
+ Miter Join Round Join Bevel Join
 
-      None Cap       Round Cap        Square Cap
+ None Cap Round Cap Square Cap
 
 When using LINESTYLE2 for a miter join, a MiterLimitFactor must be specified and is used to calculate the
 maximum miter length:
@@ -5024,40 +5024,40 @@ Field Type Comment
 Width UI16 Width of line in twips.
 
 StartCapStyle UB[2] Start cap style:; 0 = Round cap; 1 =
-                                                                                No cap; 2 = Square cap
+ No cap; 2 = Square cap
 
 JoinStyle UB[2] Join style: 0 = Round join; 1 = Bevel
-                                                                                join; 2 = Miter join
+ join; 2 = Miter join
 
 HasFillFlag UB[1] If 1, fill is defined in FillType. If 0,
-                                                                                uses Color field.
+ uses Color field.
 
 NoHScaleFlag UB[1] If 1, stroke thickness will not scale if
 
 124
-                                                                               the object is scaled horizontally.
+ the object is scaled horizontally.
 
 NoVScaleFlag UB[1] If 1, stroke thickness will not scale if
-                                                                               the object is scaled vertically.
+ the object is scaled vertically.
 
 PixelHintingFlag UB[1] If 1, all anchors will be aligned to
-                                                                               full pixels.
+ full pixels.
 
 Reserved UB[5] Must be 0.
 
 NoClose UB[1] If 1, stroke will not be closed if the
-                                                                               stroke’s last point matches its first
-                                                                               point. Flash Player will apply caps
-                                                                               instead of a join.
+ stroke’s last point matches its first
+ point. Flash Player will apply caps
+ instead of a join.
 
 EndCapStyle UB[2] End cap style: 0 = Round cap; 1 =
-                                                                               No cap; 2 = Square cap
+ No cap; 2 = Square cap
 
 MiterLimitFactor If JoinStyle = 2, UI16 Miter limit factor is an 8.8 fixed-
-                                                                               point value.
+ point value.
 
 Color If HasFillFlag = 0, RGBA Color value including alpha
-                                                                               channel.
+ channel.
 
 FillType If HasFillFlag = 1, FILLSTYLE Fill style for this stroke.
 
@@ -5100,19 +5100,19 @@ Note: The LINESTYLELARRAY and FILLSTYLEARRAY begin at index 1, not index 0.
 
 The following diagram illustrates the SHAPEWITHSTYLE structure.
 
-                 Shape Tag
+ Shape Tag
 
-                 Fill Styles
+ Fill Styles
 
-                 Line Styles
+ Line Styles
 
-                 Change Fills
+ Change Fills
 
-                 Edges
+ Edges
 
-                 Change Fills
+ Change Fills
 
-                 Edges
+ Edges
 
 First, the Fill styles and Line styles are defined. These are defined only once and are referred to by array index.
 
@@ -5127,14 +5127,14 @@ been defined in this tag.
 
 There are four types of shape records:
 
-      •   End shape record
+ • End shape record
 
 126
-      •   Style change record
+ • Style change record
 
-      •   Straight edge record
+ • Straight edge record
 
-      •   Curved edge record
+ • Curved edge record
 
 Each shape record begins with a TypeFlag. If the TypeFlag is zero, the shape record is a non- edge record, and a
 further five bits of flag information follow.
@@ -5154,11 +5154,11 @@ EndOfShape UB[5] End of shape flag. Always 0.
 
 The style change record is also a non-edge record. It can be used to do the following:
 
-      1. Select a fill or line style for drawing.
+ 1. Select a fill or line style for drawing.
 
-      2. Move the current drawing position (without drawing).
+ 2. Move the current drawing position (without drawing).
 
-      3. Replace the current fill and line style arrays with a new set of styles.
+ 3. Replace the current fill and line style arrays with a new set of styles.
 
 Because fill and line styles often change at the start of a new path, it is useful to perform more than one action
 in a single record. For example, say a DefineShape tag defines a red circle and a blue square. After the circle is
@@ -5170,15 +5170,15 @@ Field Type Comment
 TypeFlag UB[1] Non-edge record flag. Always 0.
 
 StateNewStyles UB[1] New styles flag. Used by
-                                                                                    DefineShape2 and DefineShape3
-                                                                                    only.
+ DefineShape2 and DefineShape3
+ only.
 
 StateLineStyle UB[1] Line style change flag.
 
 StateFillStyle1 UB[1] Fill style 1 change flag.
 
 127
-StateFillStyle0                           UB[1]                                      Fill style 0 change flag.
+StateFillStyle0 UB[1] Fill style 0 change flag.
 
 StateMoveTo UB[1] Move to flag.
 
@@ -5199,10 +5199,10 @@ FillStyles If StateNewStyles, FILLSTYLEARRAY Array of new fill styles.
 LineStyles If StateNewStyles, LINESTYLEARRAY Array of new line styles.
 
 NumFillBits If StateNewStyles, UB[4] Number of fill index bits for new
-                                                                                     styles.
+ styles.
 
 NumLineBits If StateNewStyles, UB[4] Number of line index bits for new
-                                                                                     styles.
+ styles.
 
 MoveDeltaX and MoveDeltaY are relative to the shape origin.
 
@@ -5238,36 +5238,36 @@ this becomes the new drawing position. The edge is rendered between the old and 
 
 Straight edge records support three types of lines:
 
-      1. General lines.
+ 1. General lines.
 
-      2. Horizontal lines.
+ 2. Horizontal lines.
 
-      3. Vertical lines.
+ 3. Vertical lines.
 
 General lines store both X and Y deltas, the horizontal and vertical lines store only the X delta and Y delta
 respectively.
 
 129
-Field                                   Type                                  Comment
+Field Type Comment
 
 TypeFlag UB[1] This is an edge record. Always 1.
 
 StraightFlag UB[1] Straight edge. Always 1.
 
 NumBits UB[4] Number of bits per value (2 less
-                                                                              than the actual number).
+ than the actual number).
 
 GeneralLineFlag UB[1] General Line equals 1. Vert/Horz
-                                                                              Line equals 0.
+ Line equals 0.
 
 VertLineFlag If GeneralLineFlag = 0, SB[1] Vertical Line equals 1. Horizontal
-                                                                              Line equals 0.
+ Line equals 0.
 
 DeltaX If GeneralLineFlag = 1 or if X delta
-                                        VertLineFlag = 0, SB[NumBits+2]
+ VertLineFlag = 0, SB[NumBits+2]
 
 DeltaY If GeneralLineFlag = 1 or if Y delta.
-                                        VertLineFlag = 1, SB[NumBits+2]
+ VertLineFlag = 1, SB[NumBits+2]
 
 ## CurvedEdgeRecord
 
@@ -5284,22 +5284,22 @@ The curved-edge record stores the edge as two X-Y deltas. The three points that 
 
 Quadratic Bezier are calculated like this:
 
-      1. The first anchor point is the current drawing position.
+ 1. The first anchor point is the current drawing position.
 
-      2. The control point is the current drawing position + ControlDelta.
+ 2. The control point is the current drawing position + ControlDelta.
 
-      3. The last anchor point is the current drawing position + ControlDelta + AnchorDelta. The last anchor point
-         becomes the current drawing position.
+ 3. The last anchor point is the current drawing position + ControlDelta + AnchorDelta. The last anchor point
+ becomes the current drawing position.
 
 130
-Field                                  Type                                   Comment
+Field Type Comment
 
 TypeFlag UB[1] This is an edge record. Always 1.
 
 StraightFlag UB[1] Curved edge. Always 0.
 
 NumBits UB[4] Number of bits per value (2 less
-                                                                              than the actual number).
+ than the actual number).
 
 ControlDeltaX SB[NumBits+2] X control point change.
 
@@ -5323,11 +5323,11 @@ and the quadratic equivalent are matched within some arbitrary tolerance.
 
 For a discussion of how to approximate cubic Bezier curves with quadratic Bezier curves see the following:
 
-      •   Converting Bezier Curves to Quadratic Splines at stevehollasch.com/cgindex/curves/cbez-
-          quadspline.html
+ • Converting Bezier Curves to Quadratic Splines at stevehollasch.com/cgindex/curves/cbez-
+ quadspline.html
 
-      •   TrueType Reference Manual, Converting Outlines to the TrueType Format at
-          developer.apple.com/fonts/TTRefMan/RM08/appendixE.html
+ • TrueType Reference Manual, Converting Outlines to the TrueType Format at
+ developer.apple.com/fonts/TTRefMan/RM08/appendixE.html
 
 ## Shape tags
 
@@ -5395,13 +5395,13 @@ bounds are calculated along the outside of the strokes, the edge bounds are take
 edges, as shown in the following diagram. The EdgeBounds field assists Flash Player in accurately determining
 certain layouts.
 
-                                                          Strokes
+ Strokes
 
-                                                          Edges
+ Edges
 
-                                                          Shape bounds
+ Shape bounds
 
-                                                          Edge bounds
+ Edge bounds
 
 In addition, DefineShape4 includes new hinting flags UsesNonScalingStrokes and UsesScalingStrokes. These flags
 assist Flash Player in creating the best possible area for invalidation.
@@ -5417,18 +5417,18 @@ ShapeId UI16 ID for this character.
 ShapeBounds RECT Bounds of the shape.
 
 EdgeBounds RECT Bounds of the shape, excluding
-                                                                                 strokes.
+ strokes.
 
 Reserved UB[5] Must be 0.
 
 UsesFillWindingRule UB[1] If 1, use fill winding rule. Minimum
-                                                                                 file format version is SWF 10
+ file format version is SWF 10
 
 UsesNonScalingStrokes UB[1] If 1, the shape contains at least one
-                                                                                 non-scaling stroke.
+ non-scaling stroke.
 
 UsesScalingStrokes UB[1] If 1, the shape contains at least one
-                                                                                 scaling stroke.
+ scaling stroke.
 
 Shapes SHAPEWITHSTYLE Shape information.
 
@@ -5439,29 +5439,29 @@ two or more fixed colors.
 
 Here is an overview of the SWF gradient model:
 
-      •   There are two styles of gradient: Linear and Radial. In addition, with the SWF 8 file format, a new radial
-          gradient type is added to allow the focal point to be set.
+ • There are two styles of gradient: Linear and Radial. In addition, with the SWF 8 file format, a new radial
+ gradient type is added to allow the focal point to be set.
 
-      •   Each gradient has its own transformation matrix, and can be transformed independently of its parent
-          shape.
+ • Each gradient has its own transformation matrix, and can be transformed independently of its parent
+ shape.
 
-      •   A gradient can have up to eight control points in SWF 7 file format and previous versions, or up to
-          fifteen control points in SWF 8 and later. Colors are interpolated between the control points to create
-          the color ramp.
+ • A gradient can have up to eight control points in SWF 7 file format and previous versions, or up to
+ fifteen control points in SWF 8 and later. Colors are interpolated between the control points to create
+ the color ramp.
 
-      •   Each control point is defined by a ratio and an RGBA color. The ratio determines the position of the
-          control point in the gradient; the RGBA value determines its color.
+ • Each control point is defined by a ratio and an RGBA color. The ratio determines the position of the
+ control point in the gradient; the RGBA value determines its color.
 
 Following are some examples of SWF gradients (from left to right):
 
-      •   A simple white-to-black linear gradient.
+ • A simple white-to-black linear gradient.
 
-      •   A simple white-to-black radial gradient.
+ • A simple white-to-black radial gradient.
 
-      •   A “rainbow” gradient consisting of seven control points; red, yellow, green, cyan, blue, purple, and red.
+ • A “rainbow” gradient consisting of seven control points; red, yellow, green, cyan, blue, purple, and red.
 
-      •   A three-point gradient, where the end points are opaque and the center point is transparent. The result
-          is a gradient in the alpha-channel that allows the diamond shape in the background to show through.
+ • A three-point gradient, where the end points are opaque and the center point is transparent. The result
+ is a gradient in the alpha-channel that allows the diamond shape in the background to show through.
 
 ## Gradient transformations
 
@@ -5509,12 +5509,12 @@ fields must be 0, and the NumGradients field cannot exceed 8.
 Field Type Comment
 
 135
-SpreadMode                              UB[2]                                   0 = Pad mode; 1 = Reflect mode; 2
-                                                                                = Repeat mode; 3 = Reserved
+SpreadMode UB[2] 0 = Pad mode; 1 = Reflect mode; 2
+ = Repeat mode; 3 = Reserved
 
 InterpolationMode UB[2] 0 = Normal RGB mode
-                                                                                interpolation; 1 = Linear RGB mode
-                                                                                interpolation; 2 and 3 = Reserved
+ interpolation; 1 = Linear RGB mode
+ interpolation; 2 and 3 = Reserved
 
 NumGradients UB[4] 1 to 15
 
@@ -5531,10 +5531,10 @@ the focal point is close to the right border of the radial gradient circle.
 Field Type Comment
 
 SpreadMode UB[2] 0 = Pad mode; 1 = Reflect mode; 2 = Repeat mode; 3 =
-                                                   Reserved
+ Reserved
 
 InterpolationMode UB[2] 0 = Normal RGB mode interpolation; 1 = Linear RGB mode
-                                                   interpolation; 2 and 3 = Reserved
+ interpolation; 2 and 3 = Reserved
 
 NumGradients UB[4] 1 to 15
 
@@ -5551,7 +5551,7 @@ Field Type Comment
 Ratio UI8 Ratio value
 
 Color RGB (Shape1 or Shape2) RGBA Color of gradient
-                                        (Shape3)
+ (Shape3)
 
 136
 Chapter 8: Bitmaps
@@ -5625,11 +5625,11 @@ before the JPEG SOI marker.
 In addition to specifying JPEG data, DefineBitsJPEG2 can also contain PNG image data and non-animated GIF89a
 image data.
 
-      •   If ImageData begins with the eight bytes 0x89 0x50 0x4E 0x47 0x0D 0x0A 0x1A 0x0A, the ImageData
-          contains PNG data.
+ • If ImageData begins with the eight bytes 0x89 0x50 0x4E 0x47 0x0D 0x0A 0x1A 0x0A, the ImageData
+ contains PNG data.
 
-      •   If ImageData begins with the six bytes 0x47 0x49 0x46 0x38 0x39 0x61, the ImageData contains GIF89a
-          data.
+ • If ImageData begins with the six bytes 0x47 0x49 0x46 0x38 0x39 0x61, the ImageData contains GIF89a
+ data.
 
 The minimum file format version for this tag is SWF 2. The minimum file format version for embedding PNG of
 GIF89a data is SWF 8.
@@ -5641,7 +5641,7 @@ Header RECORDHEADER (long) Tag type = 21
 CharacterID UI16 ID for this character
 
 ImageData UI8[data size] Compressed image data in either
-                                                                              JPEG, PNG, or GIF89a format
+ JPEG, PNG, or GIF89a format
 
 138
 
@@ -5660,11 +5660,11 @@ before the JPEG SOI marker.
 In addition to specifying JPEG data, DefineBitsJPEG2 can also contain PNG image data and non-animated GIF89a
 image data.
 
-      •   If ImageData begins with the eight bytes 0x89 0x50 0x4E 0x47 0x0D 0x0A 0x1A 0x0A, the ImageData
-          contains PNG data.
+ • If ImageData begins with the eight bytes 0x89 0x50 0x4E 0x47 0x0D 0x0A 0x1A 0x0A, the ImageData
+ contains PNG data.
 
-      •   If ImageData begins with the six bytes 0x47 0x49 0x46 0x38 0x39 0x61, the ImageData contains GIF89a
-          data.
+ • If ImageData begins with the six bytes 0x47 0x49 0x46 0x38 0x39 0x61, the ImageData contains GIF89a
+ data.
 
 If ImageData contains PNG or GIF89a data, the optional BitmapAlphaData is not supported.
 
@@ -5680,11 +5680,11 @@ CharacterID UI16 ID for this character.
 AlphaDataOffset UI32 Count of bytes in ImageData.
 
 ImageData UI8[data size] Compressed image data in either JPEG, PNG, or GIF89a
-                                                   format
+ format
 
 BitmapAlphaData UI8[alpha data size] ZLIB compressed array of alpha data. Only supported when
-                                                   tag contains JPEG data. One byte per pixel. Total size after
-                                                   decompression must equal (width * height) of JPEG image.
+ tag contains JPEG data. One byte per pixel. Total size after
+ decompression must equal (width * height) of JPEG image.
 
 ## DefineBitsLossless
 
@@ -5706,23 +5706,23 @@ CharacterID UI16 ID for this character
 
 BitmapFormat UI8 Format of compressed data:
 
-                                                                     3 = 8-bit colormapped image
+ 3 = 8-bit colormapped image
 
-                                                                     4 = 15-bit RGB image
+ 4 = 15-bit RGB image
 
-                                                                     5 = 24-bit RGB image
+ 5 = 24-bit RGB image
 
 BitmapWidth UI16 Width of bitmap image
 
 BitmapHeight UI16 Height of bitmap image
 
 BitmapColorTableSize If BitmapFormat = 3 This value is one less than the actual
-                                                                     number of colors in the color table,
-                          UI8; Otherwise absent                      allowing for up to 256 colors.
+ number of colors in the color table,
+ UI8; Otherwise absent allowing for up to 256 colors.
 
 ZlibBitmapData If BitmapFormat = 3, COLORMAPDATA ZLIB compressed bitmap data
 
-                          If BitmapFormat = 4 or 5, BITMAPDATA
+ If BitmapFormat = 4 or 5, BITMAPDATA
 
 The COLORMAPDATA and BITMAPDATA structures contain image data. These structures are each compressed as
 a single block of data. Their layouts before compression follow.
@@ -5737,25 +5737,25 @@ structures; 15-bit pixels occupy 2 bytes and 24-bit pixels occupy 4 bytes (see P
 Field Type Comment
 
 ColorTableRGB RGB[color table size] Defines the mapping from color
-                                                                            indices to RGB values. Number of
-                                                                            RGB values is BitmapColorTableSize
+ indices to RGB values. Number of
+ RGB values is BitmapColorTableSize
 
 140
-                                                       + 1.
+ + 1.
 
 ColormapPixelData UI8[image data size] Array of color indices. Number of
-                                                       entries is BitmapWidth *
-                                                       BitmapHeight, subject to padding
-                                                       (see note preceding this table).
+ entries is BitmapWidth *
+ BitmapHeight, subject to padding
+ (see note preceding this table).
 
 ## BITMAPDATA
 
 Field Type Comment
 
 BitmapPixelData If BitmapFormat = 4, PIX15[image Array of pixel colors. Number of
-                    data size] If BitmapFormat = 5,    entries is BitmapWidth *
-                    PIX24[image data size]             BitmapHeight, subject to padding
-                                                       (see note above).
+ data size] If BitmapFormat = 5, entries is BitmapWidth *
+ PIX24[image data size] BitmapHeight, subject to padding
+ (see note above).
 
 ## PIX15
 
@@ -5799,21 +5799,21 @@ CharacterID UI16 ID for this character
 
 BitmapFormat UI8 Format of compressed data
 
-                                                                          3 = 8-bit colormapped image
+ 3 = 8-bit colormapped image
 
-                                                                          5 = 32-bit ARGB image
+ 5 = 32-bit ARGB image
 
 BitmapWidth UI16 Width of bitmap image
 
 BitmapHeight UI16 Height of bitmap image
 
 BitmapColorTableSize If BitmapFormat = 3, UI8; Otherwise absent This value is one less than the actual
-                                                                          number of colors in the color table,
-                                                                          allowing for up to 256 colors.
+ number of colors in the color table,
+ allowing for up to 256 colors.
 
 ZlibBitmapData If BitmapFormat = 3, ALPHACOLORMAPDATA ZLIB compressed bitmap data
 
-                        If BitmapFormat = 4 or 5, ALPHABITMAPDATA
+ If BitmapFormat = 4 or 5, ALPHABITMAPDATA
 
 The COLORMAPDATA and BITMAPDATA structures contain image data. These structures are each compressed as
 a single block of data. Their layouts before compression follow.
@@ -5827,20 +5827,20 @@ widths in ALPHABITMAPDATA are always 32-bit aligned because the ARGB structure i
 Field Type Comment
 
 ColorTableRGB RGBA[color table size] Defines the mapping from color indices to RGBA values.
-                                                         Number of RGBA values is BitmapColorTableSize + 1.
+ Number of RGBA values is BitmapColorTableSize + 1.
 
 142
-ColormapPixelData             UI8[image data size]        Array of color indices. Number of entries is BitmapWidth
-                                                          * BitmapHeight, subject to padding (see note preceding
-                                                          this table).
+ColormapPixelData UI8[image data size] Array of color indices. Number of entries is BitmapWidth
+ * BitmapHeight, subject to padding (see note preceding
+ this table).
 
 ## ALPHABITMAPDATA
 
 Field hType Comment
 
 BitmapPixelData ARGB[image data size] Array of pixel colors. Number of entries is BitmapWidth *
-                                                          BitmapHeight. The RGB data must already be multiplied
-                                                          bythe alpha channel value.
+ BitmapHeight. The RGB data must already be multiplied
+ bythe alpha channel value.
 
 ## DefineBitsJPEG4
 
@@ -5859,17 +5859,17 @@ CharacterID UI16 ID for this character.
 AlphaDataOffset UI32 Count of bytes in ImageData.
 
 DeblockParam UI16 Parameter to be fed into the deblocking filter. The
-                                                          parameter describes a relative strength of the
-                                                          deblocking filter from 0-100% expressed in a normalized
-                                                          8.8 fixed point format.
+ parameter describes a relative strength of the
+ deblocking filter from 0-100% expressed in a normalized
+ 8.8 fixed point format.
 
 ImageData UI8[data size] Compressed image data in either JPEG, PNG, or GIF89a
-                                                          format.
+ format.
 
 BitmapAlphaData UI8[alpha data size] ZLIB compressed array of alpha data. Only supported
-                                                          when tag contains JPEG data. One byte per pixel. Total
-                                                          size after decompression must equal (width * height) of
-                                                          JPEG image.
+ when tag contains JPEG data. One byte per pixel. Total
+ size after decompression must equal (width * height) of
+ JPEG image.
 
 143
 Chapter 9: Shape Morphing
@@ -5880,29 +5880,29 @@ interpolating between the endpoints and generating the ‘in-between’ states.
 
 The following shape attributes can be varied during the morph:
 
-      •   The position of each edge in the shape.
+ • The position of each edge in the shape.
 
-      •   The color and thickness of the outline.
+ • The color and thickness of the outline.
 
-      •   The fill color of the shape (if filled with a color).
+ • The fill color of the shape (if filled with a color).
 
-      •   The bitmap transform (if filled with a bitmap).
+ • The bitmap transform (if filled with a bitmap).
 
-      •   The gradient transform (if filled with a gradient).
+ • The gradient transform (if filled with a gradient).
 
-      •   The color and position of each point in the gradient (if filled with a gradient).
+ • The color and position of each point in the gradient (if filled with a gradient).
 
 The following restrictions apply to morphing:
 
-      •   The start and end shapes must have the same number of edges.
+ • The start and end shapes must have the same number of edges.
 
-      •   The start and end shapes must have the same type of fill (that is, solid, gradient or bitmap).
+ • The start and end shapes must have the same type of fill (that is, solid, gradient or bitmap).
 
-      •   The style change records must be the same for the start and end shapes.
+ • The style change records must be the same for the start and end shapes.
 
-      •   If filled with a bitmap, both shapes must be filled with the same bitmap.
+ • If filled with a bitmap, both shapes must be filled with the same bitmap.
 
-      •   If filled with a gradient, both gradients must have the same number of color points.
+ • If filled with a gradient, both gradients must have the same number of color points.
 
 The following illustration shows a morph from a blue rectangle to a red quadrilateral over five frames. The green
 outlines represent the ‘in-between’ shapes of the morph sequence. Both shapes have the same number of
@@ -5912,9 +5912,9 @@ color from blue to red.
 144
 There are two tags involved in defining and playing a morph sequence:
 
-      •   DefineMorphShape
+ • DefineMorphShape
 
-      •   PlaceObject2
+ • PlaceObject2
 
 DefineMorphShape defines the start and end states of the morph. A morph object does not use previously
 defined shapes; it is considered a special type of shape with only one character ID. DefineMorphShape contains
@@ -5945,39 +5945,39 @@ EndBounds RECT Bounds of the end shape
 Offset UI32 Indicates offset to EndEdges
 
 MorphFillStyles MORPHFILLSTYLEARRAY Fill style information is stored in the same manner as for a
-                                                   standard shape; however, each fill consists of interleaved
-                                                   information based on a single style type to accommodate
-                                                   morphing.
+ standard shape; however, each fill consists of interleaved
+ information based on a single style type to accommodate
+ morphing.
 
 MorphLineStyles MORPHLINESTYLEARRAY Line style information is stored in the same manner as for a
-                                                   standard shape; however, each line consists of interleaved
-                                                   information based on a single style type to accommodate
-                                                   morphing.
+ standard shape; however, each line consists of interleaved
+ information based on a single style type to accommodate
+ morphing.
 
 StartEdges SHAPE Contains the set of edges and the style bits that indicate style
-                                                   changes (for example, MoveTo, FillStyle, and LineStyle). Number
+ changes (for example, MoveTo, FillStyle, and LineStyle). Number
 
 145
-                                                   of edges must equal the number of edges in EndEdges.
+ of edges must equal the number of edges in EndEdges.
 
 EndEdges SHAPE Contains only the set of edges, with no style information.
-                                                   Number of edges must equal the number of edges in StartEdges.
+ Number of edges must equal the number of edges in StartEdges.
 
-      •   StartBounds This defines the bounding-box of the shape at the start of the morph.
+ • StartBounds This defines the bounding-box of the shape at the start of the morph.
 
-      •   EndBounds - This defines the bounding-box at the end of the morph.
+ • EndBounds - This defines the bounding-box at the end of the morph.
 
-      •   MorphFillStyles This contains an array of interleaved fill styles for the start and end shapes. The fill style
-          for the start shape is followed by the corresponding fill style for the end shape.
+ • MorphFillStyles This contains an array of interleaved fill styles for the start and end shapes. The fill style
+ for the start shape is followed by the corresponding fill style for the end shape.
 
-      •   MorphLineStyles - This contains an array of interleaved line styles.
+ • MorphLineStyles - This contains an array of interleaved line styles.
 
-      •   StartEdges - This array specifies the edges for the start shape, and the style change records for both
-          shapes. Because the StyleChangeRecords must be the same for the start and end shapes, they are
-          defined only in the StartEdges array.
+ • StartEdges - This array specifies the edges for the start shape, and the style change records for both
+ shapes. Because the StyleChangeRecords must be the same for the start and end shapes, they are
+ defined only in the StartEdges array.
 
-      •   EndEdges - This array specifies the edges for the end shape, and contains no style change records. The
-          number of edges specified in StartEdges must equal the number of edges in EndEdges.
+ • EndEdges - This array specifies the edges for the end shape, and contains no style change records. The
+ number of edges specified in StartEdges must equal the number of edges in EndEdges.
 
 Strictly speaking, MoveTo records fall into the category of StyleChangeRecords; however, they should be
 included in both the StartEdges and EndEdges arrays.
@@ -6032,23 +6032,23 @@ UsesScalingStrokes UB[1] If 1, the shape contains at least one scaling stroke.
 Offset UI32 Indicates offset to EndEdges
 
 MorphFillStyles MORPHFILLSTYLEARRAY Fill style information is stored in the same manner as
-                                                            for a standard shape; however, each fill consists of
-                                                            interleaved information based on a single style type to
-                                                            accommodate morphing.
+ for a standard shape; however, each fill consists of
+ interleaved information based on a single style type to
+ accommodate morphing.
 
 MorphLineStyles MORPHLINESTYLEARRAY Line style information is stored in the same manner as
-                                                            for a standard shape; however, each line consists of
-                                                            interleaved information based on a single style type to
-                                                            accommodate morphing.
+ for a standard shape; however, each line consists of
+ interleaved information based on a single style type to
+ accommodate morphing.
 
 StartEdges SHAPE Contains the set of edges and the style bits that
-                                                            indicate style changes (for example, MoveTo, FillStyle,
-                                                            and LineStyle). Number of edges must equal the
-                                                            number of edges in EndEdges.
+ indicate style changes (for example, MoveTo, FillStyle,
+ and LineStyle). Number of edges must equal the
+ number of edges in EndEdges.
 
 EndEdges SHAPE Contains only the set of edges, with no style
-                                                            information. Number of edges must equal the number
-                                                            of edges in StartEdges.
+ information. Number of edges must equal the number
+ of edges in StartEdges.
 
 147
 
@@ -6074,45 +6074,45 @@ Field Type Comment
 
 FillStyleType UI8 Type of fill style:
 
-                                                                0x00 = solid fill
+ 0x00 = solid fill
 
-                                                                0x10 = linear gradient fill
+ 0x10 = linear gradient fill
 
-                                                                0x12 = radial gradient fill
+ 0x12 = radial gradient fill
 
-                                                                0x13 = focal radial gradient fill (SWF 8 file format
-                                                                and later only)
+ 0x13 = focal radial gradient fill (SWF 8 file format
+ and later only)
 
-                                                                0x40 = repeating bitmap
+ 0x40 = repeating bitmap
 
-                                                                0x41 = clipped bitmap fill
+ 0x41 = clipped bitmap fill
 
-                                                                0x42 = non-smoothed repeating bitmap
+ 0x42 = non-smoothed repeating bitmap
 
-                                                                0x43 = non-smoothed clipped bitmap
+ 0x43 = non-smoothed clipped bitmap
 
 StartColor If type = 0x00, RGBA Solid fill color with opacity information for start
-                                                                shape.
+ shape.
 
 EndColor If type = 0x00, RGBA Solid fill color with opacity information for end
-                                                                shape.
+ shape.
 
 StartGradientMatrix If type = 0x10 or 0x12, MATRIX Matrix for gradient fill for start shape.
 
 148
-EndGradientMatrix          If type = 0x10 or 0x12, MATRIX      Matrix for gradient fill for end shape.
+EndGradientMatrix If type = 0x10 or 0x12, MATRIX Matrix for gradient fill for end shape.
 
 Gradient If type = 0x10 or 0x12, Gradient fill.
-                           MORPHGRADIENT
+ MORPHGRADIENT
 
 BitmapId If type = 0x40, 0x41, 0x42 or ID of bitmap character for fill.
-                           0x43, UI16
+ 0x43, UI16
 
 StartBitmapMatrix If type = 0x40, 0x41, 0x42 or Matrix for bitmap fill for start shape.
-                           0x43, MATRIX
+ 0x43, MATRIX
 
 EndBitmapMatrix If type = 0x40, 0x41, 0x42 or Matrix for bitmap fill for end shape.
-                           0x43, MATRIX
+ 0x43, MATRIX
 
 ## Morph gradient values
 
@@ -6159,7 +6159,7 @@ LineStyleCount UI8 Count of line styles.
 LineStyleCountExtended If count = 0xFF UI16 Extended count of line styles.
 
 LineStyles MORPHLINESTYLE[count], (if MorphShape1) Array of line styles.
-                              MORPHLINESTYLE2[count], (if MorphShape2)
+ MORPHLINESTYLE2[count], (if MorphShape2)
 
 A line style represents a width and color of a line.
 
@@ -6222,21 +6222,21 @@ PixelHintingFlag UB[1] If 1, all anchors will be aligned to full pixels.
 Reserved UB[5] Must be 0.
 
 NoClose UB[1] If 1, stroke will not be closed if the stroke’s last point matches its first
-                                            point. Flash Player will apply caps instead of a join.
+ point. Flash Player will apply caps instead of a join.
 
 EndCapStyle UB[2] End-cap style: 0 = Round cap; 1 = No cap; 2 = Square cap
 
 MiterLimitFactor If JoinStyle = 2, Miter limit factor as an 8.8 fixed-point value.
-                      UI16
+ UI16
 
 StartColor If HasFillFlag = 0, Color value including alpha channel information for start shape.
-                      RGBA
+ RGBA
 
 EndColor If HasFillFlag = 0, Color value including alpha channel information for end shape.
-                      RGBA
+ RGBA
 
 FillType If HasFillFlag = 1, Fill style.
-                      MORPHFILLSTYLE
+ MORPHFILLSTYLE
 
 151
 Chapter 10: Fonts and Text
@@ -6301,15 +6301,15 @@ Glyphs are defined once in a standard coordinate space called the EM square. The
 for every point size of a given font. To render a glyph at different point sizes, Flash Player scales the glyph from
 EM coordinates to point-size coordinates.
 
-      •   Glyph fonts—without using the advanced text rendering engine —do not include any hinting
-          information for improving the quality of small font sizes. However, anti-aliasing dramatically improves
-          the legibility of scaled-down text. Glyph text remains legible down to about 12 points (viewed at 100%).
-          At 12 points and lower, advanced anti-aliasing is recommended for readable glyph text. This gives
-          superior text quality at small point sizes and includes extra font meta-information for improved
-          rendering.
+ • Glyph fonts—without using the advanced text rendering engine —do not include any hinting
+ information for improving the quality of small font sizes. However, anti-aliasing dramatically improves
+ the legibility of scaled-down text. Glyph text remains legible down to about 12 points (viewed at 100%).
+ At 12 points and lower, advanced anti-aliasing is recommended for readable glyph text. This gives
+ superior text quality at small point sizes and includes extra font meta-information for improved
+ rendering.
 
-      •   TrueType fonts can be readily converted to SWF glyphs. A simple algorithm can replace the Quadratic B-
-          splines (used by TrueType fonts) with Quadratic Bezier curves (used by SWF glyphs).
+ • TrueType fonts can be readily converted to SWF glyphs. A simple algorithm can replace the Quadratic B-
+ splines (used by TrueType fonts) with Quadratic Bezier curves (used by SWF glyphs).
 
 Example:
 
@@ -6351,13 +6351,13 @@ P1,P2. The result is two Quadratic Bezier curves; P0,P1,M and M,P2,P3.
 154
 The complete procedure for converting TrueType glyphs to SWF glyphs is as follows:
 
-      1. Negate the y-coordinate. (In TrueType glyphs, the y-axis points up; in SWF glyphs, the y- axis points
-         down.)
+ 1. Negate the y-coordinate. (In TrueType glyphs, the y-axis points up; in SWF glyphs, the y- axis points
+ down.)
 
-      2. Scale the x and y co-ordinates from the EM square of the TrueType font, to the EM square of the SWF
-         glyph (always 1024).
+ 2. Scale the x and y co-ordinates from the EM square of the TrueType font, to the EM square of the SWF
+ glyph (always 1024).
 
-      3. Insert an on-curve (anchor) point at the midpoint of each pair of off-curve points.
+ 3. Insert an on-curve (anchor) point at the midpoint of each pair of off-curve points.
 
 ## Kerning and advance values
 
@@ -6376,15 +6376,15 @@ text rendering engine.
 The advanced text rendering engine is a high-quality text renderer supported inside the Flash Player renderer.
 The advanced system has the following advantages over using the normal renderer for text:
 
-      •   Readable, even at small point sizes.
+ • Readable, even at small point sizes.
 
-      •   Maintains the aesthetic look and feel of a font, even at small point sizes.
+ • Maintains the aesthetic look and feel of a font, even at small point sizes.
 
-      •   Supports pixel snapping for ultra-clear text (when left-aligned dynamic text is used).
+ • Supports pixel snapping for ultra-clear text (when left-aligned dynamic text is used).
 
-      •   Improved performance over glyph text, typically.
+ • Improved performance over glyph text, typically.
 
-      •   LCD sub-pixel rendering when Flash Player detects an LCD screen.
+ • LCD sub-pixel rendering when Flash Player detects an LCD screen.
 
 A limitation of the advanced text rendering engine, however, is that it does not animate well as compared to
 glyph text.
@@ -6431,9 +6431,9 @@ defining static glyph text.
 
 Static glyph text is defined using two tags:
 
-      •   The DefineFont tag defines a set of glyphs.
+ • The DefineFont tag defines a set of glyphs.
 
-      •   The DefineText tag defines the text string that is displayed in the font.
+ • The DefineText tag defines the text string that is displayed in the font.
 
 156
 The DefineFont tag defines all the glyphs used by subsequent DefineText tags. DefineFont includes an array of
@@ -6471,14 +6471,14 @@ positioning the glyph.
 
 The following diagram illustrates how the DefineText tag interacts with the DefineFont tag:
 
-         DefineFont                                 DefineText
-        SHAPE Array:                               TEXTRECORD
+ DefineFont DefineText
+ SHAPE Array: TEXTRECORD
 
-           Glyph 'b'                            Glyph index to 'b'
+ Glyph 'b' Glyph index to 'b'
 
-           Glyph 'o'                            Glyph index to 'o'
+ Glyph 'o' Glyph index to 'o'
 
-                                                Glyph inex to 'b'
+ Glyph inex to 'b'
 
 157
 
@@ -6549,8 +6549,8 @@ FontName UI8[FontNameLen] Name of the font (see following).
 FontFlagsReserved UB[2] Reserved bit fields.
 
 FontFlagsSmallText UB[1] SWF 7 file format or later: Font is small.
-                                                                    Character glyphs are aligned on pixel
-                                                                    boundaries for dynamic and input text.
+ Character glyphs are aligned on pixel
+ boundaries for dynamic and input text.
 
 FontFlagsShiftJIS UB[1] ShiftJIS character codes.
 
@@ -6561,11 +6561,11 @@ FontFlagsItalic UB[1] Font is italic.
 FontFlagsBold UB[1] Font is bold.
 
 FontFlagsWideCodes UB[1] If 1, CodeTable is UI16 array; otherwise,
-                                                                    CodeTable is UI8 array.
+ CodeTable is UI8 array.
 
 CodeTable If FontFlagsWideCodes, Glyph to code table, sorted in ascending
-                             UI16[nGlyphs], Otherwise,              order.
-                             UI8[nGlyphs]
+ UI16[nGlyphs], Otherwise, order.
+ UI8[nGlyphs]
 
 The entries in the CodeTable must be sorted in ascending order by code point, by the value they provide. The
 order of the entries in the CodeTable must also match the order of the glyphs in the DefineFont tag to which this
@@ -6617,7 +6617,7 @@ Font name:
 English Name: Gothic
 
 160
-UTF-8 Byte String (hex):          5F E3 82      B4 E3 82        B7 E3 83        83    E3 82     AF
+UTF-8 Byte String (hex): 5F E3 82 B4 E3 82 B7 E3 83 83 E3 82 AF
 
 Example appearance:
 
@@ -6659,10 +6659,10 @@ FontName UI8[FontNameLen] Name of the font.
 FontFlagsReserved UB[2] Reserved bit fields.
 
 FontFlagsSmallText UB[1] SWF 7 or later: Font is small. Character glyphs are aligned
-                                                         on pixel boundaries for dynamic and input text.
+ on pixel boundaries for dynamic and input text.
 
 161
-FontFlagsShiftJIS            UB[1]                       Always 0.
+FontFlagsShiftJIS UB[1] Always 0.
 
 FontFlagsANSI UB[1] Always 0.
 
@@ -6680,11 +6680,11 @@ CodeTable UI16[nGlyphs] Glyph to code table in UCS-2, sorted in ascending order.
 
 The DefineFont2 tag extends the functionality of DefineFont. Enhancements include the following:
 
-      •   32-bit entries in the OffsetTable, for fonts with more than 64K glyphs.
+ • 32-bit entries in the OffsetTable, for fonts with more than 64K glyphs.
 
-      •   Mapping to device fonts, by incorporating all the functionality of DefineFontInfo.
+ • Mapping to device fonts, by incorporating all the functionality of DefineFontInfo.
 
-      •   Font metrics for improved layout of dynamic glyph text.
+ • Font metrics for improved layout of dynamic glyph text.
 
 DefineFont2 tags are the only font definitions that can be used for dynamic text.
 
@@ -6701,8 +6701,8 @@ FontFlagsHasLayout UB[1] Has font metrics/layout information.
 FontFlagsShiftJIS UB[1] ShiftJIS encoding.
 
 FontFlagsSmallText UB[1] SWF 7 or later: Font is small. Character
-                                                                           glyphs are aligned on pixel boundaries for
-                                                                           dynamic and input text.
+ glyphs are aligned on pixel boundaries for
+ dynamic and input text.
 
 FontFlagsANSI UB[1] ANSI encoding.
 
@@ -6711,34 +6711,34 @@ FontFlagsWideOffsets UB[1] If 1, uses 32 bit offsets.
 FontFlagsWideCodes UB[1] If 1, font uses 16-bit codes; otherwise font
 
 162
-                                                   uses 8 bit codes.
+ uses 8 bit codes.
 
 FontFlagsItalic UB[1] Italic Font.
 
 FontFlagsBold UB[1] Bold Font.
 
 LanguageCode LANGCODE SWF 5 or earlier: always 0; SWF 6 or later:
-                                                   language code
+ language code
 
 FontNameLen UI8 Length of name.
 
 FontName UI8[FontNameLen] Name of font (see DefineFontInfo).
 
 NumGlyphs UI16 Count of glyphs in font. May be zero for
-                                                   device fonts.
+ device fonts.
 
 OffsetTable If FontFlagsWideOffsets, Same as in DefineFont.
-                   UI32[NumGlyphs] Otherwise
-                   UI16[NumGlyphs]
+ UI32[NumGlyphs] Otherwise
+ UI16[NumGlyphs]
 
 CodeTableOffset If FontFlagsWideOffsets, UI32 Byte count from start of OffsetTable to start
-                   Otherwise UI16                  of CodeTable.
+ Otherwise UI16 of CodeTable.
 
 GlyphShapeTable SHAPE[NumGlyphs] Same as in DefineFont.
 
 CodeTable If FontFlagsWideCodes, Sorted in ascending order. Always UCS-2 in
-                   UI16[NumGlyphs] Otherwise       SWF 6 or later.
-                   UI8[NumGlyphs]
+ UI16[NumGlyphs] Otherwise SWF 6 or later.
+ UI8[NumGlyphs]
 
 FontAscent If FontFlagsHasLayout, UI16 Font ascender height.
 
@@ -6747,16 +6747,16 @@ FontDescent If FontFlagsHasLayout, UI16 Font descender height.
 FontLeading If FontFlagsHasLayout, SI16 Font leading height (see following).
 
 FontAdvanceTable If FontFlagsHasLayout, Advance value to be used for each glyph in
-                   SI16[NumGlyphs]                 dynamic glyph text.
+ SI16[NumGlyphs] dynamic glyph text.
 
 FontBoundsTable If FontFlagsHasLayout, Not used in Flash Player through version 7
-                   RECT[NumGlyphs]                 (but must be present).
+ RECT[NumGlyphs] (but must be present).
 
 KerningCount If FontFlagsHasLayout, UI16 Not used in Flash Player through version 7
-                                                   (always set to 0 to save space).
+ (always set to 0 to save space).
 
 FontKerningTable If FontFlagsHasLayout, Not used in Flash Player through version 7
-                   KERNINGRECORD[KerningCount]     (omit with KerningCount of 0).
+ KERNINGRECORD[KerningCount] (omit with KerningCount of 0).
 
 163
 In SWF 6 or later files, DefineFont2 has the same Unicode requirements as DefineFontInfo. Similarly to the
@@ -6803,15 +6803,15 @@ Field Type Comment
 Header RECORDHEADER Tag type = 75.
 
 164
-FontID                 UI16                            ID for this font character.
+FontID UI16 ID for this font character.
 
 FontFlagsHasLayout UB[1] Has font metrics/layout information.
 
 FontFlagsShiftJIS UB[1] ShiftJIS encoding.
 
 FontFlagsSmallText UB[1] SWF 7 or later: Font is small. Character glyphs
-                                                       are aligned on pixel boundaries for dynamic
-                                                       and input text.
+ are aligned on pixel boundaries for dynamic
+ and input text.
 
 FontFlagsANSI UB[1] ANSI encoding.
 
@@ -6824,26 +6824,26 @@ FontFlagsItalic UB[1] Italic Font.
 FontFlagsBold UB[1] Bold Font.
 
 LanguageCode LANGCODE SWF 5 or earlier: always 0; SWF 6 or later:
-                                                       language code
+ language code
 
 FontNameLen UI8 Length of name.
 
 FontName UI8[FontNameLen] Name of font (see DefineFontInfo).
 
 NumGlyphs UI16 Count of glyphs in font. May be zero for
-                                                       device fonts.
+ device fonts.
 
 OffsetTable If FontFlagsWideOffsets, Same as in DefineFont.
-                       UI32[NumGlyphs] Otherwise
-                       UI16[NumGlyphs]
+ UI32[NumGlyphs] Otherwise
+ UI16[NumGlyphs]
 
 CodeTableOffset If FontFlagsWideOffsets, UI32 Byte count from start of OffsetTable to start
-                       Otherwise UI16                  of CodeTable.
+ Otherwise UI16 of CodeTable.
 
 GlyphShapeTable SHAPE[NumGlyphs] Same as in DefineFont.
 
 CodeTable UI16[NumGlyphs] Sorted in ascending order. Always UCS-2 in
-                                                       SWF 6 or later.
+ SWF 6 or later.
 
 FontAscent If FontFlagsHasLayout, UI16 Font ascender height.
 
@@ -6852,17 +6852,17 @@ FontDescent If FontFlagsHasLayout, UI16 Font descender height.
 FontLeading If FontFlagsHasLayout, SI16 Font leading height (see following).
 
 165
-FontAdvanceTable             If FontFlagsHasLayout,                   Advance value to be used for each glyph in
-                             SI16[NumGlyphs]                          dynamic glyph text.
+FontAdvanceTable If FontFlagsHasLayout, Advance value to be used for each glyph in
+ SI16[NumGlyphs] dynamic glyph text.
 
 FontBoundsTable If FontFlagsHasLayout, Not used in Flash Player through version 7
-                             RECT[NumGlyphs]                          (but must be present).
+ RECT[NumGlyphs] (but must be present).
 
 KerningCount If FontFlagsHasLayout, UI16 Not used in Flash Player through version 7
-                                                                      (always set to 0 to save space).
+ (always set to 0 to save space).
 
 FontKerningTable If FontFlagsHasLayout, Not used in Flash Player through version 7
-                             KERNINGRECORD [KerningCount]             (omit with KerningCount of 0).
+ KERNINGRECORD [KerningCount] (omit with KerningCount of 0).
 
 ## DefineFontAlignZones
 
@@ -6889,12 +6889,12 @@ Header RECORDHEADER Tag type = 73.
 FontID UI16 ID of font to use, specified by DefineFont3.
 
 166
-CSMTableHint                 UB[2]                          Font thickness hint. Refers to the thickness of the
-                                                            typical stroke used in the font. 0 = thin; 1 = medium;
-                                                            2 = thick; Flash Player maintains a selection of CSM
-                                                            tables for many fonts. However, if the font is not
-                                                            found in Flash Player's internal table, this hint is used
-                                                            to choose an appropriate table.
+CSMTableHint UB[2] Font thickness hint. Refers to the thickness of the
+ typical stroke used in the font. 0 = thin; 1 = medium;
+ 2 = thick; Flash Player maintains a selection of CSM
+ tables for many fonts. However, if the font is not
+ found in Flash Player's internal table, this hint is used
+ to choose an appropriate table.
 
 Reserved UB[6] Must be 0.
 
@@ -6919,7 +6919,7 @@ ZoneMaskX UB[1] Set if there are X alignment zones.
 Field Type Comment
 
 AlignmentCoordinate FLOAT16 X (left) or Y (baseline) coordinate of the alignment
-                                                               zone.
+ zone.
 
 Range FLOAT16 Width or height of the alignment zone.
 
@@ -6932,16 +6932,16 @@ FontKerningAdjustment field is a signed integer that defines a value to be added
 character.
 
 167
-Field                             Type                              Comment
+Field Type Comment
 
 FontKerningCode1 If FontFlagsWideCodes, UI16 Character code of the left character.
-                                  Otherwise UI8
+ Otherwise UI8
 
 FontKerningCode2 If FontFlagsWideCodes, UI16 Character code of the right character.
-                                  Otherwise UI8
+ Otherwise UI8
 
 FontKerningAdjustment SI16 Adjustment relative to left character’s advance
-                                                                    value.
+ value.
 
 ## DefineFontName
 
@@ -6956,15 +6956,15 @@ Header RECORDHEADER Tag type = 88
 FontID UI16 ID for this font to which this refers
 
 FontName STRING Name of the font. For fonts starting
-                                                                                 as Type 1, this is the PostScript
-                                                                                 FullName. For fonts starting in sfnt
-                                                                                 formats such as TrueType and
-                                                                                 OpenType, this is name ID 4,
-                                                                                 platform ID 1, language ID 0 (Full
-                                                                                 name, Mac OS, English).
+ as Type 1, this is the PostScript
+ FullName. For fonts starting in sfnt
+ formats such as TrueType and
+ OpenType, this is name ID 4,
+ platform ID 1, language ID 0 (Full
+ name, Mac OS, English).
 
 FontCopyright STRING Arbitrary string of copyright
-                                                                                 information
+ information
 
 ## Static text tags
 
@@ -6976,7 +6976,7 @@ character in the text object.
 The minimum file format version is SWF 1.
 
 168
-Field                                  Type                                    Comment
+Field Type Comment
 
 Header RECORDHEADER Tag type = 11.
 
@@ -7022,12 +7022,12 @@ StyleFlagsHasColor UB[1] 1 if text color specified.
 StyleFlagsHasYOffset UB[1] 1 if y offset specified.
 
 169
-StyleFlagsHasXOffset        UB[1]                                            1 if x offset specified.
+StyleFlagsHasXOffset UB[1] 1 if x offset specified.
 
 FontID If StyleFlagsHasFont, UI16 Font ID for following text.
 
 TextColor If StyleFlagsHasColor, RGB If this record is Font color for following text.
-                            part of a DefineText2 tag, RGBA
+ part of a DefineText2 tag, RGBA
 
 XOffset If StyleFlagsHasXOffset, SI16 x offset for following text.
 
@@ -7117,33 +7117,33 @@ Header RECORDHEADER Tag type = 37.
 CharacterID UI16 ID for this dynamic text character.
 
 171
-Bounds         RECT                      Rectangle that completely encloses the text field.
+Bounds RECT Rectangle that completely encloses the text field.
 
 HasText UB[1] 0 = text field has no default text. 1 = text field initially
-                                         displays the string specified by InitialText.
+ displays the string specified by InitialText.
 
 WordWrap UB[1] 0 = text will not wrap and will scroll sideways. 1 = text will
-                                         wrap automatically when the end of line is reached.
+ wrap automatically when the end of line is reached.
 
 Multiline UB[1] 0 = text field is one line only. 1 = text field is multi-line and
-                                         scrollable.
+ scrollable.
 
 Password UB[1] 0 = characters are displayed as typed. 1 = all characters are
-                                         displayed as an asterisk.
+ displayed as an asterisk.
 
 ReadOnly UB[1] 0 = text editing is enabled. 1 = text editing is disabled.
 
 HasTextColor UB[1] 0 = use default color. 1 = use specified color (TextColor).
 
 HasMaxLength UB[1] 0 = length of text is unlimited. 1 = maximum length of string
-                                         is specified by MaxLength.
+ is specified by MaxLength.
 
 HasFont UB[1] 0 = use default font. 1 = use specified font (FontID) and
-                                         height (FontHeight). (Can’t be true if HasFontClass is true).
+ height (FontHeight). (Can’t be true if HasFontClass is true).
 
 HasFontClass UB[1] 0 = no fontClass, 1 = fontClass and Height specified for this
-                                         text. (can't be true if HasFont is true). Supported in Flash
-                                         Player 9.0.45.0 and later.
+ text. (can't be true if HasFont is true). Supported in Flash
+ Player 9.0.45.0 and later.
 
 AutoSize UB[1] 0 = fixed size. 1 = sizes to content (SWF 6 or later only).
 
@@ -7162,10 +7162,10 @@ UseOutlines UB[1] 0 = use device font. 1 = use glyph font.
 FontID If HasFont, UI16 ID of font to use.
 
 FontClass If HasFontClass, STRING Class name of font to be loaded from another SWF and
-                                         used for this text.
+ used for this text.
 
 172
-FontHeight                If HasFont, UI16            Height of font in twips.
+FontHeight If HasFont, UI16 Height of font in twips.
 
 TextColor If HasTextColor, RGBA Color of text.
 
@@ -7180,11 +7180,11 @@ RightMargin If HasLayout, UI16 Right margin in twips.
 Indent If HasLayout, UI16 Indent in twips.
 
 Leading If HasLayout, SI16 Leading in twips (vertical distance between bottom of
-                                                      descender of one line and top of ascender of the next).
+ descender of one line and top of ascender of the next).
 
 VariableName STRING Name of the variable where the contents of the text field
-                                                      are stored. May be qualified with dot syntax or slash syntax
-                                                      for non-global variables.
+ are stored. May be qualified with dot syntax or slash syntax
+ for non-global variables.
 
 InitialText If HasText STRING Text that is initially displayed.
 
@@ -7194,47 +7194,47 @@ with a few additions not normally present in HTML. The following tags are suppor
 Tag Description
 
 <p> ... </p> Defines a paragraph. The attribute align may be present, with value left,
-                                    right, or center.
+ right, or center.
 
 <br> Inserts a line break.
 
 <a> ... </a> Defines a hyperlink. The attribute href must be present. The attribute target
-                                    is optional, and specifies a window name.
+ is optional, and specifies a window name.
 
 <font> ... </font> Defines a span of text that uses a given font. The following attributes are
-                                    available: • face, which specifies a font name that must match a font name
-                                    supplied in a DefineFont2 tag; • size, which is specified in twips, and may
-                                    include a leading ‘+’ or ‘-’ for relative sizes; • color, which is specified as a
-                                    #RRGGBB hex triplet
+ available: • face, which specifies a font name that must match a font name
+ supplied in a DefineFont2 tag; • size, which is specified in twips, and may
+ include a leading ‘+’ or ‘-’ for relative sizes; • color, which is specified as a
+ #RRGGBB hex triplet
 
 <b> ... </b> Defines a span of bold text.
 
 <i> ... </i> Defines a span of italic text.
 
 173
-<u> ... </u>                       Defines a span of underlined text.
+<u> ... </u> Defines a span of underlined text.
 
 <li> ... </li> Defines a bulleted paragraph. The <ul> tag is not necessary and is not
-                                   supported. Numbered lists are not supported.
+ supported. Numbered lists are not supported.
 
 <textformat> ... Defines a span of text with certain formatting options. The following
 </textformat> attributes are available:;
 
-                                   • leftmargin, which specifies the left margin in twips;
+ • leftmargin, which specifies the left margin in twips;
 
-                                   • rightmargin, which specifies the right margin in twips;
+ • rightmargin, which specifies the right margin in twips;
 
-                                   • indent, which specifies the left indent in twips;
+ • indent, which specifies the left indent in twips;
 
-                                   • blockindent, which specifies a block indent in twips;
+ • blockindent, which specifies a block indent in twips;
 
-                                   • leading, which specifies the leading in twips;
+ • leading, which specifies the leading in twips;
 
-                                   • tabstops, which specifies a comma-separated list of tab stops, each
-                                   specified in twips
+ • tabstops, which specifies a comma-separated list of tab stops, each
+ specified in twips
 
 <tab> Inserts a tab character, which advances to the next tab stop as defined with
-                                   the <textformat> tag.
+ the <textformat> tag.
 
 ## CSMTextSettings
 
@@ -7250,28 +7250,28 @@ Field Type Comment
 Header RECORDHEADER Tag type = 74.
 
 TextID UI16 ID for the DefineText, DefineText2, or DefineEditText to which
-                                                this tag applies.
+ this tag applies.
 
 UseFlashType UB[2] 0 = use normal renderer. 1 = use advanced text rendering
-                                                engine.
+ engine.
 
 GridFit UB[3] 0 = Do not use grid fitting. AlignmentZones and LCD sub-pixel
-                                                information will not be used. 1 = Pixel grid fit. Only supported
-                                                for left-aligned dynamic text. This setting provides the ultimate
+ information will not be used. 1 = Pixel grid fit. Only supported
+ for left-aligned dynamic text. This setting provides the ultimate
 
 174
-                                                  in advanced anti-aliased text readability, with crisp letters
-                                                  aligned to pixels. 2 = Sub-pixel grid fit. Align letters to the 1/3
-                                                  pixel used by LCD monitors. Can also improve quality for CRT
-                                                  output.
+ in advanced anti-aliased text readability, with crisp letters
+ aligned to pixels. 2 = Sub-pixel grid fit. Align letters to the 1/3
+ pixel used by LCD monitors. Can also improve quality for CRT
+ output.
 
 Reserved UB[3] Must be 0.
 
 Thickness F32 The thickness attribute for the associated text field. Set to 0.0
-                                                  to use the default (anti-aliasing table) value.
+ to use the default (anti-aliasing table) value.
 
 Sharpness F32 The sharpness attribute for the associated text field. Set to 0.0
-                                                  to use the default (anti-aliasing table) value.
+ to use the default (anti-aliasing table) value.
 
 Reserved UI8 Must be 0.
 
@@ -7307,20 +7307,20 @@ FontFlagsHasFontData UB[1] Font is embedded. Font tag includes SFNT font data bl
 FontFlagsItalic UB[1] Italic font
 
 175
-FontFlagsBold   UB[1]              Bold font
+FontFlagsBold UB[1] Bold font
 
 FontName STRING Name of the font.
 
 FontData FONTDATA[0 or 1] When present, this is an OpenType CFF font, as defined in the
-                                   OpenType specification at
-                                   www.microsoft.com/typography/otspec. The following tables
-                                   must be present: ‘CFF ’, ‘cmap’, ‘head’, ‘maxp’, ‘OS/2’, ‘post’,
-                                   and either (a) ‘hhea’ and ‘hmtx’, or (b), ‘vhea’, ‘vmtx’, and
-                                   ‘VORG’. The ‘cmap’ table must include one of the following
-                                   kinds of Unicode ‘cmap’ subtables: (0, 4), (0, 3), (3, 10), (3, 1), or
-                                   (3, 0) [notation: (platform ID, platform- specific encoding ID)].
-                                   Tables such as ‘GSUB’, ‘GPOS’, ‘GDEF’, and ‘BASE’ may also be
-                                   present. Only present for embedded fonts.
+ OpenType specification at
+ www.microsoft.com/typography/otspec. The following tables
+ must be present: ‘CFF ’, ‘cmap’, ‘head’, ‘maxp’, ‘OS/2’, ‘post’,
+ and either (a) ‘hhea’ and ‘hmtx’, or (b), ‘vhea’, ‘vmtx’, and
+ ‘VORG’. The ‘cmap’ table must include one of the following
+ kinds of Unicode ‘cmap’ subtables: (0, 4), (0, 3), (3, 10), (3, 1), or
+ (3, 0) [notation: (platform ID, platform- specific encoding ID)].
+ Tables such as ‘GSUB’, ‘GPOS’, ‘GDEF’, and ‘BASE’ may also be
+ present. Only present for embedded fonts.
 
 176
 Chapter 11: Sounds
@@ -7331,9 +7331,9 @@ supported depends on the CPU resources available to the Flash Player, but is typ
 
 There are two types of sounds in SWF file format:
 
-      •   Event sounds
+ • Event sounds
 
-      •   Streaming sounds
+ • Streaming sounds
 
 Event sounds are played in response to some event such as a mouse click, or when Flash Player reaches a certain
 frame. Event sounds must be defined (downloaded) before they are used. They can be reused for multiple
@@ -7367,7 +7367,7 @@ ADPCM 1 1
 MP3 2 4
 
 177
-Uncompressed, little-endian             3                                      4
+Uncompressed, little-endian 3 4
 
 Nellymoser 16 kHz 4 10
 
@@ -7381,14 +7381,14 @@ Speex 11 10
 
 There are several control tags and records required to play an event sound:
 
-      •   The DefineSound tag provides the audio samples that make up an event sound.
+ • The DefineSound tag provides the audio samples that make up an event sound.
 
-      •   The SOUNDINFO record defines the styles that are applied to the event sound. Styles include fade-in,
-          fade-out, synchronization and looping flags, and envelope control.
+ • The SOUNDINFO record defines the styles that are applied to the event sound. Styles include fade-in,
+ fade-out, synchronization and looping flags, and envelope control.
 
-      •   The StartSound tag instructs the Flash Player to begin playing the sound.
+ • The StartSound tag instructs the Flash Player to begin playing the sound.
 
-      •   The StartSound2 tag instructs the Flash Player to begin playing a sound class from another SWF.
+ • The StartSound2 tag instructs the Flash Player to begin playing a sound class from another SWF.
 
 ## DefineSound
 
@@ -7407,21 +7407,21 @@ SoundId UI16 ID for this sound.
 SoundFormat UB[4] Format of SoundData. See “Audio coding formats”.
 
 SoundRate UB[2] The sampling rate. This is ignored for Nellymoser and Speex
-                                                  codecs. 5.5kHz is not allowed for MP3. 0 = 5.5 kHz; 1 = 11 kHz; 2
-                                                  = 22 kHz; 3 = 44 kHz
+ codecs. 5.5kHz is not allowed for MP3. 0 = 5.5 kHz; 1 = 11 kHz; 2
+ = 22 kHz; 3 = 44 kHz
 
 SoundSize UB[1] Size of each sample. This parameter only pertains to
-                                                  uncompressed formats. This is ignored for compressed formats
-                                                  which always decode to 16 bits internally. 0 = snd8Bit; 1 =
+ uncompressed formats. This is ignored for compressed formats
+ which always decode to 16 bits internally. 0 = snd8Bit; 1 =
 
 178
-                                                 snd16Bit
+ snd16Bit
 
 SoundType UB[1] Mono or stereo sound. This is ignored for Nellymoser and
-                                                 Speex. 0 = sndMono; 1 = sndStereo
+ Speex. 0 = sndMono; 1 = sndStereo
 
 SoundSampleCount UI32 Number of samples. Not affected by mono/stereo setting; for
-                                                 stereo sounds this is the number of sample pairs.
+ stereo sounds this is the number of sample pairs.
 
 SoundData UI8[size of sound data] The sound data; varies by format.
 
@@ -7436,15 +7436,15 @@ highly preferable to format 0 for SWF 4 or later.
 
 The contents of SoundData vary depending on the value of the SoundFormat field in the SoundStreamHead tag:
 
-      •   If SoundFormat is 0 or 3, SoundData contains raw, uncompressed samples.
+ • If SoundFormat is 0 or 3, SoundData contains raw, uncompressed samples.
 
-      •   If SoundFormat is 1, SoundData contains an ADPCM sound data record.
+ • If SoundFormat is 1, SoundData contains an ADPCM sound data record.
 
-      •   If SoundFormat is 2, SoundData contains an MP3 sound data record.
+ • If SoundFormat is 2, SoundData contains an MP3 sound data record.
 
-      •   If SoundFormat is 4, 5, or 6, SoundData contains Nellymoser data (see “Nellymoser compression” ).
+ • If SoundFormat is 4, 5, or 6, SoundData contains Nellymoser data (see “Nellymoser compression” ).
 
-      •   If SoundFormat is 11, SoundData contains Speex data (see “Speex compression”).
+ • If SoundFormat is 11, SoundData contains Speex data (see “Speex compression”).
 
 ## StartSound
 
@@ -7461,7 +7461,7 @@ Header RECORDHEADER Tag type = 15.
 SoundId UI16 ID of sound character to play.
 
 179
-SoundInfo                             SOUNDINFO                               Sound style information.
+SoundInfo SOUNDINFO Sound style information.
 
 ## StartSound2
 
@@ -7486,11 +7486,11 @@ SoundInfo SOUNDINFO Sound style information.
 The SOUNDINFO record modifies how an event sound is played. An event sound is defined with the DefineSound
 tag. Sound characteristics that can be modified include:
 
-      •   Whether the sound loops (repeats) and how many times it loops.
+ • Whether the sound loops (repeats) and how many times it loops.
 
-      •   Where sound playback begins and ends.
+ • Where sound playback begins and ends.
 
-      •   A sound envelope for time-based volume control.
+ • A sound envelope for time-based volume control.
 
 Field Type Comment
 
@@ -7507,7 +7507,7 @@ HasLoops UB[1] Has loop information.
 HasOutPoint UB[1] Has out-point information.
 
 180
-HasInPoint                  UB[1]                           Has in-point information.
+HasInPoint UB[1] Has in-point information.
 
 InPoint If HasInPoint, UI32 Number of samples to skip at beginning of sound.
 
@@ -7518,7 +7518,7 @@ LoopCount If HasLoops, UI16 Sound loop count.
 EnvPoints If HasEnvelope, UI8 Sound Envelope point count.
 
 EnvelopeRecords If HasEnvelope, Sound Envelope records.
-                            SOUNDENVELOPE[EnvPoints]
+ SOUNDENVELOPE[EnvPoints]
 
 ## SOUNDENVELOPE
 
@@ -7527,7 +7527,7 @@ The SOUNDENVELOPE structure is defined as follows:
 Field Type Comment
 
 Pos44 UI32 Position of envelope point as a number of 44 kHz samples. Multiply accordingly if
-                               using a sampling rate less than 44 kHz.
+ using a sampling rate less than 44 kHz.
 
 LeftLevel UI16 Volume level for left channel. Minimum is 0, maximum is 32768.
 
@@ -7566,33 +7566,33 @@ Header RECORDHEADER Tag type = 18.
 Reserved UB[4] Always zero.
 
 PlaybackSoundRate UB[2] Playback sampling rate: 0 = 5.5 kHz; 1 = 11 kHz; 2 =
-                                                           22 kHz; 3 = 44 kHz
+ 22 kHz; 3 = 44 kHz
 
 PlaybackSoundSize UB[1] Playback sample size. Always 1 (16 bit).
 
 PlaybackSoundType UB[1] Number of playback channels: mono or stereo. 0 =
-                                                           sndMono; 1 = sndStereo
+ sndMono; 1 = sndStereo
 
 StreamSoundCompression UB[4] Format of streaming sound data. 1 = ADPCM; SWF
-                                                           4 and later only: 2 = MP3
+ 4 and later only: 2 = MP3
 
 StreamSoundRate UB[2] The sampling rate of the streaming sound data: 0 =
-                                                           5.5 kHz; 1 = 11 kHz; 2 = 22 kHz; 3 = 44 kHz
+ 5.5 kHz; 1 = 11 kHz; 2 = 22 kHz; 3 = 44 kHz
 
 StreamSoundSize UB[1] The sample size of the streaming sound data.
-                                                           Always 1 (16 bit).
+ Always 1 (16 bit).
 
 StreamSoundType UB[1] Number of channels in the streaming sound data.
-                                                           0 = sndMono; 1 = sndStereo
+ 0 = sndMono; 1 = sndStereo
 
 StreamSoundSampleCount UI16 Average number of samples in each
-                                                           SoundStreamBlock. Not affected by mono/stereo
-                                                           setting; for stereo sounds this is the number of
-                                                           sample pairs.
+ SoundStreamBlock. Not affected by mono/stereo
+ setting; for stereo sounds this is the number of
+ sample pairs.
 
 LatencySeek If See “MP3 sound data”. The value here should
-                              StreamSoundCompression= match the SeekSamples field in the first
-                              2, SI16, Otherwise absent SoundStreamBlock for this stream.
+ StreamSoundCompression= match the SeekSamples field in the first
+ 2, SI16, Otherwise absent SoundStreamBlock for this stream.
 
 The PlaybackSoundRate, PlaybackSoundSize, and PlaybackSoundType fields are advisory only; Flash Player may
 ignore them.
@@ -7611,35 +7611,35 @@ Header RECORDHEADER Tag type = 45
 Reserved UB[4] Always zero.
 
 PlaybackSoundRate UB[2] Playback sampling rate: 0 = 5.5 kHz; 1 = 11 kHz; 2
-                                                             = 22 kHz; 3 = 44 kHz
+ = 22 kHz; 3 = 44 kHz
 
 PlaybackSoundSize UB[1] Playback sample size: 0 = 8-bit; 1 = 16-bit
 
 PlaybackSoundType UB[1] Number of playback channels: 0 = sndMono; 1 =
-                                                             sndStereo
+ sndStereo
 
 StreamSoundCompression UB[4] Format of SoundData. See “Audio coding
-                                                             formats” .
+ formats” .
 
 StreamSoundRate UB[2] The sampling rate of the streaming sound data:
-                                                             5.5 kHz is not allowed for MP3. 0 = 5.5 kHz; 1 =
-                                                             11 kHz; 2 = 22 kHz; 3 = 44 kHz
+ 5.5 kHz is not allowed for MP3. 0 = 5.5 kHz; 1 =
+ 11 kHz; 2 = 22 kHz; 3 = 44 kHz
 
 StreamSoundSize UB[1] Size of each sample. Always 16 bit for
-                                                             compressed formats. May be 8 or 16 bit for
-                                                             uncompressed formats: 0 = 8-bit; 1 = 16-bit
+ compressed formats. May be 8 or 16 bit for
+ uncompressed formats: 0 = 8-bit; 1 = 16-bit
 
 StreamSoundType UB[1] Number of channels in the streaming sound data:
-                                                             0 = sndMono; 1 = sndStereo
+ 0 = sndMono; 1 = sndStereo
 
 StreamSoundSampleCount UI16 Average number of samples in each
-                                                             SoundStreamBlock. Not affected by mono/stereo
-                                                             setting; for stereo sounds this is the number of
-                                                             sample pairs.
+ SoundStreamBlock. Not affected by mono/stereo
+ setting; for stereo sounds this is the number of
+ sample pairs.
 
 LatencySeek If See MP3 sound data. The value here should
-                                StreamSoundCompression= match the SeekSamples field in the first
-                                2, SI16, Otherwise absent SoundStreamBlock for this stream.
+ StreamSoundCompression= match the SeekSamples field in the first
+ 2, SI16, Otherwise absent SoundStreamBlock for this stream.
 
 The PlaybackSoundRate, PlaybackSoundSize, and PlaybackSoundType fields are advisory only; Flash Player may
 ignore them.
@@ -7663,21 +7663,21 @@ StreamSoundData UI8[size of compressed data] Compressed sound data.
 The contents of StreamSoundData vary depending on the value of the StreamSoundCompression field in the
 SoundStreamHead tag:
 
-      •   If StreamSoundCompression is 0 or 3, StreamSoundData contains raw, uncompressed samples.
+ • If StreamSoundCompression is 0 or 3, StreamSoundData contains raw, uncompressed samples.
 
-      •   If StreamSoundCompression is 1, StreamSoundData contains an ADPCM sound data record.
+ • If StreamSoundCompression is 1, StreamSoundData contains an ADPCM sound data record.
 
-      •   If StreamSoundCompression is 2, StreamSoundData contains an MP3 sound data record.
+ • If StreamSoundCompression is 2, StreamSoundData contains an MP3 sound data record.
 
-      •   If StreamSoundCompression is 6, StreamSoundData contains a NELLYMOSERDATA record.
+ • If StreamSoundCompression is 6, StreamSoundData contains a NELLYMOSERDATA record.
 
 ## MP3STREAMSOUNDDATA
 
 Field Type Comment
 
 SampleCount UI16 Number of samples represented by this block. Not
-                                                      affected by mono/stereo setting; for stereo sounds this
-                                                      is the number of sample pairs.
+ affected by mono/stereo setting; for stereo sounds this
+ is the number of sample pairs.
 
 Mp3SoundData MP3SOUNDDATA MP3 frames with SeekSamples values.
 
@@ -7700,9 +7700,9 @@ or 1152.
 
 There are two requirements for keeping MP3 streaming sound in sync with SWF playback:
 
-      •   Distribute MP3 frames appropriately among SWF frames.
+ • Distribute MP3 frames appropriately among SWF frames.
 
-      •   Provide appropriate SeekSamples values in SoundStreamBlock tags.
+ • Provide appropriate SeekSamples values in SoundStreamBlock tags.
 
 These techniques are described in the rest of this section.
 
@@ -7780,7 +7780,7 @@ int indexTable2[2] = {-1, 2};
 int indexTable3[4] = {-1, -1, 2, 4};
 int indexTable4[8] = {-1, -1, -1, -1, 2, 4, 6, 8};
 int indexTable5[16] = {-1, -1, -1, -1, -1, -1, -1, -1, 1, 2,
-    4, 6, 8, 10, 13, 16};
+ 4, 6, 8, 10, 13, 16};
 
 ## ADPCM sound data
 
@@ -7790,17 +7790,17 @@ contain the ADPCM data.
 Field Type Comment
 
 AdpcmCodeSize UB[2] Bits per ADPCM code less 2.
-                                                                                     The actual size of each code
-                  0 = 2 bits/sample                                                  is AdpcmCodeSize + 2.
-                  1 = 3 bits/sample
+ The actual size of each code
+ 0 = 2 bits/sample is AdpcmCodeSize + 2.
+ 1 = 3 bits/sample
 
-                  2 = 4 bits/sample
+ 2 = 4 bits/sample
 
-                  3 = 5 bits/sample
+ 3 = 5 bits/sample
 
 AdpcmPackets If SoundType = mono, ADPCMMONOPACKET [one or more] Array of ADPCMPACKETs.
 
-                  If SoundType = stereo, ADPCMSTEREOPACKET [one or more]
+ If SoundType = stereo, ADPCMSTEREOPACKET [one or more]
 
 ADPCMPACKETs vary in structure depending on whether the sound is mono or stereo.
 
@@ -7809,12 +7809,12 @@ ADPCMPACKETs vary in structure depending on whether the sound is mono or stereo.
 Field Type Comment
 
 InitialSample SI16 First sample. Identical to first sample in
-                                                               uncompressed sound.
+ uncompressed sound.
 
 InitialIndex UB[6] Initial index into the ADPCM StepSizeTable.*
 
 AdpcmCodeData UB[4095 * (AdpcmCodeSize+2)] 4095 ADPCM codes. Each sample is
-                                                               (AdpcmCodeSize + 2) bits.
+ (AdpcmCodeSize + 2) bits.
 
 187
 
@@ -7823,20 +7823,20 @@ AdpcmCodeData UB[4095 * (AdpcmCodeSize+2)] 4095 ADPCM codes. Each sample is
 Field Type Comment
 
 InitialSampleLeft SI16 First sample for left channel. Identical to first
-                                                              sample in uncompressed sound.
+ sample in uncompressed sound.
 
 InitialIndexLeft UB[6] Initial index into the ADPCM StepSizeTable* for
-                                                              left channel.
+ left channel.
 
 InitialSampleRight SI16 First sample for right channel. Identical to first
-                                                              sample in uncompressed sound.
+ sample in uncompressed sound.
 
 InitialIndexRight UB[6] Initial index into the ADPCM StepSizeTable* for
-                                                              right channel
+ right channel
 
 AdpcmCodeData UB[8190 * (AdpcmCodeSize+2)] 4095 ADPCM codes per channel, total 8190. Each
-                                                              sample is (AdpcmCodeSize + 2) bits. Channel data
-                                                              is interleaved left, then right.
+ sample is (AdpcmCodeSize + 2) bits. Channel data
+ is interleaved left, then right.
 
 * For an explanation of StepSizeTable, see the Jansen source code.
 
@@ -7882,77 +7882,77 @@ Field Type Comment
 Syncword UB[11] Frame sync. All bits must be set.
 
 MpegVersion UB[2] MPEG2.5 is an extension to MPEG2
-                                                                            that handles very low bitrates,
-                                                                            allowing the use of lower sampling
-                                                                            frequencies. 0 = MPEG Version 2.5;
-                                                                            1 = reserved; 2 = MPEG Version 2; 3
-                                                                            = MPEG Version 1
+ that handles very low bitrates,
+ allowing the use of lower sampling
+ frequencies. 0 = MPEG Version 2.5;
+ 1 = reserved; 2 = MPEG Version 2; 3
+ = MPEG Version 1
 
 Layer UB[2] Layer is always equal to 1 for MP3
-                                                                            headers in SWF files. The “3” in
-                                                                            MP3 refers to the Layer, not the
-                                                                            MpegVersion.: 0 = reserved; 1 =
-                                                                            Layer III; 2 = Layer II; 3 = Layer I
+ headers in SWF files. The “3” in
+ MP3 refers to the Layer, not the
+ MpegVersion.: 0 = reserved; 1 =
+ Layer III; 2 = Layer II; 3 = Layer I
 
 ProtectionBit UB[1] If ProtectionBit == 0, a 16-bit CRC
-                                                                            follows the header: 0 = Protected
-                                                                            by CRC; 1 = Not protected
+ follows the header: 0 = Protected
+ by CRC; 1 = Not protected
 
 Bitrate UB[4] Bitrates are in thousands of bits per
-                                                                            second. For example, 128 means
-                                                                            128000 bps.
-                                                                                  0    free   free
-                                                                                  1     32      8
-                                                                                  2     40     16
-                                                                                  3     48     24
-                                                                                  4     56     32
-                                                                                  5     64     40
-                                                                                  6     80     48
-                                                                                  7     96     56
-                                                                                  8    112     64
-                                                                                  9    128     80
-                                                                                 10    160     96
-                                                                                 11    192    112
-                                                                                 12    224    128
-                                                                                 13    256    144
-                                                                                 14    320    160
-                                                                                 15    bad    bad
+ second. For example, 128 means
+ 128000 bps.
+ 0 free free
+ 1 32 8
+ 2 40 16
+ 3 48 24
+ 4 56 32
+ 5 64 40
+ 6 80 48
+ 7 96 56
+ 8 112 64
+ 9 128 80
+ 10 160 96
+ 11 192 112
+ 12 224 128
+ 13 256 144
+ 14 320 160
+ 15 bad bad
 
 SamplingRate UB[2] Sampling rate in Hz.
-                                                                            Value MPEG1 MPEG2.x
-                                                                            MPEG2.5
+ Value MPEG1 MPEG2.x
+ MPEG2.5
 
 190
-                                                                                    ---------------------
-                                                                                    0 44100 22050 11025
-                                                                                    1 48000 24000 12000
-                                                                                    2 32000 16000 8000
-                                                                                    -- -- --
+ ---------------------
+ 0 44100 22050 11025
+ 1 48000 24000 12000
+ 2 32000 16000 8000
+ -- -- --
 
 PaddingBit UB[1] Padding is used to fit the bitrate
-                                                                                    exactly. 0 = frame is not padded; 1
-                                                                                    = frame is padded with one extra
-                                                                                    slot
+ exactly. 0 = frame is not padded; 1
+ = frame is padded with one extra
+ slot
 
 Reserved UB[1]
 
 ChannelMode UB[2] Dual-channel files are made of two
-                                                                                    independent mono channels. Each
-                                                                                    one uses exactly half the bitrate of
-                                                                                    the file. 0 = Stereo; 1 = Joint stereo
-                                                                                    (Stereo); 2 = Dual channel; 2 =
-                                                                                    Single channel (Mono)
+ independent mono channels. Each
+ one uses exactly half the bitrate of
+ the file. 0 = Stereo; 1 = Joint stereo
+ (Stereo); 2 = Dual channel; 2 =
+ Single channel (Mono)
 
 ModeExtension UB[2]
 
 Copyright UB[1] 0 = Audio is not copyrighted; 1 =
-                                                                                    Audio is copyrighted
+ Audio is copyrighted
 
 Original UB[1] 0 = Copy of original media; 1 =
-                                                                                    Original media
+ Original media
 
 Emphasis UB[2] 0 = none; 1 = 50/15 ms; 2 =
-                                                                                    reserved; 3 = CCIT J.17
+ reserved; 3 = CCIT J.17
 
 SampleData UB[size of sample data*] The encoded audio samples.
 
@@ -8048,42 +8048,42 @@ possible state transitions and corresponding Flash Player events:
 State Transition Event Description Visual Effect
 
 IdleToOverUp Roll Over Mouse enters the hit area while the Button changes from up
-                                             mouse button is up.                      to over state.
+ mouse button is up. to over state.
 
 OverUpToIdle Roll Out Mouse leaves the hit area while the Button changes from over
-                                             mouse button is up.                      to up state.
+ mouse button is up. to up state.
 
 OverUpToOverDown Press Mouse button is pressed while the Button changes from over
-                                             mouse is inside the hit area.            to down state.
+ mouse is inside the hit area. to down state.
 
 OverDownToOverUp Release Mouse button is released while the Button changes from
-                                             mouse is inside the hit area.            down to over state.
+ mouse is inside the hit area. down to over state.
 
 The following transitions only apply when tracking Push buttons:
 
 State Transition Event Description Visual Effect
 
 OutDownToOverDown Drag Over Mouse is dragged inside the hit area Button changes from over
-                                               while the mouse button is down.        to down state.
+ while the mouse button is down. to down state.
 
 OverDownToOutDown Drag Out Mouse is dragged outside the hit Button changes from
-                                               area while the mouse button is         down to over state.
-                                               down.
+ area while the mouse button is down to over state.
+ down.
 
 OutDownToIdle ReleaseOutside Mouse button is released outside Button changes from over
-                                               the hit area while the mouse is        to up state.
-                                               captured.
+ the hit area while the mouse is to up state.
+ captured.
 
 The following transitions apply only when tracking Menu buttons:
 
 194
-State Transition      Event           Description                                  Visual Effect
+State Transition Event Description Visual Effect
 
 IdleToOverDown Drag Over Mouse is dragged inside the hit area Button changes from up to
-                                      while the mouse button is down.              down state.
+ while the mouse button is down. down state.
 
 OverDownToIdle Drag Out Mouse is dragged outside the hit area Button changes from down to
-                                      while the mouse button is down.              up state.
+ while the mouse button is down. up state.
 
 Often button actions are performed only on OverDownToOverUp (when the mouse button is released), but
 DefineButton2 allows actions to be triggered by any state transition. A button object can perform any action
@@ -8111,17 +8111,17 @@ Field Type Comment
 ButtonReserved UB[2] Reserved bits; always 0
 
 ButtonHasBlendMode UB[1] 0 = No blend mode; 1 = Has blend mode (SWF
-                                                                    8 and later only)
+ 8 and later only)
 
 ButtonHasFilterList UB[1] 0 = No filter list; 1 = Has filter list (SWF 8 and
-                                                                    later only)
+ later only)
 
 ButtonStateHitTest UB[1] Present in hit test state
 
 ButtonStateDown UB[1] Present in down state
 
 195
-ButtonStateOver             UB[1]                                 Present in over state
+ButtonStateOver UB[1] Present in over state
 
 ButtonStateUp UB[1] Present in up state
 
@@ -8130,19 +8130,19 @@ CharacterID UI16 ID of character to place
 PlaceDepth UI16 Depth at which to place character
 
 PlaceMatrix MATRIX Transformation matrix for character
-                                                                  placement
+ placement
 
 ColorTransform If within DefineButton2, Character color transform
-                            CXFORMWITHALPHA
+ CXFORMWITHALPHA
 
 FilterList If within DefineButton2 and List of filters on this button
-                            ButtonHasFilterList = 1, FILTERLIST
+ ButtonHasFilterList = 1, FILTERLIST
 
 BlendMode If within DefineButton2 and 0 or 1 = normal; 2 = layer; 3 = multiply; 4 =
-                            ButtonHasBlendMode = 1, UI8           screen; 5 = lighten; 6 = darken; 7 = difference;
-                                                                  8 = add; 9 = subtract; 10 = invert; 11 = alpha;
-                                                                  12 = erase; 13 = overlay; 14 = hardlight;
-                                                                  Values 15 to 255 are reserved.
+ ButtonHasBlendMode = 1, UI8 screen; 5 = lighten; 6 = darken; 7 = difference;
+ 8 = add; 9 = subtract; 10 = invert; 11 = alpha;
+ 12 = erase; 13 = overlay; 14 = hardlight;
+ Values 15 to 255 are reserved.
 
 ## DefineButton
 
@@ -8168,7 +8168,7 @@ Header RECORDHEADER Tag type = 7
 ButtonId UI16 ID for this character
 
 196
-Characters                             BUTTONRECORD[one or more]               Characters that make up the button
+Characters BUTTONRECORD[one or more] Characters that make up the button
 
 CharacterEndFlag UI8 Must be 0
 
@@ -8195,10 +8195,10 @@ ButtonId UI16 ID for this character
 ReservedFlags UB[7] Always 0
 
 TrackAsMenu UB[1] 0 = track as normal button; 1 = track as menu
-                                                                button
+ button
 
 ActionOffset UI16 Offset in bytes from start of this field to the first
-                                                                BUTTONCONDACTION, or 0 if no actions occur
+ BUTTONCONDACTION, or 0 if no actions occur
 
 Characters BUTTONRECORD [one or more] Characters that make up the button
 
@@ -8215,7 +8215,7 @@ Field Type Comment
 CondActionSize UI16 Offset in bytes from start of this field to next
 
 197
-                                BUTTONCONDACTION, or 0 if last action
+ BUTTONCONDACTION, or 0 if last action
 
 CondIdleToOverDown UB[1] Idle to OverDown
 
@@ -8235,38 +8235,38 @@ CondIdleToOverUp UB[1] Idle to OverUp
 
 CondKeyPress UB[7] SWF 4 or later: key codeOtherwise: always 0
 
-                                Valid key codes:
+ Valid key codes:
 
-                                    •   1 = left arrow
+ • 1 = left arrow
 
-                                    •   2 = right arrow
+ • 2 = right arrow
 
-                                    •   3 = home
+ • 3 = home
 
-                                    •   4 = end
+ • 4 = end
 
-                                    •   5 = insert
+ • 5 = insert
 
-                                    •   6 = delete
+ • 6 = delete
 
-                                    •   8 = backspace
+ • 8 = backspace
 
-                                    •   13 = enter
+ • 13 = enter
 
-                                    •   14 = up arrow
+ • 14 = up arrow
 
-                                    •   15 = down arrow
+ • 15 = down arrow
 
-                                    •   16 = page up
+ • 16 = page up
 
-                                    •   17 = page down
+ • 17 = page down
 
-                                    •   18 = tab
+ • 18 = tab
 
 198
-                                                                          •   19 = escape
+ • 19 = escape
 
-                                                                          •   32 to 126: follows ASCII
+ • 32 to 126: follows ASCII
 
 CondOverDownToIdle UB[1] OverDown to Idle
 
@@ -8302,43 +8302,43 @@ ButtonColorTransform CXFORM Character color transform
 The DefineButtonSound tag defines which sounds (if any) are played on state transitions. The minimum file
 format version is SWF 2.
 
- Field                   Type                                       Comment
+ Field Type Comment
 
- Header                  RECORDHEADER                               Tag type = 17
+ Header RECORDHEADER Tag type = 17
 
- ButtonId                UI16                                       The ID of the button these sounds apply to.
+ ButtonId UI16 The ID of the button these sounds apply to.
 
 199
- ButtonSoundChar0   UI16                                Sound ID for OverUpToIdle
+ ButtonSoundChar0 UI16 Sound ID for OverUpToIdle
 
- ButtonSoundInfo0   SOUNDINFO (if ButtonSoundChar0 is   Sound style for OverUpToIdle
-                    nonzero)
+ ButtonSoundInfo0 SOUNDINFO (if ButtonSoundChar0 is Sound style for OverUpToIdle
+ nonzero)
 
- ButtonSoundChar1   UI16                                Sound ID for IdleToOverUp
+ ButtonSoundChar1 UI16 Sound ID for IdleToOverUp
 
- ButtonSoundInfo1   SOUNDINFO (if ButtonSoundChar1 is   Sound style for IdleToOverUp
-                    nonzero)
+ ButtonSoundInfo1 SOUNDINFO (if ButtonSoundChar1 is Sound style for IdleToOverUp
+ nonzero)
 
- ButtonSoundChar2   UI16                                Sound ID for OverUpToOverDown
+ ButtonSoundChar2 UI16 Sound ID for OverUpToOverDown
 
- ButtonSoundInfo2   SOUNDINFO (if ButtonSoundChar2 is   Sound style for OverUpToOverDown
-                    nonzero)
+ ButtonSoundInfo2 SOUNDINFO (if ButtonSoundChar2 is Sound style for OverUpToOverDown
+ nonzero)
 
- ButtonSoundChar3   UI16                                Sound ID for OverDownToOverUp
+ ButtonSoundChar3 UI16 Sound ID for OverDownToOverUp
 
- ButtonSoundInfo3   SOUNDINFO (if ButtonSoundChar3 is   Sound style for OverDownToOverUp
-                    nonzero)
+ ButtonSoundInfo3 SOUNDINFO (if ButtonSoundChar3 is Sound style for OverDownToOverUp
+ nonzero)
 
 200
 Chapter 13: Sprites and Movie Clips
 A sprite corresponds to a movie clip in the Adobe Flash authoring application. It is a SWF file contained within
 another SWF file, and supports many of the features of a regular SWF file, such as the following:
 
-      •   Most of the control tags that can be used in the main file.
+ • Most of the control tags that can be used in the main file.
 
-      •   A timeline that can stop, start, and play independently of the main file.
+ • A timeline that can stop, start, and play independently of the main file.
 
-      •   A streaming sound track that is automatically mixed with the main sound track.
+ • A streaming sound track that is automatically mixed with the main sound track.
 
 A sprite object is defined with a DefineSprite tag. It consists of a character ID, a frame count, and a series of
 control tags. Definition tags (such as DefineShape) are not allowed in the DefineSprite tag. All of the characters
@@ -8359,13 +8359,13 @@ with the SetTarget action (see ActionSetTarget).
 For example, say a sprite object is placed in the main file with the name "spinner". The main file can send this
 sprite to the first frame in its timeline with the following action sequence:
 
-      1. SetTarget "spinner"
+ 1. SetTarget "spinner"
 
-      2. GotoFrame zero
+ 2. GotoFrame zero
 
-      3. SetTarget "" (empty string)
+ 3. SetTarget "" (empty string)
 
-      4. End of actions. (Action code = 0)
+ 4. End of actions. (Action code = 0)
 
 Note: All actions following SetTarget “spinner” apply to the spinner object until SetTarget “”, which sets the
 action context back to the main file.
@@ -8378,24 +8378,24 @@ identify sprites.
 For example, the following outline shows four sprites defined within the main file:
 
 MainMovie.swf
-   SpriteA (name: Jack)
-      SpriteA1 (name: Bert)
-      SpriteA2 (name: Ernie)
-   SpriteB (name: Jill)
+ SpriteA (name: Jack)
+ SpriteA1 (name: Bert)
+ SpriteA2 (name: Ernie)
+ SpriteB (name: Jill)
 
 The following SetTarget paths identify the preceding sprites:
 
-      •   /Jack targets SpriteA from the main file.
+ • /Jack targets SpriteA from the main file.
 
-      •   ../ targets the main file from SpriteA.
+ • ../ targets the main file from SpriteA.
 
-      •   /Jack/Bert targets SpriteA1 from any other sprite or the main file.
+ • /Jack/Bert targets SpriteA1 from any other sprite or the main file.
 
-      •   Bert targets SpriteA1 from SpriteA.
+ • Bert targets SpriteA1 from SpriteA.
 
-      •   ../Ernie targets SpriteA2 from SpriteA1.
+ • ../Ernie targets SpriteA2 from SpriteA1.
 
-      •   ../../Jill targets SpriteB from SpriteA1.
+ • ../../Jill targets SpriteB from SpriteA1.
 
 ## DefineSprite
 
@@ -8440,14 +8440,14 @@ ControlTags TAG[one or more] A series of tags
 Adobe Flash Player 6 and later supports video playback. Video can be provided to Flash Player in the following
 ways:
 
-      •   Embed video within a SWF file by using the SWF video tags.
+ • Embed video within a SWF file by using the SWF video tags.
 
-      •   Deliver a video stream over RTMP through the Adobe Flash Media Server, which, as one option, can
-          obtain the video data from an FLV file format file.
+ • Deliver a video stream over RTMP through the Adobe Flash Media Server, which, as one option, can
+ obtain the video data from an FLV file format file.
 
-      •   Load an FLV file directly into Flash Player by using the NetStream.play ActionScript method. This method
-          is only available in Flash Player 7 and later. The SWF and FLV file formats share a common video
-          encoding format.
+ • Load an FLV file directly into Flash Player by using the NetStream.play ActionScript method. This method
+ is only available in Flash Player 7 and later. The SWF and FLV file formats share a common video
+ encoding format.
 
 For complete information about the FLV file format, refer to the FLV File Format Specification at
 www.adobe.com/go/video_file_format.
@@ -8472,32 +8472,32 @@ codec to perform video encoding for Flash Player; contact Sorenson Media for det
 Summary of differences from H.263
 The following H.263 features are removed from the Sorenson H.263 video format:
 
-      •   GOB (group of blocks) layer
+ • GOB (group of blocks) layer
 
-      •   Split-screen indicator
+ • Split-screen indicator
 
-      •   Document camera indicator
+ • Document camera indicator
 
 204
-      •   Picture freeze release
+ • Picture freeze release
 
-      •   Syntax-based arithmetic coding
+ • Syntax-based arithmetic coding
 
-      •   PB frames
+ • PB frames
 
-      •   Continuous-presence multipoint
+ • Continuous-presence multipoint
 
-      •   Overlapped block-motion compensation
+ • Overlapped block-motion compensation
 
 The following non-H.263 features are added to the Sorenson H.263 video format:
 
-      •   Disposable frames (difference frames with no future dependencies)
+ • Disposable frames (difference frames with no future dependencies)
 
-      •   Arbitrary picture width and height up to 65535 pixels
+ • Arbitrary picture width and height up to 65535 pixels
 
-      •   Unrestricted motion vector support is always on
+ • Unrestricted motion vector support is always on
 
-      •   A deblocking flag is available to suggest the use of a deblocking filter
+ • A deblocking flag is available to suggest the use of a deblocking filter
 
 To support these differences, the Sorenson H.263 video format uses different headers than H.263 at both the
 picture layer and the Macroblock layer. The GOB layer is absent.
@@ -8517,47 +8517,47 @@ and also within the VIDEODATA structure in the FLV file format.
 Field Type Comment
 
 PictureStartCode UB[17] Similar to H.263 5.1.1; 0000 0000 0000
-                                                                           0000 1
+ 0000 1
 
 Version UB[5] Video format version; Flash Player 6
-                                                                           supports 0 and 1
+ supports 0 and 1
 
 TemporalReference UB[8] See H.263 5.1.2
 
 PictureSize UB[3] 000: custom, 1 byte; 001: custom, 2
-                                                                           bytes; 010: CIF (352x288); 011: QCIF
+ bytes; 010: CIF (352x288); 011: QCIF
 
 205
-                                                                        (176x144); 100: SQCIF (128x96); 101:
-                                                                        320x240; 110: 160x120; 111: reserved
+ (176x144); 100: SQCIF (128x96); 101:
+ 320x240; 110: 160x120; 111: reserved
 
 CustomWidth If PictureSize = 000, UB[8] If PictureSize = Width in pixels
-                         001, UB[16] Otherwise absent. Note:
-                         UB[16] is not the same as UI16; there is no
-                         byte swapping.
+ 001, UB[16] Otherwise absent. Note:
+ UB[16] is not the same as UI16; there is no
+ byte swapping.
 
 CustomHeight If PictureSize = 000, UB[8] If PictureSize = Height in pixels
-                         001, UB[16] Otherwise absent. Note:
-                         UB[16] is not the same as UI16; there is no
-                         byte swapping.
+ 001, UB[16] Otherwise absent. Note:
+ UB[16] is not the same as UI16; there is no
+ byte swapping.
 
 PictureType UB[2] 00: intra frame; 01: inter frame; 10:
-                                                                        disposable inter frame; 11: reserved
+ disposable inter frame; 11: reserved
 
 DeblockingFlag UB[1] Requests use of deblocking filter
-                                                                        (advisory only, Flash Player may ignore)
+ (advisory only, Flash Player may ignore)
 
 Quantizer UB[5] See H.263 5.1.4
 
 ExtraInformationFlag UB[1] See H.263 5.1.9
 
 ExtraInformation If ExtraInformationFlag = 1, UB[8], See H.263 5.1.10
-                         Otherwise absent
+ Otherwise absent
 
 ... The ExtraInformationFlag-
-                                                                        ExtraInformation sequence repeats until
-                                                                        an ExtraInformationFlag of 0 is
-                                                                        encountered
+ ExtraInformation sequence repeats until
+ an ExtraInformationFlag of 0 is
+ encountered
 
 Macroblock MACROBLOCK See following
 
@@ -8575,21 +8575,21 @@ Field Type Comment
 CodedMacroblockFlag UB[1] See H.263 5.3.1. If 1, macro block ends here
 
 206
-MacroblockType                 varies                     See H.263 5.3.2. Can cause various fields (see following)
-                                                          to be absent
+MacroblockType varies See H.263 5.3.2. Can cause various fields (see following)
+ to be absent
 
 BlockPattern varies See H.263 5.3.5
 
 QuantizerInformation UB[2] See H.263 5.3.6; 00: -1; 01: -2; 10: +1; 11: +2
 
 MotionVectorData varies[2] See H.263 5.3.7. A horizontal code followed by a vertical
-                                                          code
+ code
 
 ExtraMotionVectorData varies[6] See H.263 5.3.8. Three more MotionVectorData code
-                                                          pairs are included when MacroblockType is INTER4V
+ pairs are included when MacroblockType is INTER4V
 
 BlockData BLOCKDATA[6] See H.263 5.4. Four luminance blocks followed by two
-                                                          chrominance blocks
+ chrominance blocks
 
 ## Block data
 
@@ -8609,7 +8609,7 @@ Index Level Code Index Level Code
 - -64 FORBIDDEN - -1024 FORBIDDEN
 
 0 -63 1000 001 0 -1023 1000 0000
-                                                                                                   001
+ 001
 
 . . . . . .
 
@@ -8622,10 +8622,10 @@ Index Level Code Index Level Code
 63 1 0000 001 1023 1 0000 0000
 
 207
-                                                                                                 001
+ 001
 
 64 2 0000 010 1024 2 0000 0000
-                                                                                                 010
+ 010
 
 . . . . . .
 
@@ -8670,23 +8670,23 @@ each block.
 
 ## SCREENVIDEOPACKET
 
- Field                          Type                    Comment
+ Field Type Comment
 
- BlockWidth                     UB[4]                   Pixel width of each block in the grid. This value is stored
-                                                        as (actualWidth / 16) - 1, so possible block sizes are a
-                                                        multiple of 16 and not more than 256.
+ BlockWidth UB[4] Pixel width of each block in the grid. This value is stored
+ as (actualWidth / 16) - 1, so possible block sizes are a
+ multiple of 16 and not more than 256.
 
- ImageWidth                     UB[12]                  Pixel width of the full image.
+ ImageWidth UB[12] Pixel width of the full image.
 
- BlockHeight                    UB[4]                   Pixel height of each block in the grid. This value is stored
-                                                        as (actualHeight / 16) - 1, so possible block sizes are a
-                                                        multiple of 16 and not more than 256.
+ BlockHeight UB[4] Pixel height of each block in the grid. This value is stored
+ as (actualHeight / 16) - 1, so possible block sizes are a
+ multiple of 16 and not more than 256.
 
- ImageHeight                    UB[12]                  Pixel height of the full image.
+ ImageHeight UB[12] Pixel height of the full image.
 
- ImageBlocks                    IMAGEBLOCK[n]           Blocks of image data. See preceding for details of how to
-                                                        calculate n. Blocks are ordered from bottom left to top
-                                                        right, in rows.
+ ImageBlocks IMAGEBLOCK[n] Blocks of image data. See preceding for details of how to
+ calculate n. Blocks are ordered from bottom left to top
+ right, in rows.
 
 209
 
@@ -8699,15 +8699,15 @@ The image block represents one block in a frame.
 Field Type Comment
 
 DataSize UB[16] Size of the compressed block data
-                                       Note: UB[16] is not the same as        that follows. If this is an interframe,
-                                       UI16; no byte swapping occurs          and this block is not changed since
-                                                                              the last keyframe, DataSize is 0 and
-                                                                              the Data field is absent.
+ Note: UB[16] is not the same as that follows. If this is an interframe,
+ UI16; no byte swapping occurs and this block is not changed since
+ the last keyframe, DataSize is 0 and
+ the Data field is absent.
 
 Data If DataSize > 0, UI8[DataSize] Pixel data compressed using ZLIB.
-                                                                              Pixels are ordered from bottom left
-                                                                              to top right in rows. Each pixel is
-                                                                              three bytes: B, G, R.
+ Pixels are ordered from bottom left
+ to top right in rows. Each pixel is
+ three bytes: B, G, R.
 
 ## Screen Video V2 bitstream format
 
@@ -8736,14 +8736,14 @@ decoded image is represented by either 1 or 2 bytes. Generally, a decoder will w
 colorspace to a 24-bit RGB colorspace. The process for doing so is:
 
 210
-      •   Fetch next byte from decoded image
+ • Fetch next byte from decoded image
 
-      •   If next byte has its high bit set, clear high bit and fetch next byte from decoded image; form a 15-bit
-          color by placing the low 7 bits of the current byte in bits 14-8 of the color, and place the 8 bits from the
-          next byte in bits 7-0 of the color; convert the 15-bit RGB color to 24-bit RGB
+ • If next byte has its high bit set, clear high bit and fetch next byte from decoded image; form a 15-bit
+ color by placing the low 7 bits of the current byte in bits 14-8 of the color, and place the 8 bits from the
+ next byte in bits 7-0 of the color; convert the 15-bit RGB color to 24-bit RGB
 
-      •   If next byte has its high bit clear, use the lower 7 bits as an index into the 128-entry palette and retrieve
-          the corresponding 24-bit RGB color
+ • If next byte has its high bit clear, use the lower 7 bits as an index into the 128-entry palette and retrieve
+ the corresponding 24-bit RGB color
 
 A v2 video packet is free to define a new palette at any time, which is transmitted as a v1 IMAGEBLOCK. In the
 absence of a stream-defined palette, the v2 decoder will fall back to a default palette. For the default palette,
@@ -8760,39 +8760,39 @@ each block.
 
 ## SCREENV2VIDEOPACKET
 
- Field                            Type                    Comment
+ Field Type Comment
 
- BlockWidth                       UB[4]                   Pixel width of each block in the grid. This value is stored
-                                                          as (actualWidth / 16) - 1, so possible block sizes are a
-                                                          multiple of 16 and not more than 256.
+ BlockWidth UB[4] Pixel width of each block in the grid. This value is stored
+ as (actualWidth / 16) - 1, so possible block sizes are a
+ multiple of 16 and not more than 256.
 
- ImageWidth                       UB[12]                  Pixel width of the full image.
+ ImageWidth UB[12] Pixel width of the full image.
 
- BlockHeight                      UB[4]                   Pixel height of each block in the grid. This value is stored
-                                                          as (actualHeight / 16) - 1, so possible block sizes are a
-                                                          multiple of 16 and not more than 256.
+ BlockHeight UB[4] Pixel height of each block in the grid. This value is stored
+ as (actualHeight / 16) - 1, so possible block sizes are a
+ multiple of 16 and not more than 256.
 
- ImageHeight                      UB[12]                  Pixel height of the full image.
+ ImageHeight UB[12] Pixel height of the full image.
 
- Reserved                         UB[6]                   Must be 0
+ Reserved UB[6] Must be 0
 
- HasIFrameImage                   UB[1]                   If 1, has IFrameImage
+ HasIFrameImage UB[1] If 1, has IFrameImage
 
- HasPaletteInfo                   UB[1]                   If 1, has PaletteInfo
+ HasPaletteInfo UB[1] If 1, has PaletteInfo
 
- PaletteInfo                      If HasPaletteInfo,      One block of data to describe the palette.
-                                  IMAGEBLOCK
+ PaletteInfo If HasPaletteInfo, One block of data to describe the palette.
+ IMAGEBLOCK
 
 211
- ImageBlocks                  IMAGEBLOCKV2[n]        Blocks of image data. See Block format for details of how
-                                                     to calculate n. Blocks are ordered from bottom left to top
-                                                     right in rows and can be a combination of keyblocks and
-                                                     interblocks.
+ ImageBlocks IMAGEBLOCKV2[n] Blocks of image data. See Block format for details of how
+ to calculate n. Blocks are ordered from bottom left to top
+ right in rows and can be a combination of keyblocks and
+ interblocks.
 
- IFrameImage                  If HasIFrameImage,     Blocks of image data representing interblocks that must
-                              IMAGEBLOCKV2[n]        be combined with the previous keyblocks to produce the
-                                                     image. See Block format for details of how to calculate n.
-                                                     Blocks are ordered from bottom left to top right in rows.
+ IFrameImage If HasIFrameImage, Blocks of image data representing interblocks that must
+ IMAGEBLOCKV2[n] be combined with the previous keyblocks to produce the
+ image. See Block format for details of how to calculate n.
+ Blocks are ordered from bottom left to top right in rows.
 
 ## Image Block V2
 
@@ -8800,26 +8800,26 @@ The Image Block v2 structure represents one block in a frame.
 
 ## IMAGEBLOCKV2
 
- Field                     Type                          Comment
+ Field Type Comment
 
- DataSize                  UB[16] Note: UB[16] is not    Size of the compressed block data that follows,
-                           the same as UI16; there is    including the ImageFormat, ImageBlockHeader and
-                           no byte swapping.             Data fields. If this is an interframe, and this block has
-                                                         not changed since the last keyframe, DataSize is 0 and
-                                                         the Data field is absent.
+ DataSize UB[16] Note: UB[16] is not Size of the compressed block data that follows,
+ the same as UI16; there is including the ImageFormat, ImageBlockHeader and
+ no byte swapping. Data fields. If this is an interframe, and this block has
+ not changed since the last keyframe, DataSize is 0 and
+ the Data field is absent.
 
- Format                    IMAGEFORMAT                   Compression format of block data.
+ Format IMAGEFORMAT Compression format of block data.
 
- ImageBlockHeader          If Format’s HasDiffBlock = Describes the format and compression of Data
-                           1, IMAGEDIFFPOSITION. If
-                           Format’s
-                           ZlibPrimeCompressCurrent
-                           = 1,
-                           IMAGEPRIMEPOSITION
+ ImageBlockHeader If Format’s HasDiffBlock = Describes the format and compression of Data
+ 1, IMAGEDIFFPOSITION. If
+ Format’s
+ ZlibPrimeCompressCurrent
+ = 1,
+ IMAGEPRIMEPOSITION
 
- Data                      If DataSize > 0,              Pixel data compressed using ZLIB. Pixels are ordered
-                           UI8[DataSize]                 from bottom left to top right in rows. Each pixel is
-                                                         three bytes: B, G, R.
+ Data If DataSize > 0, Pixel data compressed using ZLIB. Pixels are ordered
+ UI8[DataSize] from bottom left to top right in rows. Each pixel is
+ three bytes: B, G, R.
 
 ## Image format
 
@@ -8828,18 +8828,18 @@ The IMAGEFORMAT byte describes the color depth and compression of the IMAGEBLOCK
 Field Type Comment
 
 212
-Reserved                          UB[3]               Must be 0
+Reserved UB[3] Must be 0
 
 ColorDepth UB[2] 00: 24-bit RGB image. 10: 15/7-bit hybrid color image
 
 HasDiffBlocks UB[1] If 1, the data starts and stops on specific rows within the
-                                                      block and does not represent the entire block.
+ block and does not represent the entire block.
 
 ZlibPrimeCompressCurrent UB[1] If 1, the current data block was produced with the ZLIB
-                                                      priming technique of compression.
+ priming technique of compression.
 
 ZlibPrimeCompressPrevious UB[1] If 1, the previous data block was produced with the ZLIB
-                                                      priming technique of compression.
+ priming technique of compression.
 
 ## Image block diff position
 
@@ -8934,10 +8934,10 @@ The VP6 FLV video packet represents a VP6 video frame within an FLV file.
 Field Type Comment
 
 HorizontalAdjustment UB[4] Number of pixels to subtract from the total width. The resulting width is
-                                       used on the stage, and the rightmost pixels of the video is cropped.
+ used on the stage, and the rightmost pixels of the video is cropped.
 
 VerticalAdjustment UB[4] Number of pixels to subtract from the total height. The resulting height
-                                       is used on the stage, and the rightmost pixels of the video is cropped.
+ is used on the stage, and the rightmost pixels of the video is cropped.
 
 Data UI8[n] Raw VP6 video stream data
 
@@ -8947,23 +8947,23 @@ The VP6 FLV Alpha video packet represents a VP6 video frame with alpha channel i
 
 ## VP6FLVALPHAVIDEOPACKET
 
- Field                              Type                  Comment
+ Field Type Comment
 
- HorizontalAdjustment               UB[4]                 Number of pixels to subtract from the total width.
-                                                          The resulting width is used on the stage, and the
-                                                          rightmost pixels of the video is cropped.
+ HorizontalAdjustment UB[4] Number of pixels to subtract from the total width.
+ The resulting width is used on the stage, and the
+ rightmost pixels of the video is cropped.
 
- VerticalAdjustment                 UB[4]                 Number of pixels to subtract from the from the total
-                                                          height. The resulting height is used on the stage, and
-                                                          the rightmost pixels of the video is cropped.
+ VerticalAdjustment UB[4] Number of pixels to subtract from the from the total
+ height. The resulting height is used on the stage, and
+ the rightmost pixels of the video is cropped.
 
- OffsetToAlpha                      UI24                  Offset in bytes to the alpha channel video data
+ OffsetToAlpha UI24 Offset in bytes to the alpha channel video data
 
- Data                               UI8[OffsetToAlpha]    Raw VP6 video stream data representing the color
-                                                          channels
+ Data UI8[OffsetToAlpha] Raw VP6 video stream data representing the color
+ channels
 
- AlphaData                          UI8[n]                Raw VP6 video stream data representing the alpha
-                                                          channel
+ AlphaData UI8[n] Raw VP6 video stream data representing the alpha
+ channel
 
 215
 
@@ -8983,16 +8983,16 @@ The VP6 SWF Alpha video packet represents a VP6 video frame with alpha channel i
 
 ## VP6SWFALPHAVIDEOPACKET
 
- Field                                 Type                                 Comment
+ Field Type Comment
 
- OffsetToAlpha                         UI24                                 Offset in bytes to the alpha
-                                                                            channel video data
+ OffsetToAlpha UI24 Offset in bytes to the alpha
+ channel video data
 
- Data                                  UI8[OffsetToAlpha]                   Raw VP6 video stream data
-                                                                            representing the color channels
+ Data UI8[OffsetToAlpha] Raw VP6 video stream data
+ representing the color channels
 
- AlphaData                             UI8[n]                               Raw VP6 video stream data
-                                                                            representing the alpha channel
+ AlphaData UI8[n] Raw VP6 video stream data
+ representing the alpha channel
 
 ## SWF video tags
 
@@ -9026,16 +9026,16 @@ Height UI16 Height in pixels
 VideoFlagsReserved UB[4] Must be 0
 
 VideoFlagsDeblocking UB[3] 000 = use VIDEOPACKET value: ; 001 = off; 010 = Level 1 (Fast
-                                                    deblocking filter); 011 = Level 2 (VP6 only, better deblocking
-                                                    filter); 100 = Level 3 (VP6 only, better deblocking plus fast
-                                                    deringing filter); 101 = Level 4 (VP6 only, better deblocking
-                                                    plus better deringing filter); 110 = Reserved; 111 = Reserved
+ deblocking filter); 011 = Level 2 (VP6 only, better deblocking
+ filter); 100 = Level 3 (VP6 only, better deblocking plus fast
+ deringing filter); 101 = Level 4 (VP6 only, better deblocking
+ plus better deringing filter); 110 = Reserved; 111 = Reserved
 
 VideoFlagsSmoothing UB[1] 0 = smoothing off (faster); 1 = smoothing on (higher quality)
 
 CodecID UI8 2 = Sorenson H.263; 3 = Screen video (SWF 7 and later only);
-                                                    4 = VP6 (SWF 8 and later only); 5 = VP6 video with alpha
-                                                    channel (SWF 8 and later only)
+ 4 = VP6 (SWF 8 and later only); 5 = VP6 video with alpha
+ channel (SWF 8 and later only)
 
 ## VideoFrame
 
@@ -9059,16 +9059,16 @@ Field Type Comment
 Header RECORDHEADER Tag type = 61
 
 StreamID UI16 ID of video stream character of which this
-                                                     frame is a part
+ frame is a part
 
 FrameNum UI16 Sequence number of this frame within its
-                                                     video stream
+ video stream
 
 VideoData if CodecID = 2 H263VIDEOPACKET Video frame payload
-             if CodecID = 3 SCREENVIDEOPACKET
-             if CodecID = 4 VP6SWFVIDEOPACKET
-             if CodecID = 5 VP6SWFALPHAVIDEOPACKET
-             if CodecID = 6 SCREENV2VIDEOPACKET
+ if CodecID = 3 SCREENVIDEOPACKET
+ if CodecID = 4 VP6SWFVIDEOPACKET
+ if CodecID = 5 VP6SWFALPHAVIDEOPACKET
+ if CodecID = 6 SCREENV2VIDEOPACKET
 
 218
 Chapter 15: Metadata
@@ -9086,18 +9086,18 @@ Header RECORDHEADER Tag type = 69
 Reserved UB[3] Must be 0
 
 HasMetaData UB[1] If set, the SWF contains metadata somewhere. This
-                                                               is ignored by the player, but used by search
-                                                               engines.
+ is ignored by the player, but used by search
+ engines.
 
 SWFFlagsAS3 UB[1] Set if the SWF contains AVM-2 (Tamarin) byte code.
 
 SWFFlagsNoCrossDomainCache UB[1] If set, this SWF will never be placed in a cross
-                                                               domain cache.
+ domain cache.
 
 Reserved UB[1] Must be 0
 
 SWFFlagsUseNetwork UB[1] If this is a SWF running from the local drive, give it
-                                                               network access instead of of local access.
+ network access instead of of local access.
 
 219
 
@@ -9114,8 +9114,8 @@ Header RECORDHEADER Tag type = 93
 Reserved UB[16] Must be 0
 
 PasswordHash UI8[32] Optional: SHA-256 hash of the UTF-8
-                                                             representation of the password. If not present, SWF
-                                                             opts in to advanced telemetry.
+ representation of the password. If not present, SWF
+ opts in to advanced telemetry.
 
 ## DefineBinaryData
 
@@ -9161,25 +9161,25 @@ The types are defined in Chapter 1: Basic Data Types, on page 14.
 
 ## SWF File Header
 
-  Field                    Type             Comment
+ Field Type Comment
 
-  Signature                UI8              Signature byte: “F” indicated uncompressed; “C” indicates
-                                            compressed (SWF 6 or later only) using ZLib compression. “Z”
-                                            indicates compressed using LZMA compression.
+ Signature UI8 Signature byte: “F” indicated uncompressed; “C” indicates
+ compressed (SWF 6 or later only) using ZLib compression. “Z”
+ indicates compressed using LZMA compression.
 
-  Signature                UI8              Signature byte always “W”
+ Signature UI8 Signature byte always “W”
 
-  Signature                UI8              Signature byte always “S”
+ Signature UI8 Signature byte always “S”
 
-  Version                  UI8              Single byte file version (for example, 0x06 for SWF 6)
+ Version UI8 Single byte file version (for example, 0x06 for SWF 6)
 
-  FileLength               UI32             Length of entire file in bytes
+ FileLength UI32 Length of entire file in bytes
 
-  FrameSize                RECT             Frame size in twips
+ FrameSize RECT Frame size in twips
 
-  FrameRate                UI16             Frame delay in 8.8 fixed number of frames per second
+ FrameRate UI16 Frame delay in 8.8 fixed number of frames per second
 
-  FrameCount               UI16             Total number of frames in file
+ FrameCount UI16 Total number of frames in file
 
 The first three bytes are the standard signature for all SWF files. They are the ASCII values of the characters ‘F’
 (or ‘C’), ‘W’, and ‘S’ in that order. The fourth byte indicates the version of the file.
@@ -9241,13 +9241,13 @@ What if Nbit has a value of sixteen? This is exactly the size of a word so do we
 and swap bytes? No. Fields described by bit size are always read a byte at a time. No swapping, just read the
 next n bits in that order.
 
- 000000000000000             ‹       0 = Xmin
+ 000000000000000 ‹ 0 = Xmin
 
- 010101011111000             ‹       11000 = Xmax
+ 010101011111000 ‹ 11000 = Xmax
 
- 000000000000000             ‹       0 = Ymin
+ 000000000000000 ‹ 0 = Ymin
 
- 001111101000000             ‹       8000 = Ymax
+ 001111101000000 ‹ 8000 = Ymax
 
 For the header, the rectangle is used to store the file dimensions with Xmax corresponding to the file width and
 Ymax corresponding to the file height, both in twips. In SWF format, a twip is a twentieth of a pixel, so if we
@@ -9280,17 +9280,17 @@ a tag (this is simplifying somewhat; byte swapping is necessary):
 
 ## RECORDHEADER (short)
 
- Field                          Type               Comment
+ Field Type Comment
 
- TagCodeAndLength               UI16               Upper 10 bits: tag type; Lower 6 bits: tag length
+ TagCodeAndLength UI16 Upper 10 bits: tag type; Lower 6 bits: tag length
 
 ## RECORDHEADER (long)
 
- Field                       Type          Comment
+ Field Type Comment
 
- TagCodeAndLength            UI16          Tag type and length of 0x3F Packed together as in short header
+ TagCodeAndLength UI16 Tag type and length of 0x3F Packed together as in short header
 
- Length                      UI32          Length of tag
+ Length UI32 Length of tag
 
 There are two types of tags: the short and long tag header. Regardless of which case you have, you begin by
 looking at the first word.
@@ -9352,13 +9352,13 @@ Now the Rect, which defines the boundaries:
 
 01110 = 14 = Nbits
 
- 00011111011010 = 2010 = Xmin                   /20 to covert to pixels from twips                  100.5
+ 00011111011010 = 2010 = Xmin /20 to covert to pixels from twips 100.5
 
- 01001100101110 = 4910 = Xmax                                                                       245.5
+ 01001100101110 = 4910 = Xmax 245.5
 
- 00011010000110 = 1670 = Ymin                                                                       83.5
+ 00011010000110 = 1670 = Ymin 83.5
 
- 00111110101010 = 4010 = Ymax                                                                       200.5
+ 00111110101010 = 4010 = Ymax 200.5
 
  000 = fill bits
 
@@ -9386,15 +9386,15 @@ are in the array. This count works similar to the tag’s length field in that i
 
 ## FILLSTYLEARRAY
 
-  Field                          Type                                                         Comment
+ Field Type Comment
 
-  FillStyleCount                 UI8                                                          Count of fill styles
+ FillStyleCount UI8 Count of fill styles
 
-  FillStyleCountExtended         If FillStyleCount = 0xFF UI16 Extended count of fill
-                                 styles.
-                                 Supported only for Shape2 and Shape3.
+ FillStyleCountExtended If FillStyleCount = 0xFF UI16 Extended count of fill
+ styles.
+ Supported only for Shape2 and Shape3.
 
-  FillStyles                     FILLSTYLE[FillStyleCount]                                    Array of fill styles
+ FillStyles FILLSTYLE[FillStyleCount] Array of fill styles
 
 In this case, the 8-bit count is equal to 0 so there is nothing to follow it.
 
@@ -9404,14 +9404,14 @@ A line style array is exactly the same as a fill style array except it stores li
 
 ## LINESTYLEARRAY
 
-  Field                                    Type                                       Comment
+ Field Type Comment
 
-  LineStyleCount                           UI8                                        Count of line styles
+ LineStyleCount UI8 Count of line styles
 
-  LineStyleCountExtended                   If LineStyleCount = 0xFF UI16              Extended count of line styles
+ LineStyleCountExtended If LineStyleCount = 0xFF UI16 Extended count of line styles
 
 226
- LineStyles                              LINESTYLE[count]                        Array of line styles
+ LineStyles LINESTYLE[count] Array of line styles
 
 0x01 = 1 = LineStyleCount ➜ So there is one line style in the array.
 
@@ -9420,12 +9420,12 @@ the file description:
 
 ## LINESTYLE
 
- Field             Type                                         Comment
+ Field Type Comment
 
- Width             UI16                                         Width of line in twips
+ Width UI16 Width of line in twips
 
- Color             RGB (Shape1 or Shape2) RGBA (Shape3)         Color value including alpha channel information
-                                                                for Shape3
+ Color RGB (Shape1 or Shape2) RGBA (Shape3) Color value including alpha channel information
+ for Shape3
 
 The color in this case is a 24-bit RGB, but if we were doing a DefineShape3, it would be a 32- bit RGBA where
 alpha is the opacity of the color.
@@ -9451,92 +9451,92 @@ EndOfShape UB[5] End of shape flag. Always 0
 
 ## STYLECHANGERECORD
 
- Field                         Type                          Comment
+ Field Type Comment
 
 227
- TypeFlag             UB[1]                      Non-edge record flag, Always 0
+ TypeFlag UB[1] Non-edge record flag, Always 0
 
- StateNewStyles       UB[1]                      New styles flag. Used by DefineShape2 and
-                                                 DefineShape3 only.
+ StateNewStyles UB[1] New styles flag. Used by DefineShape2 and
+ DefineShape3 only.
 
- StateLineStyle       UB[1]                      Line style change flag
+ StateLineStyle UB[1] Line style change flag
 
- StateFillStyle1      UB[1]                      Fill style 1 change flag
+ StateFillStyle1 UB[1] Fill style 1 change flag
 
- StateFillStyle0      UB[1]                      Fill style 0 change flag
+ StateFillStyle0 UB[1] Fill style 0 change flag
 
- StateMoveTo          UB[1]                      Move to flag
+ StateMoveTo UB[1] Move to flag
 
- MoveBits             If StateMoveTo, UB[5]      Move bit count
+ MoveBits If StateMoveTo, UB[5] Move bit count
 
- MoveDeltaX           If StateMoveTo,            Delta X value
-                      SB[MoveBits]
+ MoveDeltaX If StateMoveTo, Delta X value
+ SB[MoveBits]
 
- MoveDeltaY           If StateMoveTo,            Delta Y value
-                      SB[MoveBits]
+ MoveDeltaY If StateMoveTo, Delta Y value
+ SB[MoveBits]
 
- FillStyle0           If StateFillStyle0,        Fill 0 Style
-                      UB[FillBits]
+ FillStyle0 If StateFillStyle0, Fill 0 Style
+ UB[FillBits]
 
- FillStyle1           If StateFillStyle1,        Fill 1 Style
-                      UB[FillBits]
+ FillStyle1 If StateFillStyle1, Fill 1 Style
+ UB[FillBits]
 
- LineStyle            If StateLineStyle,         Line Style
-                      UB[LineBits]
+ LineStyle If StateLineStyle, Line Style
+ UB[LineBits]
 
- FillStyles           If StateNewStyles,         Array of new fill styles
-                      FILLSTYLEARRAY
+ FillStyles If StateNewStyles, Array of new fill styles
+ FILLSTYLEARRAY
 
- LineStyles           If StateNewStyles,         Array of new line styles
-                      LINESTYLEARRAY
+ LineStyles If StateNewStyles, Array of new line styles
+ LINESTYLEARRAY
 
- NumFillBits          If StateNewStyles, UB[4]   Number of fill index bits for new styles
+ NumFillBits If StateNewStyles, UB[4] Number of fill index bits for new styles
 
- NumLineBits          If StateNewStyles, UB[4]   Number of line index bits for new styles
+ NumLineBits If StateNewStyles, UB[4] Number of line index bits for new styles
 
 ## STRAIGHTEDGERECORD
 
- Field                Type                                 Comment
+ Field Type Comment
 
- TypeFlag             UB[1]                                This is an edge record. Always 1.
+ TypeFlag UB[1] This is an edge record. Always 1.
 
 228
- StraightFlag                 UB[1]                                   Straight edge. Always 1.
+ StraightFlag UB[1] Straight edge. Always 1.
 
- NumBits                      UB[4]                                   Number of bits per value (two less than the
-                                                                      actual number).
+ NumBits UB[4] Number of bits per value (two less than the
+ actual number).
 
- GeneralLineFlag              UB[1]                                   General Line equals 1. Vert/Horz Line equals
-                                                                      0.
+ GeneralLineFlag UB[1] General Line equals 1. Vert/Horz Line equals
+ 0.
 
- DeltaX                       If GeneralLineFlag, SB[NumBits+2]       X delta
+ DeltaX If GeneralLineFlag, SB[NumBits+2] X delta
 
- DeltaY                       If GeneralLineFlag, SB[NumBits+2]       Y delta
+ DeltaY If GeneralLineFlag, SB[NumBits+2] Y delta
 
- VertLineFlag                 If GeneralLineFlag, SB[1]               Vertical Line equals 1. Horizontal Line equals
-                                                                      0.
+ VertLineFlag If GeneralLineFlag, SB[1] Vertical Line equals 1. Horizontal Line equals
+ 0.
 
- DeltaX                       If VertLineFlag, SB[NumBits+2]          X delta
+ DeltaX If VertLineFlag, SB[NumBits+2] X delta
 
- DeltaY                       If VertLineFlag, SB[NumBits+2]          Y delta
+ DeltaY If VertLineFlag, SB[NumBits+2] Y delta
 
 ## CURVEDEDGERECORD
 
- Field                       Type                  Comment
+ Field Type Comment
 
- TypeFlag                    UB[1]                 This is an edge record. Always 1.
+ TypeFlag UB[1] This is an edge record. Always 1.
 
- StraightFlag                UB[1]                 Curved edge. Always 0.
+ StraightFlag UB[1] Curved edge. Always 0.
 
- NumBits                     UB[4]                 Number of bits per value. (two less than the actual number)
+ NumBits UB[4] Number of bits per value. (two less than the actual number)
 
- ControlDeltaX               SB[NumBits+2]         X control point change
+ ControlDeltaX SB[NumBits+2] X control point change
 
- ControlDeltaY               SB[NumBits+2]         Y control point change
+ ControlDeltaY SB[NumBits+2] Y control point change
 
- AnchorDeltaX                SB[NumBits+2]         X anchor point change
+ AnchorDeltaX SB[NumBits+2] X anchor point change
 
- AnchorDeltaY                SB[NumBits+2]         Y anchor point change
+ AnchorDeltaY SB[NumBits+2] Y anchor point change
 
 ENDSHAPERECORD defines the end of the shape record array. STYLECHANGERECORD defines changes in line
 style, fill style, position, or a new set of styles. STRAIGHTEDGERECORD and CURVEDEDGERECORD define a
@@ -9546,7 +9546,7 @@ not an edge record. Now we must look at the next five bits which are all flags t
 of the five bits are 0, then that is a type0 shape record and defines the end of the array of shape records.
 
 229
-25    C9 92     0D 21
+25 C9 92 0D 21
 
 0010 0101 1100 1001 1001 0010 0000 1101 0010 0001
 
@@ -9672,7 +9672,7 @@ Field Type Comment
 Header RECORDHEADER Tag type = 26.
 
 PlaceFlagHasClipActions UB[1] SWF 5 or later: has clip actions (sprite characters
-                                                               only). Otherwise: always 0.
+ only). Otherwise: always 0.
 
 PlaceFlagHasClipDepth UB[1] Has clip depth.
 
@@ -9689,28 +9689,28 @@ PlaceFlagHasCharacter UB[1] Places a character.
 PlaceFlagMove UB[1] Defines a character to be moved.
 
 232
-Depth                            UI16                              Depth of character.
+Depth UI16 Depth of character.
 
 CharacterId If PlaceFlagHasCharacter ID of character to place.
-                                 UI16
+ UI16
 
 Matrix If PlaceFlagHasMatrix Transform matrix data.
-                                 MATRIX
+ MATRIX
 
 ColorTransform If Color transform data.
-                                 PlaceFlagHasColorTransform
-                                 CXFORMWITHALPHA
+ PlaceFlagHasColorTransform
+ CXFORMWITHALPHA
 
 Ratio If PlaceFlagHasRatio UI16
 
 Name If PlaceFlagHasName
-                                 STRING Name of character.
+ STRING Name of character.
 
 ClipDepth If PlaceFlagHasClipDepth Clip depth (see Clipping layers).
-                                 UI16
+ UI16
 
 ClipActions If PlaceFlagHasClipActions SWF 5 or later: Clip Actions Data.
-                                 CLIPACTIONS
+ CLIPACTIONS
 
 The first eight bits of the body are all flags indicating what is to follow. A 1 in the sixth bit indicates that the body
 has a transform matrix, and the 1 in the seventh bit indicates that the object to be placed has a character ID.
@@ -9736,7 +9736,7 @@ Field Type Comment
 HasScale UB[1] Has scale values if equal to 1.
 
 233
-NScaleBits             If HasScale = 1, UB[5]               Bits in each scale value field.
+NScaleBits If HasScale = 1, UB[5] Bits in each scale value field.
 
 ScaleX If HasScale = 1, FB[NScaleBits] x scale value.
 
@@ -9747,10 +9747,10 @@ HasRotate UB[1] Has rotate and skew values if equal to 1.
 NRotateBits If HasRotate = 1, UB[5] Bits in each rotate value field.
 
 RotateSkew0 If HasRotate = 1, First rotate and skew value.
-                       FB[NRotateBits]
+ FB[NRotateBits]
 
 RotateSkew1 If HasRotate = 1, Second rotate and skew value.
-                       FB[NRotateBits]
+ FB[NRotateBits]
 
 NTranslateBits UB[5] Bits in each translate value field.
 
@@ -9828,7 +9828,7 @@ value Tag name
 22 DefineShape2
 
 235
-23    DefineButtonCxform
+23 DefineButtonCxform
 
 24 Protect
 
@@ -9879,7 +9879,7 @@ value Tag name
 66 SetTabIndex
 
 236
-69    FileAttributes
+69 FileAttributes
 
 70 PlaceObject3
 
@@ -9926,154 +9926,154 @@ palette, the code will fall back on the following 128-entry RGB palette.
 Each of these 32-bit numbers is formatted as 0x00rrggbb.
 
  unsigned int default_screen_video_v2_palette[128] = {
-   0x00000000,
-   0x00333333,
-   0x00666666,
-   0x00999999,
-   0x00CCCCCC,
-   0x00FFFFFF,
-   0x00330000,
-   0x00660000,
-   0x00990000,
-   0x00CC0000,
+ 0x00000000,
+ 0x00333333,
+ 0x00666666,
+ 0x00999999,
+ 0x00CCCCCC,
+ 0x00FFFFFF,
+ 0x00330000,
+ 0x00660000,
+ 0x00990000,
+ 0x00CC0000,
 
-      0x00FF0000,
-      0x00003300,
-      0x00006600,
-      0x00009900,
-      0x0000CC00,
-      0x0000FF00,
-      0x00000033,
-      0x00000066,
-      0x00000099,
-      0x000000CC,
+ 0x00FF0000,
+ 0x00003300,
+ 0x00006600,
+ 0x00009900,
+ 0x0000CC00,
+ 0x0000FF00,
+ 0x00000033,
+ 0x00000066,
+ 0x00000099,
+ 0x000000CC,
 
-      0x000000FF,
-      0x00333300,
-      0x00666600,
-      0x00999900,
-      0x00CCCC00,
-      0x00FFFF00,
-      0x00003333,
-      0x00006666,
+ 0x000000FF,
+ 0x00333300,
+ 0x00666600,
+ 0x00999900,
+ 0x00CCCC00,
+ 0x00FFFF00,
+ 0x00003333,
+ 0x00006666,
 
-      0x00009999,
-      0x0000CCCC,
+ 0x00009999,
+ 0x0000CCCC,
 
-      0x0000FFFF,
-      0x00330033,
-      0x00660066,
-      0x00990099,
-      0x00CC00CC,
+ 0x0000FFFF,
+ 0x00330033,
+ 0x00660066,
+ 0x00990099,
+ 0x00CC00CC,
 
 238
-      0x00FF00FF,
-      0x00FFFF33,
-      0x00FFFF66,
-      0x00FFFF99,
-      0x00FFFFCC,
+ 0x00FF00FF,
+ 0x00FFFF33,
+ 0x00FFFF66,
+ 0x00FFFF99,
+ 0x00FFFFCC,
 
-      0x00FF33FF,
-      0x00FF66FF,
-      0x00FF99FF,
-      0x00FFCCFF,
-      0x0033FFFF,
-      0x0066FFFF,
-      0x0099FFFF,
-      0x00CCFFFF,
-      0x00CCCC33,
-      0x00CCCC66,
+ 0x00FF33FF,
+ 0x00FF66FF,
+ 0x00FF99FF,
+ 0x00FFCCFF,
+ 0x0033FFFF,
+ 0x0066FFFF,
+ 0x0099FFFF,
+ 0x00CCFFFF,
+ 0x00CCCC33,
+ 0x00CCCC66,
 
-      0x00CCCC99,
-      0x00CCCCFF,
-      0x00CC33CC,
-      0x00CC66CC,
-      0x00CC99CC,
-      0x00CCFFCC,
-      0x0033CCCC,
-      0x0066CCCC,
-      0x0099CCCC,
-      0x00FFCCCC,
+ 0x00CCCC99,
+ 0x00CCCCFF,
+ 0x00CC33CC,
+ 0x00CC66CC,
+ 0x00CC99CC,
+ 0x00CCFFCC,
+ 0x0033CCCC,
+ 0x0066CCCC,
+ 0x0099CCCC,
+ 0x00FFCCCC,
 
-      0x00999933,
-      0x00999966,
-      0x009999CC,
-      0x009999FF,
-      0x00993399,
-      0x00996699,
-      0x0099CC99,
-      0x0099FF99,
-      0x00339999,
-      0x00669999,
+ 0x00999933,
+ 0x00999966,
+ 0x009999CC,
+ 0x009999FF,
+ 0x00993399,
+ 0x00996699,
+ 0x0099CC99,
+ 0x0099FF99,
+ 0x00339999,
+ 0x00669999,
 
-      0x00CC9999,
-      0x00FF9999,
-      0x00666633,
+ 0x00CC9999,
+ 0x00FF9999,
+ 0x00666633,
 
-      0x00666699,
-      0x006666CC,
-      0x006666FF,
-      0x00663366,
-      0x00669966,
-      0x0066CC66,
-      0x0066FF66,
+ 0x00666699,
+ 0x006666CC,
+ 0x006666FF,
+ 0x00663366,
+ 0x00669966,
+ 0x0066CC66,
+ 0x0066FF66,
 
 239
-      0x00336666,
-      0x00996666,
-      0x00CC6666,
-      0x00FF6666,
-      0x00333366,
-      0x00333399,
-      0x003333CC,
-      0x003333FF,
-      0x00336633,
-      0x00339933,
+ 0x00336666,
+ 0x00996666,
+ 0x00CC6666,
+ 0x00FF6666,
+ 0x00333366,
+ 0x00333399,
+ 0x003333CC,
+ 0x003333FF,
+ 0x00336633,
+ 0x00339933,
 
-      0x0033CC33,
-      0x0033FF33,
-      0x00663333,
-      0x00993333,
-      0x00CC3333,
-      0x00FF3333,
-      0x00003366,
-      0x00336600,
-      0x00660033,
-      0x00006633,
+ 0x0033CC33,
+ 0x0033FF33,
+ 0x00663333,
+ 0x00993333,
+ 0x00CC3333,
+ 0x00FF3333,
+ 0x00003366,
+ 0x00336600,
+ 0x00660033,
+ 0x00006633,
 
-      0x00330066,
-      0x00663300,
-      0x00336699,
-      0x00669933,
-      0x00993366,
-      0x00339966,
-      0x00663399,
-      0x00996633,
-      0x006699CC,
-      0x0099CC66,
+ 0x00330066,
+ 0x00663300,
+ 0x00336699,
+ 0x00669933,
+ 0x00993366,
+ 0x00339966,
+ 0x00663399,
+ 0x00996633,
+ 0x006699CC,
+ 0x0099CC66,
 
-      0x00CC6699,
-      0x0066CC99,
-      0x009966CC,
-      0x00CC9966,
-      0x0099CCFF,
-      0x00CCFF99,
-      0x00FF99CC,
-      0x0099FFCC,
-      0x00CC99FF,
+ 0x00CC6699,
+ 0x0066CC99,
+ 0x009966CC,
+ 0x00CC9966,
+ 0x0099CCFF,
+ 0x00CCFF99,
+ 0x00FF99CC,
+ 0x0099FFCC,
+ 0x00CC99FF,
 
-      0x00FFCC99,
+ 0x00FFCC99,
 
-      0x00111111,
-      0x00222222,
-      0x00444444,
-      0x00555555,
+ 0x00111111,
+ 0x00222222,
+ 0x00444444,
+ 0x00555555,
 
 240
-   0x00AAAAAA,
-   0x00BBBBBB,
-   0x00DDDDDD,
-   0x00EEEEEE
+ 0x00AAAAAA,
+ 0x00BBBBBB,
+ 0x00DDDDDD,
+ 0x00EEEEEE
  };
 
 241

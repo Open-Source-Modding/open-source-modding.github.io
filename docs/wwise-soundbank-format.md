@@ -446,7 +446,7 @@ Used across multiple sections for fade/automation curves:
 ## Tools
 
 - [bnkextr](https://github.com/eXpl0it3r/bnkextr) — extract `.wem` from `.bnk` (C++)
-- [ww2ogg](http://hcs64.com/vgm_ripping.html) — convert `.wem` to `.ogg`
+- [ww2ogg](http://hcs64.com/vgm_ripping.html) — convert `.wem` to `.ogg`. Requires `packed_codebooks_aoTuV_603.bin` in the same directory (Vorbis codebook data for Wwise's custom encoding)
 - [bnk.ksy](https://github.com/WolvenKit/wwise-audio-tools/blob/master/ksy/bnk.ksy) — Kaitai Struct spec
 - [rewwise](https://github.com/vswarte/rewwise) — Rust parser (deku-based)
 - [pycozmo audiokinetic.soundbank](https://pycozmo.readthedocs.io/) — Python reader

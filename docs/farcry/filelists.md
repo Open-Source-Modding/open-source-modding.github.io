@@ -171,3 +171,19 @@ archive-path hash of the asset it references. The internal strings use the
 "mainroot\..." runtime namespace and must NOT be treated as archive paths
 (wrong prefix/extension reconstruction -> hash never matches the fat). Verified
 against the community Joseph Seed CRC64 bot (matches the Gibbed table exactly).
+
+## Hash algorithm status
+
+The FC6 managers.xml uses 32-bit hashes for entity/class names (e.g. B88F49FD for
+"MissionLayer"). These are NOT standard CRC32 — they don't match binascii.crc32()
+of the class name strings.
+
+The FC4 PDB (MSF 7.00, page size 21316) contains symbols:
+- `CreateCRC` / `CreateCRCNoCase` — CRC32 for file paths
+- `CreateCRC64` / `CreateCRC64NoCase` — CRC64 for file paths
+- `setAttrCRC` — sets CRC on binary object attributes
+- `StringID`, `PathID`, `SerializationID` — binary object identifiers
+
+The hash algorithm for managers.xml entity IDs is likely a custom variant
+stored in the engine binary, not directly extractable from the PDB. Resolution
+requires runtime capture or a custom PDB parser for MSF 7.00 (page size 21316).

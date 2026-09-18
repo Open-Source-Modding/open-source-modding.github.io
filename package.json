@@ -1,7 +1,7 @@
 {
   "name": "open-source-modding.github.io",
-  "version": "1.0.0",
-  "description": "Reverse engineering and modding research for game engines — Docusaurus site",
+  "version": "1.0.1",
+  "description": "Reverse engineering and modding research for game engines - Docusaurus site",
   "private": true,
   "scripts": {
     "prebuild": "node scripts/check-links.mjs",

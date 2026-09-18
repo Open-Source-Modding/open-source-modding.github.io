@@ -62,19 +62,28 @@ sm_count=1: {vb_idx=0 lod_grp=0 sub_idx=0 idx_off=0 vert_mark=5734 ...}
 
 ### FC6 (`new_fc6_model.xbg`)
 ```
-unk_0=0x24835 unk_1=0 lod_count=1
-[extra=0] lod_dist=50.0 vb_count=1
- vb[0]: (FC5 field order) flags=0 vertsize=0xb340(45888) buffsize=0x1c020(114720) offset=0x1c020(114720)
- more descriptor words: 0,0,0,0x2b(43),0x1c020(114720),0x04050607,0x5c010203
+SDOL sub-header (12 bytes):
+  dword lod_count
+  dword unk_1 (=0)
+  dword unk_2 (=0)
+
+LOD data (per LOD, starts at payload+8):
+  float lod_dist
+  dword vbc (VB count)
+  dword unk_3 (=0)
+
+VB descriptor (16 bytes each, starts at payload+16):
+  dword flags      (0x0000 = infer from stride)
+  dword vertsize   (total vertex bytes = stride × vcount)
+  dword buffsize   (total buffer bytes ≈ 3× vertsize)
+  dword offset     (byte offset from SDOL payload start to vertex data)
 ```
-→ FC6 SDOL descriptor **RESOLVED**: the "extra" fields decode onto the XeNTaX SDOL
-20-byte struct (John76, t=24572): `dword lod | dword unk1(null) | float somefloat |
-dword unk2 | dword unk3(null) | dword vertsize | dword buffsize(=vertsize+normals+uv)
-| dword buffsize1`. Observed: **45888 = vertsize** (position bytes → 45888/6 = **7648
-verts**, packed i16 XZY); **114720 = buffsize = vertsize + 68832 (normals+uv)**;
-**114720 − 16 = 114736 = r1 region size**; **43 (0x2b) = unk2**; second **114720 =
-buffsize1**. FC1's `MESH_CHUNK_DESC` stores the same geometry as **counts**
-(`nVerts/nTVerts/nFaces`); FC6 stores **byte-sizes** (`vertsize/buffsize`).
+→ FC6 SDOL **RESOLVED** (verified against 20+ files, commit 21aab1f):
+Sub-header is 12 bytes (not 8). VB descriptor uses **byte-sizes** (vertsize/buffsize),
+NOT counts (stride/vcount) as in FC5. Stride is inferred by dividing vertsize by
+common divisors (6–40). FC6 flag=0x0000 means "no explicit format" — vertex layout
+is 3×i16 (stride=6) or 4×i16 (stride=8) by default. Vertex data is quantized i16
+(`value / 16383.5`), same as FC5.
 
 ## Confirmed FC5-vs-FC6 structural divergence
 

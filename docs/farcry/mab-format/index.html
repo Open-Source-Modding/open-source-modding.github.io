@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">MAB Animation Format | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/farcry/mab-format"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="MAB Animation Format | Open Source Modding"><meta data-rh="true" name="description" content="The .mab animation format used by the Dunia engine (Far Cry 2 through Far Cry 5 / New Dawn). All data is little-endian."><meta data-rh="true" property="og:description" content="The .mab animation format used by the Dunia engine (Far Cry 2 through Far Cry 5 / New Dawn). All data is little-endian."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/farcry/mab-format"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/farcry/mab-format" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/farcry/mab-format" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MAB Animation Format","item":"https://open-source-modding.github.io/docs/farcry/mab-format"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.4d86b42f.js" defer="defer"></script>
-<script src="/assets/js/main.9e6773c9.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.64fa6bdb.js" defer="defer"></script>
+<script src="/assets/js/main.172d3fd7.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -201,9 +201,9 @@
 <p>Starts at offset <code>0x10</code> (right after the 16-byte header). Always 224 bytes (220 + 4 bytes zero padding).</p>
 <p>All offsets are relative to this section. Add 16 bytes for absolute file offsets.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="animation-length">Animation length<a href="#animation-length" class="hash-link" aria-label="Direct link to Animation length" title="Direct link to Animation length" translate="no">​</a></h3>
-<p>At offset <code>0xB4</code> (relative), 4 bytes: a float — animation duration in seconds (<code>ANIMLENGTH</code>).</p>
+<p>At offset <code>0xB4</code> (relative), 4 bytes: a float, animation duration in seconds (<code>ANIMLENGTH</code>).</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="section-offsets">Section offsets<a href="#section-offsets" class="hash-link" aria-label="Direct link to Section offsets" title="Direct link to Section offsets" translate="no">​</a></h3>
-<p>Nine 4-byte integers — one per section. Offsets are <strong>relative to Section 0</strong>.</p>
+<p>Nine 4-byte integers, one per section. Offsets are <strong>relative to Section 0</strong>.</p>
 <ul>
 <li class="">Sections 1 and 2 are swapped (offset 0 → section 2, offset 1 → section 1). All others ascending.</li>
 <li class="">Offset 0 = section does not exist.</li>
@@ -214,11 +214,11 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fc5fc6-post-header-layout">FC5/FC6 post-header layout<a href="#fc5fc6-post-header-layout" class="hash-link" aria-label="Direct link to FC5/FC6 post-header layout" title="Direct link to FC5/FC6 post-header layout" translate="no">​</a></h2>
 <p>After the 100-byte header, FC5/FC6 MABs contain:</p>
 <ol>
-<li class=""><strong>Bone array</strong> — <code>boneCount</code> × uint32 (bone IDs)</li>
-<li class=""><strong>Bone values</strong> — <code>boneCount</code> × byte</li>
-<li class=""><strong>Padding</strong> — align to 4 bytes</li>
-<li class=""><strong>Frame array</strong> — <code>frameCount</code> × uint16 (defines playback order; 0,1,2,3 = non-culled; 0,4,9,16 = culled/skipped)</li>
-<li class=""><strong>Section data</strong> — referenced by offsets in the header</li>
+<li class=""><strong>Bone array</strong>: <code>boneCount</code> × uint32 (bone IDs)</li>
+<li class=""><strong>Bone values</strong>: <code>boneCount</code> × byte</li>
+<li class=""><strong>Padding</strong>: align to 4 bytes</li>
+<li class=""><strong>Frame array</strong>: <code>frameCount</code> × uint16 (defines playback order; 0,1,2,3 = non-culled; 0,4,9,16 = culled/skipped)</li>
+<li class=""><strong>Section data</strong>: referenced by offsets in the header</li>
 </ol>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="section-3--root-rotation-fc3">Section 3 — Root Rotation (FC3)<a href="#section-3--root-rotation-fc3" class="hash-link" aria-label="Direct link to Section 3 — Root Rotation (FC3)" title="Direct link to Section 3 — Root Rotation (FC3)" translate="no">​</a></h2>
 <p>After the first 8 bytes, describes root bone rotation. Values are 4-byte floats in Y, Z, X order. Some animations store multiple rotations; many contain only one set (12 bytes total).</p>
@@ -231,7 +231,7 @@
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">((((int)(magicfloat * ANIMLENGTH)) &gt;&gt; 3) * 4) + 8</span><br></div></code></pre></div></div>
 <p>One more 4-byte value after the last offset stores the section size (excluding padding).</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rotation-data-packed-quaternions">Rotation data (packed quaternions)<a href="#rotation-data-packed-quaternions" class="hash-link" aria-label="Direct link to Rotation data (packed quaternions)" title="Direct link to Rotation data (packed quaternions)" translate="no">​</a></h3>
-<p>FC3 quaternions are <strong>48-bit compressed</strong>: 1 unused bit + 2 bits (largest component) + 15 bits × 3 components. W reconstructed via square root — the <code>0.7071068</code> constant is <code>sin(45°)</code>, spotted by buu342 in FC2&#x27;s lighter-optimized DLL.</p>
+<p>FC3 quaternions are <strong>48-bit compressed</strong>: 1 unused bit + 2 bits (largest component) + 15 bits × 3 components. W reconstructed via square root, and the <code>0.7071068</code> constant is <code>sin(45°)</code>, spotted by buu342 in FC2&#x27;s lighter-optimized DLL.</p>
 <p><strong>Component extraction:</strong></p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">fVar1 = (FirstWord &amp; 0x7FFFF) * 4.315969e-05 - 0.7071068</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">fVar2 = (SecondWord &amp; 0x7FFFF) * 4.315969e-05 - 0.7071068</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">fVar3 = ThirdWord * 4.315969e-05 - 0.7071068</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">fVar4 = sqrt(1.0 - fVar1*fVar1 - fVar2*fVar2 - fVar3*fVar3)</span><br></div></code></pre></div></div>
 <p><strong>Component order</strong> (sign bit of first two packed values):</p>
@@ -323,7 +323,7 @@
 <li class=""><strong>Cheat Engine watchpoints</strong>: set a watchpoint on known animation bytes, trace the stack to FC3.dll + function offset, then open in Ghidra.</li>
 <li class=""><strong>FC2 cross-reference</strong>: FC2 has lighter compiler optimizations → cleaner Ghidra output for the same algorithm. Cross-search distinctive constants (<code>4.315969e-05</code>, <code>0.7071068</code>) in the FC3.dll C export.</li>
 <li class=""><strong>Bone data</strong>: <code>.skeleton</code> only exists for physics models. First-person models need XBG parsing for bone data.</li>
-<li class=""><strong>FCBConverter MAB support</strong>: pass a <code>.mab</code> to FCBConverter — it extracts to XML (<code>_converted.xml</code>). Pass the XML back to repack (<code>_new.mab</code>). FC5/FC6 are auto-detected by version byte.</li>
+<li class=""><strong>FCBConverter MAB support</strong>: pass a <code>.mab</code> to FCBConverter and it extracts to XML (<code>_converted.xml</code>). Pass the XML back to repack (<code>_new.mab</code>). FC5/FC6 are auto-detected by version byte.</li>
 </ol>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-questions">Open questions<a href="#open-questions" class="hash-link" aria-label="Direct link to Open questions" title="Direct link to Open questions" translate="no">​</a></h2>
 <ul>
@@ -331,13 +331,13 @@
 <li class="">Which XBG structures set up the bone-to-offset lookup table</li>
 <li class="">FC4+ frame array exact format</li>
 <li class="">FC6 MAB differences beyond the version byte</li>
-<li class="">Header unknowns at <code>0x04</code>–<code>0x0C</code> and <code>unkArrayA[11]</code></li>
+<li class="">Header unknowns at <code>0x04</code> to <code>0x0C</code> and <code>unkArrayA[11]</code></li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References<a href="#references" class="hash-link" aria-label="Direct link to References" title="Direct link to References" translate="no">​</a></h2>
 <ul>
-<li class=""><a href="https://knockout.chat/thread/55079" target="_blank" rel="noopener noreferrer" class="">Deciphering Far Cry 3&#x27;s animation format</a> — buu342&#x27;s RE thread</li>
-<li class=""><a href="https://github.com/buu342/PY-DuniaAnimationExtractor" target="_blank" rel="noopener noreferrer" class="">PY-DuniaAnimationExtractor</a> — companion code + wiki</li>
-<li class=""><a href="https://github.com/buu342/PY-DuniaAnimationExtractor" target="_blank" rel="noopener noreferrer" class="">MabTools/FCBConverter</a> — ArmanIII&#x27;s converter (GPLv3)</li>
+<li class=""><a href="https://knockout.chat/thread/55079" target="_blank" rel="noopener noreferrer" class="">Deciphering Far Cry 3&#x27;s animation format</a>, buu342&#x27;s RE thread</li>
+<li class=""><a href="https://github.com/buu342/PY-DuniaAnimationExtractor" target="_blank" rel="noopener noreferrer" class="">PY-DuniaAnimationExtractor</a>, companion code + wiki</li>
+<li class=""><a href="https://github.com/buu342/PY-DuniaAnimationExtractor" target="_blank" rel="noopener noreferrer" class="">MabTools/FCBConverter</a>, ArmanIII&#x27;s converter (GPLv3)</li>
 <li class=""><a href="https://reshax.com/topic/47-reverse-engineering-tutorials-collection/" target="_blank" rel="noopener noreferrer" class="">ResHax RE tutorials</a></li>
 <li class=""><a href="https://mr.game-viewer.org/" target="_blank" rel="noopener noreferrer" class="">3D Model Researcher</a></li>
 <li class="">FC4 (Oct 17, 2014 X360 prototype) + Watch Dogs 1 X360 prototypes have debug symbols at <a href="https://hiddenpalace.org/" target="_blank" rel="noopener noreferrer" class="">Hidden Palace</a></li>

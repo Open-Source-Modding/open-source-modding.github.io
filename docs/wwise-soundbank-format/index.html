@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Wwise SoundBank Format | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/wwise-soundbank-format"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Wwise SoundBank Format | Open Source Modding"><meta data-rh="true" name="description" content="General format specification for .bnk SoundBank files used by Audiokinetic Wwise. Little-endian. Signature: BKHD."><meta data-rh="true" property="og:description" content="General format specification for .bnk SoundBank files used by Audiokinetic Wwise. Little-endian. Signature: BKHD."><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/wwise-soundbank-format"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/wwise-soundbank-format" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/wwise-soundbank-format" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Wwise SoundBank Format","item":"https://open-source-modding.github.io/docs/wwise-soundbank-format"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.c301faf3.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.4d86b42f.js" defer="defer"></script>
 <script src="/assets/js/main.9e6773c9.js" defer="defer"></script>
 </head>
 <body>
@@ -250,6 +250,77 @@
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">53 54 49 44 — STID</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32: length</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32: always 01 00 00 00</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">uint32: number of SoundBanks</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">FOR EACH (SoundBank):</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    uint32: SoundBank ID</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    byte: name length</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    char[]: name (e.g. &quot;music&quot; → &quot;music.bnk&quot;)</span><br></div></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="stmg--state-management">STMG — State Management<a href="#stmg--state-management" class="hash-link" aria-label="Direct link to STMG — State Management" title="Direct link to STMG — State Management" translate="no">​</a></h2>
 <p>Only found in <code>Init.bnk</code>. Contains project settings, Switch Groups, State Groups, and Game Parameters.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="wwise-vorbis-codebooks">Wwise Vorbis codebooks<a href="#wwise-vorbis-codebooks" class="hash-link" aria-label="Direct link to Wwise Vorbis codebooks" title="Direct link to Wwise Vorbis codebooks" translate="no">​</a></h2>
+<p>Wwise uses a custom Vorbis encoder (aoTuV variant) with its own codebook system. The codebook format differs from standard Vorbis:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Standard Vorbis</th><th>Wwise simplified</th></tr></thead><tbody><tr><td>Sync pattern</td><td>24-bit <code>0x564342</code></td><td>Implicit (<code>VCB</code>)</td></tr><tr><td>Dimensions</td><td>16 bits</td><td>4 bits</td></tr><tr><td>Entries</td><td>24 bits</td><td>14 bits</td></tr><tr><td>Codeword lengths</td><td>ordered/sparse flags</td><td>3-bit <code>codeword_length_length</code> (0 = ordered)</td></tr><tr><td>Lookup type</td><td>4 bits</td><td>1 bit</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="codebook-versions-by-wwise-release">Codebook versions by Wwise release<a href="#codebook-versions-by-wwise-release" class="hash-link" aria-label="Direct link to Codebook versions by Wwise release" title="Direct link to Codebook versions by Wwise release" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Wwise version</th><th>Codebook type</th><th>Notes</th></tr></thead><tbody><tr><td>v34–v36</td><td>Full standard Vorbis headers</td><td>Triad format (id/comment/setup)</td></tr><tr><td>v38–v44</td><td>Inline codebooks</td><td>Standard or trimmed format</td></tr><tr><td>v48–v56</td><td>External codebooks</td><td>Referenced by 10-bit ID, rebuilt from simplified format</td></tr><tr><td>v62+</td><td>aoTuV 603 external</td><td>Uses <code>packed_codebooks_aoTuV_603.bin</code></td></tr></tbody></table>
+<p>The aoTuV 603 codebooks (Wwise 2011.2+) were introduced for games like <em>Star Wars: The Old Republic</em>. The file contains ~300 packed codebooks with an index table at the end. <code>ww2ogg</code> loads it via <code>--pcb packed_codebooks_aoTuV_603.bin</code>. vgmstream has these precompiled as C arrays in <code>vorbis_codebooks_wwise.h</code> and does not need the external file.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="curve-shapes">Curve shapes<a href="#curve-shapes" class="hash-link" aria-label="Direct link to Curve shapes" title="Direct link to Curve shapes" translate="no">​</a></h2>
 <p>Used across multiple sections for fade/automation curves:</p>
 
@@ -309,6 +380,6 @@
 <li class=""><a href="https://github.com/WolvenKit/wwise-audio-tools/blob/master/ksy/bnk.ksy" target="_blank" rel="noopener noreferrer" class="">bnk.ksy</a> — Kaitai Struct spec</li>
 <li class=""><a href="https://github.com/vswarte/rewwise" target="_blank" rel="noopener noreferrer" class="">rewwise</a> — Rust parser (deku-based)</li>
 <li class=""><a href="https://pycozmo.readthedocs.io/" target="_blank" rel="noopener noreferrer" class="">pycozmo audiokinetic.soundbank</a> — Python reader</li>
-</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/witcher3/xentax-witcher3-knowledge"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">The Witcher 3: Wild Hunt — XeNTaX Forum Knowledge</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/zelda/xentax-zelda-knowledge"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Zelda (Wii U / Switch) — XeNTaX Forum Knowledge Extraction</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#general-structure" class="table-of-contents__link toc-highlight">General structure</a></li><li><a href="#bkhd--bank-header" class="table-of-contents__link toc-highlight">BKHD — Bank Header</a></li><li><a href="#didx--data-index" class="table-of-contents__link toc-highlight">DIDX — Data Index</a></li><li><a href="#data" class="table-of-contents__link toc-highlight">DATA</a></li><li><a href="#envs--environments" class="table-of-contents__link toc-highlight">ENVS — Environments</a></li><li><a href="#fxpr--effects-production" class="table-of-contents__link toc-highlight">FXPR — Effects Production</a></li><li><a href="#hirc--hierarchy" class="table-of-contents__link toc-highlight">HIRC — Hierarchy</a><ul><li><a href="#type-1--settings" class="table-of-contents__link toc-highlight">Type #1 — Settings</a></li><li><a href="#type-2--sound-sfx--sound-voice" class="table-of-contents__link toc-highlight">Type #2 — Sound SFX / Sound Voice</a></li><li><a href="#type-3--event-action" class="table-of-contents__link toc-highlight">Type #3 — Event Action</a></li><li><a href="#type-4--event" class="table-of-contents__link toc-highlight">Type #4 — Event</a></li><li><a href="#types-57--containers-and-actor-mixer" class="table-of-contents__link toc-highlight">Types #5–#7 — Containers and Actor-Mixer</a></li><li><a href="#type-8--audio-bus" class="table-of-contents__link toc-highlight">Type #8 — Audio Bus</a></li><li><a href="#type-9--blend-container" class="table-of-contents__link toc-highlight">Type #9 — Blend Container</a></li><li><a href="#type-10--music-segment" class="table-of-contents__link toc-highlight">Type #10 — Music Segment</a></li><li><a href="#type-11--music-track" class="table-of-contents__link toc-highlight">Type #11 — Music Track</a></li><li><a href="#type-12--music-switch-container" class="table-of-contents__link toc-highlight">Type #12 — Music Switch Container</a></li><li><a href="#type-13--music-playlist-container" class="table-of-contents__link toc-highlight">Type #13 — Music Playlist Container</a></li><li><a href="#type-14--attenuation" class="table-of-contents__link toc-highlight">Type #14 — Attenuation</a></li><li><a href="#type-15--dialogue-event" class="table-of-contents__link toc-highlight">Type #15 — Dialogue Event</a></li><li><a href="#type-16--motion-bus" class="table-of-contents__link toc-highlight">Type #16 — Motion Bus</a></li><li><a href="#type-17--motion-fx" class="table-of-contents__link toc-highlight">Type #17 — Motion FX</a></li><li><a href="#type-18--effect" class="table-of-contents__link toc-highlight">Type #18 — Effect</a></li><li><a href="#type-20--auxiliary-bus" class="table-of-contents__link toc-highlight">Type #20 — Auxiliary Bus</a></li></ul></li><li><a href="#sound-structure" class="table-of-contents__link toc-highlight">Sound structure</a></li><li><a href="#stid--sound-type-id" class="table-of-contents__link toc-highlight">STID — Sound Type ID</a></li><li><a href="#stmg--state-management" class="table-of-contents__link toc-highlight">STMG — State Management</a></li><li><a href="#curve-shapes" class="table-of-contents__link toc-highlight">Curve shapes</a></li><li><a href="#tools" class="table-of-contents__link toc-highlight">Tools</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/witcher3/xentax-witcher3-knowledge"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">The Witcher 3: Wild Hunt — XeNTaX Forum Knowledge</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/zelda/xentax-zelda-knowledge"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Zelda (Wii U / Switch) — XeNTaX Forum Knowledge Extraction</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#general-structure" class="table-of-contents__link toc-highlight">General structure</a></li><li><a href="#bkhd--bank-header" class="table-of-contents__link toc-highlight">BKHD — Bank Header</a></li><li><a href="#didx--data-index" class="table-of-contents__link toc-highlight">DIDX — Data Index</a></li><li><a href="#data" class="table-of-contents__link toc-highlight">DATA</a></li><li><a href="#envs--environments" class="table-of-contents__link toc-highlight">ENVS — Environments</a></li><li><a href="#fxpr--effects-production" class="table-of-contents__link toc-highlight">FXPR — Effects Production</a></li><li><a href="#hirc--hierarchy" class="table-of-contents__link toc-highlight">HIRC — Hierarchy</a><ul><li><a href="#type-1--settings" class="table-of-contents__link toc-highlight">Type #1 — Settings</a></li><li><a href="#type-2--sound-sfx--sound-voice" class="table-of-contents__link toc-highlight">Type #2 — Sound SFX / Sound Voice</a></li><li><a href="#type-3--event-action" class="table-of-contents__link toc-highlight">Type #3 — Event Action</a></li><li><a href="#type-4--event" class="table-of-contents__link toc-highlight">Type #4 — Event</a></li><li><a href="#types-57--containers-and-actor-mixer" class="table-of-contents__link toc-highlight">Types #5–#7 — Containers and Actor-Mixer</a></li><li><a href="#type-8--audio-bus" class="table-of-contents__link toc-highlight">Type #8 — Audio Bus</a></li><li><a href="#type-9--blend-container" class="table-of-contents__link toc-highlight">Type #9 — Blend Container</a></li><li><a href="#type-10--music-segment" class="table-of-contents__link toc-highlight">Type #10 — Music Segment</a></li><li><a href="#type-11--music-track" class="table-of-contents__link toc-highlight">Type #11 — Music Track</a></li><li><a href="#type-12--music-switch-container" class="table-of-contents__link toc-highlight">Type #12 — Music Switch Container</a></li><li><a href="#type-13--music-playlist-container" class="table-of-contents__link toc-highlight">Type #13 — Music Playlist Container</a></li><li><a href="#type-14--attenuation" class="table-of-contents__link toc-highlight">Type #14 — Attenuation</a></li><li><a href="#type-15--dialogue-event" class="table-of-contents__link toc-highlight">Type #15 — Dialogue Event</a></li><li><a href="#type-16--motion-bus" class="table-of-contents__link toc-highlight">Type #16 — Motion Bus</a></li><li><a href="#type-17--motion-fx" class="table-of-contents__link toc-highlight">Type #17 — Motion FX</a></li><li><a href="#type-18--effect" class="table-of-contents__link toc-highlight">Type #18 — Effect</a></li><li><a href="#type-20--auxiliary-bus" class="table-of-contents__link toc-highlight">Type #20 — Auxiliary Bus</a></li></ul></li><li><a href="#sound-structure" class="table-of-contents__link toc-highlight">Sound structure</a></li><li><a href="#stid--sound-type-id" class="table-of-contents__link toc-highlight">STID — Sound Type ID</a></li><li><a href="#stmg--state-management" class="table-of-contents__link toc-highlight">STMG — State Management</a></li><li><a href="#wwise-vorbis-codebooks" class="table-of-contents__link toc-highlight">Wwise Vorbis codebooks</a><ul><li><a href="#codebook-versions-by-wwise-release" class="table-of-contents__link toc-highlight">Codebook versions by Wwise release</a></li></ul></li><li><a href="#curve-shapes" class="table-of-contents__link toc-highlight">Curve shapes</a></li><li><a href="#tools" class="table-of-contents__link toc-highlight">Tools</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
 </body>
 </html>

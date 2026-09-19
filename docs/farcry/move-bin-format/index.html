@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">FC4/FC5/FC6 .move.bin format | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/farcry/move-bin-format"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="FC4/FC5/FC6 .move.bin format | Open Source Modding"><meta data-rh="true" name="description" content="Compiled animation state machines that define how animations blend, transition,"><meta data-rh="true" property="og:description" content="Compiled animation state machines that define how animations blend, transition,"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/farcry/move-bin-format"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/farcry/move-bin-format" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/farcry/move-bin-format" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FC4/FC5/FC6 .move.bin format","item":"https://open-source-modding.github.io/docs/farcry/move-bin-format"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.9d9798fd.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d7565051.js" defer="defer"></script>
 <script src="/assets/js/main.172d3fd7.js" defer="defer"></script>
 </head>
 <body>
@@ -24,6 +24,170 @@ files), sizes, and rootNodeIds. File paths decode to readable animation paths li
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">u16 version          (22093=FC4 &quot;MV&quot;)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u16 unknown</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">byte[] header        (complex metadata, tree data starts at ~0x523)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">byte[] treeData      (classNameType dispatch system)</span><br></div></code></pre></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="classnametype-dispatch-both-formats">classNameType dispatch (both formats)<a href="#classnametype-dispatch-both-formats" class="hash-link" aria-label="Direct link to classNameType dispatch (both formats)" title="Direct link to classNameType dispatch (both formats)" translate="no">​</a></h3>
 <p>Each node starts with a classNameType byte (7-47) that determines the binary layout:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type</th><th>Class</th><th>Description</th></tr></thead><tbody><tr><td>7</td><td>CMoveState</td><td>Animation state</td></tr><tr><td>8</td><td>CMoveBranch</td><td>Decision branch</td></tr><tr><td>9</td><td>CMoveBracket</td><td>Bracket node</td></tr><tr><td>10</td><td>CMoveComparisonOpe</td><td>Comparison operator</td></tr><tr><td>11</td><td>CMoveIntervalOpe</td><td>Interval operator</td></tr><tr><td>12</td><td>CMoveBlendRef</td><td>Blend reference</td></tr><tr><td>13</td><td>CMoveMultiBlendRef</td><td>Multi-blend reference</td></tr><tr><td>14</td><td>CMoveSuspendLayer</td><td>Suspend layer</td></tr><tr><td>15</td><td>CMoveStateRef</td><td>State reference</td></tr><tr><td>16</td><td>CMoveSingleAnim</td><td>Single animation</td></tr><tr><td>17</td><td>CMoveSpeedScaledAnim</td><td>Speed-scaled animation</td></tr><tr><td>18</td><td>CMoveRandomOffsetAnim</td><td>Random offset animation</td></tr><tr><td>19</td><td>CMoveTimeControlledAnim</td><td>Time-controlled animation</td></tr><tr><td>20</td><td>CMoveDoNothing</td><td>Do nothing</td></tr><tr><td>21</td><td>CMoveMotionMatching</td><td>Motion matching</td></tr><tr><td>22</td><td>CMoveMotionMatchingList</td><td>Motion matching list (ND/FC6)</td></tr><tr><td>23</td><td>CMoveMotionMatchingAnim</td><td>Motion matching anim (ND/FC6)</td></tr><tr><td>26</td><td>CMoveFacialAnim</td><td>Facial animation</td></tr><tr><td>27</td><td>CMoveProcedural</td><td>Procedural animation</td></tr><tr><td>28</td><td>CMoveRandomSelector</td><td>Random selector</td></tr><tr><td>29</td><td>CMovePMSSelector</td><td>PMS selector</td></tr><tr><td>30</td><td>CMoveSequence</td><td>Sequence</td></tr><tr><td>31</td><td>CMoveRangeBlend</td><td>Range blend</td></tr><tr><td>32</td><td>CMoveAxialBlend</td><td>Axial blend</td></tr><tr><td>34</td><td>CMoveMultiBlend</td><td>Multi-blend</td></tr><tr><td>37</td><td>CMoveSetGameParams</td><td>Set game parameters</td></tr><tr><td>38</td><td>CMoveAnimTechSetPMS</td><td>Anim tech set PMS</td></tr><tr><td>43</td><td>CMoveTransition</td><td>Transition</td></tr><tr><td>44</td><td>CMoveTransitionContainer</td><td>Transition container</td></tr></tbody></table>
+<p>Source: MabTools/CombinedMoveFile.cs, WDL leak XML files</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="node-binary-layout">Node binary layout<a href="#node-binary-layout" class="hash-link" aria-label="Direct link to Node binary layout" title="Direct link to Node binary layout" translate="no">​</a></h3>
+<p>Each node follows: classNameType(1) + header(3: childrenCount, headerA, headerB)</p>
+<ul>
+<li class="">type-specific data + child offsets(u16 × childrenCount) + padding</li>
+</ul>
+<p><strong>Child offsets are direct file byte positions</strong> (NOT ×4 as MabTools code suggests).
+Verified against WDL leak XML hierarchy — children reference positions within the file.</p>
 
 
 
@@ -180,6 +344,6 @@ files), sizes, and rootNodeIds. File paths decode to readable animation paths li
 <li class="">MoveBin Research directory (FC4 movedef, FC5 combinedmovefile samples)</li>
 <li class="">MabTools-main/FCBConverter/CombinedMoveFile.cs (animation parameter system)</li>
 <li class="">Discord Far Cry modding community (legendhavoc175, BIRDdude12, sharp_razor8)</li>
-</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/farcry/modding/Types of package archive"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Types of package archive</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/farcry/runtime-capture"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Runtime capture for name recovery &amp; disassembly (FC6)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#format--resolved-sep-2026" class="table-of-contents__link toc-highlight">Format — RESOLVED (Sep 2026)</a><ul><li><a href="#combinedmovefilebin-fc5ndfc6" class="table-of-contents__link toc-highlight">combinedmovefile.bin (FC5/ND/FC6)</a></li><li><a href="#movedefmovebin-fc4" class="table-of-contents__link toc-highlight">movedef.move.bin (FC4)</a></li><li><a href="#classnametype-dispatch-both-formats" class="table-of-contents__link toc-highlight">classNameType dispatch (both formats)</a></li></ul></li><li><a href="#movevaluedefinitions" class="table-of-contents__link toc-highlight">MoveValueDefinitions</a></li><li><a href="#fc4-vs-fc5-differences" class="table-of-contents__link toc-highlight">FC4 vs FC5 differences</a></li><li><a href="#tools" class="table-of-contents__link toc-highlight">Tools</a></li><li><a href="#source" class="table-of-contents__link toc-highlight">Source</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/farcry/modding/Types of package archive"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Types of package archive</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/farcry/runtime-capture"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Runtime capture for name recovery &amp; disassembly (FC6)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#format--resolved-sep-2026" class="table-of-contents__link toc-highlight">Format — RESOLVED (Sep 2026)</a><ul><li><a href="#combinedmovefilebin-fc5ndfc6" class="table-of-contents__link toc-highlight">combinedmovefile.bin (FC5/ND/FC6)</a></li><li><a href="#movedefmovebin-fc4" class="table-of-contents__link toc-highlight">movedef.move.bin (FC4)</a></li><li><a href="#classnametype-dispatch-both-formats" class="table-of-contents__link toc-highlight">classNameType dispatch (both formats)</a></li><li><a href="#node-binary-layout" class="table-of-contents__link toc-highlight">Node binary layout</a></li></ul></li><li><a href="#movevaluedefinitions" class="table-of-contents__link toc-highlight">MoveValueDefinitions</a></li><li><a href="#fc4-vs-fc5-differences" class="table-of-contents__link toc-highlight">FC4 vs FC5 differences</a></li><li><a href="#tools" class="table-of-contents__link toc-highlight">Tools</a></li><li><a href="#source" class="table-of-contents__link toc-highlight">Source</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
 </body>
 </html>

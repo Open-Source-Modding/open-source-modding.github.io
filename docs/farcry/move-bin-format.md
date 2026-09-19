@@ -33,6 +33,48 @@ byte[] treeData      (classNameType dispatch system)
 ### classNameType dispatch (both formats)
 Each node starts with a classNameType byte (7-47) that determines the binary layout:
 
+| Type | Class | Description |
+|------|-------|-------------|
+| 7 | CMoveState | Animation state |
+| 8 | CMoveBranch | Decision branch |
+| 9 | CMoveBracket | Bracket node |
+| 10 | CMoveComparisonOpe | Comparison operator |
+| 11 | CMoveIntervalOpe | Interval operator |
+| 12 | CMoveBlendRef | Blend reference |
+| 13 | CMoveMultiBlendRef | Multi-blend reference |
+| 14 | CMoveSuspendLayer | Suspend layer |
+| 15 | CMoveStateRef | State reference |
+| 16 | CMoveSingleAnim | Single animation |
+| 17 | CMoveSpeedScaledAnim | Speed-scaled animation |
+| 18 | CMoveRandomOffsetAnim | Random offset animation |
+| 19 | CMoveTimeControlledAnim | Time-controlled animation |
+| 20 | CMoveDoNothing | Do nothing |
+| 21 | CMoveMotionMatching | Motion matching |
+| 22 | CMoveMotionMatchingList | Motion matching list (ND/FC6) |
+| 23 | CMoveMotionMatchingAnim | Motion matching anim (ND/FC6) |
+| 26 | CMoveFacialAnim | Facial animation |
+| 27 | CMoveProcedural | Procedural animation |
+| 28 | CMoveRandomSelector | Random selector |
+| 29 | CMovePMSSelector | PMS selector |
+| 30 | CMoveSequence | Sequence |
+| 31 | CMoveRangeBlend | Range blend |
+| 32 | CMoveAxialBlend | Axial blend |
+| 34 | CMoveMultiBlend | Multi-blend |
+| 37 | CMoveSetGameParams | Set game parameters |
+| 38 | CMoveAnimTechSetPMS | Anim tech set PMS |
+| 43 | CMoveTransition | Transition |
+| 44 | CMoveTransitionContainer | Transition container |
+
+Source: MabTools/CombinedMoveFile.cs, WDL leak XML files
+
+### Node binary layout
+
+Each node follows: classNameType(1) + header(3: childrenCount, headerA, headerB)
++ type-specific data + child offsets(u16 × childrenCount) + padding
+
+**Child offsets are direct file byte positions** (NOT ×4 as MabTools code suggests).
+Verified against WDL leak XML hierarchy — children reference positions within the file.
+
 | File | Game | Size | CRC64 | Description |
 |------|------|------|-------|-------------|
 | `movedef.move.bin` | FC4 | 11MB | `0x49137233ebb533d4` | Core move definitions |

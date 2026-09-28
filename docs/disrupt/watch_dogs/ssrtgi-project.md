@@ -128,3 +128,31 @@ Additively blends the indirect-light SRV into the HDR **scene-color buffer**
 - Screen-gather SSRTGI **works**. Light capture broken (job-callback ABI → pivot
  to `FUN_181306e60`). Camera hook installed but didn't fire (verify in gameplay,
  correct rotation convention). Feature A composite runtime unconfirmed.
+
+## Software Ray Tracing — No RT Hardware Required
+
+RT cores are a throughput optimization, not a requirement. Ray tracing on CPUs
+has been viable for decades:
+
+- **IBM Cell IRT** (2007): 14 Cell QS20 blades, 300K triangles, 1080p@60fps,
+  ray casting → Phong → shadows → 2-4 levels reflection/refraction → AO.
+  No GPU. Also ran on a single PS3 (6 SPEs).
+  Source: Barry Minor, `alphaworks.ibm.com/tech/irt` (dead),
+  `hdcellrt.sourceforge.io` (cnlohr, AFL license, PS3 SPU assembly).
+- **Stanford "Realtime Ray Tracing"** (2003): CPU software ray tracing on
+  commodity hardware was already interactive. `graphics.stanford.edu/papers/egSTAR03/`
+
+For Disrupt shader modding, the practical approach:
+1. **BVH or grid acceleration structure** over scene mesh — precomputed per-level,
+   cached in VRAM
+2. **Few rays per pixel** (1-4 for soft shadows, 1 bounce for diffuse GI)
+3. **Temporal accumulation** — reuse rays across frames, jitter, denoise
+   (same as modern RTGI solutions)
+
+The Cell demo was doing 2-4 levels of reflection without RT cores. A Disrupt
+shader doing shadow rays or a single-bounce GI pass is computatively simpler.
+
+**Code reference**: `~/Documents/Code/misc/HDCellRT-0.01/` — PS3 SPU ray tracer
+by Charles Lohr (cnlohr, AFL license). 4-wide SIMD sphere intersection, brute-force
+16-sphere scan, Phong shading, 720p@60fps on 6 SPUs. See `AGENTS.md` for full
+architecture breakdown.

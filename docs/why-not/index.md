@@ -4,6 +4,7 @@ Miscellaneous Ubisoft infrastructure, game, and ecosystem references.
 
 > **Cross-reference**: Denuvo anti-tamper internals + hypervisor bypass RE →
 > [`denuvo-analysis.md`](denuvo-analysis.md)
+> **Cross-reference**: fan-project takedowns → [`takedowns/index.md`](takedowns/index.md)
 
 ---
 

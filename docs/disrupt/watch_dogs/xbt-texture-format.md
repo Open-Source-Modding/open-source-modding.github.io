@@ -272,6 +272,71 @@ have the embedded path for the _high to be used.
 
 ---
 
+## Community Header Intel (Discord, 2019–2026)
+
+Facts collected from #wd1_modding / #off_topic threads about what the header *does* —
+complements the byte-level tables above.
+
+- **Composition**: "a dozen bytes of custom header and then DDS etc" (The Silver,
+  2024-03-31). WD is plain DDS with a short additional header in front (wasd, 2019).
+- **sRGB vs linear flag**: "there's one line in the XBT header that defines if the
+  texture is RGB or Non-Color — pretty important for shader stuff" (legendhavocula,
+  2023-10-26). Getting it wrong changes how the texture is sampled/processed in-game
+  even though the pixels are byte-identical.
+- **Image dimensions live in the header** (wasd, 2019 — "so maybe the XBT header data
+  has an influence on how the texture will actually be handled ingame").
+- **Black-square symptom**: a texture edited so its aspect ratio changed renders as a
+  black square in-game while fine in every external viewer — "that's the XBT header
+  being a bitch" (Selene, 2026-09-14). Also: DDS must be power-of-two sized
+  (300×500 → 256×512), or it won't fly.
+- **Version byte is platform/build-specific**: "if you don't change the version byte to
+  the one that matches your platform the game will just reject it" (scuba, 2023-07-23).
+  X360→PC workflow: mass-export 360 textures to PC DDS with Noesis, then flip the XBT
+  headers with a script; normalmaps may need extra work; a corrupted-looking result
+  usually means the header was left unchanged.
+- **Header transplant works**: copying a known-good header onto a different texture's
+  DDS is a valid conversion trick (Dropoff: "i put aiden cloth xbt header on to my dds";
+  DEAD_FOX, 2026-08-17: take p9mm vanilla header → apply to p226 DDS → rename so it
+  converts with the XBT header).
+- **`dds2xbt`'s `dummy.xbt` header differs** from retail headers (Deleted User,
+  2024-05-27) — consistent with the golden rule above: preserve the original header.
+- **Original RE method** was empirical byte-editing: "editing them one by one, compiling
+  and running" (wasd, 2019-05-20).
+- **Redirecting a `_high` reference to inline data**: to make a low-res file use its
+  texture directly instead of chasing the `_high` variant, edit the header so it points
+  at the local data "instead of low to high" (zzOLD.DONOTUSE, 2026-04-19) — i.e. convert
+  a type-0x0A/0x0B header into the self-contained 0x08 form rather than shipping a pair.
+- **"xbt is just dds with extra header"** remains the community one-liner (Centaurus
+  550S, 2026-04-24); "Header is just the first part of the file before [the DDS]"
+  (EpicStreamMan, 2026-06-16).
+- **Pick a same-class base texture** — "header can be important sometimes so you should
+  use similar textures as base" (Centaurus 550S, 2026-09-25): UI textures need a UI
+  base with its `.hdr` file; `_brdf` and normal maps likewise need their own class as
+  base. The header tells the game the texture's class (e.g. BRDF — roughness+metalness).
+
+### hV ModdingKit round-trip workflow (SilverStar, 2025-10-30)
+
+1. Run `hV_WD1ModdingKit.exe` once → creates `Input/` and `Output/` folders.
+2. Put the `.xbt` being modified in `Input/`, run the exe → outputs `.dds` + `.xbt_header`.
+3. `Tools\TextureTools` converts PNG↔DDS: `Texconv` (PNG→DDS), `Crunch - DXT1` (PNG→DDS
+   without alpha), `Crunch - DXT5` (PNG→DDS with alpha), Texconv back for PNG.
+   Paint.NET works for editing but loses quality saving DDS — TextureTools preferred.
+4. Put `.dds` + `.xbt_header` back in `Input/` (names must match so the tool knows to
+   combine them) and run again → recombined `.xbt`.
+5. **New texture**: convert a similar vanilla texture to harvest its header, rename the
+   `.xbt_header` to match the new DDS, repack — works as-is. The game won't *load* a
+   brand-new texture until it's added to depload (Deploadify automates that).
+
+### Related repack caution
+
+Strictly-binary formats (`wlu`, `fcb`, `bin`) reportedly pack fine but can **crash the
+game on boot** if their repacked bytes changed, while `obj`/`lib`/`sfx` are fair game;
+Gibbed's repack stores these types uncompressed/raw (SlyCooperReloadCoded + scuba,
+2023-07-03). Treat binary-object repacks as merge-or-update territory, never blind
+repack — this matches the workspace's standing rule to never replace definition files.
+
+---
+
 ## Summary (WD1)
 
 | Operation | Tool | Preserves Header? |
@@ -287,3 +352,9 @@ to same tool. Never use `DDS2XBT.bat` for final assets.
 **_high rule**: You don't need _high files if the regular file is already based on
 the _high version. The engine only loads _high if it's referenced in the regular
 file's header (byte 0x19 = 0x0A/0x0B with embedded path).
+
+## Conversion tooling gotchas (Discord, Dec 2025)
+
+- A converter run needs **two inputs: a header (harvested from an existing XBT of the same build) and the `.dds`**. Editing the DDS itself is done in Paint.NET; the header is what makes the container acceptable to the engine.
+- If a stale DDS is left in place the tool refuses to convert — delete the old `.dds` first, then re-run with the header + new DDS.
+- `The file header magic was unexpected` (qstlijku) = the converter was handed a DDS (or a header from the wrong build/platform) instead of a valid XBT header. Harvest a header from a file that the target build actually loads.

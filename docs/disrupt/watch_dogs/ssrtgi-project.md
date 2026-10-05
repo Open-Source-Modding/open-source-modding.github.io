@@ -14,7 +14,7 @@ driven GI is in progress.
 
 - Build: `make debug && make install-debug` (from `ssrtgi/`)
 - Install: `.../Watch_Dogs/bin/ssrtgi_debug.asi`
-- Log: `D:\ssrtgi_debug.log` (append; grep `=== SSRTGI ASI ===` for session starts)
+- Log: `ssrtgi_debug.log` (append; grep `=== SSRTGI ASI ===` for session starts)
 - Repo: `github.com/Open-Source-Modding/WD_SSRTGI.git`
 - IP/clean-room policy: shader gather techniques must be independently
  documented (80.lv UNIGINE SSRTGI article, r/nvidia thread, ZN_DAMP_RT_RF.fx,
@@ -152,7 +152,6 @@ For Disrupt shader modding, the practical approach:
 The Cell demo was doing 2-4 levels of reflection without RT cores. A Disrupt
 shader doing shadow rays or a single-bounce GI pass is computatively simpler.
 
-**Code reference**: `~/Documents/Code/misc/HDCellRT-0.01/` — PS3 SPU ray tracer
-by Charles Lohr (cnlohr, AFL license). 4-wide SIMD sphere intersection, brute-force
-16-sphere scan, Phong shading, 720p@60fps on 6 SPUs. See `AGENTS.md` for full
-architecture breakdown.
+**Code reference**: HDCellRT (PS3 SPU ray tracer by Charles Lohr, cnlohr, AFL
+license). 4-wide SIMD sphere intersection, brute-force 16-sphere scan, Phong
+shading, 720p@60fps on 6 SPUs.

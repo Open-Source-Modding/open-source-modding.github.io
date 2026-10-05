@@ -21,15 +21,16 @@ RTX Remix does not "load a DX12 DLL into the game". What it actually does:
 
 ## Why Remix is a dead end here
 
-- **NVIDIA-only**: Remix needs an RTX GPU (OptiX / hardware RT). This machine has an AMD Radeon RX 9070 XT (RDNA4), so Remix will not run.
+- **NVIDIA-only**: Remix requires an NVIDIA RTX GPU (OptiX / hardware RT). It cannot run on AMD hardware at all, so this route is closed on any AMD machine.
 - **D3D9-era focus**: Remix targets old DX8/DX9 titles. WD1 is a 2014 D3D11-era Disrupt-engine game whose modern draw-call patterns break Remix's scene-reconstruction assumptions.
 - **No dormant RT code**: WD1 has no native D3D12/RT path to enable. Unlike WDL, which ships real D3D12 RT shaders, the 2014 Disrupt engine contains no ray-tracing code at all.
 
 ## The options that would work, ranked by effort
 
-1. **Native renderer replacement** (the "Half-Life 2 RTX" approach): reimplement WD1's Disrupt renderer on D3D12/Vulkan with your own RT pipeline. Multi-months-to-years engine project, not a shader edit.
-2. **Emulation / forward-port**: run the DX11 path through a custom renderer that converts to Vulkan and injects RT, essentially building your own Remix. Huge, and DXVK-style translation on RDNA4 hits the same VKD3D lockup issues documented in `~/AGENTS.md`.
-3. **Engine hooks / dormant RT**: not applicable. The 2014 engine has none.
+1. **Hybrid screen-space + probe-based ray effects in the existing DX11 pipeline** (the path this project pursued): software RT inside the current renderer, no dedicated RT hardware involved. Screen-space reflections, probe-grid GI, and ray-marched shadows/AO, with the whole pass budgeted in the ~1 ms range. The probe-grid approach replaces per-material bounding boxes with a world-space probe volume. See [SSRTGI project notes](ssrtgi-project.md).
+2. **Native renderer replacement** (the "Half-Life 2 RTX" approach): reimplement WD1's Disrupt renderer on D3D12/Vulkan with your own RT pipeline. Multi-months-to-years engine project, not a shader edit.
+3. **Emulation / forward-port**: run the DX11 path through a custom renderer that converts to Vulkan and injects RT, essentially building your own Remix. Huge, and DXVK-style translation on AMD hardware runs into VKD3D translation lockups.
+4. **Engine hooks / dormant RT**: not applicable. The 2014 engine has none.
 
 ## Historical note: software raytracing predates GPU RT
 
@@ -44,4 +45,4 @@ The lesson for WD1: throughput was never the blocker. Raytracing ran at interact
 
 ## Bottom line
 
-For WD1 on this hardware, RT via Remix or shader-level injection is not practical. The realistic routes are (a) a full custom renderer port, or (b) staying with rasterized shader mods. Compare with WDL, which already ships a native D3D12 RT path you can tune via `engine/settings/defaultrenderconfig.xml` and the DX12 shader objects. That is the tractable RT target.
+Full hardware RT for WD1 through Remix or shader-level injection is not practical: Remix needs NVIDIA hardware, and the 2014 engine has no RT hooks to activate. The realistic routes are (a) hybrid screen-space and probe-based ray effects inside the existing DX11 pipeline (see [SSRTGI project notes](ssrtgi-project.md)), (b) a full custom renderer port, or (c) staying with rasterized shader mods. Compare with WDL, which already ships a native D3D12 RT path you can tune via `engine/settings/defaultrenderconfig.xml` and the DX12 shader objects. That is the tractable hardware-RT target.

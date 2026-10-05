@@ -141,10 +141,10 @@ Total decompiled: **95,777** .hlsl (53,545 base + 42,232 patch).
 The best way to get readable HLSL from live shaders:
 
 ```
-renderdoccmd capture ~/.local/share/Steam/steamapps/common/WatchDogs_Legion/bin/WatchDogsLegion.exe
+renderdoccmd capture <Steam library>/steamapps/common/WatchDogs_Legion/bin/WatchDogsLegion.exe
 ```
 
-Captures shaders used in a given scene (not all 170K), but是最practical approach
+Captures shaders used in a given scene (not all 170K), but is the most practical approach
 for modding-specific shader investigation.
 
 ---
@@ -318,7 +318,7 @@ portion or the game crashes.
 | `BE_LegionExtract.exe` / `BE_LegionPack.exe` | GUI pack/unpack (Wine) |
 | `Gibbed.WatchDogsLegion.Unpack.exe` / `Pack.exe` | Command-line alternative |
 
-Archives: `~/.local/share/Steam/steamapps/common/WatchDogs_Legion/data_win64/`
+Archives: `<Steam library>/steamapps/common/WatchDogs_Legion/data_win64/`
 
 `info.xml` with `UseCombineMode="true"` enables merge installation (overlay
 without full archive replacement).

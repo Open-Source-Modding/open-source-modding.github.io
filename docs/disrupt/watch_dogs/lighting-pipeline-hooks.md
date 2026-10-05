@@ -1,7 +1,7 @@
 # Disrupt WD1 Lighting Pipeline — Renderer Internals & Hook Points
 
 > **Source**: Shadow Engine source (`Open-Source-Modding/Shadow-Engine`, cloned
-> `/tmp/shadow_engine_src/`), shipped WD1 shader source (`shaders_unpack/`),
+> locally), shipped WD1 shader source (`shaders_unpack/`),
 > `Disrupt_b64.c` Hex-Rays decompile, Wii U debug symbols. Assimilated
 > 2026-08-28 for the SSRTGI-on-real-lights project.
 

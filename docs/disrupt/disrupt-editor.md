@@ -2,9 +2,9 @@
 
 Running the internal Disrupt Editor against Watch Dogs: Legion content — community findings (cccchrona, Encrypted, qstlijku; WD Modding Discord, 2026-08). Distinct from the **fan-made** Disrupt Editor (WD1 material converter, see `watch_dogs/material-hex-editing.md`) and from the `DisruptEditor/` community source clone (Open-Source-Modding/DisruptEditor).
 
-## Local leak copy (this workspace)
+## Leak copy
 
-The editor binaries + debug symbols ship in the Ubisoft leak (`re/Ubisoft/Disrupt/leak/ubisoft/bin/`):
+The editor binaries + debug symbols ship in the Ubisoft leak, under `ubisoft/bin/`:
 
 - **Editor exe**: `Disrupt.exe` / `Disrupt_dx12.exe`
 - **Editor DLLs**: `Editor_r64(_dx12).dll`, `EditorCore_r64(_dx12).dll`, `EditorControls_*`, `EditorMove_*`, `EditorExporter_*`, `Disrupt.LevelEditor.dll`, `DuniaCurveEditor.dll`, `MissionManagerEditor.pdb`, `ToolLauncher_r64(_dx12).exe`, `ProcessCreator_r64(_dx12).exe`
@@ -66,4 +66,4 @@ ConnectionPath0=%TEMP%\Bloomberg\
 
 ## Load order context (why a patch)
 
-Matches the engine's archive/load rules documented in `WDL/AGENTS.md` (DisruptManager rootCBR only packs `patch*`; EncryptedsPatch loads at prio 0; world packs after). The editor's server handshake happens before world load, so a dead server stalls everything until patched.
+Matches the engine's archive/load rules documented in the WDL RE notes (DisruptManager rootCBR only packs `patch*`; EncryptedsPatch loads at prio 0; world packs after). The editor's server handshake happens before world load, so a dead server stalls everything until patched.

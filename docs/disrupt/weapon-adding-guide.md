@@ -29,3 +29,19 @@ Follow the pattern of the `Globals_Custom._Weapon_Archetypes` table.
 
 - `iteminventorylists.lib` — add your gun to the proper category
 - `shopsettings.lib` — add it to a shop
+
+## Weapon Recoil Curves
+
+Source: community notes, author not recorded.
+
+Each curve controls one axis of the weapon and arm animation while firing. Curves are defined per weapon, so a new weapon inherits the curves of whatever it was duplicated from until you point it at its own.
+
+| Curve | Effect |
+|---|---|
+| `curveRecoilTranslationX` | Moves the hand backwards and forward while shooting |
+| `curveRecoilTranslationY` | Moves the arm left and right while shooting |
+| `curveRecoilTranslationZ` | Moves the hand up and down while shooting |
+| `curveRecoilRotationX` | Moves the gun up while shooting |
+| `curveRecoilRotationY` | Moves the gun backwards and forwards while shooting (disabled for pistols) |
+| `curveRecoilRotationZ` | Moves the gun left and right |
+| `curveBodyRecoilCurve` | Freezes the head and other body parts while shooting (keep this low for the best effect) |

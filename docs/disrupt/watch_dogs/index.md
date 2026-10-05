@@ -26,11 +26,14 @@
 - [installpackage-over-patch](../installpackage-patch.md) — DLL hex edit to avoid repacking patch
 - [Archive Load Priority](archive-priorities.md) — per-game archive order, DisruptManager RE
 - [WD2 Custom Item/Clothing Tutorial](../watch_dogs_2/wd2-item-clothing-tutorial.md) — graphickit_models/parts, items.lib, shop setup
+- [Character Model & Outfit Modding](character-model-outfit-modding.md) — WD1 outfit items, graphickit_models/parts, materials.bin, textures
+- [Vehicle Backfire & Ignition](vehicle-backfire-and-ignition.md) — BackfireSettings templates, exhaust fire sound, realistic ignition
+- [Adding a New Weapon](../weapon-adding-guide.md) — full WD1 weapon chain: model, weapons.lib, items.lib, entitylibrary_rt, depload, recoil curves
 - [WD2 Vehicle Handling](../watch_dogs_2/vehicle-handling-modding.md) — DriveConverter, .handling.bin ↔ XML, patch3 workflow
 - [Mirror Cubemap Mod](mirror-cubemap-mod.md) — make mirrors reflective: ReflectionType=2 + ReflectionTexture via official converter
 - [Shader Addons](shader-addons.md) — Parallellines' addonconfig.h, PBR extension, lighting fixes, community context
 - [Shader Editing Workflow](shader-editing-workflow.md) — direct shadersobj replacement vs 3Dmigoto injection, Legion leak compiler, gridshading
-- [Shader Compiler Pipeline](shader-compiler-pipeline.md) — ShaderCompiler2 (ComputeShaderID/TShaderID), FastInitData registry, .dep FNV-1 64 checksum, semantic system, WDL vs WD1 (2026-09-12)
+- [Shader Compiler Pipeline](shader-compiler-pipeline.md) — ShaderCompiler2 (ComputeShaderID/TShaderID), FastInitData registry, .dep FNV-1 64 checksum, .header stub + DXBC format chain, recompilation results, ISGN/OSGN signature contract, WDL vs WD1 (2026-09-28)
 - [Asset Pipeline Formats](asset-pipeline-formats.md) — dev pipeline format mapping (authoring → runtime conversions)
 - [Community tools & references](community-resources.md)
 - [SMAA Notes](smaa-notes.md) — edge detection settings, community research

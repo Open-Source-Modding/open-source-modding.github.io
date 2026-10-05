@@ -56,11 +56,14 @@ Watch Dogs: Legion uses **two different Havok versions** depending on the build:
 
 **CORRECTION (2026-09-04)**: Leak WDL HKX shows `SDKV="20150100"` (2015.1), retail WDL shows `SDKV="20170200"` (2017.2). These are different Havok SDK versions, not just a wrapper difference. The retail build was updated to a newer SDK between the leak and release.
 
-54k WDL samples available in . The retail 2017.2 chunked format is in the same family as Starfield's 2019.02 and is parseable by `parsers/StarfieldMeshConverter/`.
+54k WDL samples available. The retail 2017.2 chunked format is in the same family as Starfield's 2019.02 and is parseable by `parsers/StarfieldMeshConverter/`.
 
 ### Havok License Keys
 
-The retail WDL build contains Havok **license/authorization keys** (NOT encryption keys). Three key groups found (by □ΞnCrypTΞD□, 2026-09-04):
+The retail WDL build embeds Havok **license/authorization keys** (NOT encryption keys).
+They name the client and the Havok modules it is licensed to run, and when that license
+expires. Three key groups were found by □ΞnCrypTΞD□ (2026-09-04). The key strings
+themselves are deliberately not reproduced here.
 
 | Key Group | Keys | Modules | Expiry |
 |-----------|------|---------|--------|
@@ -71,10 +74,10 @@ The retail WDL build contains Havok **license/authorization keys** (NOT encrypti
 Key format: `0xGUID1-GUID2:YYYY-MM-DD.Product.Client`
 - Date = **license expiry**, not build date
 - `"WatchDogs3"` = internal codename for WDL
-- GUID2 (`0xGUID2`) = project/client identifier
+- GUID2 = project/client identifier, constant across every key in a group
+- GUID1 = per-key value selecting the individual module license
 - `_2012` suffix variants are backward compatibility modules, NOT indicators of using Havok 2012 SDK
 
-Example: `0xGUID1-0xGUID2:2020-03-20.Physics.UbisoftToronto_WatchDogs3_PS4-Windows-XboxOne` — expired 2020-03-20.
 
 ### Version 9 vs 11 Header Difference
 Version 9 (2010–2013): simpler header padding.

@@ -142,6 +142,14 @@ CD Projekt RED released **Witcher 3 Modkit** (mod support, announced 2015-08-14)
 
 ---
 
+## 9. Community Resources
+
+| Resource | What it is | Notes |
+|----------|-----------|-------|
+| [Modding.wiki — Witcher 3](https://modding.wiki/en/witcher3) | Community knowledge base (Nexus Mods) | `/users` and `/developers` sections |
+
+---
+
 ## Key Facts
 - Archives: `.bundle` (extractable) + `.cache` (textures, need Lua tools)
 - Textures: `.xbm` = CR2W wrapper around DDS-without-header

@@ -187,6 +187,14 @@ CP2077 audio is **Wwise**. Banks in `.archive` files (`audio_2_soundbanks.archiv
 
 ---
 
+## 8. Community Resources
+
+| Resource | What it is | Notes |
+|----------|-----------|-------|
+| [Modding.wiki — Cyberpunk 2077](https://modding.wiki/en/cyberpunk2077) | Community knowledge base (Nexus Mods) | General modding guidance; format specs stay in the sections above |
+
+---
+
 ## Key Facts
 - Archives: `.archive` (RDAR magic) + Oodle (KARK) + hashed filenames
 - Models: `.mesh` (CR2W) + `.buffer` (vertex data, needs uncook) + `.rig` (skeleton) + `.morphtarget`

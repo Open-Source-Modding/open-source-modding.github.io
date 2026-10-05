@@ -5,7 +5,7 @@ title: "KnotViewer — FC animation curve editor"
 # KnotViewer (KnotViewer.pyw)
 
 Interactive tkinter/matplotlib editor for Far Cry knot XML data (animation
-curves/splines). Located at `re/Ubisoft/Dunia/KnotViewer.pyw`.
+curves/splines).
 
 ## What it does
 

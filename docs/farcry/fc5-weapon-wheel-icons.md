@@ -30,7 +30,7 @@ The `base64 crap.exe` tool (C# / .NET 8) handles conversion:
 2 — Encode new entry → pack fields → output Base64 string
 ```
 
-Source: `re/Ubisoft/Dunia/base64/Program.cs`
+Source: `base64/Program.cs`
 
 ## FC5-specific notes
 

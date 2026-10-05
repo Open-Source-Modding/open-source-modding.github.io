@@ -4,8 +4,8 @@
 
 Reverse engineering work for **Watch Dogs: Legion** (v1.6.3, Denuvo-packed).
 
-WDL-specific RE hub. Cross-game Disrupt engine work lives in
-.
+WDL-specific RE hub. Cross-game Disrupt engine work lives in the parent
+[Disrupt engine docs](../engine-lineage.md).
 
 ## Contents
 
@@ -24,7 +24,6 @@ WDL-specific RE hub. Cross-game Disrupt engine work lives in
 | [../depload-format.md](../depload-format.md) | **Cross-game**: full depload format spec (WD1 32-bit → WD2/WDL 64-bit records, masked CRC64_WD2 path hashes) — standalone expansion of the depload section in `vehicle-add-process.md` |
 | `wdl-phys-working-notes-2026-08-19.md` | RAW working notes: WDL `.phys` = hknpCompressedMeshShape + hkcdStaticMeshTree (decode in progress) — SORT LATER |
 | `ubisoft_leak_contents.txt` | 2020 Ubisoft source leak directory listing (Disrupt toolchain) |
-| `AGENTS.md` | Agent instructions |
 
 ## Building a PDB
 

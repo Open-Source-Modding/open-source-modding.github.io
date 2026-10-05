@@ -653,7 +653,7 @@ compatible type layouts.
 
 ## See also
 
-- [`../../havok/hkx_format.md`](../../havok/hkx_format.md) — Havok old packfile format, license keys, parsers & tools
+- [`../../havok/hkx_format.md`](../../havok/hkx_format.md) — Havok old packfile format, license key format & extraction method, parsers & tools
 - [`../watch_dogs/hkx-format.md`](../watch_dogs/hkx-format.md) — WD1/WD2 Havok fork, collision shapes
 - [`../watch_dogs_2/wd2-tag0-collision-format.md`](../watch_dogs_2/wd2-tag0-collision-format.md) — WD2 TAG0 chunk walk, ITEM/PTCH, shape graph
 - [`../watch_dogs_2/havok2015-class-definitions.md`](../watch_dogs_2/havok2015-class-definitions.md) — Havok 2015.1 class definitions (235 classes from WD2 `Disrupt_64.dll`)

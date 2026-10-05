@@ -1,6 +1,6 @@
 # Watch Dogs 2 — Community Tools & References
 
-Curated community findings and modding references. Sources: Discord logs, AGENTS.md research notes.
+Curated community findings and modding references. Sources: Discord logs, research notes.
 
 > **Anti-tamper**: WD2 uses Denuvo — see [Denuvo analysis](../../why-not/denuvo-analysis.md).
 

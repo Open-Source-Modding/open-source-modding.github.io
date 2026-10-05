@@ -233,5 +233,5 @@ Source: Discord (Yorpie, Pesky Fly).
 
 Reverse engineered 2026-08-22 from retail archives of all three games plus
 Encrypted's WDL XML exports; full notes in
-`re/Ubisoft/Disrupt/WDL/RETAIL_VEHICLE_CATALOG.md` §20–§23, parser/builder in
-`re/Ubisoft/Disrupt/WDL/depload_tool.py`.
+`RETAIL_VEHICLE_CATALOG.md` §20–§23, parser/builder in
+`depload_tool.py`.

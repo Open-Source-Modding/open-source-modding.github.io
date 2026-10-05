@@ -50,6 +50,10 @@ repack `patch` again. It's a **permanent** fix (Pesky Fly, 7/26/25).
 - **BattlEye**: editing the DLL trips BattlEye's modified-file check. Launch
  with `-BattlEyeLauncher` in launch arguments to bypass. (BattlEye was removed
  in the latest WDL version, so this no longer applies there.)
+- **EasyAntiCheat (WD2)**: modded files trip EAC, so online play gated by EAC was
+ closed to mods. `-eac_launcher` skips the check but also disables multiplayer,
+ making it a single-player route. WD2's EAC service lapsed in 2026, so the check
+ no longer runs. (Community-reported.)
 - **`PreparePlatformData.ini`**: has an `installpackage` param, which is why the
  load path exists (Troplo noted this).
 

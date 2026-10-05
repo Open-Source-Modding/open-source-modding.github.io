@@ -45,3 +45,8 @@ mods into `patch*` archives. Planned to be open-sourced (issue #30).
 | WD1 | `Watch_Dogs` | *(none)* |
 | WD2 | `WatchDogs2` | `-eac_launcher` |
 | WDL | `WatchDogsLegion` | *(none)* |
+
+`-eac_launcher` skips WD2's EasyAntiCheat check, and it costs multiplayer: with EAC live, modded files
+tripped the check, so EAC-gated online play was closed to mods, and the parameter skips the check only by
+disabling multiplayer, which makes it a single-player route. WD2's EAC service lapsed in 2026, so the check
+no longer runs there. Community-reported, not read out of the binaries.

@@ -243,4 +243,4 @@ count 51, 208 B).
 - ⏳ Remaining: Reviewer verification (S2.4.2/S2.4.3), TNAM varint encoding
  still unsolved (not needed for decode).
 - ℹ️ File organization within this repo: initial attempt made; further
- organization/linking deferred (noted in repo AGENTS.md).
+ organization/linking deferred.

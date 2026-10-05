@@ -78,16 +78,15 @@
  - Demo projects (AnimatedSkeletonDemo for animation extraction)
 - **SDK demo approach**: load skeleton + animation files, then read data programmatically via the `AnimatedSkeletonDemo.cpp` class.
 
-### Concrete SDK sources (shared by Encrypted, WD Modding Discord, 2026-08)
+### SDK tooling (shared by Encrypted, WD Modding Discord, 2026-08)
 
-> "everything i used to crack HKX" — community-proven sources for SDKs and tagfile tooling.
+> Community-proven sources for **tagfile tooling**. Havok SDK builds themselves are proprietary
+> licensed products, so redistributed copies (torrents, Drive folders) are deliberately not
+> linked here; which SDK version matters for which game is in the SDK reference table on
+> [`../havok/hkx_format.md`](../havok/hkx_format.md). For most mesh and animation work the SDK
+> is not needed at all — see [`../havok/blender-hkx-workflow.md`](../havok/blender-hkx-workflow.md).
 
 - **TagTools** (blueskythlikesclouds): https://github.com/blueskythlikesclouds/TagTools — tools for editing Havok **2015/2016 binary tag files**; Havoc branch kept for reference.
-- **Havok 2014.1 SDK torrent** ([removed]): [link removed] — "HAVOK PHYSICS 2012 SDK + HAVOK ANIMATION, NoSimd, Win32 2014.1.0" (`[[removed]].torrent`).
-- **Google Drive SDK folders**:
- - [link removed]0B8SgSQGjqypSaUxIT2ptUVVwVVk?resourcekey=0-auzKqYyyhxEMzdQNNA23sA
- - [link removed]0B3SZOCCKd7Ipb2w2SkN4bjJwSzg?resourcekey=0-vPD5gmb33TWGaysgqSKo-w
- - [link removed]0B-85OBEi6SEkV2RhTTl0bzliZ28?resourcekey=0-Ng8WCMDV0TZ8DBsgV9TBvA
 
 ## Key Insight
 To parse the compressed mesh from TAG0 files, we need:

@@ -5,6 +5,7 @@
 
 ## Generic
 - [HKX packfile format spec](havok/hkx_format.md) - standard Havok packfile (FO4 2014, `__classnames__`/`__types__`/`__data__`)
+- [Blender HKX workflow without the SDK](havok/blender-hkx-workflow.md) - SDK-free import/export routes, per-game starting points, evidence limits
 - [Lua 5.1 Reference](lua/luarefv51single.md) - simple reference for Lua 5.1
 - [Wwise Soundbank Format](wwise/wwise-soundbank-format.md) - general wwise soundbank format spec
 

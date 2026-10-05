@@ -4,6 +4,8 @@ HKX (Havok Packfile) format — reference for FO4
 > **Cross-reference**: HKX version compatibility table, tools (hkxcmd, havok2fbx, AssetCc, HavokLib), practical techniques, animation swap tricks → [XeNTaX Havok knowledge](xentax-havok-knowledge.md)
 >
 > **Cross-reference**: HKX 2012 in Sonic Lost World Wii U (Zelda Zone DLC) → [XeNTaX Zelda knowledge §7](../zelda/xentax-zelda-knowledge.md)
+>
+> **Cross-reference**: SDK-free import/export routes and per-game starting points → [Blender HKX workflow](blender-hkx-workflow.md)
 
 Status: research notes distilled from the Havok 2014 SDK (`hk_2014.1.0-r1`),
 Lukas Cone's Havok format library (used only as a factual reference, GPL code
@@ -78,6 +80,13 @@ Key format: `0xGUID1-GUID2:YYYY-MM-DD.Product.Client`
 - GUID1 = per-key value selecting the individual module license
 - `_2012` suffix variants are backward compatibility modules, NOT indicators of using Havok 2012 SDK
 
+#### Where the keys sit in the file
+
+No decryption is involved: the keys are plain ASCII in the binary header of packaged `.hkx`
+files from a retail install, and only some assets carry them. The key strings themselves and
+any extraction method for them are deliberately not reproduced here. The same header carries
+`SDKV="20170200"`, which is how retail WDL's Havok 2017.2 version was confirmed (see the
+version table above).
 
 ### Version 9 vs 11 Header Difference
 Version 9 (2010–2013): simpler header padding.
@@ -722,7 +731,6 @@ The Standalone Tool (ToolStandAlone.exe) can visualize HKX files and export to X
 | BehaviourGraphStudio | ELF | — | Linux binary, reads/writes FO4 HKX directly |
 | HavokMax | C++ | — | 3ds Max Havok plugin (CMake) |
 | hkx_reverse | .NET | — | HavokDisrupt RE toolkit |
-| Key tooling | — | — | Not published; no public source |
 | havok-vdb-2022.2.0 | .NET | — | Visual Debugger (x64) |
 
 All parsers and tools are in the `re/havok/` workspace. The `parsers/` directory has per-tool subdirectories with READMEs and licenses.

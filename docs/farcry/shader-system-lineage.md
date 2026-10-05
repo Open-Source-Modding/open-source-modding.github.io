@@ -2,8 +2,8 @@
 
 How the shader pipeline evolved from Far Cry 1's runtime-preprocessed text
 scripts to Far Cry 6's offline-compiled DXBC + `<technique>` XML, traced
-through the actual FC1 source tree (`game-tools/Ubisoft/Dunia/FarCry-1-CryENGINE1`,
-leaked FC 1.34, buildable VS2022 x64).
+through the actual FC1 source tree (leaked FC 1.34,
+buildable VS2022 x64).
 
 ## Engine line
 
@@ -331,11 +331,11 @@ Key mappings (FC6 family → WD1 HLSL source):
 ```bash
 # Step 1: Extract DXBC from sarb container (offset 16)
 # Step 2: DXBC → SPIR-V → HLSL
-wine ~/Tools/HLSLDecompiler-YYadorigi/dxil-spirv.exe input.dxbc --output output.spv
-wine ~/Tools/HLSLDecompiler-YYadorigi/spirv-cross.exe output.spv --hlsl --shader-model 60 > output.hlsl
+wine dxil-spirv.exe input.dxbc --output output.spv
+wine spirv-cross.exe output.spv --hlsl --shader-model 60 > output.hlsl
 ```
 
-**Tools:** `~/Tools/HLSLDecompiler-YYadorigi/` (dxil-spirv.exe, spirv-cross.exe)
+**Tools:** HLSLDecompiler (YYadorigi): `dxil-spirv.exe`, `spirv-cross.exe`
 **Performance:** ~4.2 files/min (~10s/file including Wine startup)
 **Output:** Valid SM6.0 HLSL with cbuffers, Texture2D, RWBuffer, SamplerState
 **Limitation:** Variable names mangled but structure intact

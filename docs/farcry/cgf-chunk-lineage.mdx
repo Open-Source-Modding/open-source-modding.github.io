@@ -1,7 +1,6 @@
 # Far Cry geometry format lineage — FC1 `.cgf` chunked file → FC6 `.xbg`
 
-Traced from the actual FC1 source tree (`re/Ubisoft/Dunia/FarCry-1-CryENGINE1`,
-leaked FC 1.34, buildable VS2022 x64). FC1 stores 3D geometry in a **chunked
+Traced from the actual FC1 source tree (leaked FC 1.34, buildable VS2022 x64). FC1 stores 3D geometry in a **chunked
 `.cgf`** format whose architecture is the direct ancestor of the FC5/FC6 `.xbg`
 chunk chain.
 
@@ -90,8 +89,7 @@ architecture — the offline compile pipeline whose outputs the FC6
 
 FC1's VFS is **CryPak** (`CrySystem/CryPak.cpp`, `ICryPak.h`) reading `.pak`
 directory-file archives. There is **no `.dat`/`.fat` hashed BigFile** in FC1 —
-that store appears later in the Dunia line (FC2+). So the archive layout in
-`AGENTS.md` (`FAT2`/BigFile v11) is a Dunia/Disrupt-era design, not FC1-origin.
+that store appears later in the Dunia line (FC2+). So the `FAT2`/BigFile v11 archive layout is a Dunia/Disrupt-era design, not FC1-origin.
 The `.pak` directory-file model is the conceptual ancestor of the `.dat`/`.fat`
 split (manifest + data), but the hashed key scheme is newer.
 

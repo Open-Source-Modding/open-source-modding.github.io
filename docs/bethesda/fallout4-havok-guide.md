@@ -37,20 +37,20 @@ Note that java JRE 8 or higher is required to run HKXpack.
 Open up a CMD or SHELL.
 To unpack a HKX file, you have 2 options.
 Either set the current directory of your command line to the path of HKXPack or reference it's path when calling it.
-An example of a path : C:\Users\ajs52\Desktop\HKX_Examples\Baby\Animations
+An example of a path : C:\Users\YourName\Desktop\HKX_Examples\Baby\Animations
 Referencing the path :
 "hkxpack-cli.jar Path" unpack "HKX File to unpack path"
 For me this looks like this.
-C:\Users\ajs52\Desktop\hkxpack-cli.jar unpack "C:\Users\ajs52\Desktop\My_Skeleton.hkx"
+C:\Users\YourName\Desktop\hkxpack-cli.jar unpack "C:\Users\YourName\Desktop\My_Skeleton.hkx"
 Changing Directory :
 CD "HKXPack Path (no file name)"
 For me :
-CD "C:\Users\ajs52\Desktop"
+CD "C:\Users\YourName\Desktop"
 By doing this you can call HKXPack without referencing the full path.
 For me :
 hkxpack-cli.jar unpack My_Skeleton.hkx
 To pack, simply replace "unpack" with "Pack" and make sure you reference a xml file rather than HKX file.
-C:\Users\ajs52\Desktop\hkxpack-cli.jar pack "C:\Users\ajs52\Desktop\My_Skeleton.xml"
+C:\Users\YourName\Desktop\hkxpack-cli.jar pack "C:\Users\YourName\Desktop\My_Skeleton.xml"
 This will unpack a HKX file.
 The unpacked or packed file is created in the same directory as the HKX or XML file your unpacking/packing.
 You can change this. The how-to is on HKXPack's github.
@@ -1930,7 +1930,7 @@ When unpacking HKX files, there will be a lot of comments. In notepad++ you can 
 Then go to Search > Bookmark > Remove bookmarked lines.
 You could also write a simple script to do this for you.
 I've written a simple batch file to unpack multiple HKX files for me. Here's the bat code :
-for /R "C:\Users\ajs52\Desktop\HKX_Output" %%f in (\*.hkx) do Java -jar C:\Users\ajs52\Desktop\hkxpack-cli.jar unpack %%f
+for /R "C:\Users\YourName\Desktop\HKX_Output" %%f in (\*.hkx) do Java -jar C:\Users\YourName\Desktop\hkxpack-cli.jar unpack %%f
 pause
 This will loop through the HKX file's which are located in a folder named "HKK_Output" and unpack them into the same location. The paths in this code will need to be adjusted.
 
@@ -1956,7 +1956,7 @@ I'm going to use the duplicate method.
 Using BAE, open fallout 4 "animations" BA2 and search for "stagesnoloops" (this is a simple hkx set).
 Open a CMD window with admin privileges and paste "java -jar".
 Next copy the path of the hkxpack jar file.
-For me its C:\Users\ajs52\Desktop\hkxpack-cli.jar.
+For me its C:\Users\YourName\Desktop\hkxpack-cli.jar.
 Paste this into cmd with a space between it and "java -jar".
 Create another space and type "unpack".
 Then get the path of "stagesnoloops" hkx file -

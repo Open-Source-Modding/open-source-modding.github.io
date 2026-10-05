@@ -151,6 +151,12 @@ container (header, section table, fixups). Key Skyrim deltas from that doc:
 | 3ds Max + niftools exporter | [niftools.org](http://www.niftools.org) | Import/export `.nif`/`.kf` for editing |
 | Havok Behavior Tool | [Creation Kit wiki](https://www.creationkit.com/index.php?title=Havok_Behavior_Tool) | Behavior graph editing — **wiki is down for backend maintenance** (last modified 2024-02-07) |
 
+## Community Resources
+
+| Resource | What it is | Notes |
+|----------|-----------|-------|
+| [Modding.wiki — Skyrim](https://modding.wiki/en/skyrim) | Community knowledge base (Nexus Mods) | `/users`, `/developers` (Creation Kit, settlements, documented crashes, plugin differences) and `/glossary` |
+
 ## Sources
 
 - [figment/hkxcmd — Havok Command Line Tools for Skyrim (README)](https://github.com/figment/hkxcmd)

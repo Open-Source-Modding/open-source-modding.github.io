@@ -204,6 +204,7 @@ the *Starfield Wiki* guides:
 
 | Resource | What it is | Notes |
 |----------|-----------|-------|
+| [Modding.wiki — Starfield](https://modding.wiki/en/starfield) | Community knowledge base (Nexus Mods) | `/users`, `/developers` and `/community-patch` sections |
 | [SFSE on Nexus](https://www.nexusmods.com/starfield/mods/106) | SFSE download page | Build 0.2.21 / game 1.16.244 |
 | [ianpatt/sfse](https://github.com/ianpatt/sfse) | SFSE source | CMake build, Steam only |
 | [CommonLibSF](https://github.com/libxse/commonlibsf) | Collaborative reverse-engineered C++ library for Starfield | New home (libxse); the old [Starfield-Reverse-Engineering repo](https://github.com/Starfield-Reverse-Engineering/CommonLibSF) is unmaintained and redirects here |

@@ -410,8 +410,6 @@ hkaAnnotationTrack — named annotation markers
 
 ## References and Resources
 
-- Havok SDK documentation (saved copies available — contact SergeantJoe, 2017)
-- Havok SDK download mirrors: http://forum.keenswh.com/threads/havok-tools.7374695/
-- Intel Havok archives: https://software.intel.com/sites/havok/en/ (now defunct)
-- Allanoon's tool collection is not linked here1D2ptUVVwVVk
+- Havok SDK documentation (XeNTaX archive, SergeantJoe, 2017)
+- Intel Havok archives: https://software.intel.com/sites/havok/en/ (official page, now defunct)
 - 010 Editor template for HKX parsing: http://pastebin.com/HerN0A2U (Loomy, 2016)

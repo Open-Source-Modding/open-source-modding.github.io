@@ -61,9 +61,8 @@ BConv32.exe: hex-value converter (binhex ↔ enum ↔ decimal).
 
 - ZModeler does **not** work with WDL.
 - For recolors you need a fan-made **Disrupt Editor** (originally made for
- WD1; no public link; unofficial — not the 300 GB official editor, which is
- only ever shared as a private archive and is not linked here
- heavy for a laptop).
+ WD1; no public link; unofficial — not the ~300 GB official editor, which was
+ only ever shared as a private archive and is not linked here).
 - The fan-made editor has a **material converter that works for all three WD
  games**. It can view the WD1 map, export layers to XML and import (WD1
  only), audio (SPK) conversion, material editor, and xbg2xml (WD1 only,

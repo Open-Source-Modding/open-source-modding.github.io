@@ -135,7 +135,7 @@ Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc li
 ## The Witcher 3 (REDengine v2)
 - [Witcher 3 Formats](witcher3/witcher3-formats.md) - .bundle/.cache archives, .xbm (CR2W) textures, .w3strings localization, .w3speech voices, .sav saves (LZ4 1MB chunks), meshes/bones (48B/bone), tools
 - [Raw XeNTaX extraction](witcher3/xentax-witcher3-knowledge.md) - source threads (2015–2020)
-- [REDkit and the Source Lineage](witcher3/redkit-and-source-lineage.md) - **stub**: POTATO70 .bundle layout, shared CR2W container, the 2024 REDkit (Yigsoft engine build, virtual depot), next-gen 4.0 vs classic 1.32, the 2021 leaked tree as provenance, open source-to-retail questions
+- [REDkit and the Source Lineage](witcher3/redkit-and-source-lineage.md) - **stub**: POTATO70 .bundle layout, shared CR2W container, the REDkit toolchain (2024 Yigsoft engine build, 5.0 in 2026), classic 1.32 / next-gen 4.04 / Remastered build lines, what the 2026 Remastered update broke for mods, the 2021 leaked tree as provenance, open source-to-retail questions
 
 ## Cyberpunk 2077 (REDengine 4)
 - [Cyberpunk 2077 Formats](cyberpunk2077/cyberpunk2077-formats.md) - .archive (RDAR+KARK), Oodle compression, .mesh/.buffer/.rig/.morphtarget models, .xbm/.mi textures, Wwise .wem/.opuspak/.bnk audio, tools (CP77Tools, Wolven-kit, Noesis fmt_CP77mesh)

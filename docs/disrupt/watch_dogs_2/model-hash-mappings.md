@@ -32,20 +32,17 @@ def model_hash(path: str) -> int:
  return (num & 0x1FFFFFFFFFFFFFFF) | 0xA000000000000000
 ```
 
-## Where the full tables live
+## Model paths in the file list
 
-The extracted mappings are published with the WD2 file lists, which Gibbed's Disrupt tools
-read as build input:
+Gibbed resolves the model hash from the path itself, so tooling never needs a hash table:
+the XBG paths referenced as `fileModel` values are published as `model_paths.filelist`
+(1,797 paths) in the WD2 file list repository, next to the archive lists that Gibbed reads
+as build input.
 
-| File | Contents |
-| --- | --- |
-| `model_hashes/model_hash_mappings_data.txt` | 1,501 entries: vegetation, fences, street furniture, buildings, locations |
-| `model_hashes/model_hash_mappings_character_props.txt` | 1,055 entries: character prop models |
-
-Each row is the entity XML that references the model, the `fileModel` hash, the raw 8-byte
-hash, and the XBG path. They are dumped from an unpacked game, so regenerate them the same
-way if you need a newer revision: read the `fileModel` values out of the `WD2_*.xml` files
-you unpacked and index them against the `graphics\_geometries\...` paths in the same unpack.
+The full hash-to-path tables are dumped from your own copy and stay local. To rebuild them,
+read the `fileModel` values out of the `WD2_*.xml` files you unpacked and index them against
+the `graphics\_geometries\...` paths in the same unpack; each row is the entity XML that
+references the model, the `fileModel` hash, the raw 8-byte hash and the XBG path.
 
 ## Related
 

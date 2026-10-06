@@ -19,10 +19,59 @@ The archives circulated encrypted, and working passwords surfaced publicly in Ap
 2024, so the trees became readable years after the breach.
 
 Two Witcher 3 trees exist: the original engine and the **next-gen** one that the 2022
-"next-gen update" shipped. Retail Witcher 3 today is that build, so the next-gen tree is
-the one that matters. You can write up modding-useful facts from it in your own words:
-formats, structure, behaviour, tooling. The code itself and any leaked download stay off
-this site.
+"next-gen update" shipped. The 2026 Remastered build grew out of that next-gen line, so
+the next-gen tree is its closest public ancestor. The trees still predate Remastered, so
+expect drift. You can write up modding-useful facts from them in your own words: formats,
+structure, behaviour, tooling. The code itself and any leaked download stay off this site.
+
+---
+
+## Build lines
+
+The game has three live build lines, and Valve names the Steam branches after them.
+
+| Line | Steam branch | Version | Last changed |
+|---|---|---|---|
+| Classic | `classic` | 1.32 | 2022-12-13 |
+| Next-gen | `next-gen` | 4.04 | 2024-06-06 |
+| Remastered | `public` | 2026-09-29 release | 2026-09-29 |
+
+**The Witcher 3: Wild Hunt — Remastered** launched on **2026-09-29** as a free upgrade
+for existing owners on GOG, Steam, Epic, PS5 and Xbox Series X|S. It also sells on
+Battle.net and the Microsoft Store, and a separate Switch 2 release is free for Switch
+owners. It replaces the Complete Edition and includes Hearts of Stone and Blood Wine.
+CDPR built it in close collaboration with **Yigsoft**. The PC download runs about 45 GB.
+An expansion, **Songs of the Past**, arrives in 2027.
+
+The rendering changes matter less to a modder than the content ones: path tracing, DLSS
+4.5 with Ray Reconstruction, FSR 4, XeSS 2.0, native DX12, an improved shading model, and
+textures derived from the HD Reworked Project. Gameplay changed too. The skill tree was
+reimagined and skill points reset, animations and camera were reworked, the UI was
+refreshed, and a photo mode was added.
+
+---
+
+## What Remastered changed for mods
+
+Remastered ships an in-game **Mods menu powered by mod.io**, on PC, PS5, Xbox Series X|S
+and Switch 2. It needs a CD PROJEKT RED account linked to a mod.io account, and it is the
+only route to console mods. The menu cannot carry mod menus, custom inputs, configuration
+mods that edit `.ini` files, or mods that inject code through a `.dll`.
+
+The update broke a large slice of the existing catalogue. Per CD PROJEKT RED's support
+article, **mods containing XML files, script files or w3strings stop working** until
+someone rebuilds them in REDkit. Script mods for console must be built in REDkit; texture
+and bundle mods need no REDkit. The mod.io guide adds that **every text file must now be
+UTF-8** where the game previously used UTF-16, which covers scripts, XML, CSV and
+w3strings. `collision.cache`, `soundspc.cache` and SpeedTree `.srt` files also stop
+working, and `w2rc` files such as `.w2ent`, `.w2l` and `.w2quest` should be re-exported
+so they reflect Remastered's changes. Textures, models and bundles are not on the broken
+list, and nobody promises they work either.
+
+Nexus Mods keeps one Witcher 3 page and adds a **"Remastered Compatible"** tag, applied
+by the author on upload and curated by three Community Champions. It runs a Remastered
+Modathon from **2026-10-06 to 2026-11-30**. Its guidance for authors is to use XML
+mounters and scope-based overrides instead of replacing vanilla files.
 
 ---
 
@@ -86,7 +135,33 @@ tools. That changed in May 2024 with **The Witcher 3 REDkit**.
 - It ships a **Blender plugin** for meshes, rigging and lipsync, plus original UI and
   audio sources.
 
-The game build that pairs with REDkit reports itself as `4.04a_REDkit`.
+**REDkit 5.0.1042178** shipped on 2026-09-29, the same day as Remastered, and that is the
+version to use against the current retail build. Earlier releases paired with the
+next-gen build that reported itself as `4.04a_REDkit`. The 5.0 changelog adds:
+
+- **Witcherscript scope-based overrides.** A mod can declare just a class and add or
+  override a single function; the runtime merges it into the class at load. CDPR notes
+  this "may make the Script Merger tool no longer necessary", since the merge happens in
+  the engine instead of on whole script source files.
+- **Script blobs.** Script mods compile to a small `precompiled.rsblob` that the engine
+  loads at start-up. Console builds require them, because loose `.ws` files are not
+  allowed there.
+- **New DLC mounters**, for example `LoadingScreenDLCMounter`, for conflict-free mods
+  that edit base-game features.
+- **Fine-grained XML overrides.** A DLC can redefine an XML entry or tweak individual
+  fields in one, with an `onConflict` attribute: `default` errors on a redefinition,
+  `replace` swaps the earlier definition, and `extend` merges sub-nodes over it.
+- **Gwent moves to name-based logic**, with game and opponent decks held in XML and
+  reloadable.
+- A new **`compile scripts`** commandlet compiles scripts from the command line.
+- Script fixes: native functions can be wrapped, and events and states can be annotated.
+- Scripts now ship with REDkit, and the depot should hold no vanilla scripts.
+- The UI supports up to 30 user pins, raised from 10.
+- REDkit **requires Wwise 2023 with the Mastering Suite and Motion plugins**.
+- REDkit **no longer ships `.w3speech` and `.w3strings`**. Setup copies the language
+  files from the game install.
+- Terrain generates at a default tile count of 1024 (32×32).
+- WitcherScript gains a `map` syntax.
 
 ---
 
@@ -136,17 +211,13 @@ That is backwards from Skyrim, where the last plugin wins, and it trips people u
   crashes at launch on your machine.
 - Mods written for classic 1.32 and for 4.x are not interchangeable. Install the build
   the mod was made for, which is why so many mod pages carry a separate "Old Gen" file.
+- Remastered moves conflict handling into the engine. Scope-based overrides merge script
+  changes at run time, and XML mounters override vanilla entries through the `onConflict`
+  policy, so an author can ship one mod that stacks with others instead of a whole file
+  that replaces theirs. `mods.settings` and Script Merger still apply to the classic and
+  next-gen lines, and to mods installed by hand on Remastered.
 - Authoring mods means [WolvenKit](https://www.nexusmods.com/witcher3/mods/3161) plus
   CDPR's official modkit; WolvenKit reads and writes the game files and packs mods.
-
----
-
-## Next-gen vs classic
-
-The **next-gen update (4.0)** landed in December 2022 and changed more than graphics:
-CDPR reworked scripts and content enough that mod makers keep running diffs between
-classic **1.32** and the 4.x line. Re-check any Witcher 3 modding fact older than that
-against 4.x before you trust it.
 
 ---
 
@@ -155,16 +226,18 @@ against 4.x before you trust it.
 The method used on the Cyberpunk side applies here, and none of it needs the leaked
 download. A retail install is enough:
 
-1. Parse a real `4.04a_REDkit` `.bundle`: confirm `POTATO70`, the 32-byte header and
-   320-byte entries still hold, and record which compression types the shipped bundles
-   use.
+1. Record the Remastered build's own version word, then parse a shipped `.bundle` and
+   confirm `POTATO70`, the 32-byte header and the 320-byte entries still hold. Record
+   which compression types the shipped bundles use.
 2. Decode a `CR2W` resource out of a bundle and record its **version word**, then compare
    that against the version the next-gen source tree considers current. This is the
    Witcher counterpart to the Cyberpunk finding that the 2021 source's resource version
-   still matches retail.
+   still matches retail. Remastered postdates the tree, so a mismatch here is expected
+   rather than surprising, and the size of the gap is the finding.
 3. Map the source tree's archive and resource modules onto what the retail bundles
    contain, and note where they have drifted.
-4. Cross-check REDkit's own output (a cooked mod bundle) against the same parser.
+4. Cross-check REDkit 5.0's own output (a cooked mod bundle, and a scope-based override
+   merged at run time) against the same parser.
 
 Until then, everything above is public format documentation or CDPR's own statements;
 none of it is a verified source-to-retail mapping.
@@ -173,11 +246,14 @@ none of it is a verified source-to-retail mapping.
 
 ## Key Facts
 - Engine: REDengine 3 (RED3); shares the `CR2W` resource container with REDengine 4.
+- Builds: classic 1.32 (Steam `classic`), next-gen 4.04 (Steam `next-gen`), Remastered launched 2026-09-29 (Steam `public`).
 - Archives: `.bundle`, magic `POTATO70`, 32-byte header, 320-byte entries, zlib/Snappy/Doboz/LZ4.
 - Resources: `CR2W` (reversed `W2RC`), ten-chunk table, `w2*` extension legacy from REDengine 2.
-- Toolchain: 2015 Modkit (`wcc_lite`) → 2024 REDkit by Yigsoft, an editor build of the engine with a virtual depot (`workspace`/`uncook`/`r4data`) and a Blender plugin.
-- Next-gen patch 4.0 (Dec 2022) reworked scripts and content; classic is 1.32, REDkit pairs with 4.04a.
+- Toolchain: 2015 Modkit (`wcc_lite`) → 2024 REDkit by Yigsoft → REDkit 5.0.1042178 (2026-09-29), an editor build of the engine with a virtual depot (`workspace`/`uncook`/`r4data`) and a Blender plugin.
+- Remastered broke mods carrying XML, scripts or w3strings until they are rebuilt in REDkit, and moved all text files to UTF-8.
+- Remastered adds an in-game Mods menu on mod.io (PC, PS5, Xbox Series X|S, Switch 2); it cannot ship mod menus, custom inputs, `.ini` config mods or `.dll` mods.
+- REDkit 5.0 adds scope-based script overrides, `precompiled.rsblob` script blobs, XML overrides with `onConflict` policies, and needs Wwise 2023 plus its Mastering Suite and Motion plugins.
 - Layout: `mods/` folder, `input.settings` + `user_config_matrix/pc/` for keybinds and menus, XML game data, Witcher Script, `.w3strings` text, Scaleform `.redswf` UI.
 - Load order: `mods.settings` in `Documents\The Witcher 3\`, first mod to load wins; Script Merger for `.ws`/`.xml` conflicts; Mod Limit Adjuster + Ultimate ASI Loader lift the engine's mod-count ceiling.
-- Source lineage: the February 2021 breach published the trees; passwords surfaced April 2024. Retail is the next-gen tree.
-- Sources: [Witcher 3 Modding (Witcher wiki)](https://witcher-games.fandom.com/wiki/Witcher_3_Modding), [Modding The Witcher 3 with Vortex (Nexus)](https://github.com/Nexus-Mods/Vortex/wiki/MODDINGWIKI-Users-GameGuides-Modding-The-Witcher-3-with-Vortex), [Sinitar's TW3 guide](https://www.sinitargaming.com/tw3.html).
+- Source lineage: the February 2021 breach published the trees; passwords surfaced April 2024. The next-gen tree is the closest public ancestor of Remastered.
+- Sources: [Cross-Platform Mod Support (CD PROJEKT RED support)](https://support.cdprojektred.com/en/witcher-3/pc/gameplay/issue/3001/cross-platform-mod-support-how-to), [What the remaster means for modding (mod.io)](https://mod.io/g/the-witcher-3/r/what-does-the-remaster-mean-for-modding), [REDkit changelog (CD PROJEKT RED)](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/12058625/Changelog), [REDkit 5.0.1042178 (Steam news)](https://steampulse.org/update/6731766), [Witcher 3 Modding (Witcher wiki)](https://witcher-games.fandom.com/wiki/Witcher_3_Modding), [Modding The Witcher 3 with Vortex (Nexus)](https://github.com/Nexus-Mods/Vortex/wiki/MODDINGWIKI-Users-GameGuides-Modding-The-Witcher-3-with-Vortex), [Sinitar's TW3 guide](https://www.sinitargaming.com/tw3.html).

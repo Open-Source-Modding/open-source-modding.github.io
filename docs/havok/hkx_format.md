@@ -736,8 +736,8 @@ Each entry above is an independent tool with its own README and license.
 ## Provenance
 
 The layouts, field names and algorithms on this page were read from the Havok headers
-shipped with the 2013.1, 2014.1 and 2018.1 releases, and checked against packfiles
-unpacked from retail game installs. Havok is commercial licensed middleware: it was
+shipped with the 2012 through 2018 releases, and checked against packfiles unpacked from
+retail game installs. Havok is commercial licensed middleware: it was
 developed by Telekinesys Research, acquired by Microsoft in 2015, and an SDK is supplied
 under a licence rather than sold. Nothing on this page needs one; the parsers listed above
 are independent implementations.

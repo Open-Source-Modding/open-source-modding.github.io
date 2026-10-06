@@ -15,6 +15,7 @@
 - [Skyrim Havok animation reference](bethesda/skyrim-havok-guide.md) - Skyrim LE/SE/AE .hkx pipeline, hkxcmd/KF round-trip
 - [Oblivion Remastered reference](bethesda/oblivion-remastered-guide.md) - UE5 + Gamebryo hybrid, pak assets, animation workflow
 - [Starfield modding & RE reference](bethesda/starfield-guide.md) - CE2, SFSE, Creation Kit status, open questions
+- [Starfield INI performance presets](bethesda/starfield-ini-performance.md) - quality tiers, free wins, render scale and CAS, keys to leave alone, tuning order
 
 ## Watch Dogs (Disrupt engine)
 ### Cross-Game
@@ -42,6 +43,9 @@
 - [Shader Editing](disrupt/watch_dogs/shader-editing-workflow.md)
 - [Engine Modules](disrupt/watch_dogs/engine-modules.md) - internal library codenames (Pilot pathfinding, Storm networking, Gears serializer, DARE audio, depload, APS\* progression, CDebugRecorder); cut-content `ToBeDeleted_` prefix
 - [Wii U Debug Symbols](disrupt/watch_dogs/wii-u-debug-symbols.md)
+- [Entity XML Structure](disrupt/watch_dogs/entity-xml-structure.md) - entity library XML layout, graphic kits, NPC weapon loadouts via `StartUpKit`
+- [Custom Missions](disrupt/watch_dogs/custom-missions.md) - `MC` mission table, start types, nine objective types, environment overrides, reward blocks
+- [Particle and Emitter Editing](disrupt/watch_dogs/particle-emitter-editing.md) - RML to XML pipeline, curve base64 encoding, texture references, emitter light attributes, day/night pairs
 
 ### Watch Dogs 2
 - [Community Resources](disrupt/watch_dogs_2/community-resources.md) - OpenDogs, Volfin importer
@@ -50,6 +54,7 @@
 - [RebuildFileLists Schema](disrupt/watch_dogs_2/rebuildfilelists-schema.md)
 - [Vehicle Handling](disrupt/watch_dogs_2/vehicle-handling-modding.md)
 - [TAG0 Collision](disrupt/watch_dogs_2/wd2-tag0-collision-format.md)
+- [Status Effect Hashes](disrupt/watch_dogs_2/status-effect-hashes.md) - ability and upgrade hash list, resolved and unused entries, CRC32 byte-swapped naming
 
 ### Watch Dogs: Legion
 - [Engine Reference](disrupt/watch_dogs_legion/wdl_engine_reference.md)
@@ -57,6 +62,7 @@
 - [HKX (Havok Physics) Dunia Wrapper Format](disrupt/watch_dogs_legion/hkx_format_wdl.md)
 - [Vehicle Adding Process](disrupt/watch_dogs_legion/vehicle-add-process.md)
 - [PreparePlatformData](disrupt/watch_dogs_legion/prepareplatformdata-pipeline.md)
+- [Lua Function Index](disrupt/watch_dogs_legion/lua-functions.md) - 1,414 script function names, name-only inventory grouped by subsystem
 
 ## Far Cry (Dunia engine)
 - [XBG Format Notes (FC5 vs FC6)](farcry/xbg-format.md) - GMESH/IMESH magic vs Disrupt GEOM, SDOL/LODS chunk layout, FC5 stride 40 vs FC6 richer descriptor table, packed/quantized vertices
@@ -129,10 +135,12 @@ Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc li
 ## The Witcher 3 (REDengine v2)
 - [Witcher 3 Formats](witcher3/witcher3-formats.md) - .bundle/.cache archives, .xbm (CR2W) textures, .w3strings localization, .w3speech voices, .sav saves (LZ4 1MB chunks), meshes/bones (48B/bone), tools
 - [Raw XeNTaX extraction](witcher3/xentax-witcher3-knowledge.md) - source threads (2015–2020)
+- [REDkit and the Source Lineage](witcher3/redkit-and-source-lineage.md) - **stub**: POTATO70 .bundle layout, shared CR2W container, the 2024 REDkit (Yigsoft engine build, virtual depot), next-gen 4.0 vs classic 1.32, the 2021 leaked tree as provenance, open source-to-retail questions
 
 ## Cyberpunk 2077 (REDengine 4)
 - [Cyberpunk 2077 Formats](cyberpunk2077/cyberpunk2077-formats.md) - .archive (RDAR+KARK), Oodle compression, .mesh/.buffer/.rig/.morphtarget models, .xbm/.mi textures, Wwise .wem/.opuspak/.bnk audio, tools (CP77Tools, Wolven-kit, Noesis fmt_CP77mesh)
 - [Raw XeNTaX extraction](cyberpunk2077/xentax-cyberpunk-knowledge.md) - source threads (2020–2023)
+- [Vehicle sound mods](cyberpunk2077/vehicle-sound-mods.md) - `package Vehicle` audio resource fields, per-car naming, `.bnk` + tweak deployment
 
 ## Zelda (Wii U / 3DS / Switch)
 - [Zelda Formats](zelda/zelda-formats.md) - Yaz0/SARC (BotW), BWAV (TotK), GTX (TPHD), CMB/CSAB (OoT3D), HKX 2012 (Sonic Lost World), LZ/ARC (Skyward Sword)
@@ -149,6 +157,15 @@ Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc li
 ## Magic: The Gathering
 - [MTG Formats](mtg/mtg-formats.md) - Classic .cat archives (headerless TIFF card art), MTG Arena (Unity AssetBundles, Wwise/FMOD audio)
 - [Raw XeNTaX extraction](mtg/xentax-mtg-knowledge.md) - source threads (2007–2023)
+
+## Test Drive Unlimited 2 (Eden Games)
+- [TDU2 Modding Overview](tdu2/index.md) - what is editable, the `.cpr` decrypt-edit-encrypt loop, tool roles, add-on car limits
+- [Car Sound Mods](tdu2/car-sound-mods.md) - `CarVSTConfig` JSON/XMB, `nWaveIndex` against the BNK WAV table, pitch chains, load and unload curves
+- [Config Files and Physics](tdu2/config-files.md) - `.cpr` and XTEA, CRLF and trailing bytes, `Physics.txt`, Pacejka tire files and the coefficient arrays
+- [Input Device Profiles](tdu2/input-devices.md) - HID ID format, `DevicesPC.ini` mapping, XMB/JSON schema, Fanatec and Razer case studies
+
+## GRID 2 (EGO engine)
+- [GRID 2 Mod Support](grid2/index.md) - `ModList` XML and `-mod` launch option, protected and ignored files, DLC override paths, separate modded save
 
 ## Why Not?
 - [Miscellaneous Ubisoft References](why-not/index.md) - random facts, infrastructure, ecosystem references

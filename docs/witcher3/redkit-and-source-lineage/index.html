@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">The Witcher 3: REDkit and the Source Lineage | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Witcher 3: REDkit and the Source Lineage | Open Source Modding"><meta data-rh="true" name="description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><meta data-rh="true" property="og:description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Witcher 3: REDkit and the Source Lineage","item":"https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.8c2c38b1.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7d0ba371.js" defer="defer"></script>
 <script src="/assets/js/main.638c74c7.js" defer="defer"></script>
 </head>
 <body>
@@ -15,7 +15,9 @@
 <blockquote>
 <p><strong>Status: stub.</strong> This page records what is publicly known about The Witcher 3&#x27;s
 current toolchain and archive format. The measurement work is not done yet, so treat
-the open questions at the bottom as a to-do list.</p>
+the open questions at the bottom as a to-do list. The format notes below come from the
+leaked next-gen source tree and from public tooling; nothing here has been re-measured
+against the Remastered retail build.</p>
 </blockquote>
 <p>The Witcher 3 runs on <strong>REDengine 3</strong> (RED3); Cyberpunk 2077 runs on <strong>REDengine 4</strong>
 (RED4). Both games use the same <code>CR2W</code> resource container, so format knowledge
@@ -168,13 +170,18 @@ check files out of the read-only depot into the workspace.</li>
 audio sources.</li>
 </ul>
 <p><strong>REDkit 5.0.1042178</strong> shipped on 2026-09-29, the same day as Remastered, and that is the
-version to use against the current retail build. Earlier releases paired with the
-next-gen build that reported itself as <code>4.04a_REDkit</code>. The 5.0 changelog adds:</p>
+version to use against the current retail build. It has one hotfix, <code>v.5.0.1044630</code>,
+which fixes a crash when the localised strings editor opens. Earlier releases paired with
+the next-gen build that reported itself as <code>4.04a_REDkit</code>: <code>4.0.114968</code> (21.11.2024),
+<code>4.0.104755</code> (03.07.2024), <code>4.0.103444</code> (06.06.2024), <code>4.0.102771</code> (21.05.2024),
+<code>4.0.101539</code> (30.04.2024) and <code>4.0.101166</code> (18.04.2024). The 5.0 changelog adds:</p>
 <ul>
 <li class=""><strong>Witcherscript scope-based overrides.</strong> A mod can declare just a class and add or
 override a single function; the runtime merges it into the class at load. CDPR notes
 this &quot;may make the Script Merger tool no longer necessary&quot;, since the merge happens in
-the engine instead of on whole script source files.</li>
+the engine instead of on whole script source files. It builds on <strong>script annotations</strong>,
+which the 4.0.103444 patch added in June 2024 for the same reason, so merge-on-load is
+not new to 5.0.</li>
 <li class=""><strong>Script blobs.</strong> Script mods compile to a small <code>precompiled.rsblob</code> that the engine
 loads at start-up. Console builds require them, because loose <code>.ws</code> files are not
 allowed there.</li>

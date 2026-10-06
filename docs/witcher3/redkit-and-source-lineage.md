@@ -110,6 +110,37 @@ who does the work:
 
 ---
 
+## Load order and conflict resolution
+
+Witcher 3 sorts loads from the `mods.settings` file in `Documents\The Witcher 3\`, and
+**the first mod to load wins a conflict** (the topmost entry overrides the ones below it).
+That is backwards from Skyrim, where the last plugin wins, and it trips people up.
+
+- A mod that is not listed in `mods.settings` does not load at all. Add a mod you
+  installed by hand as a `[modName]` entry; the manager fills in the `Enabled`,
+  `Priority` and `VK` parameters on the next deploy.
+- Vortex exposes a Load Order tab where drag order maps to priority, and locks the
+  output of the Script Merger to the first slot. NMM, MO2 and Witcher 3 Mod Manager
+  handle the same file.
+- [Script Merger](https://www.nexusmods.com/witcher3/mods/484) resolves `.ws` script and
+  `.xml` conflicts. Merge `.csv` files never; merge in small batches rather than all at
+  the end, so a bad merge is easy to trace.
+- [Community Patch - Base](https://www.nexusmods.com/witcher3/mods/3652) is a
+  prerequisite for many gameplay mods, and the Steam GOTY build needs it to match the
+  GOG script set.
+- The engine handles a large mod count badly on its own, with long loads, freezes and
+  crashes that scale with mod count rather than hitting a fixed limit. The community
+  fix is [Mod Limit Adjuster](https://www.nexusmods.com/witcher3/mods/3711) plus
+  [Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases):
+  drop the 64-bit `dinput8.dll` into `bin\x64`, and rename it to `d3d11.dll` if the game
+  crashes at launch on your machine.
+- Mods written for classic 1.32 and for 4.x are not interchangeable. Install the build
+  the mod was made for, which is why so many mod pages carry a separate "Old Gen" file.
+- Authoring mods means [WolvenKit](https://www.nexusmods.com/witcher3/mods/3161) plus
+  CDPR's official modkit; WolvenKit reads and writes the game files and packs mods.
+
+---
+
 ## Next-gen vs classic
 
 The **next-gen update (4.0)** landed in December 2022 and changed more than graphics:
@@ -147,5 +178,6 @@ none of it is a verified source-to-retail mapping.
 - Toolchain: 2015 Modkit (`wcc_lite`) → 2024 REDkit by Yigsoft, an editor build of the engine with a virtual depot (`workspace`/`uncook`/`r4data`) and a Blender plugin.
 - Next-gen patch 4.0 (Dec 2022) reworked scripts and content; classic is 1.32, REDkit pairs with 4.04a.
 - Layout: `mods/` folder, `input.settings` + `user_config_matrix/pc/` for keybinds and menus, XML game data, Witcher Script, `.w3strings` text, Scaleform `.redswf` UI.
+- Load order: `mods.settings` in `Documents\The Witcher 3\`, first mod to load wins; Script Merger for `.ws`/`.xml` conflicts; Mod Limit Adjuster + Ultimate ASI Loader lift the engine's mod-count ceiling.
 - Source lineage: the February 2021 breach published the trees; passwords surfaced April 2024. Retail is the next-gen tree.
-- Sources: [Witcher 3 Modding (Witcher wiki)](https://witcher-games.fandom.com/wiki/Witcher_3_Modding).
+- Sources: [Witcher 3 Modding (Witcher wiki)](https://witcher-games.fandom.com/wiki/Witcher_3_Modding), [Modding The Witcher 3 with Vortex (Nexus)](https://github.com/Nexus-Mods/Vortex/wiki/MODDINGWIKI-Users-GameGuides-Modding-The-Witcher-3-with-Vortex), [Sinitar's TW3 guide](https://www.sinitargaming.com/tw3.html).

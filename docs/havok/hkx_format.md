@@ -64,8 +64,7 @@ Watch Dogs: Legion uses **two different Havok versions** depending on the build:
 
 The retail WDL build embeds Havok **license/authorization keys** (NOT encryption keys).
 They name the client and the Havok modules it is licensed to run, and when that license
-expires. Three key groups were found by □ΞnCrypTΞD□ (2026-09-04). The key strings
-themselves are deliberately not reproduced here.
+expires. Three key groups appear in that build, listed below by module coverage and expiry.
 
 | Key Group | Keys | Modules | Expiry |
 |-----------|------|---------|--------|
@@ -83,8 +82,7 @@ Key format: `0xGUID1-GUID2:YYYY-MM-DD.Product.Client`
 #### Where the keys sit in the file
 
 No decryption is involved: the keys are plain ASCII in the binary header of packaged `.hkx`
-files from a retail install, and only some assets carry them. The key strings themselves and
-any extraction method for them are deliberately not reproduced here. The same header carries
+files from a retail install, and only some assets carry them. The same header carries
 `SDKV="20170200"`, which is how retail WDL's Havok 2017.2 version was confirmed (see the
 version table above).
 
@@ -733,5 +731,13 @@ The Standalone Tool (ToolStandAlone.exe) can visualize HKX files and export to X
 | hkx_reverse | .NET | — | HavokDisrupt RE toolkit |
 | havok-vdb-2022.2.0 | .NET | — | Visual Debugger (x64) |
 
-All parsers and tools are in the `re/havok/` workspace. The `parsers/` directory has per-tool subdirectories with READMEs and licenses.
+Each entry above is an independent tool with its own README and license.
 
+## Provenance
+
+The layouts, field names and algorithms on this page were read from the Havok headers
+shipped with the 2013.1, 2014.1 and 2018.1 releases, and checked against packfiles
+unpacked from retail game installs. Havok is commercial licensed middleware: it was
+developed by Telekinesys Research, acquired by Microsoft in 2015, and an SDK is supplied
+under a licence rather than sold. Nothing on this page needs one; the parsers listed above
+are independent implementations.

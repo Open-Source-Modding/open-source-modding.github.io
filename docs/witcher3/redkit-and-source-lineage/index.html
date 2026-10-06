@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-witcher3/redkit-and-source-lineage" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">The Witcher 3: REDkit and the Source Lineage | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Witcher 3: REDkit and the Source Lineage | Open Source Modding"><meta data-rh="true" name="description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><meta data-rh="true" property="og:description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Witcher 3: REDkit and the Source Lineage","item":"https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.82724da6.js" defer="defer"></script>
+<script src="/assets/js/main.638c74c7.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/grid2/"><span class="linkLabel_WmDU">GRID 2 Mod Support</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/blender-hkx-workflow"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/lua/luarefv51single"><span class="categoryLinkLabel_W154">lua</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/simcity/simcity-formats"><span class="categoryLinkLabel_W154">simcity</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/tdu2/"><span class="categoryLinkLabel_W154">Test Drive Unlimited 2 Modding</span></a><button aria-label="Expand sidebar category &#x27;Test Drive Unlimited 2 Modding&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/why-not/"><span class="categoryLinkLabel_W154">Why Not? — Miscellaneous Ubisoft References</span></a><button aria-label="Expand sidebar category &#x27;Why Not? — Miscellaneous Ubisoft References&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/witcher3/redkit-and-source-lineage"><span class="categoryLinkLabel_W154">witcher3</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/witcher3/redkit-and-source-lineage"><span class="linkLabel_WmDU">The Witcher 3: REDkit and the Source Lineage</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/witcher3/witcher3-formats"><span class="linkLabel_WmDU">The Witcher 3: Wild Hunt (REDEngine v2) — Archive, Texture, String &amp; Save Formats</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/witcher3/xentax-witcher3-knowledge"><span class="linkLabel_WmDU">The Witcher 3: Wild Hunt — XeNTaX Forum Knowledge</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/wwise/wwise-soundbank-format"><span class="categoryLinkLabel_W154">wwise</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">witcher3</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">The Witcher 3: REDkit and the Source Lineage</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>The Witcher 3: REDkit and the Source Lineage</h1></header>
+<blockquote>
+<p><strong>Status: stub.</strong> This page records what is publicly known about The Witcher 3&#x27;s
+current toolchain and archive format. The measurement work is not done yet, so treat
+the open questions at the bottom as a to-do list.</p>
+</blockquote>
+<p>The Witcher 3 runs on <strong>REDengine 3</strong> (RED3); Cyberpunk 2077 runs on <strong>REDengine 4</strong>
+(RED4). Both games use the same <code>CR2W</code> resource container, so format knowledge
+transfers between them even though a console generation separates them. The RED4 side
+lives in <a class="" href="/docs/cyberpunk2077/cyberpunk2077-formats">Cyberpunk 2077 Formats</a>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-leaked-engine-source">The leaked engine source<a href="#the-leaked-engine-source" class="hash-link" aria-label="Direct link to The leaked engine source" title="Direct link to The leaked engine source" translate="no">​</a></h2>
+<p>In February 2021 the HelloKitty ransomware group stole the source trees for The Witcher
+3, Cyberpunk 2077 and Gwent, and tried to auction them. CD Projekt RED refused to pay.
+The archives circulated encrypted, and working passwords surfaced publicly in April
+2024, so the trees became readable years after the breach.</p>
+<p>Two Witcher 3 trees exist: the original engine and the <strong>next-gen</strong> one that the 2022
+&quot;next-gen update&quot; shipped. The 2026 Remastered build grew out of that next-gen line, so
+the next-gen tree is its closest public ancestor. The trees still predate Remastered, so
+expect drift. You can write up modding-useful facts from them in your own words: formats,
+structure, behaviour, tooling. The code itself and any leaked download stay off this site.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="build-lines">Build lines<a href="#build-lines" class="hash-link" aria-label="Direct link to Build lines" title="Direct link to Build lines" translate="no">​</a></h2>
+<p>The game has three live build lines, and Valve names the Steam branches after them.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Line</th><th>Steam branch</th><th>Version</th><th>Last changed</th></tr></thead><tbody><tr><td>Classic</td><td><code>classic</code></td><td>1.32</td><td>2022-12-13</td></tr><tr><td>Next-gen</td><td><code>next-gen</code></td><td>4.04</td><td>2024-06-06</td></tr><tr><td>Remastered</td><td><code>public</code></td><td>2026-09-29 release</td><td>2026-09-29</td></tr></tbody></table>
+<p><strong>The Witcher 3: Wild Hunt — Remastered</strong> launched on <strong>2026-09-29</strong> as a free upgrade
+for existing owners on GOG, Steam, Epic, PS5 and Xbox Series X|S. It also sells on
+Battle.net and the Microsoft Store, and a separate Switch 2 release is free for Switch
+owners. It replaces the Complete Edition and includes Hearts of Stone and Blood Wine.
+CDPR built it in close collaboration with <strong>Yigsoft</strong>. The PC download runs about 45 GB.
+An expansion, <strong>Songs of the Past</strong>, arrives in 2027.</p>
+<p>The rendering changes matter less to a modder than the content ones: path tracing, DLSS
+4.5 with Ray Reconstruction, FSR 4, XeSS 2.0, native DX12, an improved shading model, and
+textures derived from the HD Reworked Project. Gameplay changed too. The skill tree was
+reimagined and skill points reset, animations and camera were reworked, the UI was
+refreshed, and a photo mode was added.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-remastered-changed-for-mods">What Remastered changed for mods<a href="#what-remastered-changed-for-mods" class="hash-link" aria-label="Direct link to What Remastered changed for mods" title="Direct link to What Remastered changed for mods" translate="no">​</a></h2>
+<p>Remastered ships an in-game <strong>Mods menu powered by mod.io</strong>, on PC, PS5, Xbox Series X|S
+and Switch 2. It needs a CD PROJEKT RED account linked to a mod.io account, and it is the
+only route to console mods. The menu cannot carry mod menus, custom inputs, configuration
+mods that edit <code>.ini</code> files, or mods that inject code through a <code>.dll</code>.</p>
+<p>The update broke a large slice of the existing catalogue. Per CD PROJEKT RED&#x27;s support
+article, <strong>mods containing XML files, script files or w3strings stop working</strong> until
+someone rebuilds them in REDkit. Script mods for console must be built in REDkit; texture
+and bundle mods need no REDkit. The mod.io guide adds that <strong>every text file must now be
+UTF-8</strong> where the game previously used UTF-16, which covers scripts, XML, CSV and
+w3strings. <code>collision.cache</code>, <code>soundspc.cache</code> and SpeedTree <code>.srt</code> files also stop
+working, and <code>w2rc</code> files such as <code>.w2ent</code>, <code>.w2l</code> and <code>.w2quest</code> should be re-exported
+so they reflect Remastered&#x27;s changes. Textures, models and bundles are not on the broken
+list, and nobody promises they work either.</p>
+<p>Nexus Mods keeps one Witcher 3 page and adds a <strong>&quot;Remastered Compatible&quot;</strong> tag, applied
+by the author on upload and curated by three Community Champions. It runs a Remastered
+Modathon from <strong>2026-10-06 to 2026-11-30</strong>. Its guidance for authors is to use XML
+mounters and scope-based overrides instead of replacing vanilla files.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bundle-archives"><code>.bundle</code> archives<a href="#bundle-archives" class="hash-link" aria-label="Direct link to bundle-archives" title="Direct link to bundle-archives" translate="no">​</a></h2>
+<p>Witcher 3 packs its assets into <code>.bundle</code> archives. The format is small and fully
+public:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Magic</td><td><code>POTATO70</code> (8 bytes)</td></tr><tr><td>Header size</td><td>32 bytes</td></tr><tr><td>Entry size</td><td>320 bytes</td></tr><tr><td>Entry name</td><td>256 bytes, NUL-padded, Windows backslash paths</td></tr><tr><td>Entry hash</td><td>16 bytes</td></tr></tbody></table>
+<p>The header carries the bundle size, a dummy word, and the metadata-table size. Each
+320-byte entry holds the path, a 16-byte hash, packed and unpacked sizes, the data
+offset, a timestamp, and a compression-type word. Compression types are <code>0 = none</code>,
+<code>1 = zlib</code>, <code>2 = Snappy</code>, <code>3 = Doboz</code>, <code>4 = LZ4</code> (4 and 5 are both LZ4).</p>
+<p>Public tools read and write this format: the Rust crate <code>w3bundle</code>, the Java
+<code>bundle-explorer</code> and the C# <code>XBundle</code> library. <code>w3bundle</code> ships a from-scratch Doboz
+decoder, and WolvenKit reads bundles too.</p>
+<p>Cyberpunk 2077 replaced <code>.bundle</code> with the <code>.archive</code> container (<code>RDAR</code> magic, version
+12, Oodle-compressed). CDPR rewrote the container between RED3 and RED4.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resources-the-shared-cr2w-container">Resources: the shared <code>CR2W</code> container<a href="#resources-the-shared-cr2w-container" class="hash-link" aria-label="Direct link to resources-the-shared-cr2w-container" title="Direct link to resources-the-shared-cr2w-container" translate="no">​</a></h2>
+<p>Individual assets are <code>CR2W</code> resources in both games: <code>.xbm</code> textures, <code>.w2mesh</code> and
+<code>.w2ent</code> files, quest and gameplay definitions. (<code>CR2W</code> is the on-disk byte order of the
+literal <code>W2RC</code>, &quot;Witcher 2 Resource Class&quot; read backwards.)</p>
+<p>A Witcher 3 <code>CR2W</code> file has the same shape as the Cyberpunk one: a packed header, a
+fixed table of ten chunk descriptors (strings, names, imports, properties, exports,
+buffers, inplace data), then the tables themselves. Asset extensions keep the Witcher 2
+<code>w2</code> prefix (<code>.w2mesh</code>, <code>.w2ent</code>, <code>.w2mi</code>), inherited from REDengine 2.
+<a class="" href="/docs/witcher3/witcher3-formats">Witcher 3 Formats</a> covers the per-type fields (textures, mesh bone
+data, localization, saves).</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-official-toolchain">The official toolchain<a href="#the-official-toolchain" class="hash-link" aria-label="Direct link to The official toolchain" title="Direct link to The official toolchain" translate="no">​</a></h2>
+<p>For most of the game&#x27;s life modders used the <strong>2015 Modkit</strong> (<code>wcc_lite</code>) and community
+tools. That changed in May 2024 with <strong>The Witcher 3 REDkit</strong>.</p>
+<ul>
+<li class=""><strong>Yigsoft</strong> built it with CDPR. It is free for anyone who owns the base game on PC,
+distributed through GOG, Steam and Epic, with Steam Workshop integration.</li>
+<li class="">CDPR calls it a &quot;repurposed, reworked and extended codebase of REDengine 3&quot;: an editor
+build of the engine.</li>
+<li class="">At GDC, CDPR said the work went into making the internal engine usable by outsiders:
+~10 months of rework for projects, dependency handling and documentation, plus
+cleaning dev in-jokes and debug paths out of the tree.</li>
+<li class="">It exposes a <strong>virtual depot</strong> merged from three directories: <code>workspace</code> (your edits),
+<code>uncook</code> (game files you unlock) and <code>r4data</code> (extra assets shipped with REDkit). You
+check files out of the read-only depot into the workspace.</li>
+<li class="">It ships a <strong>Blender plugin</strong> for meshes, rigging and lipsync, plus original UI and
+audio sources.</li>
+</ul>
+<p><strong>REDkit 5.0.1042178</strong> shipped on 2026-09-29, the same day as Remastered, and that is the
+version to use against the current retail build. Earlier releases paired with the
+next-gen build that reported itself as <code>4.04a_REDkit</code>. The 5.0 changelog adds:</p>
+<ul>
+<li class=""><strong>Witcherscript scope-based overrides.</strong> A mod can declare just a class and add or
+override a single function; the runtime merges it into the class at load. CDPR notes
+this &quot;may make the Script Merger tool no longer necessary&quot;, since the merge happens in
+the engine instead of on whole script source files.</li>
+<li class=""><strong>Script blobs.</strong> Script mods compile to a small <code>precompiled.rsblob</code> that the engine
+loads at start-up. Console builds require them, because loose <code>.ws</code> files are not
+allowed there.</li>
+<li class=""><strong>New DLC mounters</strong>, for example <code>LoadingScreenDLCMounter</code>, for conflict-free mods
+that edit base-game features.</li>
+<li class=""><strong>Fine-grained XML overrides.</strong> A DLC can redefine an XML entry or tweak individual
+fields in one, with an <code>onConflict</code> attribute: <code>default</code> errors on a redefinition,
+<code>replace</code> swaps the earlier definition, and <code>extend</code> merges sub-nodes over it.</li>
+<li class=""><strong>Gwent moves to name-based logic</strong>, with game and opponent decks held in XML and
+reloadable.</li>
+<li class="">A new <strong><code>compile scripts</code></strong> commandlet compiles scripts from the command line.</li>
+<li class="">Script fixes: native functions can be wrapped, and events and states can be annotated.</li>
+<li class="">Scripts now ship with REDkit, and the depot should hold no vanilla scripts.</li>
+<li class="">The UI supports up to 30 user pins, raised from 10.</li>
+<li class="">REDkit <strong>requires Wwise 2023 with the Mastering Suite and Motion plugins</strong>.</li>
+<li class="">REDkit <strong>no longer ships <code>.w3speech</code> and <code>.w3strings</code></strong>. Setup copies the language
+files from the game install.</li>
+<li class="">Terrain generates at a default tile count of 1024 (32×32).</li>
+<li class="">WitcherScript gains a <code>map</code> syntax.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-a-mod-is-laid-out">How a mod is laid out<a href="#how-a-mod-is-laid-out" class="hash-link" aria-label="Direct link to How a mod is laid out" title="Direct link to How a mod is laid out" translate="no">​</a></h2>
+<p>The layout outlives the toolchain, so it is worth recording even though REDkit changes
+who does the work:</p>
+<ul>
+<li class="">Mods live in a <code>mods</code> folder in the game directory. A mod may need extra steps: adds
+keybinds to <code>input.settings</code> under <code>Documents\The Witcher 3\</code>, or drops a menu
+definition into <code>bin\config\r4game\user_config_matrix\pc\</code>.</li>
+<li class="">Conflicting mods are merged with the community <strong>Script Merger</strong> tool, which the
+<a href="https://witcher-games.fandom.com/wiki/Witcher_3_Modding" target="_blank" rel="noopener noreferrer" class="">Witcher wiki</a> treats as
+standard practice because the official support never handled load order.</li>
+<li class="">Gameplay and item data sit in XML: prices, loot tables, skill costs, weapon and armour
+values.</li>
+<li class="">Scripts use <strong>Witcher Script</strong> and control movement, combat, stamina and signs. Menus
+are XML with their text in <code>.w3strings</code> files.</li>
+<li class="">The UI runs on <strong>Scaleform GFx</strong> (Flash) and ships as <code>.redswf</code> files, with embedded
+ActionScript driving much of the behaviour.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="load-order-and-conflict-resolution">Load order and conflict resolution<a href="#load-order-and-conflict-resolution" class="hash-link" aria-label="Direct link to Load order and conflict resolution" title="Direct link to Load order and conflict resolution" translate="no">​</a></h2>
+<p>Witcher 3 sorts loads from the <code>mods.settings</code> file in <code>Documents\The Witcher 3\</code>, and
+<strong>the first mod to load wins a conflict</strong> (the topmost entry overrides the ones below it).
+That is backwards from Skyrim, where the last plugin wins, and it trips people up.</p>
+<ul>
+<li class="">A mod that is not listed in <code>mods.settings</code> does not load at all. Add a mod you
+installed by hand as a <code>[modName]</code> entry; the manager fills in the <code>Enabled</code>,
+<code>Priority</code> and <code>VK</code> parameters on the next deploy.</li>
+<li class="">Vortex exposes a Load Order tab where drag order maps to priority, and locks the
+output of the Script Merger to the first slot. NMM, MO2 and Witcher 3 Mod Manager
+handle the same file.</li>
+<li class=""><a href="https://www.nexusmods.com/witcher3/mods/484" target="_blank" rel="noopener noreferrer" class="">Script Merger</a> resolves <code>.ws</code> script and
+<code>.xml</code> conflicts. Merge <code>.csv</code> files never; merge in small batches rather than all at
+the end, so a bad merge is easy to trace.</li>
+<li class=""><a href="https://www.nexusmods.com/witcher3/mods/3652" target="_blank" rel="noopener noreferrer" class="">Community Patch - Base</a> is a
+prerequisite for many gameplay mods, and the Steam GOTY build needs it to match the
+GOG script set.</li>
+<li class="">The engine handles a large mod count badly on its own, with long loads, freezes and
+crashes that scale with mod count rather than hitting a fixed limit. The community
+fix is <a href="https://www.nexusmods.com/witcher3/mods/3711" target="_blank" rel="noopener noreferrer" class="">Mod Limit Adjuster</a> plus
+<a href="https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases" target="_blank" rel="noopener noreferrer" class="">Ultimate ASI Loader</a>:
+drop the 64-bit <code>dinput8.dll</code> into <code>bin\x64</code>, and rename it to <code>d3d11.dll</code> if the game
+crashes at launch on your machine.</li>
+<li class="">Mods written for classic 1.32 and for 4.x are not interchangeable. Install the build
+the mod was made for, which is why so many mod pages carry a separate &quot;Old Gen&quot; file.</li>
+<li class="">Remastered moves conflict handling into the engine. Scope-based overrides merge script
+changes at run time, and XML mounters override vanilla entries through the <code>onConflict</code>
+policy, so an author can ship one mod that stacks with others instead of a whole file
+that replaces theirs. <code>mods.settings</code> and Script Merger still apply to the classic and
+next-gen lines, and to mods installed by hand on Remastered.</li>
+<li class="">Authoring mods means <a href="https://www.nexusmods.com/witcher3/mods/3161" target="_blank" rel="noopener noreferrer" class="">WolvenKit</a> plus
+CDPR&#x27;s official modkit; WolvenKit reads and writes the game files and packs mods.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-questions-what-completing-this-stub-needs">Open questions (what completing this stub needs)<a href="#open-questions-what-completing-this-stub-needs" class="hash-link" aria-label="Direct link to Open questions (what completing this stub needs)" title="Direct link to Open questions (what completing this stub needs)" translate="no">​</a></h2>
+<p>The method used on the Cyberpunk side applies here, and none of it needs the leaked
+download. A retail install is enough:</p>
+<ol>
+<li class="">Record the Remastered build&#x27;s own version word, then parse a shipped <code>.bundle</code> and
+confirm <code>POTATO70</code>, the 32-byte header and the 320-byte entries still hold. Record
+which compression types the shipped bundles use.</li>
+<li class="">Decode a <code>CR2W</code> resource out of a bundle and record its <strong>version word</strong>, then compare
+that against the version the next-gen source tree considers current. This is the
+Witcher counterpart to the Cyberpunk finding that the 2021 source&#x27;s resource version
+still matches retail. Remastered postdates the tree, so a mismatch here is expected
+rather than surprising, and the size of the gap is the finding.</li>
+<li class="">Map the source tree&#x27;s archive and resource modules onto what the retail bundles
+contain, and note where they have drifted.</li>
+<li class="">Cross-check REDkit 5.0&#x27;s own output (a cooked mod bundle, and a scope-based override
+merged at run time) against the same parser.</li>
+</ol>
+<p>Until then, everything above is public format documentation or CDPR&#x27;s own statements;
+none of it is a verified source-to-retail mapping.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-facts">Key Facts<a href="#key-facts" class="hash-link" aria-label="Direct link to Key Facts" title="Direct link to Key Facts" translate="no">​</a></h2>
+<ul>
+<li class="">Engine: REDengine 3 (RED3); shares the <code>CR2W</code> resource container with REDengine 4.</li>
+<li class="">Builds: classic 1.32 (Steam <code>classic</code>), next-gen 4.04 (Steam <code>next-gen</code>), Remastered launched 2026-09-29 (Steam <code>public</code>).</li>
+<li class="">Archives: <code>.bundle</code>, magic <code>POTATO70</code>, 32-byte header, 320-byte entries, zlib/Snappy/Doboz/LZ4.</li>
+<li class="">Resources: <code>CR2W</code> (reversed <code>W2RC</code>), ten-chunk table, <code>w2*</code> extension legacy from REDengine 2.</li>
+<li class="">Toolchain: 2015 Modkit (<code>wcc_lite</code>) → 2024 REDkit by Yigsoft → REDkit 5.0.1042178 (2026-09-29), an editor build of the engine with a virtual depot (<code>workspace</code>/<code>uncook</code>/<code>r4data</code>) and a Blender plugin.</li>
+<li class="">Remastered broke mods carrying XML, scripts or w3strings until they are rebuilt in REDkit, and moved all text files to UTF-8.</li>
+<li class="">Remastered adds an in-game Mods menu on mod.io (PC, PS5, Xbox Series X|S, Switch 2); it cannot ship mod menus, custom inputs, <code>.ini</code> config mods or <code>.dll</code> mods.</li>
+<li class="">REDkit 5.0 adds scope-based script overrides, <code>precompiled.rsblob</code> script blobs, XML overrides with <code>onConflict</code> policies, and needs Wwise 2023 plus its Mastering Suite and Motion plugins.</li>
+<li class="">Layout: <code>mods/</code> folder, <code>input.settings</code> + <code>user_config_matrix/pc/</code> for keybinds and menus, XML game data, Witcher Script, <code>.w3strings</code> text, Scaleform <code>.redswf</code> UI.</li>
+<li class="">Load order: <code>mods.settings</code> in <code>Documents\The Witcher 3\</code>, first mod to load wins; Script Merger for <code>.ws</code>/<code>.xml</code> conflicts; Mod Limit Adjuster + Ultimate ASI Loader lift the engine&#x27;s mod-count ceiling.</li>
+<li class="">Source lineage: the February 2021 breach published the trees; passwords surfaced April 2024. The next-gen tree is the closest public ancestor of Remastered.</li>
+<li class="">Sources: <a href="https://support.cdprojektred.com/en/witcher-3/pc/gameplay/issue/3001/cross-platform-mod-support-how-to" target="_blank" rel="noopener noreferrer" class="">Cross-Platform Mod Support (CD PROJEKT RED support)</a>, <a href="https://mod.io/g/the-witcher-3/r/what-does-the-remaster-mean-for-modding" target="_blank" rel="noopener noreferrer" class="">What the remaster means for modding (mod.io)</a>, <a href="https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/12058625/Changelog" target="_blank" rel="noopener noreferrer" class="">REDkit changelog (CD PROJEKT RED)</a>, <a href="https://steampulse.org/update/6731766" target="_blank" rel="noopener noreferrer" class="">REDkit 5.0.1042178 (Steam news)</a>, <a href="https://witcher-games.fandom.com/wiki/Witcher_3_Modding" target="_blank" rel="noopener noreferrer" class="">Witcher 3 Modding (Witcher wiki)</a>, <a href="https://github.com/Nexus-Mods/Vortex/wiki/MODDINGWIKI-Users-GameGuides-Modding-The-Witcher-3-with-Vortex" target="_blank" rel="noopener noreferrer" class="">Modding The Witcher 3 with Vortex (Nexus)</a>, <a href="https://www.sinitargaming.com/tw3.html" target="_blank" rel="noopener noreferrer" class="">Sinitar&#x27;s TW3 guide</a>.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/witcher2/xentax-witcher2-knowledge"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">The Witcher 2 — XeNTaX Forum Knowledge</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/witcher3/witcher3-formats"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">The Witcher 3: Wild Hunt (REDEngine v2) — Archive, Texture, String &amp; Save Formats</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#the-leaked-engine-source" class="table-of-contents__link toc-highlight">The leaked engine source</a></li><li><a href="#build-lines" class="table-of-contents__link toc-highlight">Build lines</a></li><li><a href="#what-remastered-changed-for-mods" class="table-of-contents__link toc-highlight">What Remastered changed for mods</a></li><li><a href="#bundle-archives" class="table-of-contents__link toc-highlight"><code>.bundle</code> archives</a></li><li><a href="#resources-the-shared-cr2w-container" class="table-of-contents__link toc-highlight">Resources: the shared <code>CR2W</code> container</a></li><li><a href="#the-official-toolchain" class="table-of-contents__link toc-highlight">The official toolchain</a></li><li><a href="#how-a-mod-is-laid-out" class="table-of-contents__link toc-highlight">How a mod is laid out</a></li><li><a href="#load-order-and-conflict-resolution" class="table-of-contents__link toc-highlight">Load order and conflict resolution</a></li><li><a href="#open-questions-what-completing-this-stub-needs" class="table-of-contents__link toc-highlight">Open questions (what completing this stub needs)</a></li><li><a href="#key-facts" class="table-of-contents__link toc-highlight">Key Facts</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

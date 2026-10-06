@@ -80,11 +80,9 @@
 
 ### SDK tooling (shared by Encrypted, WD Modding Discord, 2026-08)
 
-> Community-proven sources for **tagfile tooling**. Havok SDK builds themselves are proprietary
-> licensed products, so redistributed copies (torrents, Drive folders) are deliberately not
-> linked here; which SDK version matters for which game is in the SDK reference table on
-> [`../havok/hkx_format.md`](../havok/hkx_format.md). For most mesh and animation work the SDK
-> is not needed at all — see [`../havok/blender-hkx-workflow.md`](../havok/blender-hkx-workflow.md).
+> Community-proven sources for **tagfile tooling**. Havok SDK builds are proprietary licensed
+> products supplied by Microsoft, and no copy of one is linked here. For most mesh and animation
+> work no SDK is needed at all, see [`../havok/blender-hkx-workflow.md`](../havok/blender-hkx-workflow.md).
 
 - **TagTools** (blueskythlikesclouds): https://github.com/blueskythlikesclouds/TagTools — tools for editing Havok **2015/2016 binary tag files**; Havoc branch kept for reference.
 

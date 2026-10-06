@@ -90,6 +90,26 @@ The game build that pairs with REDkit reports itself as `4.04a_REDkit`.
 
 ---
 
+## How a mod is laid out
+
+The layout outlives the toolchain, so it is worth recording even though REDkit changes
+who does the work:
+
+- Mods live in a `mods` folder in the game directory. A mod may need extra steps: adds
+  keybinds to `input.settings` under `Documents\The Witcher 3\`, or drops a menu
+  definition into `bin\config\r4game\user_config_matrix\pc\`.
+- Conflicting mods are merged with the community **Script Merger** tool, which the
+  [Witcher wiki](https://witcher-games.fandom.com/wiki/Witcher_3_Modding) treats as
+  standard practice because the official support never handled load order.
+- Gameplay and item data sit in XML: prices, loot tables, skill costs, weapon and armour
+  values.
+- Scripts use **Witcher Script** and control movement, combat, stamina and signs. Menus
+  are XML with their text in `.w3strings` files.
+- The UI runs on **Scaleform GFx** (Flash) and ships as `.redswf` files, with embedded
+  ActionScript driving much of the behaviour.
+
+---
+
 ## Next-gen vs classic
 
 The **next-gen update (4.0)** landed in December 2022 and changed more than graphics:
@@ -126,4 +146,6 @@ none of it is a verified source-to-retail mapping.
 - Resources: `CR2W` (reversed `W2RC`), ten-chunk table, `w2*` extension legacy from REDengine 2.
 - Toolchain: 2015 Modkit (`wcc_lite`) → 2024 REDkit by Yigsoft, an editor build of the engine with a virtual depot (`workspace`/`uncook`/`r4data`) and a Blender plugin.
 - Next-gen patch 4.0 (Dec 2022) reworked scripts and content; classic is 1.32, REDkit pairs with 4.04a.
+- Layout: `mods/` folder, `input.settings` + `user_config_matrix/pc/` for keybinds and menus, XML game data, Witcher Script, `.w3strings` text, Scaleform `.redswf` UI.
 - Source lineage: the February 2021 breach published the trees; passwords surfaced April 2024. Retail is the next-gen tree.
+- Sources: [Witcher 3 Modding (Witcher wiki)](https://witcher-games.fandom.com/wiki/Witcher_3_Modding).

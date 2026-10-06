@@ -35,10 +35,14 @@ TDU2 uses a Pacejka tire model, and the data is split across two BNK archives ra
 
 | Archive | Entries | Holds |
 |---------|---------|-------|
-| `…\Bnk\Physics\tires.bnk` | `tire1.bpjka` … `tire8.bpjka` (roughly 384-394 bytes each) | Sampled slip and force tables plus unnamed curve scalars |
-| `…\Bnk\Vehicules\Tires\tires.bnk` | `Tire1.xmb`, `Tire2.xmb`, `Tire1_Bike.xmb`, `Tire1_Supercar.xmb`, `Offroad_Bad.xmb`, `Offroad_Good.xmb` | The Pacejka coefficient arrays and optimal slip values |
+| `…\Bnk\Physics\tires.bnk` | `tire1.bpjka` … `tire6.bpjka`, 384 bytes each | Sampled slip and force tables plus unnamed curve scalars |
+| `…\Bnk\Vehicules\Tires\tires.bnk` | `.xmb` entries named `Tire`, `Tire1`, `Tire2`, `Tire3`, `Tire1_Bike`, `Tire1_Supercar`, `Tire_MS9`, `Tire_2_MS9`, `Back_up_Tire2`, `Offroad_Bad`, `Offroad_Good` | The Pacejka coefficient arrays and optimal slip values |
+
+The `.xmb` entry set varies between copies of the archive: one retail copy lists `Tire1`, `Tire2`, `Tire1_Bike`, `Tire1_Supercar`, `Offroad_Bad` and `Offroad_Good`, while an exported copy carries the wider `Tire`/`Tire3`/`Tire_MS9`/`Tire_2_MS9`/`Back_up_Tire2` set as well. Treat the name list as a version-dependent roster rather than a fixed schema. The `.bpjka` side is stable at six entries.
 
 Both archives are named `tires.bnk` and both live under `Resources\Final\PC\EURO\Bnk\`; the shorter entry names (`.xmb`) carry the coefficients, and the longer ones (`.bpjka`) carry the lookup tables. Within an archive the entries are addressed by an embedded install path (`Eden-Prog\Games\TestDrive2\…`), so a replacement archive has to keep the same prefix and extension fields.
+
+Community beta physics packs ship both files side by side, with the `Vehicules` copy larger than the `Physics` one (6,144 bytes against 4,096 in one circulated pack). Replacing only the `Physics` archive leaves the coefficient arrays untouched, which is one reason table-only edits can appear to do nothing (see the caveat below).
 
 Each `.bpjka` payload begins with the ASCII string `PACEJKA TIRE FLE` (the shipped magic text is missing the `I`). [TDU2 Emploder](input-devices.md) opens the archive by name (`tires.bnk.xmb`) and shows one entry at a time:
 

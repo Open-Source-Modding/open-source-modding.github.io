@@ -54,4 +54,4 @@ Treat this as the open question to answer before documenting any Blender HKX wor
 
 ## Header reference
 
-Version-specific class layouts for the 2012.2.0-r1, 2013.1.0-r1, 2014.1.0-r1 and 2018.1.0-r1 SDK releases are published in [havok-sdk-reference](https://github.com/Open-Source-Modding/havok-sdk-reference) as deduplicated source trees with build files and binaries removed. Usable as a reading reference only, since nothing there compiles.
+Version-specific class layouts for the 2012.2.0-r1, 2013.1.0-r1, 2014.1.0-r1 and 2018.1.0-r1 SDK releases can be read straight out of the headers that ship with each release (`Common/Base/Config/hkConfigVersion.h` identifies a tree, and the class declarations live beside their implementation). Deduplicated reference trees from those releases, with build files and binaries removed so nothing compiles, are useful as a reading aid only, and are not published here.

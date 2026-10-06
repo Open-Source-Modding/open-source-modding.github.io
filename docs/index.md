@@ -119,6 +119,8 @@ Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc li
 - [Avatars, Custom Cars and Skins](trackmania/mania-creative-avatars-and-custom-cars.md) - avatars, custom car zips, 2D skin painting, stickers, shadows, on-site tools
 - [Trackmaking, Style and Block Mixing](trackmania/mania-creative-trackmaking.md) - track style rules, editor workflow, block mixing and hex editing, challenge music
 - [Dedicated Servers and XAseco](trackmania/mania-creative-dedicated-servers.md) - server install, `dedicated_cfg.txt`, match settings, XAseco with MySQL/PHP, failure symptoms
+- [Environment Mods and Game Internals](trackmania/mania-creative-environment-and-internals.md) - mod archive layout, DXT settings, diffuse/normal/specular sets, mood and presentation files, internal edits
+- [Video Creation](trackmania/mania-creative-video-creation.md) - replay sources, replay effects and cameras, time tracks, codecs and quality, SUPER encoding
 
 ## The Witcher 2 (REDengine v1)
 - [Witcher 2 Formats](witcher2/witcher2-formats.md) - .dzip archives, .w2ent/.w2mesh models, .xbm textures, .w2speech dialogue, .usm video, .fsb music, tools

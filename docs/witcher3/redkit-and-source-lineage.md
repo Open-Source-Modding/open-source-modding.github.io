@@ -2,7 +2,9 @@
 
 > **Status: stub.** This page records what is publicly known about The Witcher 3's
 > current toolchain and archive format. The measurement work is not done yet, so treat
-> the open questions at the bottom as a to-do list.
+> the open questions at the bottom as a to-do list. The format notes below come from the
+> leaked next-gen source tree and from public tooling; nothing here has been re-measured
+> against the Remastered retail build.
 
 The Witcher 3 runs on **REDengine 3** (RED3); Cyberpunk 2077 runs on **REDengine 4**
 (RED4). Both games use the same `CR2W` resource container, so format knowledge
@@ -136,13 +138,18 @@ tools. That changed in May 2024 with **The Witcher 3 REDkit**.
   audio sources.
 
 **REDkit 5.0.1042178** shipped on 2026-09-29, the same day as Remastered, and that is the
-version to use against the current retail build. Earlier releases paired with the
-next-gen build that reported itself as `4.04a_REDkit`. The 5.0 changelog adds:
+version to use against the current retail build. It has one hotfix, `v.5.0.1044630`,
+which fixes a crash when the localised strings editor opens. Earlier releases paired with
+the next-gen build that reported itself as `4.04a_REDkit`: `4.0.114968` (21.11.2024),
+`4.0.104755` (03.07.2024), `4.0.103444` (06.06.2024), `4.0.102771` (21.05.2024),
+`4.0.101539` (30.04.2024) and `4.0.101166` (18.04.2024). The 5.0 changelog adds:
 
 - **Witcherscript scope-based overrides.** A mod can declare just a class and add or
   override a single function; the runtime merges it into the class at load. CDPR notes
   this "may make the Script Merger tool no longer necessary", since the merge happens in
-  the engine instead of on whole script source files.
+  the engine instead of on whole script source files. It builds on **script annotations**,
+  which the 4.0.103444 patch added in June 2024 for the same reason, so merge-on-load is
+  not new to 5.0.
 - **Script blobs.** Script mods compile to a small `precompiled.rsblob` that the engine
   loads at start-up. Console builds require them, because loose `.ws` files are not
   allowed there.

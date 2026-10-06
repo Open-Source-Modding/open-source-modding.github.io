@@ -1,0 +1,129 @@
+# The Witcher 3: REDkit and the Source Lineage
+
+> **Status: stub.** This page records what is publicly known about The Witcher 3's
+> current toolchain and archive format. The measurement work is not done yet, so treat
+> the open questions at the bottom as a to-do list.
+
+The Witcher 3 runs on **REDengine 3** (RED3); Cyberpunk 2077 runs on **REDengine 4**
+(RED4). Both games use the same `CR2W` resource container, so format knowledge
+transfers between them even though a console generation separates them. The RED4 side
+lives in [Cyberpunk 2077 Formats](../cyberpunk2077/cyberpunk2077-formats.md).
+
+---
+
+## The leaked engine source
+
+In February 2021 the HelloKitty ransomware group stole the source trees for The Witcher
+3, Cyberpunk 2077 and Gwent, and tried to auction them. CD Projekt RED refused to pay.
+The archives circulated encrypted, and working passwords surfaced publicly in April
+2024, so the trees became readable years after the breach.
+
+Two Witcher 3 trees exist: the original engine and the **next-gen** one that the 2022
+"next-gen update" shipped. Retail Witcher 3 today is that build, so the next-gen tree is
+the one that matters. You can write up modding-useful facts from it in your own words:
+formats, structure, behaviour, tooling. The code itself and any leaked download stay off
+this site.
+
+---
+
+## `.bundle` archives
+
+Witcher 3 packs its assets into `.bundle` archives. The format is small and fully
+public:
+
+| Field | Value |
+|---|---|
+| Magic | `POTATO70` (8 bytes) |
+| Header size | 32 bytes |
+| Entry size | 320 bytes |
+| Entry name | 256 bytes, NUL-padded, Windows backslash paths |
+| Entry hash | 16 bytes |
+
+The header carries the bundle size, a dummy word, and the metadata-table size. Each
+320-byte entry holds the path, a 16-byte hash, packed and unpacked sizes, the data
+offset, a timestamp, and a compression-type word. Compression types are `0 = none`,
+`1 = zlib`, `2 = Snappy`, `3 = Doboz`, `4 = LZ4` (4 and 5 are both LZ4).
+
+Public tools read and write this format: the Rust crate `w3bundle`, the Java
+`bundle-explorer` and the C# `XBundle` library. `w3bundle` ships a from-scratch Doboz
+decoder, and WolvenKit reads bundles too.
+
+Cyberpunk 2077 replaced `.bundle` with the `.archive` container (`RDAR` magic, version
+12, Oodle-compressed). CDPR rewrote the container between RED3 and RED4.
+
+---
+
+## Resources: the shared `CR2W` container
+
+Individual assets are `CR2W` resources in both games: `.xbm` textures, `.w2mesh` and
+`.w2ent` files, quest and gameplay definitions. (`CR2W` is the on-disk byte order of the
+literal `W2RC`, "Witcher 2 Resource Class" read backwards.)
+
+A Witcher 3 `CR2W` file has the same shape as the Cyberpunk one: a packed header, a
+fixed table of ten chunk descriptors (strings, names, imports, properties, exports,
+buffers, inplace data), then the tables themselves. Asset extensions keep the Witcher 2
+`w2` prefix (`.w2mesh`, `.w2ent`, `.w2mi`), inherited from REDengine 2.
+[Witcher 3 Formats](witcher3-formats.md) covers the per-type fields (textures, mesh bone
+data, localization, saves).
+
+---
+
+## The official toolchain
+
+For most of the game's life modders used the **2015 Modkit** (`wcc_lite`) and community
+tools. That changed in May 2024 with **The Witcher 3 REDkit**.
+
+- **Yigsoft** built it with CDPR. It is free for anyone who owns the base game on PC,
+  distributed through GOG, Steam and Epic, with Steam Workshop integration.
+- CDPR calls it a "repurposed, reworked and extended codebase of REDengine 3": an editor
+  build of the engine.
+- At GDC, CDPR said the work went into making the internal engine usable by outsiders:
+  ~10 months of rework for projects, dependency handling and documentation, plus
+  cleaning dev in-jokes and debug paths out of the tree.
+- It exposes a **virtual depot** merged from three directories: `workspace` (your edits),
+  `uncook` (game files you unlock) and `r4data` (extra assets shipped with REDkit). You
+  check files out of the read-only depot into the workspace.
+- It ships a **Blender plugin** for meshes, rigging and lipsync, plus original UI and
+  audio sources.
+
+The game build that pairs with REDkit reports itself as `4.04a_REDkit`.
+
+---
+
+## Next-gen vs classic
+
+The **next-gen update (4.0)** landed in December 2022 and changed more than graphics:
+CDPR reworked scripts and content enough that mod makers keep running diffs between
+classic **1.32** and the 4.x line. Re-check any Witcher 3 modding fact older than that
+against 4.x before you trust it.
+
+---
+
+## Open questions (what completing this stub needs)
+
+The method used on the Cyberpunk side applies here, and none of it needs the leaked
+download. A retail install is enough:
+
+1. Parse a real `4.04a_REDkit` `.bundle`: confirm `POTATO70`, the 32-byte header and
+   320-byte entries still hold, and record which compression types the shipped bundles
+   use.
+2. Decode a `CR2W` resource out of a bundle and record its **version word**, then compare
+   that against the version the next-gen source tree considers current. This is the
+   Witcher counterpart to the Cyberpunk finding that the 2021 source's resource version
+   still matches retail.
+3. Map the source tree's archive and resource modules onto what the retail bundles
+   contain, and note where they have drifted.
+4. Cross-check REDkit's own output (a cooked mod bundle) against the same parser.
+
+Until then, everything above is public format documentation or CDPR's own statements;
+none of it is a verified source-to-retail mapping.
+
+---
+
+## Key Facts
+- Engine: REDengine 3 (RED3); shares the `CR2W` resource container with REDengine 4.
+- Archives: `.bundle`, magic `POTATO70`, 32-byte header, 320-byte entries, zlib/Snappy/Doboz/LZ4.
+- Resources: `CR2W` (reversed `W2RC`), ten-chunk table, `w2*` extension legacy from REDengine 2.
+- Toolchain: 2015 Modkit (`wcc_lite`) → 2024 REDkit by Yigsoft, an editor build of the engine with a virtual depot (`workspace`/`uncook`/`r4data`) and a Blender plugin.
+- Next-gen patch 4.0 (Dec 2022) reworked scripts and content; classic is 1.32, REDkit pairs with 4.04a.
+- Source lineage: the February 2021 breach published the trees; passwords surfaced April 2024. Retail is the next-gen tree.

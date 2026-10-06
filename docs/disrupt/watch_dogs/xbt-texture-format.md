@@ -15,10 +15,48 @@
 | Tool | Purpose | Source |
 |------|---------|--------|
 | `xbt2dds` | XBT → DDS conversion | cra0 (github.com/cra0kalo/xbt2dds) |
-| `DDS2XBT.bat` | DDS → XBT (prepends dummy header) | Community, not published here |
-| `XBT.dummy` | 44-byte dummy header | Community, not published here |
+| `DDS2XBT.bat` | DDS → XBT (prepends dummy header) | One line, recreate below |
+| `XBT.dummy` | 44-byte dummy header | Fixed bytes, recreate below |
 | `hV_WD1ModdingKit.exe` | Drag XBT → get DDS + header; edit DDS → drag back | Gibbed.Dunia tools |
 | Gibbed.Dunia | Full Dunia2 toolset | git@github.com:gibbed/Gibbed.Dunia.git |
+
+## Recreating the dummy header tooling
+
+Neither file needs to be shipped: the batch script is one line and the dummy header is a
+fixed 44 bytes.
+
+`DDS2XBT.bat` concatenates the dummy header onto a DDS and names the output after the
+input (drop a `.dds` on it, get `<name>.xbt` beside it):
+
+```bat
+@copy /B XBT.dummy + %1 %~n1.xbt
+```
+
+The 44 bytes of `XBT.dummy`, annotated with the header fields documented further down:
+
+```
+offset  bytes             field
+0x00    54 42 58 00       "TBX\0" magic
+0x04    8f 00 00 00       header block size, 143
+0x08    2c 00 00 00       DDS offset, 0x2C, self-contained
+0x0C    00 00 00 00       reserved
+0x10    01 01             format flags A
+0x12    01 01             format flags B
+0x14    01 00 00 00       constant 1
+0x18    00                unknown
+0x19    01                quality/variant class 0x01
+0x1A    01 ff             constant field, a real header uses 0xFFFF
+0x1C    15 b4 77 6e       source CRC32, a fixed constant here
+0x20    1c 00 00 00       profile ID, 28
+0x24    b0 e5 a4 36       unknown, a real header is usually 0x722A6101
+0x28    00 01 00 00       end of the 44-byte block, DDS starts here
+```
+
+Every field that varies in a real header (format flags, source CRC32, profile ID) is a
+fixed constant in the dummy, so the engine parses the file as a valid self-contained
+texture but reads the DDS with default settings instead of the flags the original
+texture carried. That is the mechanism behind the brightness and gamma problems noted
+below, and why this is a quick-test path rather than a shipping path.
 
 ## Conversion Workflow (WD1)
 

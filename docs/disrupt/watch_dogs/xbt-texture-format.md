@@ -15,8 +15,8 @@
 | Tool | Purpose | Source |
 |------|---------|--------|
 | `xbt2dds` | XBT → DDS conversion | cra0 (github.com/cra0kalo/xbt2dds) |
-| `DDS2XBT.bat` | DDS → XBT (prepends dummy header) | Community |
-| `XBT.dummy` | 44-byte dummy header | Community |
+| `DDS2XBT.bat` | DDS → XBT (prepends dummy header) | Community, not published here |
+| `XBT.dummy` | 44-byte dummy header | Community, not published here |
 | `hV_WD1ModdingKit.exe` | Drag XBT → get DDS + header; edit DDS → drag back | Gibbed.Dunia tools |
 | Gibbed.Dunia | Full Dunia2 toolset | git@github.com:gibbed/Gibbed.Dunia.git |
 

@@ -7,3 +7,8 @@
 node_modules/
 build/
 .docusaurus/
+# Game-derived data and community binaries: kept local, not published
+/docs/disrupt/watch_dogs/materialdescriptors/*.xml
+/docs/disrupt/watch_dogs/DDS2XBT.bat
+/docs/disrupt/watch_dogs/XBT.dummy
+/docs/disrupt/watch_dogs_2/model-hash-mappings-*.txt

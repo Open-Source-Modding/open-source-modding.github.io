@@ -32,17 +32,16 @@ def model_hash(path: str) -> int:
  return (num & 0x1FFFFFFFFFFFFFFF) | 0xA000000000000000
 ```
 
-## Model paths in the file list
+## Resolving a hash
 
-Gibbed resolves the model hash from the path itself, so tooling never needs a hash table:
-the XBG paths referenced as `fileModel` values are published as `model_paths.filelist`
-(1,797 paths) in the WD2 file list repository, next to the archive lists that Gibbed reads
-as build input.
+Gibbed resolves the model hash from the path itself, so no hash table needs publishing: the
+XBG paths are already in the WD2 archive file lists, and the hash is recomputed from the path
+whenever a tool needs it.
 
-The full hash-to-path tables are dumped from your own copy and stay local. To rebuild them,
-read the `fileModel` values out of the `WD2_*.xml` files you unpacked and index them against
-the `graphics\_geometries\...` paths in the same unpack; each row is the entity XML that
-references the model, the `fileModel` hash, the raw 8-byte hash and the XBG path.
+The hash-to-path tables are a local dump. To rebuild them, read the `fileModel` values out of
+the `WD2_*.xml` files you unpacked and index them against the `graphics\_geometries\...` paths
+in the same unpack; each row is the entity XML that references the model, the `fileModel` hash,
+the raw 8-byte hash and the XBG path.
 
 ## Related
 

@@ -136,10 +136,11 @@ WD2_character_props.xml, 0x80000001947e3c36.model graphics\_geometries\character
 ## Full data files
 
 The complete mapping tables (1,501 vegetation + 1,055 character prop entries) are
-available as raw text alongside this page:
+extracted from the game and are not published here. Regenerate them from your own copy:
+dump the `fileModel` values out of the `WD2_*.xml` entity files you unpacked, then index
+them against the `graphics\_geometries\...` paths in the same unpack.
 
-- `model-hash-mappings-data.txt` — vegetation, fences, street furniture, buildings, etc.
-- `model-hash-mappings-character-props.txt` — character prop models
+The sections above carry enough of each table to show the shape and the hash scheme.
 
 ## Related
 

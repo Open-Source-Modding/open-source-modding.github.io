@@ -117,6 +117,8 @@ Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc li
 - [Text Formatting and Character Sets](trackmania/mania-creative-text-formatting-and-charset.md) - control codes, colour codes, special and Unicode characters
 - [Manialinks and Page Building](trackmania/mania-creative-manialinks.md) - ManiaLink/ManiaCode model, elements, frames, TMTP linking, multi-language
 - [Avatars, Custom Cars and Skins](trackmania/mania-creative-avatars-and-custom-cars.md) - avatars, custom car zips, 2D skin painting, stickers, shadows, on-site tools
+- [Trackmaking, Style and Block Mixing](trackmania/mania-creative-trackmaking.md) - track style rules, editor workflow, block mixing and hex editing, challenge music
+- [Dedicated Servers and XAseco](trackmania/mania-creative-dedicated-servers.md) - server install, `dedicated_cfg.txt`, match settings, XAseco with MySQL/PHP, failure symptoms
 
 ## The Witcher 2 (REDengine v1)
 - [Witcher 2 Formats](witcher2/witcher2-formats.md) - .dzip archives, .w2ent/.w2mesh models, .xbm textures, .w2speech dialogue, .usm video, .fsb music, tools

@@ -29,6 +29,8 @@ Two things are deliberately not in `Physics.txt`:
 
 So retuning grip has two parts: the friction values come from the game DB, and the tire model tables come from `tires.bnk`. `Physics.txt` covers everything else.
 
+- **Only the tire model is reachable.** Community members running the Project Paradise 2 servers describe the tire tables as the one physics-adjacent dataset that can be edited; the handling solver itself is compiled into the executable, so changing that side would need the game's source code. Treat tire edits as retuning the model, not as rewriting the physics.
+
 ## Tire models
 
 TDU2 uses a Pacejka tire model, and the data is split across two BNK archives rather than sitting in `Physics.txt`.
@@ -56,6 +58,8 @@ Each `.bpjka` payload begins with the ASCII string `PACEJKA TIRE FLE` (the shipp
 | `ForceTable[0..31]` | 32 normalized forces, one per slip ratio |
 
 `SlipTable` runs from `0.005` to `0.4` in even steps and `ForceTable` carries the matching normalized force, rising to a peak and then falling off toward the high-slip end. For one shipped entry the peak sits at `SlipTable[7] = 0.094196` with `ForceTable[7] = 0.697467`, decaying to `0.49114` by slip `0.4`. Emploder reports this in its status bar: the vertical load it used (`Fzo = 1150 N`), how many slip/force pairs are valid, the peak force and the index it occurs at, the slip at peak, and a ratio between peak force and slip at peak.
+
+Not every entry reads the same way. Another shipped entry reports a much lower vertical load (`Fzo = 308 N`), a peak mu of `0.673437` sitting at index `0` instead of mid-table, and a slip at peak of `34.5938` degrees, with the chart plotting slip in degrees over roughly +/-60 rather than the `0.005`-`0.4` range above. Check the units and the peak index per entry before editing: the tables are not uniform across tire files.
 
 On the `.xmb` side, the `PacejkaConfig` object carries the model itself:
 

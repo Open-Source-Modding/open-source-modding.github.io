@@ -116,3 +116,34 @@ The graphic-kit library lives in `generated\databases\generic` inside the patch 
 3. In `header.xml`, **strip the `.lib` from the entry name that refers to the folder** — `Graphickit_models.lib.xml` becomes `Graphickit_models.xml` — then repack with `ConvertBinaryObject`.
 
 The same header-name rule applies to any `.lib` unpacked this way; forgetting it makes the game reject the rebuilt library.
+
+## NPC weapon loadouts
+
+Which weapon an NPC carries is decided by the `StartUpKit` section of the `Dunia_NPC`
+entity library. The `StartUpKit` entries reference weapon hashes drawn from
+`Item.lib`, so editing the loadout means editing that entity library rather than the
+weapon definition itself. The same mechanism drives the stock loadouts listed below.
+
+NPC-used weapons:
+
+| Weapon | Notes |
+|--------|-------|
+| Deagle | |
+| 1911 | |
+| P9mm | |
+| PX4 | |
+| 416 | |
+| AK | |
+| OCP11 | |
+| Goblin | |
+| MP5 | SWAT |
+
+Weapons not used by NPCs:
+
+| Weapon | Notes |
+|--------|-------|
+| ACR | |
+| Vector | |
+| suppressed guns | |
+| Tommy gun | |
+| AA-12 | |

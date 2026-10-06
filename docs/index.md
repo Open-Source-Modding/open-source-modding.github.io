@@ -114,6 +114,9 @@ Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc li
 - [Raw XeNTaX extraction](trackmania/xentax-trackmania-knowledge.md) - source threads (2013–2023)
 - [File Locations, Graphic, Sound and Locator Reference](trackmania/mania-creative-file-and-asset-reference.md) - content roots, per-asset folders, JPEG/TGA/DDS/BIK, WAV/OGG/MUX, `.loc` locators
 - [Mediatracker Authoring](trackmania/mania-creative-mediatracker.md) - clip slots, camera tracks, shake, blur, colour, triangles, text overlays
+- [Text Formatting and Character Sets](trackmania/mania-creative-text-formatting-and-charset.md) - control codes, colour codes, special and Unicode characters
+- [Manialinks and Page Building](trackmania/mania-creative-manialinks.md) - ManiaLink/ManiaCode model, elements, frames, TMTP linking, multi-language
+- [Avatars, Custom Cars and Skins](trackmania/mania-creative-avatars-and-custom-cars.md) - avatars, custom car zips, 2D skin painting, stickers, shadows, on-site tools
 
 ## The Witcher 2 (REDengine v1)
 - [Witcher 2 Formats](witcher2/witcher2-formats.md) - .dzip archives, .w2ent/.w2mesh models, .xbm textures, .w2speech dialogue, .usm video, .fsb music, tools

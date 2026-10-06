@@ -112,6 +112,8 @@ Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc li
 ## Trackmania / Maniaplanet
 - [Trackmania Formats](trackmania/trackmania-formats.md) - GBX format, NadeoPak (Blowfish encrypted), Noesis plugin, model/audio extraction
 - [Raw XeNTaX extraction](trackmania/xentax-trackmania-knowledge.md) - source threads (2013–2023)
+- [File Locations, Graphic, Sound and Locator Reference](trackmania/mania-creative-file-and-asset-reference.md) - content roots, per-asset folders, JPEG/TGA/DDS/BIK, WAV/OGG/MUX, `.loc` locators
+- [Mediatracker Authoring](trackmania/mania-creative-mediatracker.md) - clip slots, camera tracks, shake, blur, colour, triangles, text overlays
 
 ## The Witcher 2 (REDengine v1)
 - [Witcher 2 Formats](witcher2/witcher2-formats.md) - .dzip archives, .w2ent/.w2mesh models, .xbm textures, .w2speech dialogue, .usm video, .fsb music, tools

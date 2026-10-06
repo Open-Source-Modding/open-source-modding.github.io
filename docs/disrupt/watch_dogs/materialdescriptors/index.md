@@ -1,8 +1,13 @@
 # Material Descriptors
 
-85 XML files covering material formats across Watch Dogs 1, 2, and Legion.
+Material formats across Watch Dogs 1, 2, and Legion, covering roughly 85 XML
+descriptors extracted from the retail game.
 
-[Browse files on GitHub](https://github.com/open-source-modding/open-source-modding.github.io/tree/main/reference/watch_dogs/materialdescriptors)
+The descriptor files themselves are game-derived data and are not published here. The
+tables below are the part worth keeping: they record the shader types, their parameters
+and their types, so you can read a descriptor you extracted from your own copy of the
+game. Export them yourself with `Gibbed.Disrupt.ConvertXml` from the game's
+`engine\shaders\materialdescriptors\` folder.
 
 ## Material System Overview
 

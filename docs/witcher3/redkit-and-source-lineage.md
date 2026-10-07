@@ -2,9 +2,9 @@
 
 > **Status: stub.** This page records what is publicly known about The Witcher 3's
 > current toolchain and archive format. The measurement work is not done yet, so treat
-> the open questions at the bottom as a to-do list. The `.bundle` notes were re-measured
-> on the Remastered retail build; the `CR2W` and load-order notes come from the leaked
-> next-gen source tree and from public tooling, and have not been re-measured.
+> the open questions at the bottom as a to-do list. The `.bundle` notes and the `CR2W`
+> version word were re-measured on the Remastered retail build; the `CR2W` field layout and
+> the load-order notes come from the leaked next-gen source tree and from public tooling.
 
 The Witcher 3 runs on **REDengine 3** (RED3); Cyberpunk 2077 runs on **REDengine 4**
 (RED4). Both games use the same `CR2W` resource container, so format knowledge
@@ -86,29 +86,53 @@ public. These numbers come from the 31 bundles in the Remastered retail build
 | Field | Value |
 |---|---|
 | Magic | `POTATO70` (8 bytes) |
-| Header size | 32 bytes |
+| Preamble | 32 bytes |
 | Entry size | 304 bytes |
-| Format version | `u16` at `0x14`; `5` in all 31 bundles |
+| Header version | `u16` at `0x14`; `5` in all 31 bundles |
 | Entry name | 256 bytes, NUL-padded, Windows backslash paths |
 | Entry hash | 16 bytes |
 
-The header carries a bundle size, the metadata-table size and the data start. The size
-word is 32 bits, so a bundle past 4 GiB wraps: `buffers.bundle` is 7,640,452,656 bytes on
-disk and reports 3,345,485,360, and `movies.bundle` is 7,680,309,920 and reports
-3,385,342,624. The data start always equals `32 + entryTableSize`, and the entry table
-always divides by 304.
+The 32-byte preamble holds seven fields:
 
-Each entry is a 256-byte name followed by twelve `u32`s: a 16-byte hash, the data offset,
-a zero word, the packed size, the unpacked (in-memory) size, a checksum, then three zero
-words. This layout has no compression-type word, so packed size against unpacked size is
-how a reader detects compression. Of 365,866 entries across the 31 bundles, 188,762 have
-the two sizes differ.
+| Offset | Field |
+|---|---|
+| `0..7` | stamp `POTATO70` |
+| `u32@8` | file size |
+| `u32@12` | burst size; `1` on the two bundles above 4 GiB, `0` on the other 29 |
+| `u32@16` | header size; file data begins 32 bytes past its end |
+| `u16@20` | header version |
+| `u32@22` | data offset, a repeat of `32 + headerSize` |
+| `26..31` | padding, zero |
+
+The file-size word is 32 bits, so a bundle past 4 GiB wraps: `buffers.bundle` is
+7,640,452,656 bytes on disk and reports 3,345,485,360, and `movies.bundle` is 7,680,309,920
+and reports 3,385,342,624. The data-start field always equals `32 + headerSize`, and the
+entry table always divides by 304.
+
+Each entry is a 256-byte name followed by twelve `u32`s: a 16-byte resource hash, the data
+offset, one word that is `0` except inside the two bundles above 4 GiB, the packed size,
+the unpacked (in-memory) size, a checksum, a compression type, then two zero words. Of
+365,866 entries across the 31 bundles, 188,762 are compressed.
+
+Compression has two shipping values. Type `0` means packed and unpacked sizes are equal,
+type `1` means packed is smaller, and the payload is raw zlib with no extra wrapper.
+Decompressing every sampled type-1 entry reproduced the unpacked size exactly, and the
+output begins with the `CR2W` magic.
+
+**Offsets are 32-bit and wrap in bundles past 4 GiB.** `buffers.bundle` is 7.6 GB and its
+stored offsets stop at 4,128,599,408; of 251 sampled compressed entries, 140 decoded at the
+stored offset and 111 only after adding 2^32. `movies.bundle` wraps the same way. A reader
+must add 2^32 when `offset + size` passes 2^32.
+
+Public notes give 320-byte entries. The measured stride is 304. The 320 figure is the
+debug entry struct, which keeps a modified timestamp and a dependency field that the
+shipping build drops.
 
 Public tools read and write this format: the Rust crate `w3bundle`, the Java
 `bundle-explorer` and the C# `XBundle` library. `w3bundle` ships a from-scratch Doboz
-decoder, and WolvenKit reads bundles too. Those tools also carry a compression-type word
-(`0 = none`, `1 = zlib`, `2 = Snappy`, `3 = Doboz`, `4 = LZ4`, with 4 and 5 both LZ4),
-which the retail entries above do not expose in the same place.
+decoder, and WolvenKit reads bundles too. The compression enum those tools use
+(`0 = none`, `1 = zlib`, `2 = Snappy`, `3 = Doboz`, `4 = LZ4`, with 4 and 5 both LZ4)
+matches the two values retail ships.
 
 Cyberpunk 2077 replaced `.bundle` with the `.archive` container (`RDAR` magic, version
 12, Oodle-compressed). CDPR rewrote the container between RED3 and RED4.
@@ -123,7 +147,12 @@ literal `W2RC`, "Witcher 2 Resource Class" read backwards.)
 
 A Witcher 3 `CR2W` file has the same shape as the Cyberpunk one: a packed header, a
 fixed table of ten chunk descriptors (strings, names, imports, properties, exports,
-buffers, inplace data), then the tables themselves. Asset extensions keep the Witcher 2
+buffers, inplace data), then the tables themselves.
+
+The header carries a version word. Every resource unpacked from the retail Remastered
+bundles reports **164**, while the leaked next-gen tree's current version macro is **163**,
+so retail runs one version ahead of the tree. Cyberpunk 2077 landed differently: its retail
+resources and its leaked tree both report 195. Asset extensions keep the Witcher 2
 `w2` prefix (`.w2mesh`, `.w2ent`, `.w2mi`), inherited from REDengine 2.
 [Witcher 3 Formats](witcher3-formats.md) covers the per-type fields (textures, mesh bone
 data, localization, saves).
@@ -246,29 +275,27 @@ download. A retail install is enough:
 
 1. **Done for the container.** The Remastered build self-identifies as `v 5.00c` (string
    in `bin/x64_dx12/witcher3.exe`, Steam build 25646871), and its 31 shipped bundles hold
-   `POTATO70`, a 32-byte header, **304**-byte entries and format version 5. Still open:
-   which compression types the compressed entries use, since the entry layout does not
-   name one.
-2. Decode a `CR2W` resource out of a bundle and record its **version word**, then compare
-   that against the version the next-gen source tree considers current. This is the
-   Witcher counterpart to the Cyberpunk finding that the 2021 source's resource version
-   still matches retail. Remastered postdates the tree, so a mismatch here is expected
-   rather than surprising, and the size of the gap is the finding.
+   `POTATO70`, a 32-byte preamble, **304**-byte entries, header version 5, zlib payloads and
+   a 32-bit offset that wraps past 4 GiB.
+2. **Done.** The `CR2W` resources unpacked from those bundles report version **164**; the
+   tree's current macro is **163**. The one-version gap is the W3 counterpart to the
+   Cyberpunk result, where retail and the 2021 tree agree at 195.
 3. Map the source tree's archive and resource modules onto what the retail bundles
-   contain, and note where they have drifted.
+   contain, and note where they have drifted. Partly done: the source preamble matches the
+   retail one field for field, except that its declared header version 3 ships as 5.
 4. Cross-check REDkit 5.0's own output (a cooked mod bundle, and a scope-based override
    merged at run time) against the same parser.
 
-Until then, the `CR2W` and load-order notes above are public documentation or CDPR's own
-statements, not a verified source-to-retail mapping.
+The `CR2W` field layout and the load-order notes above are still public documentation or
+CDPR's own statements, not a verified source-to-retail mapping.
 
 ---
 
 ## Key Facts
 - Engine: REDengine 3 (RED3); shares the `CR2W` resource container with REDengine 4.
 - Builds: classic 1.32 (Steam `classic`), next-gen 4.04 (Steam `next-gen`), Remastered launched 2026-09-29 (Steam `public`, self-identifies as `v 5.00c`).
-- Archives: `.bundle`, magic `POTATO70`, 32-byte header, 304-byte entries, format version 5, zlib/Snappy/Doboz/LZ4.
-- Resources: `CR2W` (reversed `W2RC`), ten-chunk table, `w2*` extension legacy from REDengine 2.
+- Archives: `.bundle`, magic `POTATO70`, 32-byte preamble, 304-byte entries, header version 5, zlib payloads, 32-bit offsets that wrap past 4 GiB.
+- Resources: `CR2W` (reversed `W2RC`), ten-chunk table, version 164 in retail Remastered (tree macro 163), `w2*` extension legacy from REDengine 2.
 - Toolchain: 2015 Modkit (`wcc_lite`) → 2024 REDkit by Yigsoft → REDkit 5.0.1042178 (2026-09-29), an editor build of the engine with a virtual depot (`workspace`/`uncook`/`r4data`) and a Blender plugin.
 - Remastered broke mods carrying XML, scripts or w3strings until they are rebuilt in REDkit, and moved all text files to UTF-8.
 - Remastered adds an in-game Mods menu on mod.io (PC, PS5, Xbox Series X|S, Switch 2); it cannot ship mod menus, custom inputs, `.ini` config mods or `.dll` mods.

@@ -225,6 +225,32 @@ the next-gen build that reported itself as `4.04a_REDkit`: `4.0.114968` (21.11.2
 - Terrain generates at a default tile count of 1024 (32×32).
 - WitcherScript gains a `map` syntax.
 
+### What the shipped build says about itself
+
+The installed REDkit (Steam app `2684660`, buildid `25651183`, 104 GB) reports its build as
+`5.0.1044630  P4CL: 13360103  Stream: //Red_engine/Main.Lava.Release`. The editor binary
+also carries `v 5.00c`, the same version word the retail game reports. The tree in the 2021
+leak sits at `Main.Lava`, so that stream name ties the two together: REDkit is a build of
+the leaked tree.
+
+Its packing tools sit in `bin/`:
+
+- `bin/x64_RedKit/bundlebuilder.exe` (156.7 MB, internal name "Bundle Builder Tool.
+  Version 0.92") writes the `.bundle` files, and it was built from
+  `E:\Main.Lava\dev\src\win32\bundlebuilder\options.cpp`, the source the leak holds.
+- `bin/tools/cooker/` holds `W3CookerTool.exe` and the step scripts (`analyze_game`,
+  `cook_textures`, `cook_shaders`, `bundle_export`, `bundle_creation`, `deploy_common`).
+  The legacy `wcc_lite.exe` ships as well.
+- The cook script runs `wcc.exe exportbundles ... -out=...bundles.json`, then
+  `bundlebuilder.exe -verbose -platform <platform> -depotpath <cook dir> -cookedpath
+  <cook dir> -definition ...bundles.json -outputdir <output>`, then `wcc metadatastore`.
+
+The packer will not run standalone. It reads its definition through an initialised depot
+(`GDepot->GetBundles()`), and REDkit creates that depot only after you generate it, an empty
+folder of about 60 GB extracted from the game install. Run it without one and it rejects
+every definition, a minimal one included, as invalid JSON. A sampled cooked bundle has to
+come from the editor or a full cook.
+
 ---
 
 ## How a mod is laid out
@@ -306,7 +332,11 @@ download. A retail install is enough:
    retail resource one exactly (160-byte header, ten 12-byte chunk descriptors, chunk order
    and entry sizes). The remaining drift is the version numbers.
 4. Cross-check REDkit 5.0's own output (a cooked mod bundle, and a scope-based override
-   merged at run time) against the same parser.
+   merged at run time) against the same parser. **Partly done.** The shipped build reports
+   itself as `5.0.1044630  P4CL: 13360103  Stream: //Red_engine/Main.Lava.Release`, and its
+   packer was built from the same `bundlebuilder/options.cpp` the leak holds, so the lineage
+   is measured. The packer needs a generated depot before it will read a bundle definition,
+   so a sampled cooked bundle still needs the editor or a full cook.
 
 The load-order notes above are still public documentation or CDPR's own statements, not a
 verified source-to-retail mapping.
@@ -318,7 +348,7 @@ verified source-to-retail mapping.
 - Builds: classic 1.32 (Steam `classic`), next-gen 4.04 (Steam `next-gen`), Remastered launched 2026-09-29 (Steam `public`, self-identifies as `v 5.00c`).
 - Archives: `.bundle`, magic `POTATO70`, 32-byte preamble, 304-byte entries, header version 5, zlib payloads, 32-bit offsets that wrap past 4 GiB.
 - Resources: `CR2W` (reversed `W2RC`), 160-byte header, ten 12-byte chunk descriptors, version 164 in retail Remastered (tree macro 163), `w2*` extension legacy from REDengine 2.
-- Toolchain: 2015 Modkit (`wcc_lite`) → 2024 REDkit by Yigsoft → REDkit 5.0.1042178 (2026-09-29), an editor build of the engine with a virtual depot (`workspace`/`uncook`/`r4data`) and a Blender plugin.
+- Toolchain: 2015 Modkit (`wcc_lite`) → 2024 REDkit by Yigsoft → REDkit 5.0.1042178 (2026-09-29), an editor build of the engine with a virtual depot (`workspace`/`uncook`/`r4data`) and a Blender plugin. The installed 5.0.1044630 reports `Stream: //Red_engine/Main.Lava.Release` and ships `bundlebuilder.exe` (writes the `.bundle`) plus the `cooker/` step scripts; its packer needs a generated depot to read a definition.
 - Remastered broke mods carrying XML, scripts or w3strings until they are rebuilt in REDkit, and moved all text files to UTF-8.
 - Remastered adds an in-game Mods menu on mod.io (PC, PS5, Xbox Series X|S, Switch 2); it cannot ship mod menus, custom inputs, `.ini` config mods or `.dll` mods.
 - REDkit 5.0 adds scope-based script overrides, `precompiled.rsblob` script blobs, XML overrides with `onConflict` policies, and needs Wwise 2023 plus its Mastering Suite and Motion plugins.

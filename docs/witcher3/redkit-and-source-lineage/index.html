@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">The Witcher 3: REDkit and the Source Lineage | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Witcher 3: REDkit and the Source Lineage | Open Source Modding"><meta data-rh="true" name="description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><meta data-rh="true" property="og:description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Witcher 3: REDkit and the Source Lineage","item":"https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.3a9f0d87.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.8f2a08d1.js" defer="defer"></script>
 <script src="/assets/js/main.638c74c7.js" defer="defer"></script>
 </head>
 <body>
@@ -16,8 +16,8 @@
 <p><strong>Status: stub.</strong> This page records what is publicly known about The Witcher 3&#x27;s
 current toolchain and archive format. The measurement work is not done yet, so treat
 the open questions at the bottom as a to-do list. The <code>.bundle</code> notes and the <code>CR2W</code>
-version word were re-measured on the Remastered retail build; the <code>CR2W</code> field layout and
-the load-order notes come from the leaked next-gen source tree and from public tooling.</p>
+container were re-measured on the Remastered retail build; the load-order notes come from
+the leaked next-gen source tree and from public tooling.</p>
 </blockquote>
 <p>The Witcher 3 runs on <strong>REDengine 3</strong> (RED3); Cyberpunk 2077 runs on <strong>REDengine 4</strong>
 (RED4). Both games use the same <code>CR2W</code> resource container, so format knowledge
@@ -210,13 +210,22 @@ matches the two values retail ships.</p>
 <p>Individual assets are <code>CR2W</code> resources in both games: <code>.xbm</code> textures, <code>.w2mesh</code> and
 <code>.w2ent</code> files, quest and gameplay definitions. (<code>CR2W</code> is the on-disk byte order of the
 literal <code>W2RC</code>, &quot;Witcher 2 Resource Class&quot; read backwards.)</p>
-<p>A Witcher 3 <code>CR2W</code> file has the same shape as the Cyberpunk one: a packed header, a
-fixed table of ten chunk descriptors (strings, names, imports, properties, exports,
-buffers, inplace data), then the tables themselves.</p>
+<p>A Witcher 3 <code>CR2W</code> file has the same shape as the Cyberpunk one: a packed header, a fixed
+table of ten chunk descriptors, then the tables themselves. On the retail Remastered build
+the header is 160 bytes: the magic, the version, flags, an 8-byte timestamp, a build
+version, the object-data end, the buffer-data end (the file size), a header CRC, the number
+of live chunks, then ten 12-byte descriptors of <code>(offset, count, crc)</code>. The named chunk
+types run strings, names, imports, properties, exports, buffers, inplace data, and the
+remaining descriptors are reserved.</p>
 <p>The header carries a version word. Every resource unpacked from the retail Remastered
 bundles reports <strong>164</strong>, while the leaked next-gen tree&#x27;s current version macro is <strong>163</strong>,
 so retail runs one version ahead of the tree. Cyberpunk 2077 landed differently: its retail
-resources and its leaked tree both report 195. Asset extensions keep the Witcher 2
+resources and its leaked tree both report 195.</p>
+<p>The tables chain without padding, which is a cheap way to check a reader. An uncompressed
+<code>.w2ent</code> sampled from a retail bundle has six live chunks: strings at 160 (456 bytes), names
+at 616 (39 entries of 8 bytes), imports at 928 (1 entry of 8 bytes), properties at 936
+(1 entry of 16 bytes) and exports at 952 (3 entries of 24 bytes). Each end lands exactly on
+the next offset, and the first begins at the 160-byte header end. Asset extensions keep the Witcher 2
 <code>w2</code> prefix (<code>.w2mesh</code>, <code>.w2ent</code>, <code>.w2mi</code>), inherited from REDengine 2.
 <a class="" href="/docs/witcher3/witcher3-formats">Witcher 3 Formats</a> covers the per-type fields (textures, mesh bone
 data, localization, saves).</p>
@@ -335,21 +344,22 @@ a 32-bit offset that wraps past 4 GiB.</li>
 <li class=""><strong>Done.</strong> The <code>CR2W</code> resources unpacked from those bundles report version <strong>164</strong>; the
 tree&#x27;s current macro is <strong>163</strong>. The one-version gap is the W3 counterpart to the
 Cyberpunk result, where retail and the 2021 tree agree at 195.</li>
-<li class="">Map the source tree&#x27;s archive and resource modules onto what the retail bundles
-contain, and note where they have drifted. Partly done: the source preamble matches the
-retail one field for field, except that its declared header version 3 ships as 5.</li>
+<li class=""><strong>Done.</strong> The source preamble matches the retail bundle one field for field, except
+that its declared header version 3 ships as 5, and the source <code>CR2W</code> header matches the
+retail resource one exactly (160-byte header, ten 12-byte chunk descriptors, chunk order
+and entry sizes). The remaining drift is the version numbers.</li>
 <li class="">Cross-check REDkit 5.0&#x27;s own output (a cooked mod bundle, and a scope-based override
 merged at run time) against the same parser.</li>
 </ol>
-<p>The <code>CR2W</code> field layout and the load-order notes above are still public documentation or
-CDPR&#x27;s own statements, not a verified source-to-retail mapping.</p>
+<p>The load-order notes above are still public documentation or CDPR&#x27;s own statements, not a
+verified source-to-retail mapping.</p>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-facts">Key Facts<a href="#key-facts" class="hash-link" aria-label="Direct link to Key Facts" title="Direct link to Key Facts" translate="no">​</a></h2>
 <ul>
 <li class="">Engine: REDengine 3 (RED3); shares the <code>CR2W</code> resource container with REDengine 4.</li>
 <li class="">Builds: classic 1.32 (Steam <code>classic</code>), next-gen 4.04 (Steam <code>next-gen</code>), Remastered launched 2026-09-29 (Steam <code>public</code>, self-identifies as <code>v 5.00c</code>).</li>
 <li class="">Archives: <code>.bundle</code>, magic <code>POTATO70</code>, 32-byte preamble, 304-byte entries, header version 5, zlib payloads, 32-bit offsets that wrap past 4 GiB.</li>
-<li class="">Resources: <code>CR2W</code> (reversed <code>W2RC</code>), ten-chunk table, version 164 in retail Remastered (tree macro 163), <code>w2*</code> extension legacy from REDengine 2.</li>
+<li class="">Resources: <code>CR2W</code> (reversed <code>W2RC</code>), 160-byte header, ten 12-byte chunk descriptors, version 164 in retail Remastered (tree macro 163), <code>w2*</code> extension legacy from REDengine 2.</li>
 <li class="">Toolchain: 2015 Modkit (<code>wcc_lite</code>) → 2024 REDkit by Yigsoft → REDkit 5.0.1042178 (2026-09-29), an editor build of the engine with a virtual depot (<code>workspace</code>/<code>uncook</code>/<code>r4data</code>) and a Blender plugin.</li>
 <li class="">Remastered broke mods carrying XML, scripts or w3strings until they are rebuilt in REDkit, and moved all text files to UTF-8.</li>
 <li class="">Remastered adds an in-game Mods menu on mod.io (PC, PS5, Xbox Series X|S, Switch 2); it cannot ship mod menus, custom inputs, <code>.ini</code> config mods or <code>.dll</code> mods.</li>

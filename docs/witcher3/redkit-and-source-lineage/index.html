@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">The Witcher 3: REDkit and the Source Lineage | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Witcher 3: REDkit and the Source Lineage | Open Source Modding"><meta data-rh="true" name="description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><meta data-rh="true" property="og:description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Witcher 3: REDkit and the Source Lineage","item":"https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.7d0ba371.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.f651f860.js" defer="defer"></script>
 <script src="/assets/js/main.638c74c7.js" defer="defer"></script>
 </head>
 <body>
@@ -15,9 +15,9 @@
 <blockquote>
 <p><strong>Status: stub.</strong> This page records what is publicly known about The Witcher 3&#x27;s
 current toolchain and archive format. The measurement work is not done yet, so treat
-the open questions at the bottom as a to-do list. The format notes below come from the
-leaked next-gen source tree and from public tooling; nothing here has been re-measured
-against the Remastered retail build.</p>
+the open questions at the bottom as a to-do list. The <code>.bundle</code> notes were re-measured
+on the Remastered retail build; the <code>CR2W</code> and load-order notes come from the leaked
+next-gen source tree and from public tooling, and have not been re-measured.</p>
 </blockquote>
 <p>The Witcher 3 runs on <strong>REDengine 3</strong> (RED3); Cyberpunk 2077 runs on <strong>REDengine 4</strong>
 (RED4). Both games use the same <code>CR2W</code> resource container, so format knowledge
@@ -100,7 +100,8 @@ mounters and scope-based overrides instead of replacing vanilla files.</p>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bundle-archives"><code>.bundle</code> archives<a href="#bundle-archives" class="hash-link" aria-label="Direct link to bundle-archives" title="Direct link to bundle-archives" translate="no">​</a></h2>
 <p>Witcher 3 packs its assets into <code>.bundle</code> archives. The format is small and fully
-public:</p>
+public. These numbers come from the 31 bundles in the Remastered retail build
+(<code>content/content0/bundles/</code>, Steam build 25646871):</p>
 
 
 
@@ -130,14 +131,26 @@ public:</p>
 
 
 
-<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Magic</td><td><code>POTATO70</code> (8 bytes)</td></tr><tr><td>Header size</td><td>32 bytes</td></tr><tr><td>Entry size</td><td>320 bytes</td></tr><tr><td>Entry name</td><td>256 bytes, NUL-padded, Windows backslash paths</td></tr><tr><td>Entry hash</td><td>16 bytes</td></tr></tbody></table>
-<p>The header carries the bundle size, a dummy word, and the metadata-table size. Each
-320-byte entry holds the path, a 16-byte hash, packed and unpacked sizes, the data
-offset, a timestamp, and a compression-type word. Compression types are <code>0 = none</code>,
-<code>1 = zlib</code>, <code>2 = Snappy</code>, <code>3 = Doboz</code>, <code>4 = LZ4</code> (4 and 5 are both LZ4).</p>
+
+
+
+
+<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Magic</td><td><code>POTATO70</code> (8 bytes)</td></tr><tr><td>Header size</td><td>32 bytes</td></tr><tr><td>Entry size</td><td>304 bytes</td></tr><tr><td>Format version</td><td><code>u16</code> at <code>0x14</code>; <code>5</code> in all 31 bundles</td></tr><tr><td>Entry name</td><td>256 bytes, NUL-padded, Windows backslash paths</td></tr><tr><td>Entry hash</td><td>16 bytes</td></tr></tbody></table>
+<p>The header carries a bundle size, the metadata-table size and the data start. The size
+word is 32 bits, so a bundle past 4 GiB wraps: <code>buffers.bundle</code> is 7,640,452,656 bytes on
+disk and reports 3,345,485,360, and <code>movies.bundle</code> is 7,680,309,920 and reports
+3,385,342,624. The data start always equals <code>32 + entryTableSize</code>, and the entry table
+always divides by 304.</p>
+<p>Each entry is a 256-byte name followed by twelve <code>u32</code>s: a 16-byte hash, the data offset,
+a zero word, the packed size, the unpacked (in-memory) size, a checksum, then three zero
+words. This layout has no compression-type word, so packed size against unpacked size is
+how a reader detects compression. Of 365,866 entries across the 31 bundles, 188,762 have
+the two sizes differ.</p>
 <p>Public tools read and write this format: the Rust crate <code>w3bundle</code>, the Java
 <code>bundle-explorer</code> and the C# <code>XBundle</code> library. <code>w3bundle</code> ships a from-scratch Doboz
-decoder, and WolvenKit reads bundles too.</p>
+decoder, and WolvenKit reads bundles too. Those tools also carry a compression-type word
+(<code>0 = none</code>, <code>1 = zlib</code>, <code>2 = Snappy</code>, <code>3 = Doboz</code>, <code>4 = LZ4</code>, with 4 and 5 both LZ4),
+which the retail entries above do not expose in the same place.</p>
 <p>Cyberpunk 2077 replaced <code>.bundle</code> with the <code>.archive</code> container (<code>RDAR</code> magic, version
 12, Oodle-compressed). CDPR rewrote the container between RED3 and RED4.</p>
 <hr>
@@ -259,9 +272,11 @@ CDPR&#x27;s official modkit; WolvenKit reads and writes the game files and packs
 <p>The method used on the Cyberpunk side applies here, and none of it needs the leaked
 download. A retail install is enough:</p>
 <ol>
-<li class="">Record the Remastered build&#x27;s own version word, then parse a shipped <code>.bundle</code> and
-confirm <code>POTATO70</code>, the 32-byte header and the 320-byte entries still hold. Record
-which compression types the shipped bundles use.</li>
+<li class=""><strong>Done for the container.</strong> The Remastered build self-identifies as <code>v 5.00c</code> (string
+in <code>bin/x64_dx12/witcher3.exe</code>, Steam build 25646871), and its 31 shipped bundles hold
+<code>POTATO70</code>, a 32-byte header, <strong>304</strong>-byte entries and format version 5. Still open:
+which compression types the compressed entries use, since the entry layout does not
+name one.</li>
 <li class="">Decode a <code>CR2W</code> resource out of a bundle and record its <strong>version word</strong>, then compare
 that against the version the next-gen source tree considers current. This is the
 Witcher counterpart to the Cyberpunk finding that the 2021 source&#x27;s resource version
@@ -272,14 +287,14 @@ contain, and note where they have drifted.</li>
 <li class="">Cross-check REDkit 5.0&#x27;s own output (a cooked mod bundle, and a scope-based override
 merged at run time) against the same parser.</li>
 </ol>
-<p>Until then, everything above is public format documentation or CDPR&#x27;s own statements;
-none of it is a verified source-to-retail mapping.</p>
+<p>Until then, the <code>CR2W</code> and load-order notes above are public documentation or CDPR&#x27;s own
+statements, not a verified source-to-retail mapping.</p>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-facts">Key Facts<a href="#key-facts" class="hash-link" aria-label="Direct link to Key Facts" title="Direct link to Key Facts" translate="no">​</a></h2>
 <ul>
 <li class="">Engine: REDengine 3 (RED3); shares the <code>CR2W</code> resource container with REDengine 4.</li>
-<li class="">Builds: classic 1.32 (Steam <code>classic</code>), next-gen 4.04 (Steam <code>next-gen</code>), Remastered launched 2026-09-29 (Steam <code>public</code>).</li>
-<li class="">Archives: <code>.bundle</code>, magic <code>POTATO70</code>, 32-byte header, 320-byte entries, zlib/Snappy/Doboz/LZ4.</li>
+<li class="">Builds: classic 1.32 (Steam <code>classic</code>), next-gen 4.04 (Steam <code>next-gen</code>), Remastered launched 2026-09-29 (Steam <code>public</code>, self-identifies as <code>v 5.00c</code>).</li>
+<li class="">Archives: <code>.bundle</code>, magic <code>POTATO70</code>, 32-byte header, 304-byte entries, format version 5, zlib/Snappy/Doboz/LZ4.</li>
 <li class="">Resources: <code>CR2W</code> (reversed <code>W2RC</code>), ten-chunk table, <code>w2*</code> extension legacy from REDengine 2.</li>
 <li class="">Toolchain: 2015 Modkit (<code>wcc_lite</code>) → 2024 REDkit by Yigsoft → REDkit 5.0.1042178 (2026-09-29), an editor build of the engine with a virtual depot (<code>workspace</code>/<code>uncook</code>/<code>r4data</code>) and a Blender plugin.</li>
 <li class="">Remastered broke mods carrying XML, scripts or w3strings until they are rebuilt in REDkit, and moved all text files to UTF-8.</li>

@@ -276,8 +276,14 @@ That is backwards from Skyrim, where the last plugin wins, and it trips people u
 - Remastered moves conflict handling into the engine. Scope-based overrides merge script
   changes at run time, and XML mounters override vanilla entries through the `onConflict`
   policy, so an author can ship one mod that stacks with others instead of a whole file
-  that replaces theirs. `mods.settings` and Script Merger still apply to the classic and
-  next-gen lines, and to mods installed by hand on Remastered.
+  that replaces theirs. On the classic and next-gen lines `mods.settings` sets load order and
+  Script Merger merges conflicting script changes; the Remastered build does not carry the
+  `mods.settings` name at all. Its mod strings are `\mods\`, `modsList`, `modsMetadata`,
+  `mods_enabled`, `AreModsEnabled`, `-disablemods` and the mod.io API routes, and
+  `bin/config/r4game/user_config_matrix/pc/` ships ten menu XMLs with no `mods.xml`. The
+  classic load-order file and the per-mod config menu have no counterpart in the shipped tree,
+  and how a hand-installed mod is ordered on Remastered is not established. One missing string
+  is not proof, but it is the only signal a retail install gives.
 - Authoring mods means [WolvenKit](https://www.nexusmods.com/witcher3/mods/3161) plus
   CDPR's official modkit; WolvenKit reads and writes the game files and packs mods.
 
@@ -317,6 +323,6 @@ verified source-to-retail mapping.
 - Remastered adds an in-game Mods menu on mod.io (PC, PS5, Xbox Series X|S, Switch 2); it cannot ship mod menus, custom inputs, `.ini` config mods or `.dll` mods.
 - REDkit 5.0 adds scope-based script overrides, `precompiled.rsblob` script blobs, XML overrides with `onConflict` policies, and needs Wwise 2023 plus its Mastering Suite and Motion plugins.
 - Layout: `mods/` folder, `input.settings` + `user_config_matrix/pc/` for keybinds and menus, XML game data, Witcher Script, `.w3strings` text, Scaleform `.redswf` UI.
-- Load order: `mods.settings` in `Documents\The Witcher 3\`, first mod to load wins; Script Merger for `.ws`/`.xml` conflicts; Mod Limit Adjuster + Ultimate ASI Loader lift the engine's mod-count ceiling.
+- Load order: `mods.settings` in `Documents\The Witcher 3\`, first mod to load wins; Script Merger for `.ws`/`.xml` conflicts; Mod Limit Adjuster + Ultimate ASI Loader lift the engine's mod-count ceiling. Classic and next-gen only: the Remastered binary carries no `mods.settings` string and no `mods.xml` menu template.
 - Source lineage: the February 2021 breach published the trees; passwords surfaced April 2024. The next-gen tree is the closest public ancestor of Remastered.
 - Sources: [Cross-Platform Mod Support (CD PROJEKT RED support)](https://support.cdprojektred.com/en/witcher-3/pc/gameplay/issue/3001/cross-platform-mod-support-how-to), [What the remaster means for modding (mod.io)](https://mod.io/g/the-witcher-3/r/what-does-the-remaster-mean-for-modding), [REDkit changelog (CD PROJEKT RED)](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/12058625/Changelog), [REDkit 5.0.1042178 (Steam news)](https://steampulse.org/update/6731766), [Witcher 3 Modding (Witcher wiki)](https://witcher-games.fandom.com/wiki/Witcher_3_Modding), [Modding The Witcher 3 with Vortex (Nexus)](https://github.com/Nexus-Mods/Vortex/wiki/MODDINGWIKI-Users-GameGuides-Modding-The-Witcher-3-with-Vortex), [Sinitar's TW3 guide](https://www.sinitargaming.com/tw3.html).

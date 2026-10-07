@@ -3,8 +3,8 @@
 > **Status: stub.** This page records what is publicly known about The Witcher 3's
 > current toolchain and archive format. The measurement work is not done yet, so treat
 > the open questions at the bottom as a to-do list. The `.bundle` notes and the `CR2W`
-> version word were re-measured on the Remastered retail build; the `CR2W` field layout and
-> the load-order notes come from the leaked next-gen source tree and from public tooling.
+> container were re-measured on the Remastered retail build; the load-order notes come from
+> the leaked next-gen source tree and from public tooling.
 
 The Witcher 3 runs on **REDengine 3** (RED3); Cyberpunk 2077 runs on **REDengine 4**
 (RED4). Both games use the same `CR2W` resource container, so format knowledge
@@ -150,14 +150,24 @@ Individual assets are `CR2W` resources in both games: `.xbm` textures, `.w2mesh`
 `.w2ent` files, quest and gameplay definitions. (`CR2W` is the on-disk byte order of the
 literal `W2RC`, "Witcher 2 Resource Class" read backwards.)
 
-A Witcher 3 `CR2W` file has the same shape as the Cyberpunk one: a packed header, a
-fixed table of ten chunk descriptors (strings, names, imports, properties, exports,
-buffers, inplace data), then the tables themselves.
+A Witcher 3 `CR2W` file has the same shape as the Cyberpunk one: a packed header, a fixed
+table of ten chunk descriptors, then the tables themselves. On the retail Remastered build
+the header is 160 bytes: the magic, the version, flags, an 8-byte timestamp, a build
+version, the object-data end, the buffer-data end (the file size), a header CRC, the number
+of live chunks, then ten 12-byte descriptors of `(offset, count, crc)`. The named chunk
+types run strings, names, imports, properties, exports, buffers, inplace data, and the
+remaining descriptors are reserved.
 
 The header carries a version word. Every resource unpacked from the retail Remastered
 bundles reports **164**, while the leaked next-gen tree's current version macro is **163**,
 so retail runs one version ahead of the tree. Cyberpunk 2077 landed differently: its retail
-resources and its leaked tree both report 195. Asset extensions keep the Witcher 2
+resources and its leaked tree both report 195.
+
+The tables chain without padding, which is a cheap way to check a reader. An uncompressed
+`.w2ent` sampled from a retail bundle has six live chunks: strings at 160 (456 bytes), names
+at 616 (39 entries of 8 bytes), imports at 928 (1 entry of 8 bytes), properties at 936
+(1 entry of 16 bytes) and exports at 952 (3 entries of 24 bytes). Each end lands exactly on
+the next offset, and the first begins at the 160-byte header end. Asset extensions keep the Witcher 2
 `w2` prefix (`.w2mesh`, `.w2ent`, `.w2mi`), inherited from REDengine 2.
 [Witcher 3 Formats](witcher3-formats.md) covers the per-type fields (textures, mesh bone
 data, localization, saves).
@@ -285,14 +295,15 @@ download. A retail install is enough:
 2. **Done.** The `CR2W` resources unpacked from those bundles report version **164**; the
    tree's current macro is **163**. The one-version gap is the W3 counterpart to the
    Cyberpunk result, where retail and the 2021 tree agree at 195.
-3. Map the source tree's archive and resource modules onto what the retail bundles
-   contain, and note where they have drifted. Partly done: the source preamble matches the
-   retail one field for field, except that its declared header version 3 ships as 5.
+3. **Done.** The source preamble matches the retail bundle one field for field, except
+   that its declared header version 3 ships as 5, and the source `CR2W` header matches the
+   retail resource one exactly (160-byte header, ten 12-byte chunk descriptors, chunk order
+   and entry sizes). The remaining drift is the version numbers.
 4. Cross-check REDkit 5.0's own output (a cooked mod bundle, and a scope-based override
    merged at run time) against the same parser.
 
-The `CR2W` field layout and the load-order notes above are still public documentation or
-CDPR's own statements, not a verified source-to-retail mapping.
+The load-order notes above are still public documentation or CDPR's own statements, not a
+verified source-to-retail mapping.
 
 ---
 
@@ -300,7 +311,7 @@ CDPR's own statements, not a verified source-to-retail mapping.
 - Engine: REDengine 3 (RED3); shares the `CR2W` resource container with REDengine 4.
 - Builds: classic 1.32 (Steam `classic`), next-gen 4.04 (Steam `next-gen`), Remastered launched 2026-09-29 (Steam `public`, self-identifies as `v 5.00c`).
 - Archives: `.bundle`, magic `POTATO70`, 32-byte preamble, 304-byte entries, header version 5, zlib payloads, 32-bit offsets that wrap past 4 GiB.
-- Resources: `CR2W` (reversed `W2RC`), ten-chunk table, version 164 in retail Remastered (tree macro 163), `w2*` extension legacy from REDengine 2.
+- Resources: `CR2W` (reversed `W2RC`), 160-byte header, ten 12-byte chunk descriptors, version 164 in retail Remastered (tree macro 163), `w2*` extension legacy from REDengine 2.
 - Toolchain: 2015 Modkit (`wcc_lite`) → 2024 REDkit by Yigsoft → REDkit 5.0.1042178 (2026-09-29), an editor build of the engine with a virtual depot (`workspace`/`uncook`/`r4data`) and a Blender plugin.
 - Remastered broke mods carrying XML, scripts or w3strings until they are rebuilt in REDkit, and moved all text files to UTF-8.
 - Remastered adds an in-game Mods menu on mod.io (PC, PS5, Xbox Series X|S, Switch 2); it cannot ship mod menus, custom inputs, `.ini` config mods or `.dll` mods.

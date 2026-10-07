@@ -128,6 +128,11 @@ Public notes give 320-byte entries. The measured stride is 304. The 320 figure i
 debug entry struct, which keeps a modified timestamp and a dependency field that the
 shipping build drops.
 
+The 31 bundles hold 365,866 entries. `levels` (117,802), `dlc` (94,896), `environment`
+(52,407) and `characters` (30,633) dominate the paths, and the commonest extension is
+`.buffer` (113,009), every one of which sits in `buffers.bundle`. The game's own content
+tree uses the same top-level names, so the cooked layout has not moved.
+
 Public tools read and write this format: the Rust crate `w3bundle`, the Java
 `bundle-explorer` and the C# `XBundle` library. `w3bundle` ships a from-scratch Doboz
 decoder, and WolvenKit reads bundles too. The compression enum those tools use

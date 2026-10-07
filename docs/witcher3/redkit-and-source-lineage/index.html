@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">The Witcher 3: REDkit and the Source Lineage | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Witcher 3: REDkit and the Source Lineage | Open Source Modding"><meta data-rh="true" name="description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><meta data-rh="true" property="og:description" content="Status: stub. This page records what is publicly known about The Witcher 3&#x27;s"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Witcher 3: REDkit and the Source Lineage","item":"https://open-source-modding.github.io/docs/witcher3/redkit-and-source-lineage"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.618b0f2c.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3a9f0d87.js" defer="defer"></script>
 <script src="/assets/js/main.638c74c7.js" defer="defer"></script>
 </head>
 <body>
@@ -194,6 +194,10 @@ must add 2^32 when <code>offset + size</code> passes 2^32.</p>
 <p>Public notes give 320-byte entries. The measured stride is 304. The 320 figure is the
 debug entry struct, which keeps a modified timestamp and a dependency field that the
 shipping build drops.</p>
+<p>The 31 bundles hold 365,866 entries. <code>levels</code> (117,802), <code>dlc</code> (94,896), <code>environment</code>
+(52,407) and <code>characters</code> (30,633) dominate the paths, and the commonest extension is
+<code>.buffer</code> (113,009), every one of which sits in <code>buffers.bundle</code>. The game&#x27;s own content
+tree uses the same top-level names, so the cooked layout has not moved.</p>
 <p>Public tools read and write this format: the Rust crate <code>w3bundle</code>, the Java
 <code>bundle-explorer</code> and the C# <code>XBundle</code> library. <code>w3bundle</code> ships a from-scratch Doboz
 decoder, and WolvenKit reads bundles too. The compression enum those tools use

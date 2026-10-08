@@ -109,6 +109,8 @@ Extracted from the XeNTaX forum dump (2004–2023). Each game's knowledge doc li
 
 ## SimCity
 - [SimCity Audio Format](simcity/simcity-formats.md) - RIFF Vorbis `.wav`, ww2ogg/revorb pipeline
+- [SimCity 4 Savegame Format](simcity/sc4-savegame-format-analysis.md) - DBPF savegame internals, subfile inventory, COM-serializer registry, LTEXT strings
+- [SimCity 4 Known TGI IDs](simcity/sc4-known-tgi-ids.md) - God-mode side menu entries
 - [Raw XeNTaX extraction](simcity/xentax-simcity-knowledge.md) - source thread (2014)
 
 ## Cities: Skylines

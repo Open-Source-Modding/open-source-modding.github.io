@@ -1,0 +1,2174 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-simcity/sc4-savegame-format-analysis" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">sc4-savegame-format-analysis | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/simcity/sc4-savegame-format-analysis"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="sc4-savegame-format-analysis | Open Source Modding"><meta data-rh="true" name="description" content="Source: OpenSC4 development notes (2026-07/08), from reverse-engineering the"><meta data-rh="true" property="og:description" content="Source: OpenSC4 development notes (2026-07/08), from reverse-engineering the"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/simcity/sc4-savegame-format-analysis"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/simcity/sc4-savegame-format-analysis" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/simcity/sc4-savegame-format-analysis" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"sc4-savegame-format-analysis","item":"https://open-source-modding.github.io/docs/simcity/sc4-savegame-format-analysis"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
+<script src="/assets/js/runtime~main.7f060f98.js" defer="defer"></script>
+<script src="/assets/js/main.45fe59b6.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Open Source Modding</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><svg aria-hidden="true" class="searchIcon_T3tP" focusable="false" viewBox="0 0 16 16"><path fill="currentColor" d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"></path></svg><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/bethesda/bethesda-formats"><span class="categoryLinkLabel_W154">bethesda</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/citiesskylines/citiesskylines-formats"><span class="categoryLinkLabel_W154">citiesskylines</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cyberpunk2077/cyberpunk2077-formats"><span class="categoryLinkLabel_W154">cyberpunk2077</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/disrupt/blender-addon"><span class="categoryLinkLabel_W154">disrupt</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ets2/ets2-formats"><span class="categoryLinkLabel_W154">ets2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/farcry/cgf-chunk-lineage"><span class="categoryLinkLabel_W154">farcry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ghostrecon/ghostrecon-formats"><span class="categoryLinkLabel_W154">ghostrecon</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/grid2/"><span class="linkLabel_WmDU">GRID 2 Mod Support</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/havok/blender-hkx-workflow"><span class="categoryLinkLabel_W154">havok</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/left4dead/left4dead-formats"><span class="categoryLinkLabel_W154">left4dead</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/lua/luarefv51single"><span class="categoryLinkLabel_W154">lua</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mirrors-edge/mirrors-edge-formats"><span class="categoryLinkLabel_W154">mirrors-edge</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/mtg/mtg-formats"><span class="categoryLinkLabel_W154">mtg</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nfs/nfs-formats"><span class="categoryLinkLabel_W154">nfs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/nms/nms-formats"><span class="categoryLinkLabel_W154">nms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/simcity/sc4-known-tgi-ids"><span class="categoryLinkLabel_W154">simcity</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/simcity/sc4-known-tgi-ids"><span class="linkLabel_WmDU">SimCity 4 — Known TGI IDs</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/simcity/sc4-savegame-format-analysis"><span class="linkLabel_WmDU">sc4-savegame-format-analysis</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/simcity/simcity-formats"><span class="linkLabel_WmDU">SimCity (2013) — Audio Format</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/simcity/xentax-simcity-knowledge"><span class="linkLabel_WmDU">SimCity (2013) — XeNTaX Forum Knowledge</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/sims3/sims3-formats"><span class="categoryLinkLabel_W154">sims3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/tdu2/"><span class="categoryLinkLabel_W154">Test Drive Unlimited 2 Modding</span></a><button aria-label="Expand sidebar category &#x27;Test Drive Unlimited 2 Modding&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/trackmania/gbx_tools"><span class="categoryLinkLabel_W154">trackmania</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/why-not/"><span class="categoryLinkLabel_W154">Why Not? — Miscellaneous Ubisoft References</span></a><button aria-label="Expand sidebar category &#x27;Why Not? — Miscellaneous Ubisoft References&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher2/witcher2-formats"><span class="categoryLinkLabel_W154">witcher2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/witcher3/redkit-and-source-lineage"><span class="categoryLinkLabel_W154">witcher3</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/wwise/wwise-soundbank-format"><span class="categoryLinkLabel_W154">wwise</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/zelda/xentax-zelda-knowledge"><span class="categoryLinkLabel_W154">zelda</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">simcity</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">sc4-savegame-format-analysis</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>sc4-savegame-format-analysis</h1></header><blockquote>
+<p><strong>Source</strong>: OpenSC4 development notes (2026-07/08), from reverse-engineering the
+savegame <code>City - Big City Tutorial.sc4</code>. The same findings drive the DBPF/savegame
+loaders in <a href="https://github.com/Open-Source-Modding/OpenSC4" target="_blank" rel="noopener noreferrer" class="">OpenSC4</a>.</p>
+</blockquote>
+<hr>
+<h1>SimCity 4 — Savegame Format Analysis</h1>
+<p><em>Generated 2026-07-23 by parsing the file directly (scripts run against the uploaded save) and
+cross-referencing the OpenSC4 codebase plus community documentation. See
+<a href="#6-sources--confidence" class="">Sources &amp; confidence</a> for how much to trust each identification.</em></p>
+<p><em>Revised 2026-08-06 while implementing §4.4. That work parsed the network subfiles of all eight
+populated saves in <code>Regions/</code>, not just this one, and corrected several identifications this
+document previously had wrong — see §4.4 and the <a href="#7-session-log--2026-08-06" class="">session log</a> at the
+end for what changed and why.</em></p>
+<p><em>Revised again 2026-08-06 while implementing 2D sprite props — the 413 prop occupants in this
+save that reference no 3D model at all. The format that work decoded lives in the DATs, not the
+save, so it changes only the prop lines in §3 and §4.3; the decoding itself is in §8.</em></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-the-file-at-a-glance">1. The file at a glance<a href="#1-the-file-at-a-glance" class="hash-link" aria-label="Direct link to 1. The file at a glance" title="Direct link to 1. The file at a glance" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>File size</td><td>4,732,755 bytes</td></tr><tr><td>Container</td><td>DBPF v1.0, index format 7.0, 179 index entries, 69 hole records</td></tr><tr><td>Compression</td><td>73 subfiles QFS/RefPack-compressed (listed in the DIR subfile)</td></tr><tr><td>Distinct subfile types</td><td>133</td></tr><tr><td>Serialized game objects</td><td>93,499 across 120 classes (per the COM-serializer registry)</td></tr></tbody></table>
+<p><strong>City identity</strong> (from the region-view subfile, LTEXTs and terrain):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>City name</td><td>Big City Tutorial (localized in ~20 languages, e.g. <em>Initiation aux grandes villes</em>, <em>Großstadt-Tutorial</em>)</td></tr><tr><td>Mayor name</td><td>Defacto</td></tr><tr><td>Region-view record version</td><td>1.13</td></tr><tr><td>Region tile</td><td>(2, 7)</td></tr><tr><td>City size</td><td>2×2 km — 128×128 tiles (altitude map 129×129 vertices)</td></tr><tr><td>Altitude range</td><td>30.0 – 394.5 m (water level is 250 m)</td></tr><tr><td>Population</td><td>R 22,618 / C 3,727 / I 10,638</td></tr><tr><td>Mayor rating</td><td>35</td></tr><tr><td>GUID</td><td>0x667FC376</td></tr><tr><td>Mode</td><td>mayor (&quot;normal&quot;)</td></tr></tbody></table>
+<p><strong>Headline content counts</strong> (all record-parsed from this file):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Content</th><th style="text-align:right">Count</th><th>Subfile</th></tr></thead><tbody><tr><td>Buildings</td><td style="text-align:right">3,427 (60 distinct exemplars)</td><td><code>0xA9BD882D</code></td></tr><tr><td>Props</td><td style="text-align:right">69,431 (347 distinct exemplars)</td><td><code>0x2977AA47</code></td></tr><tr><td>Flora</td><td style="text-align:right">2,798 (9 distinct exemplars)</td><td><code>0xA9C05C85</code></td></tr><tr><td>Lots</td><td style="text-align:right">3,569</td><td><code>0xC9BD5D4A</code></td></tr><tr><td>Lot base-texture tiles</td><td style="text-align:right">3,623</td><td><code>0xC97F987C</code></td></tr><tr><td>Ground-network tiles (road 1,323 / street 1,873 / rail 139)</td><td style="text-align:right">3,335</td><td><code>0xC9C05C6E</code></td></tr><tr><td>Water pipes</td><td style="text-align:right">483</td><td><code>0x49C05B9F</code></td></tr><tr><td>Lot foundations</td><td style="text-align:right">2,510</td><td><code>0x49C05C8F</code></td></tr><tr><td>Lot retaining walls</td><td style="text-align:right">1,245</td><td><code>0x49C05C9F</code></td></tr><tr><td>Simulation data grids (SimGrid layers)</td><td style="text-align:right">136</td><td><code>0x49B9E602…60A</code></td></tr><tr><td>Ordinance subfiles</td><td style="text-align:right">~20</td><td>see §4.6</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-container-level-notes">2. Container-level notes<a href="#2-container-level-notes" class="hash-link" aria-label="Direct link to 2. Container-level notes" title="Direct link to 2. Container-level notes" translate="no">​</a></h2>
+<ul>
+<li class="">Standard DBPF 1.0 exactly as already handled by <code>addons/dbpf/DBPF.gd</code>; the engine&#x27;s QFS
+decompressor and DIR handling load every subfile in this save without error.</li>
+<li class="">Almost every savegame subfile lives in group <code>0x299B2D1B</code> (121 of 179 entries). The
+exceptions: LTEXTs (<code>0x6AAEE931/32</code> name/mayor, <code>0x4A2482BB</code> thumbnail labels), PNG
+thumbnails (<code>0x4A2482BB</code>), terrain (<code>0xE98F9525</code>), the region-view record (<code>0xCA027EE1</code>)
+and a handful of singletons.</li>
+<li class="">Savegame records follow SC4&#x27;s standard serialization: <code>u32 size, u32 CRC, u32 memory address</code>, then a version and class-specific payload. 120 of the 133 types chain
+cleanly as size-prefixed record arrays (verified while counting the records above).</li>
+<li class="">Several network subfiles are <strong>absent from this save</strong> — network subfile 2 (<code>0xCA16374F</code>,
+bridges/elevated), the tunnel subfile (<code>0x8A4BD52B</code>), the prebuilt network (<code>0x49C1A034</code>) and
+the power-line pair (<code>0xC9C05C5D</code> / <code>0x09C05C6A</code>) — consistent with a flat tutorial city with
+no bridges, tunnels or long-distance power. Other shipped saves do have them: see §4.4.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-implementation-status-in-opensc4-summary">3. Implementation status in OpenSC4 (summary)<a href="#3-implementation-status-in-opensc4-summary" class="hash-link" aria-label="Direct link to 3. Implementation status in OpenSC4 (summary)" title="Direct link to 3. Implementation status in OpenSC4 (summary)" translate="no">​</a></h2>
+<p><strong>Implemented today (15 of the 133 types present):</strong> building/prop/flora occupants, lots, lot
+base textures, terrain altitudes (main map only), region-view stats, PNG thumbnails, LTEXT, the
+DIR directory, and — as of 2026-08-06 — the whole of §4.4: ground networks, pipes, the network
+index, lot foundations and retaining walls, plus the power-line and bridge subfiles that occur
+in other saves. In short: <strong>everything the city renderer needs to draw a complete city, and
+nothing of the simulation.</strong></p>
+<p>Prop rendering was completed later the same day. 413 of this save&#x27;s 69,431 prop occupants
+reference no 3D model at all — they are 2D sprites, and were being silently dropped; §8 has the
+format and the fix. The 2,339 props still unplaced are a <em>different</em> problem: they do name an
+S3D model, but no zoom/rotation variant of it exists in the DATs we load.</p>
+<p><strong>Not implemented (present in this save):</strong> the item index, zone developer/manager, tract
+developer, all 136 SimGrid layers, every simulator/manager state blob, budget (departments, line
+items, taxes), the ~20 ordinances, historical graph data, advice state, and the COM-serializer
+registry.</p>
+<p><strong>Engine scaffolding still unfed:</strong> <code>CityView/ClassDefinitions/</code> (NetGraphNode, NetGraphEdge,
+NetTile, TransitTile) models a transit-network <em>graph</em>. The §4.4 parsers give it geometry but
+not connectivity — that needs <code>SC4Path</code> (<code>0x296678F7</code>), which has no parser. Note
+<code>NeworkGraph.gd</code> (filename typo intentional) is dead and internally inconsistent
+(<code>tile.networedges</code> vs <code>tile.networkedges</code>); treat it as a sketch, not an API.</p>
+<p>Also worth noting: the region UI derives the displayed city name from the <em>filename</em>
+(<code>RegionCityView.gd:22</code>), while the save carries properly localized name/mayor LTEXTs.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-full-inventory-by-category">4. Full inventory by category<a href="#4-full-inventory-by-category" class="hash-link" aria-label="Direct link to 4. Full inventory by category" title="Direct link to 4. Full inventory by category" translate="no">​</a></h2>
+<p>Confidence legend: <strong>Verified</strong> = parsed by this analysis and/or by OpenSC4 code ·
+<strong>Documented</strong> = well-established community documentation (SC4D wiki, SC4Parser, sc4 npm lib) ·
+<strong>Reported</strong> = label from the SimsWiki SAVEGAMES table read via search snippets (unverified) ·
+<strong>Inferred</strong> = deduced here from ID families / structure · <strong>Unknown</strong> = no identification.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-city-identity--metadata">4.1 City identity &amp; metadata<a href="#41-city-identity--metadata" class="hash-link" aria-label="Direct link to 4.1 City identity &amp; metadata" title="Direct link to 4.1 City identity &amp; metadata" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th>Identification</th><th>Confidence</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0xCA027EDB</code></td><td style="text-align:right">6,675</td><td style="text-align:right">—</td><td>Region-view city stats (location, size, RCI population, rating, GUID, mode)</td><td>Verified</td><td>Implemented — <code>SC4ReadRegionalCity.gd</code>; used by Region UI and <code>City.gd</code></td></tr><tr><td><code>0x8A2482B9</code> (4 instances)</td><td style="text-align:right">125,072</td><td style="text-align:right">4 files</td><td>PNG images — region-view thumbnails of the city (4 mip sizes)</td><td>Verified</td><td>Implemented — <code>RegionCityView.gd</code> via <code>ImageSubfile</code></td></tr><tr><td><code>0x2026960B</code> (40 instances)</td><td style="text-align:right">1,136</td><td style="text-align:right">40 files</td><td>LTEXT strings — localized city name (G=6AAEE931) and mayor name (G=6AAEE932) in ~20 languages; &#x27;Temp.png&#x27; labels (G=4A2482BB)</td><td>Verified</td><td>Parser implemented (<code>LTEXTSubfile.gd</code>) but savegame instances unused — Region UI takes the name from the filename instead</td></tr><tr><td><code>0xE86B1EEF</code></td><td style="text-align:right">1,168</td><td style="text-align:right">—</td><td>DIR / DBDF compressed-file directory</td><td>Verified</td><td>Implemented — <code>DBPF.gd</code>/<code>DBDF.gd</code></td></tr><tr><td><code>0x499B23FE</code></td><td style="text-align:right">972</td><td style="text-align:right">—</td><td>COM serializer registry — list of every serialized class + object count (verified: 120 classes, 93,499 objects)</td><td>Verified</td><td>Not implemented</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="42-terrain">4.2 Terrain<a href="#42-terrain" class="hash-link" aria-label="Direct link to 4.2 Terrain" title="Direct link to 4.2 Terrain" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th>Identification</th><th>Confidence</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0xA9DD6FF4</code> (5 instances)</td><td style="text-align:right">68,654</td><td style="text-align:right">5 files</td><td>cSTETerrain altitude maps (main 129×129 vertex grid + four 129-float city-edge strips at I=0x64–0x67)</td><td>Verified</td><td>Partially implemented — <code>cSTETerrain__SaveAltitudes.gd</code> reads only I=1 (main map); edge strips unused</td></tr><tr><td><code>0xE98F9525</code></td><td style="text-align:right">22</td><td style="text-align:right">1</td><td>Unidentified 22-byte singleton; its type ID equals the group ID used by the cSTETerrain subfiles — likely terrain-engine state</td><td>Inferred</td><td>Not implemented</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="43-occupants-lots--ground-textures-the-rendered-city">4.3 Occupants, lots &amp; ground textures (the rendered city)<a href="#43-occupants-lots--ground-textures-the-rendered-city" class="hash-link" aria-label="Direct link to 4.3 Occupants, lots &amp; ground textures (the rendered city)" title="Direct link to 4.3 Occupants, lots &amp; ground textures (the rendered city)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th>Identification</th><th>Confidence</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0xA9BD882D</code></td><td style="text-align:right">282,127</td><td style="text-align:right">3,427</td><td>Building occupant subfile</td><td>Verified</td><td>Implemented — <code>BuildingSubfile.gd</code>, rendered by <code>City.gd load_buildings()</code></td></tr><tr><td><code>0x2977AA47</code></td><td style="text-align:right">6,200,592</td><td style="text-align:right">69,431</td><td>Prop occupant subfile</td><td>Verified</td><td>Implemented — <code>PropSubfile.gd</code>, <code>load_props()</code>. 66,679 draw as S3D models, 413 as 2D sprites (§8), 2,339 unresolved (S3D variant absent from the loaded DATs)</td></tr><tr><td><code>0xA9C05C85</code></td><td style="text-align:right">218,244</td><td style="text-align:right">2,798</td><td>Flora occupant subfile</td><td>Verified</td><td>Implemented — <code>FloraSubfile.gd</code>, <code>load_flora()</code></td></tr><tr><td><code>0xC9BD5D4A</code></td><td style="text-align:right">1,086,579</td><td style="text-align:right">3,569</td><td>Lot subfile (tile rect, zoning, wealth)</td><td>Verified</td><td>Implemented (data-only) — <code>LotSubfile.gd</code>, <code>load_lots()</code></td></tr><tr><td><code>0xC97F987C</code></td><td style="text-align:right">431,781</td><td style="text-align:right">3,623</td><td>Lot base-texture subfile</td><td>Verified</td><td>Implemented — <code>LotBaseTextureSubfile.gd</code>, <code>load_lot_textures()</code></td></tr><tr><td><code>0x2977AA49</code></td><td style="text-align:right">26,888</td><td style="text-align:right">262</td><td>Unidentified — ID adjacent to the prop subfile (0x2977AA47); plausibly timed/conditional prop state <em>262 records</em></td><td>Inferred</td><td>Not implemented</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="44-transport--utility-networks">4.4 Transport &amp; utility networks<a href="#44-transport--utility-networks" class="hash-link" aria-label="Direct link to 4.4 Transport &amp; utility networks" title="Direct link to 4.4 Transport &amp; utility networks" translate="no">​</a></h3>
+<p><strong>Revised 2026-08-06.</strong> The identifications in this section were previously wrong for three of
+the five type IDs, and two further subfiles were missing entirely. The corrected table below was
+established by parsing every record of all eight populated saves in <code>Regions/</code> byte-exactly
+(bytes consumed == declared record size, zero failures) and cross-checking the <code>cSC4*</code> class
+registry in <a href="https://github.com/sebamarynissen/sc4" target="_blank" rel="noopener noreferrer" class="">sebamarynissen/sc4</a>. What was wrong:
+<code>0x49C05B9F</code> is pipes, <strong>not</strong> the prebuilt network (that is <code>0x49C1A034</code>, which appears in no
+shipped save); <code>0x49C05C9F</code> and <code>0x49C05C8F</code> are lot decoration, not networks at all.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th>Class</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th>Identification</th><th>Confidence</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0xC9C05C6E</code></td><td><code>cSC4NetworkOccupant</code></td><td style="text-align:right">781,520</td><td style="text-align:right">3,335</td><td>Ground network occupants — one record per tile of road, street, avenue, one-way road, dirt road and rail</td><td>Verified</td><td>Implemented — <code>NetworkSubfile.gd</code>, rendered by <code>City.load_networks()</code></td></tr><tr><td><code>0x6A0F82B2</code></td><td><code>cSC4TrafficNetworkMap</code></td><td style="text-align:right">2,519,251</td><td style="text-align:right">1</td><td>Network index — city tile → network occupant, spanning every network subfile</td><td>Verified (header + reference table)</td><td>Implemented — <code>NetworkIndexSubfile.gd</code>; per-entry payload still undecoded, see below</td></tr><tr><td><code>0x49C05B9F</code></td><td><code>cSC4PipeOccupant</code></td><td style="text-align:right">338,292</td><td style="text-align:right">483</td><td><strong>Water pipes</strong> (was mislabelled &quot;prebuilt network&quot;)</td><td>Verified</td><td>Implemented — <code>PipeSubfile.gd</code>, hidden underground layer</td></tr><tr><td><code>0x49C05C9F</code></td><td><code>cSC4LotRetainingWallOccupant</code></td><td style="text-align:right">129,480</td><td style="text-align:right">1,245</td><td><strong>Lot retaining walls</strong> (was mislabelled &quot;pipe subfile&quot;) — lot decoration, not a network</td><td>Verified</td><td>Implemented — <code>LotStructureSubfile.gd</code></td></tr><tr><td><code>0x49C05C8F</code></td><td><code>cSC4FoundationOccupant</code></td><td style="text-align:right">205,820</td><td style="text-align:right">2,510</td><td><strong>Lot foundations</strong> (was &quot;unidentified ≈ subway?&quot;) — lot decoration, not a network</td><td>Verified</td><td>Implemented — <code>LotStructureSubfile.gd</code></td></tr></tbody></table>
+<p>Two further network subfiles exist in the save format and were absent from this section. Neither
+occurs in Big City Tutorial, but both occur in other shipped saves:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th>Class</th><th>Identification</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0xC9C05C5D</code></td><td><code>cSC4PowerLineOccupant</code></td><td>Power-line spans; 85-byte records naming the two pylons a span runs between, by memory address</td><td>Implemented — <code>PowerLineSubfile.gd</code></td></tr><tr><td><code>0x09C05C6A</code></td><td><code>cSC4PowerPoleOccupant</code></td><td>The pylons themselves; carry an Exemplar TGI and so an S3D model</td><td>Implemented — <code>PowerLineSubfile.gd</code> (head only; ~1.4 KB per-span tail undecoded)</td></tr><tr><td><code>0xCA16374F</code></td><td>network subfile 2</td><td>Bridge / elevated deck tiles. Only in <code>Timbuktu/City - Rush Hour Tutorial.sc4</code> (16 records)</td><td>Implemented — <code>BridgeNetworkSubfile.gd</code> (head only; ~390-byte tail incl. pillars undecoded)</td></tr><tr><td><code>0x49C1A034</code></td><td><code>cSC4NetworkOccupantWithPreBuiltModel</code></td><td>The real prebuilt network (highway interchanges). <strong>Present in no shipped save</strong></td><td>Not implemented, nothing to test against</td></tr><tr><td><code>0x8A4BD52B</code></td><td><code>cSC4NetworkTunnelOccupant</code></td><td>Tunnels. <strong>Present in no shipped save</strong></td><td>Not implemented, nothing to test against</td></tr></tbody></table>
+<p><strong>The key structural finding.</strong> A ground-network record does not need the RUL tile-shape rules to
+be evaluated. SC4 resolved them when the tile was built and saved the answer: each record carries
+its four deck corners with position, texture coordinate and baked lighting colour, plus the
+already-chosen texture id. Rendering is therefore a direct read — which is why sloped roads,
+diagonals and level crossings came out right without touching <code>RULSubfile.gd</code>. Verified layout:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32 size, u32 crc, u32 mem, u16 major(8), u16 minor(4)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u16 zot, u8 ?, u8 appearance      (bit 0 = present in city, bit 6 = burnt)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32 0xC772BF98                    family marker, constant</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">tract: u8 minX, minZ, maxX, maxZ, u16 xTractSize, zTractSize</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32 sgpropCount + sgprops[]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32 GID, u32 TID, u32 IID         all zero on ground networks</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u8 ?</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">f32 position x, y, z              metres, tile centre</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">4 x vertex { f32 x,y,z,u,v; u8 r,g,b,a }        24 bytes each, odd-aligned</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32 textureId                     FSH family; high byte = network family per RULSubfile.gd</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u8  wealthTexture</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32 baseTexture                   FSH family for the sidewalk/ground underneath</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u8  orientation</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u8 x2 ?</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u8  crossingCount-1</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">crossings[] { u8 networkType, west, north, east, south }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32 wallCount + walls[] { u32 texture, vertex }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">bbox: 6 f32 grouped BY AXIS (minX, maxX, minY, maxY, minZ, maxZ)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">u32 constructionStates, u32 alternatePathId, 3 x u32 ?, u64 demolishingCosts</span><br></div></code></pre></div></div>
+<p><code>networkType</code>: 0 Road · 1 Rail · 2 Maxis El Highway · 3 Street · 4 Pipe · 5 Powerline ·
+6 Avenue · 7 Subway · 8 Light Rail · 9 Monorail · 10 One-Way Road · 11 Dirt Road.</p>
+<p>Textures resolve at TGI <code>(0x7AB50E44, 0x1ABE787D, textureId + zoom)</code> for zoom 0..4 — the same
+scheme <code>TransitTiles.gd</code> already used. All 36 distinct texture ids in Big City Tutorial resolve
+with all five zoom variants present.</p>
+<p>Foundations and retaining walls store a placement block that no community parser documents. It
+was decoded here as <code>f32 x, y, z, size_x, height, size_z</code> (metres), at record offset 0x38 for
+foundations and 0x48 for walls. Evidence: 100% of the 1,245 walls and 2,510 foundations in Big
+City Tutorial then have their centre on a lot-covered tile (the x/z transpose gives ~55%), and
+the median of <code>y − terrain altitude</code> is exactly 0.00 m. Their exemplars carry no model for most
+records — instead a five-entry list of FSH zoom variants plus the world size one repeat covers
+(<code>0x295961F2</code>/<code>0x295961F3</code> for walls, <code>0x68FCFF37</code>/<code>0xC911EDA0</code> for foundations), i.e. SC4
+stretches a texture over a box. A minority carry an RKT1 S3D model instead.</p>
+<p><strong>What is still undecoded.</strong> The network index&#x27;s per-entry payload: between consecutive
+<code>{tile_number, mem, subfile_type}</code> triples sits a variable-length block nobody has decoded, and
+SC4Parser&#x27;s own attempt cannot keep the cursor aligned. <code>NetworkIndexSubfile.gd</code> resynchronises
+by scanning for the next triple instead, which recovers exactly the declared reference count in
+every populated save. What <code>tile_number</code> means is also open — it is not a row-major tile index
+(both that and its transpose match only about half the entries against the actual tile
+coordinates of the ground-network records).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="45-simulation-grids-data-views">4.5 Simulation grids (data views)<a href="#45-simulation-grids-data-views" class="hash-link" aria-label="Direct link to 4.5 Simulation grids (data views)" title="Direct link to 4.5 Simulation grids (data views)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th>Identification</th><th>Confidence</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0x49B9E602</code></td><td style="text-align:right">298,466</td><td style="text-align:right">46</td><td>SimGridUint8 — 46 simulation data grids (record header verified: own-type, dataId, dims)</td><td>Verified</td><td>Not implemented</td></tr><tr><td><code>0x49B9E603</code></td><td style="text-align:right">20,755</td><td style="text-align:right">5</td><td>SimGridSint8 — 5 simulation data grids (record header verified: own-type, dataId, dims)</td><td>Verified</td><td>Not implemented</td></tr><tr><td><code>0x49B9E604</code></td><td style="text-align:right">56,781</td><td style="text-align:right">27</td><td>SimGridUint16 — 27 simulation data grids (record header verified: own-type, dataId, dims)</td><td>Verified</td><td>Not implemented</td></tr><tr><td><code>0x49B9E605</code></td><td style="text-align:right">168,033</td><td style="text-align:right">39</td><td>SimGridSint16 — 39 simulation data grids (record header verified: own-type, dataId, dims)</td><td>Verified</td><td>Not implemented</td></tr><tr><td><code>0x49B9E606</code></td><td style="text-align:right">65,591</td><td style="text-align:right">1</td><td>SimGridUint32 — 1 simulation data grids (record header verified: own-type, dataId, dims)</td><td>Verified</td><td>Not implemented</td></tr><tr><td><code>0x49B9E60A</code></td><td style="text-align:right">624,606</td><td style="text-align:right">18</td><td>SimGridFloat32 — 18 simulation data grids (record header verified: own-type, dataId, dims)</td><td>Verified</td><td>Not implemented</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="46-ordinances">4.6 Ordinances<a href="#46-ordinances" class="hash-link" aria-label="Direct link to 4.6 Ordinances" title="Direct link to 4.6 Ordinances" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th>Identification</th><th>Confidence</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0x02BF1DFA</code></td><td style="text-align:right">271</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x42BF1E18</code></td><td style="text-align:right">337</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x62BF1DAA</code></td><td style="text-align:right">259</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x62BF1DB9</code></td><td style="text-align:right">266</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xA2BF1DDC</code></td><td style="text-align:right">234</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xA2BF1DE5</code></td><td style="text-align:right">241</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xA2BF1E43</code></td><td style="text-align:right">248</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xC2BF1DC5</code></td><td style="text-align:right">202</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xC2BF1E04</code></td><td style="text-align:right">261</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x22F6E80C</code></td><td style="text-align:right">244</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x22F6E81B</code></td><td style="text-align:right">236</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x62F6E7CF</code></td><td style="text-align:right">222</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xC2F6E81F</code></td><td style="text-align:right">262</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x00D0723D</code></td><td style="text-align:right">244</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x40D07236</code></td><td style="text-align:right">226</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xA0D07129</code></td><td style="text-align:right">302</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xE0D0722E</code></td><td style="text-align:right">271</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xE0D07233</code></td><td style="text-align:right">275</td><td style="text-align:right">1</td><td>Ordinance subfile (one subfile per ordinance; SC4D &quot;Ordinance Subfiles&quot; family)</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x815B4CEF</code></td><td style="text-align:right">256</td><td style="text-align:right">1</td><td>Likely ordinance subfile (same size/shape/group as the ordinance family; would bring the count to vanilla&#x27;s 20)</td><td>Inferred</td><td>Not implemented</td></tr><tr><td><code>0x82B9999B</code></td><td style="text-align:right">215</td><td style="text-align:right">1</td><td>Likely ordinance subfile (same size/shape/group as the ordinance family; would bring the count to vanilla&#x27;s 20)</td><td>Inferred</td><td>Not implemented</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="47-budget--economy">4.7 Budget &amp; economy<a href="#47-budget--economy" class="hash-link" aria-label="Direct link to 4.7 Budget &amp; economy" title="Direct link to 4.7 Budget &amp; economy" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th>Identification</th><th>Confidence</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0xAA313C9F</code></td><td style="text-align:right">2,159</td><td style="text-align:right">25</td><td>Budget: line-item subfile</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xE990BFFC</code></td><td style="text-align:right">1,647</td><td style="text-align:right">18</td><td>Budget: department-budget subfile</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0xE9A6CD3B</code></td><td style="text-align:right">24,648</td><td style="text-align:right">1</td><td>Taxes (SimsWiki)</td><td>Reported</td><td>Not implemented</td></tr><tr><td><code>0x6990C1AA</code></td><td style="text-align:right">1,858,654</td><td style="text-align:right">1</td><td>&quot;Sims to jobs match&quot; — commute/demand matching data (SimsWiki label) <em>single 1.86 MB record — 2nd-largest blob in the save</em></td><td>Reported</td><td>Not implemented</td></tr><tr><td><code>0x89EFA536</code></td><td style="text-align:right">146,218</td><td style="text-align:right">1</td><td>Historical data / graph data (SimsWiki: mostly decoded)</td><td>Reported</td><td>Not implemented</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="48-development--zoning-managers">4.8 Development &amp; zoning managers<a href="#48-development--zoning-managers" class="hash-link" aria-label="Direct link to 4.8 Development &amp; zoning managers" title="Direct link to 4.8 Development &amp; zoning managers" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th>Identification</th><th>Confidence</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0x098F964D</code></td><td style="text-align:right">873,978</td><td style="text-align:right">1</td><td>Item index subfile — spatial index (quad-tree) of every occupant</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x498F9B01</code></td><td style="text-align:right">93,134</td><td style="text-align:right">1</td><td>Zone developer subfile — per-tile zoning/developer map</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x298F9B2D</code></td><td style="text-align:right">791</td><td style="text-align:right">1</td><td>Zone manager</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x2990C1E5</code></td><td style="text-align:right">91</td><td style="text-align:right">1</td><td>Tract developer</td><td>Documented</td><td>Not implemented</td></tr><tr><td><code>0x0990C075</code></td><td style="text-align:right">20,435</td><td style="text-align:right">1</td><td>Plumbing simulator state</td><td>Documented</td><td>Not implemented</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="49-advisors--mayor-view">4.9 Advisors &amp; mayor view<a href="#49-advisors--mayor-view" class="hash-link" aria-label="Direct link to 4.9 Advisors &amp; mayor view" title="Direct link to 4.9 Advisors &amp; mayor view" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th>Identification</th><th>Confidence</th><th>OpenSC4 status</th></tr></thead><tbody><tr><td><code>0x6A9335DE</code></td><td style="text-align:right">57,672</td><td style="text-align:right">1,068</td><td>Advice / advisor state (SimsWiki)</td><td>Reported</td><td>Not implemented</td></tr><tr><td><code>0x89C48F47</code></td><td style="text-align:right">47,067</td><td style="text-align:right">1</td><td>Mayor-view city data (SimsWiki)</td><td>Reported</td><td>Not implemented</td></tr><tr><td><code>0x8990C065</code></td><td style="text-align:right">8,564</td><td style="text-align:right">1</td><td>Water-pollution simulator state (SimsWiki label)</td><td>Reported</td><td>Not implemented</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="410-simulator--manager-state-blobs-and-other-unidentified-subfiles">4.10 Simulator / manager state blobs and other unidentified subfiles<a href="#410-simulator--manager-state-blobs-and-other-unidentified-subfiles" class="hash-link" aria-label="Direct link to 4.10 Simulator / manager state blobs and other unidentified subfiles" title="Direct link to 4.10 Simulator / manager state blobs and other unidentified subfiles" translate="no">​</a></h3>
+<p>Nearly all of these are singleton records in group <code>0x299B2D1B</code> whose type IDs sit in the
+same numeric families as the identified simulator classes above. The community has never
+published decodings for most of them; sizes and record counts below are still useful as a
+fingerprint for future reverse-engineering. The <strong>Objs</strong> column is the object count the
+save&#x27;s own COM-serializer registry (<code>0x499B23FE</code>) reports for that class.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Bytes</th><th style="text-align:right">Records</th><th style="text-align:right">Objs</th><th>Note</th></tr></thead><tbody><tr><td><code>0x2990C1BC</code></td><td style="text-align:right">66,109</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x0990C005</code></td><td style="text-align:right">41,694</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x8A09F5F4</code></td><td style="text-align:right">36,438</td><td style="text-align:right">663</td><td style="text-align:right">663</td><td></td></tr><tr><td><code>0x8A91E7E0</code></td><td style="text-align:right">33,284</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td></td></tr><tr><td><code>0x4A1DBBBF</code></td><td style="text-align:right">28,420</td><td style="text-align:right">5</td><td style="text-align:right">5</td><td></td></tr><tr><td><code>0xA990BFE0</code></td><td style="text-align:right">27,452</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x6B70EFAD</code></td><td style="text-align:right">15,228</td><td style="text-align:right">282</td><td style="text-align:right">282</td><td></td></tr><tr><td><code>0x8990C12D</code></td><td style="text-align:right">11,658</td><td style="text-align:right">174</td><td style="text-align:right">174</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x4A232DA8</code></td><td style="text-align:right">9,480</td><td style="text-align:right">92</td><td style="text-align:right">92</td><td></td></tr><tr><td><code>0xC990C034</code></td><td style="text-align:right">8,314</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xEAC937B4</code></td><td style="text-align:right">7,465</td><td style="text-align:right">2</td><td style="text-align:right">2</td><td></td></tr><tr><td><code>0x0BF606A5</code></td><td style="text-align:right">5,689</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x0A134F24</code></td><td style="text-align:right">5,473</td><td style="text-align:right">13</td><td style="text-align:right">13</td><td></td></tr><tr><td><code>0x0A413481</code></td><td style="text-align:right">4,768</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x8BE3753B</code></td><td style="text-align:right">4,266</td><td style="text-align:right">79</td><td style="text-align:right">79</td><td></td></tr><tr><td><code>0x2A5F877D</code></td><td style="text-align:right">3,777</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0xAA371C32</code></td><td style="text-align:right">3,270</td><td style="text-align:right">59</td><td style="text-align:right">59</td><td></td></tr><tr><td><code>0xCA2C2A2F</code></td><td style="text-align:right">2,979</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x8A22BEBE</code></td><td style="text-align:right">2,691</td><td style="text-align:right">39</td><td style="text-align:right">39</td><td></td></tr><tr><td><code>0xE990BE01</code></td><td style="text-align:right">2,499</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x2990BFF2</code></td><td style="text-align:right">2,306</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x4BE372CD</code></td><td style="text-align:right">2,056</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x4A1628C5</code></td><td style="text-align:right">1,749</td><td style="text-align:right">18</td><td style="text-align:right">18</td><td></td></tr><tr><td><code>0xEA19E825</code></td><td style="text-align:right">1,609</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x6A3848DB</code></td><td style="text-align:right">1,560</td><td style="text-align:right">26</td><td style="text-align:right">26</td><td></td></tr><tr><td><code>0x4A3AD3E1</code></td><td style="text-align:right">1,332</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x6A5F8755</code></td><td style="text-align:right">1,165</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0xAA5292D7</code></td><td style="text-align:right">1,055</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x8990BE7A</code></td><td style="text-align:right">1,033</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xEA09D4AE</code></td><td style="text-align:right">965</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x8990C09A</code></td><td style="text-align:right">873</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x896E75AF</code></td><td style="text-align:right">837</td><td style="text-align:right">3</td><td style="text-align:right">3</td><td></td></tr><tr><td><code>0x0990C138</code></td><td style="text-align:right">744</td><td style="text-align:right">12</td><td style="text-align:right">12</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x6A1628BA</code></td><td style="text-align:right">627</td><td style="text-align:right">7</td><td style="text-align:right">7</td><td></td></tr><tr><td><code>0x8990C372</code></td><td style="text-align:right">599</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xCA14CA03</code></td><td style="text-align:right">495</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x4990C013</code></td><td style="text-align:right">464</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x6A26D049</code></td><td style="text-align:right">278</td><td style="text-align:right">10</td><td style="text-align:right">10</td><td></td></tr><tr><td><code>0xA990C08E</code></td><td style="text-align:right">202</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x4A0DD616</code></td><td style="text-align:right">198</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0xA98F9D3B</code></td><td style="text-align:right">188</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x2990C05A</code></td><td style="text-align:right">176</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x6990C04F</code></td><td style="text-align:right">160</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x0990BDD8</code></td><td style="text-align:right">130</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xA9C741B3</code></td><td style="text-align:right">122</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xC990C0A4</code></td><td style="text-align:right">122</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xC98F9D4A</code></td><td style="text-align:right">94</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xE9C622D8</code></td><td style="text-align:right">58</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xA98F9D28</code></td><td style="text-align:right">52</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xC9C628EC</code></td><td style="text-align:right">50</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xC98F9D17</code></td><td style="text-align:right">44</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xE990C18E</code></td><td style="text-align:right">44</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xE990C045</code></td><td style="text-align:right">39</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x2990C142</code></td><td style="text-align:right">39</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x299062C0</code></td><td style="text-align:right">38</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xA7E7F929</code></td><td style="text-align:right">38</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0xA9C8647C</code></td><td style="text-align:right">38</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x4990BD93</code></td><td style="text-align:right">34</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x8990C080</code></td><td style="text-align:right">31</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0xA990BD10</code></td><td style="text-align:right">30</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x89D9B9EE</code></td><td style="text-align:right">26</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td></td></tr><tr><td><code>0x8A91E7E3</code></td><td style="text-align:right">26</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td></td></tr><tr><td><code>0xAA2049A1</code></td><td style="text-align:right">24</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0xEA230A28</code></td><td style="text-align:right">24</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0xAA3836FB</code></td><td style="text-align:right">23</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0xAA3FE6BC</code></td><td style="text-align:right">22</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0xEAD4BA36</code></td><td style="text-align:right">20</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x0BB14381</code></td><td style="text-align:right">19</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x0B7D45E0</code></td><td style="text-align:right">18</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td></td></tr><tr><td><code>0xC9B84E10</code></td><td style="text-align:right">15</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0x0990C38A</code></td><td style="text-align:right">14</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x4A1B664E</code></td><td style="text-align:right">14</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td></td></tr><tr><td><code>0xA990C022</code></td><td style="text-align:right">14</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x89C49986</code></td><td style="text-align:right">12</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td>cSC4 simulator/manager ID family (undecoded)</td></tr><tr><td><code>0x49DD6F4C</code></td><td style="text-align:right">12</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td></td></tr><tr><td><code>0xEA3FF4F5</code></td><td style="text-align:right">4</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-what-implementing-the-rest-would-unlock">5. What implementing the rest would unlock<a href="#5-what-implementing-the-rest-would-unlock" class="hash-link" aria-label="Direct link to 5. What implementing the rest would unlock" title="Direct link to 5. What implementing the rest would unlock" translate="no">​</a></h2>
+<p><strong>Done — network subfiles (§4.4), 2026-08-06.</strong> Ground networks, pipes, the network index, lot
+foundations and retaining walls all load and render, as do the power-line and bridge subfiles
+that appear in other saves. What it did <em>not</em> unlock, contrary to what the previous version of
+this list assumed: the <code>CityView/ClassDefinitions/</code> graph classes still have no input. A graph
+needs connectivity, and these subfiles carry only geometry — the connectivity lives in
+<code>SC4Path</code>, now item 1 below.</p>
+<p><strong>Done — 2D sprite props (§8), 2026-08-06.</strong> Every prop occupant in this save that has artwork
+in the DATs now draws. What remains on the prop side is not a format gap: 2,339 occupants name
+an S3D model whose zoom/rotation variant is missing from the six DATs the loader opens, which is
+a question of <em>which files we load</em>, not of parsing.</p>
+<p>Remaining, ordered by likely value to OpenSC4:</p>
+<ol>
+<li class=""><strong><code>SC4Path</code> (<code>0x296678F7</code>)</strong> — the per-tile vehicle paths. This is now the single missing
+piece between &quot;the network is drawn&quot; and &quot;the network is a graph&quot;: it would feed
+<code>TransitTile.set_tile_paths()</code> (a stub returning <code>{}</code>) and thence <code>NetworkGraph</code>, and it is
+the prerequisite for any traffic simulation or route display. Note it is a DAT type, not a
+savegame type — the paths live in the game&#x27;s own data files, keyed per network piece.</li>
+<li class=""><strong>SimGrids (§4.5)</strong> — the record header is fully decoded (this analysis parses all 136
+layers cleanly: own type id, dataId, resolution, dims at fixed offsets, 55-byte header).
+They power every data-view overlay (pollution, land value, crime, traffic…). A generic
+<code>SimGridSubfile</code> would be a small, high-leverage parser.</li>
+<li class=""><strong>Zone developer / item index (§4.8)</strong> — per-tile zoning enables a zoning overlay and is
+needed before any simulation work.</li>
+<li class=""><strong>Region-view completeness</strong> — use the localized LTEXT city name (<code>G=0x6AAEE931</code>) instead
+of the filename; decode the fields still marked unknown in <code>SC4ReadRegionalCity.gd</code>.</li>
+<li class=""><strong>Budget/ordinances/graphs (§4.6–4.7)</strong> — only needed once simulation or UI panels exist.</li>
+<li class=""><strong>Terrain edge strips</strong> (<code>0xA9DD6FF4</code> I=0x64–0x67) — four 129-float strips, almost
+certainly the neighbour-city edge altitudes used for cross-city edge matching.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-sources--confidence">6. Sources &amp; confidence<a href="#6-sources--confidence" class="hash-link" aria-label="Direct link to 6. Sources &amp; confidence" title="Direct link to 6. Sources &amp; confidence" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>This file itself</strong> — every byte count, record count, grid dimension, string and the
+COM-serializer table above were parsed directly from the uploaded save with throwaway
+Python scripts (DBPF index + QFS decompression matching <code>addons/dbpf/</code>).</li>
+<li class=""><strong>OpenSC4 source</strong> — <code>addons/dbpf/*.gd</code>, <code>City.gd</code>, <code>SC4ReadRegionalCity.gd</code>,
+<code>cSTETerrain__SaveAltitudes.gd</code>, <code>tools/dat_dump.py</code>.</li>
+<li class=""><strong><a href="https://wiki.sc4devotion.com/index.php?title=Savegame" target="_blank" rel="noopener noreferrer" class="">SC4D Encyclopaedia</a></strong> (Savegame,
+Network Subfiles, Ordinance Subfiles pages) and <strong><a href="http://simswiki.info/wiki.php?title=SAVEGAMES" target="_blank" rel="noopener noreferrer" class="">SimsWiki SAVEGAMES</a></strong> —
+still <strong>unreachable</strong> as of 2026-08-06 (both return HTTP 403 to any client, browser
+user-agent or not). Labels marked <em>Reported</em> came from search-result snippets quoting those
+pages and should be re-checked if the sites ever come back.</li>
+<li class=""><strong><a href="https://github.com/Killeroo/SC4Parser" target="_blank" rel="noopener noreferrer" class="">Killeroo/SC4Parser</a></strong> and
+<strong><a href="https://github.com/sebamarynissen/sc4" target="_blank" rel="noopener noreferrer" class="">sebamarynissen/sc4</a></strong> — community savegame
+parsers. <strong>Both ARE reachable</strong> via <code>raw.githubusercontent.com</code>, which the 2026-07-23 pass
+did not realise; fetching their source directly is how the §4.4 layouts were established.
+<code>sc4</code>&#x27;s <code>src/core/cpp-classes.ts</code> in particular is a type-ID → <code>cSC4*</code> class-name registry
+and is the fastest way to identify an unknown savegame type. Caveat: neither library is
+authoritative. <code>SC4Parser</code>&#x27;s <code>NetworkTile1</code> mislabels the four 24-byte vertices as three
+positions plus padding, and <code>sc4</code>&#x27;s bridge class documents a version-3 layout that does not
+match the version-2.3 records in the shipped save. Treat both as leads to verify, not truth.</li>
+</ul>
+<p><strong>Standard of proof used in the 2026-08-06 revision.</strong> A layout was only accepted when a parser
+written to it consumed exactly the declared record size for <em>every</em> record — not a sample — in
+<em>every</em> populated save (eight of them). Where that test cannot apply, an independent check was
+required: foundation and wall placement was confirmed by 100% of centres landing on lot-covered
+tiles and a median <code>y − terrain</code> of exactly 0.00 m; network-index recovery by the recovered
+reference count equalling the declared count in all eight cities.</p>
+<p>Anything marked <em>Unknown</em> here is, to the best of available community knowledge, genuinely
+undecoded — SC4&#x27;s savegame has never been fully reverse-engineered.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-session-log--2026-08-06">7. Session log — 2026-08-06<a href="#7-session-log--2026-08-06" class="hash-link" aria-label="Direct link to 7. Session log — 2026-08-06" title="Direct link to 7. Session log — 2026-08-06" translate="no">​</a></h2>
+<p>Implementing §4.4. Recorded because several findings are not recoverable from the code alone.</p>
+<p><strong>Identifications corrected.</strong> Three of §4.4&#x27;s five type IDs were wrong and two subfiles were
+missing entirely; the table in §4.4 has the detail. The error to learn from: the 2026-07-23 pass
+inferred <code>0x49C05B9F</code>/<code>0x49C05C8F</code>/<code>0x49C05C9F</code> from <em>ID adjacency</em> — they sit in the same
+numeric family as known network types — and adjacency turned out to mean nothing. Two of the
+three are lot decoration. Record size and shape (700 vs 104 vs 82 bytes; presence of an Exemplar
+TGI) would have separated them immediately.</p>
+<p><strong>Newly decoded.</strong></p>
+<ul>
+<li class="">Ground-network record layout, byte-exact — see §4.4. The load-bearing discovery is that SC4
+saves the <em>resolved</em> tile: four vertices with position, UV and baked lighting colour, plus the
+chosen texture id. The RUL tables never need to be evaluated to draw a saved city.</li>
+<li class="">Foundation / retaining-wall placement block: <code>f32 x, y, z, size_x, height, size_z</code>.</li>
+<li class="">Power lines are two cross-referencing subfiles, spans (<code>0xC9C05C5D</code>) and pylons
+(<code>0x09C05C6A</code>), joined by memory address. Every span in all five cities that have them names
+exactly two pylons and both resolve.</li>
+<li class="">Pipes lie a <strong>median 10.34 m below</strong> the terrain surface (range −6.5 to −25.5 m across the 483
+records). Consequence for rendering: they cannot be shown by making geometry visible, only by
+an x-ray pass — see the engine notes below.</li>
+</ul>
+<p><strong>Still undecoded after this session.</strong> The network index&#x27;s per-entry payload and the meaning of
+its <code>tile_number</code>; the ~1.4 KB tail of a power-pole record; the ~390-byte tail of a bridge record
+(which holds pillar placement, so bridge pillars do not render); the <code>orientation</code> high bit set
+on 36 ground-network tiles, probably a diagonal-flip flag.</p>
+<p><strong>Engine-side findings worth keeping.</strong> These bit during this work and are easy to hit again:</p>
+<ul>
+<li class="">Network quads must clear the lot base textures, which sit at <code>0.015 + 0.004 * (priority &amp; 7)</code>
+— up to <strong>0.043</strong> world units. Anything lifted below that gets buried by a high-priority lot
+apron, most visibly at intersections.</li>
+<li class="">Per-tile quads whose UVs span the full 0..1 of their texture need <code>texture_repeat = false</code>.
+With the default repeat, edge pixels filter against the texture&#x27;s opposite edge and leave a
+hairline seam along every tile boundary.</li>
+<li class="">Do not put these quads in the transparent pass. <code>TRANSPARENCY_ALPHA</code> sorts per-object with no
+depth write, which let lot aprons and the network&#x27;s own base layer overdraw the road surface;
+level-crossing tiles vanished entirely. <code>TRANSPARENCY_ALPHA_SCISSOR</code> keeps them in the opaque
+pass where depth sorting is real.</li>
+<li class="">The water shader in <code>City.tscn</code> computed <code>NORMAL</code> as
+<code>PROJECTION_MATRIX * VIEW_MATRIX * MODEL_MATRIX * vec4(noisenormal, 0)</code>. Godot wants NORMAL in
+view space and a projection matrix is not a valid transform for a direction; the diffuse term
+collapsed and all water rendered black with only the additive wave highlights showing. Fixed
+by dropping <code>PROJECTION_MATRIX</code>. Unrelated to networks, but it had been masking the map&#x27;s
+water since before this work — a &quot;floating terrain fragment&quot; beyond the map edge turned out to
+be ordinary land across a bay of invisible water.</li>
+<li class="">Water tint still comes from a single texel: <code>texture(watertexture, vec3(vec2(0.0, 0.0), zoom))</code>
+paints the whole ocean with the top-left pixel of a 256×256 texture. Sampling with real UVs is
+a one-line change nobody has made yet.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-session-log--2026-08-06-second-pass-2d-sprite-props">8. Session log — 2026-08-06 (second pass): 2D sprite props<a href="#8-session-log--2026-08-06-second-pass-2d-sprite-props" class="hash-link" aria-label="Direct link to 8. Session log — 2026-08-06 (second pass): 2D sprite props" title="Direct link to 8. Session log — 2026-08-06 (second pass): 2D sprite props" translate="no">​</a></h2>
+<p>Strictly this is a DAT format, not a savegame one; it is recorded here because the save is what
+leads you to it, and because <code>Core.class_dict</code> had both of its types registered as <code>null</code> — there
+was no parser to read the code for.</p>
+<p><strong>The gap.</strong> <code>ExemplarSubfile.get_all_model_refs()</code> finds a prop&#x27;s model by scanning property
+values for the S3D type marker <code>0x5AD0E817</code>. Six prop exemplars used by this save contain no
+such triple, because they are not 3D objects at all. Every one of their 413 occurrences was
+counted as &quot;without a resolvable model&quot; and dropped:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Exemplar (G=<code>0xC977C536</code>)</th><th style="text-align:right">Instances</th><th>What it is</th></tr></thead><tbody><tr><td><code>0x28F50000</code> AStreet1x1x11_stoplightPole_28F</td><td style="text-align:right">333</td><td>traffic light, orthogonal</td></tr><tr><td><code>0x29E20000</code> AStreet1x1x11_stoplightPoleDiag_29E</td><td style="text-align:right">29</td><td>traffic light, diagonal</td></tr><tr><td><code>0x29F00000</code> / <code>0x29ED0000</code> / <code>0x29EF0000</code> ARW2x2x5_animatedBallons</td><td style="text-align:right">31</td><td>balloon bunches on the car lots</td></tr><tr><td><code>0x29C20000</code> Amill4x2x4_exploritorium_29C</td><td style="text-align:right">20</td><td>animated crowd of sims</td></tr></tbody></table>
+<p><strong>ATC (<code>0x29A5D1EC</code>)</strong> — the animation header, reached from the exemplar&#x27;s <code>ResourceKeyType0</code>
+(<code>0x27812820</code>). Group is <code>PROPS_ANIM</code> (<code>0x2A2458F9</code>) for props, <code>NONPROPS_ANIM</code> (<code>0x49A593E7</code>)
+for everything else. Always exactly 48 bytes, twelve little-endian u32s:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style="text-align:right">u32</th><th>Meaning</th></tr></thead><tbody><tr><td style="text-align:right">0</td><td><code>0x29A5D1EC</code>, own type</td></tr><tr><td style="text-align:right">1–3</td><td>FSH type/group/instance — the sprite sheet</td></tr><tr><td style="text-align:right">4</td><td><code>0x09ADCD75</code>, AVP type</td></tr><tr><td style="text-align:right">5</td><td>AVP group</td></tr><tr><td style="text-align:right">6–10</td><td>one AVP instance id per zoom 0–4; <code>0</code> where the prop is not drawn at that zoom</td></tr><tr><td style="text-align:right">11</td><td>animation rate</td></tr></tbody></table>
+<p>Slots 6–10 being <em>per zoom</em> is the load-bearing discovery, and it is verifiable rather than
+inferred: the filled slots match the exemplar&#x27;s <code>AppearanceZoomsFlag</code> (<code>0x0ABFC024</code>) bitmask
+exactly — <code>0b11100</code> on the traffic lights, whose filled slots are 2, 3 and 4. Across
+SimCity_1.dat&#x27;s 1,084 ATCs only three fill patterns occur at all: zooms {3,4} (1,003 of them),
+{2,3,4} (79) and all five (2).</p>
+<p><strong>AVP (<code>0x09ADCD75</code>)</strong> — one zoom&#x27;s frame table. A 0x24-byte header, verified constant across
+all 2,253 AVPs in SimCity_1.dat: own type, frame count, two u32 <code>1</code>s, four zero u32s, then the
+frame count repeated. Frame counts are only ever 8, 4 or 1. Then eight bytes per frame:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style="text-align:right">Byte</th><th>Meaning</th></tr></thead><tbody><tr><td style="text-align:right">0</td><td>page — which FSH <em>directory entry</em> holds this frame</td></tr><tr><td style="text-align:right">1</td><td>always 8, in all 15,777 frames</td></tr><tr><td style="text-align:right">2–3</td><td>u16 pixel offset of the frame&#x27;s top-left corner within that page</td></tr><tr><td style="text-align:right">4–5</td><td>width, height</td></tr><tr><td style="text-align:right">6–7</td><td>anchor x, y — <strong>signed int8</strong></td></tr></tbody></table>
+<p>Two traps here. The page byte matters because an animation FSH is not one image but up to ~70
+directory entries, each a 256×256 DXT1/DXT3 page; <code>FSHSubfile</code> was overwriting <code>self.img</code> per
+entry and keeping only the last, so multi-page sheets were unreachable. And the offset is a
+<em>pixel</em> index within its page, so the corner is <code>(offset % 256, offset / 256)</code> — 16 bits covers
+256×256 exactly, which is precisely why the page needs a byte of its own.</p>
+<p>The anchors really are signed: 9 of the 15,777 frames anchor left of their own rectangle and 2
+above it. Read unsigned, those sprites land hundreds of pixels away. No frame is wider than 127
+or taller than 126, so the sign costs nothing.</p>
+<p><strong>Pixels to world units.</strong> A billboard needs a scale and nothing in the ATC/AVP/FSH chain states
+one. It is recoverable from the S3D data instead: sprites and S3D impostor textures come out of
+the same pre-renderer, and an S3D vertex carries both a world position and a UV. Least-squares
+fitting <code>world position -&gt; UV × texture size</code> over ~700 building models per zoom gives the full
+2×3 world→screen-pixel matrix. Its row norms, median over the fits, are pixels per 16 m tile:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>zoom</th><th style="text-align:right">0</th><th style="text-align:right">1</th><th style="text-align:right">2</th><th style="text-align:right">3</th><th style="text-align:right">4</th></tr></thead><tbody><tr><td>px per tile</td><td style="text-align:right">6.449</td><td style="text-align:right">12.576</td><td style="text-align:right">24.965</td><td style="text-align:right">56.170</td><td style="text-align:right">112.147</td></tr></tbody></table>
+<p>Two things fall out of that fit and are the reason to trust it. The matrix&#x27;s two rows have equal
+norm to better than 0.1% — the projection is conformal in the camera plane, which is what makes a
+single scalar enough to size a billboard. And the matrix independently reproduces SC4&#x27;s camera:
+<code>u_x / u_z = 2.4166 ≈ tan 67.5°</code>, and the vertical-to-horizontal ratio is <code>sin 45°</code> at zooms 3–4
+and <code>sin 50°</code> at zoom 2 — the azimuth and per-zoom elevations <code>CameraAnchor3D.gd</code> already
+hardcodes, arrived at from completely independent data. Note the ladder is not a clean ×2:
+24.965 → 56.170 is ×2.25. That is measured, not derived; do not &quot;correct&quot; it.</p>
+<p><strong>Traffic-light frames are rotations, not signal phases.</strong> The stoplight exemplars set &quot;States as
+Frames&quot; (<code>0x4A70D491</code>), which is easy to read as red/amber/green. It is not: extracting the four
+zoom-4 frames side by side shows two back views of the pole and two front views with the green
+lamp lit — they are the four <em>view rotations</em>, the sprite equivalent of an S3D model&#x27;s four baked
+rotation variants. So the frame index uses the same expression <code>_place_occupants</code> uses to pick a
+rotation variant. Whatever drives actual lamp cycling is not in this chain; the exemplar&#x27;s
+<code>ResourceKeyTypeMisc</code> (<code>0x27812920</code>) names a <em>second</em> ATC (<code>0x2B2D0000</code>, which does exist, with
+its own AVPs and FSH) that was not investigated.</p>
+<p><strong>Engine-side findings worth keeping.</strong></p>
+<ul>
+<li class="">Sprites are camera-facing billboards with vertices emitted relative to the anchor pixel, so the
+anchor lands on the terrain at the occupant&#x27;s position. Anything that centres the quad instead
+leaves poles floating or buried.</li>
+<li class=""><code>TRANSPARENCY_ALPHA_SCISSOR</code>, for the same reason §7 gives for network quads — the transparent
+pass has no depth write and sprites would sort wrongly against buildings.</li>
+<li class="">Sprites are hidden at zooms whose ATC slot is empty, as SC4 does, rather than falling back to a
+coarser zoom&#x27;s art. At zoom 0 a traffic light is 4 px wide and would be sub-pixel noise on 362
+draw calls. Verified by counting lit-lamp pixels down the zoom ladder: 86, 22, 3, 0 at camera
+zooms 6, 4, 3, 2 — the last being the first unauthored zoom.</li>
+</ul>
+<p><strong>Still open.</strong> The rate field&#x27;s unit (read as 1/30 s ticks per frame, which puts the balloons at
+0.7 s and the crowd at 1.0 s per frame — plausible, unverified); AVP header u32s 2 and 3, always
+<code>1</code>; the second stoplight ATC at <code>0x2B2D0000</code>; and whether SC4 ever drives a sprite&#x27;s frame from
+simulation state, which is what real red/amber/green cycling would require.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="appendix-a--simgrid-layer-inventory-dataids">Appendix A — SimGrid layer inventory (dataIds)<a href="#appendix-a--simgrid-layer-inventory-dataids" class="hash-link" aria-label="Direct link to Appendix A — SimGrid layer inventory (dataIds)" title="Direct link to Appendix A — SimGrid layer inventory (dataIds)" translate="no">​</a></h2>
+<p>All 136 grids parse with the 55-byte header <code>size, crc, mem, u16 major, u8, u32 ownType, u32 dataId, u32 ?, u32 ?, u32 xSize, u32 zSize, u32 0, f32 16.0, f32 0.0625</code> followed by
+raw cell data. Grid resolutions in this save: 128×128 (1 tile/cell), 64×64, 32×32, 16×16.
+DataIds are the game&#x27;s GUIDs for each data layer (power, pollution, land value, crime,
+traffic…); mapping dataId → layer name still needs to be pulled from the data-view
+exemplars in <code>SimCity_*.dat</code>.</p>
+<p><strong>SimGridUint8</strong> (<code>0x49B9E602</code>, 46 grids): <code>0x49D5BC86</code> (128x128), <code>0x49D5BBA1</code> (128x128), <code>0x49D5BB8C</code> (128x128), <code>0x49D5B8F9</code> (64x64), <code>0x49D5BCB7</code> (128x128), <code>0x49D5BCA6</code> (128x128), <code>0x49D5BC96</code> (128x128), <code>0x69D5C303</code> (32x32), <code>0xAA8E1DC1</code> (32x32), <code>0x8A8DF4B6</code> (32x32), <code>0xCA8E449E</code> (32x32), <code>0xAA8DF4BD</code> (32x32), <code>0x8A8DF4C4</code> (32x32), <code>0xAA8DF4D4</code> (32x32), <code>0x69D5C30D</code> (32x32), <code>0xAA8E1DE4</code> (32x32), <code>0x8A8DF6FC</code> (32x32), <code>0x69D5C317</code> (32x32), <code>0x89D5BB39</code> (64x64), <code>0x49D5B953</code> (128x128), <code>0x49D5B964</code> (128x128), <code>0x89D5BB51</code> (64x64), <code>0x01003110</code> (32x32), <code>0x01001010</code> (32x32), <code>0x01001020</code> (32x32), <code>0x01004300</code> (32x32), <code>0x01001030</code> (32x32), <code>0x01003120</code> (32x32), <code>0x01003130</code> (32x32), <code>0x01004100</code> (32x32), <code>0x01003320</code> (32x32), <code>0x01003330</code> (32x32), <code>0x01004200</code> (32x32), <code>0x01004400</code> (32x32), <code>0x69D5C402</code> (128x128), <code>0x89D5B6EF</code> (128x128), <code>0x69D5C3BF</code> (128x128), <code>0xCABD2925</code> (32x32), <code>0x89D5B788</code> (128x128), <code>0x2A5BA1B3</code> (64x64), <code>0x49D5BBB9</code> (64x64), <code>0x89D5B895</code> (64x64), <code>0x49D5B678</code> (128x128), <code>0xCABD2926</code> (32x32), <code>0x69D5C424</code> (128x128), <code>0x89D5C3A2</code> (128x128)</p>
+<p><strong>SimGridSint8</strong> (<code>0x49B9E603</code>, 5 grids): <code>0x69D5B600</code> (32x32), <code>0x69D5B604</code> (32x32), <code>0x69D5B605</code> (32x32), <code>0x49D5B607</code> (32x32), <code>0x41800000</code> (128x128)</p>
+<p><strong>SimGridUint16</strong> (<code>0x49B9E604</code>, 27 grids): <code>0x69D5C2A0</code> (32x32), <code>0x69D5C2A1</code> (32x32), <code>0x69D5C2A2</code> (32x32), <code>0x05003110</code> (32x32), <code>0x06003110</code> (32x32), <code>0x05001010</code> (32x32), <code>0x06001010</code> (32x32), <code>0x05001020</code> (32x32), <code>0x06001020</code> (32x32), <code>0x05004300</code> (32x32), <code>0x06004300</code> (32x32), <code>0x05001030</code> (32x32), <code>0x06001030</code> (32x32), <code>0x05003120</code> (32x32), <code>0x06003120</code> (32x32), <code>0x05003130</code> (32x32), <code>0x06003130</code> (32x32), <code>0x05004100</code> (32x32), <code>0x06004100</code> (32x32), <code>0x05003320</code> (32x32), <code>0x06003320</code> (32x32), <code>0x05003330</code> (32x32), <code>0x06003330</code> (32x32), <code>0x05004200</code> (32x32), <code>0x06004200</code> (32x32), <code>0x05004400</code> (32x32), <code>0x06004400</code> (32x32)</p>
+<p><strong>SimGridSint16</strong> (<code>0x49B9E605</code>, 39 grids): <code>0x49D5B602</code> (32x32), <code>0x2A674CA5</code> (32x32), <code>0x8A674CAF</code> (32x32), <code>0x00000000</code> (32x32), <code>0x8A416368</code> (32x32), <code>0x89D5B91A</code> (64x64), <code>0x02003110</code> (32x32), <code>0x03003110</code> (32x32), <code>0x02001010</code> (32x32), <code>0x03001010</code> (32x32), <code>0x02001020</code> (32x32), <code>0x03001020</code> (32x32), <code>0x02004300</code> (32x32), <code>0x03004300</code> (32x32), <code>0x02001030</code> (32x32), <code>0x03001030</code> (32x32), <code>0x02003120</code> (32x32), <code>0x03003120</code> (32x32), <code>0x02003130</code> (32x32), <code>0x03003130</code> (32x32), <code>0x02004100</code> (32x32), <code>0x03004100</code> (32x32), <code>0x02003320</code> (32x32), <code>0x03003320</code> (32x32), <code>0x02003330</code> (32x32), <code>0x03003330</code> (32x32), <code>0x02004200</code> (32x32), <code>0x03004200</code> (32x32), <code>0x02004400</code> (32x32), <code>0x03004400</code> (32x32), <code>0x89D5BBF2</code> (64x64), <code>0x49D5BBCE</code> (64x64), <code>0x49D5BC41</code> (64x64), <code>0x89D5BBF3</code> (64x64), <code>0x49D5BC42</code> (128x128), <code>0x49D5BC43</code> (64x64), <code>0x89D5BBF1</code> (64x64), <code>0x89D5BBF0</code> (64x64), <code>0x49D5BC40</code> (64x64)</p>
+<p><strong>SimGridUint32</strong> (<code>0x49B9E606</code>, 1 grids): <code>0x69D5C42D</code> (128x128)</p>
+<p><strong>SimGridFloat32</strong> (<code>0x49B9E60A</code>, 18 grids): <code>0x69D5C324</code> (32x32), <code>0x69D5C330</code> (32x32), <code>0x69D5C2D0</code> (32x32), <code>0x69D5C2D1</code> (32x32), <code>0x69D5C2D2</code> (32x32), <code>0x69D5C2E0</code> (32x32), <code>0x69D5C2E1</code> (32x32), <code>0x69D5C2E2</code> (32x32), <code>0x49D5BB6F</code> (16x16), <code>0x69D5C3E2</code> (128x128), <code>0x69D5C3E5</code> (128x128), <code>0x69D5C3E3</code> (128x128), <code>0x69D5C3E1</code> (128x128), <code>0x69D5C3AC</code> (128x128), <code>0x69D5C3E0</code> (128x128), <code>0x69D5C3FA</code> (128x128), <code>0x69D5C40E</code> (128x128), <code>0x69D5C3E4</code> (128x128)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="appendix-b--com-serializer-registry-0x499b23fe">Appendix B — COM-serializer registry (0x499B23FE)<a href="#appendix-b--com-serializer-registry-0x499b23fe" class="hash-link" aria-label="Direct link to Appendix B — COM-serializer registry (0x499B23FE)" title="Direct link to Appendix B — COM-serializer registry (0x499B23FE)" translate="no">​</a></h2>
+<p>The save&#x27;s own manifest: 120 serialized classes, 93,499 objects total. Types not listed in
+§4 appear in Appendix A/§4.10. Format: <code>u32 version(1), u32 count(120), u32 totalObjects, then (u32 typeId, u32 objectCount) × 120</code> — alignment verified against this save.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Type ID</th><th style="text-align:right">Objects</th><th></th><th>Type ID</th><th style="text-align:right">Objects</th><th></th><th>Type ID</th><th style="text-align:right">Objects</th></tr></thead><tbody><tr><td><code>0x00D0723D</code></td><td style="text-align:right">1</td><td></td><td><code>0x4A1B664E</code></td><td style="text-align:right">1</td><td></td><td><code>0xA990BFE0</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x02BF1DFA</code></td><td style="text-align:right">1</td><td></td><td><code>0x4A1DBBBF</code></td><td style="text-align:right">5</td><td></td><td><code>0xA990C022</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x098F964D</code></td><td style="text-align:right">1</td><td></td><td><code>0x4A232DA8</code></td><td style="text-align:right">92</td><td></td><td><code>0xA990C08E</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x0990BDD8</code></td><td style="text-align:right">1</td><td></td><td><code>0x4A3AD3E1</code></td><td style="text-align:right">1</td><td></td><td><code>0xA9BD882D</code></td><td style="text-align:right">3,427</td></tr><tr><td><code>0x0990C005</code></td><td style="text-align:right">1</td><td></td><td><code>0x4BE372CD</code></td><td style="text-align:right">1</td><td></td><td><code>0xA9C05C85</code></td><td style="text-align:right">2,798</td></tr><tr><td><code>0x0990C075</code></td><td style="text-align:right">1</td><td></td><td><code>0x62BF1DAA</code></td><td style="text-align:right">1</td><td></td><td><code>0xA9C741B3</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x0990C138</code></td><td style="text-align:right">12</td><td></td><td><code>0x62BF1DB9</code></td><td style="text-align:right">1</td><td></td><td><code>0xAA2049A1</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x0990C38A</code></td><td style="text-align:right">1</td><td></td><td><code>0x62F6E7CF</code></td><td style="text-align:right">1</td><td></td><td><code>0xAA313C9F</code></td><td style="text-align:right">25</td></tr><tr><td><code>0x0A134F24</code></td><td style="text-align:right">13</td><td></td><td><code>0x6990C04F</code></td><td style="text-align:right">1</td><td></td><td><code>0xAA371C32</code></td><td style="text-align:right">59</td></tr><tr><td><code>0x0A413481</code></td><td style="text-align:right">1</td><td></td><td><code>0x6990C1AA</code></td><td style="text-align:right">1</td><td></td><td><code>0xAA3836FB</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x0BB14381</code></td><td style="text-align:right">1</td><td></td><td><code>0x6A0F82B2</code></td><td style="text-align:right">1</td><td></td><td><code>0xAA3FE6BC</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x0BF606A5</code></td><td style="text-align:right">1</td><td></td><td><code>0x6A1628BA</code></td><td style="text-align:right">7</td><td></td><td><code>0xAA5292D7</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x22F6E80C</code></td><td style="text-align:right">1</td><td></td><td><code>0x6A26D049</code></td><td style="text-align:right">10</td><td></td><td><code>0xC2BF1DC5</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x22F6E81B</code></td><td style="text-align:right">1</td><td></td><td><code>0x6A3848DB</code></td><td style="text-align:right">26</td><td></td><td><code>0xC2BF1E04</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x2977AA47</code></td><td style="text-align:right">69,431</td><td></td><td><code>0x6A5F8755</code></td><td style="text-align:right">1</td><td></td><td><code>0xC2F6E81F</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x2977AA49</code></td><td style="text-align:right">262</td><td></td><td><code>0x6A9335DE</code></td><td style="text-align:right">1,068</td><td></td><td><code>0xC97F987C</code></td><td style="text-align:right">3,623</td></tr><tr><td><code>0x298F9B2D</code></td><td style="text-align:right">1</td><td></td><td><code>0x6B70EFAD</code></td><td style="text-align:right">282</td><td></td><td><code>0xC98F9D17</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x299062C0</code></td><td style="text-align:right">1</td><td></td><td><code>0x815B4CEF</code></td><td style="text-align:right">1</td><td></td><td><code>0xC98F9D4A</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x2990BFF2</code></td><td style="text-align:right">1</td><td></td><td><code>0x82B9999B</code></td><td style="text-align:right">1</td><td></td><td><code>0xC990C034</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x2990C05A</code></td><td style="text-align:right">1</td><td></td><td><code>0x896E75AF</code></td><td style="text-align:right">3</td><td></td><td><code>0xC990C0A4</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x2990C142</code></td><td style="text-align:right">1</td><td></td><td><code>0x8990BE7A</code></td><td style="text-align:right">1</td><td></td><td><code>0xC9B84E10</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x2990C1BC</code></td><td style="text-align:right">1</td><td></td><td><code>0x8990C065</code></td><td style="text-align:right">1</td><td></td><td><code>0xC9BD5D4A</code></td><td style="text-align:right">3,569</td></tr><tr><td><code>0x2990C1E5</code></td><td style="text-align:right">1</td><td></td><td><code>0x8990C080</code></td><td style="text-align:right">1</td><td></td><td><code>0xC9C05C6E</code></td><td style="text-align:right">3,335</td></tr><tr><td><code>0x2A5F877D</code></td><td style="text-align:right">1</td><td></td><td><code>0x8990C09A</code></td><td style="text-align:right">1</td><td></td><td><code>0xC9C628EC</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x40D07236</code></td><td style="text-align:right">1</td><td></td><td><code>0x8990C12D</code></td><td style="text-align:right">174</td><td></td><td><code>0xCA14CA03</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x42BF1E18</code></td><td style="text-align:right">1</td><td></td><td><code>0x8990C372</code></td><td style="text-align:right">1</td><td></td><td><code>0xCA2C2A2F</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x498F9B01</code></td><td style="text-align:right">1</td><td></td><td><code>0x89C48F47</code></td><td style="text-align:right">1</td><td></td><td><code>0xE0D0722E</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x4990BD93</code></td><td style="text-align:right">1</td><td></td><td><code>0x89C49986</code></td><td style="text-align:right">1</td><td></td><td><code>0xE0D07233</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x4990C013</code></td><td style="text-align:right">1</td><td></td><td><code>0x89EFA536</code></td><td style="text-align:right">1</td><td></td><td><code>0xE98F9525</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x49B9E602</code></td><td style="text-align:right">46</td><td></td><td><code>0x8A09F5F4</code></td><td style="text-align:right">663</td><td></td><td><code>0xE990BE01</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x49B9E603</code></td><td style="text-align:right">5</td><td></td><td><code>0x8A22BEBE</code></td><td style="text-align:right">39</td><td></td><td><code>0xE990BFFC</code></td><td style="text-align:right">18</td></tr><tr><td><code>0x49B9E604</code></td><td style="text-align:right">27</td><td></td><td><code>0x8BE3753B</code></td><td style="text-align:right">79</td><td></td><td><code>0xE990C045</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x49B9E605</code></td><td style="text-align:right">39</td><td></td><td><code>0xA0D07129</code></td><td style="text-align:right">1</td><td></td><td><code>0xE990C18E</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x49B9E606</code></td><td style="text-align:right">1</td><td></td><td><code>0xA2BF1DDC</code></td><td style="text-align:right">1</td><td></td><td><code>0xE9A6CD3B</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x49B9E60A</code></td><td style="text-align:right">18</td><td></td><td><code>0xA2BF1DE5</code></td><td style="text-align:right">1</td><td></td><td><code>0xE9C622D8</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x49C05B9F</code></td><td style="text-align:right">483</td><td></td><td><code>0xA2BF1E43</code></td><td style="text-align:right">1</td><td></td><td><code>0xEA09D4AE</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x49C05C8F</code></td><td style="text-align:right">2,510</td><td></td><td><code>0xA7E7F929</code></td><td style="text-align:right">1</td><td></td><td><code>0xEA19E825</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x49C05C9F</code></td><td style="text-align:right">1,245</td><td></td><td><code>0xA98F9D28</code></td><td style="text-align:right">1</td><td></td><td><code>0xEA230A28</code></td><td style="text-align:right">1</td></tr><tr><td><code>0x4A0DD616</code></td><td style="text-align:right">1</td><td></td><td><code>0xA98F9D3B</code></td><td style="text-align:right">1</td><td></td><td><code>0xEAC937B4</code></td><td style="text-align:right">2</td></tr><tr><td><code>0x4A1628C5</code></td><td style="text-align:right">18</td><td></td><td><code>0xA990BD10</code></td><td style="text-align:right">1</td><td></td><td><code>0xEAD4BA36</code></td><td style="text-align:right">1</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="appendix-c--ltext-strings-in-the-save">Appendix C — LTEXT strings in the save<a href="#appendix-c--ltext-strings-in-the-save" class="hash-link" aria-label="Direct link to Appendix C — LTEXT strings in the save" title="Direct link to Appendix C — LTEXT strings in the save" translate="no">​</a></h2>
+<p>Localized city name (<code>G=0x6AAEE931</code>) / mayor name (<code>G=0x6AAEE932</code>) pairs — English, French,
+German, Italian, Spanish, Dutch, Scandinavian languages, Japanese, Korean, Chinese
+(trad./simpl.), Thai, Polish, Portuguese and more (instances 0x01–0x14, 0x23), e.g.
+&quot;Big City Tutorial&quot;/&quot;Defacto&quot;, &quot;Initiation aux grandes villes&quot;/&quot;De facto&quot;,
+&quot;Großstadt-Tutorial&quot;/&quot;Defacto&quot;, &quot;Tutorial &quot;Una grande città&quot;&quot;/&quot;De Facto&quot;. Four more
+LTEXTs (<code>G=0x4A2482BB</code>, alongside the four PNG thumbnails) all read &quot;Temp.png&quot;.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/simcity/sc4-known-tgi-ids"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">SimCity 4 — Known TGI IDs</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/simcity/simcity-formats"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">SimCity (2013) — Audio Format</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-the-file-at-a-glance" class="table-of-contents__link toc-highlight">1. The file at a glance</a></li><li><a href="#2-container-level-notes" class="table-of-contents__link toc-highlight">2. Container-level notes</a></li><li><a href="#3-implementation-status-in-opensc4-summary" class="table-of-contents__link toc-highlight">3. Implementation status in OpenSC4 (summary)</a></li><li><a href="#4-full-inventory-by-category" class="table-of-contents__link toc-highlight">4. Full inventory by category</a><ul><li><a href="#41-city-identity--metadata" class="table-of-contents__link toc-highlight">4.1 City identity &amp; metadata</a></li><li><a href="#42-terrain" class="table-of-contents__link toc-highlight">4.2 Terrain</a></li><li><a href="#43-occupants-lots--ground-textures-the-rendered-city" class="table-of-contents__link toc-highlight">4.3 Occupants, lots &amp; ground textures (the rendered city)</a></li><li><a href="#44-transport--utility-networks" class="table-of-contents__link toc-highlight">4.4 Transport &amp; utility networks</a></li><li><a href="#45-simulation-grids-data-views" class="table-of-contents__link toc-highlight">4.5 Simulation grids (data views)</a></li><li><a href="#46-ordinances" class="table-of-contents__link toc-highlight">4.6 Ordinances</a></li><li><a href="#47-budget--economy" class="table-of-contents__link toc-highlight">4.7 Budget &amp; economy</a></li><li><a href="#48-development--zoning-managers" class="table-of-contents__link toc-highlight">4.8 Development &amp; zoning managers</a></li><li><a href="#49-advisors--mayor-view" class="table-of-contents__link toc-highlight">4.9 Advisors &amp; mayor view</a></li><li><a href="#410-simulator--manager-state-blobs-and-other-unidentified-subfiles" class="table-of-contents__link toc-highlight">4.10 Simulator / manager state blobs and other unidentified subfiles</a></li></ul></li><li><a href="#5-what-implementing-the-rest-would-unlock" class="table-of-contents__link toc-highlight">5. What implementing the rest would unlock</a></li><li><a href="#6-sources--confidence" class="table-of-contents__link toc-highlight">6. Sources &amp; confidence</a></li><li><a href="#7-session-log--2026-08-06" class="table-of-contents__link toc-highlight">7. Session log — 2026-08-06</a></li><li><a href="#8-session-log--2026-08-06-second-pass-2d-sprite-props" class="table-of-contents__link toc-highlight">8. Session log — 2026-08-06 (second pass): 2D sprite props</a></li><li><a href="#appendix-a--simgrid-layer-inventory-dataids" class="table-of-contents__link toc-highlight">Appendix A — SimGrid layer inventory (dataIds)</a></li><li><a href="#appendix-b--com-serializer-registry-0x499b23fe" class="table-of-contents__link toc-highlight">Appendix B — COM-serializer registry (0x499B23FE)</a></li><li><a href="#appendix-c--ltext-strings-in-the-save" class="table-of-contents__link toc-highlight">Appendix C — LTEXT strings in the save</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+</body>
+</html>

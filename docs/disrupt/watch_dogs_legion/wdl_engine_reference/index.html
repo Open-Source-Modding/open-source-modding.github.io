@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Watch Dogs: Legion — Game Engine &amp; Modding Reference | Open Source Modding</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://open-source-modding.github.io/docs/disrupt/watch_dogs_legion/wdl_engine_reference"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Watch Dogs: Legion — Game Engine &amp; Modding Reference | Open Source Modding"><meta data-rh="true" name="description" content="Technical reference for WDL&#x27;s engine internals, derived from DLL RE, shader"><meta data-rh="true" property="og:description" content="Technical reference for WDL&#x27;s engine internals, derived from DLL RE, shader"><link data-rh="true" rel="canonical" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs_legion/wdl_engine_reference"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs_legion/wdl_engine_reference" hreflang="en"><link data-rh="true" rel="alternate" href="https://open-source-modding.github.io/docs/disrupt/watch_dogs_legion/wdl_engine_reference" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WDL-Reversing","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs_legion/"},{"@type":"ListItem","position":2,"name":"Watch Dogs: Legion — Game Engine & Modding Reference","item":"https://open-source-modding.github.io/docs/disrupt/watch_dogs_legion/wdl_engine_reference"}]}</script><link rel="stylesheet" href="/assets/css/styles.8cf91a09.css">
-<script src="/assets/js/runtime~main.7f060f98.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.124a19a2.js" defer="defer"></script>
 <script src="/assets/js/main.45fe59b6.js" defer="defer"></script>
 </head>
 <body>
@@ -15,40 +15,14 @@
 <p>Technical reference for WDL&#x27;s engine internals, derived from DLL RE, shader
 analysis, and format documentation.</p>
 <hr>
-<h1>1. dinput8 Proxy DLL — Game Entrypoint</h1>
-<p>The game loads <code>dinput8.dll</code> from its own directory (standard DirectInput8 DLL
-search order). The modding community replaces this with a proxy that hooks into
-the game&#x27;s DLL loading at process attach.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dll_process_attach">DLL_PROCESS_ATTACH<a href="#dll_process_attach" class="hash-link" aria-label="Direct link to DLL_PROCESS_ATTACH" title="Direct link to DLL_PROCESS_ATTACH" translate="no">​</a></h2>
-<ol>
-<li class="">Opens a console window (title: &quot;EncryptedStudios Dev Console - Watch Dogs Legion&quot;)</li>
-<li class="">Redirects stdout/stderr/stdin to the console</li>
-<li class="">Opens a timestamped log file (<code>EncryptedStudios_boot.log</code>) next to the DLL</li>
-<li class="">Loads the real system <code>dinput8.dll</code> from <code>System32</code> via <code>GetSystemDirectoryW</code></li>
-<li class="">Resolves and stores function pointers for all 5 DirectInput8 exports</li>
-<li class="">Spawns a background thread to search for and load payload DLLs from the game directory</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="export-forwarding">Export Forwarding<a href="#export-forwarding" class="hash-link" aria-label="Direct link to Export Forwarding" title="Direct link to Export Forwarding" translate="no">​</a></h2>
-<p>Every proxy export (<code>DirectInput8Create</code>, <code>DllCanUnloadNow</code>, <code>DllGetClassObject</code>,
-<code>DllRegisterServer</code>, <code>DllUnregisterServer</code>) calls the real system DLL&#x27;s
-implementation through resolved function pointers. The proxy is transparent to
-the game — it adds mod-loading behavior without altering DirectInput8 semantics.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dll_process_detach">DLL_PROCESS_DETACH<a href="#dll_process_detach" class="hash-link" aria-label="Direct link to DLL_PROCESS_DETACH" title="Direct link to DLL_PROCESS_DETACH" translate="no">​</a></h2>
-<p>Closes the log file, then <code>FreeLibrary</code> on the payload and real <code>dinput8.dll</code> handles.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-takeaway">Key Takeaway<a href="#key-takeaway" class="hash-link" aria-label="Direct link to Key Takeaway" title="Direct link to Key Takeaway" translate="no">​</a></h2>
-<p>This exploits the Windows DLL search order: placing a custom <code>dinput8.dll</code> in the
-game directory causes Windows to load it instead of the System32 version. The
-proxy forwards all DirectInput8 calls unchanged while injecting mod payloads in
-a background thread.</p>
-<hr>
-<h1>2. Shader System</h1>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-shader-object-layout">2.1 Shader Object Layout<a href="#21-shader-object-layout" class="hash-link" aria-label="Direct link to 2.1 Shader Object Layout" title="Direct link to 2.1 Shader Object Layout" translate="no">​</a></h2>
+<h1>1. Shader System</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-shader-object-layout">1.1 Shader Object Layout<a href="#11-shader-object-layout" class="hash-link" aria-label="Direct link to 1.1 Shader Object Layout" title="Direct link to 1.1 Shader Object Layout" translate="no">​</a></h2>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">engine/shaders/</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── obj/ # DX11-style compiled shader objects (.cso / .vso)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── obj_d3d12/ # D3D12 variant (primary modding target)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── obj_vulkan_dxc/ # Vulkan via DXC (vestigial — PC only ships DX11/D3D12)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── fastinitdata.bin # Precompiled shader blob (DX11)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── fastinitdata_d3d12.bin # Precompiled D3D12 blob</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── fastinitdata_vulkan_dxc.bin</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">└── shaders.crc # 4-byte CRC checksum</span><br></div></code></pre></div></div>
 <p>Each <code>obj*/</code> has 128 hash buckets (<code>h00</code>–<code>h7f</code>). File naming:
 <code>&lt;stage&gt;_&lt;hash64&gt;.&lt;ext&gt;</code> (e.g. <code>compute_132c5d0cc6f1be00.cso</code>).</p>
 <p>Base counts: <strong>54,821</strong> D3D12 shaders. Patch override: <strong>43,065</strong> (zero hash
 overlap with base — all new shaders).</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-dxil-format-d3d12vulkan">2.2 DXIL Format (D3D12/Vulkan)<a href="#22-dxil-format-d3d12vulkan" class="hash-link" aria-label="Direct link to 2.2 DXIL Format (D3D12/Vulkan)" title="Direct link to 2.2 DXIL Format (D3D12/Vulkan)" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-dxil-format-d3d12vulkan">1.2 DXIL Format (D3D12/Vulkan)<a href="#12-dxil-format-d3d12vulkan" class="hash-link" aria-label="Direct link to 1.2 DXIL Format (D3D12/Vulkan)" title="Direct link to 1.2 DXIL Format (D3D12/Vulkan)" translate="no">​</a></h2>
 <p>Both <code>obj_d3d12/</code> and <code>obj_vulkan_dxc/</code> files have a <strong>0x38-byte wrapper</strong>
 before the standard DXBC container. Inside the DXBC is <strong>DXIL</strong> (Shader Model
 6.0+). The DXBC checksum is invalid — the game bypasses validation.</p>
@@ -61,7 +35,7 @@ before the standard DXBC container. Inside the DXBC is <strong>DXIL</strong> (Sh
 <li class=""><code>float[N]</code> arrays have <code>ArrayStride 4</code> (tightly packed, not vec4-aligned)</li>
 <li class="">HLSL cannot express stride-4 arrays → requires flattened cbuffer fallback</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-shader-decompilation-pipeline">2.3 Shader Decompilation Pipeline<a href="#23-shader-decompilation-pipeline" class="hash-link" aria-label="Direct link to 2.3 Shader Decompilation Pipeline" title="Direct link to 2.3 Shader Decompilation Pipeline" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="13-shader-decompilation-pipeline">1.3 Shader Decompilation Pipeline<a href="#13-shader-decompilation-pipeline" class="hash-link" aria-label="Direct link to 1.3 Shader Decompilation Pipeline" title="Direct link to 1.3 Shader Decompilation Pipeline" translate="no">​</a></h2>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">input.cso → strip 0x38 header → dxil-spirv → patched spirv-cross → .hlsl</span><br></div></code></pre></div></div>
 
 
@@ -93,7 +67,7 @@ before the standard DXBC container. Inside the DXBC is <strong>DXIL</strong> (Sh
 failures are non-shader files (<code>index.*</code>, <code>a8e8da7e1e9c3506</code>).</p>
 <p>The patched <code>spirv-cross</code> falls back to <code>uniform float4 _name[size]</code> for
 non-packoffset-compatible arrays (SPIRV-Cross issue #2658 is wontfix upstream).</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-cbuffer-member-name-recovery">2.4 Cbuffer Member-Name Recovery<a href="#24-cbuffer-member-name-recovery" class="hash-link" aria-label="Direct link to 2.4 Cbuffer Member-Name Recovery" title="Direct link to 2.4 Cbuffer Member-Name Recovery" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="14-cbuffer-member-name-recovery">1.4 Cbuffer Member-Name Recovery<a href="#14-cbuffer-member-name-recovery" class="hash-link" aria-label="Direct link to 1.4 Cbuffer Member-Name Recovery" title="Direct link to 1.4 Cbuffer Member-Name Recovery" translate="no">​</a></h2>
 <p>DXIL binaries retain <strong>original HLSL cbuffer member names</strong> as a string table at
 the end of the module. Pairing with <code>dxc -dumpbin</code> struct types
 (<code>%dx.alignment.legacy.*</code>) reconstructs: member name → byte offset → float4
@@ -108,7 +82,7 @@ reflection names, but the string table + struct types survive.</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">python3 rewrite_cbuffers.py &lt;shader.cso&gt; &lt;decompiled/*.hlsl&gt; &lt;output.hlsl&gt;</span><br></div></code></pre></div></div>
 <p>Full batch: <strong>53,545</strong> base shaders rewritten → <code>decompiled_cb/</code>. 100/100 random
 sample compiles via <code>dxc -T [vs|ps|cs]_6_0 -E main</code>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="25-patch-shader-set">2.5 Patch Shader Set<a href="#25-patch-shader-set" class="hash-link" aria-label="Direct link to 2.5 Patch Shader Set" title="Direct link to 2.5 Patch Shader Set" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="15-patch-shader-set">1.5 Patch Shader Set<a href="#15-patch-shader-set" class="hash-link" aria-label="Direct link to 1.5 Patch Shader Set" title="Direct link to 1.5 Patch Shader Set" translate="no">​</a></h2>
 <p>The patch <code>.dat</code>/<code>.fat</code> pair overrides base archives at runtime:</p>
 <ul>
 <li class=""><strong>Effective runtime set</strong> = base stage files + patch index (superset) + patch fastinitdata blobs</li>
@@ -124,13 +98,13 @@ sample compiles via <code>dxc -T [vs|ps|cs]_6_0 -E main</code>.</p>
 <li class="">Cloth closest-hit <strong>+1,157 lines</strong> fp math, water <strong>+616</strong>, skin/hair <strong>+284</strong></li>
 </ul>
 <p>Total decompiled: <strong>95,777</strong> .hlsl (53,545 base + 42,232 patch).</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="26-renderdoc-capture">2.6 RenderDoc Capture<a href="#26-renderdoc-capture" class="hash-link" aria-label="Direct link to 2.6 RenderDoc Capture" title="Direct link to 2.6 RenderDoc Capture" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="16-renderdoc-capture">1.6 RenderDoc Capture<a href="#16-renderdoc-capture" class="hash-link" aria-label="Direct link to 1.6 RenderDoc Capture" title="Direct link to 1.6 RenderDoc Capture" translate="no">​</a></h2>
 <p>The best way to get readable HLSL from live shaders:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">renderdoccmd capture &lt;Steam library&gt;/steamapps/common/WatchDogs_Legion/bin/WatchDogsLegion.exe</span><br></div></code></pre></div></div>
 <p>Captures shaders used in a given scene (not all 170K), but is the most practical approach
 for modding-specific shader investigation.</p>
 <hr>
-<h1>3. GLM Model Format</h1>
+<h1>2. GLM Model Format</h1>
 <p><code>SportBoat_01.glm</code> example — 31 meshes, each with 4 LOD levels:</p>
 
 
@@ -212,7 +186,7 @@ for modding-specific shader investigation.</p>
 Glass parts have only 2 LODs. Export applies -90° X-axis rotation for Blender
 compatibility.</p>
 <hr>
-<h1>4. TAM Material Library</h1>
+<h1>3. TAM Material Library</h1>
 <p>Materials are stored in <code>.material.bin</code> packs (TAM v15). Each material declares:</p>
 <ul>
 <li class="">Shader binding (e.g. <code>KODOCarGeneric</code>, <code>KODOCarPaint</code>, <code>KODOGlass</code>)</li>
@@ -283,7 +257,7 @@ compatibility.</p>
 <p>Material archive paths reference hashed names:
 <code>paulmaidens-m-9223372094509408844.material.bin</code></p>
 <hr>
-<h1>5. Vehicle Handling Format</h1>
+<h1>4. Vehicle Handling Format</h1>
 <p><code>.handling.bin</code> files encode vehicle physics as indexed float/uint parameters.
 Parsed by the game&#x27;s drive handling system.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="parameter-format">Parameter Format<a href="#parameter-format" class="hash-link" aria-label="Direct link to Parameter Format" title="Direct link to Parameter Format" translate="no">​</a></h2>
@@ -410,7 +384,7 @@ Parsed by the game&#x27;s drive handling system.</p>
 <table><thead><tr><th>Index</th><th>Type</th><th>Name</th><th>Example</th></tr></thead><tbody><tr><td>3</td><td>float</td><td>Length</td><td>0.3</td></tr><tr><td>14</td><td>float</td><td>Pitch</td><td>-20.0 (on ground)</td></tr><tr><td>15</td><td>float</td><td>Pitch</td><td>9643.5</td></tr><tr><td>17</td><td>float</td><td>Roll</td><td>3500.0</td></tr><tr><td>19</td><td>float</td><td>Max Spring Force Front</td><td>-1.0</td></tr><tr><td>25</td><td>float</td><td>Front Offset</td><td>0.0</td></tr><tr><td>26</td><td>float</td><td>Rear Offset</td><td>0.8</td></tr><tr><td>27</td><td>float</td><td>Camber Effect</td><td>0.0</td></tr><tr><td>35</td><td>float</td><td>Underground Length</td><td>0.25</td></tr><tr><td>50</td><td>float</td><td>Stiffness</td><td>2500.0</td></tr><tr><td>110</td><td>uint</td><td>Enable low rider</td><td>0</td></tr><tr><td>115</td><td>float</td><td>Suspension Speed</td><td>0.3</td></tr><tr><td>140</td><td>float</td><td>On Ground</td><td>-20.0</td></tr><tr><td>141</td><td>float</td><td>When Airborne</td><td>-20.0</td></tr><tr><td>505</td><td>float</td><td>Stiffness - Rear Scale</td><td>0.85</td></tr><tr><td>587</td><td>float</td><td>Progressivity</td><td>0.6</td></tr><tr><td>761</td><td>float</td><td>Raycast Extrapolation</td><td>0.0</td></tr><tr><td>764</td><td>float</td><td>Wall Riding Scalar</td><td>0.1</td></tr></tbody></table>
 <p>XML roundtrip: <code>Bin → XML → edit → XML → Bin</code> via the WDL Studio tools.</p>
 <hr>
-<h1>6. Wwise Audio (WEM Format)</h1>
+<h1>5. Wwise Audio (WEM Format)</h1>
 <p>Sound files use Wwise (WEM) format. The game&#x27;s sound directory contains WEM
 files indexed by numeric IDs (e.g. <code>1028811276.wem</code>).</p>
 
@@ -443,7 +417,7 @@ files indexed by numeric IDs (e.g. <code>1028811276.wem</code>).</p>
 Swap workflow: drop WAV/MP3/FLAC/OGG/WEM onto highlighted clip → encode &amp; swap.</p>
 <p>Sound library index files map IDs to WEM files within <code>soundbinary/</code>.</p>
 <hr>
-<h1>7. Engine Path Reference</h1>
+<h1>6. Engine Path Reference</h1>
 <p>Key paths inside the game&#x27;s virtual filesystem:</p>
 
 
@@ -501,7 +475,7 @@ Swap workflow: drop WAV/MP3/FLAC/OGG/WEM onto highlighted clip → encode &amp; 
 <table><thead><tr><th>Path</th><th>Contents</th></tr></thead><tbody><tr><td><code>engine/scripts/</code></td><td>Lua scripts (domino engine)</td></tr><tr><td><code>engine/scripts/MissionTools.lua</code></td><td>Mission scripting API</td></tr><tr><td><code>engine/settings/</code></td><td>XML config (engine, network, threading, launch)</td></tr><tr><td><code>engine/settings/defaultrenderconfig.xml</code></td><td>Render settings (RT, resolution, quality)</td></tr><tr><td><code>engine/shaders/</code></td><td>Shader objects (see §2)</td></tr><tr><td><code>engine/shaders/Textures/SkyResource.bin</code></td><td>Sky LUT</td></tr><tr><td><code>engine/shaders/Textures/PuddleHeight.bin</code></td><td>Puddle height map</td></tr><tr><td><code>engine/gamemodes/</code></td><td>GameModesConfig.xml</td></tr><tr><td><code>data_win64/</code></td><td>Archive root (<code>.dat</code>/<code>.fat</code> pairs)</td></tr><tr><td><code>data_win64/shadersobj.dat</code></td><td>Shader archive</td></tr><tr><td><code>data_win64/commonengine.dat</code></td><td>Common engine data</td></tr></tbody></table>
 <p>Archives are split by category. <code>filelist.txt</code> maps paths to archives.</p>
 <hr>
-<h1>8. Lua Scripting</h1>
+<h1>7. Lua Scripting</h1>
 <p>The game uses Lua 5.1.5 with a custom &quot;domino&quot; visual scripting layer. Scripts
 are compiled to Lua bytecode but decompile cleanly (no variable/function names
 lost — the visual scripting tool generates standard Lua).</p>
@@ -519,7 +493,7 @@ captures <code>lua_state</code> and enables injecting Lua scripts at runtime.</p
 <p>WLU (compiled Lua) files require exactly 2 null bytes appended after the FCB
 portion or the game crashes.</p>
 <hr>
-<h1>9. Archive Extraction / Repacking</h1>
+<h1>8. Archive Extraction / Repacking</h1>
 
 
 
@@ -542,7 +516,7 @@ portion or the game crashes.</p>
 <p><code>info.xml</code> with <code>UseCombineMode=&quot;true&quot;</code> enables merge installation (overlay
 without full archive replacement).</p>
 <hr>
-<h1>10. Disrupt Engine Toolchain (from source leak)</h1>
+<h1>9. Disrupt Engine Toolchain (from source leak)</h1>
 <p><em>Source: <code>ubisoft_leak_contents.txt</code> — 2020 Ubisoft source code leak directory listing.</em></p>
 <p>The leak contains the full Disrupt engine internal toolchain used to build WDL.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="core-tools">Core Tools<a href="#core-tools" class="hash-link" aria-label="Direct link to Core Tools" title="Direct link to Core Tools" translate="no">​</a></h2>
@@ -799,7 +773,7 @@ without full archive replacement).</p>
 
 <table><thead><tr><th>DLL</th><th>Purpose</th></tr></thead><tbody><tr><td><code>Disrupt.Core.dll</code></td><td>Core engine runtime</td></tr><tr><td><code>Disrupt.Controls.dll</code></td><td>Editor UI controls</td></tr><tr><td><code>Disrupt.Materials.Editor.dll</code></td><td>Material editor</td></tr><tr><td><code>Disrupt.SourceControl.dll</code></td><td>Perforce integration</td></tr><tr><td><code>Disrupt.AssetsHelpers.dll</code></td><td>Asset pipeline helpers</td></tr><tr><td><code>Disrupt.ApplicationModel.dll</code></td><td>Application framework</td></tr><tr><td><code>Disrupt.Services.Metadata.dll</code></td><td>Metadata services</td></tr><tr><td><code>RulesmithServices_r64.dll</code></td><td>Rulesmith backend (dx11)</td></tr><tr><td><code>RulesmithServices_r64_dx12.dll</code></td><td>Rulesmith backend (dx12)</td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="101-vedit--vehicle-handling-editor">10.1 VEdit — Vehicle Handling Editor<a href="#101-vedit--vehicle-handling-editor" class="hash-link" aria-label="Direct link to 10.1 VEdit — Vehicle Handling Editor" title="Direct link to 10.1 VEdit — Vehicle Handling Editor" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="91-vedit--vehicle-handling-editor">9.1 VEdit — Vehicle Handling Editor<a href="#91-vedit--vehicle-handling-editor" class="hash-link" aria-label="Direct link to 9.1 VEdit — Vehicle Handling Editor" title="Direct link to 9.1 VEdit — Vehicle Handling Editor" translate="no">​</a></h2>
 <p>VEdit is the Disrupt engine&#x27;s vehicle dynamics editor. It contains
 documentation, parameter definitions, and UI layouts for car and helicopter
 handling.</p>
@@ -868,6 +842,6 @@ files. Categories from VEdit documentation:</p>
 <table><thead><tr><th>Category</th><th>Key Parameters</th></tr></thead><tbody><tr><td><strong>Chassis</strong></td><td>Mass, centre of gravity, inertia tensor, dimensions</td></tr><tr><td><strong>Suspension</strong></td><td>Length, stiffness, damping, ride height, travel, progressivity</td></tr><tr><td><strong>Steering</strong></td><td>Lock angle, speed sensitivity, assist curve</td></tr><tr><td><strong>Engine</strong></td><td>Torque curve, RPM limits, power, flywheel inertia</td></tr><tr><td><strong>Gearbox</strong></td><td>Gear ratios, shift times, final drive</td></tr><tr><td><strong>Drivetrain</strong></td><td>FWD/RWD/AWD, differential locking, torque distribution</td></tr><tr><td><strong>Brakes</strong></td><td>Max torque, bias front/rear, ABS threshold</td></tr><tr><td><strong>Tyres</strong></td><td>Grip curve (slip angle vs friction), load sensitivity, rolling resistance</td></tr><tr><td><strong>Drag</strong></td><td>Aerodynamic drag coefficient, downforce</td></tr><tr><td><strong>Surface</strong></td><td>Terrain grip multipliers (asphalt, dirt, grass, etc.)</td></tr><tr><td><strong>Load Transfer</strong></td><td>Weight transfer during braking/acceleration/cornering</td></tr><tr><td><strong>Cameras</strong></td><td>Chase cam position, FOV, spring damping</td></tr></tbody></table>
 <p>VEdit&#x27;s <code>Documentation/html/CarHandling/</code> contains detailed HTML docs with
 diagrams for each category — the authoritative reference for <code>handling.bin</code>
-parameter semantics.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/disrupt/watch_dogs_legion/wdl-phys-working-notes-2026-08-19"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">WDL .phys Working Notes (2026-08-19) — SORT LATER</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/disrupt/watch_dogs_legion/xbt-format"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">XBT Texture Format — Watch Dogs Legion (Disrupt Engine)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#dll_process_attach" class="table-of-contents__link toc-highlight">DLL_PROCESS_ATTACH</a></li><li><a href="#export-forwarding" class="table-of-contents__link toc-highlight">Export Forwarding</a></li><li><a href="#dll_process_detach" class="table-of-contents__link toc-highlight">DLL_PROCESS_DETACH</a></li><li><a href="#key-takeaway" class="table-of-contents__link toc-highlight">Key Takeaway</a></li><li><a href="#21-shader-object-layout" class="table-of-contents__link toc-highlight">2.1 Shader Object Layout</a></li><li><a href="#22-dxil-format-d3d12vulkan" class="table-of-contents__link toc-highlight">2.2 DXIL Format (D3D12/Vulkan)</a></li><li><a href="#23-shader-decompilation-pipeline" class="table-of-contents__link toc-highlight">2.3 Shader Decompilation Pipeline</a></li><li><a href="#24-cbuffer-member-name-recovery" class="table-of-contents__link toc-highlight">2.4 Cbuffer Member-Name Recovery</a></li><li><a href="#25-patch-shader-set" class="table-of-contents__link toc-highlight">2.5 Patch Shader Set</a></li><li><a href="#26-renderdoc-capture" class="table-of-contents__link toc-highlight">2.6 RenderDoc Capture</a></li><li><a href="#shader-types" class="table-of-contents__link toc-highlight">Shader Types</a></li><li><a href="#texture-bindings-kodocargeneric-example" class="table-of-contents__link toc-highlight">Texture Bindings (KODOCarGeneric example)</a></li><li><a href="#parameter-format" class="table-of-contents__link toc-highlight">Parameter Format</a></li><li><a href="#globals" class="table-of-contents__link toc-highlight">Globals</a></li><li><a href="#loaderwdl-integration" class="table-of-contents__link toc-highlight">LoaderWDL Integration</a></li><li><a href="#wlu-files" class="table-of-contents__link toc-highlight">WLU Files</a></li><li><a href="#core-tools" class="table-of-contents__link toc-highlight">Core Tools</a></li><li><a href="#shader-pipeline" class="table-of-contents__link toc-highlight">Shader Pipeline</a></li><li><a href="#asset-pipeline" class="table-of-contents__link toc-highlight">Asset Pipeline</a></li><li><a href="#audio-pipeline" class="table-of-contents__link toc-highlight">Audio Pipeline</a></li><li><a href="#other-tools" class="table-of-contents__link toc-highlight">Other Tools</a></li><li><a href="#disrupt-dlls-from-bin" class="table-of-contents__link toc-highlight">Disrupt DLLs (from <code>bin/</code>)</a></li><li><a href="#101-vedit--vehicle-handling-editor" class="table-of-contents__link toc-highlight">10.1 VEdit — Vehicle Handling Editor</a><ul><li><a href="#data-structure" class="table-of-contents__link toc-highlight">Data Structure</a></li><li><a href="#handling-parameters-from-handlingbin" class="table-of-contents__link toc-highlight">Handling Parameters (from <code>handling.bin</code>)</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
+parameter semantics.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/disrupt/watch_dogs_legion/wdl-phys-working-notes-2026-08-19"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">WDL .phys Working Notes (2026-08-19) — SORT LATER</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/disrupt/watch_dogs_legion/xbt-format"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">XBT Texture Format — Watch Dogs Legion (Disrupt Engine)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#11-shader-object-layout" class="table-of-contents__link toc-highlight">1.1 Shader Object Layout</a></li><li><a href="#12-dxil-format-d3d12vulkan" class="table-of-contents__link toc-highlight">1.2 DXIL Format (D3D12/Vulkan)</a></li><li><a href="#13-shader-decompilation-pipeline" class="table-of-contents__link toc-highlight">1.3 Shader Decompilation Pipeline</a></li><li><a href="#14-cbuffer-member-name-recovery" class="table-of-contents__link toc-highlight">1.4 Cbuffer Member-Name Recovery</a></li><li><a href="#15-patch-shader-set" class="table-of-contents__link toc-highlight">1.5 Patch Shader Set</a></li><li><a href="#16-renderdoc-capture" class="table-of-contents__link toc-highlight">1.6 RenderDoc Capture</a></li><li><a href="#shader-types" class="table-of-contents__link toc-highlight">Shader Types</a></li><li><a href="#texture-bindings-kodocargeneric-example" class="table-of-contents__link toc-highlight">Texture Bindings (KODOCarGeneric example)</a></li><li><a href="#parameter-format" class="table-of-contents__link toc-highlight">Parameter Format</a></li><li><a href="#globals" class="table-of-contents__link toc-highlight">Globals</a></li><li><a href="#loaderwdl-integration" class="table-of-contents__link toc-highlight">LoaderWDL Integration</a></li><li><a href="#wlu-files" class="table-of-contents__link toc-highlight">WLU Files</a></li><li><a href="#core-tools" class="table-of-contents__link toc-highlight">Core Tools</a></li><li><a href="#shader-pipeline" class="table-of-contents__link toc-highlight">Shader Pipeline</a></li><li><a href="#asset-pipeline" class="table-of-contents__link toc-highlight">Asset Pipeline</a></li><li><a href="#audio-pipeline" class="table-of-contents__link toc-highlight">Audio Pipeline</a></li><li><a href="#other-tools" class="table-of-contents__link toc-highlight">Other Tools</a></li><li><a href="#disrupt-dlls-from-bin" class="table-of-contents__link toc-highlight">Disrupt DLLs (from <code>bin/</code>)</a></li><li><a href="#91-vedit--vehicle-handling-editor" class="table-of-contents__link toc-highlight">9.1 VEdit — Vehicle Handling Editor</a><ul><li><a href="#data-structure" class="table-of-contents__link toc-highlight">Data Structure</a></li><li><a href="#handling-parameters-from-handlingbin" class="table-of-contents__link toc-highlight">Handling Parameters (from <code>handling.bin</code>)</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Open-Source-Modding/open-source-modding.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Source Modding</div></div></div></footer></div>
 </body>
 </html>

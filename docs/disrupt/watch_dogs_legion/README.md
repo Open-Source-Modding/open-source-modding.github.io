@@ -12,11 +12,10 @@ WDL-specific RE hub. Cross-game Disrupt engine work lives in the parent
 | Path | What |
 |------|------|
 | [`denuvo-analysis.md`](../../why-not/denuvo-analysis.md) | Denuvo internals + DenuvOwO hypervisor bypass RE |
-| `wdl_engine_reference.md` | Engine reference: dinput8 proxy, shaders, GLM models, TAM materials, vehicle handling, Wwise audio, Lua scripting, Disrupt toolchain |
+| `wdl_engine_reference.md` | Engine reference: shaders, GLM models, TAM materials, vehicle handling, Wwise audio, Lua scripting, Disrupt toolchain |
 | `pdb_build/` | PDB reconstruction pipeline |
 | `symbols/` | Extracted JSON artifacts per build tag |
 | `pdb/` | Synthetic PDBs rebuilt from extracted symbols + RTTI |
-[row removed]
 | `globals.lua` | Live `_G` dump from LoaderWDL (1,181 Lua native names) |
 | `legion-primitive-files.md` | Legion primitive file formats (XBG/XBT/etc.) |
 | `vehicle-add-process.md` | **Adding vehicles to WDL**: entitylibrary + depload ID system (CRC64_WD2/CRC32), the perfected process, depload binary format (WD1→WD2→WDL), forklift PoC mod build + install guide |

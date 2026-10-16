@@ -5,12 +5,9 @@ analysis, and format documentation.
 
 ---
 
+# 1. Shader System
 
----
-
-# 2. Shader System
-
-## 2.1 Shader Object Layout
+## 1.1 Shader Object Layout
 
 ```
 engine/shaders/
@@ -29,7 +26,7 @@ Each `obj*/` has 128 hash buckets (`h00`–`h7f`). File naming:
 Base counts: **54,821** D3D12 shaders. Patch override: **43,065** (zero hash
 overlap with base — all new shaders).
 
-## 2.2 DXIL Format (D3D12/Vulkan)
+## 1.2 DXIL Format (D3D12/Vulkan)
 
 Both `obj_d3d12/` and `obj_vulkan_dxc/` files have a **0x38-byte wrapper**
 before the standard DXBC container. Inside the DXBC is **DXIL** (Shader Model
@@ -47,7 +44,7 @@ Key properties:
 - `float[N]` arrays have `ArrayStride 4` (tightly packed, not vec4-aligned)
 - HLSL cannot express stride-4 arrays → requires flattened cbuffer fallback
 
-## 2.3 Shader Decompilation Pipeline
+## 1.3 Shader Decompilation Pipeline
 
 ```
 input.cso → strip 0x38 header → dxil-spirv → patched spirv-cross → .hlsl
@@ -66,7 +63,7 @@ failures are non-shader files (`index.*`, `a8e8da7e1e9c3506`).
 The patched `spirv-cross` falls back to `uniform float4 _name[size]` for
 non-packoffset-compatible arrays (SPIRV-Cross issue #2658 is wontfix upstream).
 
-## 2.4 Cbuffer Member-Name Recovery
+## 1.4 Cbuffer Member-Name Recovery
 
 DXIL binaries retain **original HLSL cbuffer member names** as a string table at
 the end of the module. Pairing with `dxc -dumpbin` struct types
@@ -87,7 +84,7 @@ python3 rewrite_cbuffers.py <shader.cso> <decompiled/*.hlsl> <output.hlsl>
 Full batch: **53,545** base shaders rewritten → `decompiled_cb/`. 100/100 random
 sample compiles via `dxc -T [vs|ps|cs]_6_0 -E main`.
 
-## 2.5 Patch Shader Set
+## 1.5 Patch Shader Set
 
 The patch `.dat`/`.fat` pair overrides base archives at runtime:
 
@@ -104,7 +101,7 @@ Content changes:
 
 Total decompiled: **95,777** .hlsl (53,545 base + 42,232 patch).
 
-## 2.6 RenderDoc Capture
+## 1.6 RenderDoc Capture
 
 The best way to get readable HLSL from live shaders:
 
@@ -117,7 +114,7 @@ for modding-specific shader investigation.
 
 ---
 
-# 3. GLM Model Format
+# 2. GLM Model Format
 
 `SportBoat_01.glm` example — 31 meshes, each with 4 LOD levels:
 
@@ -139,7 +136,7 @@ compatibility.
 
 ---
 
-# 4. TAM Material Library
+# 3. TAM Material Library
 
 Materials are stored in `.material.bin` packs (TAM v15). Each material declares:
 - Shader binding (e.g. `KODOCarGeneric`, `KODOCarPaint`, `KODOGlass`)
@@ -171,7 +168,7 @@ Material archive paths reference hashed names:
 
 ---
 
-# 5. Vehicle Handling Format
+# 4. Vehicle Handling Format
 
 `.handling.bin` files encode vehicle physics as indexed float/uint parameters.
 Parsed by the game's drive handling system.
@@ -205,7 +202,7 @@ XML roundtrip: `Bin → XML → edit → XML → Bin` via the WDL Studio tools.
 
 ---
 
-# 6. Wwise Audio (WEM Format)
+# 5. Wwise Audio (WEM Format)
 
 Sound files use Wwise (WEM) format. The game's sound directory contains WEM
 files indexed by numeric IDs (e.g. `1028811276.wem`).
@@ -224,7 +221,7 @@ Sound library index files map IDs to WEM files within `soundbinary/`.
 
 ---
 
-# 7. Engine Path Reference
+# 6. Engine Path Reference
 
 Key paths inside the game's virtual filesystem:
 
@@ -246,7 +243,7 @@ Archives are split by category. `filelist.txt` maps paths to archives.
 
 ---
 
-# 8. Lua Scripting
+# 7. Lua Scripting
 
 The game uses Lua 5.1.5 with a custom "domino" visual scripting layer. Scripts
 are compiled to Lua bytecode but decompile cleanly (no variable/function names
@@ -279,7 +276,7 @@ portion or the game crashes.
 
 ---
 
-# 9. Archive Extraction / Repacking
+# 8. Archive Extraction / Repacking
 
 | Tool | Use |
 |------|-----|
@@ -293,7 +290,7 @@ without full archive replacement).
 
 ---
 
-# 10. Disrupt Engine Toolchain (from source leak)
+# 9. Disrupt Engine Toolchain (from source leak)
 
 *Source: `ubisoft_leak_contents.txt` — 2020 Ubisoft source code leak directory listing.*
 
@@ -374,7 +371,7 @@ The leak contains the full Disrupt engine internal toolchain used to build WDL.
 
 ---
 
-## 10.1 VEdit — Vehicle Handling Editor
+## 9.1 VEdit — Vehicle Handling Editor
 
 VEdit is the Disrupt engine's vehicle dynamics editor. It contains
 documentation, parameter definitions, and UI layouts for car and helicopter
